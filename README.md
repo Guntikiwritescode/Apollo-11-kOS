@@ -1,12 +1,12 @@
 # Apollo 11 Guidance Computer in kOS
 
-This runs the Apollo 11 guidance computer software in Kerbal Space Program with the [kOS](https://github.com/KSP-KOS/KOS) mod.
+This runs the Apollo 11 guidance computer software in Kerbal Space Program, written entirely in KerboScript (Kerbal Code) with the [kOS](https://github.com/KSP-KOS/KOS) mod.
 
 Comanche055 (command module) and Luminary099 (lunar module) are both compiled from the original source into KerboScript. All the original comments are still in there, Kerbalized. Jeb and Bob fly the lander, Val flies the command module, and the jokes are Kerbal jokes now.
 
 [Video of the landing](video/apollo-11-descent.mp4)
 
-## Kerbalized
+## Some Examples of the Kerbalized
 
 - `BURN, BABY, BURN` → `BURN, JEB, BURN`
 - `OFF TO SEE THE WIZARD...` → `OFF TO SEE WERNHER VON KERMAN...`
@@ -17,7 +17,6 @@ Comanche055 (command module) and Luminary099 (lunar module) are both compiled fr
 - Everyone credited is a Kerman now, like `MAINTAINED BY ADLER KERMAN AND EYLES KERMAN`
 - Earth, the Moon and the Sun are Kerbin, the Mun and Kerbol. The Lunar Module is the Munar Excursion Module.
 - Eagle is a Mk1 Lander Can with a Terrier for descent, a Spark for ascent and 16 Ants for jets
-- The Mun is resized to the Moon, with the Moon's gravity and spin and the terrain smoothed out
 
 ## Install
 
