@@ -1,6 +1,3 @@
-// Isolated basic control candidate. Native behavior is the diagnostic baseline.
-// Fetch provider supplies the raw word after the effective Z bus access,
-// including when SubstituteInstruction is set.
 function agcCoreControlWord {
     parameter words, fetchedWord.
     if words["substituteInstruction"] {
@@ -11,15 +8,11 @@ function agcCoreControlWord {
     return agcOverflowCorrected(agcAddSP16(indexWord, baseWord)).
 }
 
-// Instruction-scope contribution, after ready/admission checks.
-// Apply this to every executing opcode, even those outside this file.
 function agcCoreInheritedTCTransient {
     parameter words, instruction.
     return words["tookBZF"] and (words["extraCode"] or instruction <> 6).
 }
 
-// Native ordinary IRQ admission and EDRUPT. The optional mask is the
-// diagnostic enable mask with the global enable in bit zero.
 function agcCoreControlAdmit {
     parameter words, instruction, debuggerMask is 2047.
     local edrupt is words["extraCode"] and floor(instruction / 512) = 7.
@@ -60,8 +53,6 @@ function agcCoreControlAdmit {
     return request.
 }
 
-// Common native ready instruction entry, after interrupt and timing decisions.
-// This entry does not clear the live extracode or the branch-history latches.
 function agcCoreControlBegin {
     parameter words.
     set words["pendingInstruction"] to false.
@@ -72,9 +63,6 @@ function agcCoreControlBegin {
     set words[5] to words["nextZ"] - 65536 * floor(words["nextZ"] / 65536).
 }
 
-// Ready instruction bodies for TC/TCF, INDEX/RESUME, TS and BZF/BZMF.
-// Return exactly the five local agcCoreFinish inputs in order. A scalar
-// -1 denotes dispatch to another owner and carries no execution effects.
 function agcCoreControlExecute {
     parameter words, instruction, accumulator, readWord.
     local extended is words["extraCode"].

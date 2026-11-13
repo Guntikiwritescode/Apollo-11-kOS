@@ -1,12 +1,5 @@
-/* KSP binding for the pinned yaAGC engine.
- * This file adds an in-game front end to oracle.c without changing it.
- * oracle.c is included unchanged. Two of its names are redirected:
- *   exit() -> ksp_exit(), so a bad input never closes KSP;
- *   main() -> oracle_main(), so the library has no program entry point.
- * Channel outputs are queued in C. Radar words come from a table that the
- * flight script refreshes before every physics step. No call goes from C
- * back into C#.
- */
+/* Virtual AGC built as a library for the kOS addon.
+ * exit() and main() in agc_driver.c are renamed so a bad input can't close KSP. */
 #include <ctype.h>
 #include <errno.h>
 #include <inttypes.h>
@@ -26,8 +19,8 @@ __attribute__((noreturn)) static void ksp_exit(int code) {
     abort();
 }
 #define exit(code) ksp_exit(code)
-#define main oracle_main
-#include "oracle.c"
+#define main driver_main
+#include "agc_driver.c"
 #undef main
 #undef exit
 
@@ -46,7 +39,7 @@ static void ksp_out(int ch, int value) {
         ksp_out_n++;
     } else ksp_out_lost++;
 }
-/* Each radar request in the current queue window, for the flight record. */
+/* radar requests since the last clear */
 #define KSP_MAX_REQ 64
 static int64_t ksp_req_cycle[KSP_MAX_REQ];
 static int ksp_req_sel[KSP_MAX_REQ], ksp_req_word[KSP_MAX_REQ], ksp_req_n;
@@ -60,7 +53,7 @@ static int ksp_radar_word(int sel) {
     return word;
 }
 
-/* Load the rope, then restore a saved state file (oracle.c read_script). */
+/* load the rope and a saved state */
 int agc_ksp_load(const char *rope, const char *state) {
     ksp_error = 0;
     ksp_armed = 1;
@@ -73,9 +66,7 @@ int agc_ksp_load(const char *rope, const char *state) {
     ksp_armed = 0;
     return 0;
 }
-/* Run count machine cycles. Returns the number of queued outputs, or -1. */
-/* Outputs made by pulses or key writes between runs stay in the queue, in order.
- * The caller reads the queue after each run and then calls agc_ksp_clear(). */
+/* run count cycles, returns how many outputs are queued or -1 */
 int agc_ksp_run(int count) {
     if (count <= 0) return ksp_out_lost ? -2 : ksp_out_n;
     ksp_armed = 1;
@@ -92,7 +83,7 @@ int agc_ksp_req_word(int i) { return ksp_req_word[i]; }
 int64_t agc_ksp_out_cycle(int i) { return ksp_out_cycle[i]; }
 int agc_ksp_out_ch(int i) { return ksp_out_ch[i]; }
 int agc_ksp_out_val(int i) { return ksp_out_val[i]; }
-/* Copy the queue into caller arrays in one call. */
+/* copy the queue out */
 int agc_ksp_outputs(int64_t *cycles, int *chans, int *vals, int max) {
     int n = ksp_out_n < max ? ksp_out_n : max;
     memcpy(cycles, ksp_out_cycle, sizeof(int64_t) * (size_t)n);
@@ -103,7 +94,6 @@ int agc_ksp_outputs(int64_t *cycles, int *chans, int *vals, int max) {
 int64_t agc_ksp_cycle(void) { return (int64_t)cpu.CycleCounter; }
 int agc_ksp_erasable(int slot) { return (slot >= 0 && slot < 2048) ? flight_erasable()[slot] : -1; }
 int agc_ksp_getch(int ch) { return (ch >= 0 && ch < NUM_CHANNELS) ? (uint16_t)cpu.InputChannel[ch] : -1; }
-/* Direct input-channel store, as the seed command I and the kOS words[...] set. */
 void agc_ksp_setch(int ch, int value) { if (ch >= 0 && ch < NUM_CHANNELS) cpu.InputChannel[ch] = value; }
 void agc_ksp_pulse(int reg, int kind, int n) { while (n-- > 0) flight_pulse(reg, kind); }
 void agc_ksp_key(int code) { flight_key(code); }
@@ -111,6 +101,6 @@ void agc_ksp_radar(int sel, int word) { ksp_radar[sel & 7] = word; }
 int agc_ksp_standby(void) { return flight_standby(); }
 int agc_ksp_restart(void) { return flight_restart(); }
 uint64_t agc_ksp_radar_requests(void) { return ksp_radar_requests; }
-/* Test only: the remaining seed commands. */
+/* test only */
 void agc_ksp_writeio(int ch, int value) { WriteIO(&cpu, ch, value); }
 void agc_ksp_irq(int i, int v) { if (i >= 0 && i <= NUM_INTERRUPT_TYPES) cpu.InterruptRequests[i] = v; }

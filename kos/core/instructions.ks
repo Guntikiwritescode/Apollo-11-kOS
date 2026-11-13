@@ -1,6 +1,4 @@
-// Isolated decoded instruction bodies. Shared fetch and AllDone remain with bus-clock.
-
-// operation is the extracode channel function (0 READ .. 6 RXOR).
+// operation: 0 READ .. 6 RXOR
 function agcCoreChannelInstruction {
     parameter words, operation, channel, channelAdapter.
     local aliasRegister is channel = 1 or channel = 2.
@@ -38,7 +36,7 @@ function agcCoreChannelInstruction {
     }
 }
 
-// reg is 0 (XCH), 1 (LXCH), or 2 (QXCH). XCH asserts TCTransient at the caller.
+// reg: 0 XCH, 1 LXCH, 2 QXCH
 function agcCoreExchange {
     parameter words, reg, address, readOperand.
     if reg = address {
@@ -59,7 +57,7 @@ function agcCoreExchange {
     local operand is agcSignExtend(mod(readOperand:call(words, slot), 32768)).
     local storedWord is agcOverflowCorrected(entryWord).
     if reg = 1 {
-        // LXCH writes through Assign before loading L.
+        // LXCH writes before it loads L
         agcCoreAssign(words, slot, storedWord).
         set words[1] to operand.
     } else {
@@ -68,9 +66,7 @@ function agcCoreExchange {
     }
 }
 
-// mode is "DCA", "DCS", or "DXCH". DXCH asserts TCTransient at the caller.
-// Returns false for unresolved pointer predecessors, before any operand write.
-// Resolve owns effective-address effects. Only readOperand checks top-word parity.
+// mode: "DCA", "DCS" or "DXCH"
 function agcCoreDoubleExchange {
     parameter words, mode, address, readOperand, readAdjacent.
     local complement is mode = "DCS".

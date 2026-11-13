@@ -1,1684 +1,1684 @@
-// PORT: Original source unit TPI_SEARCH.agc.
+// TPI_SEARCH.agc
 agcAotInstallSourceRope(list(
-// PORT: SOURCE TPI_SEARCH.agc:1
+// TPI_SEARCH.agc:1
 //# Copyright:	Public domain.
-// PORT: SOURCE TPI_SEARCH.agc:2
+// TPI_SEARCH.agc:2
 //# Filename:	TPI_SEARCH.agc
-// PORT: SOURCE TPI_SEARCH.agc:3
+// TPI_SEARCH.agc:3
 //# Purpose:	Part of the source code for Colossus 2A, AKA Comanche 055.
-// PORT: SOURCE TPI_SEARCH.agc:4
+// TPI_SEARCH.agc:4
 //#		It is part of the source code for the Command Module's (CM)
-// PORT: SOURCE TPI_SEARCH.agc:5
+// TPI_SEARCH.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
-// PORT: SOURCE TPI_SEARCH.agc:6
+// TPI_SEARCH.agc:6
 //# Assembler:	yaYUL
-// PORT: SOURCE TPI_SEARCH.agc:7
+// TPI_SEARCH.agc:7
 //# Contact:	Ron Burkey <info@sandroid.org>.
-// PORT: SOURCE TPI_SEARCH.agc:8
+// TPI_SEARCH.agc:8
 //# Website:	www.ibiblio.org/apollo.
-// PORT: SOURCE TPI_SEARCH.agc:9
+// TPI_SEARCH.agc:9
 //# Pages:	551-561
-// PORT: SOURCE TPI_SEARCH.agc:10
+// TPI_SEARCH.agc:10
 //# Mod history:	2009-05-15 RSB	Adapted from the Colossus249/ file of the
-// PORT: SOURCE TPI_SEARCH.agc:11
+// TPI_SEARCH.agc:11
 //#				same name, using Comanche055 page images.
-// PORT: SOURCE TPI_SEARCH.agc:12
+// TPI_SEARCH.agc:12
 //#		2009-05-20 RSB	Corrections:  On p. 551, "SETLOC P17S" -> P17S1.
-// PORT: SOURCE TPI_SEARCH.agc:13
+// TPI_SEARCH.agc:13
 //#
-// PORT: SOURCE TPI_SEARCH.agc:14
+// TPI_SEARCH.agc:14
 //# This source code has been transcribed or otherwise adapted from digitized
-// PORT: SOURCE TPI_SEARCH.agc:15
+// TPI_SEARCH.agc:15
 //# images of a hardcopy from the MIT Museum.  The digitization was performed
-// PORT: SOURCE TPI_SEARCH.agc:16
+// TPI_SEARCH.agc:16
 //# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
-// PORT: SOURCE TPI_SEARCH.agc:17
+// TPI_SEARCH.agc:17
 //# thanks to both.  The images (with suitable reduction in storage size and
-// PORT: SOURCE TPI_SEARCH.agc:18
+// TPI_SEARCH.agc:18
 //# consequent reduction in image quality as well) are available online at
-// PORT: SOURCE TPI_SEARCH.agc:19
+// TPI_SEARCH.agc:19
 //# www.ibiblio.org/apollo.  If for some reason you find that the images are
-// PORT: SOURCE TPI_SEARCH.agc:20
+// TPI_SEARCH.agc:20
 //# illegible, contact me at info@sandroid.org about getting access to the
-// PORT: SOURCE TPI_SEARCH.agc:21
+// TPI_SEARCH.agc:21
 //# (much) higher-quality images which Paul actually created.
-// PORT: SOURCE TPI_SEARCH.agc:22
+// TPI_SEARCH.agc:22
 //#
-// PORT: SOURCE TPI_SEARCH.agc:23
+// TPI_SEARCH.agc:23
 //# Notations on the hardcopy document read, in part:
-// PORT: SOURCE TPI_SEARCH.agc:24
+// TPI_SEARCH.agc:24
 //#
-// PORT: SOURCE TPI_SEARCH.agc:25
+// TPI_SEARCH.agc:25
 //#	Assemble revision 055 of AGC program Comanche by NASA
-// PORT: SOURCE TPI_SEARCH.agc:26
+// TPI_SEARCH.agc:26
 //#	2021113-051.  10:28 APR. 1, 1969
-// PORT: SOURCE TPI_SEARCH.agc:27
+// TPI_SEARCH.agc:27
 //#
-// PORT: SOURCE TPI_SEARCH.agc:28
+// TPI_SEARCH.agc:28
 //#	This AGC program shall also be referred to as
-// PORT: SOURCE TPI_SEARCH.agc:29
+// TPI_SEARCH.agc:29
 //#			Colossus 2A
-// PORT: SOURCE TPI_SEARCH.agc:30
+// TPI_SEARCH.agc:30
 //
-// PORT: SOURCE TPI_SEARCH.agc:31
+// TPI_SEARCH.agc:31
 //# Page 551
-// PORT: SOURCE TPI_SEARCH.agc:32
+// TPI_SEARCH.agc:32
 //# TPI SEARCH
-// PORT: SOURCE TPI_SEARCH.agc:33
+// TPI_SEARCH.agc:33
 //
-// PORT: SOURCE TPI_SEARCH.agc:34
+// TPI_SEARCH.agc:34
 //# PROGRAM DESCRIPTION S17.1 AND S17.2
-// PORT: SOURCE TPI_SEARCH.agc:35
+// TPI_SEARCH.agc:35
 //
-// PORT: SOURCE TPI_SEARCH.agc:36
+// TPI_SEARCH.agc:36
 //# FUNCTIONAL DESCRIPTION
-// PORT: SOURCE TPI_SEARCH.agc:37
+// TPI_SEARCH.agc:37
 //
-// PORT: SOURCE TPI_SEARCH.agc:38
+// TPI_SEARCH.agc:38
 //# 	THE TPI SEARCH ROUTINE DETERMINES THE MINIMUM TOTAL VELOCITY TRANSFER TRAJECTORY FROM A GIVEN TPI
-// PORT: SOURCE TPI_SEARCH.agc:39
+// TPI_SEARCH.agc:39
 //# MANEUVER TIME WITHIN THE CONSTRAINT OF A SAFE PERICENTER.  THIS VELOCITY IS THE SUM OF THE IMPULSIVE VELOCITIES
-// PORT: SOURCE TPI_SEARCH.agc:40
+// TPI_SEARCH.agc:40
 //# FOR THE TPI AND TPF MANEUVERS.
-// PORT: SOURCE TPI_SEARCH.agc:41
+// TPI_SEARCH.agc:41
 //# 	THE S17.1 ROUTINE EXTRAPOLATES THE STATE VECTORS OF BOTH VEHICLES TO THE TPI TIME AND COMPUTES THE
-// PORT: SOURCE TPI_SEARCH.agc:42
+// TPI_SEARCH.agc:42
 //# RELATIVE PHASE ANGLE BETWEEN THE VEHICLES, THE ALTITUDE DIFFERENCE(I.E. THE MAGNITUDE DIFFERENCE OF THE
-// PORT: SOURCE TPI_SEARCH.agc:43
+// TPI_SEARCH.agc:43
 //# POSITION VECTORS) AND SELECTS A SEARCH SECTOR BASED ON THE SIGN OF THE ALTITUDE DIFFERENCE.
-// PORT: SOURCE TPI_SEARCH.agc:44
+// TPI_SEARCH.agc:44
 //# 	THE S17.2 ROUTINE FURTHER DEFINES THE SEARCH SECTOR BY COMPUTING ANGULAR LIMITS AND USES THE TIME THETA
-// PORT: SOURCE TPI_SEARCH.agc:45
+// TPI_SEARCH.agc:45
 //# SUBROUTINE TO COMPUTE THE SEARCH START AND END TIMES.  THE SEARCH IS THEN MADE IN AN ITERATIVE LOOP USING THE
-// PORT: SOURCE TPI_SEARCH.agc:46
+// TPI_SEARCH.agc:46
 //# LAMBERT SUBROUTINE TO COMPUTE THE VELOCITIES REQUIRED AT TPI TIME AND AT TPF TIME.  EXIT FROM THE SEARCH LOOP
-// PORT: SOURCE TPI_SEARCH.agc:47
+// TPI_SEARCH.agc:47
 //# IS MADE WHEN SOLUTION CRITERIA ARE MET (NORMAL EXIT) OR AS SOON AS IT IS EVIDENT THAT NO SOLUTION EXISTS IN
-// PORT: SOURCE TPI_SEARCH.agc:48
+// TPI_SEARCH.agc:48
 //# THE SECTOR SEARCHED.
-// PORT: SOURCE TPI_SEARCH.agc:49
+// TPI_SEARCH.agc:49
 //
-// PORT: SOURCE TPI_SEARCH.agc:50
+// TPI_SEARCH.agc:50
 //# CALLING SEQUENCE
-// PORT: SOURCE TPI_SEARCH.agc:51
+// TPI_SEARCH.agc:51
 //
-// PORT: SOURCE TPI_SEARCH.agc:52
+// TPI_SEARCH.agc:52
 //# 	BOTH ROUTINES ARE CALLED IN INTERPRETIVE CODE AND RETURN VIA QPRET.  S17.1 HAS ONLY A NORMAL EXIT.
-// PORT: SOURCE TPI_SEARCH.agc:53
+// TPI_SEARCH.agc:53
 //# S17.2 RETURNS VIA QPRET FOR NORMAL EXIT AND TO ALARUMS FOR ERROR EXIT.
-// PORT: SOURCE TPI_SEARCH.agc:54
+// TPI_SEARCH.agc:54
 //# SUBROUTINES CALLED
-// PORT: SOURCE TPI_SEARCH.agc:55
+// TPI_SEARCH.agc:55
 //#
-// PORT: SOURCE TPI_SEARCH.agc:56
+// TPI_SEARCH.agc:56
 //#	CSMCONIC
-// PORT: SOURCE TPI_SEARCH.agc:57
+// TPI_SEARCH.agc:57
 //#	LEMCONIC
-// PORT: SOURCE TPI_SEARCH.agc:58
+// TPI_SEARCH.agc:58
 //#	TIMETHET
-// PORT: SOURCE TPI_SEARCH.agc:59
+// TPI_SEARCH.agc:59
 //#	INITVEL
-// PORT: SOURCE TPI_SEARCH.agc:60
+// TPI_SEARCH.agc:60
 //
-// PORT: SOURCE TPI_SEARCH.agc:61
+// TPI_SEARCH.agc:61
 //		BANK	36
-// PORT: SOURCE TPI_SEARCH.agc:62
+// TPI_SEARCH.agc:62
 //		SETLOC	P17S1
-// PORT: SOURCE TPI_SEARCH.agc:63
+// TPI_SEARCH.agc:63
 //		BANK
-// PORT: SOURCE TPI_SEARCH.agc:64
+// TPI_SEARCH.agc:64
 //
-// PORT: SOURCE TPI_SEARCH.agc:65
+// TPI_SEARCH.agc:65
 //		COUNT	36/TPI
-// PORT: SOURCE TPI_SEARCH.agc:66
+// TPI_SEARCH.agc:66
 //
-// PORT: SOURCE TPI_SEARCH.agc:67
+// TPI_SEARCH.agc:67
 //		EBANK=	RACT3
-// PORT: SOURCE TPI_SEARCH.agc:68
+// TPI_SEARCH.agc:68
 //
-// PORT: SOURCE TPI_SEARCH.agc:69
+// TPI_SEARCH.agc:69
 //# 	**** TEMPORARY ****
-// PORT: SOURCE TPI_SEARCH.agc:70
+// TPI_SEARCH.agc:70
 //
-// PORT: SOURCE TPI_SEARCH.agc:71
+// TPI_SEARCH.agc:71
 //HPE		2DEC	157420.0 B-29		# EARTH'S MIN. PERICENTER ALTITUDE 85 N.M.
-// PORT: Fixed ROM slots 32339 32340.
+// slot 32339 32340
     32339, 8, 32340, 26348,
-// PORT: SOURCE TPI_SEARCH.agc:72
+// TPI_SEARCH.agc:72
 //
-// PORT: SOURCE TPI_SEARCH.agc:73
+// TPI_SEARCH.agc:73
 //HPL		2DEC	10668.0213 B-29		# MOON:S MIN. PERICENTER ALTITUDE 35000FT
-// PORT: Fixed ROM slots 32341 32342.
+// slot 32341 32342
     32341, 0, 32342, 10668,
-// PORT: SOURCE TPI_SEARCH.agc:74
+// TPI_SEARCH.agc:74
 //
-// PORT: SOURCE TPI_SEARCH.agc:75
+// TPI_SEARCH.agc:75
 //CDSEC		2DEC	40000
-// PORT: Fixed ROM slots 32343 32344.
+// slot 32343 32344
     32343, 4, 32344, 14464,
-// PORT: SOURCE TPI_SEARCH.agc:76
+// TPI_SEARCH.agc:76
 //
-// PORT: SOURCE TPI_SEARCH.agc:77
+// TPI_SEARCH.agc:77
 //CLSEC		2DEC	15000
-// PORT: Fixed ROM slots 32345 32346.
+// slot 32345 32346
     32345, 0, 32346, 30000,
-// PORT: SOURCE TPI_SEARCH.agc:78
+// TPI_SEARCH.agc:78
 //
-// PORT: SOURCE TPI_SEARCH.agc:79
+// TPI_SEARCH.agc:79
 //PIINVERS	2DEC	.3183098862
-// PORT: Fixed ROM slots 32347 32348.
+// slot 32347 32348
     32347, 10430, 32348, 6198,
-// PORT: SOURCE TPI_SEARCH.agc:80
+// TPI_SEARCH.agc:80
 //
-// PORT: SOURCE TPI_SEARCH.agc:81
+// TPI_SEARCH.agc:81
 //SEC1THET	2DEC	.1944444444
-// PORT: Fixed ROM slots 32349 32350.
+// slot 32349 32350
     32349, 6370, 32350, 25486,
-// PORT: SOURCE TPI_SEARCH.agc:82
+// TPI_SEARCH.agc:82
 //
-// PORT: SOURCE TPI_SEARCH.agc:83
+// TPI_SEARCH.agc:83
 //# Page 552
-// PORT: SOURCE TPI_SEARCH.agc:84
+// TPI_SEARCH.agc:84
 //SEC2THET	2DEC	.9166666667
-// PORT: Fixed ROM slots 32351 32352.
+// slot 32351 32352
     32351, 30036, 32352, 21846,
-// PORT: SOURCE TPI_SEARCH.agc:85
+// TPI_SEARCH.agc:85
 //
-// PORT: SOURCE TPI_SEARCH.agc:86
+// TPI_SEARCH.agc:86
 //MANYFEET	2DEC	-1.0 B-2
-// PORT: Fixed ROM slots 32353 32354.
+// slot 32353 32354
     32353, 57342, 32354, 65534,
-// PORT: SOURCE TPI_SEARCH.agc:87
+// TPI_SEARCH.agc:87
 //
-// PORT: SOURCE TPI_SEARCH.agc:88
+// TPI_SEARCH.agc:88
 //LIMVEL		2DEC	.6096 E-2 B-7		# 2FPS
-// PORT: Fixed ROM slots 32355 32356.
+// slot 32355 32356
     32355, 0, 32356, 25568,
-// PORT: SOURCE TPI_SEARCH.agc:89
+// TPI_SEARCH.agc:89
 //
-// PORT: SOURCE TPI_SEARCH.agc:90
+// TPI_SEARCH.agc:90
 //DFTMOON		2DEC	.1524 E3 B-29		# 500 FEET
-// PORT: Fixed ROM slots 32357 32358.
+// slot 32357 32358
     32357, 0, 32358, 152,
-// PORT: SOURCE TPI_SEARCH.agc:91
+// TPI_SEARCH.agc:91
 //
-// PORT: SOURCE TPI_SEARCH.agc:92
+// TPI_SEARCH.agc:92
 //DP-.002		2DEC	0.002
-// PORT: Fixed ROM slots 32359 32360.
+// slot 32359 32360
     32359, 64, 32360, 25166,
-// PORT: SOURCE TPI_SEARCH.agc:93
+// TPI_SEARCH.agc:93
 //
-// PORT: SOURCE TPI_SEARCH.agc:94
+// TPI_SEARCH.agc:94
 //		SETLOC	P17S
-// PORT: SOURCE TPI_SEARCH.agc:95
+// TPI_SEARCH.agc:95
 //		BANK
-// PORT: SOURCE TPI_SEARCH.agc:96
+// TPI_SEARCH.agc:96
 //S17.1		STQ	DLOAD
-// PORT: Fixed ROM slots 32778.
+// slot 32778
     32778, 58656,
-// PORT: SOURCE TPI_SEARCH.agc:97
+// TPI_SEARCH.agc:97
 //			NORMEX
-// PORT: Fixed ROM slots 32779.
+// slot 32779
     32779, 1472,
-// PORT: SOURCE TPI_SEARCH.agc:98
+// TPI_SEARCH.agc:98
 //			TTPI
-// PORT: Fixed ROM slots 32780.
+// slot 32780
     32780, 3942,
-// PORT: SOURCE TPI_SEARCH.agc:99
+// TPI_SEARCH.agc:99
 //		STCALL	TDEC1			# ADVANCE PASSIVE VEHICLE TO TPI
-// PORT: Fixed ROM slots 32781.
+// slot 32781
     32781, 28738,
-// PORT: SOURCE TPI_SEARCH.agc:100
+// TPI_SEARCH.agc:100
 //			LEMCONIC
-// PORT: Fixed ROM slots 32782.
+// slot 32782
     32782, 23724,
-// PORT: SOURCE TPI_SEARCH.agc:101
+// TPI_SEARCH.agc:101
 //		CALL
-// PORT: Fixed ROM slots 32783.
+// slot 32783
     32783, 65320,
-// PORT: SOURCE TPI_SEARCH.agc:102
+// TPI_SEARCH.agc:102
 //			LEMSTORE
-// PORT: Fixed ROM slots 32784.
+// slot 32784
     32784, 38198,
-// PORT: SOURCE TPI_SEARCH.agc:103
+// TPI_SEARCH.agc:103
 //		DLOAD
-// PORT: Fixed ROM slots 32785.
+// slot 32785
     32785, 65482,
-// PORT: SOURCE TPI_SEARCH.agc:104
+// TPI_SEARCH.agc:104
 //			TTPI
-// PORT: Fixed ROM slots 32786.
+// slot 32786
     32786, 3942,
-// PORT: SOURCE TPI_SEARCH.agc:105
+// TPI_SEARCH.agc:105
 //		STCALL	TDEC1			# ADVANCE ACTIVE VEHICLE TO TPI
-// PORT: Fixed ROM slots 32787.
+// slot 32787
     32787, 28738,
-// PORT: SOURCE TPI_SEARCH.agc:106
+// TPI_SEARCH.agc:106
 //			CSMCONIC
-// PORT: Fixed ROM slots 32788.
+// slot 32788
     32788, 23704,
-// PORT: SOURCE TPI_SEARCH.agc:107
+// TPI_SEARCH.agc:107
 //		CALL
-// PORT: Fixed ROM slots 32789.
+// slot 32789
     32789, 65320,
-// PORT: SOURCE TPI_SEARCH.agc:108
+// TPI_SEARCH.agc:108
 //			CSMSTORE
-// PORT: Fixed ROM slots 32790.
+// slot 32790
     32790, 38214,
-// PORT: SOURCE TPI_SEARCH.agc:109
+// TPI_SEARCH.agc:109
 //		VLOAD
-// PORT: Fixed ROM slots 32791.
+// slot 32791
     32791, 65530,
-// PORT: SOURCE TPI_SEARCH.agc:110
+// TPI_SEARCH.agc:110
 //			RACT3
-// PORT: Fixed ROM slots 32792.
+// slot 32792
     32792, 3776,
-// PORT: SOURCE TPI_SEARCH.agc:111
+// TPI_SEARCH.agc:111
 //		ABVAL	PDVL			# /RA/ 0D			PL 2D
-// PORT: Fixed ROM slots 32793.
+// slot 32793
     32793, 52556,
-// PORT: SOURCE TPI_SEARCH.agc:112
+// TPI_SEARCH.agc:112
 //			RPASS3
-// PORT: Fixed ROM slots 32794.
+// slot 32794
     32794, 3800,
-// PORT: SOURCE TPI_SEARCH.agc:113
+// TPI_SEARCH.agc:113
 //		UNIT	PDDL			# UNIT RP 0D			PL 6D
-// PORT: Fixed ROM slots 32795.
+// slot 32795
     32795, 54620,
-// PORT: SOURCE TPI_SEARCH.agc:114
+// TPI_SEARCH.agc:114
 //		BDSU	SET
-// PORT: Fixed ROM slots 32796.
+// slot 32796
     32796, 35874,
-// PORT: SOURCE TPI_SEARCH.agc:115
+// TPI_SEARCH.agc:115
 //			36D			# /RP/ -/RA/
-// PORT: Fixed ROM slots 32797.
+// slot 32797
     32797, 74,
-// PORT: SOURCE TPI_SEARCH.agc:116
+// TPI_SEARCH.agc:116
 //			KFLAG			# OFF = +
-// PORT: Fixed ROM slots 32798.
+// slot 32798
     32798, 124,
-// PORT: SOURCE TPI_SEARCH.agc:117
+// TPI_SEARCH.agc:117
 //		BMN	CLEAR
-// PORT: Fixed ROM slots 32799.
+// slot 32799
     32799, 35904,
-// PORT: SOURCE TPI_SEARCH.agc:118
+// TPI_SEARCH.agc:118
 //			+2
-// PORT: Fixed ROM slots 32800.
+// slot 32800
     32800, 61508,
-// PORT: SOURCE TPI_SEARCH.agc:119
+// TPI_SEARCH.agc:119
 //			KFLAG			# ON = -
-// PORT: Fixed ROM slots 32801.
+// slot 32801
     32801, 380,
-// PORT: SOURCE TPI_SEARCH.agc:120
+// TPI_SEARCH.agc:120
 //		STOVL	DELHITE
-// PORT: Fixed ROM slots 32802.
+// slot 32802
     32802, 24536,
-// PORT: SOURCE TPI_SEARCH.agc:121
+// TPI_SEARCH.agc:121
 //			0D
-// PORT: Fixed ROM slots 32803.
+// slot 32803
     32803, 2,
-// PORT: SOURCE TPI_SEARCH.agc:122
+// TPI_SEARCH.agc:122
 //		VXV	UNIT
-// PORT: Fixed ROM slots 32804.
+// slot 32804
     32804, 44602,
-// PORT: SOURCE TPI_SEARCH.agc:123
+// TPI_SEARCH.agc:123
 //			VPASS3
-// PORT: Fixed ROM slots 32805.
+// slot 32805
     32805, 3812,
-// PORT: SOURCE TPI_SEARCH.agc:124
+// TPI_SEARCH.agc:124
 //		STOVL	E2			# ALMOST IT SAVE FOR 17.2
-// PORT: Fixed ROM slots 32806.
+// slot 32806
     32806, 24396,
-// PORT: SOURCE TPI_SEARCH.agc:125
+// TPI_SEARCH.agc:125
 //			RACT3
-// PORT: Fixed ROM slots 32807.
+// slot 32807
     32807, 3776,
-// PORT: SOURCE TPI_SEARCH.agc:126
+// TPI_SEARCH.agc:126
 //		PUSH	VPROJ
-// PORT: Fixed ROM slots 32808.
+// slot 32808
     32808, 39180,
-// PORT: SOURCE TPI_SEARCH.agc:127
+// TPI_SEARCH.agc:127
 //			E2
-// PORT: Fixed ROM slots 32809.
+// slot 32809
     32809, 3916,
-// PORT: SOURCE TPI_SEARCH.agc:128
+// TPI_SEARCH.agc:128
 //		VSL2	BVSU			# RPA
-// PORT: Fixed ROM slots 32810.
+// slot 32810
     32810, 42452
 )).
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE TPI_SEARCH.agc:129
+// TPI_SEARCH.agc:129
 //		UNIT	DOT
-// PORT: Fixed ROM slots 32811.
+// slot 32811
     32811, 41308,
-// PORT: SOURCE TPI_SEARCH.agc:130
+// TPI_SEARCH.agc:130
 //			0D
-// PORT: Fixed ROM slots 32812.
+// slot 32812
     32812, 2,
-// PORT: SOURCE TPI_SEARCH.agc:131
+// TPI_SEARCH.agc:131
 //		SL1 	ACOS
-// PORT: Fixed ROM slots 32813.
+// slot 32813
     32813, 54996,
-// PORT: SOURCE TPI_SEARCH.agc:132
+// TPI_SEARCH.agc:132
 //		PDVL
-// PORT: Fixed ROM slots 32814.
+// slot 32814
     32814, 65434,
-// PORT: SOURCE TPI_SEARCH.agc:133
+// TPI_SEARCH.agc:133
 //		VXV	DOT
-// PORT: Fixed ROM slots 32815.
+// slot 32815
     32815, 41274,
-// PORT: SOURCE TPI_SEARCH.agc:134
+// TPI_SEARCH.agc:134
 //# Page 553
-// PORT: SOURCE TPI_SEARCH.agc:135
+// TPI_SEARCH.agc:135
 //			RACT3
-// PORT: Fixed ROM slots 32816.
+// slot 32816
     32816, 3776,
-// PORT: SOURCE TPI_SEARCH.agc:136
+// TPI_SEARCH.agc:136
 //			E2
-// PORT: Fixed ROM slots 32817.
+// slot 32817
     32817, 3916,
-// PORT: SOURCE TPI_SEARCH.agc:137
+// TPI_SEARCH.agc:137
 //		PDDL	SIGN
-// PORT: Fixed ROM slots 32818.
+// slot 32818
     32818, 62890,
-// PORT: SOURCE TPI_SEARCH.agc:138
+// TPI_SEARCH.agc:138
 //		STADR
-// PORT: Fixed ROM slots 32819.
+// slot 32819
     32819, 65324,
-// PORT: SOURCE TPI_SEARCH.agc:139
+// TPI_SEARCH.agc:139
 //		STODL	THETZERO		# CENTRAL ANGLE
-// PORT: Fixed ROM slots 32820.
+// slot 32820
     32820, 50400,
-// PORT: SOURCE TPI_SEARCH.agc:140
+// TPI_SEARCH.agc:140
 //			X1
-// PORT: Fixed ROM slots 32821.
+// slot 32821
     32821, 78,
-// PORT: SOURCE TPI_SEARCH.agc:141
+// TPI_SEARCH.agc:141
 //		STCALL	XRS			# SAVE INDICES FOR FURTHER USE
-// PORT: Fixed ROM slots 32822.
+// slot 32822
     32822, 32716,
-// PORT: SOURCE TPI_SEARCH.agc:142
+// TPI_SEARCH.agc:142
 //			NORMEX			#   += ACTIVE AHEAD  -= ACTIVE BEHIND
-// PORT: Fixed ROM slots 32823.
+// slot 32823
     32823, 1472,
-// PORT: SOURCE TPI_SEARCH.agc:143
+// TPI_SEARCH.agc:143
 //S17.2		STQ	VLOAD			# COMPUTE SEARCH SECTOR LIMITS
-// PORT: Fixed ROM slots 32824.
+// slot 32824
     32824, 64800,
-// PORT: SOURCE TPI_SEARCH.agc:144
+// TPI_SEARCH.agc:144
 //			QTEMP
-// PORT: Fixed ROM slots 32825.
+// slot 32825
     32825, 3934,
-// PORT: SOURCE TPI_SEARCH.agc:145
+// TPI_SEARCH.agc:145
 //			RACT3
-// PORT: Fixed ROM slots 32826.
+// slot 32826
     32826, 3776,
-// PORT: SOURCE TPI_SEARCH.agc:146
+// TPI_SEARCH.agc:146
 //		UNIT	DOT
-// PORT: Fixed ROM slots 32827.
+// slot 32827
     32827, 41308,
-// PORT: SOURCE TPI_SEARCH.agc:147
+// TPI_SEARCH.agc:147
 //			E2
-// PORT: Fixed ROM slots 32828.
+// slot 32828
     32828, 3916,
-// PORT: SOURCE TPI_SEARCH.agc:148
+// TPI_SEARCH.agc:148
 //		ABS	SQRT
-// PORT: Fixed ROM slots 32829.
+// slot 32829
     32829, 63052,
-// PORT: SOURCE TPI_SEARCH.agc:149
+// TPI_SEARCH.agc:149
 //		SL1	DAD
-// PORT: Fixed ROM slots 32830.
+// slot 32830
     32830, 36308,
-// PORT: SOURCE TPI_SEARCH.agc:150
+// TPI_SEARCH.agc:150
 //			DP-.002			# ADD .002 RADIANS TO IT
-// PORT: Fixed ROM slots 32831.
+// slot 32831
     32831, 27856,
-// PORT: SOURCE TPI_SEARCH.agc:151
+// TPI_SEARCH.agc:151
 //		BON	DCOMP			# GIVES CORRECT SINE, COSINE MUST BE
-// PORT: Fixed ROM slots 32832.
+// slot 32832
     32832, 48664,
-// PORT: SOURCE TPI_SEARCH.agc:152
+// TPI_SEARCH.agc:152
 //			KFLAG			# COMP. ADD .5 FOR ANGLE
-// PORT: Fixed ROM slots 32833.
+// slot 32833
     32833, 412,
-// PORT: SOURCE TPI_SEARCH.agc:153
+// TPI_SEARCH.agc:153
 //			+1
-// PORT: Fixed ROM slots 32834.
+// slot 32834
     32834, 61574,
-// PORT: SOURCE TPI_SEARCH.agc:154
+// TPI_SEARCH.agc:154
 //# PHI(0)=180-(-(THETAZERO +K5IT)), PHI(I)=180-(-THETAZERO+K2IT))
-// PORT: SOURCE TPI_SEARCH.agc:155
+// TPI_SEARCH.agc:155
 //# SIN(180-ALPHA)=SIN(ALPHA) ETC
-// PORT: SOURCE TPI_SEARCH.agc:156
+// TPI_SEARCH.agc:156
 //		DMP	SETPD
-// PORT: Fixed ROM slots 32835.
+// slot 32835
     32835, 33034,
-// PORT: SOURCE TPI_SEARCH.agc:157
+// TPI_SEARCH.agc:157
 //			PIINVERS		# REVOLUTIONARY HERES TWO IT
-// PORT: Fixed ROM slots 32836.
+// slot 32836
     32836, 27832,
-// PORT: SOURCE TPI_SEARCH.agc:158
+// TPI_SEARCH.agc:158
 //			0D
-// PORT: Fixed ROM slots 32837.
+// slot 32837
     32837, 2,
-// PORT: SOURCE TPI_SEARCH.agc:159
+// TPI_SEARCH.agc:159
 //		PUSH	DSU
-// PORT: Fixed ROM slots 32838.
+// slot 32838
     32838, 38156,
-// PORT: SOURCE TPI_SEARCH.agc:160
+// TPI_SEARCH.agc:160
 //			THETZERO
-// PORT: Fixed ROM slots 32839.
+// slot 32839
     32839, 2846,
-// PORT: SOURCE TPI_SEARCH.agc:161
+// TPI_SEARCH.agc:161
 //		STORE	IT			# PHI(I) , -(THETZERO + K2IT)
-// PORT: Fixed ROM slots 32840.
+// slot 32840
     32840, 2834,
-// PORT: SOURCE TPI_SEARCH.agc:162
+// TPI_SEARCH.agc:162
 //		PDDL	PUSH
-// PORT: Fixed ROM slots 32841.
+// slot 32841
     32841, 34474,
-// PORT: SOURCE TPI_SEARCH.agc:163
+// TPI_SEARCH.agc:163
 //		SR1	DAD
-// PORT: Fixed ROM slots 32842.
+// slot 32842
     32842, 36292,
-// PORT: SOURCE TPI_SEARCH.agc:164
+// TPI_SEARCH.agc:164
 //		DAD	PUSH			# PHI(0) , -(THETZERO + K5IT)
-// PORT: Fixed ROM slots 32843.
+// slot 32843
     32843, 34330,
-// PORT: SOURCE TPI_SEARCH.agc:165
+// TPI_SEARCH.agc:165
 //		SIN	SET
-// PORT: Fixed ROM slots 32844.
+// slot 32844
     32844, 36060,
-// PORT: SOURCE TPI_SEARCH.agc:166
+// TPI_SEARCH.agc:166
 //			RVSW
-// PORT: Fixed ROM slots 32845.
+// slot 32845
     32845, 3692,
-// PORT: SOURCE TPI_SEARCH.agc:167
+// TPI_SEARCH.agc:167
 //		STODL	SNTH
-// PORT: Fixed ROM slots 32846.
+// slot 32846
     32846, 15284,
-// PORT: SOURCE TPI_SEARCH.agc:168
+// TPI_SEARCH.agc:168
 //		COS	BMN
-// PORT: Fixed ROM slots 32847.
+// slot 32847
     32847, 41164,
-// PORT: SOURCE TPI_SEARCH.agc:169
+// TPI_SEARCH.agc:169
 //			+2
-// PORT: Fixed ROM slots 32848.
+// slot 32848
     32848, 61604,
-// PORT: SOURCE TPI_SEARCH.agc:170
+// TPI_SEARCH.agc:170
 //		DCOMP
-// PORT: Fixed ROM slots 32849.
+// slot 32849
     32849, 65404,
-// PORT: SOURCE TPI_SEARCH.agc:171
+// TPI_SEARCH.agc:171
 //		STODL	CSTH
-// PORT: Fixed ROM slots 32850.
+// slot 32850
     32850, 15288,
-// PORT: SOURCE TPI_SEARCH.agc:172
+// TPI_SEARCH.agc:172
 //			XRS
-// PORT: Fixed ROM slots 32851.
+// slot 32851
     32851, 4044,
-// PORT: SOURCE TPI_SEARCH.agc:173
+// TPI_SEARCH.agc:173
 //		STOVL	X1
-// PORT: Fixed ROM slots 32852.
+// slot 32852
     32852, 20558,
-// PORT: SOURCE TPI_SEARCH.agc:174
+// TPI_SEARCH.agc:174
 //			RPASS3
-// PORT: Fixed ROM slots 32853.
+// slot 32853
     32853, 3800,
-// PORT: SOURCE TPI_SEARCH.agc:175
+// TPI_SEARCH.agc:175
 //		VSR*
-// PORT: Fixed ROM slots 32854.
+// slot 32854
     32854, 65374,
-// PORT: SOURCE TPI_SEARCH.agc:176
+// TPI_SEARCH.agc:176
 //			0,2
-// PORT: Fixed ROM slots 32855.
+// slot 32855
     32855, 48380,
-// PORT: SOURCE TPI_SEARCH.agc:177
+// TPI_SEARCH.agc:177
 //		STOVL	RVEC
-// PORT: Fixed ROM slots 32856.
+// slot 32856
     32856, 23390,
-// PORT: SOURCE TPI_SEARCH.agc:178
+// TPI_SEARCH.agc:178
 //			VPASS3
-// PORT: Fixed ROM slots 32857.
+// slot 32857
     32857, 3812,
-// PORT: SOURCE TPI_SEARCH.agc:179
+// TPI_SEARCH.agc:179
 //		VSR*
-// PORT: Fixed ROM slots 32858.
+// slot 32858
     32858, 65374,
-// PORT: SOURCE TPI_SEARCH.agc:180
+// TPI_SEARCH.agc:180
 //			0,2
-// PORT: Fixed ROM slots 32859.
+// slot 32859
     32859, 48380,
-// PORT: SOURCE TPI_SEARCH.agc:181
+// TPI_SEARCH.agc:181
 //		STCALL	VVEC
-// PORT: Fixed ROM slots 32860.
+// slot 32860
     32860, 31692,
-// PORT: SOURCE TPI_SEARCH.agc:182
+// TPI_SEARCH.agc:182
 //			TIMETHET
-// PORT: Fixed ROM slots 32861.
+// slot 32861
     32861, 21448,
-// PORT: SOURCE TPI_SEARCH.agc:183
+// TPI_SEARCH.agc:183
 //		DLOAD				# SAVE START TIME AND GET END TIME
-// PORT: Fixed ROM slots 32862.
+// slot 32862
     32862, 65482,
-// PORT: SOURCE TPI_SEARCH.agc:184
+// TPI_SEARCH.agc:184
 //			T
-// PORT: Fixed ROM slots 32863.
+// slot 32863
     32863, 62,
-// PORT: SOURCE TPI_SEARCH.agc:185
+// TPI_SEARCH.agc:185
 //# Page 554
-// PORT: SOURCE TPI_SEARCH.agc:186
+// TPI_SEARCH.agc:186
 //		STORE	TF
-// PORT: Fixed ROM slots 32864.
+// slot 32864
     32864, 4052,
-// PORT: SOURCE TPI_SEARCH.agc:187
+// TPI_SEARCH.agc:187
 //		STODL	TFO
-// PORT: Fixed ROM slots 32865.
+// slot 32865
     32865, 15150,
-// PORT: SOURCE TPI_SEARCH.agc:188
+// TPI_SEARCH.agc:188
 //			IT
-// PORT: Fixed ROM slots 32866.
+// slot 32866
     32866, 2834,
-// PORT: SOURCE TPI_SEARCH.agc:189
+// TPI_SEARCH.agc:189
 //		PUSH	SIN
-// PORT: Fixed ROM slots 32867.
+// slot 32867
     32867, 60940,
-// PORT: SOURCE TPI_SEARCH.agc:190
+// TPI_SEARCH.agc:190
 //		STODL	SNTH
-// PORT: Fixed ROM slots 32868.
+// slot 32868
     32868, 15284,
-// PORT: SOURCE TPI_SEARCH.agc:191
+// TPI_SEARCH.agc:191
 //		COS	BMN
-// PORT: Fixed ROM slots 32869.
+// slot 32869
     32869, 41164,
-// PORT: SOURCE TPI_SEARCH.agc:192
+// TPI_SEARCH.agc:192
 //			+2
-// PORT: Fixed ROM slots 32870.
+// slot 32870
     32870, 61648,
-// PORT: SOURCE TPI_SEARCH.agc:193
+// TPI_SEARCH.agc:193
 //		DCOMP
-// PORT: Fixed ROM slots 32871.
+// slot 32871
     32871, 65404,
-// PORT: SOURCE TPI_SEARCH.agc:194
+// TPI_SEARCH.agc:194
 //		STORE	CSTH
-// PORT: Fixed ROM slots 32872.
+// slot 32872
     32872, 3000,
-// PORT: SOURCE TPI_SEARCH.agc:195
+// TPI_SEARCH.agc:195
 //		LXA,1	CALL
-// PORT: Fixed ROM slots 32873.
+// slot 32873
     32873, 38096,
-// PORT: SOURCE TPI_SEARCH.agc:196
+// TPI_SEARCH.agc:196
 //			XRS
-// PORT: Fixed ROM slots 32874.
+// slot 32874
     32874, 4042,
-// PORT: SOURCE TPI_SEARCH.agc:197
+// TPI_SEARCH.agc:197
 //			TIMETHET
-// PORT: Fixed ROM slots 32875.
+// slot 32875
     32875, 21448,
-// PORT: SOURCE TPI_SEARCH.agc:198
+// TPI_SEARCH.agc:198
 //# INITIALIZE LOOP
-// PORT: SOURCE TPI_SEARCH.agc:199
+// TPI_SEARCH.agc:199
 //		DLOAD	CLEAR
-// PORT: Fixed ROM slots 32876.
+// slot 32876
     32876, 36042,
-// PORT: SOURCE TPI_SEARCH.agc:200
+// TPI_SEARCH.agc:200
 //			T
-// PORT: Fixed ROM slots 32877.
+// slot 32877
     32877, 62,
-// PORT: SOURCE TPI_SEARCH.agc:201
+// TPI_SEARCH.agc:201
 //			ITSWICH
-// PORT: Fixed ROM slots 32878.
+// slot 32878
     32878, 3938,
-// PORT: SOURCE TPI_SEARCH.agc:202
+// TPI_SEARCH.agc:202
 //		STODL	TFI			# SAVE TIME FOR LOOP TEST
-// PORT: Fixed ROM slots 32879.
+// slot 32879
     32879, 15138,
-// PORT: SOURCE TPI_SEARCH.agc:203
+// TPI_SEARCH.agc:203
 //			DPPOSMAX
-// PORT: Fixed ROM slots 32880.
+// slot 32880
     32880, 13766,
-// PORT: SOURCE TPI_SEARCH.agc:204
+// TPI_SEARCH.agc:204
 //		STODL	DELVEE
-// PORT: Fixed ROM slots 32881.
+// slot 32881
     32881, 15142,
-// PORT: SOURCE TPI_SEARCH.agc:205
+// TPI_SEARCH.agc:205
 //			MANYFEET
-// PORT: Fixed ROM slots 32882.
+// slot 32882
     32882, 27844,
-// PORT: SOURCE TPI_SEARCH.agc:206
+// TPI_SEARCH.agc:206
 //		STODL	HP
-// PORT: Fixed ROM slots 32883.
+// slot 32883
     32883, 15146,
-// PORT: SOURCE TPI_SEARCH.agc:207
+// TPI_SEARCH.agc:207
 //			SEC1THET		# 70 DEGREES
-// PORT: Fixed ROM slots 32884.
+// slot 32884
     32884, 27836,
-// PORT: SOURCE TPI_SEARCH.agc:208
+// TPI_SEARCH.agc:208
 //		BON	DLOAD
-// PORT: Fixed ROM slots 32885.
+// slot 32885
     32885, 58648,
-// PORT: SOURCE TPI_SEARCH.agc:209
+// TPI_SEARCH.agc:209
 //			KFLAG
-// PORT: Fixed ROM slots 32886.
+// slot 32886
     32886, 412,
-// PORT: SOURCE TPI_SEARCH.agc:210
+// TPI_SEARCH.agc:210
 //			+2
-// PORT: Fixed ROM slots 32887.
+// slot 32887
     32887, 61682,
-// PORT: SOURCE TPI_SEARCH.agc:211
+// TPI_SEARCH.agc:211
 //			SEC2THET		# 330 DEGREES
-// PORT: Fixed ROM slots 32888.
+// slot 32888
     32888, 27840,
-// PORT: SOURCE TPI_SEARCH.agc:212
+// TPI_SEARCH.agc:212
 //		STCALL	THETL
-// PORT: Fixed ROM slots 32889.
+// slot 32889
     32889, 32720,
-// PORT: SOURCE TPI_SEARCH.agc:213
+// TPI_SEARCH.agc:213
 //			CONCAUL
-// PORT: Fixed ROM slots 32890.
+// slot 32890
     32890, 61720,
-// PORT: SOURCE TPI_SEARCH.agc:214
+// TPI_SEARCH.agc:214
 //BIS		DLOAD	SR1
-// PORT: Fixed ROM slots 32891.
+// slot 32891
     32891, 58058,
-// PORT: SOURCE TPI_SEARCH.agc:215
+// TPI_SEARCH.agc:215
 //			CSTH
-// PORT: Fixed ROM slots 32892.
+// slot 32892
     32892, 3000,
-// PORT: SOURCE TPI_SEARCH.agc:216
+// TPI_SEARCH.agc:216
 //		STODL	COSTH
-// PORT: Fixed ROM slots 32893.
+// slot 32893
     32893, 12322,
-// PORT: SOURCE TPI_SEARCH.agc:217
+// TPI_SEARCH.agc:217
 //			SNTH
-// PORT: Fixed ROM slots 32894.
+// slot 32894
     32894, 2996,
-// PORT: SOURCE TPI_SEARCH.agc:218
+// TPI_SEARCH.agc:218
 //		SR1
-// PORT: Fixed ROM slots 32895.
+// slot 32895
     32895, 65476,
-// PORT: SOURCE TPI_SEARCH.agc:219
+// TPI_SEARCH.agc:219
 //		STCALL	SINTH			# GET 4 QUADRANT THETA
-// PORT: Fixed ROM slots 32896.
+// slot 32896
     32896, 28710,
-// PORT: SOURCE TPI_SEARCH.agc:220
+// TPI_SEARCH.agc:220
 //			ARCTRIG
-// PORT: Fixed ROM slots 32897.
+// slot 32897
     32897, 40284,
-// PORT: SOURCE TPI_SEARCH.agc:221
+// TPI_SEARCH.agc:221
 //		BPL	DAD
-// PORT: Fixed ROM slots 32898.
+// slot 32898
     32898, 36168,
-// PORT: SOURCE TPI_SEARCH.agc:222
+// TPI_SEARCH.agc:222
 //			+2
-// PORT: Fixed ROM slots 32899.
+// slot 32899
     32899, 61706,
-// PORT: SOURCE TPI_SEARCH.agc:223
+// TPI_SEARCH.agc:223
 //			DPPOSMAX		# PUT THETA BETWEEN 0,1
-// PORT: Fixed ROM slots 32900.
+// slot 32900
     32900, 13766,
-// PORT: SOURCE TPI_SEARCH.agc:224
+// TPI_SEARCH.agc:224
 //		BDSU	PDDL
-// PORT: Fixed ROM slots 32901.
+// slot 32901
     32901, 54562,
-// PORT: SOURCE TPI_SEARCH.agc:225
+// TPI_SEARCH.agc:225
 //			THETL
-// PORT: Fixed ROM slots 32902.
+// slot 32902
     32902, 4048,
-// PORT: SOURCE TPI_SEARCH.agc:226
+// TPI_SEARCH.agc:226
 //			TF
-// PORT: Fixed ROM slots 32903.
+// slot 32903
     32903, 4052,
-// PORT: SOURCE TPI_SEARCH.agc:227
+// TPI_SEARCH.agc:227
 //		DSU	SIGN			# FAST TIMES
-// PORT: Fixed ROM slots 32904.
+// slot 32904
     32904, 62762,
-// PORT: SOURCE TPI_SEARCH.agc:228
+// TPI_SEARCH.agc:228
 //			TFI
-// PORT: Fixed ROM slots 32905.
+// slot 32905
     32905, 2850,
-// PORT: SOURCE TPI_SEARCH.agc:229
+// TPI_SEARCH.agc:229
 //		BMN
-// PORT: Fixed ROM slots 32906.
+// slot 32906
     32906, 65344,
-// PORT: SOURCE TPI_SEARCH.agc:230
+// TPI_SEARCH.agc:230
 //			RNGETEST		# TIME MUST HAVE A STOP
-// PORT: Fixed ROM slots 32907.
+// slot 32907
     32907, 61980,
-// PORT: SOURCE TPI_SEARCH.agc:231
+// TPI_SEARCH.agc:231
 //# ADVANCE PASSIVE FOR TARGET VECTOR
-// PORT: SOURCE TPI_SEARCH.agc:232
+// TPI_SEARCH.agc:232
 //CONCAUL		DLOAD
-// PORT: Fixed ROM slots 32908.
+// slot 32908
     32908, 65482,
-// PORT: SOURCE TPI_SEARCH.agc:233
+// TPI_SEARCH.agc:233
 //			TTPI
-// PORT: Fixed ROM slots 32909.
+// slot 32909
     32909, 3942,
-// PORT: SOURCE TPI_SEARCH.agc:234
+// TPI_SEARCH.agc:234
 //		DAD	BON
-// PORT: Fixed ROM slots 32910.
+// slot 32910
     32910, 35866,
-// PORT: SOURCE TPI_SEARCH.agc:235
+// TPI_SEARCH.agc:235
 //			TF
-// PORT: Fixed ROM slots 32911.
+// slot 32911
     32911, 4052,
-// PORT: SOURCE TPI_SEARCH.agc:236
+// TPI_SEARCH.agc:236
 //# Page 555
-// PORT: SOURCE TPI_SEARCH.agc:237
+// TPI_SEARCH.agc:237
 //			AVFLAG
-// PORT: Fixed ROM slots 32912.
+// slot 32912
     32912, 1428,
-// PORT: SOURCE TPI_SEARCH.agc:238
+// TPI_SEARCH.agc:238
 //			ADVCSM
-// PORT: Fixed ROM slots 32913.
+// slot 32913
     32913, 61740,
-// PORT: SOURCE TPI_SEARCH.agc:239
+// TPI_SEARCH.agc:239
 //		STCALL	TDEC1
-// PORT: Fixed ROM slots 32914.
+// slot 32914
     32914, 28738,
-// PORT: SOURCE TPI_SEARCH.agc:240
+// TPI_SEARCH.agc:240
 //			LEMCONIC
-// PORT: Fixed ROM slots 32915.
+// slot 32915
     32915, 23724,
-// PORT: SOURCE TPI_SEARCH.agc:241
+// TPI_SEARCH.agc:241
 //		GOTO
-// PORT: Fixed ROM slots 32916.
+// slot 32916
     32916, 65360,
-// PORT: SOURCE TPI_SEARCH.agc:242
+// TPI_SEARCH.agc:242
 //			JUNCT3
-// PORT: Fixed ROM slots 32917.
+// slot 32917
     32917, 61744,
-// PORT: SOURCE TPI_SEARCH.agc:243
+// TPI_SEARCH.agc:243
 //ADVCSM		STCALL	TDEC1
-// PORT: Fixed ROM slots 32918.
+// slot 32918
     32918, 28738,
-// PORT: SOURCE TPI_SEARCH.agc:244
+// TPI_SEARCH.agc:244
 //			CSMCONIC
-// PORT: Fixed ROM slots 32919.
+// slot 32919
     32919, 23704,
-// PORT: SOURCE TPI_SEARCH.agc:245
+// TPI_SEARCH.agc:245
 //# SAVE BACK VALUES OF HP AND DELVEE
-// PORT: SOURCE TPI_SEARCH.agc:246
+// TPI_SEARCH.agc:246
 //JUNCT3		VLOAD
-// PORT: Fixed ROM slots 32920.
+// slot 32920
     32920, 65530,
-// PORT: SOURCE TPI_SEARCH.agc:247
+// TPI_SEARCH.agc:247
 //			VATT
-// PORT: Fixed ROM slots 32921.
+// slot 32921
     32921, 14,
-// PORT: SOURCE TPI_SEARCH.agc:248
+// TPI_SEARCH.agc:248
 //		STOVL	VPASS4
-// PORT: Fixed ROM slots 32922.
+// slot 32922
     32922, 24384,
-// PORT: SOURCE TPI_SEARCH.agc:249
+// TPI_SEARCH.agc:249
 //			RATT
-// PORT: Fixed ROM slots 32923.
+// slot 32923
     32923, 2,
-// PORT: SOURCE TPI_SEARCH.agc:250
+// TPI_SEARCH.agc:250
 //		STORE	RPASS4
-// PORT: Fixed ROM slots 32924.
+// slot 32924
     32924, 3892,
-// PORT: SOURCE TPI_SEARCH.agc:251
+// TPI_SEARCH.agc:251
 //		STODL	RTARG
-// PORT: Fixed ROM slots 32925.
+// slot 32925
     32925, 15898,
-// PORT: SOURCE TPI_SEARCH.agc:252
+// TPI_SEARCH.agc:252
 //			TF
-// PORT: Fixed ROM slots 32926.
+// slot 32926
     32926, 4052,
-// PORT: SOURCE TPI_SEARCH.agc:253
+// TPI_SEARCH.agc:253
 //		STODL	DELLT4
-// PORT: Fixed ROM slots 32927.
+// slot 32927
     32927, 15910,
-// PORT: SOURCE TPI_SEARCH.agc:254
+// TPI_SEARCH.agc:254
 //			HP
-// PORT: Fixed ROM slots 32928.
+// slot 32928
     32928, 2858,
-// PORT: SOURCE TPI_SEARCH.agc:255
+// TPI_SEARCH.agc:255
 //		STODL	HPO
-// PORT: Fixed ROM slots 32929.
+// slot 32929
     32929, 15154,
-// PORT: SOURCE TPI_SEARCH.agc:256
+// TPI_SEARCH.agc:256
 //			DELVEE
-// PORT: Fixed ROM slots 32930.
+// slot 32930
     32930, 2854
 )).
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE TPI_SEARCH.agc:257
+// TPI_SEARCH.agc:257
 //		STODL	DELVEO
-// PORT: Fixed ROM slots 32931.
+// slot 32931
     32931, 15158,
-// PORT: SOURCE TPI_SEARCH.agc:258
+// TPI_SEARCH.agc:258
 //# PREPARE FOR LAMBERT
-// PORT: SOURCE TPI_SEARCH.agc:259
+// TPI_SEARCH.agc:259
 //			TTPI
-// PORT: Fixed ROM slots 32932.
+// slot 32932
     32932, 3942,
-// PORT: SOURCE TPI_SEARCH.agc:260
+// TPI_SEARCH.agc:260
 //		STODL	INTIME
-// PORT: Fixed ROM slots 32933.
+// slot 32933
     32933, 16006,
-// PORT: SOURCE TPI_SEARCH.agc:261
+// TPI_SEARCH.agc:261
 //			XRS
-// PORT: Fixed ROM slots 32934.
+// slot 32934
     32934, 4044,
-// PORT: SOURCE TPI_SEARCH.agc:262
+// TPI_SEARCH.agc:262
 //		STODL	RTX1
-// PORT: Fixed ROM slots 32935.
+// slot 32935
     32935, 16332,
-// PORT: SOURCE TPI_SEARCH.agc:263
+// TPI_SEARCH.agc:263
 //			HI6ZEROS
-// PORT: Fixed ROM slots 32936.
+// slot 32936
     32936, 13754,
-// PORT: SOURCE TPI_SEARCH.agc:264
+// TPI_SEARCH.agc:264
 //		SETPD	PDDL
-// PORT: Fixed ROM slots 32937.
+// slot 32937
     32937, 54530,
-// PORT: SOURCE TPI_SEARCH.agc:265
+// TPI_SEARCH.agc:265
 //			0D
-// PORT: Fixed ROM slots 32938.
+// slot 32938
     32938, 2,
-// PORT: SOURCE TPI_SEARCH.agc:266
+// TPI_SEARCH.agc:266
 //			EPSFOUR
-// PORT: Fixed ROM slots 32939.
+// slot 32939
     32939, 27812,
-// PORT: SOURCE TPI_SEARCH.agc:267
+// TPI_SEARCH.agc:267
 //		PDVL
-// PORT: Fixed ROM slots 32940.
+// slot 32940
     32940, 65434,
-// PORT: SOURCE TPI_SEARCH.agc:268
+// TPI_SEARCH.agc:268
 //			RACT3
-// PORT: Fixed ROM slots 32941.
+// slot 32941
     32941, 3776,
-// PORT: SOURCE TPI_SEARCH.agc:269
+// TPI_SEARCH.agc:269
 //		STOVL	RINIT
-// PORT: Fixed ROM slots 32942.
+// slot 32942
     32942, 24304,
-// PORT: SOURCE TPI_SEARCH.agc:270
+// TPI_SEARCH.agc:270
 //			VACT3
-// PORT: Fixed ROM slots 32943.
+// slot 32943
     32943, 3788,
-// PORT: SOURCE TPI_SEARCH.agc:271
+// TPI_SEARCH.agc:271
 //		STCALL	VINIT
-// PORT: Fixed ROM slots 32944.
+// slot 32944
     32944, 32508,
-// PORT: SOURCE TPI_SEARCH.agc:272
+// TPI_SEARCH.agc:272
 //			INITVEL
-// PORT: Fixed ROM slots 32945.
+// slot 32945
     32945, 18432,
-// PORT: SOURCE TPI_SEARCH.agc:273
+// TPI_SEARCH.agc:273
 //# COMPUTE H ET CETERA
-// PORT: SOURCE TPI_SEARCH.agc:274
+// TPI_SEARCH.agc:274
 //		VLOAD	VSU
-// PORT: Fixed ROM slots 32946.
+// slot 32946
     32946, 43514,
-// PORT: SOURCE TPI_SEARCH.agc:275
+// TPI_SEARCH.agc:275
 //			VTPRIME
-// PORT: Fixed ROM slots 32947.
+// slot 32947
     32947, 3872,
-// PORT: SOURCE TPI_SEARCH.agc:276
+// TPI_SEARCH.agc:276
 //			VPASS4
-// PORT: Fixed ROM slots 32948.
+// slot 32948
     32948, 3904,
-// PORT: SOURCE TPI_SEARCH.agc:277
+// TPI_SEARCH.agc:277
 //		ABVAL	PUSH
-// PORT: Fixed ROM slots 32949.
+// slot 32949
     32949, 34380,
-// PORT: SOURCE TPI_SEARCH.agc:278
+// TPI_SEARCH.agc:278
 //		STOVL	RELDELV			# /V2-VP(TPI+TF)/
-// PORT: Fixed ROM slots 32950.
+// slot 32950
     32950, 23358,
-// PORT: SOURCE TPI_SEARCH.agc:279
+// TPI_SEARCH.agc:279
 //			DELVEET3		# V1-VA
-// PORT: Fixed ROM slots 32951.
+// slot 32951
     32951, 3916,
-// PORT: SOURCE TPI_SEARCH.agc:280
+// TPI_SEARCH.agc:280
 //		ABVAL				# /V1-VA/
-// PORT: Fixed ROM slots 32952.
+// slot 32952
     32952, 65356,
-// PORT: SOURCE TPI_SEARCH.agc:281
+// TPI_SEARCH.agc:281
 //		STORE	MAGVTPI
-// PORT: Fixed ROM slots 32953.
+// slot 32953
     32953, 2874,
-// PORT: SOURCE TPI_SEARCH.agc:282
+// TPI_SEARCH.agc:282
 //		DAD	STADR
-// PORT: Fixed ROM slots 32954.
+// slot 32954
     32954, 38426,
-// PORT: SOURCE TPI_SEARCH.agc:283
+// TPI_SEARCH.agc:283
 //		STODL	DELVEE
-// PORT: Fixed ROM slots 32955.
+// slot 32955
     32955, 50392,
-// PORT: SOURCE TPI_SEARCH.agc:284
+// TPI_SEARCH.agc:284
 //			XRS
-// PORT: Fixed ROM slots 32956.
+// slot 32956
     32956, 4044,
-// PORT: SOURCE TPI_SEARCH.agc:285
+// TPI_SEARCH.agc:285
 //		STOVL	X1
-// PORT: Fixed ROM slots 32957.
+// slot 32957
     32957, 20558,
-// PORT: SOURCE TPI_SEARCH.agc:286
+// TPI_SEARCH.agc:286
 //			VIPRIME
-// PORT: Fixed ROM slots 32958.
+// slot 32958
     32958, 3860,
-// PORT: SOURCE TPI_SEARCH.agc:287
+// TPI_SEARCH.agc:287
 //# Page 556
-// PORT: SOURCE TPI_SEARCH.agc:288
+// TPI_SEARCH.agc:288
 //		VSR*
-// PORT: Fixed ROM slots 32959.
+// slot 32959
     32959, 65374,
-// PORT: SOURCE TPI_SEARCH.agc:289
+// TPI_SEARCH.agc:289
 //			0,2
-// PORT: Fixed ROM slots 32960.
+// slot 32960
     32960, 48380,
-// PORT: SOURCE TPI_SEARCH.agc:290
+// TPI_SEARCH.agc:290
 //		STOVL	VVEC
-// PORT: Fixed ROM slots 32961.
+// slot 32961
     32961, 23500,
-// PORT: SOURCE TPI_SEARCH.agc:291
+// TPI_SEARCH.agc:291
 //			RACT3
-// PORT: Fixed ROM slots 32962.
+// slot 32962
     32962, 3776,
-// PORT: SOURCE TPI_SEARCH.agc:292
+// TPI_SEARCH.agc:292
 //		VSR*
-// PORT: Fixed ROM slots 32963.
+// slot 32963
     32963, 65374,
-// PORT: SOURCE TPI_SEARCH.agc:293
+// TPI_SEARCH.agc:293
 //			0,2
-// PORT: Fixed ROM slots 32964.
+// slot 32964
     32964, 48380,
-// PORT: SOURCE TPI_SEARCH.agc:294
+// TPI_SEARCH.agc:294
 //		STCALL	RVEC
-// PORT: Fixed ROM slots 32965.
+// slot 32965
     32965, 31582,
-// PORT: SOURCE TPI_SEARCH.agc:295
+// TPI_SEARCH.agc:295
 //			PERIAPO
-// PORT: Fixed ROM slots 32966.
+// slot 32966
     32966, 38118,
-// PORT: SOURCE TPI_SEARCH.agc:296
+// TPI_SEARCH.agc:296
 //		LXA,2	DLOAD
-// PORT: Fixed ROM slots 32967.
+// slot 32967
     32967, 58840,
-// PORT: SOURCE TPI_SEARCH.agc:297
+// TPI_SEARCH.agc:297
 //			XRS	+1
-// PORT: Fixed ROM slots 32968.
+// slot 32968
     32968, 4044,
-// PORT: SOURCE TPI_SEARCH.agc:298
+// TPI_SEARCH.agc:298
 //		SL*
-// PORT: Fixed ROM slots 32969.
+// slot 32969
     32969, 65374,
-// PORT: SOURCE TPI_SEARCH.agc:299
+// TPI_SEARCH.agc:299
 //			0,2
-// PORT: Fixed ROM slots 32970.
+// slot 32970
     32970, 48892,
-// PORT: SOURCE TPI_SEARCH.agc:300
+// TPI_SEARCH.agc:300
 //		STORE	HP
-// PORT: Fixed ROM slots 32971.
+// slot 32971
     32971, 2858,
-// PORT: SOURCE TPI_SEARCH.agc:301
+// TPI_SEARCH.agc:301
 //# ITSWICH DENOTES INTERPOLATION--SOLUTION ACCEPTANCE IS FORCED
-// PORT: SOURCE TPI_SEARCH.agc:302
+// TPI_SEARCH.agc:302
 //		BON	DLOAD
-// PORT: Fixed ROM slots 32972.
+// slot 32972
     32972, 58648,
-// PORT: SOURCE TPI_SEARCH.agc:303
+// TPI_SEARCH.agc:303
 //			ITSWICH
-// PORT: Fixed ROM slots 32973.
+// slot 32973
     32973, 3970,
-// PORT: SOURCE TPI_SEARCH.agc:304
+// TPI_SEARCH.agc:304
 //			ENDEN
-// PORT: Fixed ROM slots 32974.
+// slot 32974
     32974, 61998,
-// PORT: SOURCE TPI_SEARCH.agc:305
+// TPI_SEARCH.agc:305
 //			HPERMIN
-// PORT: Fixed ROM slots 32975.
+// slot 32975
     32975, 2466,
-// PORT: SOURCE TPI_SEARCH.agc:306
+// TPI_SEARCH.agc:306
 //		DSU	BMN
-// PORT: Fixed ROM slots 32976.
+// slot 32976
     32976, 41002,
-// PORT: SOURCE TPI_SEARCH.agc:307
+// TPI_SEARCH.agc:307
 //			HP
-// PORT: Fixed ROM slots 32977.
+// slot 32977
     32977, 2858,
-// PORT: SOURCE TPI_SEARCH.agc:308
+// TPI_SEARCH.agc:308
 //			HALFSAFE
-// PORT: Fixed ROM slots 32978.
+// slot 32978
     32978, 61930,
-// PORT: SOURCE TPI_SEARCH.agc:309
+// TPI_SEARCH.agc:309
 //		PDDL	DSU			# WAS PERICENTER ALT SAFE
-// PORT: Fixed ROM slots 32979.
+// slot 32979
     32979, 38314,
-// PORT: SOURCE TPI_SEARCH.agc:310
+// TPI_SEARCH.agc:310
 //			HPERMIN
-// PORT: Fixed ROM slots 32980.
+// slot 32980
     32980, 2466,
-// PORT: SOURCE TPI_SEARCH.agc:311
+// TPI_SEARCH.agc:311
 //			HPO
-// PORT: Fixed ROM slots 32981.
+// slot 32981
     32981, 2866,
-// PORT: SOURCE TPI_SEARCH.agc:312
+// TPI_SEARCH.agc:312
 //		BMN	DSU			# (HPLIM-HPO)-(HPLIM-HP)=HP-HPO
-// PORT: Fixed ROM slots 32982.
+// slot 32982
     32982, 38208,
-// PORT: SOURCE TPI_SEARCH.agc:313
+// TPI_SEARCH.agc:313
 //			INTERP			# SOLUTION AT HAND
-// PORT: Fixed ROM slots 32983.
+// slot 32983
     32983, 61896,
-// PORT: SOURCE TPI_SEARCH.agc:314
+// TPI_SEARCH.agc:314
 //		BMN	DLOAD
-// PORT: Fixed ROM slots 32984.
+// slot 32984
     32984, 58688,
-// PORT: SOURCE TPI_SEARCH.agc:315
+// TPI_SEARCH.agc:315
 //			ALARUMS			# IT'S GETTING WORSE - SOUND THE ALARM
-// PORT: Fixed ROM slots 32985.
+// slot 32985
     32985, 60760,
-// PORT: SOURCE TPI_SEARCH.agc:316
+// TPI_SEARCH.agc:316
 //			CDSEC
-// PORT: Fixed ROM slots 32986.
+// slot 32986
     32986, 27824,
-// PORT: SOURCE TPI_SEARCH.agc:317
+// TPI_SEARCH.agc:317
 //JUNCT1		BOFF	DCOMP			# OFF IS PLUS ON IS MINUS
-// PORT: Fixed ROM slots 32987.
+// slot 32987
     32987, 48664,
-// PORT: SOURCE TPI_SEARCH.agc:318
+// TPI_SEARCH.agc:318
 //			KFLAG
-// PORT: Fixed ROM slots 32988.
+// slot 32988
     32988, 476,
-// PORT: SOURCE TPI_SEARCH.agc:319
+// TPI_SEARCH.agc:319
 //			+1
-// PORT: Fixed ROM slots 32989.
+// slot 32989
     32989, 61884,
-// PORT: SOURCE TPI_SEARCH.agc:320
+// TPI_SEARCH.agc:320
 //		STORE	DELTEE
-// PORT: Fixed ROM slots 32990.
+// slot 32990
     32990, 4040,
-// PORT: SOURCE TPI_SEARCH.agc:321
+// TPI_SEARCH.agc:321
 //JUNCT2		DLOAD	DAD
-// PORT: Fixed ROM slots 32991.
+// slot 32991
     32991, 36298,
-// PORT: SOURCE TPI_SEARCH.agc:322
+// TPI_SEARCH.agc:322
 //			DELTEE
-// PORT: Fixed ROM slots 32992.
+// slot 32992
     32992, 4040,
-// PORT: SOURCE TPI_SEARCH.agc:323
+// TPI_SEARCH.agc:323
 //			TF
-// PORT: Fixed ROM slots 32993.
+// slot 32993
     32993, 4052,
-// PORT: SOURCE TPI_SEARCH.agc:324
+// TPI_SEARCH.agc:324
 //		STCALL	TF
-// PORT: Fixed ROM slots 32994.
+// slot 32994
     32994, 32724,
-// PORT: SOURCE TPI_SEARCH.agc:325
+// TPI_SEARCH.agc:325
 //			BIS			# RECYCLE
-// PORT: Fixed ROM slots 32995.
+// slot 32995
     32995, 61686,
-// PORT: SOURCE TPI_SEARCH.agc:326
+// TPI_SEARCH.agc:326
 //INTERP		SET	DSU			# HP-HPO
-// PORT: Fixed ROM slots 32996.
+// slot 32996
     32996, 38168,
-// PORT: SOURCE TPI_SEARCH.agc:327
+// TPI_SEARCH.agc:327
 //			ITSWICH
-// PORT: Fixed ROM slots 32997.
+// slot 32997
     32997, 3682,
-// PORT: SOURCE TPI_SEARCH.agc:328
+// TPI_SEARCH.agc:328
 //		NORM	PDDL
-// PORT: Fixed ROM slots 32998.
+// slot 32998
     32998, 54658,
-// PORT: SOURCE TPI_SEARCH.agc:329
+// TPI_SEARCH.agc:329
 //			X1
-// PORT: Fixed ROM slots 32999.
+// slot 32999
     32999, 78,
-// PORT: SOURCE TPI_SEARCH.agc:330
+// TPI_SEARCH.agc:330
 //			DFTMOON
-// PORT: Fixed ROM slots 33000.
+// slot 33000
     33000, 27852,
-// PORT: SOURCE TPI_SEARCH.agc:331
+// TPI_SEARCH.agc:331
 //		DAD	DSU
-// PORT: Fixed ROM slots 33001.
+// slot 33001
     33001, 38170,
-// PORT: SOURCE TPI_SEARCH.agc:332
+// TPI_SEARCH.agc:332
 //			HPERMIN
-// PORT: Fixed ROM slots 33002.
+// slot 33002
     33002, 2466,
-// PORT: SOURCE TPI_SEARCH.agc:333
+// TPI_SEARCH.agc:333
 //			HP
-// PORT: Fixed ROM slots 33003.
+// slot 33003
     33003, 2858,
-// PORT: SOURCE TPI_SEARCH.agc:334
+// TPI_SEARCH.agc:334
 //		NORM	SR1
-// PORT: Fixed ROM slots 33004.
+// slot 33004
     33004, 57986,
-// PORT: SOURCE TPI_SEARCH.agc:335
+// TPI_SEARCH.agc:335
 //			X2
-// PORT: Fixed ROM slots 33005.
+// slot 33005
     33005, 80,
-// PORT: SOURCE TPI_SEARCH.agc:336
+// TPI_SEARCH.agc:336
 //		XSU,2	DDV
-// PORT: Fixed ROM slots 33006.
+// slot 33006
     33006, 47464,
-// PORT: SOURCE TPI_SEARCH.agc:337
+// TPI_SEARCH.agc:337
 //			X1
-// PORT: Fixed ROM slots 33007.
+// slot 33007
     33007, 76,
-// PORT: SOURCE TPI_SEARCH.agc:338
+// TPI_SEARCH.agc:338
 //# Page 557
-// PORT: SOURCE TPI_SEARCH.agc:339
+// TPI_SEARCH.agc:339
 //		DMP	SR*
-// PORT: Fixed ROM slots 33008.
+// slot 33008
     33008, 44810,
-// PORT: SOURCE TPI_SEARCH.agc:340
+// TPI_SEARCH.agc:340
 //			DELTEE
-// PORT: Fixed ROM slots 33009.
+// slot 33009
     33009, 4040,
-// PORT: SOURCE TPI_SEARCH.agc:341
+// TPI_SEARCH.agc:341
 //			0 	-1,2
-// PORT: Fixed ROM slots 33010.
+// slot 33010
     33010, 48382,
-// PORT: SOURCE TPI_SEARCH.agc:342
+// TPI_SEARCH.agc:342
 //		STCALL	DELTEE
-// PORT: Fixed ROM slots 33011.
+// slot 33011
     33011, 32712,
-// PORT: SOURCE TPI_SEARCH.agc:343
+// TPI_SEARCH.agc:343
 //			JUNCT2
-// PORT: Fixed ROM slots 33012.
+// slot 33012
     33012, 61886,
-// PORT: SOURCE TPI_SEARCH.agc:344
+// TPI_SEARCH.agc:344
 //HALFSAFE	PDDL	DSU			# SAVE HP-HPLIM FOR POSSIBLE
-// PORT: Fixed ROM slots 33013.
+// slot 33013
     33013, 38314,
-// PORT: SOURCE TPI_SEARCH.agc:345
+// TPI_SEARCH.agc:345
 //			DELVEE
-// PORT: Fixed ROM slots 33014.
+// slot 33014
     33014, 2854,
-// PORT: SOURCE TPI_SEARCH.agc:346
+// TPI_SEARCH.agc:346
 //			DELVEO			# SAVE THIS TOO
-// PORT: Fixed ROM slots 33015.
+// slot 33015
     33015, 2870,
-// PORT: SOURCE TPI_SEARCH.agc:347
+// TPI_SEARCH.agc:347
 //		PUSH	ABS
-// PORT: Fixed ROM slots 33016.
+// slot 33016
     33016, 42508,
-// PORT: SOURCE TPI_SEARCH.agc:348
+// TPI_SEARCH.agc:348
 //		DSU	BMN
-// PORT: Fixed ROM slots 33017.
+// slot 33017
     33017, 41002,
-// PORT: SOURCE TPI_SEARCH.agc:349
+// TPI_SEARCH.agc:349
 //			LIMVEL			# 2 FT PS
-// PORT: Fixed ROM slots 33018.
+// slot 33018
     33018, 27848,
-// PORT: SOURCE TPI_SEARCH.agc:350
+// TPI_SEARCH.agc:350
 //			ENDEN
-// PORT: Fixed ROM slots 33019.
+// slot 33019
     33019, 61998,
-// PORT: SOURCE TPI_SEARCH.agc:351
+// TPI_SEARCH.agc:351
 //		DLOAD	DSU
-// PORT: Fixed ROM slots 33020.
+// slot 33020
     33020, 38346,
-// PORT: SOURCE TPI_SEARCH.agc:352
+// TPI_SEARCH.agc:352
 //			HPERMIN
-// PORT: Fixed ROM slots 33021.
+// slot 33021
     33021, 2466,
-// PORT: SOURCE TPI_SEARCH.agc:353
+// TPI_SEARCH.agc:353
 //			HPO
-// PORT: Fixed ROM slots 33022.
+// slot 33022
     33022, 2866,
-// PORT: SOURCE TPI_SEARCH.agc:354
+// TPI_SEARCH.agc:354
 //		PDDL
-// PORT: Fixed ROM slots 33023.
+// slot 33023
     33023, 65450,
-// PORT: SOURCE TPI_SEARCH.agc:355
+// TPI_SEARCH.agc:355
 //		BMN	DLOAD
-// PORT: Fixed ROM slots 33024.
+// slot 33024
     33024, 58688,
-// PORT: SOURCE TPI_SEARCH.agc:356
+// TPI_SEARCH.agc:356
 //			LRGRDVO
-// PORT: Fixed ROM slots 33025.
+// slot 33025
     33025, 61968,
-// PORT: SOURCE TPI_SEARCH.agc:357
+// TPI_SEARCH.agc:357
 //		BPL	DLOAD
-// PORT: Fixed ROM slots 33026.
+// slot 33026
     33026, 58696,
-// PORT: SOURCE TPI_SEARCH.agc:358
+// TPI_SEARCH.agc:358
 //			INTERP
-// PORT: Fixed ROM slots 33027.
+// slot 33027
     33027, 61896,
-// PORT: SOURCE TPI_SEARCH.agc:359
+// TPI_SEARCH.agc:359
 //			DELTEE
-// PORT: Fixed ROM slots 33028.
+// slot 33028
     33028, 4040,
-// PORT: SOURCE TPI_SEARCH.agc:360
+// TPI_SEARCH.agc:360
 //		SR1	DCOMP
-// PORT: Fixed ROM slots 33029.
+// slot 33029
     33029, 48836,
-// PORT: SOURCE TPI_SEARCH.agc:361
+// TPI_SEARCH.agc:361
 //		STCALL	DELTEE
-// PORT: Fixed ROM slots 33030.
+// slot 33030
     33030, 32712,
-// PORT: SOURCE TPI_SEARCH.agc:362
+// TPI_SEARCH.agc:362
 //			JUNCT2
-// PORT: Fixed ROM slots 33031.
+// slot 33031
     33031, 61886,
-// PORT: SOURCE TPI_SEARCH.agc:363
+// TPI_SEARCH.agc:363
 //LRGRDVO		DLOAD
-// PORT: Fixed ROM slots 33032.
+// slot 33032
     33032, 65482,
-// PORT: SOURCE TPI_SEARCH.agc:364
+// TPI_SEARCH.agc:364
 //		BMN	DLOAD
-// PORT: Fixed ROM slots 33033.
+// slot 33033
     33033, 58688,
-// PORT: SOURCE TPI_SEARCH.agc:365
+// TPI_SEARCH.agc:365
 //			JUNCT2
-// PORT: Fixed ROM slots 33034.
+// slot 33034
     33034, 61886,
-// PORT: SOURCE TPI_SEARCH.agc:366
+// TPI_SEARCH.agc:366
 //			CLSEC
-// PORT: Fixed ROM slots 33035.
+// slot 33035
     33035, 27828,
-// PORT: SOURCE TPI_SEARCH.agc:367
+// TPI_SEARCH.agc:367
 //		GOTO
-// PORT: Fixed ROM slots 33036.
+// slot 33036
     33036, 65360,
-// PORT: SOURCE TPI_SEARCH.agc:368
+// TPI_SEARCH.agc:368
 //			JUNCT1
-// PORT: Fixed ROM slots 33037.
+// slot 33037
     33037, 61878,
-// PORT: SOURCE TPI_SEARCH.agc:369
+// TPI_SEARCH.agc:369
 //# TIME RAN OUT ASSUME SOLUTION IF SAVE PERICENTER
-// PORT: SOURCE TPI_SEARCH.agc:370
+// TPI_SEARCH.agc:370
 //RNGETEST	DLOAD	DSU
-// PORT: Fixed ROM slots 33038.
+// slot 33038
     33038, 38346,
-// PORT: SOURCE TPI_SEARCH.agc:371
+// TPI_SEARCH.agc:371
 //			HP
-// PORT: Fixed ROM slots 33039.
+// slot 33039
     33039, 2858,
-// PORT: SOURCE TPI_SEARCH.agc:372
+// TPI_SEARCH.agc:372
 //			HPERMIN
-// PORT: Fixed ROM slots 33040.
+// slot 33040
     33040, 2466,
-// PORT: SOURCE TPI_SEARCH.agc:373
+// TPI_SEARCH.agc:373
 //		BMN	DLOAD
-// PORT: Fixed ROM slots 33041.
+// slot 33041
     33041, 58688,
-// PORT: SOURCE TPI_SEARCH.agc:374
+// TPI_SEARCH.agc:374
 //			ALARUMS
-// PORT: Fixed ROM slots 33042.
+// slot 33042
     33042, 60760,
-// PORT: SOURCE TPI_SEARCH.agc:375
+// TPI_SEARCH.agc:375
 //			TF
-// PORT: Fixed ROM slots 33043.
+// slot 33043
     33043, 4052,
-// PORT: SOURCE TPI_SEARCH.agc:376
+// TPI_SEARCH.agc:376
 //		DSU
-// PORT: Fixed ROM slots 33044.
+// slot 33044
     33044, 65322,
-// PORT: SOURCE TPI_SEARCH.agc:377
+// TPI_SEARCH.agc:377
 //			DELTEE
-// PORT: Fixed ROM slots 33045.
+// slot 33045
     33045, 4040,
-// PORT: SOURCE TPI_SEARCH.agc:378
+// TPI_SEARCH.agc:378
 //		STORE	TF			# TIME OF SOLUTION
-// PORT: Fixed ROM slots 33046.
+// slot 33046
     33046, 4052,
-// PORT: SOURCE TPI_SEARCH.agc:379
+// TPI_SEARCH.agc:379
 //ENDEN		VLOAD
-// PORT: Fixed ROM slots 33047.
+// slot 33047
     33047, 65530,
-// PORT: SOURCE TPI_SEARCH.agc:380
+// TPI_SEARCH.agc:380
 //			VTPRIME
-// PORT: Fixed ROM slots 33048.
+// slot 33048
     33048, 3872,
-// PORT: SOURCE TPI_SEARCH.agc:381
+// TPI_SEARCH.agc:381
 //		DOT	PDDL			# SG2 WITH MAGNITUDE
-// PORT: Fixed ROM slots 33049.
+// slot 33049
     33049, 54594,
-// PORT: SOURCE TPI_SEARCH.agc:382
+// TPI_SEARCH.agc:382
 //			RPASS4
-// PORT: Fixed ROM slots 33050.
+// slot 33050
     33050, 3892,
-// PORT: SOURCE TPI_SEARCH.agc:383
+// TPI_SEARCH.agc:383
 //			RELDELV
-// PORT: Fixed ROM slots 33051.
+// slot 33051
     33051, 2878,
-// PORT: SOURCE TPI_SEARCH.agc:384
+// TPI_SEARCH.agc:384
 //		SIGN	STADR			# NOW SIGN(RELDELV)=SIGN(SG2)
-// PORT: Fixed ROM slots 33052.
+// slot 33052
     33052, 38634
 )).
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE TPI_SEARCH.agc:385
+// TPI_SEARCH.agc:385
 //		STCALL	RELDELV
-// PORT: Fixed ROM slots 33053.
+// slot 33053
     33053, 33984,
-// PORT: SOURCE TPI_SEARCH.agc:386
+// TPI_SEARCH.agc:386
 //			TRANSANG		# COMPUTE OMEGA T , CENTRAL ANGLE
-// PORT: Fixed ROM slots 33054.
+// slot 33054
     33054, 14914,
-// PORT: SOURCE TPI_SEARCH.agc:387
+// TPI_SEARCH.agc:387
 //		VLOAD	DOT
-// PORT: Fixed ROM slots 33055.
+// slot 33055
     33055, 41466,
-// PORT: SOURCE TPI_SEARCH.agc:388
+// TPI_SEARCH.agc:388
 //			RACT3
-// PORT: Fixed ROM slots 33056.
+// slot 33056
     33056, 3776,
-// PORT: SOURCE TPI_SEARCH.agc:389
+// TPI_SEARCH.agc:389
 //# Page 558
-// PORT: SOURCE TPI_SEARCH.agc:390
+// TPI_SEARCH.agc:390
 //			VIPRIME			# SG1
-// PORT: Fixed ROM slots 33057.
+// slot 33057
     33057, 3860,
-// PORT: SOURCE TPI_SEARCH.agc:391
+// TPI_SEARCH.agc:391
 //		SIGN	BPL			# IF POSITIVE THEN SG1 = SG2 OTHERWISE
-// PORT: Fixed ROM slots 33058.
+// slot 33058
     33058, 42218,
-// PORT: SOURCE TPI_SEARCH.agc:392
+// TPI_SEARCH.agc:392
 //			RELDELV
-// PORT: Fixed ROM slots 33059.
+// slot 33059
     33059, 2878,
-// PORT: SOURCE TPI_SEARCH.agc:393
+// TPI_SEARCH.agc:393
 //			USEKAY			# SIGN(SG2-SG1)=SIGN(SG2)=SIGN(RELDELV)
-// PORT: Fixed ROM slots 33060.
+// slot 33060
     33060, 62040,
-// PORT: SOURCE TPI_SEARCH.agc:394
+// TPI_SEARCH.agc:394
 //		SLOAD	DCOMP
-// PORT: Fixed ROM slots 33061.
+// slot 33061
     33061, 48826,
-// PORT: SOURCE TPI_SEARCH.agc:395
+// TPI_SEARCH.agc:395
 //			DECTWO
-// PORT: Fixed ROM slots 33062.
+// slot 33062
     33062, 27806,
-// PORT: SOURCE TPI_SEARCH.agc:396
+// TPI_SEARCH.agc:396
 //		SIGN	BPL
-// PORT: Fixed ROM slots 33063.
+// slot 33063
     33063, 42218,
-// PORT: SOURCE TPI_SEARCH.agc:397
+// TPI_SEARCH.agc:397
 //			RELDELV
-// PORT: Fixed ROM slots 33064.
+// slot 33064
     33064, 2878,
-// PORT: SOURCE TPI_SEARCH.agc:398
+// TPI_SEARCH.agc:398
 //			NEXUS
-// PORT: Fixed ROM slots 33065.
+// slot 33065
     33065, 62052,
-// PORT: SOURCE TPI_SEARCH.agc:399
+// TPI_SEARCH.agc:399
 //		DCOMP	GOTO
-// PORT: Fixed ROM slots 33066.
+// slot 33066
     33066, 43132,
-// PORT: SOURCE TPI_SEARCH.agc:400
+// TPI_SEARCH.agc:400
 //			USEKAY	+4
-// PORT: Fixed ROM slots 33067.
+// slot 33067
     33067, 62048,
-// PORT: SOURCE TPI_SEARCH.agc:401
+// TPI_SEARCH.agc:401
 //USEKAY		SLOAD	BON
-// PORT: Fixed ROM slots 33068.
+// slot 33068
     33068, 36026,
-// PORT: SOURCE TPI_SEARCH.agc:402
+// TPI_SEARCH.agc:402
 //			DECTWO
-// PORT: Fixed ROM slots 33069.
+// slot 33069
     33069, 27806,
-// PORT: SOURCE TPI_SEARCH.agc:403
+// TPI_SEARCH.agc:403
 //			KFLAG
-// PORT: Fixed ROM slots 33070.
+// slot 33070
     33070, 412,
-// PORT: SOURCE TPI_SEARCH.agc:404
+// TPI_SEARCH.agc:404
 //			NEXUS
-// PORT: Fixed ROM slots 33071.
+// slot 33071
     33071, 62052,
-// PORT: SOURCE TPI_SEARCH.agc:405
+// TPI_SEARCH.agc:405
 //		DSU
-// PORT: Fixed ROM slots 33072.
+// slot 33072
     33072, 65322,
-// PORT: SOURCE TPI_SEARCH.agc:406
+// TPI_SEARCH.agc:406
 //			P21ONENN
-// PORT: Fixed ROM slots 33073.
+// slot 33073
     33073, 30928,
-// PORT: SOURCE TPI_SEARCH.agc:407
+// TPI_SEARCH.agc:407
 //NEXUS		STODL	NN1
-// PORT: Fixed ROM slots 33074.
+// slot 33074
     33074, 16364,
-// PORT: SOURCE TPI_SEARCH.agc:408
+// TPI_SEARCH.agc:408
 //			HP
-// PORT: Fixed ROM slots 33075.
+// slot 33075
     33075, 2858,
-// PORT: SOURCE TPI_SEARCH.agc:409
+// TPI_SEARCH.agc:409
 //		STCALL	POSTTPI
-// PORT: Fixed ROM slots 33076.
+// slot 33076
     33076, 31554,
-// PORT: SOURCE TPI_SEARCH.agc:410
+// TPI_SEARCH.agc:410
 //			QTEMP
-// PORT: Fixed ROM slots 33077.
+// slot 33077
     33077, 3934,
-// PORT: SOURCE TPI_SEARCH.agc:411
+// TPI_SEARCH.agc:411
 //		BANK	07
-// PORT: SOURCE TPI_SEARCH.agc:412
+// TPI_SEARCH.agc:412
 //		SETLOC	XANG
-// PORT: SOURCE TPI_SEARCH.agc:413
+// TPI_SEARCH.agc:413
 //		BANK
-// PORT: SOURCE TPI_SEARCH.agc:414
+// TPI_SEARCH.agc:414
 //		COUNT	07/XANG
-// PORT: SOURCE TPI_SEARCH.agc:415
+// TPI_SEARCH.agc:415
 //
-// PORT: SOURCE TPI_SEARCH.agc:416
+// TPI_SEARCH.agc:416
 //# CENTRAL ANGLE SUBROUTINE
-// PORT: SOURCE TPI_SEARCH.agc:417
+// TPI_SEARCH.agc:417
 //# 	THIS SUBROUTINE COMPUTES THE CENTRAL ANGLE OF TRAVEL OF THE
-// PORT: SOURCE TPI_SEARCH.agc:418
+// TPI_SEARCH.agc:418
 //# PASSIVE VEHICLE DURING THE TRANSFER.
-// PORT: SOURCE TPI_SEARCH.agc:419
+// TPI_SEARCH.agc:419
 //
-// PORT: SOURCE TPI_SEARCH.agc:420
+// TPI_SEARCH.agc:420
 //TRANSANG	STQ	SETPD
-// PORT: Fixed ROM slots 9505.
+// slot 9505
     9505, 33056,
-// PORT: SOURCE TPI_SEARCH.agc:421
+// TPI_SEARCH.agc:421
 //			SUBEXIT
-// PORT: Fixed ROM slots 9506.
+// slot 9506
     9506, 2544,
-// PORT: SOURCE TPI_SEARCH.agc:422
+// TPI_SEARCH.agc:422
 //			0
-// PORT: Fixed ROM slots 9507.
+// slot 9507
     9507, 2,
-// PORT: SOURCE TPI_SEARCH.agc:423
+// TPI_SEARCH.agc:423
 //		LXA,1	LXA,2
-// PORT: Fixed ROM slots 9508.
+// slot 9508
     9508, 60624,
-// PORT: SOURCE TPI_SEARCH.agc:424
+// TPI_SEARCH.agc:424
 //			XRS
-// PORT: Fixed ROM slots 9509.
+// slot 9509
     9509, 4042,
-// PORT: SOURCE TPI_SEARCH.agc:425
+// TPI_SEARCH.agc:425
 //			XRS	+1
-// PORT: Fixed ROM slots 9510.
+// slot 9510
     9510, 4044,
-// PORT: SOURCE TPI_SEARCH.agc:426
+// TPI_SEARCH.agc:426
 //		VLOAD	VSR*
-// PORT: Fixed ROM slots 9511.
+// slot 9511
     9511, 45050,
-// PORT: SOURCE TPI_SEARCH.agc:427
+// TPI_SEARCH.agc:427
 //			VPASS4
-// PORT: Fixed ROM slots 9512.
+// slot 9512
     9512, 3904,
-// PORT: SOURCE TPI_SEARCH.agc:428
+// TPI_SEARCH.agc:428
 //			0,2
-// PORT: Fixed ROM slots 9513.
+// slot 9513
     9513, 48380,
-// PORT: SOURCE TPI_SEARCH.agc:429
+// TPI_SEARCH.agc:429
 //		STODL*	VVEC
-// PORT: Fixed ROM slots 9514.
+// slot 9514
     9514, 19404,
-// PORT: SOURCE TPI_SEARCH.agc:430
+// TPI_SEARCH.agc:430
 //			MUTABLE	+2,1
-// PORT: Fixed ROM slots 9515.
+// slot 9515
     9515, 10180,
-// PORT: SOURCE TPI_SEARCH.agc:431
+// TPI_SEARCH.agc:431
 //		PDVL	VSR*			# SQRT MU (+18 OR +15)			00D
-// PORT: Fixed ROM slots 9516.
+// slot 9516
     9516, 44954,
-// PORT: SOURCE TPI_SEARCH.agc:432
+// TPI_SEARCH.agc:432
 //			RPASS4
-// PORT: Fixed ROM slots 9517.
+// slot 9517
     9517, 3892,
-// PORT: SOURCE TPI_SEARCH.agc:433
+// TPI_SEARCH.agc:433
 //			0,2
-// PORT: Fixed ROM slots 9518.
+// slot 9518
     9518, 48380,
-// PORT: SOURCE TPI_SEARCH.agc:434
+// TPI_SEARCH.agc:434
 //		ABVAL	PDDL*			# MAGNITUDE OF R (+29 OR +27)		02D
-// PORT: Fixed ROM slots 9519.
+// slot 9519
     9519, 54092,
-// PORT: SOURCE TPI_SEARCH.agc:435
+// TPI_SEARCH.agc:435
 //			MUTABLE,1
-// PORT: Fixed ROM slots 9520.
+// slot 9520
     9520, 10176,
-// PORT: SOURCE TPI_SEARCH.agc:436
+// TPI_SEARCH.agc:436
 //		PDVL	VSQ			# 1/MU (+34 OR +28)			04D
-// PORT: Fixed ROM slots 9521.
+// slot 9521
     9521, 40602,
-// PORT: SOURCE TPI_SEARCH.agc:437
+// TPI_SEARCH.agc:437
 //			VVEC
-// PORT: Fixed ROM slots 9522.
+// slot 9522
     9522, 3020,
-// PORT: SOURCE TPI_SEARCH.agc:438
+// TPI_SEARCH.agc:438
 //		NORM	DMPR			# PUSH LIST AT 02D
-// PORT: Fixed ROM slots 9523.
+// slot 9523
     9523, 48514,
-// PORT: SOURCE TPI_SEARCH.agc:439
+// TPI_SEARCH.agc:439
 //			X1
-// PORT: Fixed ROM slots 9524.
+// slot 9524
     9524, 78,
-// PORT: SOURCE TPI_SEARCH.agc:440
+// TPI_SEARCH.agc:440
 //# Page 559
-// PORT: SOURCE TPI_SEARCH.agc:441
+// TPI_SEARCH.agc:441
 //		DMP	SRR*
-// PORT: Fixed ROM slots 9525.
+// slot 9525
     9525, 44810,
-// PORT: SOURCE TPI_SEARCH.agc:442
+// TPI_SEARCH.agc:442
 //			02D
-// PORT: Fixed ROM slots 9526.
+// slot 9526
     9526, 6,
-// PORT: SOURCE TPI_SEARCH.agc:443
+// TPI_SEARCH.agc:443
 //			0 	-3,1
-// PORT: Fixed ROM slots 9527.
+// slot 9527
     9527, 18172,
-// PORT: SOURCE TPI_SEARCH.agc:444
+// TPI_SEARCH.agc:444
 //		BDSU				# R V**/MU (+6)
-// PORT: Fixed ROM slots 9528.
+// slot 9528
     9528, 65314,
-// PORT: SOURCE TPI_SEARCH.agc:445
+// TPI_SEARCH.agc:445
 //			D1/32
-// PORT: Fixed ROM slots 9529.
+// slot 9529
     9529, 10012,
-// PORT: SOURCE TPI_SEARCH.agc:446
+// TPI_SEARCH.agc:446
 //		NORM	PDDL
-// PORT: Fixed ROM slots 9530.
+// slot 9530
     9530, 54658,
-// PORT: SOURCE TPI_SEARCH.agc:447
+// TPI_SEARCH.agc:447
 //			X1			# (2 - R V**/MU) 	(+6-N)
-// PORT: Fixed ROM slots 9531.
+// slot 9531
     9531, 78,
-// PORT: SOURCE TPI_SEARCH.agc:448
+// TPI_SEARCH.agc:448
 //		SR1R	DDV			# MAGNITUDE OF R 	(+30 OR +28)
-// PORT: Fixed ROM slots 9532.
+// slot 9532
     9532, 47588,
-// PORT: SOURCE TPI_SEARCH.agc:449
+// TPI_SEARCH.agc:449
 //		SL*	PUSH			# R/(2 - R V**/MU)	(+29 OR +27)02D
-// PORT: Fixed ROM slots 9533.
+// slot 9533
     9533, 34398,
-// PORT: SOURCE TPI_SEARCH.agc:450
+// TPI_SEARCH.agc:450
 //			0 	-5,1
-// PORT: Fixed ROM slots 9534.
+// slot 9534
     9534, 16632,
-// PORT: SOURCE TPI_SEARCH.agc:451
+// TPI_SEARCH.agc:451
 //		SR1	SQRT
-// PORT: Fixed ROM slots 9535.
+// slot 9535
     9535, 63172,
-// PORT: SOURCE TPI_SEARCH.agc:452
+// TPI_SEARCH.agc:452
 //		DMP
-// PORT: Fixed ROM slots 9536.
+// slot 9536
     9536, 65290,
-// PORT: SOURCE TPI_SEARCH.agc:453
+// TPI_SEARCH.agc:453
 //		NORM	PDDL			# ASUBP***				00D
-// PORT: Fixed ROM slots 9537.
+// slot 9537
     9537, 54658,
-// PORT: SOURCE TPI_SEARCH.agc:454
+// TPI_SEARCH.agc:454
 //			X1
-// PORT: Fixed ROM slots 9538.
+// slot 9538
     9538, 78,
-// PORT: SOURCE TPI_SEARCH.agc:455
+// TPI_SEARCH.agc:455
 //		SR1	DDV
-// PORT: Fixed ROM slots 9539.
+// slot 9539
     9539, 47556,
-// PORT: SOURCE TPI_SEARCH.agc:456
+// TPI_SEARCH.agc:456
 //		DMP	SL*
-// PORT: Fixed ROM slots 9540.
+// slot 9540
     9540, 44810,
-// PORT: SOURCE TPI_SEARCH.agc:457
+// TPI_SEARCH.agc:457
 //			TF
-// PORT: Fixed ROM slots 9541.
+// slot 9541
     9541, 4052,
-// PORT: SOURCE TPI_SEARCH.agc:458
+// TPI_SEARCH.agc:458
 //			0,1
-// PORT: Fixed ROM slots 9542.
+// slot 9542
     9542, 16642,
-// PORT: SOURCE TPI_SEARCH.agc:459
+// TPI_SEARCH.agc:459
 //		PDDL	NORM
-// PORT: Fixed ROM slots 9543.
+// slot 9543
     9543, 49578,
-// PORT: SOURCE TPI_SEARCH.agc:460
+// TPI_SEARCH.agc:460
 //			2PISC
-// PORT: Fixed ROM slots 9544.
+// slot 9544
     9544, 10032,
-// PORT: SOURCE TPI_SEARCH.agc:461
+// TPI_SEARCH.agc:461
 //			X1
-// PORT: Fixed ROM slots 9545.
+// slot 9545
     9545, 78,
-// PORT: SOURCE TPI_SEARCH.agc:462
+// TPI_SEARCH.agc:462
 //		PDDL	DDV
-// PORT: Fixed ROM slots 9546.
+// slot 9546
     9546, 47530,
-// PORT: SOURCE TPI_SEARCH.agc:463
+// TPI_SEARCH.agc:463
 //		SL*
-// PORT: Fixed ROM slots 9547.
+// slot 9547
     9547, 65374,
-// PORT: SOURCE TPI_SEARCH.agc:464
+// TPI_SEARCH.agc:464
 //			0 	-3,1		# CENTANG = (SQRT(MU/ASUP***)TF)
-// PORT: Fixed ROM slots 9548.
+// slot 9548
     9548, 16636,
-// PORT: SOURCE TPI_SEARCH.agc:465
+// TPI_SEARCH.agc:465
 //		STCALL	CENTANG			# IN REVOLUTIONS B-0
-// PORT: Fixed ROM slots 9549.
+// slot 9549
     9549, 32728,
-// PORT: SOURCE TPI_SEARCH.agc:466
+// TPI_SEARCH.agc:466
 //			SUBEXIT
-// PORT: Fixed ROM slots 9550.
+// slot 9550
     9550, 2544
 )).
 
-// PORT: Physical bank 35. Shared continuation entries, slots 32361–32367.
+// bank 35, slots 32361-32367
 function agcAotUnit1827 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 32363 {
         if slot <= 32361 {
-// PORT: SOURCE TPI_SEARCH.agc:467
+// TPI_SEARCH.agc:467
 //		BANK	35
-// PORT: SOURCE TPI_SEARCH.agc:468
+// TPI_SEARCH.agc:468
 //		SETLOC	P17S1
-// PORT: SOURCE TPI_SEARCH.agc:469
+// TPI_SEARCH.agc:469
 //		BANK
-// PORT: SOURCE TPI_SEARCH.agc:470
+// TPI_SEARCH.agc:470
 //		COUNT	35/P17
-// PORT: SOURCE TPI_SEARCH.agc:471
+// TPI_SEARCH.agc:471
 //
-// PORT: SOURCE TPI_SEARCH.agc:472
+// TPI_SEARCH.agc:472
 //# TPI SEARCH DISPLAY ROUTNE
-// PORT: SOURCE TPI_SEARCH.agc:473
+// TPI_SEARCH.agc:473
 //
-// PORT: SOURCE TPI_SEARCH.agc:474
+// TPI_SEARCH.agc:474
 //P17		TC	AVFLAGA			# AVFLAG = CSM , SET TRACK + UPDATE FLAGS
-// PORT: Fixed ROM slots 32361.
+// slot 32361
             if slot <> 32361 or instruction <> 2455 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -1687,9 +1687,9 @@ function agcAotUnit1827 {
             return choose false if checkOnly else -1.
         } else {
             if slot <= 32362 {
-// PORT: SOURCE TPI_SEARCH.agc:475
+// TPI_SEARCH.agc:475
 //		TC	P17.1
-// PORT: Fixed ROM slots 32362.
+// slot 32362
                 if slot <> 32362 or instruction <> 1644 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1697,9 +1697,9 @@ function agcAotUnit1827 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE TPI_SEARCH.agc:476
+// TPI_SEARCH.agc:476
 //P77		TC	AVFLAGP			# AVFLAG = LEM , SET TRACK + UPDATE FLAGS
-// PORT: Fixed ROM slots 32363.
+// slot 32363
                 if slot <> 32363 or instruction <> 2466 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1711,9 +1711,9 @@ function agcAotUnit1827 {
     } else {
         if slot <= 32365 {
             if slot <= 32364 {
-// PORT: SOURCE TPI_SEARCH.agc:477
+// TPI_SEARCH.agc:477
 //P17.1		TC	P20FLGON		#	SET UPDATE FLAG
-// PORT: Fixed ROM slots 32364.
+// slot 32364
                 if slot <> 32364 or instruction <> 2471 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1721,9 +1721,9 @@ function agcAotUnit1827 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE TPI_SEARCH.agc:478
+// TPI_SEARCH.agc:478
 //		CAF	V06N37			#	DISPLAY TTPI TIME
-// PORT: Fixed ROM slots 32365.
+// slot 32365
                 if slot <> 32365 or instruction <> 14732 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1736,9 +1736,9 @@ function agcAotUnit1827 {
             }
         } else {
             if slot <= 32366 {
-// PORT: SOURCE TPI_SEARCH.agc:479
+// TPI_SEARCH.agc:479
 //		TC	VNPOOH
-// PORT: Fixed ROM slots 32366.
+// slot 32366
                 if slot <> 32366 or instruction <> 2429 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1746,9 +1746,9 @@ function agcAotUnit1827 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE TPI_SEARCH.agc:480
+// TPI_SEARCH.agc:480
 //		TC	INTPRET
-// PORT: Fixed ROM slots 32367.
+// slot 32367
                 if slot <> 32367 or instruction <> 3078 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1762,65 +1762,65 @@ function agcAotUnit1827 {
 set agcAotRoutes[1827] to agcAotUnit1827@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE TPI_SEARCH.agc:481
+// TPI_SEARCH.agc:481
 //		CLEAR	CALL
-// PORT: Fixed ROM slots 32368.
+// slot 32368
     32368, 37912,
-// PORT: SOURCE TPI_SEARCH.agc:482
+// TPI_SEARCH.agc:482
 //			UPDATFLG
-// PORT: Fixed ROM slots 32369.
+// slot 32369
     32369, 880,
-// PORT: SOURCE TPI_SEARCH.agc:483
+// TPI_SEARCH.agc:483
 //			S17.1			# UPDATE STATE VECTORS TO TTPI
-// PORT: Fixed ROM slots 32370.
+// slot 32370
     32370, 61460,
-// PORT: SOURCE TPI_SEARCH.agc:484
+// TPI_SEARCH.agc:484
 //		SET	AXT,1
-// PORT: Fixed ROM slots 32371.
+// slot 32371
     32371, 63512,
-// PORT: SOURCE TPI_SEARCH.agc:485
+// TPI_SEARCH.agc:485
 //			UPDATFLG
-// PORT: Fixed ROM slots 32372.
+// slot 32372
     32372, 624,
-// PORT: SOURCE TPI_SEARCH.agc:486
+// TPI_SEARCH.agc:486
 //		DEC	2			# DELTA H = 2	K POSITIVE , KFLAG OFF
-// PORT: Fixed ROM slots 32373.
+// slot 32373
     32373, 4,
-// PORT: SOURCE TPI_SEARCH.agc:487
+// TPI_SEARCH.agc:487
 //		BOFF	AXT,1
-// PORT: Fixed ROM slots 32374.
+// slot 32374
     32374, 63512,
-// PORT: SOURCE TPI_SEARCH.agc:488
+// TPI_SEARCH.agc:488
 //			KFLAG
-// PORT: Fixed ROM slots 32375.
+// slot 32375
     32375, 476,
-// PORT: SOURCE TPI_SEARCH.agc:489
+// TPI_SEARCH.agc:489
 //			+2
-// PORT: Fixed ROM slots 32376.
+// slot 32376
     32376, 60660,
-// PORT: SOURCE TPI_SEARCH.agc:490
+// TPI_SEARCH.agc:490
 //		DEC	1			# DELTA H = 1	K NEGATIVE , KFLAG ON
-// PORT: Fixed ROM slots 32377.
+// slot 32377
     32377, 2,
-// PORT: SOURCE TPI_SEARCH.agc:491
+// TPI_SEARCH.agc:491
 //# Page 560
-// PORT: SOURCE TPI_SEARCH.agc:492
+// TPI_SEARCH.agc:492
 //		SXA,1	EXIT
-// PORT: Fixed ROM slots 32378.
+// slot 32378
     32378, 65200,
-// PORT: SOURCE TPI_SEARCH.agc:493
+// TPI_SEARCH.agc:493
 //			OPTION2
-// PORT: Fixed ROM slots 32379.
+// slot 32379
     32379, 1204
 )).
 
-// PORT: Physical bank 35. Shared continuation entries, slots 32380–32382.
+// bank 35, slots 32380-32382
 function agcAotUnit1828 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 32380 {
-// PORT: SOURCE TPI_SEARCH.agc:494
+// TPI_SEARCH.agc:494
 //		CAF	V06N72			# DISPLAY PHI , DELTA H , SEARCH OPTION K
-// PORT: Fixed ROM slots 32380.
+// slot 32380
         if slot <> 32380 or instruction <> 14003 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -1832,9 +1832,9 @@ function agcAotUnit1828 {
         return choose false if checkOnly else -1.
     } else {
         if slot <= 32381 {
-// PORT: SOURCE TPI_SEARCH.agc:495
+// TPI_SEARCH.agc:495
 //		TC	VNCOMP17
-// PORT: Fixed ROM slots 32381.
+// slot 32381
             if slot <> 32381 or instruction <> 1695 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -1842,9 +1842,9 @@ function agcAotUnit1828 {
             }
             return choose false if checkOnly else -1.
         } else {
-// PORT: SOURCE TPI_SEARCH.agc:496
+// TPI_SEARCH.agc:496
 //		TC	INTPRET
-// PORT: Fixed ROM slots 32382.
+// slot 32382
             if slot <> 32382 or instruction <> 3078 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -1857,100 +1857,100 @@ function agcAotUnit1828 {
 set agcAotRoutes[1828] to agcAotUnit1828@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE TPI_SEARCH.agc:497
+// TPI_SEARCH.agc:497
 //		CLEAR	SET
-// PORT: Fixed ROM slots 32383.
+// slot 32383
     32383, 35864,
-// PORT: SOURCE TPI_SEARCH.agc:498
+// TPI_SEARCH.agc:498
 //			UPDATFLG
-// PORT: Fixed ROM slots 32384.
+// slot 32384
     32384, 880,
-// PORT: SOURCE TPI_SEARCH.agc:499
+// TPI_SEARCH.agc:499
 //			KFLAG
-// PORT: Fixed ROM slots 32385.
+// slot 32385
     32385, 124,
-// PORT: SOURCE TPI_SEARCH.agc:500
+// TPI_SEARCH.agc:500
 //		SLOAD	DSU
-// PORT: Fixed ROM slots 32386.
+// slot 32386
     32386, 38330,
-// PORT: SOURCE TPI_SEARCH.agc:501
+// TPI_SEARCH.agc:501
 //			OPTION2			# RESET KFLAG ON FOR OPTION =1
-// PORT: Fixed ROM slots 32387.
+// slot 32387
     32387, 1206,
-// PORT: SOURCE TPI_SEARCH.agc:502
+// TPI_SEARCH.agc:502
 //			P21ONENN		#	     OFF FOR OPTION =2
-// PORT: Fixed ROM slots 32388.
+// slot 32388
     32388, 30928,
-// PORT: SOURCE TPI_SEARCH.agc:503
+// TPI_SEARCH.agc:503
 //		BHIZ	CLEAR
-// PORT: Fixed ROM slots 32389.
+// slot 32389
     32389, 35888,
-// PORT: SOURCE TPI_SEARCH.agc:504
+// TPI_SEARCH.agc:504
 //			+2
-// PORT: Fixed ROM slots 32390.
+// slot 32390
     32390, 60688,
-// PORT: SOURCE TPI_SEARCH.agc:505
+// TPI_SEARCH.agc:505
 //			KFLAG
-// PORT: Fixed ROM slots 32391.
+// slot 32391
     32391, 380,
-// PORT: SOURCE TPI_SEARCH.agc:506
+// TPI_SEARCH.agc:506
 //		SLOAD	BHIZ
-// PORT: Fixed ROM slots 32392.
+// slot 32392
     32392, 39098,
-// PORT: SOURCE TPI_SEARCH.agc:507
+// TPI_SEARCH.agc:507
 //			XRS	+1
-// PORT: Fixed ROM slots 32393.
+// slot 32393
     32393, 4046,
-// PORT: SOURCE TPI_SEARCH.agc:508
+// TPI_SEARCH.agc:508
 //			+4
-// PORT: Fixed ROM slots 32394.
+// slot 32394
     32394, 60700,
-// PORT: SOURCE TPI_SEARCH.agc:509
+// TPI_SEARCH.agc:509
 //		DLOAD	GOTO
-// PORT: Fixed ROM slots 32395.
+// slot 32395
     32395, 43210,
-// PORT: SOURCE TPI_SEARCH.agc:510
+// TPI_SEARCH.agc:510
 //			HPL
-// PORT: Fixed ROM slots 32396.
+// slot 32396
     32396, 27820,
-// PORT: SOURCE TPI_SEARCH.agc:511
+// TPI_SEARCH.agc:511
 //			P17.2
-// PORT: Fixed ROM slots 32397.
+// slot 32397
     32397, 60704,
-// PORT: SOURCE TPI_SEARCH.agc:512
+// TPI_SEARCH.agc:512
 //		DLOAD
-// PORT: Fixed ROM slots 32398.
+// slot 32398
     32398, 65482,
-// PORT: SOURCE TPI_SEARCH.agc:513
+// TPI_SEARCH.agc:513
 //			HPE
-// PORT: Fixed ROM slots 32399.
+// slot 32399
     32399, 27816,
-// PORT: SOURCE TPI_SEARCH.agc:514
+// TPI_SEARCH.agc:514
 //P17.2		STCALL	HPERMIN
-// PORT: Fixed ROM slots 32400.
+// slot 32400
     32400, 31138,
-// PORT: SOURCE TPI_SEARCH.agc:515
+// TPI_SEARCH.agc:515
 //			S17.2
-// PORT: Fixed ROM slots 32401.
+// slot 32401
     32401, 61552,
-// PORT: SOURCE TPI_SEARCH.agc:516
+// TPI_SEARCH.agc:516
 //		SET	EXIT
-// PORT: Fixed ROM slots 32402.
+// slot 32402
     32402, 65048,
-// PORT: SOURCE TPI_SEARCH.agc:517
+// TPI_SEARCH.agc:517
 //			UPDATFLG
-// PORT: Fixed ROM slots 32403.
+// slot 32403
     32403, 624
 )).
 
-// PORT: Physical bank 35. Shared continuation entries, slots 32404–32407.
+// bank 35, slots 32404-32407
 function agcAotUnit1829 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 32405 {
         if slot <= 32404 {
-// PORT: SOURCE TPI_SEARCH.agc:518
+// TPI_SEARCH.agc:518
 //P17.3		CAF	V06N58			# DISPLAY DELTA VTPI , DELTA VTPF , AND H
-// PORT: Fixed ROM slots 32404.
+// slot 32404
             if slot <> 32404 or instruction <> 14734 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -1961,9 +1961,9 @@ function agcAotUnit1829 {
             }
             return choose false if checkOnly else -1.
         } else {
-// PORT: SOURCE TPI_SEARCH.agc:519
+// TPI_SEARCH.agc:519
 //		TC	VNCOMP17
-// PORT: Fixed ROM slots 32405.
+// slot 32405
             if slot <> 32405 or instruction <> 1695 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -1973,9 +1973,9 @@ function agcAotUnit1829 {
         }
     } else {
         if slot <= 32406 {
-// PORT: SOURCE TPI_SEARCH.agc:520
+// TPI_SEARCH.agc:520
 //		CAF	V06N55			# DISPLAY PERICENTER CODE AND CENTRAL ANG.
-// PORT: Fixed ROM slots 32406.
+// slot 32406
             if slot <> 32406 or instruction <> 14733 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -1986,9 +1986,9 @@ function agcAotUnit1829 {
             }
             return choose false if checkOnly else -1.
         } else {
-// PORT: SOURCE TPI_SEARCH.agc:521
+// TPI_SEARCH.agc:521
 //		TC	BANKCALL
-// PORT: Fixed ROM slots 32407.
+// slot 32407
             if slot <> 32407 or instruction <> 2482 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -2001,21 +2001,21 @@ function agcAotUnit1829 {
 set agcAotRoutes[1829] to agcAotUnit1829@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE TPI_SEARCH.agc:522
+// TPI_SEARCH.agc:522
 //		CADR	GOFLASHR
-// PORT: Fixed ROM slots 32408.
+// slot 32408
     32408, 17502
 )).
 
-// PORT: Physical bank 35. Shared continuation entries, slots 32409–32419.
+// bank 35, slots 32409-32419
 function agcAotUnit1830 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 32413 {
         if slot <= 32410 {
             if slot <= 32409 {
-// PORT: SOURCE TPI_SEARCH.agc:523
+// TPI_SEARCH.agc:523
 //		TC	GOTOPOOH		# TERMINATE PROGRAM
-// PORT: Fixed ROM slots 32409.
+// slot 32409
                 if slot <> 32409 or instruction <> 2118 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -2023,9 +2023,9 @@ function agcAotUnit1830 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE TPI_SEARCH.agc:524
+// TPI_SEARCH.agc:524
 //		TC	GOTOPOOH		# END PROGRAM
-// PORT: Fixed ROM slots 32410.
+// slot 32410
                 if slot <> 32410 or instruction <> 2118 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -2035,9 +2035,9 @@ function agcAotUnit1830 {
             }
         } else {
             if slot <= 32411 {
-// PORT: SOURCE TPI_SEARCH.agc:525
+// TPI_SEARCH.agc:525
 //		TC	P17.1			# RECYCLE WITH NEW TTPI OR SEARCH OPTION
-// PORT: Fixed ROM slots 32411.
+// slot 32411
                 if slot <> 32411 or instruction <> 1644 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -2046,9 +2046,9 @@ function agcAotUnit1830 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 32412 {
-// PORT: SOURCE TPI_SEARCH.agc:526
+// TPI_SEARCH.agc:526
 //		CAF	TWO			# BLANK R2
-// PORT: Fixed ROM slots 32412.
+// slot 32412
                     if slot <> 32412 or instruction <> 14862 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -2059,9 +2059,9 @@ function agcAotUnit1830 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE TPI_SEARCH.agc:527
+// TPI_SEARCH.agc:527
 //		TC	BLANKET
-// PORT: Fixed ROM slots 32413.
+// slot 32413
                     if slot <> 32413 or instruction <> 2902 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -2074,9 +2074,9 @@ function agcAotUnit1830 {
     } else {
         if slot <= 32416 {
             if slot <= 32414 {
-// PORT: SOURCE TPI_SEARCH.agc:528
+// TPI_SEARCH.agc:528
 //		TCF	ENDOFJOB
-// PORT: Fixed ROM slots 32414.
+// slot 32414
                 if slot <> 32414 or instruction <> 6799 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -2085,13 +2085,13 @@ function agcAotUnit1830 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 32415 {
-// PORT: SOURCE TPI_SEARCH.agc:529
+// TPI_SEARCH.agc:529
 //		EBANK=	RTRN
-// PORT: SOURCE TPI_SEARCH.agc:530
+// TPI_SEARCH.agc:530
 //
-// PORT: SOURCE TPI_SEARCH.agc:531
+// TPI_SEARCH.agc:531
 //VNCOMP17	EXTEND
-// PORT: Fixed ROM slots 32415.
+// slot 32415
                     if slot <> 32415 or instruction <> 6 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -2099,9 +2099,9 @@ function agcAotUnit1830 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE TPI_SEARCH.agc:532
+// TPI_SEARCH.agc:532
 //		QXCH	QSAVED
-// PORT: Fixed ROM slots 32416.
+// slot 32416
                     if slot <> 32416 or instruction <> 10230 { return choose false if checkOnly else -1. }
                     if extended {
                         if checkOnly { return true. }
@@ -2114,9 +2114,9 @@ function agcAotUnit1830 {
             }
         } else {
             if slot <= 32417 {
-// PORT: SOURCE TPI_SEARCH.agc:533
+// TPI_SEARCH.agc:533
 //		TS	VERBNOUN
-// PORT: Fixed ROM slots 32417.
+// slot 32417
                 if slot <> 32417 or instruction <> 23541 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -2125,9 +2125,9 @@ function agcAotUnit1830 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 32418 {
-// PORT: SOURCE TPI_SEARCH.agc:534
+// TPI_SEARCH.agc:534
 //		CA	VERBNOUN
-// PORT: Fixed ROM slots 32418.
+// slot 32418
                     if slot <> 32418 or instruction <> 13301 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -2137,9 +2137,9 @@ function agcAotUnit1830 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE TPI_SEARCH.agc:535
+// TPI_SEARCH.agc:535
 //		TCR	BANKCALL
-// PORT: Fixed ROM slots 32419.
+// slot 32419
                     if slot <> 32419 or instruction <> 2482 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -2154,20 +2154,20 @@ function agcAotUnit1830 {
 set agcAotRoutes[1830] to agcAotUnit1830@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE TPI_SEARCH.agc:536
+// TPI_SEARCH.agc:536
 //		CADR	GOFLASH
-// PORT: Fixed ROM slots 32420.
+// slot 32420
     32420, 17312
 )).
 
-// PORT: Physical bank 35. Shared continuation entries, slots 32421–32427.
+// bank 35, slots 32421-32427
 function agcAotUnit1831 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 32423 {
         if slot <= 32421 {
-// PORT: SOURCE TPI_SEARCH.agc:537
+// TPI_SEARCH.agc:537
 //		TC	-3			# TERMINATE ILLEGAL REDISPLAY
-// PORT: Fixed ROM slots 32421.
+// slot 32421
             if slot <> 32421 or instruction <> 1698 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -2176,9 +2176,9 @@ function agcAotUnit1831 {
             return choose false if checkOnly else -1.
         } else {
             if slot <= 32422 {
-// PORT: SOURCE TPI_SEARCH.agc:538
+// TPI_SEARCH.agc:538
 //		TC	QSAVED			# PROCEED
-// PORT: Fixed ROM slots 32422.
+// slot 32422
                 if slot <> 32422 or instruction <> 1014 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -2186,9 +2186,9 @@ function agcAotUnit1831 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE TPI_SEARCH.agc:539
+// TPI_SEARCH.agc:539
 //		CS	MPAC			# RECYCLE WITH NEW TPI TIME
-// PORT: Fixed ROM slots 32423.
+// slot 32423
                 if slot <> 32423 or instruction <> 16492 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -2201,9 +2201,9 @@ function agcAotUnit1831 {
     } else {
         if slot <= 32425 {
             if slot <= 32424 {
-// PORT: SOURCE TPI_SEARCH.agc:540
+// TPI_SEARCH.agc:540
 //		AD	BIT6			# OR PROCEED WITH NEW SEARCH OPTION
-// PORT: Fixed ROM slots 32424.
+// slot 32424
                 if slot <> 32424 or instruction <> 27146 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -2215,9 +2215,9 @@ function agcAotUnit1831 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE TPI_SEARCH.agc:541
+// TPI_SEARCH.agc:541
 //		EXTEND
-// PORT: Fixed ROM slots 32425.
+// slot 32425
                 if slot <> 32425 or instruction <> 6 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -2227,11 +2227,11 @@ function agcAotUnit1831 {
             }
         } else {
             if slot <= 32426 {
-// PORT: SOURCE TPI_SEARCH.agc:542
+// TPI_SEARCH.agc:542
 //# Page 561
-// PORT: SOURCE TPI_SEARCH.agc:543
+// TPI_SEARCH.agc:543
 //		BZF	P17.1
-// PORT: Fixed ROM slots 32426.
+// slot 32426
                 if slot <> 32426 or instruction <> 5740 { return choose false if checkOnly else -1. }
                 if extended {
                     if checkOnly { return true. }
@@ -2239,9 +2239,9 @@ function agcAotUnit1831 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE TPI_SEARCH.agc:544
+// TPI_SEARCH.agc:544
 //		TC	VNCOMP17 +3
-// PORT: Fixed ROM slots 32427.
+// slot 32427
                 if slot <> 32427 or instruction <> 1698 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -2255,22 +2255,22 @@ function agcAotUnit1831 {
 set agcAotRoutes[1831] to agcAotUnit1831@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE TPI_SEARCH.agc:545
+// TPI_SEARCH.agc:545
 //ALARUMS		SET	EXIT
-// PORT: Fixed ROM slots 32428.
+// slot 32428
     32428, 65048,
-// PORT: SOURCE TPI_SEARCH.agc:546
+// TPI_SEARCH.agc:546
 //			UPDATFLG
-// PORT: Fixed ROM slots 32429.
+// slot 32429
     32429, 624
 )).
 
-// PORT: Physical bank 35. Shared continuation entries, slots 32430–32430.
+// bank 35, slots 32430-32430
 function agcAotUnit1832 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
-// PORT: SOURCE TPI_SEARCH.agc:547
+// TPI_SEARCH.agc:547
 //		TC	ALARM
-// PORT: Fixed ROM slots 32430.
+// slot 32430
     if slot <> 32430 or instruction <> 2984 { return choose false if checkOnly else -1. }
     if not extended {
         if checkOnly { return true. }
@@ -2281,19 +2281,19 @@ function agcAotUnit1832 {
 set agcAotRoutes[1832] to agcAotUnit1832@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE TPI_SEARCH.agc:548
+// TPI_SEARCH.agc:548
 //		OCT	00124			# NO SAFE PERICENTER IN THIS SECTOR
-// PORT: Fixed ROM slots 32431.
+// slot 32431
     32431, 168
 )).
 
-// PORT: Physical bank 35. Shared continuation entries, slots 32432–32434.
+// bank 35, slots 32432-32434
 function agcAotUnit1833 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 32432 {
-// PORT: SOURCE TPI_SEARCH.agc:549
+// TPI_SEARCH.agc:549
 //		CAF	V05N09
-// PORT: Fixed ROM slots 32432.
+// slot 32432
         if slot <> 32432 or instruction <> 14888 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -2305,9 +2305,9 @@ function agcAotUnit1833 {
         return choose false if checkOnly else -1.
     } else {
         if slot <= 32433 {
-// PORT: SOURCE TPI_SEARCH.agc:550
+// TPI_SEARCH.agc:550
 //		TC	VNCOMP17
-// PORT: Fixed ROM slots 32433.
+// slot 32433
             if slot <> 32433 or instruction <> 1695 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -2315,9 +2315,9 @@ function agcAotUnit1833 {
             }
             return choose false if checkOnly else -1.
         } else {
-// PORT: SOURCE TPI_SEARCH.agc:551
+// TPI_SEARCH.agc:551
 //		TC	GOTOPOOH		# PROCEED ILLEGAL TERMINATE PROGRAM
-// PORT: Fixed ROM slots 32434.
+// slot 32434
             if slot <> 32434 or instruction <> 2118 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -2330,9 +2330,9 @@ function agcAotUnit1833 {
 set agcAotRoutes[1833] to agcAotUnit1833@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE TPI_SEARCH.agc:552
+// TPI_SEARCH.agc:552
 //V06N72		VN	0672
-// PORT: Fixed ROM slots 32435.
+// slot 32435
     32435, 1680
 )).
 

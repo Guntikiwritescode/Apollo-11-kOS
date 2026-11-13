@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-2.0-only. Apollo11 LandingSimulation and Crew.
+// adapted from jweigend/Apollo11 LandingSimulation and Crew (GPL-2.0)
 function wInitCrew {
     parameter dev,dt,get0.
     set dev["dt"] to dt. set dev["get0"] to get0. set dev["tig"] to 0.
@@ -72,8 +72,7 @@ function wAfterStep {
     }
 }
 
-// Before flight the clock advances alone. The caller's advance delegate delivers
-// dev["keys"], clears that queue and runs exactly the supplied number of cycles.
+// before flight only the clock runs. advance sends dev["keys"] and steps the given cycles
 function wSetupType {
     parameter dev,keys,advance.
     from {local i is 0.} until i = keys:length step {set i to i+1.} do {

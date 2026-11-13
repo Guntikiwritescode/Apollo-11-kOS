@@ -1,5 +1,3 @@
-// Original WriteIO data effects. The input scheduler owns external arrival,
-// packet masks, counters and interrupt-producing device callbacks.
 function agcCoreExternalWriteIO {
     parameter words, channel, value.
     local raw is mod(value, 32768).
@@ -23,9 +21,6 @@ function agcCoreExternalWriteIO {
     set words[key] to raw.
 }
 
-// CPU channel-write body. A and the raw L/Q aliases are owned by the opcode.
-// Adapter delegate records ordered logical IO and delivers channel-output only.
-// Module identity and latest raw RHC words are supplied by their providers.
 function agcCoreWriteIO {
     parameter words, channel, raw15, channelAdapter.
     channelAdapter:call(words, "channel-bus", channel, raw15).

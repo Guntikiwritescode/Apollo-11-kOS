@@ -1,8 +1,3 @@
-// Isolated instruction bodies. Fetch, holds, admission, raw Z increment and
-// AllDone are supplied by the shared execution core.
-
-// Native MP always performs FindMemoryWord, including direct register MP.
-// Caller supplies its raw contents and accounts for access and rope parity.
 function agcCoreMp {
     parameter words, address, operandRaw.
     if address < 3 {
@@ -14,8 +9,7 @@ function agcCoreMp {
         return.
     }
 
-    // Switched bank zero may expose a raw register as a memory operand.
-    // Native zero checks use the uncorrected container in this branch.
+    // in bank 0 the operand can be a register
     local accumulator is agcOverflowCorrected(words[0]).
     local negativeZero is (accumulator = 0 and operand = 32767)
         or (accumulator = 32767 and operand = 0).
@@ -24,13 +18,9 @@ function agcCoreMp {
     set words[1] to result.
 }
 
-// DAS resolves the low destination and reads the preceding physical slot.
-// Encoded direct registers use raw width for the appropriate half.
 function agcCoreDas {
     parameter words, lowAddress.
     if lowAddress = 0 {
-        // The native predecessor read is before erasable bank zero here.
-        // No hardware result is established by this development packet.
         return false.
     }
 
@@ -77,8 +67,7 @@ function agcCoreSignedSp {
     return choose raw - 32767 if raw >= 16384 else raw.
 }
 
-// Exceptional DV executes the original 14 restoring decisions on raw words.
-// The caller has already applied direct A/L/Z divisor transformations.
+// DV special case, 14 restoring steps like the original
 function agcCoreDvExceptional {
     parameter words, divisor.
     local high is words[0].
@@ -111,8 +100,6 @@ function agcCoreDvExceptional {
     set words[1] to choose remainder if negativeDividend else 65535 - remainder.
 }
 
-// Caller supplies memory raw bits only for addresses other than A, L, Q and Z,
-// after performing the shared read. No editing writeback occurs.
 function agcCoreDv {
     parameter words, address, operandRaw.
     local high is words[0].
@@ -122,9 +109,6 @@ function agcCoreDv {
     local highValue is agcCoreSignedSp(highWord).
     local lowValue is agcCoreSignedSp(lowWord).
     local dividend is highValue * 16384 + lowValue.
-    // SpToDecent tests the entire signed L container against SP ±0.
-    // In the mixed-sign case, a zero alias outside those two patterns
-    // takes the borrow path, leaving an all-zero low magnitude digit.
     if highValue <> 0 and lowValue = 0 and low <> 0 and low <> 32767
         and (highWord >= 16384) <> (lowWord >= 16384) {
         set dividend to dividend + (choose 16384 if highValue < 0 else -16384).

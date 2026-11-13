@@ -1,4 +1,4 @@
-// PORT: Comanche055 original header.
+// Comanche055:
 // Copyright:	Public domain.
 // Filename:	SINGLE_PRECISION_SUBROUTINES.agc
 // Purpose:	Part of the source code for Colossus 2A, AKA Comanche 055.
@@ -29,7 +29,7 @@
 //			Colossus 2A
 // Page 1207
 // SINGLE PRECISION SINE AND COSINE
-// PORT: Luminary099 original header.
+// Luminary099:
 // Copyright:	Public domain.
 // Filename:	SINGLE_PRECISION_SUBROUTINES.agc
 // Purpose: 	Part of the source code for Luminary 1A build 099.
@@ -142,7 +142,7 @@ function agcPolley {
     }
 }
 
-// PORT: MP with a memory operand as used by POLLEY.
+// MP with a memory operand, as POLLEY uses it.
 function agcSpTrigMp {
     parameter words, operand.
     local leftWord is agcOverflowCorrected(words[0]).
@@ -163,7 +163,7 @@ function agcSpTrigMp {
 
 // SPROOT WAS DELETED IN REV 51 OF MASTER. ASS. CONT. HAS CARDS.
 
-// PORT: Comanche055 original header.
+// Comanche055:
 // Copyright:	Public domain.
 // Filename:	SINGLE_PRECISION_SUBROUTINES.agc
 // Purpose:	Part of the source code for Colossus 2A, AKA Comanche 055.
@@ -194,7 +194,7 @@ function agcSpTrigMp {
 //			Colossus 2A
 // Page 1207
 // SINGLE PRECISION SINE AND COSINE
-// PORT: Luminary099 original header.
+// Luminary099:
 // Copyright:	Public domain.
 // Filename:	SINGLE_PRECISION_SUBROUTINES.agc
 // Purpose: 	Part of the source code for Luminary 1A build 099.
@@ -328,7 +328,7 @@ function agcPolleyTimed {
     return choose 33 if stored[2] = 1 else 29.
 }
 
-// PORT: MP with a memory operand as used by POLLEY.
+// MP with a memory operand, as POLLEY uses it.
 
 
 // SPROOT WAS DELETED IN REV 51 OF MASTER. ASS. CONT. HAS CARDS.

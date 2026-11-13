@@ -1,5 +1,4 @@
-// Install after loading the generated registry and units for the current rope.
-// Disabled body keys are 2 * physical slot + (0 basic, 1 extended).
+// disabled keys: 2 * slot + (0 basic, 1 extended)
 function agcFastEnable {
     parameter words, disabled.
     set words["disabledDirectBodies"] to disabled.
@@ -21,8 +20,7 @@ function agcFastSelect {
     }
     local unit is cache[slot].
     if unit:istype("Boolean") { return false. }
-    // Dispatch guards test the raw instruction, entry mode and live operands.
-    // Only the physical slot's unit is cached. A guard may change at any MCT.
+    // caches the lookup only
     if not unit:call(words, slot, instruction, extended, true, 0, 0, 0, 0) { return false. }
     return unit.
 }

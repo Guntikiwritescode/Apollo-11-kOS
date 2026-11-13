@@ -1,4 +1,4 @@
-// One rigid KSP vessel, stock gravity, stock terrain contact. kOS supplies force commands.
+// lander is one rigid body: KSP does gravity and ground contact, kOS sends the forces
 using System;
 using System.Globalization;
 using System.Reflection;
@@ -12,8 +12,7 @@ using kOS.Safe.Encapsulation.Suffixes;
 [assembly: KSPAssemblyDependency("kOS", 1, 6)]
 [assembly: KSPAssemblyDependency("kOS.Safe", 0, 0)]
 
-// Publish the completed sensor sample before kOS runs. Apply the last command
-// after kOS runs, so the instruction budget fall inside the same window.
+// sample the sensors before kOS runs and apply its command after
 [DefaultExecutionOrder(-30000)]
 public sealed class ApolloLandingSampler : MonoBehaviour {
     internal ApolloLandingHardware hardware;
@@ -125,8 +124,7 @@ public sealed class ApolloLandingHardware : PartModule
         body.angularDrag=0;
     }
     void HoldEntry() {
-        // Reuse only the saved orbit and surface-relative quaternion. Phase stays
-        // at its saved epoch during port loading. Longitude is arbitrary on the sphere.
+        // hold the lander at the saved orbit and attitude until the flight starts
         var moon=vessel.mainBody;
         var pos=entryOrbit.getRelativePositionAtUT(entryOrbit.epoch).xzy;
         var velocity=entryOrbit.getOrbitalVelocityAtUT(entryOrbit.epoch).xzy;
@@ -182,7 +180,7 @@ public sealed class ApolloLandingHardware : PartModule
         var times=(ListValue)cmd[4];
         if (times.Count!=16 || thrust<0 || thrust>43.905 || Math.Abs(pitch)>0.104721 ||
             Math.Abs(roll)>0.104721) throw new ArgumentOutOfRangeException("actuator command");
-        // lm.py uses [cos(p)cos(r),-sin(r),sin(p)] in its body axes.
+        // same thrust axes as Apollo11's lm.py: [cos(p)cos(r), -sin(r), sin(p)]
         nextForce=(float)thrust*new Vector3((float)-Math.Sin(roll),
                  (float)(Math.Cos(pitch)*Math.Cos(roll)),(float)Math.Sin(pitch));
         var root=part.transform;
@@ -206,7 +204,7 @@ public sealed class ApolloLandingHardware : PartModule
             Pace(); Inertia();
             if (!running) { HoldEntry(); Measure(); return; }
             if (vessel.LandedOrSplashed || vessel.parts.Any(p=>p.GroundContact)) { Measure(); Stop("Contact"); return; }
-            // Apply the completed AGC command for this 20 ms physics tick.
+            // apply the AGC's command for this 20 ms tick
             Vector3 f=frameAtt*localForce, tau=frameAtt*localTorque;
             if (tick==0) {
                 if (!pending) { Stop("AGC missed the physics-tick deadline"); return; }

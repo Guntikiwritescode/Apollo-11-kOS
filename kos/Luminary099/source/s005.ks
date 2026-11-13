@@ -1,84 +1,84 @@
-// PORT: Original source unit ASCENT_GUIDANCE.agc.
-// PORT: Physical bank 34. Shared continuation entries, slots 31650–31650.
+// ASCENT_GUIDANCE.agc
+// bank 34, slots 31650-31650
 function agcAotUnit2002 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
-// PORT: SOURCE ASCENT_GUIDANCE.agc:1
+// ASCENT_GUIDANCE.agc:1
 //# Copyright:	Public domain.
-// PORT: SOURCE ASCENT_GUIDANCE.agc:2
+// ASCENT_GUIDANCE.agc:2
 //# Filename:	ASCENT_GUIDANCE.agc
-// PORT: SOURCE ASCENT_GUIDANCE.agc:3
+// ASCENT_GUIDANCE.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
-// PORT: SOURCE ASCENT_GUIDANCE.agc:4
+// ASCENT_GUIDANCE.agc:4
 //#		It is part of the source code for the Lunar Module's (LM)
-// PORT: SOURCE ASCENT_GUIDANCE.agc:5
+// ASCENT_GUIDANCE.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
-// PORT: SOURCE ASCENT_GUIDANCE.agc:6
+// ASCENT_GUIDANCE.agc:6
 //# Assembler:	yaYUL
-// PORT: SOURCE ASCENT_GUIDANCE.agc:7
+// ASCENT_GUIDANCE.agc:7
 //# Contact:	Hartmuth Gutsche <hgutsche@xplornet.com>.
-// PORT: SOURCE ASCENT_GUIDANCE.agc:8
+// ASCENT_GUIDANCE.agc:8
 //# Website:	www.ibiblio.org/apollo.
-// PORT: SOURCE ASCENT_GUIDANCE.agc:9
+// ASCENT_GUIDANCE.agc:9
 //# Pages:	843-856
-// PORT: SOURCE ASCENT_GUIDANCE.agc:10
+// ASCENT_GUIDANCE.agc:10
 //# Mod history:	2009-05-23 HG	Transcribed from page images.
-// PORT: SOURCE ASCENT_GUIDANCE.agc:11
+// ASCENT_GUIDANCE.agc:11
 //#		2009-06-05 RSB	Fixed a couple of typos.
-// PORT: SOURCE ASCENT_GUIDANCE.agc:12
+// ASCENT_GUIDANCE.agc:12
 //#		2009-06-07 RSB	Corrected a typo.
-// PORT: SOURCE ASCENT_GUIDANCE.agc:13
+// ASCENT_GUIDANCE.agc:13
 //#
-// PORT: SOURCE ASCENT_GUIDANCE.agc:14
+// ASCENT_GUIDANCE.agc:14
 //# This source code has been transcribed or otherwise adapted from
-// PORT: SOURCE ASCENT_GUIDANCE.agc:15
+// ASCENT_GUIDANCE.agc:15
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
-// PORT: SOURCE ASCENT_GUIDANCE.agc:16
+// ASCENT_GUIDANCE.agc:16
 //# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
-// PORT: SOURCE ASCENT_GUIDANCE.agc:17
+// ASCENT_GUIDANCE.agc:17
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
-// PORT: SOURCE ASCENT_GUIDANCE.agc:18
+// ASCENT_GUIDANCE.agc:18
 //# in storage size and consequent reduction in image quality as well) are
-// PORT: SOURCE ASCENT_GUIDANCE.agc:19
+// ASCENT_GUIDANCE.agc:19
 //# available online at www.ibiblio.org/apollo.  If for some reason you
-// PORT: SOURCE ASCENT_GUIDANCE.agc:20
+// ASCENT_GUIDANCE.agc:20
 //# find that the images are illegible, contact me at info@sandroid.org
-// PORT: SOURCE ASCENT_GUIDANCE.agc:21
+// ASCENT_GUIDANCE.agc:21
 //# about getting access to the (much) higher-quality images which Paul
-// PORT: SOURCE ASCENT_GUIDANCE.agc:22
+// ASCENT_GUIDANCE.agc:22
 //# actually created.
-// PORT: SOURCE ASCENT_GUIDANCE.agc:23
+// ASCENT_GUIDANCE.agc:23
 //#
-// PORT: SOURCE ASCENT_GUIDANCE.agc:24
+// ASCENT_GUIDANCE.agc:24
 //# Notations on the hardcopy document read, in part:
-// PORT: SOURCE ASCENT_GUIDANCE.agc:25
+// ASCENT_GUIDANCE.agc:25
 //#
-// PORT: SOURCE ASCENT_GUIDANCE.agc:26
+// ASCENT_GUIDANCE.agc:26
 //#	Assemble revision 001 of AGC program LMY99 by NASA 2021112-061
-// PORT: SOURCE ASCENT_GUIDANCE.agc:27
+// ASCENT_GUIDANCE.agc:27
 //#	16:27 JULY 14, 1969
-// PORT: SOURCE ASCENT_GUIDANCE.agc:28
+// ASCENT_GUIDANCE.agc:28
 //
-// PORT: SOURCE ASCENT_GUIDANCE.agc:29
+// ASCENT_GUIDANCE.agc:29
 //# Page 843
-// PORT: SOURCE ASCENT_GUIDANCE.agc:30
+// ASCENT_GUIDANCE.agc:30
 //		BANK	34
-// PORT: SOURCE ASCENT_GUIDANCE.agc:31
+// ASCENT_GUIDANCE.agc:31
 //		SETLOC	ASCFILT
-// PORT: SOURCE ASCENT_GUIDANCE.agc:32
+// ASCENT_GUIDANCE.agc:32
 //		BANK
-// PORT: SOURCE ASCENT_GUIDANCE.agc:33
+// ASCENT_GUIDANCE.agc:33
 //
-// PORT: SOURCE ASCENT_GUIDANCE.agc:34
+// ASCENT_GUIDANCE.agc:34
 //		EBANK=	DVCNTR
-// PORT: SOURCE ASCENT_GUIDANCE.agc:35
+// ASCENT_GUIDANCE.agc:35
 //
-// PORT: SOURCE ASCENT_GUIDANCE.agc:36
+// ASCENT_GUIDANCE.agc:36
 //		COUNT*	$$/ASENT
-// PORT: SOURCE ASCENT_GUIDANCE.agc:37
+// ASCENT_GUIDANCE.agc:37
 //
-// PORT: SOURCE ASCENT_GUIDANCE.agc:38
+// ASCENT_GUIDANCE.agc:38
 //ATMAG		TC	PHASCHNG
-// PORT: Fixed ROM slots 31650.
+// slot 31650
     if slot <> 31650 or instruction <> 2795 { return choose false if checkOnly else -1. }
     if not extended {
         if checkOnly { return true. }
@@ -89,18 +89,18 @@ function agcAotUnit2002 {
 set agcAotRoutes[2002] to agcAotUnit2002@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE ASCENT_GUIDANCE.agc:39
+// ASCENT_GUIDANCE.agc:39
 //		OCT	00035
-// PORT: Fixed ROM slots 31651.
+// slot 31651
     31651, 58
 )).
 
-// PORT: Physical bank 34. Shared continuation entries, slots 31652–31652.
+// bank 34, slots 31652-31652
 function agcAotUnit2003 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
-// PORT: SOURCE ASCENT_GUIDANCE.agc:40
+// ASCENT_GUIDANCE.agc:40
 //		TC	INTPRET
-// PORT: Fixed ROM slots 31652.
+// slot 31652
     if slot <> 31652 or instruction <> 3103 { return choose false if checkOnly else -1. }
     if not extended {
         if checkOnly { return true. }
@@ -111,72 +111,72 @@ function agcAotUnit2003 {
 set agcAotRoutes[2003] to agcAotUnit2003@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE ASCENT_GUIDANCE.agc:41
+// ASCENT_GUIDANCE.agc:41
 //		BON
-// PORT: Fixed ROM slots 31653.
+// slot 31653
     31653, 65304,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:42
+// ASCENT_GUIDANCE.agc:42
 //			FLRCS
-// PORT: Fixed ROM slots 31654.
+// slot 31654
     31654, 5002,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:43
+// ASCENT_GUIDANCE.agc:43
 //			ASCENT
-// PORT: Fixed ROM slots 31655.
+// slot 31655
     31655, 49570,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:44
+// ASCENT_GUIDANCE.agc:44
 //		DLOAD	DSU
-// PORT: Fixed ROM slots 31656.
+// slot 31656
     31656, 38346,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:45
+// ASCENT_GUIDANCE.agc:45
 //			ABDVCONV
-// PORT: Fixed ROM slots 31657.
+// slot 31657
     31657, 3736,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:46
+// ASCENT_GUIDANCE.agc:46
 //			MINABDV
-// PORT: Fixed ROM slots 31658.
+// slot 31658
     31658, 22794,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:47
+// ASCENT_GUIDANCE.agc:47
 //		BMN	CLEAR
-// PORT: Fixed ROM slots 31659.
+// slot 31659
     31659, 35904,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:48
+// ASCENT_GUIDANCE.agc:48
 //			ASCTERM4
-// PORT: Fixed ROM slots 31660.
+// slot 31660
     31660, 50128,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:49
+// ASCENT_GUIDANCE.agc:49
 //			SURFFLAG
-// PORT: Fixed ROM slots 31661.
+// slot 31661
     31661, 4462,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:50
+// ASCENT_GUIDANCE.agc:50
 //		CLEAR	SLOAD
-// PORT: Fixed ROM slots 31662.
+// slot 31662
     31662, 56600,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:51
+// ASCENT_GUIDANCE.agc:51
 //			RENDWFLG
-// PORT: Fixed ROM slots 31663.
+// slot 31663
     31663, 2940,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:52
+// ASCENT_GUIDANCE.agc:52
 //			BIT3H
-// PORT: Fixed ROM slots 31664.
+// slot 31664
     31664, 26524,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:53
+// ASCENT_GUIDANCE.agc:53
 //		DDV	EXIT
-// PORT: Fixed ROM slots 31665.
+// slot 31665
     31665, 65138,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:54
+// ASCENT_GUIDANCE.agc:54
 //			ABDVCONV
-// PORT: Fixed ROM slots 31666.
+// slot 31666
     31666, 3736
 )).
 
-// PORT: Physical bank 34. Shared continuation entries, slots 31667–31672.
+// bank 34, slots 31667-31672
 function agcAotUnit2004 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 31669 {
         if slot <= 31667 {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:55
+// ASCENT_GUIDANCE.agc:55
 //		DXCH	MPAC
-// PORT: Fixed ROM slots 31667.
+// slot 31667
             if slot <> 31667 or instruction <> 21613 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -186,9 +186,9 @@ function agcAotUnit2004 {
             return choose false if checkOnly else -1.
         } else {
             if slot <= 31668 {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:56
+// ASCENT_GUIDANCE.agc:56
 //		DXCH	1/DV3
-// PORT: Fixed ROM slots 31668.
+// slot 31668
                 if slot <> 31668 or instruction <> 22433 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -197,9 +197,9 @@ function agcAotUnit2004 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:57
+// ASCENT_GUIDANCE.agc:57
 //		DXCH	1/DV2
-// PORT: Fixed ROM slots 31669.
+// slot 31669
                 if slot <> 31669 or instruction <> 22431 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -211,9 +211,9 @@ function agcAotUnit2004 {
         }
     } else {
         if slot <= 31670 {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:58
+// ASCENT_GUIDANCE.agc:58
 //		DXCH	1/DV1
-// PORT: Fixed ROM slots 31670.
+// slot 31670
             if slot <> 31670 or instruction <> 22429 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -223,9 +223,9 @@ function agcAotUnit2004 {
             return choose false if checkOnly else -1.
         } else {
             if slot <= 31671 {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:59
+// ASCENT_GUIDANCE.agc:59
 //		DXCH	1/DV0
-// PORT: Fixed ROM slots 31671.
+// slot 31671
                 if slot <> 31671 or instruction <> 22393 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -234,9 +234,9 @@ function agcAotUnit2004 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:60
+// ASCENT_GUIDANCE.agc:60
 //		TC	INTPRET
-// PORT: Fixed ROM slots 31672.
+// slot 31672
                 if slot <> 31672 or instruction <> 3103 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -250,1160 +250,1160 @@ function agcAotUnit2004 {
 set agcAotRoutes[2004] to agcAotUnit2004@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE ASCENT_GUIDANCE.agc:61
+// ASCENT_GUIDANCE.agc:61
 //		DLOAD	DAD
-// PORT: Fixed ROM slots 31673.
+// slot 31673
     31673, 36298,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:62
+// ASCENT_GUIDANCE.agc:62
 //			1/DV0
-// PORT: Fixed ROM slots 31674.
+// slot 31674
     31674, 3826,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:63
+// ASCENT_GUIDANCE.agc:63
 //			1/DV1
-// PORT: Fixed ROM slots 31675.
+// slot 31675
     31675, 3898,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:64
+// ASCENT_GUIDANCE.agc:64
 //		DAD	DAD
-// PORT: Fixed ROM slots 31676.
+// slot 31676
     31676, 36122,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:65
+// ASCENT_GUIDANCE.agc:65
 //			1/DV2
-// PORT: Fixed ROM slots 31677.
+// slot 31677
     31677, 3902,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:66
+// ASCENT_GUIDANCE.agc:66
 //			1/DV3
-// PORT: Fixed ROM slots 31678.
+// slot 31678
     31678, 3906,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:67
+// ASCENT_GUIDANCE.agc:67
 //		DMP	DMP
-// PORT: Fixed ROM slots 31679.
+// slot 31679
     31679, 34058,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:68
+// ASCENT_GUIDANCE.agc:68
 //			VE
-// PORT: Fixed ROM slots 31680.
+// slot 31680
     31680, 2410,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:69
+// ASCENT_GUIDANCE.agc:69
 //			2SEC(9)
-// PORT: Fixed ROM slots 31681.
+// slot 31681
     31681, 17460,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:70
+// ASCENT_GUIDANCE.agc:70
 //		SL3	PDDL
-// PORT: Fixed ROM slots 31682.
+// slot 31682
     31682, 54612,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:71
+// ASCENT_GUIDANCE.agc:71
 //			TBUP
-// PORT: Fixed ROM slots 31683.
+// slot 31683
     31683, 2418,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:72
+// ASCENT_GUIDANCE.agc:72
 //		SR1	DAD
-// PORT: Fixed ROM slots 31684.
+// slot 31684
     31684, 36292,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:73
+// ASCENT_GUIDANCE.agc:73
 //		DSU
-// PORT: Fixed ROM slots 31685.
+// slot 31685
     31685, 65322,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:74
+// ASCENT_GUIDANCE.agc:74
 //			6SEC(18)
-// PORT: Fixed ROM slots 31686.
+// slot 31686
     31686, 17454,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:75
+// ASCENT_GUIDANCE.agc:75
 //		STODL	TBUP
-// PORT: Fixed ROM slots 31687.
+// slot 31687
     31687, 14706,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:76
+// ASCENT_GUIDANCE.agc:76
 //			VE
-// PORT: Fixed ROM slots 31688.
+// slot 31688
     31688, 2410,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:77
+// ASCENT_GUIDANCE.agc:77
 //		SR1	DDV
-// PORT: Fixed ROM slots 31689.
+// slot 31689
     31689, 47556,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:78
+// ASCENT_GUIDANCE.agc:78
 //			TBUP
-// PORT: Fixed ROM slots 31690.
+// slot 31690
     31690, 2418,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:79
+// ASCENT_GUIDANCE.agc:79
 //		STCALL	AT
-// PORT: Fixed ROM slots 31691.
+// slot 31691
     31691, 31078,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:80
+// ASCENT_GUIDANCE.agc:80
 //# Page 844
-// PORT: SOURCE ASCENT_GUIDANCE.agc:81
+// ASCENT_GUIDANCE.agc:81
 //			ASCENT
-// PORT: Fixed ROM slots 31692.
+// slot 31692
     31692, 49570,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:82
+// ASCENT_GUIDANCE.agc:82
 //BIT3H		OCT	4
-// PORT: Fixed ROM slots 31693.
+// slot 31693
     31693, 8,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:83
+// ASCENT_GUIDANCE.agc:83
 //
-// PORT: SOURCE ASCENT_GUIDANCE.agc:84
+// ASCENT_GUIDANCE.agc:84
 //# Page 845
-// PORT: SOURCE ASCENT_GUIDANCE.agc:85
+// ASCENT_GUIDANCE.agc:85
 //		BANK	30
-// PORT: SOURCE ASCENT_GUIDANCE.agc:86
+// ASCENT_GUIDANCE.agc:86
 //		SETLOC	ASENT
-// PORT: SOURCE ASCENT_GUIDANCE.agc:87
+// ASCENT_GUIDANCE.agc:87
 //		BANK
-// PORT: SOURCE ASCENT_GUIDANCE.agc:88
+// ASCENT_GUIDANCE.agc:88
 //		COUNT*	$$/ASENT
-// PORT: SOURCE ASCENT_GUIDANCE.agc:89
+// ASCENT_GUIDANCE.agc:89
 //
-// PORT: SOURCE ASCENT_GUIDANCE.agc:90
+// ASCENT_GUIDANCE.agc:90
 //ASCENT		VLOAD	ABVAL
-// PORT: Fixed ROM slots 26833.
+// slot 26833
     26833, 42746,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:91
+// ASCENT_GUIDANCE.agc:91
 //			R
-// PORT: Fixed ROM slots 26834.
+// slot 26834
     26834, 3746,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:92
+// ASCENT_GUIDANCE.agc:92
 //		STOVL	/R/MAG
-// PORT: Fixed ROM slots 26835.
+// slot 26835
     26835, 22914,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:93
+// ASCENT_GUIDANCE.agc:93
 //			ZAXIS1
-// PORT: Fixed ROM slots 26836.
+// slot 26836
     26836, 4012,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:94
+// ASCENT_GUIDANCE.agc:94
 //		DOT	SL1
-// PORT: Fixed ROM slots 26837.
+// slot 26837
     26837, 59970,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:95
+// ASCENT_GUIDANCE.agc:95
 //			V		# Z.V = ZDOT*2(-8).
-// PORT: Fixed ROM slots 26838.
+// slot 26838
     26838, 3758,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:96
+// ASCENT_GUIDANCE.agc:96
 //		STOVL	ZDOT		# ZDOT*2(-7)
-// PORT: Fixed ROM slots 26839.
+// slot 26839
     26839, 22934,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:97
+// ASCENT_GUIDANCE.agc:97
 //			ZAXIS1
-// PORT: Fixed ROM slots 26840.
+// slot 26840
     26840, 4012,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:98
+// ASCENT_GUIDANCE.agc:98
 //		VXV	VSL1
-// PORT: Fixed ROM slots 26841.
+// slot 26841
     26841, 64058,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:99
+// ASCENT_GUIDANCE.agc:99
 //			UNIT/R/		# Z X UR = LAXIS*2(-2)
-// PORT: Fixed ROM slots 26842.
+// slot 26842
     26842, 3774,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:100
+// ASCENT_GUIDANCE.agc:100
 //		STORE	LAXIS		# LAXIS*2(-1)
-// PORT: Fixed ROM slots 26843.
+// slot 26843
     26843, 2438,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:101
+// ASCENT_GUIDANCE.agc:101
 //		DOT	SL1
-// PORT: Fixed ROM slots 26844.
+// slot 26844
     26844, 59970,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:102
+// ASCENT_GUIDANCE.agc:102
 //			V		# L.V = YDOT*2(-8).
-// PORT: Fixed ROM slots 26845.
+// slot 26845
     26845, 3758,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:103
+// ASCENT_GUIDANCE.agc:103
 //		STCALL	YDOT		# YDOT * 2(-7)
-// PORT: Fixed ROM slots 26846.
+// slot 26846
     26846, 31122,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:104
+// ASCENT_GUIDANCE.agc:104
 //			YCOMP
-// PORT: Fixed ROM slots 26847.
+// slot 26847
     26847, 48532,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:105
+// ASCENT_GUIDANCE.agc:105
 //		VLOAD
-// PORT: Fixed ROM slots 26848.
+// slot 26848
     26848, 65530,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:106
+// ASCENT_GUIDANCE.agc:106
 //			GDT1/2		# LOAD GDT1/2*2(-7) M/CS.
-// PORT: Fixed ROM slots 26849.
+// slot 26849
     26849, 3814,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:107
+// ASCENT_GUIDANCE.agc:107
 //		V/SC	DOT
-// PORT: Fixed ROM slots 26850.
+// slot 26850
     26850, 41410,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:108
+// ASCENT_GUIDANCE.agc:108
 //			2SEC(18)
-// PORT: Fixed ROM slots 26851.
+// slot 26851
     26851, 23758,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:109
+// ASCENT_GUIDANCE.agc:109
 //			UNIT/R/		# G.UR*2(9) = GR*2(9).
-// PORT: Fixed ROM slots 26852.
+// slot 26852
     26852, 3774,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:110
+// ASCENT_GUIDANCE.agc:110
 //		PDVL	VXV		# STORE IN PDL(0)
-// PORT: Fixed ROM slots 26853.
+// slot 26853
     26853, 40346,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:111
+// ASCENT_GUIDANCE.agc:111
 //			UNIT/R/		# LOAD UNIT/R/ *2(-1)
-// PORT: Fixed ROM slots 26854.
+// slot 26854
     26854, 3774,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:112
+// ASCENT_GUIDANCE.agc:112
 //			V		# UR*2(-1) X V*2(-7) = H/R*2(-8).
-// PORT: Fixed ROM slots 26855.
+// slot 26855
     26855, 3758,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:113
+// ASCENT_GUIDANCE.agc:113
 //		VSQ	DDV		# H(2)/R(2)*2(-16).
-// PORT: Fixed ROM slots 26856.
+// slot 26856
     26856, 47420,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:114
+// ASCENT_GUIDANCE.agc:114
 //			/R/MAG		# H(2)/R(3)*2(9).
-// PORT: Fixed ROM slots 26857.
+// slot 26857
     26857, 2434,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:115
+// ASCENT_GUIDANCE.agc:115
 //		SL1	DAD
-// PORT: Fixed ROM slots 26858.
+// slot 26858
     26858, 36308,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:116
+// ASCENT_GUIDANCE.agc:116
 //		STADR
-// PORT: Fixed ROM slots 26859.
+// slot 26859
     26859, 65324,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:117
+// ASCENT_GUIDANCE.agc:117
 //		STODL	GEFF		# GEFF*2(10)m/CS/CS.
-// PORT: Fixed ROM slots 26860.
+// slot 26860
     26860, 50788,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:118
+// ASCENT_GUIDANCE.agc:118
 //			ZDOTD
-// PORT: Fixed ROM slots 26861.
+// slot 26861
     26861, 2430,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:119
+// ASCENT_GUIDANCE.agc:119
 //		DSU
-// PORT: Fixed ROM slots 26862.
+// slot 26862
     26862, 65322,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:120
+// ASCENT_GUIDANCE.agc:120
 //			ZDOT
-// PORT: Fixed ROM slots 26863.
+// slot 26863
     26863, 2454,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:121
+// ASCENT_GUIDANCE.agc:121
 //		STORE	DZDOT		# DZDOT = (ZDOTD - ZDOT) * 2(7) M/CS.
-// PORT: Fixed ROM slots 26864.
+// slot 26864
     26864, 2502,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:122
+// ASCENT_GUIDANCE.agc:122
 //		VXSC	PDDL
-// PORT: Fixed ROM slots 26865.
+// slot 26865
     26865, 54754,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:123
+// ASCENT_GUIDANCE.agc:123
 //			ZAXIS1
-// PORT: Fixed ROM slots 26866.
+// slot 26866
     26866, 4012,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:124
+// ASCENT_GUIDANCE.agc:124
 //			YDOTD
-// PORT: Fixed ROM slots 26867.
+// slot 26867
     26867, 2426,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:125
+// ASCENT_GUIDANCE.agc:125
 //		DSU
-// PORT: Fixed ROM slots 26868.
+// slot 26868
     26868, 65322,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:126
+// ASCENT_GUIDANCE.agc:126
 //			YDOT
-// PORT: Fixed ROM slots 26869.
+// slot 26869
     26869, 2450,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:127
+// ASCENT_GUIDANCE.agc:127
 //		STORE	DYDOT		# DYDOT = (YDOTD - YDOT) *2(7) M/CS.
-// PORT: Fixed ROM slots 26870.
+// slot 26870
     26870, 2498,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:128
+// ASCENT_GUIDANCE.agc:128
 //		VXSC	PDDL
-// PORT: Fixed ROM slots 26871.
+// slot 26871
     26871, 54754,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:129
+// ASCENT_GUIDANCE.agc:129
 //			LAXIS
-// PORT: Fixed ROM slots 26872.
+// slot 26872
     26872, 2438,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:130
+// ASCENT_GUIDANCE.agc:130
 //			RDOTD
-// PORT: Fixed ROM slots 26873.
+// slot 26873
     26873, 2422,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:131
+// ASCENT_GUIDANCE.agc:131
 //# Page 846
-// PORT: SOURCE ASCENT_GUIDANCE.agc:132
+// ASCENT_GUIDANCE.agc:132
 //		DSU
-// PORT: Fixed ROM slots 26874.
+// slot 26874
     26874, 65322,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:133
+// ASCENT_GUIDANCE.agc:133
 //			RDOT
-// PORT: Fixed ROM slots 26875.
+// slot 26875
     26875, 3704,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:134
+// ASCENT_GUIDANCE.agc:134
 //		STORE	DRDOT		# DRDOT = (RDOTD - RDOT) * 2(7) M/CS.
-// PORT: Fixed ROM slots 26876.
+// slot 26876
     26876, 2494,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:135
+// ASCENT_GUIDANCE.agc:135
 //		VXSC	VAD
-// PORT: Fixed ROM slots 26877.
+// slot 26877
     26877, 44514,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:136
+// ASCENT_GUIDANCE.agc:136
 //			UNIT/R/
-// PORT: Fixed ROM slots 26878.
+// slot 26878
     26878, 3774,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:137
+// ASCENT_GUIDANCE.agc:137
 //		VAD	VSL1
-// PORT: Fixed ROM slots 26879.
+// slot 26879
     26879, 64090,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:138
+// ASCENT_GUIDANCE.agc:138
 //		STADR
-// PORT: Fixed ROM slots 26880.
+// slot 26880
     26880, 65324,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:139
+// ASCENT_GUIDANCE.agc:139
 //		STORE	VGVECT		# VG = (DRDOT)R + (DVDOT)L + (DZDOT)Z.
-// PORT: Fixed ROM slots 26881.
+// slot 26881
     26881, 61618,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:140
+// ASCENT_GUIDANCE.agc:140
 //		DLOAD	DMP		# LOAD TGO
-// PORT: Fixed ROM slots 26882.
+// slot 26882
     26882, 34250,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:141
+// ASCENT_GUIDANCE.agc:141
 //			TGO		# TGO GEFF
-// PORT: Fixed ROM slots 26883.
+// slot 26883
     26883, 3742,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:142
+// ASCENT_GUIDANCE.agc:142
 //			GEFF
-// PORT: Fixed ROM slots 26884.
+// slot 26884
     26884, 2458,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:143
+// ASCENT_GUIDANCE.agc:143
 //		VXSC	VSL1
-// PORT: Fixed ROM slots 26885.
+// slot 26885
     26885, 64226,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:144
+// ASCENT_GUIDANCE.agc:144
 //			UNIT/R/		# TGO GEFF UR
-// PORT: Fixed ROM slots 26886.
+// slot 26886
     26886, 3774,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:145
+// ASCENT_GUIDANCE.agc:145
 //		BVSU
-// PORT: Fixed ROM slots 26887.
+// slot 26887
     26887, 65354,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:146
+// ASCENT_GUIDANCE.agc:146
 //			VGVECT		# COMPENSATED FOR GEFF
-// PORT: Fixed ROM slots 26888.
+// slot 26888
     26888, 3916,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:147
+// ASCENT_GUIDANCE.agc:147
 //		STORE	VGVECT		# STORE FOR DOWNLINK
-// PORT: Fixed ROM slots 26889.
+// slot 26889
     26889, 3916,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:148
+// ASCENT_GUIDANCE.agc:148
 //		MXV	VSL1		# GET VGBODY FOR N85 DISPLAY
-// PORT: Fixed ROM slots 26890.
+// slot 26890
     26890, 64162,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:149
+// ASCENT_GUIDANCE.agc:149
 //			XNBPIP
-// PORT: Fixed ROM slots 26891.
+// slot 26891
     26891, 2252,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:150
+// ASCENT_GUIDANCE.agc:150
 //		STOVL	VGBODY
-// PORT: Fixed ROM slots 26892.
+// slot 26892
     26892, 24196,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:151
+// ASCENT_GUIDANCE.agc:151
 //			VGVECT
-// PORT: Fixed ROM slots 26893.
+// slot 26893
     26893, 3916,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:152
+// ASCENT_GUIDANCE.agc:152
 //		ABVAL	BOFF		# MAGNITUDE OF VGVECT
-// PORT: Fixed ROM slots 26894.
+// slot 26894
     26894, 35916,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:153
+// ASCENT_GUIDANCE.agc:153
 //			FLRCS		# IF FLRCS=0,D0 NORMAL GUIDANCE
-// PORT: Fixed ROM slots 26895.
+// slot 26895
     26895, 5066,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:154
+// ASCENT_GUIDANCE.agc:154
 //			MAINENG
-// PORT: Fixed ROM slots 26896.
+// slot 26896
     26896, 49706,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:155
+// ASCENT_GUIDANCE.agc:155
 //		DDV			# USE TGO=VG/AT WITH RCS
-// PORT: Fixed ROM slots 26897.
+// slot 26897
     26897, 65394,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:156
+// ASCENT_GUIDANCE.agc:156
 //			AT/RCS
-// PORT: Fixed ROM slots 26898.
+// slot 26898
     26898, 16386,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:157
+// ASCENT_GUIDANCE.agc:157
 //		STCALL	TGO		# THIS WILL BE USED ON NEXT CYCLE
-// PORT: Fixed ROM slots 26899.
+// slot 26899
     26899, 32414,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:158
+// ASCENT_GUIDANCE.agc:158
 //			ASCTERM2
-// PORT: Fixed ROM slots 26900.
+// slot 26900
     26900, 50124,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:159
+// ASCENT_GUIDANCE.agc:159
 //MAINENG		DDV	PUSH		# VG/VE IN PDL(0)		(2)
-// PORT: Fixed ROM slots 26901.
+// slot 26901
     26901, 34418,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:160
+// ASCENT_GUIDANCE.agc:160
 //			VE
-// PORT: Fixed ROM slots 26902.
+// slot 26902
     26902, 2410,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:161
+// ASCENT_GUIDANCE.agc:161
 //		DMP	BDSU		# 1 - KT VG/VE
-// PORT: Fixed ROM slots 26903.
+// slot 26903
     26903, 37130,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:162
+// ASCENT_GUIDANCE.agc:162
 //			KT1
-// PORT: Fixed ROM slots 26904.
+// slot 26904
     26904, 22786,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:163
+// ASCENT_GUIDANCE.agc:163
 //			NEARONE
-// PORT: Fixed ROM slots 26905.
+// slot 26905
     26905, 16370,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:164
+// ASCENT_GUIDANCE.agc:164
 //		DMP	DMP		# TBUP VG(1-KT VG/VE)/VE	(0)
-// PORT: Fixed ROM slots 26906.
+// slot 26906
     26906, 34058,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:165
+// ASCENT_GUIDANCE.agc:165
 //			TBUP		# 	= TGO
-// PORT: Fixed ROM slots 26907.
+// slot 26907
     26907, 2418,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:166
+// ASCENT_GUIDANCE.agc:166
 //		DSU			# COMPENSATE FOR TAILOFF
-// PORT: Fixed ROM slots 26908.
+// slot 26908
     26908, 65322,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:167
+// ASCENT_GUIDANCE.agc:167
 //			TTO
-// PORT: Fixed ROM slots 26909.
+// slot 26909
     26909, 2414,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:168
+// ASCENT_GUIDANCE.agc:168
 //		STORE	TGO
-// PORT: Fixed ROM slots 26910.
+// slot 26910
     26910, 3742,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:169
+// ASCENT_GUIDANCE.agc:169
 //		SR	DCOMP
-// PORT: Fixed ROM slots 26911.
+// slot 26911
     26911, 48738,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:170
+// ASCENT_GUIDANCE.agc:170
 //			11D
-// PORT: Fixed ROM slots 26912.
+// slot 26912
     26912, 17176,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:171
+// ASCENT_GUIDANCE.agc:171
 //		STODL	TTOGO		# TGO *2(-28) CS
-// PORT: Fixed ROM slots 26913.
+// slot 26913
     26913, 15960,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:172
+// ASCENT_GUIDANCE.agc:172
 //			TGO
-// PORT: Fixed ROM slots 26914.
+// slot 26914
     26914, 3742,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:173
+// ASCENT_GUIDANCE.agc:173
 //		BON	DSU
-// PORT: Fixed ROM slots 26915.
+// slot 26915
     26915, 38168,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:174
+// ASCENT_GUIDANCE.agc:174
 //			IDLEFLAG
-// PORT: Fixed ROM slots 26916.
+// slot 26916
     26916, 3984,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:175
+// ASCENT_GUIDANCE.agc:175
 //			T2TEST
-// PORT: Fixed ROM slots 26917.
+// slot 26917
     26917, 49746,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:176
+// ASCENT_GUIDANCE.agc:176
 //			4SEC(17)	# ( TGO - 4 )*2(-17) CS.
-// PORT: Fixed ROM slots 26918.
+// slot 26918
     26918, 17442,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:177
+// ASCENT_GUIDANCE.agc:177
 //		BMN
-// PORT: Fixed ROM slots 26919.
+// slot 26919
     26919, 65344,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:178
+// ASCENT_GUIDANCE.agc:178
 //			ENGOFF
-// PORT: Fixed ROM slots 26920.
+// slot 26920
     26920, 25050,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:179
+// ASCENT_GUIDANCE.agc:179
 //T2TEST		DLOAD
-// PORT: Fixed ROM slots 26921.
+// slot 26921
     26921, 65482,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:180
+// ASCENT_GUIDANCE.agc:180
 //			TGO
-// PORT: Fixed ROM slots 26922.
+// slot 26922
     26922, 3742,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:181
+// ASCENT_GUIDANCE.agc:181
 //		DSU	BMN		# IF TGO - T2 NEG., GO TO CMPONENT
-// PORT: Fixed ROM slots 26923.
+// slot 26923
     26923, 41002,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:182
+// ASCENT_GUIDANCE.agc:182
 //# Page 847
-// PORT: SOURCE ASCENT_GUIDANCE.agc:183
+// ASCENT_GUIDANCE.agc:183
 //			T2A
-// PORT: Fixed ROM slots 26924.
+// slot 26924
     26924, 17446,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:184
+// ASCENT_GUIDANCE.agc:184
 //			CMPONENT
-// PORT: Fixed ROM slots 26925.
+// slot 26925
     26925, 49940,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:185
+// ASCENT_GUIDANCE.agc:185
 //		DLOAD	DSU
-// PORT: Fixed ROM slots 26926.
+// slot 26926
     26926, 38346,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:186
+// ASCENT_GUIDANCE.agc:186
 //			TBUP
-// PORT: Fixed ROM slots 26927.
+// slot 26927
     26927, 2418,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:187
+// ASCENT_GUIDANCE.agc:187
 //			TGO
-// PORT: Fixed ROM slots 26928.
+// slot 26928
     26928, 3742,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:188
+// ASCENT_GUIDANCE.agc:188
 //		DDV	CALL		# 1- TGO/TBUP
-// PORT: Fixed ROM slots 26929.
+// slot 26929
     26929, 38002
 )).
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE ASCENT_GUIDANCE.agc:189
+// ASCENT_GUIDANCE.agc:189
 //			TBUP
-// PORT: Fixed ROM slots 26930.
+// slot 26930
     26930, 2418,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:190
+// ASCENT_GUIDANCE.agc:190
 //			LOGSUB
-// PORT: Fixed ROM slots 26931.
+// slot 26931
     26931, 50236,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:191
+// ASCENT_GUIDANCE.agc:191
 //		SL	PUSH		# -L IN PDL(0)			(2)
-// PORT: Fixed ROM slots 26932.
+// slot 26932
     26932, 34402,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:192
+// ASCENT_GUIDANCE.agc:192
 //			5
-// PORT: Fixed ROM slots 26933.
+// slot 26933
     26933, 16652,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:193
+// ASCENT_GUIDANCE.agc:193
 //		BDDV	BDSU		# -TGO/L*2(-17)
-// PORT: Fixed ROM slots 26934.
+// slot 26934
     26934, 37226,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:194
+// ASCENT_GUIDANCE.agc:194
 //			TGO
-// PORT: Fixed ROM slots 26935.
+// slot 26935
     26935, 3742,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:195
+// ASCENT_GUIDANCE.agc:195
 //			TBUP		# TBUP + TGO/L = D12*2(-17)
-// PORT: Fixed ROM slots 26936.
+// slot 26936
     26936, 2418,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:196
+// ASCENT_GUIDANCE.agc:196
 //		PUSH	BON		# STORE IN PDL(2)		(4)
-// PORT: Fixed ROM slots 26937.
+// slot 26937
     26937, 35852,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:197
+// ASCENT_GUIDANCE.agc:197
 //			FLPC		# IF FLPC = 1, GO TO CONST
-// PORT: Fixed ROM slots 26938.
+// slot 26938
     26938, 4998,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:198
+// ASCENT_GUIDANCE.agc:198
 //			NORATES
-// PORT: Fixed ROM slots 26939.
+// slot 26939
     26939, 49796,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:199
+// ASCENT_GUIDANCE.agc:199
 //		DLOAD	DSU
-// PORT: Fixed ROM slots 26940.
+// slot 26940
     26940, 38346,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:200
+// ASCENT_GUIDANCE.agc:200
 //			TGO
-// PORT: Fixed ROM slots 26941.
+// slot 26941
     26941, 3742,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:201
+// ASCENT_GUIDANCE.agc:201
 //			T3
-// PORT: Fixed ROM slots 26942.
+// slot 26942
     26942, 17450,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:202
+// ASCENT_GUIDANCE.agc:202
 //		BPL	SET		# FLPC=1
-// PORT: Fixed ROM slots 26943.
+// slot 26943
     26943, 35912,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:203
+// ASCENT_GUIDANCE.agc:203
 //			RATES
-// PORT: Fixed ROM slots 26944.
+// slot 26944
     26944, 49808,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:204
+// ASCENT_GUIDANCE.agc:204
 //			FLPC
-// PORT: Fixed ROM slots 26945.
+// slot 26945
     26945, 4710,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:205
+// ASCENT_GUIDANCE.agc:205
 //NORATES		DLOAD
-// PORT: Fixed ROM slots 26946.
+// slot 26946
     26946, 65482,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:206
+// ASCENT_GUIDANCE.agc:206
 //			HI6ZEROS
-// PORT: Fixed ROM slots 26947.
+// slot 26947
     26947, 6820,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:207
+// ASCENT_GUIDANCE.agc:207
 //		STORE	PRATE		# B = 0
-// PORT: Fixed ROM slots 26948.
+// slot 26948
     26948, 2514,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:208
+// ASCENT_GUIDANCE.agc:208
 //		STORE	YRATE		# D = 0
-// PORT: Fixed ROM slots 26949.
+// slot 26949
     26949, 2518,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:209
+// ASCENT_GUIDANCE.agc:209
 //		GOTO
-// PORT: Fixed ROM slots 26950.
+// slot 26950
     26950, 65360,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:210
+// ASCENT_GUIDANCE.agc:210
 //			CONST		# GO TO CONST
-// PORT: Fixed ROM slots 26951.
+// slot 26951
     26951, 49908,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:211
+// ASCENT_GUIDANCE.agc:211
 //RATES		DLOAD	DSU
-// PORT: Fixed ROM slots 26952.
+// slot 26952
     26952, 38346,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:212
+// ASCENT_GUIDANCE.agc:212
 //			TGO
-// PORT: Fixed ROM slots 26953.
+// slot 26953
     26953, 3742,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:213
+// ASCENT_GUIDANCE.agc:213
 //			02D		# TGO - D12 = D21*2(-17)
-// PORT: Fixed ROM slots 26954.
+// slot 26954
     26954, 6,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:214
+// ASCENT_GUIDANCE.agc:214
 //		PUSH	SL1		# IN PDL(4)			(6)
-// PORT: Fixed ROM slots 26955.
+// slot 26955
     26955, 59916,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:215
+// ASCENT_GUIDANCE.agc:215
 //		BDSU	SL3		# (1/2TGO - D21)*2(-13) = E * 2(-13)
-// PORT: Fixed ROM slots 26956.
+// slot 26956
     26956, 43554,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:216
+// ASCENT_GUIDANCE.agc:216
 //			TGO		#				(8)
-// PORT: Fixed ROM slots 26957.
+// slot 26957
     26957, 3742,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:217
+// ASCENT_GUIDANCE.agc:217
 //		PDDL	DMP		# IN PDL(6)
-// PORT: Fixed ROM slots 26958.
+// slot 26958
     26958, 34218,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:218
+// ASCENT_GUIDANCE.agc:218
 //			TGO
-// PORT: Fixed ROM slots 26959.
+// slot 26959
     26959, 3742,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:219
+// ASCENT_GUIDANCE.agc:219
 //			RDOT		# RDOT TGO * 2(-24)
-// PORT: Fixed ROM slots 26960.
+// slot 26960
     26960, 3704,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:220
+// ASCENT_GUIDANCE.agc:220
 //		DAD	DSU		# R + RDOT TGO
-// PORT: Fixed ROM slots 26961.
+// slot 26961
     26961, 38170,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:221
+// ASCENT_GUIDANCE.agc:221
 //			/R/MAG		# R + RDOT TGO - RCO
-// PORT: Fixed ROM slots 26962.
+// slot 26962
     26962, 2434,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:222
+// ASCENT_GUIDANCE.agc:222
 //			RCO		# MPAC = -DR *2(-24).
-// PORT: Fixed ROM slots 26963.
+// slot 26963
     26963, 3890,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:223
+// ASCENT_GUIDANCE.agc:223
 //		PDDL	DMP		# -DR IN PDL(8)			(10)
-// PORT: Fixed ROM slots 26964.
+// slot 26964
     26964, 34218,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:224
+// ASCENT_GUIDANCE.agc:224
 //			DRDOT
-// PORT: Fixed ROM slots 26965.
+// slot 26965
     26965, 2494,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:225
+// ASCENT_GUIDANCE.agc:225
 //			04D		# D21 DRDOT*2(-24)
-// PORT: Fixed ROM slots 26966.
+// slot 26966
     26966, 10,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:226
+// ASCENT_GUIDANCE.agc:226
 //		DAD	SL2		# (D21 DRDOT-DR)*2(-22)		(8)
-// PORT: Fixed ROM slots 26967.
+// slot 26967
     26967, 51738,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:227
+// ASCENT_GUIDANCE.agc:227
 //		DDV	DDV
-// PORT: Fixed ROM slots 26968.
+// slot 26968
     26968, 47474,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:228
+// ASCENT_GUIDANCE.agc:228
 //			06D		# (D21 DRDOT-DR)/E*2(-9)
-// PORT: Fixed ROM slots 26969.
+// slot 26969
     26969, 14,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:229
+// ASCENT_GUIDANCE.agc:229
 //			TGO
-// PORT: Fixed ROM slots 26970.
+// slot 26970
     26970, 3742,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:230
+// ASCENT_GUIDANCE.agc:230
 //		STORE	PRATE		# B * 2(8)
-// PORT: Fixed ROM slots 26971.
+// slot 26971
     26971, 2514,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:231
+// ASCENT_GUIDANCE.agc:231
 //		BMN	DLOAD		# B>0 NOT PERMITTED
-// PORT: Fixed ROM slots 26972.
+// slot 26972
     26972, 58688,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:232
+// ASCENT_GUIDANCE.agc:232
 //			CHKBMAG
-// PORT: Fixed ROM slots 26973.
+// slot 26973
     26973, 49858,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:233
+// ASCENT_GUIDANCE.agc:233
 //# Page 848
-// PORT: SOURCE ASCENT_GUIDANCE.agc:234
+// ASCENT_GUIDANCE.agc:234
 //			HI6ZEROS
-// PORT: Fixed ROM slots 26974.
+// slot 26974
     26974, 6820,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:235
+// ASCENT_GUIDANCE.agc:235
 //		STCALL	PRATE
-// PORT: Fixed ROM slots 26975.
+// slot 26975
     26975, 31186,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:236
+// ASCENT_GUIDANCE.agc:236
 //			PROK
-// PORT: Fixed ROM slots 26976.
+// slot 26976
     26976, 49878,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:237
+// ASCENT_GUIDANCE.agc:237
 //CHKBMAG		SR4	DDV		# B*2(4)
-// PORT: Fixed ROM slots 26977.
+// slot 26977
     26977, 47364,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:238
+// ASCENT_GUIDANCE.agc:238
 //			TBUP		# (B / TAU) * 2(21)
-// PORT: Fixed ROM slots 26978.
+// slot 26978
     26978, 2418,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:239
+// ASCENT_GUIDANCE.agc:239
 //		DSU	BPL
-// PORT: Fixed ROM slots 26979.
+// slot 26979
     26979, 42026,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:240
+// ASCENT_GUIDANCE.agc:240
 //			PRLIMIT		# ( B / TAU ) = 2(21) MAX.
-// PORT: Fixed ROM slots 26980.
+// slot 26980
     26980, 22790,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:241
+// ASCENT_GUIDANCE.agc:241
 //			PROK
-// PORT: Fixed ROM slots 26981.
+// slot 26981
     26981, 49878,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:242
+// ASCENT_GUIDANCE.agc:242
 //		DLOAD	DMP
-// PORT: Fixed ROM slots 26982.
+// slot 26982
     26982, 34250,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:243
+// ASCENT_GUIDANCE.agc:243
 //			PRLIMIT
-// PORT: Fixed ROM slots 26983.
+// slot 26983
     26983, 22790,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:244
+// ASCENT_GUIDANCE.agc:244
 //			TBUP		# B MAX. * 2(4)
-// PORT: Fixed ROM slots 26984.
+// slot 26984
     26984, 2418,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:245
+// ASCENT_GUIDANCE.agc:245
 //		SL4			# BMAX*2(8)
-// PORT: Fixed ROM slots 26985.
+// slot 26985
     26985, 65300,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:246
+// ASCENT_GUIDANCE.agc:246
 //		STORE	PRATE
-// PORT: Fixed ROM slots 26986.
+// slot 26986
     26986, 2514,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:247
+// ASCENT_GUIDANCE.agc:247
 //PROK		DLOAD
-// PORT: Fixed ROM slots 26987.
+// slot 26987
     26987, 65482,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:248
+// ASCENT_GUIDANCE.agc:248
 //			TGO
-// PORT: Fixed ROM slots 26988.
+// slot 26988
     26988, 3742,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:249
+// ASCENT_GUIDANCE.agc:249
 //		DMP	DAD		# YDOT TGO
-// PORT: Fixed ROM slots 26989.
+// slot 26989
     26989, 36106,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:250
+// ASCENT_GUIDANCE.agc:250
 //			YDOT
-// PORT: Fixed ROM slots 26990.
+// slot 26990
     26990, 2450,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:251
+// ASCENT_GUIDANCE.agc:251
 //			Y		# Y + YDOT TGO
-// PORT: Fixed ROM slots 26991.
+// slot 26991
     26991, 2490,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:252
+// ASCENT_GUIDANCE.agc:252
 //		DSU	PDDL		# Y + YDOT TGO - YCO
-// PORT: Fixed ROM slots 26992.
+// slot 26992
     26992, 54570,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:253
+// ASCENT_GUIDANCE.agc:253
 //			YCO		# MPAC = - DY*(-24.) IN PDL(8)	(10)
-// PORT: Fixed ROM slots 26993.
+// slot 26993
     26993, 3894,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:254
+// ASCENT_GUIDANCE.agc:254
 //			DYDOT
-// PORT: Fixed ROM slots 26994.
+// slot 26994
     26994, 2498,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:255
+// ASCENT_GUIDANCE.agc:255
 //		DMP	DAD		# D21 DYDOT - DY		(8)
-// PORT: Fixed ROM slots 26995.
+// slot 26995
     26995, 36106,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:256
+// ASCENT_GUIDANCE.agc:256
 //			04D
-// PORT: Fixed ROM slots 26996.
+// slot 26996
     26996, 10,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:257
+// ASCENT_GUIDANCE.agc:257
 //		SL2	DDV		# (D21 DYDOT - DY)/E*2(-9)
-// PORT: Fixed ROM slots 26997.
+// slot 26997
     26997, 47508,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:258
+// ASCENT_GUIDANCE.agc:258
 //		DDV	SETPD		# (D21 DYDOT - DY)/E TGO*2(8)
-// PORT: Fixed ROM slots 26998.
+// slot 26998
     26998, 33138,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:259
+// ASCENT_GUIDANCE.agc:259
 //			TGO		#	= D*2(8)
-// PORT: Fixed ROM slots 26999.
+// slot 26999
     26999, 3742,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:260
+// ASCENT_GUIDANCE.agc:260
 //			04
-// PORT: Fixed ROM slots 27000.
+// slot 27000
     27000, 10,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:261
+// ASCENT_GUIDANCE.agc:261
 //		STORE	YRATE
-// PORT: Fixed ROM slots 27001.
+// slot 27001
     27001, 2518,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:262
+// ASCENT_GUIDANCE.agc:262
 //CONST		DLOAD	DMP		# LOAD B*2(8)
-// PORT: Fixed ROM slots 27002.
+// slot 27002
     27002, 34250,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:263
+// ASCENT_GUIDANCE.agc:263
 //			PRATE		# B D12*2(-9)
-// PORT: Fixed ROM slots 27003.
+// slot 27003
     27003, 2514,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:264
+// ASCENT_GUIDANCE.agc:264
 //			02D
-// PORT: Fixed ROM slots 27004.
+// slot 27004
     27004, 6,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:265
+// ASCENT_GUIDANCE.agc:265
 //		PDDL	DDV		# D12 B IN PDL(4)	(6)
-// PORT: Fixed ROM slots 27005.
+// slot 27005
     27005, 47530,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:266
+// ASCENT_GUIDANCE.agc:266
 //			DRDOT		# LOAD DRDOT*2(-7)
-// PORT: Fixed ROM slots 27006.
+// slot 27006
     27006, 2494,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:267
+// ASCENT_GUIDANCE.agc:267
 //			00D		# -DRDOT/L*2(-7)
-// PORT: Fixed ROM slots 27007.
+// slot 27007
     27007, 2,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:268
+// ASCENT_GUIDANCE.agc:268
 //		SR2	DSU		# (-DRDOT/L-D12 B)=A*2(-9)	(4)
-// PORT: Fixed ROM slots 27008.
+// slot 27008
     27008, 38276,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:269
+// ASCENT_GUIDANCE.agc:269
 //		STADR
-// PORT: Fixed ROM slots 27009.
+// slot 27009
     27009, 65324,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:270
+// ASCENT_GUIDANCE.agc:270
 //		STODL	PCONS
-// PORT: Fixed ROM slots 27010.
+// slot 27010
     27010, 50740,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:271
+// ASCENT_GUIDANCE.agc:271
 //			YRATE		# D*2(8)
-// PORT: Fixed ROM slots 27011.
+// slot 27011
     27011, 2518,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:272
+// ASCENT_GUIDANCE.agc:272
 //		DMP	PDDL		# D12 D,EXCH WITH -L IN PDL(0)	(2,2)
-// PORT: Fixed ROM slots 27012.
+// slot 27012
     27012, 54538,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:273
+// ASCENT_GUIDANCE.agc:273
 //		BDDV	SR2		# -DYDOT/L*2(-9)
-// PORT: Fixed ROM slots 27013.
+// slot 27013
     27013, 49770,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:274
+// ASCENT_GUIDANCE.agc:274
 //			DYDOT
-// PORT: Fixed ROM slots 27014.
+// slot 27014
     27014, 2498,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:275
+// ASCENT_GUIDANCE.agc:275
 //		DSU			# (-DYDOT/L-D12 D)=C*2(-9)
-// PORT: Fixed ROM slots 27015.
+// slot 27015
     27015, 65322,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:276
+// ASCENT_GUIDANCE.agc:276
 //			00D
-// PORT: Fixed ROM slots 27016.
+// slot 27016
     27016, 2,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:277
+// ASCENT_GUIDANCE.agc:277
 //		STORE	YCONS
-// PORT: Fixed ROM slots 27017.
+// slot 27017
     27017, 2510,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:278
+// ASCENT_GUIDANCE.agc:278
 //CMPONENT	SETPD	DLOAD
-// PORT: Fixed ROM slots 27018.
+// slot 27018
     27018, 58626,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:279
+// ASCENT_GUIDANCE.agc:279
 //			00D
-// PORT: Fixed ROM slots 27019.
+// slot 27019
     27019, 2,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:280
+// ASCENT_GUIDANCE.agc:280
 // 			100CS
-// PORT: Fixed ROM slots 27020.
+// slot 27020
     27020, 23758,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:281
+// ASCENT_GUIDANCE.agc:281
 // 		DMP
-// PORT: Fixed ROM slots 27021.
+// slot 27021
     27021, 65290,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:282
+// ASCENT_GUIDANCE.agc:282
 //			PRATE		# B(T-T0)*2(-9)
-// PORT: Fixed ROM slots 27022.
+// slot 27022
     27022, 2514,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:283
+// ASCENT_GUIDANCE.agc:283
 //		DAD	DDV		# (A+B(T-T0))*2(-9)
-// PORT: Fixed ROM slots 27023.
+// slot 27023
     27023, 47386,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:284
+// ASCENT_GUIDANCE.agc:284
 //# Page 849
-// PORT: SOURCE ASCENT_GUIDANCE.agc:285
+// ASCENT_GUIDANCE.agc:285
 //			PCONS		# (A+B(T-T0))/TBUP*2(8)
-// PORT: Fixed ROM slots 27024.
+// slot 27024
     27024, 2506,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:286
+// ASCENT_GUIDANCE.agc:286
 //			TBUP
-// PORT: Fixed ROM slots 27025.
+// slot 27025
     27025, 2418,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:287
+// ASCENT_GUIDANCE.agc:287
 //		SL1	DSU
-// PORT: Fixed ROM slots 27026.
+// slot 27026
     27026, 38356,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:288
+// ASCENT_GUIDANCE.agc:288
 //			GEFF		# ATR*2(9)
-// PORT: Fixed ROM slots 27027.
+// slot 27027
     27027, 2458,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:289
+// ASCENT_GUIDANCE.agc:289
 //		STODL	ATR
-// PORT: Fixed ROM slots 27028.
+// slot 27028
     27028, 14814,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:290
+// ASCENT_GUIDANCE.agc:290
 //			100CS
-// PORT: Fixed ROM slots 27029.
+// slot 27029
     27029, 23758,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:291
+// ASCENT_GUIDANCE.agc:291
 //		DMP	DAD
-// PORT: Fixed ROM slots 27030.
+// slot 27030
     27030, 36106,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:292
+// ASCENT_GUIDANCE.agc:292
 //			YRATE
-// PORT: Fixed ROM slots 27031.
+// slot 27031
     27031, 2518,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:293
+// ASCENT_GUIDANCE.agc:293
 //			YCONS		# (C+D(T-T0))*2(-9)
-// PORT: Fixed ROM slots 27032.
+// slot 27032
     27032, 2510,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:294
+// ASCENT_GUIDANCE.agc:294
 //		DDV	SL1
-// PORT: Fixed ROM slots 27033.
+// slot 27033
     27033, 60018,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:295
+// ASCENT_GUIDANCE.agc:295
 //			TBUP
-// PORT: Fixed ROM slots 27034.
+// slot 27034
     27034, 2418,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:296
+// ASCENT_GUIDANCE.agc:296
 //		STORE	ATY		# ATY*2(9)
-// PORT: Fixed ROM slots 27035.
+// slot 27035
     27035, 2522,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:297
+// ASCENT_GUIDANCE.agc:297
 //		VXSC	PDDL		# ATY UY*2(8)		(6)
-// PORT: Fixed ROM slots 27036.
+// slot 27036
     27036, 54754,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:298
+// ASCENT_GUIDANCE.agc:298
 //			LAXIS
-// PORT: Fixed ROM slots 27037.
+// slot 27037
     27037, 2438,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:299
+// ASCENT_GUIDANCE.agc:299
 //			ATR
-// PORT: Fixed ROM slots 27038.
+// slot 27038
     27038, 2526,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:300
+// ASCENT_GUIDANCE.agc:300
 //		VXSC	VAD
-// PORT: Fixed ROM slots 27039.
+// slot 27039
     27039, 44514,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:301
+// ASCENT_GUIDANCE.agc:301
 //			UNIT/R/
-// PORT: Fixed ROM slots 27040.
+// slot 27040
     27040, 3774,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:302
+// ASCENT_GUIDANCE.agc:302
 //		VSL1	PUSH		# AH*2(9) IN PDL(0)	(6)
-// PORT: Fixed ROM slots 27041.
+// slot 27041
     27041, 34548,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:303
+// ASCENT_GUIDANCE.agc:303
 //		ABVAL	PDDL		# AH(2) IN PDL(34)
-// PORT: Fixed ROM slots 27042.
+// slot 27042
     27042, 54604,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:304
+// ASCENT_GUIDANCE.agc:304
 //			AT		# AHMAG IN PDL(6)	(8)
-// PORT: Fixed ROM slots 27043.
+// slot 27043
     27043, 2406,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:305
+// ASCENT_GUIDANCE.agc:305
 //		DSQ	DSU		# (AT(2)-AH(2))*2(18)
-// PORT: Fixed ROM slots 27044.
+// slot 27044
     27044, 38300,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:306
+// ASCENT_GUIDANCE.agc:306
 //			34D		# =ATP2*2(18)
-// PORT: Fixed ROM slots 27045.
+// slot 27045
     27045, 70,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:307
+// ASCENT_GUIDANCE.agc:307
 //		PDDL	PUSH		#			(12)
-// PORT: Fixed ROM slots 27046.
+// slot 27046
     27046, 34474,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:308
+// ASCENT_GUIDANCE.agc:308
 //			AT
-// PORT: Fixed ROM slots 27047.
+// slot 27047
     27047, 2406,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:309
+// ASCENT_GUIDANCE.agc:309
 //		DSQ	DSU		# (AT(2)KR(2)-AH(2))*2(18)	(10)
-// PORT: Fixed ROM slots 27048.
+// slot 27048
     27048, 38300,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:310
+// ASCENT_GUIDANCE.agc:310
 //			34D		# =ATP3*2(18)
-// PORT: Fixed ROM slots 27049.
+// slot 27049
     27049, 70,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:311
+// ASCENT_GUIDANCE.agc:311
 //		BMN	DLOAD		# IF ATP3 NEG,GO TO NO-ATP
-// PORT: Fixed ROM slots 27050.
+// slot 27050
     27050, 58688,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:312
+// ASCENT_GUIDANCE.agc:312
 //			NO-ATP		# LOAD ATP2, IF ATP3 POS
-// PORT: Fixed ROM slots 27051.
+// slot 27051
     27051, 50014,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:313
+// ASCENT_GUIDANCE.agc:313
 //			8D
-// PORT: Fixed ROM slots 27052.
+// slot 27052
     27052, 18,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:314
+// ASCENT_GUIDANCE.agc:314
 //		SQRT	GOTO		# ATP*2(9)
-// PORT: Fixed ROM slots 27053.
+// slot 27053
     27053, 43244,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:315
+// ASCENT_GUIDANCE.agc:315
 //			AIMER
-// PORT: Fixed ROM slots 27054.
+// slot 27054
     27054, 50026,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:316
+// ASCENT_GUIDANCE.agc:316
 //NO-ATP		DLOAD	BDDV		# KR AT/AH = KH		(8)
-// PORT: Fixed ROM slots 27055.
+// slot 27055
     27055, 46538
 )).
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE ASCENT_GUIDANCE.agc:317
+// ASCENT_GUIDANCE.agc:317
 //			6D
-// PORT: Fixed ROM slots 27056.
+// slot 27056
     27056, 14,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:318
+// ASCENT_GUIDANCE.agc:318
 //		VXSC			# KH AG*2(9)
-// PORT: Fixed ROM slots 27057.
+// slot 27057
     27057, 65506,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:319
+// ASCENT_GUIDANCE.agc:319
 //			00D
-// PORT: Fixed ROM slots 27058.
+// slot 27058
     27058, 2,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:320
+// ASCENT_GUIDANCE.agc:320
 //		STODL	00D		# STORE NEW AH IN PDL(0)
-// PORT: Fixed ROM slots 27059.
+// slot 27059
     27059, 12290,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:321
+// ASCENT_GUIDANCE.agc:321
 //			HI6ZEROS
-// PORT: Fixed ROM slots 27060.
+// slot 27060
     27060, 6820,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:322
+// ASCENT_GUIDANCE.agc:322
 //AIMER		SIGN
-// PORT: Fixed ROM slots 27061.
+// slot 27061
     27061, 65514,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:323
+// ASCENT_GUIDANCE.agc:323
 //			DZDOT
-// PORT: Fixed ROM slots 27062.
+// slot 27062
     27062, 2502,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:324
+// ASCENT_GUIDANCE.agc:324
 //		STORE	ATP
-// PORT: Fixed ROM slots 27063.
+// slot 27063
     27063, 2530,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:325
+// ASCENT_GUIDANCE.agc:325
 //		VXSC
-// PORT: Fixed ROM slots 27064.
+// slot 27064
     27064, 65506,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:326
+// ASCENT_GUIDANCE.agc:326
 //			ZAXIS1		# ATP ZAXIS *2(8).
-// PORT: Fixed ROM slots 27065.
+// slot 27065
     27065, 4012,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:327
+// ASCENT_GUIDANCE.agc:327
 //		VSL1	VAD		# AT*2(0)
-// PORT: Fixed ROM slots 27066.
+// slot 27066
     27066, 44532,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:328
+// ASCENT_GUIDANCE.agc:328
 //			00D
-// PORT: Fixed ROM slots 27067.
+// slot 27067
     27067, 2,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:329
+// ASCENT_GUIDANCE.agc:329
 //		STORE	UNFC/2		# WILL BE OVERWRITTEN IF IN VERT. RISE.
-// PORT: Fixed ROM slots 27068.
+// slot 27068
     27068, 3416,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:330
+// ASCENT_GUIDANCE.agc:330
 //		SETPD	BON
-// PORT: Fixed ROM slots 27069.
+// slot 27069
     27069, 35842,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:331
+// ASCENT_GUIDANCE.agc:331
 //			00D
-// PORT: Fixed ROM slots 27070.
+// slot 27070
     27070, 2,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:332
+// ASCENT_GUIDANCE.agc:332
 //			FLPI
-// PORT: Fixed ROM slots 27071.
+// slot 27071
     27071, 5000,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:333
+// ASCENT_GUIDANCE.agc:333
 //			P12RET
-// PORT: Fixed ROM slots 27072.
+// slot 27072
     27072, 49440,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:334
+// ASCENT_GUIDANCE.agc:334
 //		BON
-// PORT: Fixed ROM slots 27073.
+// slot 27073
     27073, 65304,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:335
+// ASCENT_GUIDANCE.agc:335
 //# Page 850
-// PORT: SOURCE ASCENT_GUIDANCE.agc:336
+// ASCENT_GUIDANCE.agc:336
 //			FLVR
-// PORT: Fixed ROM slots 27074.
+// slot 27074
     27074, 4994,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:337
+// ASCENT_GUIDANCE.agc:337
 //			CHECKALT
-// PORT: Fixed ROM slots 27075.
+// slot 27075
     27075, 50138,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:338
+// ASCENT_GUIDANCE.agc:338
 //MAINLINE	VLOAD	VCOMP
-// PORT: Fixed ROM slots 27076.
+// slot 27076
     27076, 48890,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:339
+// ASCENT_GUIDANCE.agc:339
 //			UNIT/R/
-// PORT: Fixed ROM slots 27077.
+// slot 27077
     27077, 3774,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:340
+// ASCENT_GUIDANCE.agc:340
 //		STODL	UNWC/2
-// PORT: Fixed ROM slots 27078.
+// slot 27078
     27078, 15716,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:341
+// ASCENT_GUIDANCE.agc:341
 //			TXO
-// PORT: Fixed ROM slots 27079.
+// slot 27079
     27079, 3928,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:342
+// ASCENT_GUIDANCE.agc:342
 //		DSU	BPL
-// PORT: Fixed ROM slots 27080.
+// slot 27080
     27080, 42026,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:343
+// ASCENT_GUIDANCE.agc:343
 //			PIPTIME
-// PORT: Fixed ROM slots 27081.
+// slot 27081
     27081, 1338,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:344
+// ASCENT_GUIDANCE.agc:344
 //			ASCTERM
-// PORT: Fixed ROM slots 27082.
+// slot 27082
     27082, 50082,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:345
+// ASCENT_GUIDANCE.agc:345
 //		BON
-// PORT: Fixed ROM slots 27083.
+// slot 27083
     27083, 65304,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:346
+// ASCENT_GUIDANCE.agc:346
 //			ROTFLAG
-// PORT: Fixed ROM slots 27084.
+// slot 27084
     27084, 5010,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:347
+// ASCENT_GUIDANCE.agc:347
 //			ANG1CHEK
-// PORT: Fixed ROM slots 27085.
+// slot 27085
     27085, 48502,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:348
+// ASCENT_GUIDANCE.agc:348
 //CLRXFLAG	CLEAR	CLEAR
-// PORT: Fixed ROM slots 27086.
+// slot 27086
     27086, 35864,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:349
+// ASCENT_GUIDANCE.agc:349
 //			NOR29FLG	# START r29 IN ASCENT PHASE.
-// PORT: Fixed ROM slots 27087.
+// slot 27087
     27087, 1896,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:350
+// ASCENT_GUIDANCE.agc:350
 //			XOVINFLG	# ALLOW X-AXIS OVERRIDE
-// PORT: Fixed ROM slots 27088.
+// slot 27088
     27088, 7020,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:351
+// ASCENT_GUIDANCE.agc:351
 //ASCTERM		EXIT
-// PORT: Fixed ROM slots 27089.
+// slot 27089
     27089, 65532
 )).
 
-// PORT: Physical bank 30. Shared continuation entries, slots 27090–27094.
+// bank 30, slots 27090-27094
 function agcAotUnit1702 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 27091 {
         if slot <= 27090 {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:352
+// ASCENT_GUIDANCE.agc:352
 //		CA	FLAGWRD9
-// PORT: Fixed ROM slots 27090.
+// slot 27090
             if slot <> 27090 or instruction <> 12357 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -1413,9 +1413,9 @@ function agcAotUnit1702 {
             }
             return choose false if checkOnly else -1.
         } else {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:353
+// ASCENT_GUIDANCE.agc:353
 //		MASK	FLRCSBIT
-// PORT: Fixed ROM slots 27091.
+// slot 27091
             if slot <> 27091 or instruction <> 31202 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -1433,9 +1433,9 @@ function agcAotUnit1702 {
         }
     } else {
         if slot <= 27092 {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:354
+// ASCENT_GUIDANCE.agc:354
 //		CCS	A
-// PORT: Fixed ROM slots 27092.
+// slot 27092
             if slot <> 27092 or instruction <> 4096 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -1446,9 +1446,9 @@ function agcAotUnit1702 {
             return choose false if checkOnly else -1.
         } else {
             if slot <= 27093 {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:355
+// ASCENT_GUIDANCE.agc:355
 //		TCF	ASCTERM3
-// PORT: Fixed ROM slots 27093.
+// slot 27093
                 if slot <> 27093 or instruction <> 5607 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1456,9 +1456,9 @@ function agcAotUnit1702 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:356
+// ASCENT_GUIDANCE.agc:356
 //		TC	INTPRET
-// PORT: Fixed ROM slots 27094.
+// slot 27094
                 if slot <> 27094 or instruction <> 3103 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1472,29 +1472,29 @@ function agcAotUnit1702 {
 set agcAotRoutes[1702] to agcAotUnit1702@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE ASCENT_GUIDANCE.agc:357
+// ASCENT_GUIDANCE.agc:357
 //		CALL
-// PORT: Fixed ROM slots 27095.
+// slot 27095
     27095, 65320,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:358
+// ASCENT_GUIDANCE.agc:358
 //			FINDCDUW -2
-// PORT: Fixed ROM slots 27096.
+// slot 27096
     27096, 50322,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:359
+// ASCENT_GUIDANCE.agc:359
 //ASCTERM1	EXIT
-// PORT: Fixed ROM slots 27097.
+// slot 27097
     27097, 65532
 )).
 
-// PORT: Physical bank 30. Shared continuation entries, slots 27098–27107.
+// bank 30, slots 27098-27107
 function agcAotUnit1703 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 27102 {
         if slot <= 27099 {
             if slot <= 27098 {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:360
+// ASCENT_GUIDANCE.agc:360
 // +1		CA	FLAGWRD9	# INSURE THAT THE NOUN 63 DISPLAY IS
-// PORT: Fixed ROM slots 27098.
+// slot 27098
                 if slot <> 27098 or instruction <> 12357 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1504,9 +1504,9 @@ function agcAotUnit1703 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:361
+// ASCENT_GUIDANCE.agc:361
 // 		MASK	FLRCSBIT	# BYPASSED IF WE ARE IN THE RCS TRIMMING
-// PORT: Fixed ROM slots 27099.
+// slot 27099
                 if slot <> 27099 or instruction <> 31202 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1524,9 +1524,9 @@ function agcAotUnit1703 {
             }
         } else {
             if slot <= 27100 {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:362
+// ASCENT_GUIDANCE.agc:362
 //		CCS	A		# MODE OF OPERATION
-// PORT: Fixed ROM slots 27100.
+// slot 27100
                 if slot <> 27100 or instruction <> 4096 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1537,9 +1537,9 @@ function agcAotUnit1703 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 27101 {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:363
+// ASCENT_GUIDANCE.agc:363
 //		TCF	ASCTERM3
-// PORT: Fixed ROM slots 27101.
+// slot 27101
                     if slot <> 27101 or instruction <> 5607 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1547,9 +1547,9 @@ function agcAotUnit1703 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:364
+// ASCENT_GUIDANCE.agc:364
 //		CA	FLAGWRD8	# BYPASS DISPLAYS IF ENGINE FAILURE IS
-// PORT: Fixed ROM slots 27102.
+// slot 27102
                     if slot <> 27102 or instruction <> 12356 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1564,9 +1564,9 @@ function agcAotUnit1703 {
     } else {
         if slot <= 27104 {
             if slot <= 27103 {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:365
+// ASCENT_GUIDANCE.agc:365
 //		MASK	FLUNDBIT	# INDICATED.
-// PORT: Fixed ROM slots 27103.
+// slot 27103
                 if slot <> 27103 or instruction <> 31202 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1582,9 +1582,9 @@ function agcAotUnit1703 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:366
+// ASCENT_GUIDANCE.agc:366
 //		CCS	A
-// PORT: Fixed ROM slots 27104.
+// slot 27104
                 if slot <> 27104 or instruction <> 4096 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1596,9 +1596,9 @@ function agcAotUnit1703 {
             }
         } else {
             if slot <= 27105 {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:367
+// ASCENT_GUIDANCE.agc:367
 //		TCF	ASCTERM3
-// PORT: Fixed ROM slots 27105.
+// slot 27105
                 if slot <> 27105 or instruction <> 5607 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1607,9 +1607,9 @@ function agcAotUnit1703 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 27106 {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:368
+// ASCENT_GUIDANCE.agc:368
 //		CAF	V06N63*
-// PORT: Fixed ROM slots 27106.
+// slot 27106
                     if slot <> 27106 or instruction <> 13851 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1620,9 +1620,9 @@ function agcAotUnit1703 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:369
+// ASCENT_GUIDANCE.agc:369
 //		TC	BANKCALL
-// PORT: Fixed ROM slots 27107.
+// slot 27107
                     if slot <> 27107 or instruction <> 2446 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1637,18 +1637,18 @@ function agcAotUnit1703 {
 set agcAotRoutes[1703] to agcAotUnit1703@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE ASCENT_GUIDANCE.agc:370
+// ASCENT_GUIDANCE.agc:370
 //		CADR	GODSPR
-// PORT: Fixed ROM slots 27108.
+// slot 27108
     27108, 16978
 )).
 
-// PORT: Physical bank 30. Shared continuation entries, slots 27109–27109.
+// bank 30, slots 27109-27109
 function agcAotUnit1704 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
-// PORT: SOURCE ASCENT_GUIDANCE.agc:371
+// ASCENT_GUIDANCE.agc:371
 //		TCF	ASCTERM3
-// PORT: Fixed ROM slots 27109.
+// slot 27109
     if slot <> 27109 or instruction <> 5607 { return choose false if checkOnly else -1. }
     if not extended {
         if checkOnly { return true. }
@@ -1659,18 +1659,18 @@ function agcAotUnit1704 {
 set agcAotRoutes[1704] to agcAotUnit1704@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE ASCENT_GUIDANCE.agc:372
+// ASCENT_GUIDANCE.agc:372
 //ASCTERM2	EXIT
-// PORT: Fixed ROM slots 27110.
+// slot 27110
     27110, 65532
 )).
 
-// PORT: Physical bank 30. Shared continuation entries, slots 27111–27111.
+// bank 30, slots 27111-27111
 function agcAotUnit1705 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
-// PORT: SOURCE ASCENT_GUIDANCE.agc:373
+// ASCENT_GUIDANCE.agc:373
 //ASCTERM3	TCF	ENDOFJOB
-// PORT: Fixed ROM slots 27111.
+// slot 27111
     if slot <> 27111 or instruction <> 6765 { return choose false if checkOnly else -1. }
     if not extended {
         if checkOnly { return true. }
@@ -1681,19 +1681,19 @@ function agcAotUnit1705 {
 set agcAotRoutes[1705] to agcAotUnit1705@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE ASCENT_GUIDANCE.agc:374
+// ASCENT_GUIDANCE.agc:374
 //ASCTERM4	EXIT
-// PORT: Fixed ROM slots 27112.
+// slot 27112
     27112, 65532
 )).
 
-// PORT: Physical bank 30. Shared continuation entries, slots 27113–27114.
+// bank 30, slots 27113-27114
 function agcAotUnit1706 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 27113 {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:375
+// ASCENT_GUIDANCE.agc:375
 //		INHINT
-// PORT: Fixed ROM slots 27113.
+// slot 27113
         if slot <> 27113 or instruction <> 4 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -1701,9 +1701,9 @@ function agcAotUnit1706 {
         }
         return choose false if checkOnly else -1.
     } else {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:376
+// ASCENT_GUIDANCE.agc:376
 //		TC	IBNKCALL	# NO GUIDANCE THIS CYCLE -- HENCE ZERO
-// PORT: Fixed ROM slots 27114.
+// slot 27114
         if slot <> 27114 or instruction <> 2492 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -1715,18 +1715,18 @@ function agcAotUnit1706 {
 set agcAotRoutes[1706] to agcAotUnit1706@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE ASCENT_GUIDANCE.agc:377
+// ASCENT_GUIDANCE.agc:377
 //		CADR	ZATTEROR	# THE DAP COMMANDED ERRORS.
-// PORT: Fixed ROM slots 27115.
+// slot 27115
     27115, 32982
 )).
 
-// PORT: Physical bank 30. Shared continuation entries, slots 27116–27116.
+// bank 30, slots 27116-27116
 function agcAotUnit1707 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
-// PORT: SOURCE ASCENT_GUIDANCE.agc:378
+// ASCENT_GUIDANCE.agc:378
 //		TCF	ASCTERM1 +1
-// PORT: Fixed ROM slots 27116.
+// slot 27116
     if slot <> 27116 or instruction <> 5594 { return choose false if checkOnly else -1. }
     if not extended {
         if checkOnly { return true. }
@@ -1737,347 +1737,347 @@ function agcAotUnit1707 {
 set agcAotRoutes[1707] to agcAotUnit1707@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE ASCENT_GUIDANCE.agc:379
+// ASCENT_GUIDANCE.agc:379
 //
-// PORT: SOURCE ASCENT_GUIDANCE.agc:380
+// ASCENT_GUIDANCE.agc:380
 //CHECKALT	DLOAD	DSU
-// PORT: Fixed ROM slots 27117.
+// slot 27117
     27117, 38346,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:381
+// ASCENT_GUIDANCE.agc:381
 //			/R/MAG
-// PORT: Fixed ROM slots 27118.
+// slot 27118
     27118, 2434,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:382
+// ASCENT_GUIDANCE.agc:382
 //			/LAND/
-// PORT: Fixed ROM slots 27119.
+// slot 27119
     27119, 2486,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:383
+// ASCENT_GUIDANCE.agc:383
 //		DSU	BMN		# IF H LT 25K CHECK Z AXIS ORIENTATION
-// PORT: Fixed ROM slots 27120.
+// slot 27120
     27120, 41002,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:384
+// ASCENT_GUIDANCE.agc:384
 //			25KFT
-// PORT: Fixed ROM slots 27121.
+// slot 27121
     27121, 23424,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:385
+// ASCENT_GUIDANCE.agc:385
 //			CHECKYAW
-// PORT: Fixed ROM slots 27122.
+// slot 27122
     27122, 15214,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:386
+// ASCENT_GUIDANCE.agc:386
 //# Page 851
-// PORT: SOURCE ASCENT_GUIDANCE.agc:387
+// ASCENT_GUIDANCE.agc:387
 //EXITVR		CLEAR	BON
-// PORT: Fixed ROM slots 27123.
+// slot 27123
     27123, 35864,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:388
+// ASCENT_GUIDANCE.agc:388
 //			FLVR
-// PORT: Fixed ROM slots 27124.
+// slot 27124
     27124, 4962,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:389
+// ASCENT_GUIDANCE.agc:389
 //			ROTFLAG
-// PORT: Fixed ROM slots 27125.
+// slot 27125
     27125, 5010,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:390
+// ASCENT_GUIDANCE.agc:390
 //			MAINLINE
-// PORT: Fixed ROM slots 27126.
+// slot 27126
     27126, 50056,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:391
+// ASCENT_GUIDANCE.agc:391
 //		DLOAD	DAD
-// PORT: Fixed ROM slots 27127.
+// slot 27127
     27127, 36298,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:392
+// ASCENT_GUIDANCE.agc:392
 //			PIPTIME
-// PORT: Fixed ROM slots 27128.
+// slot 27128
     27128, 1338,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:393
+// ASCENT_GUIDANCE.agc:393
 //			10SECS
-// PORT: Fixed ROM slots 27129.
+// slot 27129
     27129, 22490,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:394
+// ASCENT_GUIDANCE.agc:394
 //		STCALL	TXO
-// PORT: Fixed ROM slots 27130.
+// slot 27130
     27130, 32600,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:395
+// ASCENT_GUIDANCE.agc:395
 //			MAINLINE
-// PORT: Fixed ROM slots 27131.
+// slot 27131
     27131, 50056,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:396
+// ASCENT_GUIDANCE.agc:396
 //EXITVR1		CLRGO
-// PORT: Fixed ROM slots 27132.
+// slot 27132
     27132, 65304,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:397
+// ASCENT_GUIDANCE.agc:397
 //			ROTFLAG
-// PORT: Fixed ROM slots 27133.
+// slot 27133
     27133, 4914,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:398
+// ASCENT_GUIDANCE.agc:398
 //			EXITVR
-// PORT: Fixed ROM slots 27134.
+// slot 27134
     27134, 50150,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:399
+// ASCENT_GUIDANCE.agc:399
 //
-// PORT: SOURCE ASCENT_GUIDANCE.agc:400
+// ASCENT_GUIDANCE.agc:400
 //		SETLOC	ASENT1
-// PORT: SOURCE ASCENT_GUIDANCE.agc:401
+// ASCENT_GUIDANCE.agc:401
 //		BANK
-// PORT: SOURCE ASCENT_GUIDANCE.agc:402
+// ASCENT_GUIDANCE.agc:402
 //		COUNT*	$$/ASENT
-// PORT: SOURCE ASCENT_GUIDANCE.agc:403
+// ASCENT_GUIDANCE.agc:403
 //
-// PORT: SOURCE ASCENT_GUIDANCE.agc:404
+// ASCENT_GUIDANCE.agc:404
 //ANG1CHEK	VLOAD	DOT
-// PORT: Fixed ROM slots 26299.
+// slot 26299
     26299, 41466,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:405
+// ASCENT_GUIDANCE.agc:405
 //			UNFC/2
-// PORT: Fixed ROM slots 26300.
+// slot 26300
     26300, 3416,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:406
+// ASCENT_GUIDANCE.agc:406
 //			XNBPIP
-// PORT: Fixed ROM slots 26301.
+// slot 26301
     26301, 2252,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:407
+// ASCENT_GUIDANCE.agc:407
 //		DSU	BPL
-// PORT: Fixed ROM slots 26302.
+// slot 26302
     26302, 42026,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:408
+// ASCENT_GUIDANCE.agc:408
 //			COSTHET1
-// PORT: Fixed ROM slots 26303.
+// slot 26303
     26303, 2814,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:409
+// ASCENT_GUIDANCE.agc:409
 //			OFFROT
-// PORT: Fixed ROM slots 26304.
+// slot 26304
     26304, 48526,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:410
+// ASCENT_GUIDANCE.agc:410
 //		VLOAD	DOT
-// PORT: Fixed ROM slots 26305.
+// slot 26305
     26305, 41466,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:411
+// ASCENT_GUIDANCE.agc:411
 //			XNBPIP
-// PORT: Fixed ROM slots 26306.
+// slot 26306
     26306, 2252,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:412
+// ASCENT_GUIDANCE.agc:412
 //			UNIT/R/
-// PORT: Fixed ROM slots 26307.
+// slot 26307
     26307, 3774,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:413
+// ASCENT_GUIDANCE.agc:413
 //		DSU	BMN
-// PORT: Fixed ROM slots 26308.
+// slot 26308
     26308, 41002,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:414
+// ASCENT_GUIDANCE.agc:414
 //			COSTHET2
-// PORT: Fixed ROM slots 26309.
+// slot 26309
     26309, 2818,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:415
+// ASCENT_GUIDANCE.agc:415
 //			KEEPVR1
-// PORT: Fixed ROM slots 26310.
+// slot 26310
     26310, 25042,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:416
+// ASCENT_GUIDANCE.agc:416
 //OFFROT		CLRGO
-// PORT: Fixed ROM slots 26311.
+// slot 26311
     26311, 65304,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:417
+// ASCENT_GUIDANCE.agc:417
 //			ROTFLAG
-// PORT: Fixed ROM slots 26312.
+// slot 26312
     26312, 4914,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:418
+// ASCENT_GUIDANCE.agc:418
 //			CLRXFLAG
-// PORT: Fixed ROM slots 26313.
+// slot 26313
     26313, 50076,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:419
+// ASCENT_GUIDANCE.agc:419
 //
-// PORT: SOURCE ASCENT_GUIDANCE.agc:420
+// ASCENT_GUIDANCE.agc:420
 //		BANK	7
-// PORT: SOURCE ASCENT_GUIDANCE.agc:421
+// ASCENT_GUIDANCE.agc:421
 //		SETLOC	ASENT2
-// PORT: SOURCE ASCENT_GUIDANCE.agc:422
+// ASCENT_GUIDANCE.agc:422
 //		BANK
-// PORT: SOURCE ASCENT_GUIDANCE.agc:423
+// ASCENT_GUIDANCE.agc:423
 //		COUNT*	$$/ASENT
-// PORT: SOURCE ASCENT_GUIDANCE.agc:424
+// ASCENT_GUIDANCE.agc:424
 //
-// PORT: SOURCE ASCENT_GUIDANCE.agc:425
+// ASCENT_GUIDANCE.agc:425
 //SETXFLAG	=	CHECKYAW
-// PORT: SOURCE ASCENT_GUIDANCE.agc:426
+// ASCENT_GUIDANCE.agc:426
 //
-// PORT: SOURCE ASCENT_GUIDANCE.agc:427
+// ASCENT_GUIDANCE.agc:427
 //CHECKYAW	SET
-// PORT: Fixed ROM slots 9655.
+// slot 9655
     9655, 65304,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:428
+// ASCENT_GUIDANCE.agc:428
 //			XOVINFLG	# PROHIBIT X-AXIS OVERRIDE
-// PORT: Fixed ROM slots 9656.
+// slot 9656
     9656, 6764,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:429
+// ASCENT_GUIDANCE.agc:429
 //		DLOAD	VXSC
-// PORT: Fixed ROM slots 9657.
+// slot 9657
     9657, 61898,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:430
+// ASCENT_GUIDANCE.agc:430
 //			ATY
-// PORT: Fixed ROM slots 9658.
+// slot 9658
     9658, 2522,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:431
+// ASCENT_GUIDANCE.agc:431
 //			LAXIS
-// PORT: Fixed ROM slots 9659.
+// slot 9659
     9659, 2438,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:432
+// ASCENT_GUIDANCE.agc:432
 //		PDDL	VXSC
-// PORT: Fixed ROM slots 9660.
+// slot 9660
     9660, 61866,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:433
+// ASCENT_GUIDANCE.agc:433
 //			ATP
-// PORT: Fixed ROM slots 9661.
+// slot 9661
     9661, 2530,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:434
+// ASCENT_GUIDANCE.agc:434
 //			ZAXIS1
-// PORT: Fixed ROM slots 9662.
+// slot 9662
     9662, 4012,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:435
+// ASCENT_GUIDANCE.agc:435
 //		VAD	UNIT
-// PORT: Fixed ROM slots 9663.
+// slot 9663
     9663, 44634,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:436
+// ASCENT_GUIDANCE.agc:436
 //		PUSH	DOT
-// PORT: Fixed ROM slots 9664.
+// slot 9664
     9664, 41228,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:437
+// ASCENT_GUIDANCE.agc:437
 //# Page 852
-// PORT: SOURCE ASCENT_GUIDANCE.agc:438
+// ASCENT_GUIDANCE.agc:438
 //			YNBPIP
-// PORT: Fixed ROM slots 9665.
+// slot 9665
     9665, 2264,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:439
+// ASCENT_GUIDANCE.agc:439
 //		ABS	DSU
-// PORT: Fixed ROM slots 9666.
+// slot 9666
     9666, 38220,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:440
+// ASCENT_GUIDANCE.agc:440
 //			SIN5DEG
-// PORT: Fixed ROM slots 9667.
+// slot 9667
     9667, 11910,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:441
+// ASCENT_GUIDANCE.agc:441
 //		BPL	DLOAD
-// PORT: Fixed ROM slots 9668.
+// slot 9668
     9668, 58696,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:442
+// ASCENT_GUIDANCE.agc:442
 //			KEEPVR
-// PORT: Fixed ROM slots 9669.
+// slot 9669
     9669, 25038,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:443
+// ASCENT_GUIDANCE.agc:443
 //			RDOT
-// PORT: Fixed ROM slots 9670.
+// slot 9670
     9670, 3704,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:444
+// ASCENT_GUIDANCE.agc:444
 //		DSU	BPL
-// PORT: Fixed ROM slots 9671.
+// slot 9671
     9671, 42026,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:445
+// ASCENT_GUIDANCE.agc:445
 //			40FPS
-// PORT: Fixed ROM slots 9672.
+// slot 9672
     9672, 11914,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:446
+// ASCENT_GUIDANCE.agc:446
 //			EXITVR1
-// PORT: Fixed ROM slots 9673.
+// slot 9673
     9673, 50168,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:447
+// ASCENT_GUIDANCE.agc:447
 //		GOTO
-// PORT: Fixed ROM slots 9674.
+// slot 9674
     9674, 65360,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:448
+// ASCENT_GUIDANCE.agc:448
 //			KEEPVR
-// PORT: Fixed ROM slots 9675.
+// slot 9675
     9675, 25038,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:449
+// ASCENT_GUIDANCE.agc:449
 //
-// PORT: SOURCE ASCENT_GUIDANCE.agc:450
+// ASCENT_GUIDANCE.agc:450
 //		BANK	5
-// PORT: SOURCE ASCENT_GUIDANCE.agc:451
+// ASCENT_GUIDANCE.agc:451
 //		SETLOC	ASENT3
-// PORT: SOURCE ASCENT_GUIDANCE.agc:452
+// ASCENT_GUIDANCE.agc:452
 //		BANK
-// PORT: SOURCE ASCENT_GUIDANCE.agc:453
+// ASCENT_GUIDANCE.agc:453
 //		COUNT*	$$/ASENT
-// PORT: SOURCE ASCENT_GUIDANCE.agc:454
+// ASCENT_GUIDANCE.agc:454
 //
-// PORT: SOURCE ASCENT_GUIDANCE.agc:455
+// ASCENT_GUIDANCE.agc:455
 //SIN5DEG		2DEC	0.08716 B-2
-// PORT: Fixed ROM slots 8002 8003.
+// slot 8002 8003
     8002, 714, 8003, 242,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:456
+// ASCENT_GUIDANCE.agc:456
 //40FPS		2DEC	0.12192 B-7
-// PORT: Fixed ROM slots 8004 8005.
+// slot 8004 8005
     8004, 30, 8005, 19850,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:457
+// ASCENT_GUIDANCE.agc:457
 //
-// PORT: SOURCE ASCENT_GUIDANCE.agc:458
+// ASCENT_GUIDANCE.agc:458
 //		BANK	14
-// PORT: SOURCE ASCENT_GUIDANCE.agc:459
+// ASCENT_GUIDANCE.agc:459
 //		SETLOC	ASENT4
-// PORT: SOURCE ASCENT_GUIDANCE.agc:460
+// ASCENT_GUIDANCE.agc:460
 //		BANK
-// PORT: SOURCE ASCENT_GUIDANCE.agc:461
+// ASCENT_GUIDANCE.agc:461
 //		COUNT*	$$/ASENT
-// PORT: SOURCE ASCENT_GUIDANCE.agc:462
+// ASCENT_GUIDANCE.agc:462
 //
-// PORT: SOURCE ASCENT_GUIDANCE.agc:463
+// ASCENT_GUIDANCE.agc:463
 //KEEPVR		VLOAD	STADR		# RECALL LOSVEC FROM PUSHLIST
-// PORT: Fixed ROM slots 14567.
+// slot 14567
     14567, 38650,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:464
+// ASCENT_GUIDANCE.agc:464
 //		STORE	UNWC/2
-// PORT: Fixed ROM slots 14568.
+// slot 14568
     14568, 62106,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:465
+// ASCENT_GUIDANCE.agc:465
 //KEEPVR1		VLOAD
-// PORT: Fixed ROM slots 14569.
+// slot 14569
     14569, 65530,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:466
+// ASCENT_GUIDANCE.agc:466
 //			UNIT/R/
-// PORT: Fixed ROM slots 14570.
+// slot 14570
     14570, 3774,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:467
+// ASCENT_GUIDANCE.agc:467
 //		STCALL	UNFC/2
-// PORT: Fixed ROM slots 14571.
+// slot 14571
     14571, 32088,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:468
+// ASCENT_GUIDANCE.agc:468
 //			ASCTERM
-// PORT: Fixed ROM slots 14572.
+// slot 14572
     14572, 50082,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:469
+// ASCENT_GUIDANCE.agc:469
 //
-// PORT: SOURCE ASCENT_GUIDANCE.agc:470
+// ASCENT_GUIDANCE.agc:470
 //ENGOFF		RTB
-// PORT: Fixed ROM slots 14573.
+// slot 14573
     14573, 65336,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:471
+// ASCENT_GUIDANCE.agc:471
 //			LOADTIME
-// PORT: Fixed ROM slots 14574.
+// slot 14574
     14574, 18166,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:472
+// ASCENT_GUIDANCE.agc:472
 //		DSU	DAD
-// PORT: Fixed ROM slots 14575.
+// slot 14575
     14575, 36138,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:473
+// ASCENT_GUIDANCE.agc:473
 //			PIPTIME
-// PORT: Fixed ROM slots 14576.
+// slot 14576
     14576, 1338,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:474
+// ASCENT_GUIDANCE.agc:474
 //			TTOGO
-// PORT: Fixed ROM slots 14577.
+// slot 14577
     14577, 3672,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:475
+// ASCENT_GUIDANCE.agc:475
 //		DCOMP	EXIT
-// PORT: Fixed ROM slots 14578.
+// slot 14578
     14578, 65148
 )).
 
-// PORT: Physical bank 14. Shared continuation entries, slots 14579–14589.
+// bank 14, slots 14579-14589
 function agcAotUnit799 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 14583 {
         if slot <= 14580 {
             if slot <= 14579 {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:476
+// ASCENT_GUIDANCE.agc:476
 //		TC	TPAGREE		# FORCE SIGN AGREEMENT ON MPAC, MPAC +1.
-// PORT: Fixed ROM slots 14579.
+// slot 14579
                 if slot <> 14579 or instruction <> 3759 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -2085,9 +2085,9 @@ function agcAotUnit799 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:477
+// ASCENT_GUIDANCE.agc:477
 //		CAF	EBANK7
-// PORT: Fixed ROM slots 14580.
+// slot 14580
                 if slot <> 14580 or instruction <> 14862 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -2100,9 +2100,9 @@ function agcAotUnit799 {
             }
         } else {
             if slot <= 14581 {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:478
+// ASCENT_GUIDANCE.agc:478
 //		TS	EBANK
-// PORT: Fixed ROM slots 14581.
+// slot 14581
                 if slot <> 14581 or instruction <> 22531 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -2111,11 +2111,11 @@ function agcAotUnit799 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 14582 {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:479
+// ASCENT_GUIDANCE.agc:479
 //		EBANK=	TGO
-// PORT: SOURCE ASCENT_GUIDANCE.agc:480
+// ASCENT_GUIDANCE.agc:480
 //		INHINT
-// PORT: Fixed ROM slots 14582.
+// slot 14582
                     if slot <> 14582 or instruction <> 4 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -2123,9 +2123,9 @@ function agcAotUnit799 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:481
+// ASCENT_GUIDANCE.agc:481
 //		CCS	MPAC +1
-// PORT: Fixed ROM slots 14583.
+// slot 14583
                     if slot <> 14583 or instruction <> 4205 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -2140,9 +2140,9 @@ function agcAotUnit799 {
     } else {
         if slot <= 14586 {
             if slot <= 14584 {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:482
+// ASCENT_GUIDANCE.agc:482
 //		TCF	+3		# C(A) = DT - 1 BIT
-// PORT: Fixed ROM slots 14584.
+// slot 14584
                 if slot <> 14584 or instruction <> 5371 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -2151,9 +2151,9 @@ function agcAotUnit799 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 14585 {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:483
+// ASCENT_GUIDANCE.agc:483
 //		TCF	+2		# C(A) = 0
-// PORT: Fixed ROM slots 14585.
+// slot 14585
                     if slot <> 14585 or instruction <> 5371 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -2161,9 +2161,9 @@ function agcAotUnit799 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:484
+// ASCENT_GUIDANCE.agc:484
 //		CAF	ZERO		# C(A) = 0
-// PORT: Fixed ROM slots 14586.
+// slot 14586
                     if slot <> 14586 or instruction <> 14829 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -2177,9 +2177,9 @@ function agcAotUnit799 {
             }
         } else {
             if slot <= 14587 {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:485
+// ASCENT_GUIDANCE.agc:485
 //		AD	BIT1		# C(A) = 1 BIT OR DT.
-// PORT: Fixed ROM slots 14587.
+// slot 14587
                 if slot <> 14587 or instruction <> 27115 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -2192,11 +2192,11 @@ function agcAotUnit799 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 14588 {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:486
+// ASCENT_GUIDANCE.agc:486
 //# Page 853
-// PORT: SOURCE ASCENT_GUIDANCE.agc:487
+// ASCENT_GUIDANCE.agc:487
 //		TS	ENGOFFDT
-// PORT: Fixed ROM slots 14588.
+// slot 14588
                     if slot <> 14588 or instruction <> 23460 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -2204,9 +2204,9 @@ function agcAotUnit799 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:488
+// ASCENT_GUIDANCE.agc:488
 //		TC	TWIDDLE
-// PORT: Fixed ROM slots 14589.
+// slot 14589
                     if slot <> 14589 or instruction <> 2683 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -2221,18 +2221,18 @@ function agcAotUnit799 {
 set agcAotRoutes[799] to agcAotUnit799@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE ASCENT_GUIDANCE.agc:489
+// ASCENT_GUIDANCE.agc:489
 //		ADRES	ENGOFF1
-// PORT: Fixed ROM slots 14590.
+// slot 14590
     14590, 2576
 )).
 
-// PORT: Physical bank 14. Shared continuation entries, slots 14591–14591.
+// bank 14, slots 14591-14591
 function agcAotUnit800 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
-// PORT: SOURCE ASCENT_GUIDANCE.agc:490
+// ASCENT_GUIDANCE.agc:490
 //		TC	PHASCHNG
-// PORT: Fixed ROM slots 14591.
+// slot 14591
     if slot <> 14591 or instruction <> 2795 { return choose false if checkOnly else -1. }
     if not extended {
         if checkOnly { return true. }
@@ -2243,30 +2243,30 @@ function agcAotUnit800 {
 set agcAotRoutes[800] to agcAotUnit800@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE ASCENT_GUIDANCE.agc:491
+// ASCENT_GUIDANCE.agc:491
 //		OCT	47014
-// PORT: Fixed ROM slots 14592.
+// slot 14592
     14592, 39960,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:492
+// ASCENT_GUIDANCE.agc:492
 //		-GENADR	ENGOFFDT
-// PORT: Fixed ROM slots 14593.
+// slot 14593
     14593, 63670,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:493
+// ASCENT_GUIDANCE.agc:493
 //		EBANK=	TGO
-// PORT: SOURCE ASCENT_GUIDANCE.agc:494
+// ASCENT_GUIDANCE.agc:494
 //		2CADR	ENGOFF1
-// PORT: Fixed ROM slots 14594 14595.
+// slot 14594 14595
     14594, 2576, 14595, 24686
 )).
 
-// PORT: Physical bank 14. Shared continuation entries, slots 14596–14596.
+// bank 14, slots 14596-14596
 function agcAotUnit801 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
-// PORT: SOURCE ASCENT_GUIDANCE.agc:495
+// ASCENT_GUIDANCE.agc:495
 //
-// PORT: SOURCE ASCENT_GUIDANCE.agc:496
+// ASCENT_GUIDANCE.agc:496
 //		TC	INTPRET
-// PORT: Fixed ROM slots 14596.
+// slot 14596
     if slot <> 14596 or instruction <> 3103 { return choose false if checkOnly else -1. }
     if not extended {
         if checkOnly { return true. }
@@ -2277,28 +2277,28 @@ function agcAotUnit801 {
 set agcAotRoutes[801] to agcAotUnit801@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE ASCENT_GUIDANCE.agc:497
+// ASCENT_GUIDANCE.agc:497
 //		SET	GOTO
-// PORT: Fixed ROM slots 14597.
+// slot 14597
     14597, 43032,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:498
+// ASCENT_GUIDANCE.agc:498
 //			IDLEFLAG	# DISABLE DELTA-V MONITOR
-// PORT: Fixed ROM slots 14598.
+// slot 14598
     14598, 3696,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:499
+// ASCENT_GUIDANCE.agc:499
 //			T2TEST
-// PORT: Fixed ROM slots 14599.
+// slot 14599
     14599, 49746
 )).
 
-// PORT: Physical bank 14. Shared continuation entries, slots 14600–14600.
+// bank 14, slots 14600-14600
 function agcAotUnit802 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
-// PORT: SOURCE ASCENT_GUIDANCE.agc:500
+// ASCENT_GUIDANCE.agc:500
 //
-// PORT: SOURCE ASCENT_GUIDANCE.agc:501
+// ASCENT_GUIDANCE.agc:501
 //ENGOFF1		TC	IBNKCALL	# SHUT OFF THE ENGINE.
-// PORT: Fixed ROM slots 14600.
+// slot 14600
     if slot <> 14600 or instruction <> 2492 { return choose false if checkOnly else -1. }
     if not extended {
         if checkOnly { return true. }
@@ -2309,21 +2309,21 @@ function agcAotUnit802 {
 set agcAotRoutes[802] to agcAotUnit802@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE ASCENT_GUIDANCE.agc:502
+// ASCENT_GUIDANCE.agc:502
 //		CADR	ENGINOF2
-// PORT: Fixed ROM slots 14601.
+// slot 14601
     14601, 63186
 )).
 
-// PORT: Physical bank 14. Shared continuation entries, slots 14602–14603.
+// bank 14, slots 14602-14603
 function agcAotUnit803 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 14602 {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:503
+// ASCENT_GUIDANCE.agc:503
 //
-// PORT: SOURCE ASCENT_GUIDANCE.agc:504
+// ASCENT_GUIDANCE.agc:504
 //		CAF	PRIO17		# SET UP A JOB FOR THE ASCENT GUIDANCE
-// PORT: Fixed ROM slots 14602.
+// slot 14602
         if slot <> 14602 or instruction <> 14871 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -2334,9 +2334,9 @@ function agcAotUnit803 {
         }
         return choose false if checkOnly else -1.
     } else {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:505
+// ASCENT_GUIDANCE.agc:505
 //		TC	FINDVAC		# POSTBURN LOGIC.
-// PORT: Fixed ROM slots 14603.
+// slot 14603
         if slot <> 14603 or instruction <> 2629 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -2348,22 +2348,22 @@ function agcAotUnit803 {
 set agcAotRoutes[803] to agcAotUnit803@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE ASCENT_GUIDANCE.agc:506
+// ASCENT_GUIDANCE.agc:506
 //		EBANK=	WHICH
-// PORT: SOURCE ASCENT_GUIDANCE.agc:507
+// ASCENT_GUIDANCE.agc:507
 //		2CADR	CUTOFF
-// PORT: Fixed ROM slots 14604 14605.
+// slot 14604 14605
     14604, 2600, 14605, 24686
 )).
 
-// PORT: Physical bank 14. Shared continuation entries, slots 14606–14606.
+// bank 14, slots 14606-14606
 function agcAotUnit804 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
-// PORT: SOURCE ASCENT_GUIDANCE.agc:508
+// ASCENT_GUIDANCE.agc:508
 //
-// PORT: SOURCE ASCENT_GUIDANCE.agc:509
+// ASCENT_GUIDANCE.agc:509
 //		TC	PHASCHNG
-// PORT: Fixed ROM slots 14606.
+// slot 14606
     if slot <> 14606 or instruction <> 2795 { return choose false if checkOnly else -1. }
     if not extended {
         if checkOnly { return true. }
@@ -2374,31 +2374,31 @@ function agcAotUnit804 {
 set agcAotRoutes[804] to agcAotUnit804@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE ASCENT_GUIDANCE.agc:510
+// ASCENT_GUIDANCE.agc:510
 //		OCT 	07024
-// PORT: Fixed ROM slots 14607.
+// slot 14607
     14607, 7208,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:511
+// ASCENT_GUIDANCE.agc:511
 //		OCT	17000
-// PORT: Fixed ROM slots 14608.
+// slot 14608
     14608, 15360,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:512
+// ASCENT_GUIDANCE.agc:512
 //		EBANK=	TGO
-// PORT: SOURCE ASCENT_GUIDANCE.agc:513
+// ASCENT_GUIDANCE.agc:513
 //		2CADR	CUTOFF
-// PORT: Fixed ROM slots 14609 14610.
+// slot 14609 14610
     14609, 2600, 14610, 24686
 )).
 
-// PORT: Physical bank 14. Shared continuation entries, slots 14611–14612.
+// bank 14, slots 14611-14612
 function agcAotUnit805 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 14611 {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:514
+// ASCENT_GUIDANCE.agc:514
 //
-// PORT: SOURCE ASCENT_GUIDANCE.agc:515
+// ASCENT_GUIDANCE.agc:515
 //		TCF	TASKOVER
-// PORT: Fixed ROM slots 14611.
+// slot 14611
         if slot <> 14611 or instruction <> 6833 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -2406,11 +2406,11 @@ function agcAotUnit805 {
         }
         return choose false if checkOnly else -1.
     } else {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:516
+// ASCENT_GUIDANCE.agc:516
 //
-// PORT: SOURCE ASCENT_GUIDANCE.agc:517
+// ASCENT_GUIDANCE.agc:517
 //CUTOFF		TC	UPFLAG		# SET FLRCS FLAG.
-// PORT: Fixed ROM slots 14612.
+// slot 14612
         if slot <> 14612 or instruction <> 2884 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -2422,21 +2422,21 @@ function agcAotUnit805 {
 set agcAotRoutes[805] to agcAotUnit805@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE ASCENT_GUIDANCE.agc:518
+// ASCENT_GUIDANCE.agc:518
 //		ADRES	FLRCS
-// PORT: Fixed ROM slots 14613.
+// slot 14613
     14613, 280
 )).
 
-// PORT: Physical bank 14. Shared continuation entries, slots 14614–14615.
+// bank 14, slots 14614-14615
 function agcAotUnit806 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 14614 {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:519
+// ASCENT_GUIDANCE.agc:519
 //
-// PORT: SOURCE ASCENT_GUIDANCE.agc:520
+// ASCENT_GUIDANCE.agc:520
 // -5		CAF	V16N63
-// PORT: Fixed ROM slots 14614.
+// slot 14614
         if slot <> 14614 or instruction <> 13605 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -2447,9 +2447,9 @@ function agcAotUnit806 {
         }
         return choose false if checkOnly else -1.
     } else {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:521
+// ASCENT_GUIDANCE.agc:521
 // 		TC	BANKCALL
-// PORT: Fixed ROM slots 14615.
+// slot 14615
         if slot <> 14615 or instruction <> 2446 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -2461,20 +2461,20 @@ function agcAotUnit806 {
 set agcAotRoutes[806] to agcAotUnit806@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE ASCENT_GUIDANCE.agc:522
+// ASCENT_GUIDANCE.agc:522
 //		CADR	GOFLASH
-// PORT: Fixed ROM slots 14616.
+// slot 14616
     14616, 17020
 )).
 
-// PORT: Physical bank 14. Shared continuation entries, slots 14617–14620.
+// bank 14, slots 14617-14620
 function agcAotUnit807 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 14618 {
         if slot <= 14617 {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:523
+// ASCENT_GUIDANCE.agc:523
 //		TCF	+3
-// PORT: Fixed ROM slots 14617.
+// slot 14617
             if slot <> 14617 or instruction <> 5404 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -2482,9 +2482,9 @@ function agcAotUnit807 {
             }
             return choose false if checkOnly else -1.
         } else {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:524
+// ASCENT_GUIDANCE.agc:524
 //		TCF	CUTOFF1
-// PORT: Fixed ROM slots 14618.
+// slot 14618
             if slot <> 14618 or instruction <> 5406 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -2494,9 +2494,9 @@ function agcAotUnit807 {
         }
     } else {
         if slot <= 14619 {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:525
+// ASCENT_GUIDANCE.agc:525
 //		TCF	-5
-// PORT: Fixed ROM slots 14619.
+// slot 14619
             if slot <> 14619 or instruction <> 5398 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -2504,11 +2504,11 @@ function agcAotUnit807 {
             }
             return choose false if checkOnly else -1.
         } else {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:526
+// ASCENT_GUIDANCE.agc:526
 //
-// PORT: SOURCE ASCENT_GUIDANCE.agc:527
+// ASCENT_GUIDANCE.agc:527
 // +3		TC	POSTJUMP
-// PORT: Fixed ROM slots 14620.
+// slot 14620
             if slot <> 14620 or instruction <> 2461 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -2521,21 +2521,21 @@ function agcAotUnit807 {
 set agcAotRoutes[807] to agcAotUnit807@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE ASCENT_GUIDANCE.agc:528
+// ASCENT_GUIDANCE.agc:528
 // 		CADR	TERMASC
-// PORT: Fixed ROM slots 14621.
+// slot 14621
     14621, 50190
 )).
 
-// PORT: Physical bank 14. Shared continuation entries, slots 14622–14623.
+// bank 14, slots 14622-14623
 function agcAotUnit808 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 14622 {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:529
+// ASCENT_GUIDANCE.agc:529
 //
-// PORT: SOURCE ASCENT_GUIDANCE.agc:530
+// ASCENT_GUIDANCE.agc:530
 //CUTOFF1		INHINT
-// PORT: Fixed ROM slots 14622.
+// slot 14622
         if slot <> 14622 or instruction <> 4 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -2543,9 +2543,9 @@ function agcAotUnit808 {
         }
         return choose false if checkOnly else -1.
     } else {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:531
+// ASCENT_GUIDANCE.agc:531
 //		TC	IBNKCALL	# ZERO ATTITUDE ERRORS BEFORE REDUCINT DB.
-// PORT: Fixed ROM slots 14623.
+// slot 14623
         if slot <> 14623 or instruction <> 2492 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -2557,18 +2557,18 @@ function agcAotUnit808 {
 set agcAotRoutes[808] to agcAotUnit808@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE ASCENT_GUIDANCE.agc:532
+// ASCENT_GUIDANCE.agc:532
 //		CADR	ZATTEROR
-// PORT: Fixed ROM slots 14624.
+// slot 14624
     14624, 32982
 )).
 
-// PORT: Physical bank 14. Shared continuation entries, slots 14625–14625.
+// bank 14, slots 14625-14625
 function agcAotUnit809 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
-// PORT: SOURCE ASCENT_GUIDANCE.agc:533
+// ASCENT_GUIDANCE.agc:533
 //		TC	IBNKCALL
-// PORT: Fixed ROM slots 14625.
+// slot 14625
     if slot <> 14625 or instruction <> 2492 { return choose false if checkOnly else -1. }
     if not extended {
         if checkOnly { return true. }
@@ -2579,18 +2579,18 @@ function agcAotUnit809 {
 set agcAotRoutes[809] to agcAotUnit809@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE ASCENT_GUIDANCE.agc:534
+// ASCENT_GUIDANCE.agc:534
 //		CADR	SETMINDB
-// PORT: Fixed ROM slots 14626.
+// slot 14626
     14626, 32960
 )).
 
-// PORT: Physical bank 14. Shared continuation entries, slots 14627–14627.
+// bank 14, slots 14627-14627
 function agcAotUnit810 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
-// PORT: SOURCE ASCENT_GUIDANCE.agc:535
+// ASCENT_GUIDANCE.agc:535
 //		TC	POSTJUMP
-// PORT: Fixed ROM slots 14627.
+// slot 14627
     if slot <> 14627 or instruction <> 2461 { return choose false if checkOnly else -1. }
     if not extended {
         if checkOnly { return true. }
@@ -2601,36 +2601,36 @@ function agcAotUnit810 {
 set agcAotRoutes[810] to agcAotUnit810@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE ASCENT_GUIDANCE.agc:536
+// ASCENT_GUIDANCE.agc:536
 //		CADR	CUTOFF2
-// PORT: Fixed ROM slots 14628.
+// slot 14628
     14628, 50174,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:537
+// ASCENT_GUIDANCE.agc:537
 //# Page 854
-// PORT: SOURCE ASCENT_GUIDANCE.agc:538
+// ASCENT_GUIDANCE.agc:538
 //
-// PORT: SOURCE ASCENT_GUIDANCE.agc:539
+// ASCENT_GUIDANCE.agc:539
 //V16N63		VN	1663
-// PORT: Fixed ROM slots 14629.
+// slot 14629
     14629, 4222
 )).
 
-// PORT: Physical bank 30. Shared continuation entries, slots 27135–27135.
+// bank 30, slots 27135-27135
 function agcAotUnit1708 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
-// PORT: SOURCE ASCENT_GUIDANCE.agc:540
+// ASCENT_GUIDANCE.agc:540
 //		BANK	30
-// PORT: SOURCE ASCENT_GUIDANCE.agc:541
+// ASCENT_GUIDANCE.agc:541
 //		SETLOC	ASENT5
-// PORT: SOURCE ASCENT_GUIDANCE.agc:542
+// ASCENT_GUIDANCE.agc:542
 //		BANK
-// PORT: SOURCE ASCENT_GUIDANCE.agc:543
+// ASCENT_GUIDANCE.agc:543
 //		COUNT*	$$/ASENT
-// PORT: SOURCE ASCENT_GUIDANCE.agc:544
+// ASCENT_GUIDANCE.agc:544
 //
-// PORT: SOURCE ASCENT_GUIDANCE.agc:545
+// ASCENT_GUIDANCE.agc:545
 //CUTOFF2		TC	PHASCHNG
-// PORT: Fixed ROM slots 27135.
+// slot 27135
     if slot <> 27135 or instruction <> 2795 { return choose false if checkOnly else -1. }
     if not extended {
         if checkOnly { return true. }
@@ -2641,21 +2641,21 @@ function agcAotUnit1708 {
 set agcAotRoutes[1708] to agcAotUnit1708@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE ASCENT_GUIDANCE.agc:546
+// ASCENT_GUIDANCE.agc:546
 //		OCT	04024
-// PORT: Fixed ROM slots 27136.
+// slot 27136
     27136, 4136
 )).
 
-// PORT: Physical bank 30. Shared continuation entries, slots 27137–27138.
+// bank 30, slots 27137-27138
 function agcAotUnit1709 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 27137 {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:547
+// ASCENT_GUIDANCE.agc:547
 //
-// PORT: SOURCE ASCENT_GUIDANCE.agc:548
+// ASCENT_GUIDANCE.agc:548
 //		CAF	V16N85C
-// PORT: Fixed ROM slots 27137.
+// slot 27137
         if slot <> 27137 or instruction <> 13839 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -2666,9 +2666,9 @@ function agcAotUnit1709 {
         }
         return choose false if checkOnly else -1.
     } else {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:549
+// ASCENT_GUIDANCE.agc:549
 //		TC	BANKCALL
-// PORT: Fixed ROM slots 27138.
+// slot 27138
         if slot <> 27138 or instruction <> 2446 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -2680,20 +2680,20 @@ function agcAotUnit1709 {
 set agcAotRoutes[1709] to agcAotUnit1709@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE ASCENT_GUIDANCE.agc:550
+// ASCENT_GUIDANCE.agc:550
 //		CADR	GOFLASH
-// PORT: Fixed ROM slots 27139.
+// slot 27139
     27139, 17020
 )).
 
-// PORT: Physical bank 30. Shared continuation entries, slots 27140–27143.
+// bank 30, slots 27140-27143
 function agcAotUnit1710 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 27141 {
         if slot <= 27140 {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:551
+// ASCENT_GUIDANCE.agc:551
 //		TCF	TERMASC
-// PORT: Fixed ROM slots 27140.
+// slot 27140
             if slot <> 27140 or instruction <> 5639 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -2701,9 +2701,9 @@ function agcAotUnit1710 {
             }
             return choose false if checkOnly else -1.
         } else {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:552
+// ASCENT_GUIDANCE.agc:552
 //		TCF	+2		# PROCEED
-// PORT: Fixed ROM slots 27141.
+// slot 27141
             if slot <> 27141 or instruction <> 5639 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -2713,9 +2713,9 @@ function agcAotUnit1710 {
         }
     } else {
         if slot <= 27142 {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:553
+// ASCENT_GUIDANCE.agc:553
 //		TCF	CUTOFF2
-// PORT: Fixed ROM slots 27142.
+// slot 27142
             if slot <> 27142 or instruction <> 5631 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -2723,11 +2723,11 @@ function agcAotUnit1710 {
             }
             return choose false if checkOnly else -1.
         } else {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:554
+// ASCENT_GUIDANCE.agc:554
 //
-// PORT: SOURCE ASCENT_GUIDANCE.agc:555
+// ASCENT_GUIDANCE.agc:555
 //TERMASC		TC	PHASCHNG
-// PORT: Fixed ROM slots 27143.
+// slot 27143
             if slot <> 27143 or instruction <> 2795 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -2740,21 +2740,21 @@ function agcAotUnit1710 {
 set agcAotRoutes[1710] to agcAotUnit1710@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE ASCENT_GUIDANCE.agc:556
+// ASCENT_GUIDANCE.agc:556
 //		OCT	04024
-// PORT: Fixed ROM slots 27144.
+// slot 27144
     27144, 4136
 )).
 
-// PORT: Physical bank 30. Shared continuation entries, slots 27145–27146.
+// bank 30, slots 27145-27146
 function agcAotUnit1711 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 27145 {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:557
+// ASCENT_GUIDANCE.agc:557
 //
-// PORT: SOURCE ASCENT_GUIDANCE.agc:558
+// ASCENT_GUIDANCE.agc:558
 //		INHINT			# RESTORE DEADBAND DESIRED BY ASTRONAUT.
-// PORT: Fixed ROM slots 27145.
+// slot 27145
         if slot <> 27145 or instruction <> 4 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -2762,9 +2762,9 @@ function agcAotUnit1711 {
         }
         return choose false if checkOnly else -1.
     } else {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:559
+// ASCENT_GUIDANCE.agc:559
 //		TC	IBNKCALL
-// PORT: Fixed ROM slots 27146.
+// slot 27146
         if slot <> 27146 or instruction <> 2492 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -2776,18 +2776,18 @@ function agcAotUnit1711 {
 set agcAotRoutes[1711] to agcAotUnit1711@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE ASCENT_GUIDANCE.agc:560
+// ASCENT_GUIDANCE.agc:560
 //		CADR	RESTORDB
-// PORT: Fixed ROM slots 27147.
+// slot 27147
     27147, 32934
 )).
 
-// PORT: Physical bank 30. Shared continuation entries, slots 27148–27148.
+// bank 30, slots 27148-27148
 function agcAotUnit1712 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
-// PORT: SOURCE ASCENT_GUIDANCE.agc:561
+// ASCENT_GUIDANCE.agc:561
 //		TC	DOWNFLAG	# DISALLOW ABORTS AT THIS TIME.
-// PORT: Fixed ROM slots 27148.
+// slot 27148
     if slot <> 27148 or instruction <> 2894 { return choose false if checkOnly else -1. }
     if not extended {
         if checkOnly { return true. }
@@ -2798,18 +2798,18 @@ function agcAotUnit1712 {
 set agcAotRoutes[1712] to agcAotUnit1712@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE ASCENT_GUIDANCE.agc:562
+// ASCENT_GUIDANCE.agc:562
 //		ADRES	LETABORT
-// PORT: Fixed ROM slots 27149.
+// slot 27149
     27149, 282
 )).
 
-// PORT: Physical bank 30. Shared continuation entries, slots 27150–27150.
+// bank 30, slots 27150-27150
 function agcAotUnit1713 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
-// PORT: SOURCE ASCENT_GUIDANCE.agc:563
+// ASCENT_GUIDANCE.agc:563
 //		TCF	GOTOPOOH
-// PORT: Fixed ROM slots 27150.
+// slot 27150
     if slot <> 27150 or instruction <> 7169 { return choose false if checkOnly else -1. }
     if not extended {
         if checkOnly { return true. }
@@ -2820,174 +2820,174 @@ function agcAotUnit1713 {
 set agcAotRoutes[1713] to agcAotUnit1713@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE ASCENT_GUIDANCE.agc:564
+// ASCENT_GUIDANCE.agc:564
 //
-// PORT: SOURCE ASCENT_GUIDANCE.agc:565
+// ASCENT_GUIDANCE.agc:565
 //V16N85C		VN	1685
-// PORT: Fixed ROM slots 27151.
+// slot 27151
     27151, 4266,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:566
+// ASCENT_GUIDANCE.agc:566
 //
-// PORT: SOURCE ASCENT_GUIDANCE.agc:567
+// ASCENT_GUIDANCE.agc:567
 //		BANK 27
-// PORT: SOURCE ASCENT_GUIDANCE.agc:568
+// ASCENT_GUIDANCE.agc:568
 //		SETLOC	ASENT1
-// PORT: SOURCE ASCENT_GUIDANCE.agc:569
+// ASCENT_GUIDANCE.agc:569
 //		BANK
-// PORT: SOURCE ASCENT_GUIDANCE.agc:570
+// ASCENT_GUIDANCE.agc:570
 //		COUNT* $$/ASENT
-// PORT: SOURCE ASCENT_GUIDANCE.agc:571
+// ASCENT_GUIDANCE.agc:571
 //
-// PORT: SOURCE ASCENT_GUIDANCE.agc:572
+// ASCENT_GUIDANCE.agc:572
 //YCOMP		VLOAD	DOT
-// PORT: Fixed ROM slots 26314.
+// slot 26314
     26314, 41466,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:573
+// ASCENT_GUIDANCE.agc:573
 //			UNIT/R/
-// PORT: Fixed ROM slots 26315.
+// slot 26315
     26315, 3774,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:574
+// ASCENT_GUIDANCE.agc:574
 //			QAXIS
-// PORT: Fixed ROM slots 26316.
+// slot 26316
     26316, 4000,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:575
+// ASCENT_GUIDANCE.agc:575
 //		SL2	DMP
-// PORT: Fixed ROM slots 26317.
+// slot 26317
     26317, 34196,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:576
+// ASCENT_GUIDANCE.agc:576
 //			RCO
-// PORT: Fixed ROM slots 26318.
+// slot 26318
     26318, 3890,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:577
+// ASCENT_GUIDANCE.agc:577
 //		STORE	Y
-// PORT: Fixed ROM slots 26319.
+// slot 26319
     26319, 2490,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:578
+// ASCENT_GUIDANCE.agc:578
 //		RVQ
-// PORT: Fixed ROM slots 26320.
+// slot 26320
     26320, 65308,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:579
+// ASCENT_GUIDANCE.agc:579
 //
-// PORT: SOURCE ASCENT_GUIDANCE.agc:580
+// ASCENT_GUIDANCE.agc:580
 //		BANK	30
-// PORT: SOURCE ASCENT_GUIDANCE.agc:581
+// ASCENT_GUIDANCE.agc:581
 //		SETLOC	ASENT
-// PORT: SOURCE ASCENT_GUIDANCE.agc:582
+// ASCENT_GUIDANCE.agc:582
 //		BANK
-// PORT: SOURCE ASCENT_GUIDANCE.agc:583
+// ASCENT_GUIDANCE.agc:583
 //# Page 855
-// PORT: SOURCE ASCENT_GUIDANCE.agc:584
+// ASCENT_GUIDANCE.agc:584
 //100CS		EQUALS	2SEC(18)
-// PORT: SOURCE ASCENT_GUIDANCE.agc:585
+// ASCENT_GUIDANCE.agc:585
 //T2A		EQUALS	2SEC(17)
-// PORT: SOURCE ASCENT_GUIDANCE.agc:586
+// ASCENT_GUIDANCE.agc:586
 //4SEC(17)	2DEC	400 B-17
-// PORT: Fixed ROM slots 27152 27153.
+// slot 27152 27153
     27152, 100, 27153, 0,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:587
+// ASCENT_GUIDANCE.agc:587
 //2SEC(17)	2DEC	200 B-17
-// PORT: Fixed ROM slots 27154 27155.
+// slot 27154 27155
     27154, 50, 27155, 0,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:588
+// ASCENT_GUIDANCE.agc:588
 //T3		2DEC	1000 B-17
-// PORT: Fixed ROM slots 27156 27157.
+// slot 27156 27157
     27156, 250, 27157, 0,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:589
+// ASCENT_GUIDANCE.agc:589
 //6SEC(18)	2DEC	600 B-18
-// PORT: Fixed ROM slots 27158 27159.
+// slot 27158 27159
     27158, 74, 27159, 16384,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:590
+// ASCENT_GUIDANCE.agc:590
 //BIT4H		OCT	10
-// PORT: Fixed ROM slots 27160.
+// slot 27160
     27160, 16,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:591
+// ASCENT_GUIDANCE.agc:591
 //2SEC(9)		2DEC	200 B-9
-// PORT: Fixed ROM slots 27161 27162.
+// slot 27161 27162
     27161, 12800, 27162, 0,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:592
+// ASCENT_GUIDANCE.agc:592
 //V06N63*		VN	0663
-// PORT: Fixed ROM slots 27163.
+// slot 27163
     27163, 1662,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:593
+// ASCENT_GUIDANCE.agc:593
 //V06N76		VN	0676
-// PORT: Fixed ROM slots 27164.
+// slot 27164
     27164, 1688,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:594
+// ASCENT_GUIDANCE.agc:594
 //V06N33A		VN	0633
-// PORT: Fixed ROM slots 27165.
+// slot 27165
     27165, 1602,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:595
+// ASCENT_GUIDANCE.agc:595
 //
-// PORT: SOURCE ASCENT_GUIDANCE.agc:596
+// ASCENT_GUIDANCE.agc:596
 //		BANK	33
-// PORT: SOURCE ASCENT_GUIDANCE.agc:597
+// ASCENT_GUIDANCE.agc:597
 //		SETLOC	ASENT6
-// PORT: SOURCE ASCENT_GUIDANCE.agc:598
+// ASCENT_GUIDANCE.agc:598
 //		BANK
-// PORT: SOURCE ASCENT_GUIDANCE.agc:599
+// ASCENT_GUIDANCE.agc:599
 //		COUNT*	$$/ASENT
-// PORT: SOURCE ASCENT_GUIDANCE.agc:600
+// ASCENT_GUIDANCE.agc:600
 //
-// PORT: SOURCE ASCENT_GUIDANCE.agc:601
+// ASCENT_GUIDANCE.agc:601
 //KT1		2DEC	0.5000
-// PORT: Fixed ROM slots 29824 29825.
+// slot 29824 29825
     29824, 16384, 29825, 0,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:602
+// ASCENT_GUIDANCE.agc:602
 //PRLIMIT		2DEC	-.0639		# (B/TBUP)MIN=-.1FT.SEC(-3)
-// PORT: Fixed ROM slots 29826 29827.
+// slot 29826 29827
     29826, 63442, 29827, 34810,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:603
+// ASCENT_GUIDANCE.agc:603
 //MINABDV		2DEC	.0356 B-5	# 10 PERCENT BIGGER THAN GRAVITY
-// PORT: Fixed ROM slots 29828 29829.
+// slot 29828 29829
     29828, 36, 29829, 7444,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:604
+// ASCENT_GUIDANCE.agc:604
 //1/DV0		=	MASS1
-// PORT: SOURCE ASCENT_GUIDANCE.agc:605
+// ASCENT_GUIDANCE.agc:605
 //
-// PORT: SOURCE ASCENT_GUIDANCE.agc:606
+// ASCENT_GUIDANCE.agc:606
 //# Page 856
-// PORT: SOURCE ASCENT_GUIDANCE.agc:607
+// ASCENT_GUIDANCE.agc:607
 //# THE LOGARITHM SUBROUTINE
-// PORT: SOURCE ASCENT_GUIDANCE.agc:608
+// ASCENT_GUIDANCE.agc:608
 //
-// PORT: SOURCE ASCENT_GUIDANCE.agc:609
+// ASCENT_GUIDANCE.agc:609
 //		BANK	24
-// PORT: SOURCE ASCENT_GUIDANCE.agc:610
+// ASCENT_GUIDANCE.agc:610
 //		SETLOC	FLOGSUB
-// PORT: SOURCE ASCENT_GUIDANCE.agc:611
+// ASCENT_GUIDANCE.agc:611
 //		BANK
-// PORT: SOURCE ASCENT_GUIDANCE.agc:612
+// ASCENT_GUIDANCE.agc:612
 //
-// PORT: SOURCE ASCENT_GUIDANCE.agc:613
+// ASCENT_GUIDANCE.agc:613
 //# INPUT ..... X IN MPAC
-// PORT: SOURCE ASCENT_GUIDANCE.agc:614
+// ASCENT_GUIDANCE.agc:614
 //# OUTPUT ..... -LOG(X) IN MPAC
-// PORT: SOURCE ASCENT_GUIDANCE.agc:615
+// ASCENT_GUIDANCE.agc:615
 //
-// PORT: SOURCE ASCENT_GUIDANCE.agc:616
+// ASCENT_GUIDANCE.agc:616
 //LOGSUB		NORM	BDSU
-// PORT: Fixed ROM slots 27166.
+// slot 27166
     27166, 37250,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:617
+// ASCENT_GUIDANCE.agc:617
 //			MPAC +6
-// PORT: Fixed ROM slots 27167.
+// slot 27167
     27167, 230,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:618
+// ASCENT_GUIDANCE.agc:618
 //			NEARONE
-// PORT: Fixed ROM slots 27168.
+// slot 27168
     27168, 16370,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:619
+// ASCENT_GUIDANCE.agc:619
 //		EXIT
-// PORT: Fixed ROM slots 27169.
+// slot 27169
     27169, 65532
 )).
 
-// PORT: Physical bank 30. Shared continuation entries, slots 27170–27170.
+// bank 30, slots 27170-27170
 function agcAotUnit1714 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
-// PORT: SOURCE ASCENT_GUIDANCE.agc:620
+// ASCENT_GUIDANCE.agc:620
 //		TC	POLY
-// PORT: Fixed ROM slots 27170.
+// slot 27170
     if slot <> 27170 or instruction <> 3730 { return choose false if checkOnly else -1. }
     if not extended {
         if checkOnly { return true. }
@@ -2998,55 +2998,55 @@ function agcAotUnit1714 {
 set agcAotRoutes[1714] to agcAotUnit1714@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE ASCENT_GUIDANCE.agc:621
+// ASCENT_GUIDANCE.agc:621
 //		DEC	6
-// PORT: Fixed ROM slots 27171.
+// slot 27171
     27171, 12,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:622
+// ASCENT_GUIDANCE.agc:622
 //		2DEC	.0000000060
-// PORT: Fixed ROM slots 27172 27173.
+// slot 27172 27173
     27172, 0, 27173, 4,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:623
+// ASCENT_GUIDANCE.agc:623
 //		2DEC	-.0312514377
-// PORT: Fixed ROM slots 27174 27175.
+// slot 27174 27175
     27174, 64510, 27175, 64762,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:624
+// ASCENT_GUIDANCE.agc:624
 //		2DEC	-.0155686771
-// PORT: Fixed ROM slots 27176 27177.
+// slot 27176 27177
     27176, 65024, 27177, 63004,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:625
+// ASCENT_GUIDANCE.agc:625
 //		2DEC	-.0112502068
-// PORT: Fixed ROM slots 27178 27179.
+// slot 27178 27179
     27178, 65166, 27179, 54938,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:626
+// ASCENT_GUIDANCE.agc:626
 //		2DEC	-.0018545108
-// PORT: Fixed ROM slots 27180 27181.
+// slot 27180 27181
     27180, 65474, 27181, 52942,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:627
+// ASCENT_GUIDANCE.agc:627
 //		2DEC	-.0286607906
-// PORT: Fixed ROM slots 27182 27183.
+// slot 27182 27183
     27182, 64596, 27183, 46582,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:628
+// ASCENT_GUIDANCE.agc:628
 //		2DEC	.0385598563
-// PORT: Fixed ROM slots 27184 27185.
+// slot 27184 27185
     27184, 1262, 27185, 25058,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:629
+// ASCENT_GUIDANCE.agc:629
 //		2DEC	-.0419361902
-// PORT: Fixed ROM slots 27186 27187.
+// slot 27186 27187
     27186, 64160, 27187, 62830
 )).
 
-// PORT: Physical bank 30. Shared continuation entries, slots 27188–27200.
+// bank 30, slots 27188-27200
 function agcAotUnit1715 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 27193 {
         if slot <= 27190 {
             if slot <= 27188 {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:630
+// ASCENT_GUIDANCE.agc:630
 //
-// PORT: SOURCE ASCENT_GUIDANCE.agc:631
+// ASCENT_GUIDANCE.agc:631
 //		CAF	ZERO
-// PORT: Fixed ROM slots 27188.
+// slot 27188
                 if slot <> 27188 or instruction <> 14829 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -3058,9 +3058,9 @@ function agcAotUnit1715 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 27189 {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:632
+// ASCENT_GUIDANCE.agc:632
 //		TS	MPAC +2
-// PORT: Fixed ROM slots 27189.
+// slot 27189
                     if slot <> 27189 or instruction <> 22638 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -3068,9 +3068,9 @@ function agcAotUnit1715 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:633
+// ASCENT_GUIDANCE.agc:633
 //		EXTEND
-// PORT: Fixed ROM slots 27190.
+// slot 27190
                     if slot <> 27190 or instruction <> 6 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -3081,9 +3081,9 @@ function agcAotUnit1715 {
             }
         } else {
             if slot <= 27191 {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:634
+// ASCENT_GUIDANCE.agc:634
 //		DCA	CLOG2/32
-// PORT: Fixed ROM slots 27191.
+// slot 27191
                 if slot <> 27191 or instruction <> 13891 { return choose false if checkOnly else -1. }
                 if extended {
                     if checkOnly { return true. }
@@ -3094,9 +3094,9 @@ function agcAotUnit1715 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 27192 {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:635
+// ASCENT_GUIDANCE.agc:635
 //		DXCH	MPAC
-// PORT: Fixed ROM slots 27192.
+// slot 27192
                     if slot <> 27192 or instruction <> 21613 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -3105,9 +3105,9 @@ function agcAotUnit1715 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:636
+// ASCENT_GUIDANCE.agc:636
 //		DXCH	BUF +1
-// PORT: Fixed ROM slots 27193.
+// slot 27193
                     if slot <> 27193 or instruction <> 21594 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -3121,9 +3121,9 @@ function agcAotUnit1715 {
     } else {
         if slot <= 27196 {
             if slot <= 27194 {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:637
+// ASCENT_GUIDANCE.agc:637
 //		CA	MPAC +6
-// PORT: Fixed ROM slots 27194.
+// slot 27194
                 if slot <> 27194 or instruction <> 12402 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -3134,9 +3134,9 @@ function agcAotUnit1715 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 27195 {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:638
+// ASCENT_GUIDANCE.agc:638
 //		TC	SHORTMP
-// PORT: Fixed ROM slots 27195.
+// slot 27195
                     if slot <> 27195 or instruction <> 3783 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -3144,9 +3144,9 @@ function agcAotUnit1715 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:639
+// ASCENT_GUIDANCE.agc:639
 //		DXCH	MPAC +1
-// PORT: Fixed ROM slots 27196.
+// slot 27196
                     if slot <> 27196 or instruction <> 21614 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -3159,9 +3159,9 @@ function agcAotUnit1715 {
         } else {
             if slot <= 27198 {
                 if slot <= 27197 {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:640
+// ASCENT_GUIDANCE.agc:640
 //		DXCH	MPAC
-// PORT: Fixed ROM slots 27197.
+// slot 27197
                     if slot <> 27197 or instruction <> 21613 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -3170,9 +3170,9 @@ function agcAotUnit1715 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:641
+// ASCENT_GUIDANCE.agc:641
 //		DXCH	BUF +1
-// PORT: Fixed ROM slots 27198.
+// slot 27198
                     if slot <> 27198 or instruction <> 21594 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -3183,9 +3183,9 @@ function agcAotUnit1715 {
                 }
             } else {
                 if slot <= 27199 {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:642
+// ASCENT_GUIDANCE.agc:642
 //		DAS	MPAC
-// PORT: Fixed ROM slots 27199.
+// slot 27199
                     if slot <> 27199 or instruction <> 8301 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -3195,9 +3195,9 @@ function agcAotUnit1715 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE ASCENT_GUIDANCE.agc:643
+// ASCENT_GUIDANCE.agc:643
 //		TC	INTPRET
-// PORT: Fixed ROM slots 27200.
+// slot 27200
                     if slot <> 27200 or instruction <> 3103 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -3212,18 +3212,18 @@ function agcAotUnit1715 {
 set agcAotRoutes[1715] to agcAotUnit1715@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE ASCENT_GUIDANCE.agc:644
+// ASCENT_GUIDANCE.agc:644
 //		DCOMP	RVQ
-// PORT: Fixed ROM slots 27201.
+// slot 27201
     27201, 36476,
-// PORT: SOURCE ASCENT_GUIDANCE.agc:645
+// ASCENT_GUIDANCE.agc:645
 //
-// PORT: SOURCE ASCENT_GUIDANCE.agc:646
+// ASCENT_GUIDANCE.agc:646
 //CLOG2/32	2DEC	.0216608494
-// PORT: Fixed ROM slots 27202 27203.
+// slot 27202 27203
     27202, 708, 27203, 29208
 )).
 
-// PORT: Source-only text without a subsequent generated declaration.
-// PORT: SOURCE ASCENT_GUIDANCE.agc:647
+// no code for the lines below
+// ASCENT_GUIDANCE.agc:647
 //

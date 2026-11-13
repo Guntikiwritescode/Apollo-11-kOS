@@ -1,5 +1,3 @@
-// Isolated v2. Invoke the required provider at original FindMemoryWord.
-// Load this replacement instead of v1. Other helpers retain their v1 code.
 function agcCoreResolve {
     parameter words, effectiveAddress.
     local address is effectiveAddress - 4096 * floor(effectiveAddress / 4096).
@@ -9,7 +7,6 @@ function agcCoreResolve {
     return slot.
 }
 
-// Original Assign takes a resolved physical key and a native integer.
 function agcCoreAssign {
     parameter words, physicalSlot, value.
     if physicalSlot < 0 or physicalSlot >= 2048 { return. }
@@ -29,7 +26,6 @@ function agcCoreAssign {
     set words[physicalSlot] to rawWord.
 }
 
-// Original AllDone. Inputs preserve the pre-fetch EB/FB/BB snapshot.
 function agcCoreFinish {
     parameter words, oldEB, oldFB, oldBB, keepExtraCode, executedTC,
         tcTransient, justTookBZF, justTookBZMF.
@@ -63,14 +59,12 @@ function agcCoreFinish {
     set words["tookBZMF"] to justTookBZMF.
 }
 
-// Inclusive first oscillator deadline; readiness can defer service.
 function agcCoreNextDividerMct {
     parameter words.
     return words["windowMct"] + max(1, ceiling((80 - words["scalerResidual"]) / 3)).
 }
 
-// Advance only the digital clocks of a caller-proven quiet span.
-// The caller separately preserves instruction and device-provider effects.
+// skip ahead when nothing else can happen
 function agcCoreAdvanceQuiet {
     parameter words, mcts, nextEventMct.
     if mcts <= 0 or words["standby"] or words["pendingInstruction"]
@@ -87,7 +81,6 @@ function agcCoreAdvanceQuiet {
     return true.
 }
 
-// Original input channels, with the existing octal-named lexicon keys.
 local coreChannelKeys is list(
     "channel0", "channel1", "channel2", "scaler2", "scalerPhase", "channel5", "channel6", "channel7Input",
     "channel10", "channel11", "channel12", "channel13", "channel14", "channel15", "channel16", "channel17",
@@ -160,8 +153,6 @@ function agcCoreReadIO {
     return words[coreChannelKeys[channel]].
 }
 
-// Compute odd parity using the raw sensed data and the independently
-// supplied bit for its installed rope word.
 local coreNibbleParity is list(0,1,1,0,1,0,0,1,1,0,0,1,0,1,1,0).
 
 function agcCoreStoredParityMatches {
@@ -173,8 +164,6 @@ function agcCoreStoredParityMatches {
     return mod(low + midLow + midHigh + high + parityBit, 2) = 1.
 }
 
-// Geometry distinguishes uninstalled banks from a missing input in the
-// immutable verified installed image. There is no parity-disable default.
 function agcCoreFixedAccess {
     parameter words, address, slot.
     if slot < 2048 { return. }

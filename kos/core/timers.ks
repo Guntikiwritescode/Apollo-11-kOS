@@ -1,4 +1,3 @@
-// PORT: Raw PINC used by scaler service. The caller handles positive overflow.
 function agcTimerPinc {
     parameter word.
     if word = 16383 { return 0. }
@@ -6,8 +5,6 @@ function agcTimerPinc {
     return word + 1.
 }
 
-// PORT: One already-due scaler phase, with the radar gate disabled.
-// Return TIME1..TIME6, new interrupt number, CH13 and requested extra cycles.
 function agcServiceTimers {
     parameter phase, time1Word, time2Word, time3Word, time4Word, time5Word, time6Word, channel13.
     local request is 0.

@@ -1,4 +1,3 @@
-// PORT: Original DAS to an ordinary erasable pair.
 function agcDasErasable {
     parameter words, highSlot.
     local lowSum is agcAddSP16(words[1], agcSignExtend(words[highSlot + 1])).

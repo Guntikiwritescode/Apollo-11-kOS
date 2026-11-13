@@ -1,5 +1,5 @@
-"""Write the Virtual AGC engine with its private device state exposed.
-Usage: make_observable.py /path/to/virtualagc/yaAGC OUTPUT.c"""
+# copies yaAGC's agc_engine.c with its device state made visible, so a run can be saved and restored
+# usage: patch_engine.py /path/to/virtualagc/yaAGC OUTPUT.c
 import sys
 from hashlib import sha256
 from pathlib import Path
@@ -16,4 +16,4 @@ source = (ENGINE / "agc_engine.c").read_text()
 old = "  static int CountCDUX = 0, CountCDUY = 0, CountCDUZ = 0;"
 assert source.count(old) == 1
 source = source.replace(old, "").replace("static int\nBurstOutput", old + "\nstatic int\nBurstOutput")
-OUTPUT.write_text(source + '\n#include "private-state.inc"\n')
+OUTPUT.write_text(source + '\n#include "engine_state.inc"\n')

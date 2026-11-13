@@ -1,7 +1,7 @@
 global agcAotRoutes is lexicon().
 global agcAotRomBanks is lexicon().
 
-// PORT: Load-time assembly of source-owned physical ROM literals.
+// Fill in the rope words that are written next to their source lines.
 function agcAotInstallSourceRope {
     parameter pairs.
     from { local i is 0. } until i >= pairs:length step { set i to i + 2. } do {

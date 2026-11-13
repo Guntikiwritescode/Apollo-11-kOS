@@ -1,6 +1,3 @@
-// PORT: Block II parity-free raw single-precision words and accumulator values.
-// The two zero encodings and both accumulator overflow encodings remain distinct.
-
 function agcSignExtend {
     parameter word.
     if word >= 16384 {

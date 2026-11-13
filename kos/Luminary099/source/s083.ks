@@ -1,88 +1,88 @@
-// PORT: Original source unit THE_LUNAR_LANDING.agc.
-// PORT: Physical bank 32. Shared continuation entries, slots 29182–29182.
+// THE_LUNAR_LANDING.agc
+// bank 32, slots 29182-29182
 function agcAotUnit1870 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
-// PORT: SOURCE THE_LUNAR_LANDING.agc:1
+// THE_LUNAR_LANDING.agc:1
 //# Copyright:	Public domain.
-// PORT: SOURCE THE_LUNAR_LANDING.agc:2
+// THE_LUNAR_LANDING.agc:2
 //# Filename:	THE_LUNAR_LANDING.agc
-// PORT: SOURCE THE_LUNAR_LANDING.agc:3
+// THE_LUNAR_LANDING.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
-// PORT: SOURCE THE_LUNAR_LANDING.agc:4
+// THE_LUNAR_LANDING.agc:4
 //#		It is part of the source code for the Lunar Module's (LM)
-// PORT: SOURCE THE_LUNAR_LANDING.agc:5
+// THE_LUNAR_LANDING.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
-// PORT: SOURCE THE_LUNAR_LANDING.agc:6
+// THE_LUNAR_LANDING.agc:6
 //# Assembler:	yaYUL
-// PORT: SOURCE THE_LUNAR_LANDING.agc:7
+// THE_LUNAR_LANDING.agc:7
 //# Contact:	Hartmuth Gutsche<hgutsche@xplornet.com>.
-// PORT: SOURCE THE_LUNAR_LANDING.agc:8
+// THE_LUNAR_LANDING.agc:8
 //# Website:	www.ibiblio.org/apollo.
-// PORT: SOURCE THE_LUNAR_LANDING.agc:9
+// THE_LUNAR_LANDING.agc:9
 //# Pages:	785-792
-// PORT: SOURCE THE_LUNAR_LANDING.agc:10
+// THE_LUNAR_LANDING.agc:10
 //# Mod history:	2009-05-20 HG	Transcribed from page images.
-// PORT: SOURCE THE_LUNAR_LANDING.agc:11
+// THE_LUNAR_LANDING.agc:11
 //#
-// PORT: SOURCE THE_LUNAR_LANDING.agc:12
+// THE_LUNAR_LANDING.agc:12
 //# This source code has been transcribed or otherwise adapted from
-// PORT: SOURCE THE_LUNAR_LANDING.agc:13
+// THE_LUNAR_LANDING.agc:13
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
-// PORT: SOURCE THE_LUNAR_LANDING.agc:14
+// THE_LUNAR_LANDING.agc:14
 //# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
-// PORT: SOURCE THE_LUNAR_LANDING.agc:15
+// THE_LUNAR_LANDING.agc:15
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
-// PORT: SOURCE THE_LUNAR_LANDING.agc:16
+// THE_LUNAR_LANDING.agc:16
 //# in storage size and consequent reduction in image quality as well) are
-// PORT: SOURCE THE_LUNAR_LANDING.agc:17
+// THE_LUNAR_LANDING.agc:17
 //# available online at www.ibiblio.org/apollo.  If for some reason you
-// PORT: SOURCE THE_LUNAR_LANDING.agc:18
+// THE_LUNAR_LANDING.agc:18
 //# find that the images are illegible, contact me at info@sandroid.org
-// PORT: SOURCE THE_LUNAR_LANDING.agc:19
+// THE_LUNAR_LANDING.agc:19
 //# about getting access to the (much) higher-quality images which Paul
-// PORT: SOURCE THE_LUNAR_LANDING.agc:20
+// THE_LUNAR_LANDING.agc:20
 //# actually created.
-// PORT: SOURCE THE_LUNAR_LANDING.agc:21
+// THE_LUNAR_LANDING.agc:21
 //#
-// PORT: SOURCE THE_LUNAR_LANDING.agc:22
+// THE_LUNAR_LANDING.agc:22
 //# Notations on the hardcopy document read, in part:
-// PORT: SOURCE THE_LUNAR_LANDING.agc:23
+// THE_LUNAR_LANDING.agc:23
 //#
-// PORT: SOURCE THE_LUNAR_LANDING.agc:24
+// THE_LUNAR_LANDING.agc:24
 //#	Assemble revision 001 of AGC program LMY99 by NASA 2021112-061
-// PORT: SOURCE THE_LUNAR_LANDING.agc:25
+// THE_LUNAR_LANDING.agc:25
 //#	16:27 JULY 14, 1969
-// PORT: SOURCE THE_LUNAR_LANDING.agc:26
+// THE_LUNAR_LANDING.agc:26
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:27
+// THE_LUNAR_LANDING.agc:27
 //# Page 785
-// PORT: SOURCE THE_LUNAR_LANDING.agc:28
+// THE_LUNAR_LANDING.agc:28
 //		BANK	32
-// PORT: SOURCE THE_LUNAR_LANDING.agc:29
+// THE_LUNAR_LANDING.agc:29
 //		SETLOC	F2DPS*32
-// PORT: SOURCE THE_LUNAR_LANDING.agc:30
+// THE_LUNAR_LANDING.agc:30
 //		BANK
-// PORT: SOURCE THE_LUNAR_LANDING.agc:31
+// THE_LUNAR_LANDING.agc:31
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:32
+// THE_LUNAR_LANDING.agc:32
 //		EBANK=	E2DPS
-// PORT: SOURCE THE_LUNAR_LANDING.agc:33
+// THE_LUNAR_LANDING.agc:33
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:34
+// THE_LUNAR_LANDING.agc:34
 //#	*************************************
-// PORT: SOURCE THE_LUNAR_LANDING.agc:35
+// THE_LUNAR_LANDING.agc:35
 //#	P63: THE LUNAR LANDING, BRAKING PHASE
-// PORT: SOURCE THE_LUNAR_LANDING.agc:36
+// THE_LUNAR_LANDING.agc:36
 //#	*************************************
-// PORT: SOURCE THE_LUNAR_LANDING.agc:37
+// THE_LUNAR_LANDING.agc:37
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:38
+// THE_LUNAR_LANDING.agc:38
 //		COUNT*	$$/P63
-// PORT: SOURCE THE_LUNAR_LANDING.agc:39
+// THE_LUNAR_LANDING.agc:39
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:40
+// THE_LUNAR_LANDING.agc:40
 //P63LM		TC	PHASCHNG
-// PORT: Fixed ROM slots 29182.
+// slot 29182
     if slot <> 29182 or instruction <> 2795 { return choose false if checkOnly else -1. }
     if not extended {
         if checkOnly { return true. }
@@ -93,20 +93,20 @@ function agcAotUnit1870 {
 set agcAotRoutes[1870] to agcAotUnit1870@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE THE_LUNAR_LANDING.agc:41
+// THE_LUNAR_LANDING.agc:41
 //		OCT	04024
-// PORT: Fixed ROM slots 29183.
+// slot 29183
     29183, 4136
 )).
 
-// PORT: Physical bank 32. Shared continuation entries, slots 29184–29184.
+// bank 32, slots 29184-29184
 function agcAotUnit1871 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
-// PORT: SOURCE THE_LUNAR_LANDING.agc:42
+// THE_LUNAR_LANDING.agc:42
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:43
+// THE_LUNAR_LANDING.agc:43
 //		TC	BANKCALL	# DO IMU STATUS CHECK ROUTINE R02
-// PORT: Fixed ROM slots 29184.
+// slot 29184
     if slot <> 29184 or instruction <> 2446 { return choose false if checkOnly else -1. }
     if not extended {
         if checkOnly { return true. }
@@ -117,23 +117,23 @@ function agcAotUnit1871 {
 set agcAotRoutes[1871] to agcAotUnit1871@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE THE_LUNAR_LANDING.agc:44
+// THE_LUNAR_LANDING.agc:44
 //		CADR	R02BOTH
-// PORT: Fixed ROM slots 29185.
+// slot 29185
     29185, 9560
 )).
 
-// PORT: Physical bank 32. Shared continuation entries, slots 29186–29199.
+// bank 32, slots 29186-29199
 function agcAotUnit1872 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 29192 {
         if slot <= 29188 {
             if slot <= 29186 {
-// PORT: SOURCE THE_LUNAR_LANDING.agc:45
+// THE_LUNAR_LANDING.agc:45
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:46
+// THE_LUNAR_LANDING.agc:46
 //		CAF	P63ADRES	# INITIALIZE WHICH FOR BURNBABY
-// PORT: Fixed ROM slots 29186.
+// slot 29186
                 if slot <> 29186 or instruction <> 13995 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -145,9 +145,9 @@ function agcAotUnit1872 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 29187 {
-// PORT: SOURCE THE_LUNAR_LANDING.agc:47
+// THE_LUNAR_LANDING.agc:47
 //		TS	WHICH
-// PORT: Fixed ROM slots 29187.
+// slot 29187
                     if slot <> 29187 or instruction <> 23341 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -155,11 +155,11 @@ function agcAotUnit1872 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE THE_LUNAR_LANDING.agc:48
+// THE_LUNAR_LANDING.agc:48
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:49
+// THE_LUNAR_LANDING.agc:49
 //		CAF	DPSTHRSH	# INITIALIZE DVMON
-// PORT: Fixed ROM slots 29188.
+// slot 29188
                     if slot <> 29188 or instruction <> 13312 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -174,9 +174,9 @@ function agcAotUnit1872 {
         } else {
             if slot <= 29190 {
                 if slot <= 29189 {
-// PORT: SOURCE THE_LUNAR_LANDING.agc:50
+// THE_LUNAR_LANDING.agc:50
 //		TS	DVTHRUSH
-// PORT: Fixed ROM slots 29189.
+// slot 29189
                     if slot <> 29189 or instruction <> 23209 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -184,9 +184,9 @@ function agcAotUnit1872 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE THE_LUNAR_LANDING.agc:51
+// THE_LUNAR_LANDING.agc:51
 //		CAF	FOUR
-// PORT: Fixed ROM slots 29190.
+// slot 29190
                     if slot <> 29190 or instruction <> 14825 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -199,9 +199,9 @@ function agcAotUnit1872 {
                 }
             } else {
                 if slot <= 29191 {
-// PORT: SOURCE THE_LUNAR_LANDING.agc:52
+// THE_LUNAR_LANDING.agc:52
 //		TS	DVCNTR
-// PORT: Fixed ROM slots 29191.
+// slot 29191
                     if slot <> 29191 or instruction <> 23373 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -209,11 +209,11 @@ function agcAotUnit1872 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE THE_LUNAR_LANDING.agc:53
+// THE_LUNAR_LANDING.agc:53
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:54
+// THE_LUNAR_LANDING.agc:54
 //		CS	ONE		# INITIALIZE WCHPHASE AND FLPASS0
-// PORT: Fixed ROM slots 29192.
+// slot 29192
                     if slot <> 29192 or instruction <> 18923 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -228,9 +228,9 @@ function agcAotUnit1872 {
     } else {
         if slot <= 29195 {
             if slot <= 29193 {
-// PORT: SOURCE THE_LUNAR_LANDING.agc:55
+// THE_LUNAR_LANDING.agc:55
 //		TS	WCHPHASE
-// PORT: Fixed ROM slots 29193.
+// slot 29193
                 if slot <> 29193 or instruction <> 23273 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -239,11 +239,11 @@ function agcAotUnit1872 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 29194 {
-// PORT: SOURCE THE_LUNAR_LANDING.agc:56
+// THE_LUNAR_LANDING.agc:56
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:57
+// THE_LUNAR_LANDING.agc:57
 //		CA	ZERO
-// PORT: Fixed ROM slots 29194.
+// slot 29194
                     if slot <> 29194 or instruction <> 14829 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -254,9 +254,9 @@ function agcAotUnit1872 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE THE_LUNAR_LANDING.agc:58
+// THE_LUNAR_LANDING.agc:58
 //		TS	FLPASS0
-// PORT: Fixed ROM slots 29195.
+// slot 29195
                     if slot <> 29195 or instruction <> 23443 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -268,11 +268,11 @@ function agcAotUnit1872 {
         } else {
             if slot <= 29197 {
                 if slot <= 29196 {
-// PORT: SOURCE THE_LUNAR_LANDING.agc:59
+// THE_LUNAR_LANDING.agc:59
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:60
+// THE_LUNAR_LANDING.agc:60
 //		CS	BIT14
-// PORT: Fixed ROM slots 29196.
+// slot 29196
                     if slot <> 29196 or instruction <> 18910 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -282,9 +282,9 @@ function agcAotUnit1872 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE THE_LUNAR_LANDING.agc:61
+// THE_LUNAR_LANDING.agc:61
 //		EXTEND
-// PORT: Fixed ROM slots 29197.
+// slot 29197
                     if slot <> 29197 or instruction <> 6 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -294,9 +294,9 @@ function agcAotUnit1872 {
                 }
             } else {
                 if slot <= 29198 {
-// PORT: SOURCE THE_LUNAR_LANDING.agc:62
+// THE_LUNAR_LANDING.agc:62
 //		WAND	CHAN12		# REMOVE TRACK-ENABLE DISCRETE.
-// PORT: Fixed ROM slots 29198.
+// slot 29198
                     if slot <> 29198 or instruction <> 1546 { return choose false if checkOnly else -1. }
                     if extended {
                         if checkOnly { return true. }
@@ -306,11 +306,11 @@ function agcAotUnit1872 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE THE_LUNAR_LANDING.agc:63
+// THE_LUNAR_LANDING.agc:63
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:64
+// THE_LUNAR_LANDING.agc:64
 //FLAGORGY	TC	INTPRET		# DIONYSIAN FLAG WAVING
-// PORT: Fixed ROM slots 29199.
+// slot 29199
                     if slot <> 29199 or instruction <> 3103 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -325,255 +325,255 @@ function agcAotUnit1872 {
 set agcAotRoutes[1872] to agcAotUnit1872@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE THE_LUNAR_LANDING.agc:65
+// THE_LUNAR_LANDING.agc:65
 //		CLEAR	CLEAR
-// PORT: Fixed ROM slots 29200.
+// slot 29200
     29200, 35864,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:66
+// THE_LUNAR_LANDING.agc:66
 //			NOTHROTL
-// PORT: Fixed ROM slots 29201.
+// slot 29201
     29201, 2918,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:67
+// THE_LUNAR_LANDING.agc:67
 //			REDFLAG
-// PORT: Fixed ROM slots 29202.
+// slot 29202
     29202, 3442,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:68
+// THE_LUNAR_LANDING.agc:68
 //		CLEAR	SET
-// PORT: Fixed ROM slots 29203.
+// slot 29203
     29203, 35864,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:69
+// THE_LUNAR_LANDING.agc:69
 //			LRBYPASS
-// PORT: Fixed ROM slots 29204.
+// slot 29204
     29204, 5984,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:70
+// THE_LUNAR_LANDING.agc:70
 //			MUNFLAG
-// PORT: Fixed ROM slots 29205.
+// slot 29205
     29205, 3182,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:71
+// THE_LUNAR_LANDING.agc:71
 //		CLEAR	CLEAR
-// PORT: Fixed ROM slots 29206.
+// slot 29206
     29206, 35864,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:72
+// THE_LUNAR_LANDING.agc:72
 //			P25FLAG		# TERMINATE P25 IF IT IS RUNNING.
-// PORT: Fixed ROM slots 29207.
+// slot 29207
     29207, 364,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:73
+// THE_LUNAR_LANDING.agc:73
 //			RNDVZFLG	# TERMINATE P20 IF IT IS RUNNING
-// PORT: Fixed ROM slots 29208.
+// slot 29208
     29208, 368,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:74
+// THE_LUNAR_LANDING.agc:74
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:75
+// THE_LUNAR_LANDING.agc:75
 //					# ********************************
-// PORT: SOURCE THE_LUNAR_LANDING.agc:76
+// THE_LUNAR_LANDING.agc:76
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:77
+// THE_LUNAR_LANDING.agc:77
 //IGNALG		SETPD	VLOAD		# FIRST SET UP INPUTS FOR RP-TO-R:-
-// PORT: Fixed ROM slots 29209.
+// slot 29209
     29209, 64770,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:78
+// THE_LUNAR_LANDING.agc:78
 //# Page 786
-// PORT: SOURCE THE_LUNAR_LANDING.agc:79
+// THE_LUNAR_LANDING.agc:79
 //			0		#   AT 0D LANDING SITE IN MOON FIXED FRAME
-// PORT: Fixed ROM slots 29210.
+// slot 29210
     29210, 2,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:80
+// THE_LUNAR_LANDING.agc:80
 //			RLS		#   AT 6D ESTIMATED TIME OF LANDING
-// PORT: Fixed ROM slots 29211.
+// slot 29211
     29211, 2086,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:81
+// THE_LUNAR_LANDING.agc:81
 //		PDDL	PUSH		#   MPAC NON-ZERO TO INDICATE LUNAR CASE
-// PORT: Fixed ROM slots 29212.
+// slot 29212
     29212, 34474,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:82
+// THE_LUNAR_LANDING.agc:82
 //			TLAND
-// PORT: Fixed ROM slots 29213.
+// slot 29213
     29213, 2562,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:83
+// THE_LUNAR_LANDING.agc:83
 //		STCALL	TPIP		# ALSO SET TPIP FOR FIRST GUIDANCE PASS
-// PORT: Fixed ROM slots 29214.
+// slot 29214
     29214, 32554,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:84
+// THE_LUNAR_LANDING.agc:84
 //			RP-TO-R
-// PORT: Fixed ROM slots 29215.
+// slot 29215
     29215, 47004,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:85
+// THE_LUNAR_LANDING.agc:85
 //		VSL4	MXV
-// PORT: Fixed ROM slots 29216.
+// slot 29216
     29216, 53652,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:86
+// THE_LUNAR_LANDING.agc:86
 //			REFSMMAT
-// PORT: Fixed ROM slots 29217.
+// slot 29217
     29217, 1976,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:87
+// THE_LUNAR_LANDING.agc:87
 //		STCALL	LAND
-// PORT: Fixed ROM slots 29218.
+// slot 29218
     29218, 32570,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:88
+// THE_LUNAR_LANDING.agc:88
 //			GUIDINIT	# GUIDINIT INITIALIZES WM AND /LAND/
-// PORT: Fixed ROM slots 29219.
+// slot 29219
     29219, 39476,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:89
+// THE_LUNAR_LANDING.agc:89
 //		DLOAD	DSU
-// PORT: Fixed ROM slots 29220.
+// slot 29220
     29220, 38346,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:90
+// THE_LUNAR_LANDING.agc:90
 //			TLAND
-// PORT: Fixed ROM slots 29221.
+// slot 29221
     29221, 2562,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:91
+// THE_LUNAR_LANDING.agc:91
 //			GUIDDURN
-// PORT: Fixed ROM slots 29222.
+// slot 29222
     29222, 21856,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:92
+// THE_LUNAR_LANDING.agc:92
 //		STCALL	TDEC1		# INTEGRATE STATE FORWARD TO THAT TIME
-// PORT: Fixed ROM slots 29223.
+// slot 29223
     29223, 28738,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:93
+// THE_LUNAR_LANDING.agc:93
 //			LEMPREC
-// PORT: Fixed ROM slots 29224.
+// slot 29224
     29224, 23646,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:94
+// THE_LUNAR_LANDING.agc:94
 //		SSP	VLOAD
-// PORT: Fixed ROM slots 29225.
+// slot 29225
     29225, 64946,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:95
+// THE_LUNAR_LANDING.agc:95
 //			NIGNLOOP
-// PORT: Fixed ROM slots 29226.
+// slot 29226
     29226, 3918,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:96
+// THE_LUNAR_LANDING.agc:96
 //			40D
-// PORT: Fixed ROM slots 29227.
+// slot 29227
     29227, 80,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:97
+// THE_LUNAR_LANDING.agc:97
 //			UNITX
-// PORT: Fixed ROM slots 29228.
+// slot 29228
     29228, 6816,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:98
+// THE_LUNAR_LANDING.agc:98
 //		STOVL	CG
-// PORT: Fixed ROM slots 29229.
+// slot 29229
     29229, 23302,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:99
+// THE_LUNAR_LANDING.agc:99
 //			UNITY
-// PORT: Fixed ROM slots 29230.
+// slot 29230
     29230, 6812,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:100
+// THE_LUNAR_LANDING.agc:100
 //		STOVL	CG +6
-// PORT: Fixed ROM slots 29231.
+// slot 29231
     29231, 23314,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:101
+// THE_LUNAR_LANDING.agc:101
 //			UNITZ
-// PORT: Fixed ROM slots 29232.
+// slot 29232
     29232, 6808,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:102
+// THE_LUNAR_LANDING.agc:102
 //		STODL	CG +14
-// PORT: Fixed ROM slots 29233.
+// slot 29233
     29233, 15134,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:103
+// THE_LUNAR_LANDING.agc:103
 //			99999CON
-// PORT: Fixed ROM slots 29234.
+// slot 29234
     29234, 21852,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:104
+// THE_LUNAR_LANDING.agc:104
 //		STOVL	DELTAH		# INITIALIZE DELTAH FOR V16N68 DISPLAY
-// PORT: Fixed ROM slots 29235.
+// slot 29235
     29235, 24426,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:105
+// THE_LUNAR_LANDING.agc:105
 //			ZEROVECS
-// PORT: Fixed ROM slots 29236.
+// slot 29236
     29236, 6820,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:106
+// THE_LUNAR_LANDING.agc:106
 //		STODL	UNFC/2		# INITIALIZE TRIM VELOCITY CORRECTION TERM
-// PORT: Fixed ROM slots 29237.
+// slot 29237
     29237, 15704,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:107
+// THE_LUNAR_LANDING.agc:107
 //			HI6ZEROS
-// PORT: Fixed ROM slots 29238.
+// slot 29238
     29238, 6820,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:108
+// THE_LUNAR_LANDING.agc:108
 //		STORE	TTF/8
-// PORT: Fixed ROM slots 29239.
+// slot 29239
     29239, 3910,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:109
+// THE_LUNAR_LANDING.agc:109
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:110
+// THE_LUNAR_LANDING.agc:110
 //IGNALOOP	DLOAD
-// PORT: Fixed ROM slots 29240.
+// slot 29240
     29240, 65482,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:111
+// THE_LUNAR_LANDING.agc:111
 //			TAT
-// PORT: Fixed ROM slots 29241.
+// slot 29241
     29241, 26,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:112
+// THE_LUNAR_LANDING.agc:112
 //		STOVL	PIPTIME1
-// PORT: Fixed ROM slots 29242.
+// slot 29242
     29242, 24290,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:113
+// THE_LUNAR_LANDING.agc:113
 //			RATT1
-// PORT: Fixed ROM slots 29243.
+// slot 29243
     29243, 30,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:114
+// THE_LUNAR_LANDING.agc:114
 //		VSL4	MXV
-// PORT: Fixed ROM slots 29244.
+// slot 29244
     29244, 53652,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:115
+// THE_LUNAR_LANDING.agc:115
 //			REFSMMAT
-// PORT: Fixed ROM slots 29245.
+// slot 29245
     29245, 1976,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:116
+// THE_LUNAR_LANDING.agc:116
 //		STCALL	R
-// PORT: Fixed ROM slots 29246.
+// slot 29246
     29246, 32418,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:117
+// THE_LUNAR_LANDING.agc:117
 //			MUNGRAV
-// PORT: Fixed ROM slots 29247.
+// slot 29247
     29247, 56496,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:118
+// THE_LUNAR_LANDING.agc:118
 //		STCALL	GDT/2
-// PORT: Fixed ROM slots 29248.
+// slot 29248
     29248, 30014,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:119
+// THE_LUNAR_LANDING.agc:119
 //			?GUIDSUB	# WHICH DELIVERS N PASSES OF GUIDANCE
-// PORT: Fixed ROM slots 29249.
+// slot 29249
     29249, 51800
 )).
 
-// PORT: Physical bank 32. Shared continuation entries, slots 29250–29251.
+// bank 32, slots 29250-29251
 function agcAotUnit1873 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 29250 {
-// PORT: SOURCE THE_LUNAR_LANDING.agc:120
+// THE_LUNAR_LANDING.agc:120
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:121
+// THE_LUNAR_LANDING.agc:121
 //# DDUMCALC IS PROGRAMMED AS FOLLOWS:-
-// PORT: SOURCE THE_LUNAR_LANDING.agc:122
+// THE_LUNAR_LANDING.agc:122
 //#                                         2                                           ___
-// PORT: SOURCE THE_LUNAR_LANDING.agc:123
+// THE_LUNAR_LANDING.agc:123
 //#              (RIGNZ - RGU )/16 + 16(RGU  )KIGNY/B8 + (RGU - RIGNX)KIGNX/B4 + (ABVAL(VGU) - VIGN)KIGNV/B4
-// PORT: SOURCE THE_LUNAR_LANDING.agc:124
+// THE_LUNAR_LANDING.agc:124
 //#                          2             1                 0
-// PORT: SOURCE THE_LUNAR_LANDING.agc:125
+// THE_LUNAR_LANDING.agc:125
 //#	DDUM = -------------------------------------------------------------------------------------------
-// PORT: SOURCE THE_LUNAR_LANDING.agc:126
+// THE_LUNAR_LANDING.agc:126
 //#                                                10
-// PORT: SOURCE THE_LUNAR_LANDING.agc:127
+// THE_LUNAR_LANDING.agc:127
 //#                                               2   (VGU - 16 VGU KIGNX/B4)
-// PORT: SOURCE THE_LUNAR_LANDING.agc:128
+// THE_LUNAR_LANDING.agc:128
 //#                                                       2        0
-// PORT: SOURCE THE_LUNAR_LANDING.agc:129
+// THE_LUNAR_LANDING.agc:129
 //# Page 787 new page is actually one line earlier but this would put the indices on a separate line
-// PORT: SOURCE THE_LUNAR_LANDING.agc:130
+// THE_LUNAR_LANDING.agc:130
 //# disconnected from their respective variables
-// PORT: SOURCE THE_LUNAR_LANDING.agc:131
+// THE_LUNAR_LANDING.agc:131
 //# THE NUMERATOR IS SCALED IN METERS AT 2(28).  THE DENOMINATOR IS A VELOCITY IN UNITS OF 2(10) M/CS.
-// PORT: SOURCE THE_LUNAR_LANDING.agc:132
+// THE_LUNAR_LANDING.agc:132
 //# THE QUOTIENT IS THUS A TIME IN UNITS OF 2(18) CENTISECONDS.  THE FINAL SHIFT RESCALES TO UNITS OF 2(28) CS.
-// PORT: SOURCE THE_LUNAR_LANDING.agc:133
+// THE_LUNAR_LANDING.agc:133
 //# THERE IS NO DAMPING FACTOR.  THE CONSTANTS KIGNX/B4, KIGNY/B8 AND KIGNV/B4 ARE ALL NEGATIVE IN SIGN.
-// PORT: SOURCE THE_LUNAR_LANDING.agc:134
+// THE_LUNAR_LANDING.agc:134
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:135
+// THE_LUNAR_LANDING.agc:135
 //DDUMCALC	TS	NIGNLOOP
-// PORT: Fixed ROM slots 29250.
+// slot 29250
         if slot <> 29250 or instruction <> 23462 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -581,9 +581,9 @@ function agcAotUnit1873 {
         }
         return choose false if checkOnly else -1.
     } else {
-// PORT: SOURCE THE_LUNAR_LANDING.agc:136
+// THE_LUNAR_LANDING.agc:136
 //		TC	INTPRET
-// PORT: Fixed ROM slots 29251.
+// slot 29251
         if slot <> 29251 or instruction <> 3103 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -595,272 +595,272 @@ function agcAotUnit1873 {
 set agcAotRoutes[1873] to agcAotUnit1873@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE THE_LUNAR_LANDING.agc:137
+// THE_LUNAR_LANDING.agc:137
 //		DLOAD	DMPR		# FORM DENOMINATOR FIRST
-// PORT: Fixed ROM slots 29252.
+// slot 29252
     29252, 48586,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:138
+// THE_LUNAR_LANDING.agc:138
 //			VGU
-// PORT: Fixed ROM slots 29253.
+// slot 29253
     29253, 3886,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:139
+// THE_LUNAR_LANDING.agc:139
 //			KIGNX/B4
-// PORT: Fixed ROM slots 29254.
+// slot 29254
     29254, 2690,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:140
+// THE_LUNAR_LANDING.agc:140
 //		SL4R	BDSU
-// PORT: Fixed ROM slots 29255.
+// slot 29255
     29255, 37172,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:141
+// THE_LUNAR_LANDING.agc:141
 //			VGU +4
-// PORT: Fixed ROM slots 29256.
+// slot 29256
     29256, 3894,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:142
+// THE_LUNAR_LANDING.agc:142
 //		PDDL	DSU
-// PORT: Fixed ROM slots 29257.
+// slot 29257
     29257, 38314,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:143
+// THE_LUNAR_LANDING.agc:143
 //			RIGNZ
-// PORT: Fixed ROM slots 29258.
+// slot 29258
     29258, 2686,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:144
+// THE_LUNAR_LANDING.agc:144
 //			RGU +4
-// PORT: Fixed ROM slots 29259.
+// slot 29259
     29259, 2886,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:145
+// THE_LUNAR_LANDING.agc:145
 //		SR4R	PDDL
-// PORT: Fixed ROM slots 29260.
+// slot 29260
     29260, 54564,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:146
+// THE_LUNAR_LANDING.agc:146
 //			RGU +2
-// PORT: Fixed ROM slots 29261.
+// slot 29261
     29261, 2882,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:147
+// THE_LUNAR_LANDING.agc:147
 //		DSQ	DMPR
-// PORT: Fixed ROM slots 29262.
+// slot 29262
     29262, 48540,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:148
+// THE_LUNAR_LANDING.agc:148
 //			KIGNY/B8
-// PORT: Fixed ROM slots 29263.
+// slot 29263
     29263, 2694,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:149
+// THE_LUNAR_LANDING.agc:149
 //		SL4R	PDDL
-// PORT: Fixed ROM slots 29264.
+// slot 29264
     29264, 54580,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:150
+// THE_LUNAR_LANDING.agc:150
 //			RGU
-// PORT: Fixed ROM slots 29265.
+// slot 29265
     29265, 2878,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:151
+// THE_LUNAR_LANDING.agc:151
 //		DSU	DMPR
-// PORT: Fixed ROM slots 29266.
+// slot 29266
     29266, 48426,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:152
+// THE_LUNAR_LANDING.agc:152
 //			RIGNX
-// PORT: Fixed ROM slots 29267.
+// slot 29267
     29267, 2682,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:153
+// THE_LUNAR_LANDING.agc:153
 //			KIGNX/B4
-// PORT: Fixed ROM slots 29268.
+// slot 29268
     29268, 2690,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:154
+// THE_LUNAR_LANDING.agc:154
 //		PDVL	ABVAL
-// PORT: Fixed ROM slots 29269.
+// slot 29269
     29269, 42650,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:155
+// THE_LUNAR_LANDING.agc:155
 //			VGU
-// PORT: Fixed ROM slots 29270.
+// slot 29270
     29270, 3886,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:156
+// THE_LUNAR_LANDING.agc:156
 //		DSU	DMPR
-// PORT: Fixed ROM slots 29271.
+// slot 29271
     29271, 48426,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:157
+// THE_LUNAR_LANDING.agc:157
 //			VIGN
-// PORT: Fixed ROM slots 29272.
+// slot 29272
     29272, 2678,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:158
+// THE_LUNAR_LANDING.agc:158
 //			KIGNV/B4
-// PORT: Fixed ROM slots 29273.
+// slot 29273
     29273, 2698,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:159
+// THE_LUNAR_LANDING.agc:159
 //		DAD	DAD
-// PORT: Fixed ROM slots 29274.
+// slot 29274
     29274, 36122,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:160
+// THE_LUNAR_LANDING.agc:160
 //		DAD	DDV
-// PORT: Fixed ROM slots 29275.
+// slot 29275
     29275, 47386,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:161
+// THE_LUNAR_LANDING.agc:161
 //		SRR
-// PORT: Fixed ROM slots 29276.
+// slot 29276
     29276, 65378,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:162
+// THE_LUNAR_LANDING.agc:162
 //			10D
-// PORT: Fixed ROM slots 29277.
+// slot 29277
     29277, 18198,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:163
+// THE_LUNAR_LANDING.agc:163
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:164
+// THE_LUNAR_LANDING.agc:164
 //		PUSH	DAD
-// PORT: Fixed ROM slots 29278.
+// slot 29278
     29278, 36108,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:165
+// THE_LUNAR_LANDING.agc:165
 //			PIPTIME1
-// PORT: Fixed ROM slots 29279.
+// slot 29279
     29279, 3810,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:166
+// THE_LUNAR_LANDING.agc:166
 //		STODL	TDEC1		# STORE NEW GUESS FOR NEXT INTEGRATION
-// PORT: Fixed ROM slots 29280.
+// slot 29280
     29280, 12354,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:167
+// THE_LUNAR_LANDING.agc:167
 //		ABS	DSU
-// PORT: Fixed ROM slots 29281.
+// slot 29281
     29281, 38220,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:168
+// THE_LUNAR_LANDING.agc:168
 //			DDUMCRIT
-// PORT: Fixed ROM slots 29282.
+// slot 29282
     29282, 21860,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:169
+// THE_LUNAR_LANDING.agc:169
 //		BMN	CALL
-// PORT: Fixed ROM slots 29283.
+// slot 29283
     29283, 37952,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:170
+// THE_LUNAR_LANDING.agc:170
 //			DDUMGOOD
-// PORT: Fixed ROM slots 29284.
+// slot 29284
     29284, 54502,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:171
+// THE_LUNAR_LANDING.agc:171
 //			INTSTALL
-// PORT: Fixed ROM slots 29285.
+// slot 29285
     29285, 24088,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:172
+// THE_LUNAR_LANDING.agc:172
 //		SET	SET
-// PORT: Fixed ROM slots 29286.
+// slot 29286
     29286, 35864,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:173
+// THE_LUNAR_LANDING.agc:173
 //			INTYPFLG
-// PORT: Fixed ROM slots 29287.
+// slot 29287
     29287, 1654,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:174
+// THE_LUNAR_LANDING.agc:174
 //			MOONFLAG
-// PORT: Fixed ROM slots 29288.
+// slot 29288
     29288, 102,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:175
+// THE_LUNAR_LANDING.agc:175
 //		DLOAD
-// PORT: Fixed ROM slots 29289.
+// slot 29289
     29289, 65482,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:176
+// THE_LUNAR_LANDING.agc:176
 //			PIPTIME1
-// PORT: Fixed ROM slots 29290.
+// slot 29290
     29290, 3810,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:177
+// THE_LUNAR_LANDING.agc:177
 //		STOVL	TET		# HOPEFULLY ?GUIDSUB DID NOT
-// PORT: Fixed ROM slots 29291.
+// slot 29291
     29291, 22174,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:178
+// THE_LUNAR_LANDING.agc:178
 //			RATT1		#   CLOBBER RATT1 AND VATT1
-// PORT: Fixed ROM slots 29292.
+// slot 29292
     29292, 30,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:179
+// THE_LUNAR_LANDING.agc:179
 //# Page 788
-// PORT: SOURCE THE_LUNAR_LANDING.agc:180
+// THE_LUNAR_LANDING.agc:180
 //		STOVL	RCV
-// PORT: Fixed ROM slots 29293.
+// slot 29293
     29293, 22202,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:181
+// THE_LUNAR_LANDING.agc:181
 //			VATT1
-// PORT: Fixed ROM slots 29294.
+// slot 29294
     29294, 42,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:182
+// THE_LUNAR_LANDING.agc:182
 //		STCALL	VCV
-// PORT: Fixed ROM slots 29295.
+// slot 29295
     29295, 30406,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:183
+// THE_LUNAR_LANDING.agc:183
 //			INTEGRVS
-// PORT: Fixed ROM slots 29296.
+// slot 29296
     29296, 23694,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:184
+// THE_LUNAR_LANDING.agc:184
 //		GOTO
-// PORT: Fixed ROM slots 29297.
+// slot 29297
     29297, 65360,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:185
+// THE_LUNAR_LANDING.agc:185
 //			IGNALOOP
-// PORT: Fixed ROM slots 29298.
+// slot 29298
     29298, 54384,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:186
+// THE_LUNAR_LANDING.agc:186
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:187
+// THE_LUNAR_LANDING.agc:187
 //DDUMGOOD	SLOAD	SR
-// PORT: Fixed ROM slots 29299.
+// slot 29299
     29299, 45498,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:188
+// THE_LUNAR_LANDING.agc:188
 //			ZOOMTIME
-// PORT: Fixed ROM slots 29300.
+// slot 29300
     29300, 3622,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:189
+// THE_LUNAR_LANDING.agc:189
 //			14D
-// PORT: Fixed ROM slots 29301.
+// slot 29301
     29301, 17182,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:190
+// THE_LUNAR_LANDING.agc:190
 //		BDSU
-// PORT: Fixed ROM slots 29302.
+// slot 29302
     29302, 65314,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:191
+// THE_LUNAR_LANDING.agc:191
 //			TDEC1
-// PORT: Fixed ROM slots 29303.
+// slot 29303
     29303, 66,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:192
+// THE_LUNAR_LANDING.agc:192
 //		STOVL	TIG		# COMPUTE DISTANCE LANDING SITE WILL BE
-// PORT: Fixed ROM slots 29304.
+// slot 29304
     29304, 24132,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:193
+// THE_LUNAR_LANDING.agc:193
 //			V		#   OUT OF LM'S ORBITAL PLANE AT IGNITION:
-// PORT: Fixed ROM slots 29305.
+// slot 29305
     29305, 3758,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:194
+// THE_LUNAR_LANDING.agc:194
 //		VXV	UNIT		#   SIGN IS + IF LANDING SITE IS TO THE
-// PORT: Fixed ROM slots 29306.
+// slot 29306
     29306, 44602,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:195
+// THE_LUNAR_LANDING.agc:195
 //			R		#   RIGHT, NORTH; - IF TO THE LEFT, SOUTH.
-// PORT: Fixed ROM slots 29307.
+// slot 29307
     29307, 3746,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:196
+// THE_LUNAR_LANDING.agc:196
 //		DOT	SL1
-// PORT: Fixed ROM slots 29308.
+// slot 29308
     29308, 59970,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:197
+// THE_LUNAR_LANDING.agc:197
 //			LAND
-// PORT: Fixed ROM slots 29309.
+// slot 29309
     29309, 3898,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:198
+// THE_LUNAR_LANDING.agc:198
 //R60INIT		STOVL	OUTOFPLN	# INITIALIZATION FOR CALCMANU
-// PORT: Fixed ROM slots 29310.
+// slot 29310
     29310, 23342,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:199
+// THE_LUNAR_LANDING.agc:199
 //			UNFC/2
-// PORT: Fixed ROM slots 29311.
+// slot 29311
     29311, 3416,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:200
+// THE_LUNAR_LANDING.agc:200
 //		STORE	R60VSAVE	# STORE UNFC/2 TEMPORARILY IN R60SAVE
-// PORT: Fixed ROM slots 29312.
+// slot 29312
     29312, 2866,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:201
+// THE_LUNAR_LANDING.agc:201
 //		EXIT
-// PORT: Fixed ROM slots 29313.
+// slot 29313
     29313, 65532
 )).
 
-// PORT: Physical bank 32. Shared continuation entries, slots 29314–29314.
+// bank 32, slots 29314-29314
 function agcAotUnit1874 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
-// PORT: SOURCE THE_LUNAR_LANDING.agc:202
+// THE_LUNAR_LANDING.agc:202
 //					# *******************************************
-// PORT: SOURCE THE_LUNAR_LANDING.agc:203
+// THE_LUNAR_LANDING.agc:203
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:204
+// THE_LUNAR_LANDING.agc:204
 //IGNALGRT	TC	PHASCHNG	# PREVENT REPEATING IGNALG
-// PORT: Fixed ROM slots 29314.
+// slot 29314
     if slot <> 29314 or instruction <> 2795 { return choose false if checkOnly else -1. }
     if not extended {
         if checkOnly { return true. }
@@ -871,21 +871,21 @@ function agcAotUnit1874 {
 set agcAotRoutes[1874] to agcAotUnit1874@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE THE_LUNAR_LANDING.agc:205
+// THE_LUNAR_LANDING.agc:205
 //		OCT	04024
-// PORT: Fixed ROM slots 29315.
+// slot 29315
     29315, 4136
 )).
 
-// PORT: Physical bank 32. Shared continuation entries, slots 29316–29317.
+// bank 32, slots 29316-29317
 function agcAotUnit1875 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 29316 {
-// PORT: SOURCE THE_LUNAR_LANDING.agc:206
+// THE_LUNAR_LANDING.agc:206
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:207
+// THE_LUNAR_LANDING.agc:207
 //ASTNCLOK	CS	ASTNDEX
-// PORT: Fixed ROM slots 29316.
+// slot 29316
         if slot <> 29316 or instruction <> 18674 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -895,9 +895,9 @@ function agcAotUnit1875 {
         }
         return choose false if checkOnly else -1.
     } else {
-// PORT: SOURCE THE_LUNAR_LANDING.agc:208
+// THE_LUNAR_LANDING.agc:208
 //		TC	BANKCALL
-// PORT: Fixed ROM slots 29317.
+// slot 29317
         if slot <> 29317 or instruction <> 2446 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -909,19 +909,19 @@ function agcAotUnit1875 {
 set agcAotRoutes[1875] to agcAotUnit1875@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE THE_LUNAR_LANDING.agc:209
+// THE_LUNAR_LANDING.agc:209
 //		CADR	STCLOK2
-// PORT: Fixed ROM slots 29318.
+// slot 29318
     29318, 62312
 )).
 
-// PORT: Physical bank 32. Shared continuation entries, slots 29319–29320.
+// bank 32, slots 29319-29320
 function agcAotUnit1876 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 29319 {
-// PORT: SOURCE THE_LUNAR_LANDING.agc:210
+// THE_LUNAR_LANDING.agc:210
 //		TCF	ENDOFJOB	# RETURN IN NEW JOB AND IN EBANK FIVE
-// PORT: Fixed ROM slots 29319.
+// slot 29319
         if slot <> 29319 or instruction <> 6765 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -929,11 +929,11 @@ function agcAotUnit1876 {
         }
         return choose false if checkOnly else -1.
     } else {
-// PORT: SOURCE THE_LUNAR_LANDING.agc:211
+// THE_LUNAR_LANDING.agc:211
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:212
+// THE_LUNAR_LANDING.agc:212
 //ASTNRET		TC	INTPRET
-// PORT: Fixed ROM slots 29320.
+// slot 29320
         if slot <> 29320 or instruction <> 3103 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -945,58 +945,58 @@ function agcAotUnit1876 {
 set agcAotRoutes[1876] to agcAotUnit1876@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE THE_LUNAR_LANDING.agc:213
+// THE_LUNAR_LANDING.agc:213
 //		SSP	RTB		# GO PICK UP DISPLAY AT END OF R51:
-// PORT: Fixed ROM slots 29321.
+// slot 29321
     29321, 40114,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:214
+// THE_LUNAR_LANDING.agc:214
 //			QMAJ		#   "PROCEED" WILL DO A FINE ALIGNMENT
-// PORT: Fixed ROM slots 29322.
+// slot 29322
     29322, 3022,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:215
+// THE_LUNAR_LANDING.agc:215
 //		FCADR	P63SPOT2	#   " ENTER " WILL RETURN TO P63SPOT2
-// PORT: Fixed ROM slots 29323.
+// slot 29323
     29323, 54554,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:216
+// THE_LUNAR_LANDING.agc:216
 //			R51P63
-// PORT: Fixed ROM slots 29324.
+// slot 29324
     29324, 25786,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:217
+// THE_LUNAR_LANDING.agc:217
 //P63SPOT2	VLOAD	UNIT		# INITIALIZE KALCMANU FOR BURN ATTITUDE
-// PORT: Fixed ROM slots 29325.
+// slot 29325
     29325, 44794,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:218
+// THE_LUNAR_LANDING.agc:218
 //			R60VSAVE
-// PORT: Fixed ROM slots 29326.
+// slot 29326
     29326, 2866,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:219
+// THE_LUNAR_LANDING.agc:219
 //		STOVL	POINTVSM
-// PORT: Fixed ROM slots 29327.
+// slot 29327
     29327, 24566,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:220
+// THE_LUNAR_LANDING.agc:220
 //			UNITX
-// PORT: Fixed ROM slots 29328.
+// slot 29328
     29328, 6816,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:221
+// THE_LUNAR_LANDING.agc:221
 //		STORE	SCAXIS
-// PORT: Fixed ROM slots 29329.
+// slot 29329
     29329, 4074,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:222
+// THE_LUNAR_LANDING.agc:222
 //		EXIT
-// PORT: Fixed ROM slots 29330.
+// slot 29330
     29330, 65532
 )).
 
-// PORT: Physical bank 32. Shared continuation entries, slots 29331–29334.
+// bank 32, slots 29331-29334
 function agcAotUnit1877 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 29332 {
         if slot <= 29331 {
-// PORT: SOURCE THE_LUNAR_LANDING.agc:223
+// THE_LUNAR_LANDING.agc:223
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:224
+// THE_LUNAR_LANDING.agc:224
 //		CAF	EBANK7
-// PORT: Fixed ROM slots 29331.
+// slot 29331
             if slot <> 29331 or instruction <> 14862 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -1007,9 +1007,9 @@ function agcAotUnit1877 {
             }
             return choose false if checkOnly else -1.
         } else {
-// PORT: SOURCE THE_LUNAR_LANDING.agc:225
+// THE_LUNAR_LANDING.agc:225
 //		TS	EBANK
-// PORT: Fixed ROM slots 29332.
+// slot 29332
             if slot <> 29332 or instruction <> 22531 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -1019,11 +1019,11 @@ function agcAotUnit1877 {
         }
     } else {
         if slot <= 29333 {
-// PORT: SOURCE THE_LUNAR_LANDING.agc:226
+// THE_LUNAR_LANDING.agc:226
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:227
+// THE_LUNAR_LANDING.agc:227
 //		INHINT
-// PORT: Fixed ROM slots 29333.
+// slot 29333
             if slot <> 29333 or instruction <> 4 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -1031,9 +1031,9 @@ function agcAotUnit1877 {
             }
             return choose false if checkOnly else -1.
         } else {
-// PORT: SOURCE THE_LUNAR_LANDING.agc:228
+// THE_LUNAR_LANDING.agc:228
 //		TC	IBNKCALL
-// PORT: Fixed ROM slots 29334.
+// slot 29334
             if slot <> 29334 or instruction <> 2492 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -1046,21 +1046,21 @@ function agcAotUnit1877 {
 set agcAotRoutes[1877] to agcAotUnit1877@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE THE_LUNAR_LANDING.agc:229
+// THE_LUNAR_LANDING.agc:229
 //		CADR	PFLITEDB
-// PORT: Fixed ROM slots 29335.
+// slot 29335
     29335, 32964
 )).
 
-// PORT: Physical bank 32. Shared continuation entries, slots 29336–29337.
+// bank 32, slots 29336-29337
 function agcAotUnit1878 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 29336 {
-// PORT: SOURCE THE_LUNAR_LANDING.agc:230
+// THE_LUNAR_LANDING.agc:230
 //# Page 789
-// PORT: SOURCE THE_LUNAR_LANDING.agc:231
+// THE_LUNAR_LANDING.agc:231
 //		RELINT
-// PORT: Fixed ROM slots 29336.
+// slot 29336
         if slot <> 29336 or instruction <> 3 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -1068,11 +1068,11 @@ function agcAotUnit1878 {
         }
         return choose false if checkOnly else -1.
     } else {
-// PORT: SOURCE THE_LUNAR_LANDING.agc:232
+// THE_LUNAR_LANDING.agc:232
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:233
+// THE_LUNAR_LANDING.agc:233
 //		TC	BANKCALL
-// PORT: Fixed ROM slots 29337.
+// slot 29337
         if slot <> 29337 or instruction <> 2446 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -1084,20 +1084,20 @@ function agcAotUnit1878 {
 set agcAotRoutes[1878] to agcAotUnit1878@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE THE_LUNAR_LANDING.agc:234
+// THE_LUNAR_LANDING.agc:234
 //		CADR	R60LEM
-// PORT: Fixed ROM slots 29338.
+// slot 29338
     29338, 45222
 )).
 
-// PORT: Physical bank 32. Shared continuation entries, slots 29339–29339.
+// bank 32, slots 29339-29339
 function agcAotUnit1879 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
-// PORT: SOURCE THE_LUNAR_LANDING.agc:235
+// THE_LUNAR_LANDING.agc:235
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:236
+// THE_LUNAR_LANDING.agc:236
 //		TC	PHASCHNG	# PREVENT RECALLING R60
-// PORT: Fixed ROM slots 29339.
+// slot 29339
     if slot <> 29339 or instruction <> 2795 { return choose false if checkOnly else -1. }
     if not extended {
         if checkOnly { return true. }
@@ -1108,22 +1108,22 @@ function agcAotUnit1879 {
 set agcAotRoutes[1879] to agcAotUnit1879@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE THE_LUNAR_LANDING.agc:237
+// THE_LUNAR_LANDING.agc:237
 //		OCT	04024
-// PORT: Fixed ROM slots 29340.
+// slot 29340
     29340, 4136
 )).
 
-// PORT: Physical bank 32. Shared continuation entries, slots 29341–29347.
+// bank 32, slots 29341-29347
 function agcAotUnit1880 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 29343 {
         if slot <= 29341 {
-// PORT: SOURCE THE_LUNAR_LANDING.agc:238
+// THE_LUNAR_LANDING.agc:238
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:239
+// THE_LUNAR_LANDING.agc:239
 //P63SPOT3	CA	BIT6		# IS THE LR ANTENNA IN POSITION 1 YET
-// PORT: Fixed ROM slots 29341.
+// slot 29341
             if slot <> 29341 or instruction <> 14822 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -1135,9 +1135,9 @@ function agcAotUnit1880 {
             return choose false if checkOnly else -1.
         } else {
             if slot <= 29342 {
-// PORT: SOURCE THE_LUNAR_LANDING.agc:240
+// THE_LUNAR_LANDING.agc:240
 //		EXTEND
-// PORT: Fixed ROM slots 29342.
+// slot 29342
                 if slot <> 29342 or instruction <> 6 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1145,9 +1145,9 @@ function agcAotUnit1880 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE THE_LUNAR_LANDING.agc:241
+// THE_LUNAR_LANDING.agc:241
 //		RAND	CHAN33
-// PORT: Fixed ROM slots 29343.
+// slot 29343
                 if slot <> 29343 or instruction <> 1051 { return choose false if checkOnly else -1. }
                 if extended {
                     if checkOnly { return true. }
@@ -1161,9 +1161,9 @@ function agcAotUnit1880 {
     } else {
         if slot <= 29345 {
             if slot <= 29344 {
-// PORT: SOURCE THE_LUNAR_LANDING.agc:242
+// THE_LUNAR_LANDING.agc:242
 //		EXTEND
-// PORT: Fixed ROM slots 29344.
+// slot 29344
                 if slot <> 29344 or instruction <> 6 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1171,9 +1171,9 @@ function agcAotUnit1880 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE THE_LUNAR_LANDING.agc:243
+// THE_LUNAR_LANDING.agc:243
 //		BZF	P63SPOT4	# BRANCH IF ANTENNA ALREADY IN POSITION 1
-// PORT: Fixed ROM slots 29345.
+// slot 29345
                 if slot <> 29345 or instruction <> 5799 { return choose false if checkOnly else -1. }
                 if extended {
                     if checkOnly { return true. }
@@ -1183,11 +1183,11 @@ function agcAotUnit1880 {
             }
         } else {
             if slot <= 29346 {
-// PORT: SOURCE THE_LUNAR_LANDING.agc:244
+// THE_LUNAR_LANDING.agc:244
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:245
+// THE_LUNAR_LANDING.agc:245
 //		CAF	CODE500		# ASTRONAUT:	PLEASE CRANK THE
-// PORT: Fixed ROM slots 29346.
+// slot 29346
                 if slot <> 29346 or instruction <> 13996 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1198,9 +1198,9 @@ function agcAotUnit1880 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE THE_LUNAR_LANDING.agc:246
+// THE_LUNAR_LANDING.agc:246
 //		TC	BANKCALL	#		SILLY THING AROUND
-// PORT: Fixed ROM slots 29347.
+// slot 29347
                 if slot <> 29347 or instruction <> 2446 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1214,19 +1214,19 @@ function agcAotUnit1880 {
 set agcAotRoutes[1880] to agcAotUnit1880@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE THE_LUNAR_LANDING.agc:247
+// THE_LUNAR_LANDING.agc:247
 //		CADR	GOPERF1
-// PORT: Fixed ROM slots 29348.
+// slot 29348
     29348, 17190
 )).
 
-// PORT: Physical bank 32. Shared continuation entries, slots 29349–29351.
+// bank 32, slots 29349-29351
 function agcAotUnit1881 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 29349 {
-// PORT: SOURCE THE_LUNAR_LANDING.agc:248
+// THE_LUNAR_LANDING.agc:248
 //		TCF	GOTOPOOH	# TERMINATE
-// PORT: Fixed ROM slots 29349.
+// slot 29349
         if slot <> 29349 or instruction <> 7169 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -1235,9 +1235,9 @@ function agcAotUnit1881 {
         return choose false if checkOnly else -1.
     } else {
         if slot <= 29350 {
-// PORT: SOURCE THE_LUNAR_LANDING.agc:249
+// THE_LUNAR_LANDING.agc:249
 //		TCF	P63SPOT3	# PROCEED	SEE IF HE'S LYING
-// PORT: Fixed ROM slots 29350.
+// slot 29350
             if slot <> 29350 or instruction <> 5789 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -1245,11 +1245,11 @@ function agcAotUnit1881 {
             }
             return choose false if checkOnly else -1.
         } else {
-// PORT: SOURCE THE_LUNAR_LANDING.agc:250
+// THE_LUNAR_LANDING.agc:250
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:251
+// THE_LUNAR_LANDING.agc:251
 //P63SPOT4	TC	BANKCALL	# ENTER		INITIALIZE LANDING RADAR
-// PORT: Fixed ROM slots 29351.
+// slot 29351
             if slot <> 29351 or instruction <> 2446 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -1262,20 +1262,20 @@ function agcAotUnit1881 {
 set agcAotRoutes[1881] to agcAotUnit1881@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE THE_LUNAR_LANDING.agc:252
+// THE_LUNAR_LANDING.agc:252
 //		CADR	SETPOS1
-// PORT: Fixed ROM slots 29352.
+// slot 29352
     29352, 57250
 )).
 
-// PORT: Physical bank 32. Shared continuation entries, slots 29353–29353.
+// bank 32, slots 29353-29353
 function agcAotUnit1882 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
-// PORT: SOURCE THE_LUNAR_LANDING.agc:253
+// THE_LUNAR_LANDING.agc:253
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:254
+// THE_LUNAR_LANDING.agc:254
 //		TC	POSTJUMP	# OFF TO SEE THE WIZARD...
-// PORT: Fixed ROM slots 29353.
+// slot 29353
     if slot <> 29353 or instruction <> 2461 { return choose false if checkOnly else -1. }
     if not extended {
         if checkOnly { return true. }
@@ -1286,88 +1286,88 @@ function agcAotUnit1882 {
 set agcAotRoutes[1882] to agcAotUnit1882@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE THE_LUNAR_LANDING.agc:255
+// THE_LUNAR_LANDING.agc:255
 //		CADR	BURNBABY
-// PORT: Fixed ROM slots 29354.
+// slot 29354
     29354, 61612,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:256
+// THE_LUNAR_LANDING.agc:256
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:257
+// THE_LUNAR_LANDING.agc:257
 //#	---------------------------------
-// PORT: SOURCE THE_LUNAR_LANDING.agc:258
+// THE_LUNAR_LANDING.agc:258
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:259
+// THE_LUNAR_LANDING.agc:259
 //#	CONSTANTS FOR P63LM AND IGNALG
-// PORT: SOURCE THE_LUNAR_LANDING.agc:260
+// THE_LUNAR_LANDING.agc:260
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:261
+// THE_LUNAR_LANDING.agc:261
 //P63ADRES	GENADR	P63TABLE
-// PORT: Fixed ROM slots 29355.
+// slot 29355
     29355, 2172,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:262
+// THE_LUNAR_LANDING.agc:262
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:263
+// THE_LUNAR_LANDING.agc:263
 //ASTNDEX		=	MD1		# OCT 25:  INDEX FOR CLOKTASK
-// PORT: SOURCE THE_LUNAR_LANDING.agc:264
+// THE_LUNAR_LANDING.agc:264
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:265
+// THE_LUNAR_LANDING.agc:265
 //CODE500		OCT	00500
-// PORT: Fixed ROM slots 29356.
+// slot 29356
     29356, 640,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:266
+// THE_LUNAR_LANDING.agc:266
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:267
+// THE_LUNAR_LANDING.agc:267
 //99999CON	2DEC	30479.7 B-24
-// PORT: Fixed ROM slots 29357 29358.
+// slot 29357 29358
     29357, 58, 29358, 25078,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:268
+// THE_LUNAR_LANDING.agc:268
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:269
+// THE_LUNAR_LANDING.agc:269
 //GUIDDURN	2DEC	+66440		# GUIDDURN	+6.64400314 E+2
-// PORT: Fixed ROM slots 29359 29360.
+// slot 29359 29360
     29359, 8, 29360, 1808,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:270
+// THE_LUNAR_LANDING.agc:270
 //DDUMCRIT	2DEC	+8 B-28		# CRITERION FOR IGNALG CONVERGENCE
-// PORT: Fixed ROM slots 29361 29362.
+// slot 29361 29362
     29361, 0, 29362, 16
 )).
 
-// PORT: Physical bank 31. Shared continuation entries, slots 27748–27748.
+// bank 31, slots 27748-27748
 function agcAotUnit1754 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
-// PORT: SOURCE THE_LUNAR_LANDING.agc:271
+// THE_LUNAR_LANDING.agc:271
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:272
+// THE_LUNAR_LANDING.agc:272
 //# Page 790
-// PORT: SOURCE THE_LUNAR_LANDING.agc:273
+// THE_LUNAR_LANDING.agc:273
 //#	--------------------------------
-// PORT: SOURCE THE_LUNAR_LANDING.agc:274
+// THE_LUNAR_LANDING.agc:274
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:275
+// THE_LUNAR_LANDING.agc:275
 //# Page 791
-// PORT: SOURCE THE_LUNAR_LANDING.agc:276
+// THE_LUNAR_LANDING.agc:276
 //#	*************************
-// PORT: SOURCE THE_LUNAR_LANDING.agc:277
+// THE_LUNAR_LANDING.agc:277
 //#	P68: LANDING CONFIRMATION
-// PORT: SOURCE THE_LUNAR_LANDING.agc:278
+// THE_LUNAR_LANDING.agc:278
 //#	*************************
-// PORT: SOURCE THE_LUNAR_LANDING.agc:279
+// THE_LUNAR_LANDING.agc:279
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:280
+// THE_LUNAR_LANDING.agc:280
 //		BANK	31
-// PORT: SOURCE THE_LUNAR_LANDING.agc:281
+// THE_LUNAR_LANDING.agc:281
 //		SETLOC	F2DPS*31
-// PORT: SOURCE THE_LUNAR_LANDING.agc:282
+// THE_LUNAR_LANDING.agc:282
 //		BANK
-// PORT: SOURCE THE_LUNAR_LANDING.agc:283
+// THE_LUNAR_LANDING.agc:283
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:284
+// THE_LUNAR_LANDING.agc:284
 //		COUNT*	$$/P6567
-// PORT: SOURCE THE_LUNAR_LANDING.agc:285
+// THE_LUNAR_LANDING.agc:285
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:286
+// THE_LUNAR_LANDING.agc:286
 //LANDJUNK	TC	PHASCHNG
-// PORT: Fixed ROM slots 27748.
+// slot 27748
     if slot <> 27748 or instruction <> 2795 { return choose false if checkOnly else -1. }
     if not extended {
         if checkOnly { return true. }
@@ -1378,21 +1378,21 @@ function agcAotUnit1754 {
 set agcAotRoutes[1754] to agcAotUnit1754@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE THE_LUNAR_LANDING.agc:287
+// THE_LUNAR_LANDING.agc:287
 //		OCT	04024
-// PORT: Fixed ROM slots 27749.
+// slot 27749
     27749, 4136
 )).
 
-// PORT: Physical bank 31. Shared continuation entries, slots 27750–27751.
+// bank 31, slots 27750-27751
 function agcAotUnit1755 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 27750 {
-// PORT: SOURCE THE_LUNAR_LANDING.agc:288
+// THE_LUNAR_LANDING.agc:288
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:289
+// THE_LUNAR_LANDING.agc:289
 //		INHINT
-// PORT: Fixed ROM slots 27750.
+// slot 27750
         if slot <> 27750 or instruction <> 4 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -1400,9 +1400,9 @@ function agcAotUnit1755 {
         }
         return choose false if checkOnly else -1.
     } else {
-// PORT: SOURCE THE_LUNAR_LANDING.agc:290
+// THE_LUNAR_LANDING.agc:290
 //		TC	BANKCALL	# ZERO ATTITUDE ERROR
-// PORT: Fixed ROM slots 27751.
+// slot 27751
         if slot <> 27751 or instruction <> 2446 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -1414,20 +1414,20 @@ function agcAotUnit1755 {
 set agcAotRoutes[1755] to agcAotUnit1755@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE THE_LUNAR_LANDING.agc:291
+// THE_LUNAR_LANDING.agc:291
 //		CADR	ZATTEROR
-// PORT: Fixed ROM slots 27752.
+// slot 27752
     27752, 32982
 )).
 
-// PORT: Physical bank 31. Shared continuation entries, slots 27753–27753.
+// bank 31, slots 27753-27753
 function agcAotUnit1756 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
-// PORT: SOURCE THE_LUNAR_LANDING.agc:292
+// THE_LUNAR_LANDING.agc:292
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:293
+// THE_LUNAR_LANDING.agc:293
 //		TC	BANKCALL	# SET 5 DEGREE DEADBAND
-// PORT: Fixed ROM slots 27753.
+// slot 27753
     if slot <> 27753 or instruction <> 2446 { return choose false if checkOnly else -1. }
     if not extended {
         if checkOnly { return true. }
@@ -1438,20 +1438,20 @@ function agcAotUnit1756 {
 set agcAotRoutes[1756] to agcAotUnit1756@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE THE_LUNAR_LANDING.agc:294
+// THE_LUNAR_LANDING.agc:294
 //		CADR	SETMAXDB
-// PORT: Fixed ROM slots 27754.
+// slot 27754
     27754, 32942
 )).
 
-// PORT: Physical bank 31. Shared continuation entries, slots 27755–27755.
+// bank 31, slots 27755-27755
 function agcAotUnit1757 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
-// PORT: SOURCE THE_LUNAR_LANDING.agc:295
+// THE_LUNAR_LANDING.agc:295
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:296
+// THE_LUNAR_LANDING.agc:296
 //		TC	INTPRET		# TO INTERPRETIVE AS TIME IS NOT CRITICAL
-// PORT: Fixed ROM slots 27755.
+// slot 27755
     if slot <> 27755 or instruction <> 3103 { return choose false if checkOnly else -1. }
     if not extended {
         if checkOnly { return true. }
@@ -1462,95 +1462,95 @@ function agcAotUnit1757 {
 set agcAotRoutes[1757] to agcAotUnit1757@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE THE_LUNAR_LANDING.agc:297
+// THE_LUNAR_LANDING.agc:297
 //		SET	CLEAR
-// PORT: Fixed ROM slots 27756.
+// slot 27756
     27756, 35864,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:298
+// THE_LUNAR_LANDING.agc:298
 //			SURFFLAG
-// PORT: Fixed ROM slots 27757.
+// slot 27757
     27757, 4206,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:299
+// THE_LUNAR_LANDING.agc:299
 //			LETABORT
-// PORT: Fixed ROM slots 27758.
+// slot 27758
     27758, 4972,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:300
+// THE_LUNAR_LANDING.agc:300
 //		SET	VLOAD
-// PORT: Fixed ROM slots 27759.
+// slot 27759
     27759, 64792,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:301
+// THE_LUNAR_LANDING.agc:301
 //			APSFLAG
-// PORT: Fixed ROM slots 27760.
+// slot 27760
     27760, 5220,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:302
+// THE_LUNAR_LANDING.agc:302
 //			RN
-// PORT: Fixed ROM slots 27761.
+// slot 27761
     27761, 1314,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:303
+// THE_LUNAR_LANDING.agc:303
 //		STODL	ALPHAV
-// PORT: Fixed ROM slots 27762.
+// slot 27762
     27762, 14388,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:304
+// THE_LUNAR_LANDING.agc:304
 //			PIPTIME
-// PORT: Fixed ROM slots 27763.
+// slot 27763
     27763, 1338,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:305
+// THE_LUNAR_LANDING.agc:305
 //		SET	CALL
-// PORT: Fixed ROM slots 27764.
+// slot 27764
     27764, 37912,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:306
+// THE_LUNAR_LANDING.agc:306
 //			LUNAFLAG
-// PORT: Fixed ROM slots 27765.
+// slot 27765
     27765, 1638,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:307
+// THE_LUNAR_LANDING.agc:307
 //			LAT-LONG
-// PORT: Fixed ROM slots 27766.
+// slot 27766
     27766, 22994,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:308
+// THE_LUNAR_LANDING.agc:308
 //		SETPD	VLOAD		# COMPUTE RLS AND STORE IT AWAY
-// PORT: Fixed ROM slots 27767.
+// slot 27767
     27767, 64770,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:309
+// THE_LUNAR_LANDING.agc:309
 //			0
-// PORT: Fixed ROM slots 27768.
+// slot 27768
     27768, 2,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:310
+// THE_LUNAR_LANDING.agc:310
 //			RN
-// PORT: Fixed ROM slots 27769.
+// slot 27769
     27769, 1314,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:311
+// THE_LUNAR_LANDING.agc:311
 //		VSL2	PDDL
-// PORT: Fixed ROM slots 27770.
+// slot 27770
     27770, 54740,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:312
+// THE_LUNAR_LANDING.agc:312
 //			PIPTIME
-// PORT: Fixed ROM slots 27771.
+// slot 27771
     27771, 1338,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:313
+// THE_LUNAR_LANDING.agc:313
 //		PUSH	CALL
-// PORT: Fixed ROM slots 27772.
+// slot 27772
     27772, 37900,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:314
+// THE_LUNAR_LANDING.agc:314
 //			R-TO-RP
-// PORT: Fixed ROM slots 27773.
+// slot 27773
     27773, 42864,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:315
+// THE_LUNAR_LANDING.agc:315
 //		STORE	RLS
-// PORT: Fixed ROM slots 27774.
+// slot 27774
     27774, 2086,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:316
+// THE_LUNAR_LANDING.agc:316
 //		EXIT
-// PORT: Fixed ROM slots 27775.
+// slot 27775
     27775, 65532
 )).
 
-// PORT: Physical bank 31. Shared continuation entries, slots 27776–27777.
+// bank 31, slots 27776-27777
 function agcAotUnit1758 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 27776 {
-// PORT: SOURCE THE_LUNAR_LANDING.agc:317
+// THE_LUNAR_LANDING.agc:317
 //		CAF	V06N43*		# ASTRONAUT:  NOW LOOK WHERE YOU ENDED UP
-// PORT: Fixed ROM slots 27776.
+// slot 27776
         if slot <> 27776 or instruction <> 13453 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -1561,9 +1561,9 @@ function agcAotUnit1758 {
         }
         return choose false if checkOnly else -1.
     } else {
-// PORT: SOURCE THE_LUNAR_LANDING.agc:318
+// THE_LUNAR_LANDING.agc:318
 //		TC	BANKCALL
-// PORT: Fixed ROM slots 27777.
+// slot 27777
         if slot <> 27777 or instruction <> 2446 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -1575,20 +1575,20 @@ function agcAotUnit1758 {
 set agcAotRoutes[1758] to agcAotUnit1758@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE THE_LUNAR_LANDING.agc:319
+// THE_LUNAR_LANDING.agc:319
 //		CADR	GOFLASH
-// PORT: Fixed ROM slots 27778.
+// slot 27778
     27778, 17020
 )).
 
-// PORT: Physical bank 31. Shared continuation entries, slots 27779–27782.
+// bank 31, slots 27779-27782
 function agcAotUnit1759 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 27780 {
         if slot <= 27779 {
-// PORT: SOURCE THE_LUNAR_LANDING.agc:320
+// THE_LUNAR_LANDING.agc:320
 //		TCF	GOTOPOOH	# TERMINATE
-// PORT: Fixed ROM slots 27779.
+// slot 27779
             if slot <> 27779 or instruction <> 7169 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -1596,9 +1596,9 @@ function agcAotUnit1759 {
             }
             return choose false if checkOnly else -1.
         } else {
-// PORT: SOURCE THE_LUNAR_LANDING.agc:321
+// THE_LUNAR_LANDING.agc:321
 //		TCF	+2		# PROCEED
-// PORT: Fixed ROM slots 27780.
+// slot 27780
             if slot <> 27780 or instruction <> 5254 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -1608,9 +1608,9 @@ function agcAotUnit1759 {
         }
     } else {
         if slot <= 27781 {
-// PORT: SOURCE THE_LUNAR_LANDING.agc:322
+// THE_LUNAR_LANDING.agc:322
 //		TCF	-5		# RECYCLE
-// PORT: Fixed ROM slots 27781.
+// slot 27781
             if slot <> 27781 or instruction <> 5248 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -1618,11 +1618,11 @@ function agcAotUnit1759 {
             }
             return choose false if checkOnly else -1.
         } else {
-// PORT: SOURCE THE_LUNAR_LANDING.agc:323
+// THE_LUNAR_LANDING.agc:323
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:324
+// THE_LUNAR_LANDING.agc:324
 //		TC	INTPRET
-// PORT: Fixed ROM slots 27782.
+// slot 27782
             if slot <> 27782 or instruction <> 3103 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -1635,38 +1635,38 @@ function agcAotUnit1759 {
 set agcAotRoutes[1759] to agcAotUnit1759@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE THE_LUNAR_LANDING.agc:325
+// THE_LUNAR_LANDING.agc:325
 //# Page 792
-// PORT: SOURCE THE_LUNAR_LANDING.agc:326
+// THE_LUNAR_LANDING.agc:326
 //		VLOAD			# INITIALIZE GSAV AND (USING REFMF)
-// PORT: Fixed ROM slots 27783.
+// slot 27783
     27783, 65530,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:327
+// THE_LUNAR_LANDING.agc:327
 //			UNITX		#   YNBSAV, ZNBSAV AND ATTFLAG FOR P57
-// PORT: Fixed ROM slots 27784.
+// slot 27784
     27784, 6816,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:328
+// THE_LUNAR_LANDING.agc:328
 //		STCALL	GSAV
-// PORT: Fixed ROM slots 27785.
+// slot 27785
     27785, 31026,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:329
+// THE_LUNAR_LANDING.agc:329
 //			REFMF
-// PORT: Fixed ROM slots 27786.
+// slot 27786
     27786, 28300,
-// PORT: SOURCE THE_LUNAR_LANDING.agc:330
+// THE_LUNAR_LANDING.agc:330
 //		EXIT
-// PORT: Fixed ROM slots 27787.
+// slot 27787
     27787, 65532
 )).
 
-// PORT: Physical bank 31. Shared continuation entries, slots 27788–27788.
+// bank 31, slots 27788-27788
 function agcAotUnit1760 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
-// PORT: SOURCE THE_LUNAR_LANDING.agc:331
+// THE_LUNAR_LANDING.agc:331
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:332
+// THE_LUNAR_LANDING.agc:332
 //		TCF	GOTOPOOH	# ASTRONAUT:  PLEASE SELECT P57
-// PORT: Fixed ROM slots 27788.
+// slot 27788
     if slot <> 27788 or instruction <> 7169 { return choose false if checkOnly else -1. }
     if not extended {
         if checkOnly { return true. }
@@ -1677,14 +1677,14 @@ function agcAotUnit1760 {
 set agcAotRoutes[1760] to agcAotUnit1760@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE THE_LUNAR_LANDING.agc:333
+// THE_LUNAR_LANDING.agc:333
 //
-// PORT: SOURCE THE_LUNAR_LANDING.agc:334
+// THE_LUNAR_LANDING.agc:334
 //V06N43*		VN	0643
-// PORT: Fixed ROM slots 27789.
+// slot 27789
     27789, 1622
 )).
 
-// PORT: Source-only text without a subsequent generated declaration.
-// PORT: SOURCE THE_LUNAR_LANDING.agc:335
+// no code for the lines below
+// THE_LUNAR_LANDING.agc:335
 //

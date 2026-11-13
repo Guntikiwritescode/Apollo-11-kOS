@@ -1,5 +1,4 @@
-// C# side of the KSP binding for the pinned yaAGC engine (libagcksp.dylib).
-// No KSP or kOS types here, so the same file runs in the offline Mono check.
+// wrapper around libagcksp.dylib, no KSP or kOS types so it also runs outside the game
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -71,7 +70,7 @@ public static class AgcNative
                 Directory.CreateDirectory(recordDir);
                 seed = new StreamWriter(Path.Combine(recordDir, "flight.seed"));
                 outs = new StreamWriter(Path.Combine(recordDir, "flight-outputs.tsv"));
-                seed.WriteLine("# Replay: oracle ROPE flight.seed Luminary099 STATE_DIR OUT EVENTS " + Path.GetFileName(state));
+                seed.WriteLine("# Replay: agc_driver ROPE flight.seed Luminary099 STATE_DIR OUT EVENTS " + Path.GetFileName(state));
                 seed.WriteLine("# Start cycle " + cycle());
             }
             TotalCycles = TotalOutputs = TotalRadar = 0; NativeSeconds = 0;

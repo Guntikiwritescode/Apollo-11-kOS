@@ -1,4 +1,4 @@
-/* Offline reader for the pinned little-endian yaYUL symbol-table ABI. */
+/* prints a yaYUL .symtab as text */
 #include "yaYUL.h"
 #include <stdio.h>
 #include <stdlib.h>

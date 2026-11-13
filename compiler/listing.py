@@ -1,4 +1,3 @@
-"""Read the words of a yaYUL listing and check them against the rope."""
 from collections import Counter
 from pathlib import Path
 import re

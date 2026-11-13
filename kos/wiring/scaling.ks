@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-2.0-only. Derived from Apollo11 agc/sim/scaling.py.
+// adapted from jweigend/Apollo11 agc/sim/scaling.py (GPL-2.0)
 function wBit { parameter n, mask. return mod(floor(n / mask), 2) = 1. }
 function wSetBit {
     parameter n, mask, enabled.

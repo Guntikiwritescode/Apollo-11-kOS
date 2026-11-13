@@ -1,4 +1,4 @@
-"""Source and rope inventory. Usage: source_manifest.py NEW_OUTPUT_DIRECTORY"""
+# lists every source line and rope word, build_ir.py runs this
 import collections
 import hashlib
 import json

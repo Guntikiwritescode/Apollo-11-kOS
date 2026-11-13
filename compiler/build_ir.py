@@ -1,10 +1,8 @@
-"""Build the compiler IR from the Apollo 11 source and its yaYUL assembly.
-
-Expects these files in compiler/inputs/:
-  Apollo-11-master.zip             github.com/chrislgarry/Apollo-11
-  virtualagc/                      github.com/virtualagc/virtualagc at 3351d115
-  Comanche055/, Luminary099/       MAIN.agc.bin, MAIN.agc.symtab and listing.txt from yaYUL
-"""
+# builds compiler/ir from the Apollo 11 source and what yaYUL makes of it
+# needs these in compiler/inputs/:
+#   Apollo-11-master.zip          github.com/chrislgarry/Apollo-11
+#   virtualagc/                   github.com/virtualagc/virtualagc at 3351d115
+#   Comanche055/, Luminary099/    MAIN.agc.bin, MAIN.agc.symtab and listing.txt from yaYUL
 import argparse
 from collections import Counter, defaultdict
 import gzip
@@ -32,15 +30,6 @@ SOURCE_ALIASES = {
     "ZL": "LXCH", "ZQ": "QXCH", "OVSK": "TS", "TCAA": "TS", "NOOP": "TCF",
     "DOUBLE": "AD", "DDOUBL": "DAS", "SQUARE": "MP", "CAF": "CA", "CAE": "CA", "NDX": "INDEX",
 }
-KERNEL_GROUPS = {
-    "raw-control": "TC TCF CCS EXTEND RELINT INHINT",
-    "aliases-and-memory": "CA CS DXCH TS XCH LXCH QXCH DCA DCS",
-    "arithmetic": "DAS INCR ADS AD MASK MSU AUG DIM SU MP DV",
-    "interrupt-boundary": "INDEX RESUME EDRUPT BZF BZMF",
-    "channel-bus": "READ WRITE RAND WAND ROR WOR RXOR",
-}
-OP_KERNEL = {name: key for key, names in KERNEL_GROUPS.items() for name in names.split()}
-BOUNDED_PROTOTYPES = set("CA CS DXCH TS XCH LXCH QXCH DCA DCS DAS INCR ADS AD MASK AUG DIM SU MP DV TC TCF CCS EXTEND RELINT INHINT INDEX BZF BZMF ROR".split())
 ADDRESS_FIELDS = "invalid constant address sreg erasable fixed unbanked banked eb fb super overflow value syllable".split()
 BREAK_AFTER = set("TC TCF CCS EXTEND RELINT INHINT INDEX RESUME EDRUPT BZF BZMF TS XCH DXCH".split())
 ARTIFACTS = ("source", "fixed", "symbols", "asm-lines", "units")
@@ -56,7 +45,7 @@ def jsonl(path):
 
 
 def emit(out, name, records):
-    # No timestamp or temporary path in the compressed metadata.
+    # no timestamp or name in the gzip header so every run gives the same bytes
     with (out / (name + ".jsonl.gz")).open("wb") as stream:
         with gzip.GzipFile(filename="", mode="wb", fileobj=stream, mtime=0) as zipped:
             for row in records:
@@ -135,8 +124,7 @@ def decode_fields(opcode, word, mode):
     if opcode in ("READ", "WRITE", "RAND", "WAND", "ROR", "WOR", "RXOR"):
         dynamic.append("channel-alias-or-external-event")
     return {"operation": opcode, "operand_width": width, "operand": operand,
-            "kernel": OP_KERNEL[opcode], "dynamic_requirements": dynamic,
-            "implementation_evidence": "bounded-prototype-only" if opcode in BOUNDED_PROTOTYPES else "missing-or-unverified-general-template"}
+            "dynamic_requirements": dynamic}
 
 
 def kind_mode(row):
@@ -220,7 +208,6 @@ def build_program(out, intermediate, reader, program, tables):
         slot = symbol["slot"]
         if slot is not None:
             aliases[slot].append(symbol["name"])
-        symbol["source_anchor_status"] = "available" if (symbol["source"], symbol["line"]) in lines else "external-or-assembler-generated"
     assembler_disagreement = []
     for item in asm_lines:
         listing = by_slot.get(item["slot"], {})
@@ -249,7 +236,7 @@ def build_program(out, intermediate, reader, program, tables):
         lexical_index = row.get("lexical_predecessor_order") in ("INDEX", "NDX")
         family_conflict = mode is not None and row["source_family_hint"] != mode_decodes[mode]["operation"]
         if family_conflict and row["source_family_hint"] == "TC" and word in (3, 4, 6):
-            # TC's literal small register field has architectural control meanings.
+            # TC 3, 4 and 6 are really RELINT, INHINT and EXTEND
             row["source_family_hint"] = mode_decodes[mode]["operation"]
             family_conflict = False
         if family_conflict:
@@ -259,16 +246,10 @@ def build_program(out, intermediate, reader, program, tables):
         row["recipe"] = {
             "mode": mode,
             "family": row["source_family_hint"],
-            "indexed_operand_resolution": "required-at-lexical-index-seam" if lexical_index else "unproved",
+            "indexed": lexical_index,
             "encoded_family_matches_source": None if mode is None else not family_conflict,
-            "execution_guard": ["bound-source-location-and-effective-bank", "proven-entry-mode",
-                                "correct-raw-index-and-substitution", "exact-clock-boundary"],
         } if row["kind"] in ("basic", "basic-alias", "numeric-order") else None
-        row["execution_claim"] = "none"
-        row["fixed_data_readable"] = True
         row["symbol_aliases"] = aliases.get(row["slot"], [])
-        row["codegen_status"] = ("source-associated-recipe-only" if row["kind"] in ("basic", "basic-alias", "numeric-order")
-                                 else "retained-raw-data-and-unproved-fetch")
         row["execution_addresses"] = [1024 + row["offset"]]
         if row["bank"] in (2, 3):
             row["execution_addresses"].append(row["bank"] * 1024 + row["offset"])
@@ -305,7 +286,7 @@ def build_program(out, intermediate, reader, program, tables):
             entries.add(row["slot"])
             counts["hardware-roots"] += 1
         counts[row["kind"]] += 1
-        counts["source-mode-" + (mode or "unproved")] += 1
+        counts["source-mode-" + (mode or "unknown")] += 1
     assert counts["hardware-roots"] == 11
     for source in sources:
         for slot in source["fixed_slots"]:
@@ -318,7 +299,7 @@ def build_program(out, intermediate, reader, program, tables):
         "counts": counts, "nominal_source_families": {f"{m}:{op}": n for (m, op), n in counts_by_family.items()},
         "dynamic_requirements": dynamic_counts, "symbols": len(symbols), "assembler_lines": len(asm_lines),
         "assembler_line_disagreements": assembler_disagreement,
-        "owning_unit_fragments": len(units), "candidate_split_points": sum(len(u["split_slots"]) for u in units),
+        "owning_unit_fragments": len(units), "split_points": sum(len(u["split_slots"]) for u in units),
         "rope_sha256": sha(rope_path), "symtab_sha256": sha(asm_symtab),
         "listing_sha256": sha(INPUTS / program / "listing.txt"),
         "source_archive_sha256": sha(INPUTS / "Apollo-11-master.zip"),
@@ -329,7 +310,7 @@ def build_program(out, intermediate, reader, program, tables):
 
 
 def main():
-    parser = argparse.ArgumentParser(description=__doc__)
+    parser = argparse.ArgumentParser()
     parser.add_argument("output", type=Path, help="new directory")
     args = parser.parse_args()
     out = args.output.resolve()
@@ -338,7 +319,7 @@ def main():
     tables = timing_tables(engine.read_text())
     with TemporaryDirectory(prefix="apollo-source-ir-") as scratch_name:
         scratch = Path(scratch_name)
-        subprocess.run([sys.executable, COMPILER / "source_manifest.py", scratch / "manifest"], check=True)
+        subprocess.run([sys.executable, COMPILER / "sources.py", scratch / "manifest"], check=True)
         subprocess.run(["cc", "-std=c11", "-I", INPUTS / "virtualagc/yaYUL", COMPILER / "read_symtab.c", "-o", scratch / "read_symtab"], check=True)
         for program in PROGRAMS:
             build_program(out, scratch / "manifest", scratch / "read_symtab", program, tables)

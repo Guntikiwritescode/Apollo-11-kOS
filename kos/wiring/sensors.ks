@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-2.0-only. Apollo11 IMU and LandingRadar.
+// adapted from jweigend/Apollo11 IMU and LandingRadar (GPL-2.0)
 function wPlatform {
     parameter landRef, flightRef.
     local x is wUnit(landRef).
@@ -111,7 +111,7 @@ function wSensors {
     wRadarUpdate(dev,t,positionRef,wMinus(vOrbit,wCross(dev["spin"],positionRef)),c).
 }
 
-// Public conversion helpers use degrees at the KerboScript trigonometric boundary.
+// kOS trig is in degrees
 function wDcmFromGimbals {
     parameter outer,inner,middle.
     local co is cos(outer). local so is sin(outer).

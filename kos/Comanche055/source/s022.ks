@@ -1,89 +1,89 @@
-// PORT: Original source unit IMU_COMPENSATION_PACKAGE.agc.
-// PORT: Physical bank 06. Shared continuation entries, slots 8882–8892.
+// IMU_COMPENSATION_PACKAGE.agc
+// bank 06, slots 8882-8892
 function agcAotUnit505 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 8886 {
         if slot <= 8883 {
             if slot <= 8882 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:1
+// IMU_COMPENSATION_PACKAGE.agc:1
 //# Copyright:	Public domain.
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:2
+// IMU_COMPENSATION_PACKAGE.agc:2
 //# Filename:	IMU_COMPENSATION_PACKAGE.agc
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:3
+// IMU_COMPENSATION_PACKAGE.agc:3
 //# Purpose:	Part of the source code for Colossus 2A, AKA Comanche 055.
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:4
+// IMU_COMPENSATION_PACKAGE.agc:4
 //#		It is part of the source code for the Command Module's (CM)
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:5
+// IMU_COMPENSATION_PACKAGE.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:6
+// IMU_COMPENSATION_PACKAGE.agc:6
 //# Assembler:	yaYUL
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:7
+// IMU_COMPENSATION_PACKAGE.agc:7
 //# Contact:	Ron Burkey <info@sandroid.org>.
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:8
+// IMU_COMPENSATION_PACKAGE.agc:8
 //# Website:	www.ibiblio.org/apollo.
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:9
+// IMU_COMPENSATION_PACKAGE.agc:9
 //# Pages:	297-306
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:10
+// IMU_COMPENSATION_PACKAGE.agc:10
 //# Mod history:	2009-05-08 RSB	Adapted from the Colossus249/ file of the
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:11
+// IMU_COMPENSATION_PACKAGE.agc:11
 //#				same name, using Comanche055 page images/
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:12
+// IMU_COMPENSATION_PACKAGE.agc:12
 //#		2009-05-21 RSB	In IRIGZ, PRIO17 corrected to PRIO21.
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:13
+// IMU_COMPENSATION_PACKAGE.agc:13
 //#
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:14
+// IMU_COMPENSATION_PACKAGE.agc:14
 //# This source code has been transcribed or otherwise adapted from digitized
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:15
+// IMU_COMPENSATION_PACKAGE.agc:15
 //# images of a hardcopy from the MIT Museum.  The digitization was performed
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:16
+// IMU_COMPENSATION_PACKAGE.agc:16
 //# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:17
+// IMU_COMPENSATION_PACKAGE.agc:17
 //# thanks to both.  The images (with suitable reduction in storage size and
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:18
+// IMU_COMPENSATION_PACKAGE.agc:18
 //# consequent reduction in image quality as well) are available online at
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:19
+// IMU_COMPENSATION_PACKAGE.agc:19
 //# www.ibiblio.org/apollo.  If for some reason you find that the images are
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:20
+// IMU_COMPENSATION_PACKAGE.agc:20
 //# illegible, contact me at info@sandroid.org about getting access to the
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:21
+// IMU_COMPENSATION_PACKAGE.agc:21
 //# (much) higher-quality images which Paul actually created.
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:22
+// IMU_COMPENSATION_PACKAGE.agc:22
 //#
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:23
+// IMU_COMPENSATION_PACKAGE.agc:23
 //# Notations on the hardcopy document read, in part:
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:24
+// IMU_COMPENSATION_PACKAGE.agc:24
 //#
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:25
+// IMU_COMPENSATION_PACKAGE.agc:25
 //#	Assemble revision 055 of AGC program Comanche by NASA
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:26
+// IMU_COMPENSATION_PACKAGE.agc:26
 //#	2021113-051.  10:28 APR. 1, 1969
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:27
+// IMU_COMPENSATION_PACKAGE.agc:27
 //#
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:28
+// IMU_COMPENSATION_PACKAGE.agc:28
 //#	This AGC program shall also be referred to as
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:29
+// IMU_COMPENSATION_PACKAGE.agc:29
 //#			Colossus 2A
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:30
+// IMU_COMPENSATION_PACKAGE.agc:30
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:31
+// IMU_COMPENSATION_PACKAGE.agc:31
 //# Page 297
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:32
+// IMU_COMPENSATION_PACKAGE.agc:32
 //		BANK	7
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:33
+// IMU_COMPENSATION_PACKAGE.agc:33
 //		SETLOC	IMUCOMP
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:34
+// IMU_COMPENSATION_PACKAGE.agc:34
 //		BANK
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:35
+// IMU_COMPENSATION_PACKAGE.agc:35
 //		EBANK=	NBDX
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:36
+// IMU_COMPENSATION_PACKAGE.agc:36
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:37
+// IMU_COMPENSATION_PACKAGE.agc:37
 //		COUNT	06/ICOMP
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:38
+// IMU_COMPENSATION_PACKAGE.agc:38
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:39
+// IMU_COMPENSATION_PACKAGE.agc:39
 //1/PIPA		CAF	LGCOMP		# SAVE EBANK OF CALLING PROGRAM
-// PORT: Fixed ROM slots 8882.
+// slot 8882
                 if slot <> 8882 or instruction <> 14158 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -94,9 +94,9 @@ function agcAotUnit505 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:40
+// IMU_COMPENSATION_PACKAGE.agc:40
 //		XCH	EBANK
-// PORT: Fixed ROM slots 8883.
+// slot 8883
                 if slot <> 8883 or instruction <> 23555 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -107,9 +107,9 @@ function agcAotUnit505 {
             }
         } else {
             if slot <= 8884 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:41
+// IMU_COMPENSATION_PACKAGE.agc:41
 //		TS	MODE
-// PORT: Fixed ROM slots 8884.
+// slot 8884
                 if slot <> 8884 or instruction <> 22643 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -118,11 +118,11 @@ function agcAotUnit505 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 8885 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:42
+// IMU_COMPENSATION_PACKAGE.agc:42
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:43
+// IMU_COMPENSATION_PACKAGE.agc:43
 //		CCS	GCOMPSW		# BYPASS IF GCOMPSW NEGATIVE
-// PORT: Fixed ROM slots 8885.
+// slot 8885
                     if slot <> 8885 or instruction <> 4927 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -132,9 +132,9 @@ function agcAotUnit505 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:44
+// IMU_COMPENSATION_PACKAGE.agc:44
 //		TCF	+3
-// PORT: Fixed ROM slots 8886.
+// slot 8886
                     if slot <> 8886 or instruction <> 5817 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -147,9 +147,9 @@ function agcAotUnit505 {
     } else {
         if slot <= 8889 {
             if slot <= 8887 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:45
+// IMU_COMPENSATION_PACKAGE.agc:45
 //		TCF	+2
-// PORT: Fixed ROM slots 8887.
+// slot 8887
                 if slot <> 8887 or instruction <> 5817 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -158,9 +158,9 @@ function agcAotUnit505 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 8888 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:46
+// IMU_COMPENSATION_PACKAGE.agc:46
 //		TCF	IRIG1		# RETURN
-// PORT: Fixed ROM slots 8888.
+// slot 8888
                     if slot <> 8888 or instruction <> 5895 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -168,11 +168,11 @@ function agcAotUnit505 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:47
+// IMU_COMPENSATION_PACKAGE.agc:47
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:48
+// IMU_COMPENSATION_PACKAGE.agc:48
 //		INHINT			#  ASSURE COMPLETE COMPENSATION OF DELV'S
-// PORT: Fixed ROM slots 8889.
+// slot 8889
                     if slot <> 8889 or instruction <> 4 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -183,11 +183,11 @@ function agcAotUnit505 {
             }
         } else {
             if slot <= 8890 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:49
+// IMU_COMPENSATION_PACKAGE.agc:49
 //					# FOR DOWNLINK.
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:50
+// IMU_COMPENSATION_PACKAGE.agc:50
 //1/PIPA1		CAF	FOUR		# PIPAZ, PIPAY, PIPAX
-// PORT: Fixed ROM slots 8890.
+// slot 8890
                 if slot <> 8890 or instruction <> 14861 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -199,9 +199,9 @@ function agcAotUnit505 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 8891 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:51
+// IMU_COMPENSATION_PACKAGE.agc:51
 //		TS	BUF +2
-// PORT: Fixed ROM slots 8891.
+// slot 8891
                     if slot <> 8891 or instruction <> 22618 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -209,11 +209,11 @@ function agcAotUnit505 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:52
+// IMU_COMPENSATION_PACKAGE.agc:52
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:53
+// IMU_COMPENSATION_PACKAGE.agc:53
 //		INDEX	BUF +2
-// PORT: Fixed ROM slots 8892.
+// slot 8892
                     if slot <> 8892 or instruction <> 20570 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -232,19 +232,19 @@ function agcAotUnit505 {
 set agcAotRoutes[505] to agcAotUnit505@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:54
+// IMU_COMPENSATION_PACKAGE.agc:54
 //		CA	PIPASCF		# (P.P.M.) X 2(-9)
-// PORT: Fixed ROM slots 8893.
+// slot 8893
     8893, 26198
 )).
 
-// PORT: Physical bank 06. Shared continuation entries, slots 8894–8895.
+// bank 06, slots 8894-8895
 function agcAotUnit506 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 8894 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:55
+// IMU_COMPENSATION_PACKAGE.agc:55
 //		EXTEND
-// PORT: Fixed ROM slots 8894.
+// slot 8894
         if slot <> 8894 or instruction <> 6 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -252,9 +252,9 @@ function agcAotUnit506 {
         }
         return choose false if checkOnly else -1.
     } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:56
+// IMU_COMPENSATION_PACKAGE.agc:56
 //		INDEX	BUF +2
-// PORT: Fixed ROM slots 8895.
+// slot 8895
         if slot <> 8895 or instruction <> 20570 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -270,20 +270,20 @@ function agcAotUnit506 {
 set agcAotRoutes[506] to agcAotUnit506@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:57
+// IMU_COMPENSATION_PACKAGE.agc:57
 //		MP	DELVX		# (PP) X 2(+14) NOW (PIPA PULSES) X 2(+5)
-// PORT: Fixed ROM slots 8896.
+// slot 8896
     8896, 58596
 )).
 
-// PORT: Physical bank 06. Shared continuation entries, slots 8897–8901.
+// bank 06, slots 8897-8901
 function agcAotUnit507 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 8898 {
         if slot <= 8897 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:58
+// IMU_COMPENSATION_PACKAGE.agc:58
 //		TS	Q		# SAVE MAJOR PART
-// PORT: Fixed ROM slots 8897.
+// slot 8897
             if slot <> 8897 or instruction <> 22530 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -291,11 +291,11 @@ function agcAotUnit507 {
             }
             return choose false if checkOnly else -1.
         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:59
+// IMU_COMPENSATION_PACKAGE.agc:59
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:60
+// IMU_COMPENSATION_PACKAGE.agc:60
 //		CA	L		# MINOR PART
-// PORT: Fixed ROM slots 8898.
+// slot 8898
             if slot <> 8898 or instruction <> 12289 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -307,9 +307,9 @@ function agcAotUnit507 {
         }
     } else {
         if slot <= 8899 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:61
+// IMU_COMPENSATION_PACKAGE.agc:61
 //		EXTEND
-// PORT: Fixed ROM slots 8899.
+// slot 8899
             if slot <> 8899 or instruction <> 6 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -318,9 +318,9 @@ function agcAotUnit507 {
             return choose false if checkOnly else -1.
         } else {
             if slot <= 8900 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:62
+// IMU_COMPENSATION_PACKAGE.agc:62
 //		MP	BIT6		# SCALE 2(+9)	SHIFT RIGHT 9
-// PORT: Fixed ROM slots 8900.
+// slot 8900
                 if slot <> 8900 or instruction <> 31242 { return choose false if checkOnly else -1. }
                 if extended {
                     if checkOnly { return true. }
@@ -330,9 +330,9 @@ function agcAotUnit507 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:63
+// IMU_COMPENSATION_PACKAGE.agc:63
 //		INDEX 	BUF +2
-// PORT: Fixed ROM slots 8901.
+// slot 8901
                 if slot <> 8901 or instruction <> 20570 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -350,22 +350,22 @@ function agcAotUnit507 {
 set agcAotRoutes[507] to agcAotUnit507@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:64
+// IMU_COMPENSATION_PACKAGE.agc:64
 //		TS	DELVX +1	# FRACTIONAL PIPA PULSES SCALED 2(+14)
-// PORT: Fixed ROM slots 8902.
+// slot 8902
     8902, 46310
 )).
 
-// PORT: Physical bank 06. Shared continuation entries, slots 8903–8906.
+// bank 06, slots 8903-8906
 function agcAotUnit508 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 8904 {
         if slot <= 8903 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:65
+// IMU_COMPENSATION_PACKAGE.agc:65
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:66
+// IMU_COMPENSATION_PACKAGE.agc:66
 //		CA	Q		# MAJOR PART
-// PORT: Fixed ROM slots 8903.
+// slot 8903
             if slot <> 8903 or instruction <> 12290 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -375,9 +375,9 @@ function agcAotUnit508 {
             }
             return choose false if checkOnly else -1.
         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:67
+// IMU_COMPENSATION_PACKAGE.agc:67
 //		EXTEND
-// PORT: Fixed ROM slots 8904.
+// slot 8904
             if slot <> 8904 or instruction <> 6 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -387,9 +387,9 @@ function agcAotUnit508 {
         }
     } else {
         if slot <= 8905 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:68
+// IMU_COMPENSATION_PACKAGE.agc:68
 //		MP	BIT6		# SCALE 2(+9)	SHIFT RIGHT 9
-// PORT: Fixed ROM slots 8905.
+// slot 8905
             if slot <> 8905 or instruction <> 31242 { return choose false if checkOnly else -1. }
             if extended {
                 if checkOnly { return true. }
@@ -399,9 +399,9 @@ function agcAotUnit508 {
             }
             return choose false if checkOnly else -1.
         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:69
+// IMU_COMPENSATION_PACKAGE.agc:69
 //		INDEX	BUF +2
-// PORT: Fixed ROM slots 8906.
+// slot 8906
             if slot <> 8906 or instruction <> 20570 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -418,20 +418,20 @@ function agcAotUnit508 {
 set agcAotRoutes[508] to agcAotUnit508@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:70
+// IMU_COMPENSATION_PACKAGE.agc:70
 //		DAS	DELVX		# (PIPAI) + (PIPAI)(SFE)
-// PORT: Fixed ROM slots 8907.
+// slot 8907
     8907, 17638
 )).
 
-// PORT: Physical bank 06. Shared continuation entries, slots 8908–8908.
+// bank 06, slots 8908-8908
 function agcAotUnit509 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:71
+// IMU_COMPENSATION_PACKAGE.agc:71
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:72
+// IMU_COMPENSATION_PACKAGE.agc:72
 //		INDEX	BUF +2
-// PORT: Fixed ROM slots 8908.
+// slot 8908
     if slot <> 8908 or instruction <> 20570 { return choose false if checkOnly else -1. }
     if not extended {
         if checkOnly { return true. }
@@ -446,20 +446,20 @@ function agcAotUnit509 {
 set agcAotRoutes[509] to agcAotUnit509@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:73
+// IMU_COMPENSATION_PACKAGE.agc:73
 //		CS	PIPABIAS	# (PIPA PULSES)/(CS) X 2(-8)			*
-// PORT: Fixed ROM slots 8909.
+// slot 8909
     8909, 34388
 )).
 
-// PORT: Physical bank 06. Shared continuation entries, slots 8910–8914.
+// bank 06, slots 8910-8914
 function agcAotUnit510 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 8911 {
         if slot <= 8910 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:74
+// IMU_COMPENSATION_PACKAGE.agc:74
 //		EXTEND
-// PORT: Fixed ROM slots 8910.
+// slot 8910
             if slot <> 8910 or instruction <> 6 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -467,9 +467,9 @@ function agcAotUnit510 {
             }
             return choose false if checkOnly else -1.
         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:75
+// IMU_COMPENSATION_PACKAGE.agc:75
 //		MP	1/PIPADT	# (CS) X 2(+8) NOW (PIPA PULSES) X 2(+0)	*
-// PORT: Fixed ROM slots 8911.
+// slot 8911
             if slot <> 8911 or instruction <> 29244 { return choose false if checkOnly else -1. }
             if extended {
                 if checkOnly { return true. }
@@ -481,9 +481,9 @@ function agcAotUnit510 {
         }
     } else {
         if slot <= 8912 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:76
+// IMU_COMPENSATION_PACKAGE.agc:76
 //		EXTEND
-// PORT: Fixed ROM slots 8912.
+// slot 8912
             if slot <> 8912 or instruction <> 6 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -492,9 +492,9 @@ function agcAotUnit510 {
             return choose false if checkOnly else -1.
         } else {
             if slot <= 8913 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:77
+// IMU_COMPENSATION_PACKAGE.agc:77
 //		MP	BIT1		# SCALE 2(+14) SHIFT RIGHT 14			*
-// PORT: Fixed ROM slots 8913.
+// slot 8913
                 if slot <> 8913 or instruction <> 31247 { return choose false if checkOnly else -1. }
                 if extended {
                     if checkOnly { return true. }
@@ -504,9 +504,9 @@ function agcAotUnit510 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:78
+// IMU_COMPENSATION_PACKAGE.agc:78
 //		INDEX	BUF +2
-// PORT: Fixed ROM slots 8914.
+// slot 8914
                 if slot <> 8914 or instruction <> 20570 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -524,13 +524,13 @@ function agcAotUnit510 {
 set agcAotRoutes[510] to agcAotUnit510@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:79
+// IMU_COMPENSATION_PACKAGE.agc:79
 //		DAS	DELVX		# (PIPAI) + (PIPAI)(SFE) - (BIAS)(DELTAT)
-// PORT: Fixed ROM slots 8915.
+// slot 8915
     8915, 17638
 )).
 
-// PORT: Physical bank 06. Shared continuation entries, slots 8916–8963.
+// bank 06, slots 8916-8963
 function agcAotUnit511 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 8939 {
@@ -538,11 +538,11 @@ function agcAotUnit511 {
             if slot <= 8921 {
                 if slot <= 8918 {
                     if slot <= 8916 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:80
+// IMU_COMPENSATION_PACKAGE.agc:80
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:81
+// IMU_COMPENSATION_PACKAGE.agc:81
 //		CCS	BUF +2		# PIPAZ, PIPAY, PIPAX
-// PORT: Fixed ROM slots 8916.
+// slot 8916
                         if slot <> 8916 or instruction <> 4186 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -553,11 +553,11 @@ function agcAotUnit511 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 8917 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:82
+// IMU_COMPENSATION_PACKAGE.agc:82
 //# Page 298
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:83
+// IMU_COMPENSATION_PACKAGE.agc:83
 //		AD	NEG1
-// PORT: Fixed ROM slots 8917.
+// slot 8917
                             if slot <> 8917 or instruction <> 28622 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -569,9 +569,9 @@ function agcAotUnit511 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:84
+// IMU_COMPENSATION_PACKAGE.agc:84
 //		TCF	1/PIPA1 +1
-// PORT: Fixed ROM slots 8918.
+// slot 8918
                             if slot <> 8918 or instruction <> 5819 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -582,9 +582,9 @@ function agcAotUnit511 {
                     }
                 } else {
                     if slot <= 8919 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:85
+// IMU_COMPENSATION_PACKAGE.agc:85
 //		NOOP			# LESS THAN ZERO IMPOSSIBLE.
-// PORT: Fixed ROM slots 8919.
+// slot 8919
                         if slot <> 8919 or instruction <> 5848 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -593,9 +593,9 @@ function agcAotUnit511 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 8920 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:86
+// IMU_COMPENSATION_PACKAGE.agc:86
 //		RELINT
-// PORT: Fixed ROM slots 8920.
+// slot 8920
                             if slot <> 8920 or instruction <> 3 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -603,13 +603,13 @@ function agcAotUnit511 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:87
+// IMU_COMPENSATION_PACKAGE.agc:87
 //# Page 299
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:88
+// IMU_COMPENSATION_PACKAGE.agc:88
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:89
+// IMU_COMPENSATION_PACKAGE.agc:89
 //IRIGCOMP	TS	GCOMPSW		# INDICATE COMMANDS 2 PULSES OR LESS.
-// PORT: Fixed ROM slots 8921.
+// slot 8921
                             if slot <> 8921 or instruction <> 23359 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -622,9 +622,9 @@ function agcAotUnit511 {
             } else {
                 if slot <= 8924 {
                     if slot <= 8922 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:90
+// IMU_COMPENSATION_PACKAGE.agc:90
 //		TS	BUF		# INDEX COUNTER - IRIGX, IRIGY, IRIGZ.
-// PORT: Fixed ROM slots 8922.
+// slot 8922
                         if slot <> 8922 or instruction <> 22616 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -633,11 +633,11 @@ function agcAotUnit511 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 8923 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:91
+// IMU_COMPENSATION_PACKAGE.agc:91
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:92
+// IMU_COMPENSATION_PACKAGE.agc:92
 //IRIGX		EXTEND
-// PORT: Fixed ROM slots 8923.
+// slot 8923
                             if slot <> 8923 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -645,9 +645,9 @@ function agcAotUnit511 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:93
+// IMU_COMPENSATION_PACKAGE.agc:93
 //		DCS	DELVX		# (PIPA PULSES) X 2(+14)
-// PORT: Fixed ROM slots 8924.
+// slot 8924
                             if slot <> 8924 or instruction <> 17011 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -660,9 +660,9 @@ function agcAotUnit511 {
                     }
                 } else {
                     if slot <= 8925 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:94
+// IMU_COMPENSATION_PACKAGE.agc:94
 //		DXCH	MPAC
-// PORT: Fixed ROM slots 8925.
+// slot 8925
                         if slot <> 8925 or instruction <> 21613 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -672,9 +672,9 @@ function agcAotUnit511 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 8926 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:95
+// IMU_COMPENSATION_PACKAGE.agc:95
 //		CA	ADIAX		# (GYRO PULSES)/(PIPA PULSE) X 2(-3)		*
-// PORT: Fixed ROM slots 8926.
+// slot 8926
                             if slot <> 8926 or instruction <> 13107 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -684,9 +684,9 @@ function agcAotUnit511 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:96
+// IMU_COMPENSATION_PACKAGE.agc:96
 //		TC	GCOMPSUB	# -(ADIAX)(PIPAX)	(GYRO PULSES) X 2(+14)
-// PORT: Fixed ROM slots 8927.
+// slot 8927
                             if slot <> 8927 or instruction <> 1802 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -701,11 +701,11 @@ function agcAotUnit511 {
             if slot <= 8933 {
                 if slot <= 8930 {
                     if slot <= 8928 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:97
+// IMU_COMPENSATION_PACKAGE.agc:97
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:98
+// IMU_COMPENSATION_PACKAGE.agc:98
 //		EXTEND			#
-// PORT: Fixed ROM slots 8928.
+// slot 8928
                         if slot <> 8928 or instruction <> 6 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -714,9 +714,9 @@ function agcAotUnit511 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 8929 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:99
+// IMU_COMPENSATION_PACKAGE.agc:99
 //		DCS	DELVY		# (PIPA PULSES) X 2(+14)
-// PORT: Fixed ROM slots 8929.
+// slot 8929
                             if slot <> 8929 or instruction <> 17013 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -726,9 +726,9 @@ function agcAotUnit511 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:100
+// IMU_COMPENSATION_PACKAGE.agc:100
 //		DXCH	MPAC		#
-// PORT: Fixed ROM slots 8930.
+// slot 8930
                             if slot <> 8930 or instruction <> 21613 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -740,9 +740,9 @@ function agcAotUnit511 {
                     }
                 } else {
                     if slot <= 8931 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:101
+// IMU_COMPENSATION_PACKAGE.agc:101
 //		CS	ADSRAX		# (GYRO PULSES)/(PIPA PULSE) X 2(-3)	*
-// PORT: Fixed ROM slots 8931.
+// slot 8931
                         if slot <> 8931 or instruction <> 17206 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -752,9 +752,9 @@ function agcAotUnit511 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 8932 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:102
+// IMU_COMPENSATION_PACKAGE.agc:102
 //		TC	GCOMPSUB	# +(ADSRAX)(PIPAY)	(GYRO PULSES) X 2(+14)
-// PORT: Fixed ROM slots 8932.
+// slot 8932
                             if slot <> 8932 or instruction <> 1802 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -762,23 +762,23 @@ function agcAotUnit511 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:103
+// IMU_COMPENSATION_PACKAGE.agc:103
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:104
+// IMU_COMPENSATION_PACKAGE.agc:104
 //#		EXTEND			# ***
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:105
+// IMU_COMPENSATION_PACKAGE.agc:105
 //#		DCS	DELVY		# ***	(PIPA PULSES) X 2(+14)
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:106
+// IMU_COMPENSATION_PACKAGE.agc:106
 //#		DXCH	MPAC		# ***
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:107
+// IMU_COMPENSATION_PACKAGE.agc:107
 //#		CA	ADOAX		# ***	(GYRO PULSES)/(PIPA PULSE) X 2(-3)	*
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:108
+// IMU_COMPENSATION_PACKAGE.agc:108
 //#		TC	GCOMPSUB	# ***	-(ADOAX)(PIPAZ)		(GYRO PULSES) X 2(+14)
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:109
+// IMU_COMPENSATION_PACKAGE.agc:109
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:110
+// IMU_COMPENSATION_PACKAGE.agc:110
 //		CS	NBDX		# (GYRO PULSES)/(CS) X 2(-5)
-// PORT: Fixed ROM slots 8933.
+// slot 8933
                             if slot <> 8933 or instruction <> 17200 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -792,9 +792,9 @@ function agcAotUnit511 {
             } else {
                 if slot <= 8936 {
                     if slot <= 8934 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:111
+// IMU_COMPENSATION_PACKAGE.agc:111
 //		TC	DRIFTSUB	# -(NBDX)(DELTAT)	(GYRO PULSES) X 2(+14)
-// PORT: Fixed ROM slots 8934.
+// slot 8934
                         if slot <> 8934 or instruction <> 1825 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -803,11 +803,11 @@ function agcAotUnit511 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 8935 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:112
+// IMU_COMPENSATION_PACKAGE.agc:112
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:113
+// IMU_COMPENSATION_PACKAGE.agc:113
 //IRIGY		EXTEND
-// PORT: Fixed ROM slots 8935.
+// slot 8935
                             if slot <> 8935 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -815,9 +815,9 @@ function agcAotUnit511 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:114
+// IMU_COMPENSATION_PACKAGE.agc:114
 //		DCS	DELVY		# (PIPA PULSES) X 2(+14)
-// PORT: Fixed ROM slots 8936.
+// slot 8936
                             if slot <> 8936 or instruction <> 17013 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -830,9 +830,9 @@ function agcAotUnit511 {
                     }
                 } else {
                     if slot <= 8937 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:115
+// IMU_COMPENSATION_PACKAGE.agc:115
 //		DXCH	MPAC
-// PORT: Fixed ROM slots 8937.
+// slot 8937
                         if slot <> 8937 or instruction <> 21613 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -842,9 +842,9 @@ function agcAotUnit511 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 8938 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:116
+// IMU_COMPENSATION_PACKAGE.agc:116
 //		CA	ADIAY		# (GYRO PULSES)/(PIPA PULSE) X 2(-3)		*
-// PORT: Fixed ROM slots 8938.
+// slot 8938
                             if slot <> 8938 or instruction <> 13108 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -854,9 +854,9 @@ function agcAotUnit511 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:117
+// IMU_COMPENSATION_PACKAGE.agc:117
 //		TC	GCOMPSUB	# -(ADIAY)(PIPAY)	(GYRO PULSES) X 2(+14)
-// PORT: Fixed ROM slots 8939.
+// slot 8939
                             if slot <> 8939 or instruction <> 1802 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -873,11 +873,11 @@ function agcAotUnit511 {
             if slot <= 8945 {
                 if slot <= 8942 {
                     if slot <= 8940 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:118
+// IMU_COMPENSATION_PACKAGE.agc:118
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:119
+// IMU_COMPENSATION_PACKAGE.agc:119
 //		EXTEND
-// PORT: Fixed ROM slots 8940.
+// slot 8940
                         if slot <> 8940 or instruction <> 6 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -886,9 +886,9 @@ function agcAotUnit511 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 8941 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:120
+// IMU_COMPENSATION_PACKAGE.agc:120
 //		DCS	DELVZ		# (PIPA PULSES) X 2(+14)
-// PORT: Fixed ROM slots 8941.
+// slot 8941
                             if slot <> 8941 or instruction <> 17015 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -898,9 +898,9 @@ function agcAotUnit511 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:121
+// IMU_COMPENSATION_PACKAGE.agc:121
 //		DXCH	MPAC
-// PORT: Fixed ROM slots 8942.
+// slot 8942
                             if slot <> 8942 or instruction <> 21613 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -912,9 +912,9 @@ function agcAotUnit511 {
                     }
                 } else {
                     if slot <= 8943 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:122
+// IMU_COMPENSATION_PACKAGE.agc:122
 //		CS	ADSRAY		# (GYRO PULSES)/(PIPA PULSE) X 2(-3)		*
-// PORT: Fixed ROM slots 8943.
+// slot 8943
                         if slot <> 8943 or instruction <> 17207 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -924,9 +924,9 @@ function agcAotUnit511 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 8944 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:123
+// IMU_COMPENSATION_PACKAGE.agc:123
 //		TC	GCOMPSUB	# +(ADSRAY)(PIPAZ)	(GYRO PULSES) X 2(+14)
-// PORT: Fixed ROM slots 8944.
+// slot 8944
                             if slot <> 8944 or instruction <> 1802 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -934,23 +934,23 @@ function agcAotUnit511 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:124
+// IMU_COMPENSATION_PACKAGE.agc:124
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:125
+// IMU_COMPENSATION_PACKAGE.agc:125
 //#		EXTEND			# ***
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:126
+// IMU_COMPENSATION_PACKAGE.agc:126
 //#		DCS	DELVX		# ***	(PIPA PULSES) X 2(+14)
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:127
+// IMU_COMPENSATION_PACKAGE.agc:127
 //#		DXCH	MPAC		# ***
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:128
+// IMU_COMPENSATION_PACKAGE.agc:128
 //#		CA	ADOAY		# ***	(GYRO PULSES)/(PIPA PULSE) X 2(-3)	*
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:129
+// IMU_COMPENSATION_PACKAGE.agc:129
 //#		TC	GCOMPSUB	# ***	-(ADOAY)(PIPAZ)	(GYRO PULSES) X 2(+14)
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:130
+// IMU_COMPENSATION_PACKAGE.agc:130
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:131
+// IMU_COMPENSATION_PACKAGE.agc:131
 //		CS	NBDY		# (GYRO PULSES)/(CS) X 2(-5)
-// PORT: Fixed ROM slots 8945.
+// slot 8945
                             if slot <> 8945 or instruction <> 17201 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -964,9 +964,9 @@ function agcAotUnit511 {
             } else {
                 if slot <= 8948 {
                     if slot <= 8946 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:132
+// IMU_COMPENSATION_PACKAGE.agc:132
 //		TC	DRIFTSUB	# -(NBDY)(DELTAT)	(GYRO PULSES) X 2(+14)
-// PORT: Fixed ROM slots 8946.
+// slot 8946
                         if slot <> 8946 or instruction <> 1825 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -975,11 +975,11 @@ function agcAotUnit511 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 8947 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:133
+// IMU_COMPENSATION_PACKAGE.agc:133
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:134
+// IMU_COMPENSATION_PACKAGE.agc:134
 //IRIGZ		EXTEND
-// PORT: Fixed ROM slots 8947.
+// slot 8947
                             if slot <> 8947 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -987,9 +987,9 @@ function agcAotUnit511 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:135
+// IMU_COMPENSATION_PACKAGE.agc:135
 //		DCS	DELVY		# (PIPA PULSES) X 2(+14)
-// PORT: Fixed ROM slots 8948.
+// slot 8948
                             if slot <> 8948 or instruction <> 17013 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -1002,9 +1002,9 @@ function agcAotUnit511 {
                     }
                 } else {
                     if slot <= 8949 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:136
+// IMU_COMPENSATION_PACKAGE.agc:136
 //		DXCH	MPAC
-// PORT: Fixed ROM slots 8949.
+// slot 8949
                         if slot <> 8949 or instruction <> 21613 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -1014,9 +1014,9 @@ function agcAotUnit511 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 8950 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:137
+// IMU_COMPENSATION_PACKAGE.agc:137
 //		CA	ADSRAZ		# (GYRO PULSES)/(PIPA PULSE) X 2(-3)		*
-// PORT: Fixed ROM slots 8950.
+// slot 8950
                             if slot <> 8950 or instruction <> 13112 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1026,11 +1026,11 @@ function agcAotUnit511 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:138
+// IMU_COMPENSATION_PACKAGE.agc:138
 //# Page 300
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:139
+// IMU_COMPENSATION_PACKAGE.agc:139
 //		TC	GCOMPSUB	# -(ADSRAZ)(PIPAY)	(GYRO PULSES) X 2(+14)
-// PORT: Fixed ROM slots 8951.
+// slot 8951
                             if slot <> 8951 or instruction <> 1802 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1045,11 +1045,11 @@ function agcAotUnit511 {
             if slot <= 8957 {
                 if slot <= 8954 {
                     if slot <= 8952 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:140
+// IMU_COMPENSATION_PACKAGE.agc:140
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:141
+// IMU_COMPENSATION_PACKAGE.agc:141
 //		EXTEND
-// PORT: Fixed ROM slots 8952.
+// slot 8952
                         if slot <> 8952 or instruction <> 6 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -1058,9 +1058,9 @@ function agcAotUnit511 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 8953 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:142
+// IMU_COMPENSATION_PACKAGE.agc:142
 //		DCS	DELVZ		# (PIPA PULSES) X 2(+14)
-// PORT: Fixed ROM slots 8953.
+// slot 8953
                             if slot <> 8953 or instruction <> 17015 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -1070,9 +1070,9 @@ function agcAotUnit511 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:143
+// IMU_COMPENSATION_PACKAGE.agc:143
 //		DXCH	MPAC
-// PORT: Fixed ROM slots 8954.
+// slot 8954
                             if slot <> 8954 or instruction <> 21613 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1084,9 +1084,9 @@ function agcAotUnit511 {
                     }
                 } else {
                     if slot <= 8955 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:144
+// IMU_COMPENSATION_PACKAGE.agc:144
 //		CA	ADIAZ		# (GYRO PULSES)/(PIPA PULSE) X 2(-3)		*
-// PORT: Fixed ROM slots 8955.
+// slot 8955
                         if slot <> 8955 or instruction <> 13109 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -1097,9 +1097,9 @@ function agcAotUnit511 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 8956 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:145
+// IMU_COMPENSATION_PACKAGE.agc:145
 //		TC	GCOMPSUB	# -(ADIAZ)(PIPAZ)	(GYRO PULSES) X 2(+14)
-// PORT: Fixed ROM slots 8956.
+// slot 8956
                             if slot <> 8956 or instruction <> 1802 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1107,23 +1107,23 @@ function agcAotUnit511 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:146
+// IMU_COMPENSATION_PACKAGE.agc:146
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:147
+// IMU_COMPENSATION_PACKAGE.agc:147
 //#		EXTEND			# ***
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:148
+// IMU_COMPENSATION_PACKAGE.agc:148
 //#		DCS	DELVX		# ***	(PIPA PULSE) X 2(+14)
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:149
+// IMU_COMPENSATION_PACKAGE.agc:149
 //#		DXCH	MPAC		# ***
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:150
+// IMU_COMPENSATION_PACKAGE.agc:150
 //#		CS	ADOAZ		# ***	(GYRO PULSES)/(PIPA PULSE) X 2(-3)	*
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:151
+// IMU_COMPENSATION_PACKAGE.agc:151
 //#		TC	GCOMPSUB	# ***	+(ADOAZ)(PIPAX)	(GYRO PULSES) X 2(+14)
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:152
+// IMU_COMPENSATION_PACKAGE.agc:152
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:153
+// IMU_COMPENSATION_PACKAGE.agc:153
 //		CA	NBDZ		# (GYRO PULSES)/(CS) X 2(-5)
-// PORT: Fixed ROM slots 8957.
+// slot 8957
                             if slot <> 8957 or instruction <> 13106 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1138,9 +1138,9 @@ function agcAotUnit511 {
             } else {
                 if slot <= 8960 {
                     if slot <= 8958 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:154
+// IMU_COMPENSATION_PACKAGE.agc:154
 //		TC	DRIFTSUB	# +(NBDZ)(DELTAT)	(GYRO PULSES) X 2(+14)
-// PORT: Fixed ROM slots 8958.
+// slot 8958
                         if slot <> 8958 or instruction <> 1825 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -1149,13 +1149,13 @@ function agcAotUnit511 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 8959 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:155
+// IMU_COMPENSATION_PACKAGE.agc:155
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:156
+// IMU_COMPENSATION_PACKAGE.agc:156
 //# Page 301
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:157
+// IMU_COMPENSATION_PACKAGE.agc:157
 //		CCS	GCOMPSW		# ARE GYRO COMMANDS GREATER THAN 2 PULSES
-// PORT: Fixed ROM slots 8959.
+// slot 8959
                             if slot <> 8959 or instruction <> 4927 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1165,9 +1165,9 @@ function agcAotUnit511 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:158
+// IMU_COMPENSATION_PACKAGE.agc:158
 //		TCF	+2		# YES
-// PORT: Fixed ROM slots 8960.
+// slot 8960
                             if slot <> 8960 or instruction <> 5890 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1178,9 +1178,9 @@ function agcAotUnit511 {
                     }
                 } else {
                     if slot <= 8961 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:159
+// IMU_COMPENSATION_PACKAGE.agc:159
 //		TCF	IRIG1		# NO
-// PORT: Fixed ROM slots 8961.
+// slot 8961
                         if slot <> 8961 or instruction <> 5895 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -1189,11 +1189,11 @@ function agcAotUnit511 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 8962 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:160
+// IMU_COMPENSATION_PACKAGE.agc:160
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:161
+// IMU_COMPENSATION_PACKAGE.agc:161
 //		CAF	PRIO21		# HIGHER THAN SERVICER-LESS THAN PRELAUNCH
-// PORT: Fixed ROM slots 8962.
+// slot 8962
                             if slot <> 8962 or instruction <> 14907 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1204,9 +1204,9 @@ function agcAotUnit511 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:162
+// IMU_COMPENSATION_PACKAGE.agc:162
 //		TC	NOVAC
-// PORT: Fixed ROM slots 8963.
+// slot 8963
                             if slot <> 8963 or instruction <> 2652 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1223,26 +1223,26 @@ function agcAotUnit511 {
 set agcAotRoutes[511] to agcAotUnit511@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:163
+// IMU_COMPENSATION_PACKAGE.agc:163
 //		EBANK=	NBDX
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:164
+// IMU_COMPENSATION_PACKAGE.agc:164
 //		2CADR	1/GYRO
-// PORT: Fixed ROM slots 8964 8965.
+// slot 8964 8965
     8964, 3704, 8965, 12390
 )).
 
-// PORT: Physical bank 06. Shared continuation entries, slots 8966–8983.
+// bank 06, slots 8966-8983
 function agcAotUnit512 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 8974 {
         if slot <= 8969 {
             if slot <= 8967 {
                 if slot <= 8966 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:165
+// IMU_COMPENSATION_PACKAGE.agc:165
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:166
+// IMU_COMPENSATION_PACKAGE.agc:166
 //		RELINT
-// PORT: Fixed ROM slots 8966.
+// slot 8966
                     if slot <> 8966 or instruction <> 3 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1250,9 +1250,9 @@ function agcAotUnit512 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:167
+// IMU_COMPENSATION_PACKAGE.agc:167
 //IRIG1		CA	MODE		# SET EBANK FOR RETURN
-// PORT: Fixed ROM slots 8967.
+// slot 8967
                     if slot <> 8967 or instruction <> 12403 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1264,9 +1264,9 @@ function agcAotUnit512 {
                 }
             } else {
                 if slot <= 8968 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:168
+// IMU_COMPENSATION_PACKAGE.agc:168
 //		TS	EBANK
-// PORT: Fixed ROM slots 8968.
+// slot 8968
                     if slot <> 8968 or instruction <> 22531 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1274,9 +1274,9 @@ function agcAotUnit512 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:169
+// IMU_COMPENSATION_PACKAGE.agc:169
 //		TCF	SWRETURN
-// PORT: Fixed ROM slots 8969.
+// slot 8969
                     if slot <> 8969 or instruction <> 6589 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1288,11 +1288,11 @@ function agcAotUnit512 {
         } else {
             if slot <= 8971 {
                 if slot <= 8970 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:170
+// IMU_COMPENSATION_PACKAGE.agc:170
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:171
+// IMU_COMPENSATION_PACKAGE.agc:171
 //GCOMPSUB	XCH	MPAC		# ADIA OR ADSRA COEFFICIENT ARRIVES IN A
-// PORT: Fixed ROM slots 8970.
+// slot 8970
                     if slot <> 8970 or instruction <> 23660 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1301,9 +1301,9 @@ function agcAotUnit512 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:172
+// IMU_COMPENSATION_PACKAGE.agc:172
 //		EXTEND			# C(MPAC) = (PIPA PULSES) X 2(+14)
-// PORT: Fixed ROM slots 8971.
+// slot 8971
                     if slot <> 8971 or instruction <> 6 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1313,9 +1313,9 @@ function agcAotUnit512 {
                 }
             } else {
                 if slot <= 8972 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:173
+// IMU_COMPENSATION_PACKAGE.agc:173
 //		MP	MPAC		# (GYRO PULSES)/(PIPA PULSE) X 2(-3)		*
-// PORT: Fixed ROM slots 8972.
+// slot 8972
                     if slot <> 8972 or instruction <> 28780 { return choose false if checkOnly else -1. }
                     if extended {
                         if checkOnly { return true. }
@@ -1326,9 +1326,9 @@ function agcAotUnit512 {
                     return choose false if checkOnly else -1.
                 } else {
                     if slot <= 8973 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:174
+// IMU_COMPENSATION_PACKAGE.agc:174
 //		DXCH	VBUF		# NOW = (GYRO PULSES) X 2(+11)			*
-// PORT: Fixed ROM slots 8973.
+// slot 8973
                         if slot <> 8973 or instruction <> 21587 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -1337,11 +1337,11 @@ function agcAotUnit512 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:175
+// IMU_COMPENSATION_PACKAGE.agc:175
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:176
+// IMU_COMPENSATION_PACKAGE.agc:176
 //		CA	MPAC +1		# MINOR PART OF PIPA PULSES
-// PORT: Fixed ROM slots 8974.
+// slot 8974
                         if slot <> 8974 or instruction <> 12397 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -1358,9 +1358,9 @@ function agcAotUnit512 {
         if slot <= 8978 {
             if slot <= 8976 {
                 if slot <= 8975 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:177
+// IMU_COMPENSATION_PACKAGE.agc:177
 //		EXTEND
-// PORT: Fixed ROM slots 8975.
+// slot 8975
                     if slot <> 8975 or instruction <> 6 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1368,9 +1368,9 @@ function agcAotUnit512 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:178
+// IMU_COMPENSATION_PACKAGE.agc:178
 //		MP	MPAC		# ADIA OR ADSRA
-// PORT: Fixed ROM slots 8976.
+// slot 8976
                     if slot <> 8976 or instruction <> 28780 { return choose false if checkOnly else -1. }
                     if extended {
                         if checkOnly { return true. }
@@ -1382,9 +1382,9 @@ function agcAotUnit512 {
                 }
             } else {
                 if slot <= 8977 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:179
+// IMU_COMPENSATION_PACKAGE.agc:179
 //		TS	L
-// PORT: Fixed ROM slots 8977.
+// slot 8977
                     if slot <> 8977 or instruction <> 22529 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1392,9 +1392,9 @@ function agcAotUnit512 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:180
+// IMU_COMPENSATION_PACKAGE.agc:180
 //		CAF	ZERO
-// PORT: Fixed ROM slots 8978.
+// slot 8978
                     if slot <> 8978 or instruction <> 14865 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1409,9 +1409,9 @@ function agcAotUnit512 {
         } else {
             if slot <= 8980 {
                 if slot <= 8979 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:181
+// IMU_COMPENSATION_PACKAGE.agc:181
 //		DAS	VBUF		# NOW = (GYRO PULSES) X 2(+11)			*
-// PORT: Fixed ROM slots 8979.
+// slot 8979
                     if slot <> 8979 or instruction <> 8275 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1421,11 +1421,11 @@ function agcAotUnit512 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:182
+// IMU_COMPENSATION_PACKAGE.agc:182
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:183
+// IMU_COMPENSATION_PACKAGE.agc:183
 //		CA	VBUF		# PARTIAL RESULT - MAJOR
-// PORT: Fixed ROM slots 8980.
+// slot 8980
                     if slot <> 8980 or instruction <> 12370 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1437,9 +1437,9 @@ function agcAotUnit512 {
                 }
             } else {
                 if slot <= 8981 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:184
+// IMU_COMPENSATION_PACKAGE.agc:184
 //		EXTEND
-// PORT: Fixed ROM slots 8981.
+// slot 8981
                     if slot <> 8981 or instruction <> 6 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1448,9 +1448,9 @@ function agcAotUnit512 {
                     return choose false if checkOnly else -1.
                 } else {
                     if slot <= 8982 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:185
+// IMU_COMPENSATION_PACKAGE.agc:185
 //		MP	BIT12		# SCALE 2(+3)	SHIFT RIGHT 3			*
-// PORT: Fixed ROM slots 8982.
+// slot 8982
                         if slot <> 8982 or instruction <> 31236 { return choose false if checkOnly else -1. }
                         if extended {
                             if checkOnly { return true. }
@@ -1460,9 +1460,9 @@ function agcAotUnit512 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:186
+// IMU_COMPENSATION_PACKAGE.agc:186
 //		INDEX	BUF		# RESULT = (GYRO PULSES) X 2(+14)
-// PORT: Fixed ROM slots 8983.
+// slot 8983
                         if slot <> 8983 or instruction <> 20568 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -1482,22 +1482,22 @@ function agcAotUnit512 {
 set agcAotRoutes[512] to agcAotUnit512@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:187
+// IMU_COMPENSATION_PACKAGE.agc:187
 //		DAS	GCOMP		# HI(ADIA)(PIPAI) OR HI(ADSRA)(PIPAI)
-// PORT: Fixed ROM slots 8984.
+// slot 8984
     8984, 18036
 )).
 
-// PORT: Physical bank 06. Shared continuation entries, slots 8985–8990.
+// bank 06, slots 8985-8990
 function agcAotUnit513 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 8987 {
         if slot <= 8985 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:188
+// IMU_COMPENSATION_PACKAGE.agc:188
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:189
+// IMU_COMPENSATION_PACKAGE.agc:189
 //		CA	VBUF +1		# PARTIAL RESULT - MINOR
-// PORT: Fixed ROM slots 8985.
+// slot 8985
             if slot <> 8985 or instruction <> 12371 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -1508,9 +1508,9 @@ function agcAotUnit513 {
             return choose false if checkOnly else -1.
         } else {
             if slot <= 8986 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:190
+// IMU_COMPENSATION_PACKAGE.agc:190
 //		EXTEND
-// PORT: Fixed ROM slots 8986.
+// slot 8986
                 if slot <> 8986 or instruction <> 6 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1518,9 +1518,9 @@ function agcAotUnit513 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:191
+// IMU_COMPENSATION_PACKAGE.agc:191
 //		MP	BIT12		# SCALE 2(+3)	SHIFT RIGHT 3			*
-// PORT: Fixed ROM slots 8987.
+// slot 8987
                 if slot <> 8987 or instruction <> 31236 { return choose false if checkOnly else -1. }
                 if extended {
                     if checkOnly { return true. }
@@ -1533,9 +1533,9 @@ function agcAotUnit513 {
         }
     } else {
         if slot <= 8988 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:192
+// IMU_COMPENSATION_PACKAGE.agc:192
 //		TS	L
-// PORT: Fixed ROM slots 8988.
+// slot 8988
             if slot <> 8988 or instruction <> 22529 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -1544,9 +1544,9 @@ function agcAotUnit513 {
             return choose false if checkOnly else -1.
         } else {
             if slot <= 8989 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:193
+// IMU_COMPENSATION_PACKAGE.agc:193
 //		CAF	ZERO
-// PORT: Fixed ROM slots 8989.
+// slot 8989
                 if slot <> 8989 or instruction <> 14865 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1557,9 +1557,9 @@ function agcAotUnit513 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:194
+// IMU_COMPENSATION_PACKAGE.agc:194
 //		INDEX	BUF		# RESULT = (GYRO PULSES) X 2(+14)
-// PORT: Fixed ROM slots 8990.
+// slot 8990
                 if slot <> 8990 or instruction <> 20568 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1577,23 +1577,23 @@ function agcAotUnit513 {
 set agcAotRoutes[513] to agcAotUnit513@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:195
+// IMU_COMPENSATION_PACKAGE.agc:195
 //		DAS	GCOMP		# (ADIA)(PIPAI)  OR  (ADSRA)(PIPAI)
-// PORT: Fixed ROM slots 8991.
+// slot 8991
     8991, 18036
 )).
 
-// PORT: Physical bank 06. Shared continuation entries, slots 8992–9000.
+// bank 06, slots 8992-9000
 function agcAotUnit514 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 8995 {
         if slot <= 8993 {
             if slot <= 8992 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:196
+// IMU_COMPENSATION_PACKAGE.agc:196
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:197
+// IMU_COMPENSATION_PACKAGE.agc:197
 //		TC	Q
-// PORT: Fixed ROM slots 8992.
+// slot 8992
                 if slot <> 8992 or instruction <> 2 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1601,13 +1601,13 @@ function agcAotUnit514 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:198
+// IMU_COMPENSATION_PACKAGE.agc:198
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:199
+// IMU_COMPENSATION_PACKAGE.agc:199
 //# Page 302
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:200
+// IMU_COMPENSATION_PACKAGE.agc:200
 //DRIFTSUB	EXTEND
-// PORT: Fixed ROM slots 8993.
+// slot 8993
                 if slot <> 8993 or instruction <> 6 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1617,9 +1617,9 @@ function agcAotUnit514 {
             }
         } else {
             if slot <= 8994 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:201
+// IMU_COMPENSATION_PACKAGE.agc:201
 //		QXCH	BUF +1
-// PORT: Fixed ROM slots 8994.
+// slot 8994
                 if slot <> 8994 or instruction <> 9305 { return choose false if checkOnly else -1. }
                 if extended {
                     if checkOnly { return true. }
@@ -1629,11 +1629,11 @@ function agcAotUnit514 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:202
+// IMU_COMPENSATION_PACKAGE.agc:202
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:203
+// IMU_COMPENSATION_PACKAGE.agc:203
 //		EXTEND			# C(A) = NBD	(GYRO PULSES)/(CS) X 2(-5)
-// PORT: Fixed ROM slots 8995.
+// slot 8995
                 if slot <> 8995 or instruction <> 6 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1645,9 +1645,9 @@ function agcAotUnit514 {
     } else {
         if slot <= 8997 {
             if slot <= 8996 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:204
+// IMU_COMPENSATION_PACKAGE.agc:204
 //		MP	1/PIPADT	# (CS) X 2(+8)	NO (GYRO PULSES) X 2(+3)
-// PORT: Fixed ROM slots 8996.
+// slot 8996
                 if slot <> 8996 or instruction <> 29244 { return choose false if checkOnly else -1. }
                 if extended {
                     if checkOnly { return true. }
@@ -1657,9 +1657,9 @@ function agcAotUnit514 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:205
+// IMU_COMPENSATION_PACKAGE.agc:205
 //		LXCH	MPAC +1		# SAVE FOR FRACTIONAL COMPENSATION
-// PORT: Fixed ROM slots 8997.
+// slot 8997
                 if slot <> 8997 or instruction <> 9325 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1671,9 +1671,9 @@ function agcAotUnit514 {
             }
         } else {
             if slot <= 8998 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:206
+// IMU_COMPENSATION_PACKAGE.agc:206
 //		EXTEND
-// PORT: Fixed ROM slots 8998.
+// slot 8998
                 if slot <> 8998 or instruction <> 6 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1682,9 +1682,9 @@ function agcAotUnit514 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 8999 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:207
+// IMU_COMPENSATION_PACKAGE.agc:207
 //		MP	BIT4		# SCALE 2(+11)	SHIFT RIGHT 11
-// PORT: Fixed ROM slots 8999.
+// slot 8999
                     if slot <> 8999 or instruction <> 31244 { return choose false if checkOnly else -1. }
                     if extended {
                         if checkOnly { return true. }
@@ -1694,9 +1694,9 @@ function agcAotUnit514 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:208
+// IMU_COMPENSATION_PACKAGE.agc:208
 //		INDEX	BUF
-// PORT: Fixed ROM slots 9000.
+// slot 9000
                     if slot <> 9000 or instruction <> 20568 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1715,22 +1715,22 @@ function agcAotUnit514 {
 set agcAotRoutes[514] to agcAotUnit514@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:209
+// IMU_COMPENSATION_PACKAGE.agc:209
 //		DAS	GCOMP		# HI(NBD)(DELTAT)	(GYRO PULSES) X 2(+14)
-// PORT: Fixed ROM slots 9001.
+// slot 9001
     9001, 18036
 )).
 
-// PORT: Physical bank 06. Shared continuation entries, slots 9002–9007.
+// bank 06, slots 9002-9007
 function agcAotUnit515 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 9004 {
         if slot <= 9002 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:210
+// IMU_COMPENSATION_PACKAGE.agc:210
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:211
+// IMU_COMPENSATION_PACKAGE.agc:211
 //		CA	MPAC +1		# NOW MINOR PART
-// PORT: Fixed ROM slots 9002.
+// slot 9002
             if slot <> 9002 or instruction <> 12397 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -1741,9 +1741,9 @@ function agcAotUnit515 {
             return choose false if checkOnly else -1.
         } else {
             if slot <= 9003 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:212
+// IMU_COMPENSATION_PACKAGE.agc:212
 //		EXTEND
-// PORT: Fixed ROM slots 9003.
+// slot 9003
                 if slot <> 9003 or instruction <> 6 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1751,9 +1751,9 @@ function agcAotUnit515 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:213
+// IMU_COMPENSATION_PACKAGE.agc:213
 //		MP	BIT4		# SCALE 2(+11)		SHIFT RIGHT 11
-// PORT: Fixed ROM slots 9004.
+// slot 9004
                 if slot <> 9004 or instruction <> 31244 { return choose false if checkOnly else -1. }
                 if extended {
                     if checkOnly { return true. }
@@ -1766,9 +1766,9 @@ function agcAotUnit515 {
         }
     } else {
         if slot <= 9005 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:214
+// IMU_COMPENSATION_PACKAGE.agc:214
 //		TS	L
-// PORT: Fixed ROM slots 9005.
+// slot 9005
             if slot <> 9005 or instruction <> 22529 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -1777,9 +1777,9 @@ function agcAotUnit515 {
             return choose false if checkOnly else -1.
         } else {
             if slot <= 9006 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:215
+// IMU_COMPENSATION_PACKAGE.agc:215
 //		CAF	ZERO
-// PORT: Fixed ROM slots 9006.
+// slot 9006
                 if slot <> 9006 or instruction <> 14865 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1790,9 +1790,9 @@ function agcAotUnit515 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:216
+// IMU_COMPENSATION_PACKAGE.agc:216
 //		INDEX	BUF		# ADD IN FRACTIONAL COMPENSATION
-// PORT: Fixed ROM slots 9007.
+// slot 9007
                 if slot <> 9007 or instruction <> 20568 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1810,22 +1810,22 @@ function agcAotUnit515 {
 set agcAotRoutes[515] to agcAotUnit515@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:217
+// IMU_COMPENSATION_PACKAGE.agc:217
 //		DAS	GCOMP		# (NBD)(DELTAT)		(GYRO PULSES) X 2(+14)
-// PORT: Fixed ROM slots 9008.
+// slot 9008
     9008, 18036
 )).
 
-// PORT: Physical bank 06. Shared continuation entries, slots 9009–9012.
+// bank 06, slots 9009-9012
 function agcAotUnit516 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 9010 {
         if slot <= 9009 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:218
+// IMU_COMPENSATION_PACKAGE.agc:218
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:219
+// IMU_COMPENSATION_PACKAGE.agc:219
 //DRFTSUB2	CAF	TWO		# PIPAX, PIPAY, PIPAZ
-// PORT: Fixed ROM slots 9009.
+// slot 9009
             if slot <> 9009 or instruction <> 14862 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -1836,9 +1836,9 @@ function agcAotUnit516 {
             }
             return choose false if checkOnly else -1.
         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:220
+// IMU_COMPENSATION_PACKAGE.agc:220
 //		AD	BUF
-// PORT: Fixed ROM slots 9010.
+// slot 9010
             if slot <> 9010 or instruction <> 24664 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -1850,9 +1850,9 @@ function agcAotUnit516 {
         }
     } else {
         if slot <= 9011 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:221
+// IMU_COMPENSATION_PACKAGE.agc:221
 //		XCH	BUF
-// PORT: Fixed ROM slots 9011.
+// slot 9011
             if slot <> 9011 or instruction <> 23640 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -1861,9 +1861,9 @@ function agcAotUnit516 {
             }
             return choose false if checkOnly else -1.
         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:222
+// IMU_COMPENSATION_PACKAGE.agc:222
 //		INDEX	A
-// PORT: Fixed ROM slots 9012.
+// slot 9012
             if slot <> 9012 or instruction <> 20480 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -1880,21 +1880,21 @@ function agcAotUnit516 {
 set agcAotRoutes[516] to agcAotUnit516@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:223
+// IMU_COMPENSATION_PACKAGE.agc:223
 //		CCS	GCOMP		# ARE GYRO COMMANDS 1 PULSE OR GREATER
-// PORT: Fixed ROM slots 9013.
+// slot 9013
     9013, 9842
 )).
 
-// PORT: Physical bank 06. Shared continuation entries, slots 9014–9022.
+// bank 06, slots 9014-9022
 function agcAotUnit517 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 9017 {
         if slot <= 9015 {
             if slot <= 9014 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:224
+// IMU_COMPENSATION_PACKAGE.agc:224
 //		TCF	+2		# YES
-// PORT: Fixed ROM slots 9014.
+// slot 9014
                 if slot <> 9014 or instruction <> 5944 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1902,9 +1902,9 @@ function agcAotUnit517 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:225
+// IMU_COMPENSATION_PACKAGE.agc:225
 //		TC	BUF +1		# NO
-// PORT: Fixed ROM slots 9015.
+// slot 9015
                 if slot <> 9015 or instruction <> 89 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1914,11 +1914,11 @@ function agcAotUnit517 {
             }
         } else {
             if slot <= 9016 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:226
+// IMU_COMPENSATION_PACKAGE.agc:226
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:227
+// IMU_COMPENSATION_PACKAGE.agc:227
 //		MASK	NEGONE
-// PORT: Fixed ROM slots 9016.
+// slot 9016
                 if slot <> 9016 or instruction <> 32718 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1934,9 +1934,9 @@ function agcAotUnit517 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:228
+// IMU_COMPENSATION_PACKAGE.agc:228
 //		CCS	A		# ARE GYRO COMMANDS GREATER THAN 2 PULSES
-// PORT: Fixed ROM slots 9017.
+// slot 9017
                 if slot <> 9017 or instruction <> 4096 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1950,9 +1950,9 @@ function agcAotUnit517 {
     } else {
         if slot <= 9019 {
             if slot <= 9018 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:229
+// IMU_COMPENSATION_PACKAGE.agc:229
 //		TS	GCOMPSW		# YES - SET GCOMPSW POSITIVE
-// PORT: Fixed ROM slots 9018.
+// slot 9018
                 if slot <> 9018 or instruction <> 23359 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1960,9 +1960,9 @@ function agcAotUnit517 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:230
+// IMU_COMPENSATION_PACKAGE.agc:230
 //		TC	BUF +1		# NO
-// PORT: Fixed ROM slots 9019.
+// slot 9019
                 if slot <> 9019 or instruction <> 89 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1972,13 +1972,13 @@ function agcAotUnit517 {
             }
         } else {
             if slot <= 9020 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:231
+// IMU_COMPENSATION_PACKAGE.agc:231
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:232
+// IMU_COMPENSATION_PACKAGE.agc:232
 //# Page 303
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:233
+// IMU_COMPENSATION_PACKAGE.agc:233
 //1/GYRO		CAF	FOUR		# PIPAZ, PIPAY, PIPAX
-// PORT: Fixed ROM slots 9020.
+// slot 9020
                 if slot <> 9020 or instruction <> 14861 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1990,9 +1990,9 @@ function agcAotUnit517 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 9021 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:234
+// IMU_COMPENSATION_PACKAGE.agc:234
 //		TS	BUF
-// PORT: Fixed ROM slots 9021.
+// slot 9021
                     if slot <> 9021 or instruction <> 22616 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -2000,11 +2000,11 @@ function agcAotUnit517 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:235
+// IMU_COMPENSATION_PACKAGE.agc:235
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:236
+// IMU_COMPENSATION_PACKAGE.agc:236
 //		INDEX	BUF		# SCALE GYRO COMMANDS FOR IMUPULSE
-// PORT: Fixed ROM slots 9022.
+// slot 9022
                     if slot <> 9022 or instruction <> 20568 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -2023,19 +2023,19 @@ function agcAotUnit517 {
 set agcAotRoutes[517] to agcAotUnit517@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:237
+// IMU_COMPENSATION_PACKAGE.agc:237
 //		CA	GCOMP +1	# FRACTIONAL PULSES
-// PORT: Fixed ROM slots 9023.
+// slot 9023
     9023, 26228
 )).
 
-// PORT: Physical bank 06. Shared continuation entries, slots 9024–9026.
+// bank 06, slots 9024-9026
 function agcAotUnit518 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 9024 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:238
+// IMU_COMPENSATION_PACKAGE.agc:238
 //		EXTEND
-// PORT: Fixed ROM slots 9024.
+// slot 9024
         if slot <> 9024 or instruction <> 6 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -2044,9 +2044,9 @@ function agcAotUnit518 {
         return choose false if checkOnly else -1.
     } else {
         if slot <= 9025 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:239
+// IMU_COMPENSATION_PACKAGE.agc:239
 //		MP	BIT8		# SHIFT RIGHT 7
-// PORT: Fixed ROM slots 9025.
+// slot 9025
             if slot <> 9025 or instruction <> 31240 { return choose false if checkOnly else -1. }
             if extended {
                 if checkOnly { return true. }
@@ -2056,9 +2056,9 @@ function agcAotUnit518 {
             }
             return choose false if checkOnly else -1.
         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:240
+// IMU_COMPENSATION_PACKAGE.agc:240
 //		INDEX	BUF
-// PORT: Fixed ROM slots 9026.
+// slot 9026
             if slot <> 9026 or instruction <> 20568 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -2075,21 +2075,21 @@ function agcAotUnit518 {
 set agcAotRoutes[518] to agcAotUnit518@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:241
+// IMU_COMPENSATION_PACKAGE.agc:241
 //		TS	GCOMP +1	# FRACTIONAL PULSES SCALED
-// PORT: Fixed ROM slots 9027.
+// slot 9027
     9027, 46708
 )).
 
-// PORT: Physical bank 06. Shared continuation entries, slots 9028–9029.
+// bank 06, slots 9028-9029
 function agcAotUnit519 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 9028 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:242
+// IMU_COMPENSATION_PACKAGE.agc:242
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:243
+// IMU_COMPENSATION_PACKAGE.agc:243
 //		CAF	ZERO		# SET GCOMP = 0 FOR DAS INSTRUCTION
-// PORT: Fixed ROM slots 9028.
+// slot 9028
         if slot <> 9028 or instruction <> 14865 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -2100,9 +2100,9 @@ function agcAotUnit519 {
         }
         return choose false if checkOnly else -1.
     } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:244
+// IMU_COMPENSATION_PACKAGE.agc:244
 //		INDEX	BUF
-// PORT: Fixed ROM slots 9029.
+// slot 9029
         if slot <> 9029 or instruction <> 20568 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -2118,19 +2118,19 @@ function agcAotUnit519 {
 set agcAotRoutes[519] to agcAotUnit519@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:245
+// IMU_COMPENSATION_PACKAGE.agc:245
 //		XCH	GCOMP		# GYRO PULSES
-// PORT: Fixed ROM slots 9030.
+// slot 9030
     9030, 48754
 )).
 
-// PORT: Physical bank 06. Shared continuation entries, slots 9031–9033.
+// bank 06, slots 9031-9033
 function agcAotUnit520 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 9031 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:246
+// IMU_COMPENSATION_PACKAGE.agc:246
 //		EXTEND
-// PORT: Fixed ROM slots 9031.
+// slot 9031
         if slot <> 9031 or instruction <> 6 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -2139,9 +2139,9 @@ function agcAotUnit520 {
         return choose false if checkOnly else -1.
     } else {
         if slot <= 9032 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:247
+// IMU_COMPENSATION_PACKAGE.agc:247
 //		MP	BIT8		# SHIFT RIGHT 7
-// PORT: Fixed ROM slots 9032.
+// slot 9032
             if slot <> 9032 or instruction <> 31240 { return choose false if checkOnly else -1. }
             if extended {
                 if checkOnly { return true. }
@@ -2151,9 +2151,9 @@ function agcAotUnit520 {
             }
             return choose false if checkOnly else -1.
         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:248
+// IMU_COMPENSATION_PACKAGE.agc:248
 //		INDEX	BUF
-// PORT: Fixed ROM slots 9033.
+// slot 9033
             if slot <> 9033 or instruction <> 20568 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -2170,21 +2170,21 @@ function agcAotUnit520 {
 set agcAotRoutes[520] to agcAotUnit520@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:249
+// IMU_COMPENSATION_PACKAGE.agc:249
 //		DAS	GCOMP		# ADD THESE TO FRACTIONAL PULSES ABOVE
-// PORT: Fixed ROM slots 9034.
+// slot 9034
     9034, 18036
 )).
 
-// PORT: Physical bank 06. Shared continuation entries, slots 9035–9037.
+// bank 06, slots 9035-9037
 function agcAotUnit521 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 9035 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:250
+// IMU_COMPENSATION_PACKAGE.agc:250
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:251
+// IMU_COMPENSATION_PACKAGE.agc:251
 //		CCS	BUF		# PIPAZ, PIPAY, PIPAX
-// PORT: Fixed ROM slots 9035.
+// slot 9035
         if slot <> 9035 or instruction <> 4184 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -2195,9 +2195,9 @@ function agcAotUnit521 {
         return choose false if checkOnly else -1.
     } else {
         if slot <= 9036 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:252
+// IMU_COMPENSATION_PACKAGE.agc:252
 //		AD	NEG1
-// PORT: Fixed ROM slots 9036.
+// slot 9036
             if slot <> 9036 or instruction <> 28622 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -2209,9 +2209,9 @@ function agcAotUnit521 {
             }
             return choose false if checkOnly else -1.
         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:253
+// IMU_COMPENSATION_PACKAGE.agc:253
 //		TCF	1/GYRO +1
-// PORT: Fixed ROM slots 9037.
+// slot 9037
             if slot <> 9037 or instruction <> 5949 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -2224,21 +2224,21 @@ function agcAotUnit521 {
 set agcAotRoutes[521] to agcAotUnit521@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:254
+// IMU_COMPENSATION_PACKAGE.agc:254
 //LGCOMP		ECADR	GCOMP		# LESS THAN ZERO IMPOSSIBLE
-// PORT: Fixed ROM slots 9038.
+// slot 9038
     9038, 1650
 )).
 
-// PORT: Physical bank 06. Shared continuation entries, slots 9039–9040.
+// bank 06, slots 9039-9040
 function agcAotUnit522 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 9039 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:255
+// IMU_COMPENSATION_PACKAGE.agc:255
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:256
+// IMU_COMPENSATION_PACKAGE.agc:256
 //		CAF	LGCOMP
-// PORT: Fixed ROM slots 9039.
+// slot 9039
         if slot <> 9039 or instruction <> 14158 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -2249,9 +2249,9 @@ function agcAotUnit522 {
         }
         return choose false if checkOnly else -1.
     } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:257
+// IMU_COMPENSATION_PACKAGE.agc:257
 //		TC	BANKCALL
-// PORT: Fixed ROM slots 9040.
+// slot 9040
         if slot <> 9040 or instruction <> 2482 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -2263,18 +2263,18 @@ function agcAotUnit522 {
 set agcAotRoutes[522] to agcAotUnit522@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:258
+// IMU_COMPENSATION_PACKAGE.agc:258
 //		CADR	IMUPULSE	# CALL GYRO TORQUING ROUTINE
-// PORT: Fixed ROM slots 9041.
+// slot 9041
     9041, 15628
 )).
 
-// PORT: Physical bank 06. Shared continuation entries, slots 9042–9042.
+// bank 06, slots 9042-9042
 function agcAotUnit523 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:259
+// IMU_COMPENSATION_PACKAGE.agc:259
 //		TC	BANKCALL
-// PORT: Fixed ROM slots 9042.
+// slot 9042
     if slot <> 9042 or instruction <> 2482 { return choose false if checkOnly else -1. }
     if not extended {
         if checkOnly { return true. }
@@ -2285,20 +2285,20 @@ function agcAotUnit523 {
 set agcAotRoutes[523] to agcAotUnit523@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:260
+// IMU_COMPENSATION_PACKAGE.agc:260
 //		CADR	IMUSTALL	# WAIT FOR PULSES TO GET OUT
-// PORT: Fixed ROM slots 9043.
+// slot 9043
     9043, 16126
 )).
 
-// PORT: Physical bank 06. Shared continuation entries, slots 9044–9047.
+// bank 06, slots 9044-9047
 function agcAotUnit524 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 9045 {
         if slot <= 9044 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:261
+// IMU_COMPENSATION_PACKAGE.agc:261
 //		TCF	ENDOFJOB	# TEMPORARY
-// PORT: Fixed ROM slots 9044.
+// slot 9044
             if slot <> 9044 or instruction <> 6799 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -2306,11 +2306,11 @@ function agcAotUnit524 {
             }
             return choose false if checkOnly else -1.
         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:262
+// IMU_COMPENSATION_PACKAGE.agc:262
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:263
+// IMU_COMPENSATION_PACKAGE.agc:263
 //GCOMP1		CAF	FOUR		# PIPAZ, PIPAY, PIPAX
-// PORT: Fixed ROM slots 9045.
+// slot 9045
             if slot <> 9045 or instruction <> 14861 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -2323,9 +2323,9 @@ function agcAotUnit524 {
         }
     } else {
         if slot <= 9046 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:264
+// IMU_COMPENSATION_PACKAGE.agc:264
 //		TS	BUF
-// PORT: Fixed ROM slots 9046.
+// slot 9046
             if slot <> 9046 or instruction <> 22616 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -2333,11 +2333,11 @@ function agcAotUnit524 {
             }
             return choose false if checkOnly else -1.
         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:265
+// IMU_COMPENSATION_PACKAGE.agc:265
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:266
+// IMU_COMPENSATION_PACKAGE.agc:266
 //		INDEX	BUF		# RESCALE
-// PORT: Fixed ROM slots 9047.
+// slot 9047
             if slot <> 9047 or instruction <> 20568 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -2354,19 +2354,19 @@ function agcAotUnit524 {
 set agcAotRoutes[524] to agcAotUnit524@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:267
+// IMU_COMPENSATION_PACKAGE.agc:267
 //		CA	GCOMP +1
-// PORT: Fixed ROM slots 9048.
+// slot 9048
     9048, 26228
 )).
 
-// PORT: Physical bank 06. Shared continuation entries, slots 9049–9051.
+// bank 06, slots 9049-9051
 function agcAotUnit525 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 9049 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:268
+// IMU_COMPENSATION_PACKAGE.agc:268
 //		EXTEND
-// PORT: Fixed ROM slots 9049.
+// slot 9049
         if slot <> 9049 or instruction <> 6 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -2375,9 +2375,9 @@ function agcAotUnit525 {
         return choose false if checkOnly else -1.
     } else {
         if slot <= 9050 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:269
+// IMU_COMPENSATION_PACKAGE.agc:269
 //		MP	BIT8		# SHIFT MINOR PART LEFT 7 - MAJOR PART = 0
-// PORT: Fixed ROM slots 9050.
+// slot 9050
             if slot <> 9050 or instruction <> 31240 { return choose false if checkOnly else -1. }
             if extended {
                 if checkOnly { return true. }
@@ -2387,9 +2387,9 @@ function agcAotUnit525 {
             }
             return choose false if checkOnly else -1.
         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:270
+// IMU_COMPENSATION_PACKAGE.agc:270
 //		INDEX	BUF
-// PORT: Fixed ROM slots 9051.
+// slot 9051
             if slot <> 9051 or instruction <> 20568 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -2406,21 +2406,21 @@ function agcAotUnit525 {
 set agcAotRoutes[525] to agcAotUnit525@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:271
+// IMU_COMPENSATION_PACKAGE.agc:271
 //		LXCH	GCOMP +1	# BITS 8-14 OF MINOR PART WERE = 0
-// PORT: Fixed ROM slots 9052.
+// slot 9052
     9052, 20084
 )).
 
-// PORT: Physical bank 06. Shared continuation entries, slots 9053–9055.
+// bank 06, slots 9053-9055
 function agcAotUnit526 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 9053 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:272
+// IMU_COMPENSATION_PACKAGE.agc:272
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:273
+// IMU_COMPENSATION_PACKAGE.agc:273
 //		CCS	BUF		# PIPAZ, PIPAY, PIPAX
-// PORT: Fixed ROM slots 9053.
+// slot 9053
         if slot <> 9053 or instruction <> 4184 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -2431,9 +2431,9 @@ function agcAotUnit526 {
         return choose false if checkOnly else -1.
     } else {
         if slot <= 9054 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:274
+// IMU_COMPENSATION_PACKAGE.agc:274
 //		AD	NEG1
-// PORT: Fixed ROM slots 9054.
+// slot 9054
             if slot <> 9054 or instruction <> 28622 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -2445,9 +2445,9 @@ function agcAotUnit526 {
             }
             return choose false if checkOnly else -1.
         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:275
+// IMU_COMPENSATION_PACKAGE.agc:275
 //		TCF	GCOMP1 +1
-// PORT: Fixed ROM slots 9055.
+// slot 9055
             if slot <> 9055 or instruction <> 5974 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -2460,13 +2460,13 @@ function agcAotUnit526 {
 set agcAotRoutes[526] to agcAotUnit526@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:276
+// IMU_COMPENSATION_PACKAGE.agc:276
 //V06N30S		VN	0630
-// PORT: Fixed ROM slots 9056.
+// slot 9056
     9056, 1596
 )).
 
-// PORT: Physical bank 06. Shared continuation entries, slots 9057–9108.
+// bank 06, slots 9057-9108
 function agcAotUnit527 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 9082 {
@@ -2474,9 +2474,9 @@ function agcAotUnit527 {
             if slot <= 9062 {
                 if slot <= 9059 {
                     if slot <= 9057 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:277
+// IMU_COMPENSATION_PACKAGE.agc:277
 //		TCF	ENDOFJOB
-// PORT: Fixed ROM slots 9057.
+// slot 9057
                         if slot <> 9057 or instruction <> 6799 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -2485,13 +2485,13 @@ function agcAotUnit527 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 9058 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:278
+// IMU_COMPENSATION_PACKAGE.agc:278
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:279
+// IMU_COMPENSATION_PACKAGE.agc:279
 //# Page 304
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:280
+// IMU_COMPENSATION_PACKAGE.agc:280
 //NBDONLY		CCS	GCOMPSW		# BYPASS IF GCOMPSW NEGATIVE
-// PORT: Fixed ROM slots 9058.
+// slot 9058
                             if slot <> 9058 or instruction <> 4927 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -2501,9 +2501,9 @@ function agcAotUnit527 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:281
+// IMU_COMPENSATION_PACKAGE.agc:281
 //		TCF	+3
-// PORT: Fixed ROM slots 9059.
+// slot 9059
                             if slot <> 9059 or instruction <> 5990 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -2514,9 +2514,9 @@ function agcAotUnit527 {
                     }
                 } else {
                     if slot <= 9060 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:282
+// IMU_COMPENSATION_PACKAGE.agc:282
 //		TCF	+2
-// PORT: Fixed ROM slots 9060.
+// slot 9060
                         if slot <> 9060 or instruction <> 5990 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -2525,9 +2525,9 @@ function agcAotUnit527 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 9061 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:283
+// IMU_COMPENSATION_PACKAGE.agc:283
 //		TCF	ENDOFJOB
-// PORT: Fixed ROM slots 9061.
+// slot 9061
                             if slot <> 9061 or instruction <> 6799 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -2535,11 +2535,11 @@ function agcAotUnit527 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:284
+// IMU_COMPENSATION_PACKAGE.agc:284
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:285
+// IMU_COMPENSATION_PACKAGE.agc:285
 //		INHINT
-// PORT: Fixed ROM slots 9062.
+// slot 9062
                             if slot <> 9062 or instruction <> 4 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -2552,9 +2552,9 @@ function agcAotUnit527 {
             } else {
                 if slot <= 9065 {
                     if slot <= 9063 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:286
+// IMU_COMPENSATION_PACKAGE.agc:286
 //		CCS	FLAGWRD2	# PREREAD T3RUPT MAY COINCIDE
-// PORT: Fixed ROM slots 9063.
+// slot 9063
                         if slot <> 9063 or instruction <> 4158 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -2565,9 +2565,9 @@ function agcAotUnit527 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 9064 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:287
+// IMU_COMPENSATION_PACKAGE.agc:287
 //		TCF	ENDOFJOB
-// PORT: Fixed ROM slots 9064.
+// slot 9064
                             if slot <> 9064 or instruction <> 6799 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -2575,9 +2575,9 @@ function agcAotUnit527 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:288
+// IMU_COMPENSATION_PACKAGE.agc:288
 //		TCF	ENDOFJOB
-// PORT: Fixed ROM slots 9065.
+// slot 9065
                             if slot <> 9065 or instruction <> 6799 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -2589,9 +2589,9 @@ function agcAotUnit527 {
                 } else {
                     if slot <= 9067 {
                         if slot <= 9066 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:289
+// IMU_COMPENSATION_PACKAGE.agc:289
 //		TCF	+1
-// PORT: Fixed ROM slots 9066.
+// slot 9066
                             if slot <> 9066 or instruction <> 5995 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -2599,11 +2599,11 @@ function agcAotUnit527 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:290
+// IMU_COMPENSATION_PACKAGE.agc:290
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:291
+// IMU_COMPENSATION_PACKAGE.agc:291
 //		CA	TIME1		# (CS) X 2(+14)
-// PORT: Fixed ROM slots 9067.
+// slot 9067
                             if slot <> 9067 or instruction <> 12309 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -2615,9 +2615,9 @@ function agcAotUnit527 {
                         }
                     } else {
                         if slot <= 9068 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:292
+// IMU_COMPENSATION_PACKAGE.agc:292
 //		XCH	1/PIPADT	# PREVIOUS TIME
-// PORT: Fixed ROM slots 9068.
+// slot 9068
                             if slot <> 9068 or instruction <> 24124 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -2626,9 +2626,9 @@ function agcAotUnit527 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:293
+// IMU_COMPENSATION_PACKAGE.agc:293
 //		RELINT
-// PORT: Fixed ROM slots 9069.
+// slot 9069
                             if slot <> 9069 or instruction <> 3 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -2643,9 +2643,9 @@ function agcAotUnit527 {
             if slot <= 9075 {
                 if slot <= 9072 {
                     if slot <= 9070 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:294
+// IMU_COMPENSATION_PACKAGE.agc:294
 //		COM
-// PORT: Fixed ROM slots 9070.
+// slot 9070
                         if slot <> 9070 or instruction <> 16384 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -2655,9 +2655,9 @@ function agcAotUnit527 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 9071 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:295
+// IMU_COMPENSATION_PACKAGE.agc:295
 //		AD	1/PIPADT
-// PORT: Fixed ROM slots 9071.
+// slot 9071
                             if slot <> 9071 or instruction <> 25148 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -2667,9 +2667,9 @@ function agcAotUnit527 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:296
+// IMU_COMPENSATION_PACKAGE.agc:296
 //NBD2		CCS	A		# CALCULATE ELAPSED TIME
-// PORT: Fixed ROM slots 9072.
+// slot 9072
                             if slot <> 9072 or instruction <> 4096 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -2682,9 +2682,9 @@ function agcAotUnit527 {
                     }
                 } else {
                     if slot <= 9073 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:297
+// IMU_COMPENSATION_PACKAGE.agc:297
 //		AD	ONE		# NO TIME1 OVERFLOW
-// PORT: Fixed ROM slots 9073.
+// slot 9073
                         if slot <> 9073 or instruction <> 27151 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -2697,9 +2697,9 @@ function agcAotUnit527 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 9074 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:298
+// IMU_COMPENSATION_PACKAGE.agc:298
 //		TCF	NBD3		# RESTORE TIME DIFFERENCE AND JUMP
-// PORT: Fixed ROM slots 9074.
+// slot 9074
                             if slot <> 9074 or instruction <> 6007 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -2707,9 +2707,9 @@ function agcAotUnit527 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:299
+// IMU_COMPENSATION_PACKAGE.agc:299
 //		TCF	+2		# TIME1 OVERFLOW
-// PORT: Fixed ROM slots 9075.
+// slot 9075
                             if slot <> 9075 or instruction <> 6005 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -2722,9 +2722,9 @@ function agcAotUnit527 {
             } else {
                 if slot <= 9078 {
                     if slot <= 9076 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:300
+// IMU_COMPENSATION_PACKAGE.agc:300
 //		TCF	ENDOFJOB	# IF ELAPSED TIME = 0 (DIFFERENCE = -0)
-// PORT: Fixed ROM slots 9076.
+// slot 9076
                         if slot <> 9076 or instruction <> 6799 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -2733,11 +2733,11 @@ function agcAotUnit527 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 9077 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:301
+// IMU_COMPENSATION_PACKAGE.agc:301
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:302
+// IMU_COMPENSATION_PACKAGE.agc:302
 //		COM			# CALCULATE ABSOLUTE DIFFERENCE
-// PORT: Fixed ROM slots 9077.
+// slot 9077
                             if slot <> 9077 or instruction <> 16384 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -2746,9 +2746,9 @@ function agcAotUnit527 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:303
+// IMU_COMPENSATION_PACKAGE.agc:303
 //		AD	POSMAX
-// PORT: Fixed ROM slots 9078.
+// slot 9078
                             if slot <> 9078 or instruction <> 27135 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -2764,11 +2764,11 @@ function agcAotUnit527 {
                 } else {
                     if slot <= 9080 {
                         if slot <= 9079 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:304
+// IMU_COMPENSATION_PACKAGE.agc:304
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:305
+// IMU_COMPENSATION_PACKAGE.agc:305
 //NBD3		EXTEND			# C(A) = DELTAT		(CS) X 2(+14)
-// PORT: Fixed ROM slots 9079.
+// slot 9079
                             if slot <> 9079 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -2776,9 +2776,9 @@ function agcAotUnit527 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:306
+// IMU_COMPENSATION_PACKAGE.agc:306
 //		MP	BIT10		# SHIFT RIGHT 5
-// PORT: Fixed ROM slots 9080.
+// slot 9080
                             if slot <> 9080 or instruction <> 31238 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -2790,9 +2790,9 @@ function agcAotUnit527 {
                         }
                     } else {
                         if slot <= 9081 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:307
+// IMU_COMPENSATION_PACKAGE.agc:307
 //		DXCH	VBUF
-// PORT: Fixed ROM slots 9081.
+// slot 9081
                             if slot <> 9081 or instruction <> 21587 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -2801,9 +2801,9 @@ function agcAotUnit527 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:308
+// IMU_COMPENSATION_PACKAGE.agc:308
 //		EXTEND
-// PORT: Fixed ROM slots 9082.
+// slot 9082
                             if slot <> 9082 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -2820,9 +2820,9 @@ function agcAotUnit527 {
             if slot <= 9088 {
                 if slot <= 9085 {
                     if slot <= 9083 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:309
+// IMU_COMPENSATION_PACKAGE.agc:309
 //		DCA	VBUF
-// PORT: Fixed ROM slots 9083.
+// slot 9083
                         if slot <> 9083 or instruction <> 12371 { return choose false if checkOnly else -1. }
                         if extended {
                             if checkOnly { return true. }
@@ -2833,9 +2833,9 @@ function agcAotUnit527 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 9084 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:310
+// IMU_COMPENSATION_PACKAGE.agc:310
 //		DXCH	MPAC		# DELTAT NOW SCALED (CS) X 2(+19)
-// PORT: Fixed ROM slots 9084.
+// slot 9084
                             if slot <> 9084 or instruction <> 21613 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -2844,11 +2844,11 @@ function agcAotUnit527 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:311
+// IMU_COMPENSATION_PACKAGE.agc:311
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:312
+// IMU_COMPENSATION_PACKAGE.agc:312
 //		CAF	ZERO
-// PORT: Fixed ROM slots 9085.
+// slot 9085
                             if slot <> 9085 or instruction <> 14865 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -2862,9 +2862,9 @@ function agcAotUnit527 {
                     }
                 } else {
                     if slot <= 9086 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:313
+// IMU_COMPENSATION_PACKAGE.agc:313
 //		TS	GCOMPSW		# INDICATE COMMANDS 2 PULSES OR LESS
-// PORT: Fixed ROM slots 9086.
+// slot 9086
                         if slot <> 9086 or instruction <> 23359 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -2873,9 +2873,9 @@ function agcAotUnit527 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 9087 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:314
+// IMU_COMPENSATION_PACKAGE.agc:314
 //		TS	BUF		# PIPAX, PIPAY, PIPAZ
-// PORT: Fixed ROM slots 9087.
+// slot 9087
                             if slot <> 9087 or instruction <> 22616 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -2883,11 +2883,11 @@ function agcAotUnit527 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:315
+// IMU_COMPENSATION_PACKAGE.agc:315
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:316
+// IMU_COMPENSATION_PACKAGE.agc:316
 //		CS	NBDX		# (GYRO PULSES)/(CS) X 2(-5)
-// PORT: Fixed ROM slots 9088.
+// slot 9088
                             if slot <> 9088 or instruction <> 17200 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -2901,9 +2901,9 @@ function agcAotUnit527 {
             } else {
                 if slot <= 9091 {
                     if slot <= 9089 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:317
+// IMU_COMPENSATION_PACKAGE.agc:317
 //		TC	FBIASSUB	# -(NBOX)(DELTAT) 	(GYRO PULSES) X 2(+14)
-// PORT: Fixed ROM slots 9089.
+// slot 9089
                         if slot <> 9089 or instruction <> 1935 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -2912,11 +2912,11 @@ function agcAotUnit527 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 9090 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:318
+// IMU_COMPENSATION_PACKAGE.agc:318
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:319
+// IMU_COMPENSATION_PACKAGE.agc:319
 //		EXTEND
-// PORT: Fixed ROM slots 9090.
+// slot 9090
                             if slot <> 9090 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -2924,9 +2924,9 @@ function agcAotUnit527 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:320
+// IMU_COMPENSATION_PACKAGE.agc:320
 //		DCS	VBUF
-// PORT: Fixed ROM slots 9091.
+// slot 9091
                             if slot <> 9091 or instruction <> 16467 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -2940,9 +2940,9 @@ function agcAotUnit527 {
                 } else {
                     if slot <= 9093 {
                         if slot <= 9092 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:321
+// IMU_COMPENSATION_PACKAGE.agc:321
 //		DXCH	MPAC		# DELTAT SCALED (CS) X 2(+19)
-// PORT: Fixed ROM slots 9092.
+// slot 9092
                             if slot <> 9092 or instruction <> 21613 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -2951,9 +2951,9 @@ function agcAotUnit527 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:322
+// IMU_COMPENSATION_PACKAGE.agc:322
 //		CA	NBDY		# (GYRO PULSES)/(CS) X 2(-5)
-// PORT: Fixed ROM slots 9093.
+// slot 9093
                             if slot <> 9093 or instruction <> 13105 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -2965,9 +2965,9 @@ function agcAotUnit527 {
                         }
                     } else {
                         if slot <= 9094 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:323
+// IMU_COMPENSATION_PACKAGE.agc:323
 //		TC	FBIASSUB	# -(NBDY)(DELTAT)	(GYRO PULSES) X 2(+14)
-// PORT: Fixed ROM slots 9094.
+// slot 9094
                             if slot <> 9094 or instruction <> 1935 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -2975,11 +2975,11 @@ function agcAotUnit527 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:324
+// IMU_COMPENSATION_PACKAGE.agc:324
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:325
+// IMU_COMPENSATION_PACKAGE.agc:325
 //		EXTEND
-// PORT: Fixed ROM slots 9095.
+// slot 9095
                             if slot <> 9095 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -2994,9 +2994,9 @@ function agcAotUnit527 {
             if slot <= 9101 {
                 if slot <= 9098 {
                     if slot <= 9096 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:326
+// IMU_COMPENSATION_PACKAGE.agc:326
 //		DCS	VBUF
-// PORT: Fixed ROM slots 9096.
+// slot 9096
                         if slot <> 9096 or instruction <> 16467 { return choose false if checkOnly else -1. }
                         if extended {
                             if checkOnly { return true. }
@@ -3007,9 +3007,9 @@ function agcAotUnit527 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 9097 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:327
+// IMU_COMPENSATION_PACKAGE.agc:327
 //		DXCH	MPAC		# DELTAT SCALED (CS) X 2(+19)
-// PORT: Fixed ROM slots 9097.
+// slot 9097
                             if slot <> 9097 or instruction <> 21613 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -3018,9 +3018,9 @@ function agcAotUnit527 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:328
+// IMU_COMPENSATION_PACKAGE.agc:328
 //		CS	NBDZ		# (GYRO PULSES)/(CS) X 2(-5)
-// PORT: Fixed ROM slots 9098.
+// slot 9098
                             if slot <> 9098 or instruction <> 17202 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -3032,9 +3032,9 @@ function agcAotUnit527 {
                     }
                 } else {
                     if slot <= 9099 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:329
+// IMU_COMPENSATION_PACKAGE.agc:329
 //		TC	FBIASSUB	# +(NBDZ)(DELTAT)	(GYRO PULSES) X 2(+14)
-// PORT: Fixed ROM slots 9099.
+// slot 9099
                         if slot <> 9099 or instruction <> 1935 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -3043,11 +3043,11 @@ function agcAotUnit527 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 9100 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:330
+// IMU_COMPENSATION_PACKAGE.agc:330
 //# Page 305
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:331
+// IMU_COMPENSATION_PACKAGE.agc:331
 //		CCS	GCOMPSW		# ARE GYRO COMMANDS GREATER THAN 2 PULSES
-// PORT: Fixed ROM slots 9100.
+// slot 9100
                             if slot <> 9100 or instruction <> 4927 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -3057,9 +3057,9 @@ function agcAotUnit527 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:332
+// IMU_COMPENSATION_PACKAGE.agc:332
 //		TCF	1/GYRO		# YES
-// PORT: Fixed ROM slots 9101.
+// slot 9101
                             if slot <> 9101 or instruction <> 5948 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -3072,9 +3072,9 @@ function agcAotUnit527 {
             } else {
                 if slot <= 9104 {
                     if slot <= 9102 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:333
+// IMU_COMPENSATION_PACKAGE.agc:333
 //		TCF	ENDOFJOB	# NO
-// PORT: Fixed ROM slots 9102.
+// slot 9102
                         if slot <> 9102 or instruction <> 6799 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -3083,13 +3083,13 @@ function agcAotUnit527 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 9103 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:334
+// IMU_COMPENSATION_PACKAGE.agc:334
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:335
+// IMU_COMPENSATION_PACKAGE.agc:335
 //# Page 306
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:336
+// IMU_COMPENSATION_PACKAGE.agc:336
 //FBIASSUB	XCH	Q
-// PORT: Fixed ROM slots 9103.
+// slot 9103
                             if slot <> 9103 or instruction <> 23554 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -3098,9 +3098,9 @@ function agcAotUnit527 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:337
+// IMU_COMPENSATION_PACKAGE.agc:337
 //		TS	BUF +1
-// PORT: Fixed ROM slots 9104.
+// slot 9104
                             if slot <> 9104 or instruction <> 22617 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -3112,11 +3112,11 @@ function agcAotUnit527 {
                 } else {
                     if slot <= 9106 {
                         if slot <= 9105 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:338
+// IMU_COMPENSATION_PACKAGE.agc:338
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:339
+// IMU_COMPENSATION_PACKAGE.agc:339
 //		CA	Q		# NBD SCALED (GYRO PULSES)/(CS) X 2(-5)
-// PORT: Fixed ROM slots 9105.
+// slot 9105
                             if slot <> 9105 or instruction <> 12290 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -3126,9 +3126,9 @@ function agcAotUnit527 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:340
+// IMU_COMPENSATION_PACKAGE.agc:340
 //		EXTEND
-// PORT: Fixed ROM slots 9106.
+// slot 9106
                             if slot <> 9106 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -3138,9 +3138,9 @@ function agcAotUnit527 {
                         }
                     } else {
                         if slot <= 9107 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:341
+// IMU_COMPENSATION_PACKAGE.agc:341
 //		MP	MPAC		# DELTAT SCALED (CS) X 2(+19)
-// PORT: Fixed ROM slots 9107.
+// slot 9107
                             if slot <> 9107 or instruction <> 28780 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -3150,9 +3150,9 @@ function agcAotUnit527 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:342
+// IMU_COMPENSATION_PACKAGE.agc:342
 //		INDEX	BUF
-// PORT: Fixed ROM slots 9108.
+// slot 9108
                             if slot <> 9108 or instruction <> 20568 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -3173,22 +3173,22 @@ function agcAotUnit527 {
 set agcAotRoutes[527] to agcAotUnit527@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:343
+// IMU_COMPENSATION_PACKAGE.agc:343
 //		DAS	GCOMP		# HI(NBD)(DELTAT)	(GYRO PULSES) X 2(+14)
-// PORT: Fixed ROM slots 9109.
+// slot 9109
     9109, 18036
 )).
 
-// PORT: Physical bank 06. Shared continuation entries, slots 9110–9115.
+// bank 06, slots 9110-9115
 function agcAotUnit528 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 9112 {
         if slot <= 9110 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:344
+// IMU_COMPENSATION_PACKAGE.agc:344
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:345
+// IMU_COMPENSATION_PACKAGE.agc:345
 //		CA	Q		# NO FRACTIONAL PART
-// PORT: Fixed ROM slots 9110.
+// slot 9110
             if slot <> 9110 or instruction <> 12290 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -3199,9 +3199,9 @@ function agcAotUnit528 {
             return choose false if checkOnly else -1.
         } else {
             if slot <= 9111 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:346
+// IMU_COMPENSATION_PACKAGE.agc:346
 //		EXTEND
-// PORT: Fixed ROM slots 9111.
+// slot 9111
                 if slot <> 9111 or instruction <> 6 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -3209,9 +3209,9 @@ function agcAotUnit528 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:347
+// IMU_COMPENSATION_PACKAGE.agc:347
 //		MP	MPAC +1
-// PORT: Fixed ROM slots 9112.
+// slot 9112
                 if slot <> 9112 or instruction <> 28781 { return choose false if checkOnly else -1. }
                 if extended {
                     if checkOnly { return true. }
@@ -3224,9 +3224,9 @@ function agcAotUnit528 {
         }
     } else {
         if slot <= 9113 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:348
+// IMU_COMPENSATION_PACKAGE.agc:348
 //		TS	L
-// PORT: Fixed ROM slots 9113.
+// slot 9113
             if slot <> 9113 or instruction <> 22529 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -3235,9 +3235,9 @@ function agcAotUnit528 {
             return choose false if checkOnly else -1.
         } else {
             if slot <= 9114 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:349
+// IMU_COMPENSATION_PACKAGE.agc:349
 //		CAF	ZERO
-// PORT: Fixed ROM slots 9114.
+// slot 9114
                 if slot <> 9114 or instruction <> 14865 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -3248,9 +3248,9 @@ function agcAotUnit528 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:350
+// IMU_COMPENSATION_PACKAGE.agc:350
 //		INDEX	BUF
-// PORT: Fixed ROM slots 9115.
+// slot 9115
                 if slot <> 9115 or instruction <> 20568 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -3268,21 +3268,21 @@ function agcAotUnit528 {
 set agcAotRoutes[528] to agcAotUnit528@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:351
+// IMU_COMPENSATION_PACKAGE.agc:351
 //		DAS	GCOMP		# (NBD)(DELTAT)		(GYRO PULSES) X 2(+14)
-// PORT: Fixed ROM slots 9116.
+// slot 9116
     9116, 18036
 )).
 
-// PORT: Physical bank 06. Shared continuation entries, slots 9117–9118.
+// bank 06, slots 9117-9118
 function agcAotUnit529 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 9117 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:352
+// IMU_COMPENSATION_PACKAGE.agc:352
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:353
+// IMU_COMPENSATION_PACKAGE.agc:353
 //		TCF	DRFTSUB2	# CHECK MAGNITUDE OF COMPENSATION
-// PORT: Fixed ROM slots 9117.
+// slot 9117
         if slot <> 9117 or instruction <> 5937 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -3290,11 +3290,11 @@ function agcAotUnit529 {
         }
         return choose false if checkOnly else -1.
     } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:354
+// IMU_COMPENSATION_PACKAGE.agc:354
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:355
+// IMU_COMPENSATION_PACKAGE.agc:355
 //LASTBIAS	TC	BANKCALL
-// PORT: Fixed ROM slots 9118.
+// slot 9118
         if slot <> 9118 or instruction <> 2482 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -3306,23 +3306,23 @@ function agcAotUnit529 {
 set agcAotRoutes[529] to agcAotUnit529@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:356
+// IMU_COMPENSATION_PACKAGE.agc:356
 //		CADR	PIPUSE
-// PORT: Fixed ROM slots 9119.
+// slot 9119
     9119, 15580
 )).
 
-// PORT: Physical bank 06. Shared continuation entries, slots 9120–9128.
+// bank 06, slots 9120-9128
 function agcAotUnit530 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 9123 {
         if slot <= 9121 {
             if slot <= 9120 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:357
+// IMU_COMPENSATION_PACKAGE.agc:357
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:358
+// IMU_COMPENSATION_PACKAGE.agc:358
 //		CCS	GCOMPSW		# BYPASS IF GCOMPSW NEGATIVE
-// PORT: Fixed ROM slots 9120.
+// slot 9120
                 if slot <> 9120 or instruction <> 4927 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -3332,9 +3332,9 @@ function agcAotUnit530 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:359
+// IMU_COMPENSATION_PACKAGE.agc:359
 //		TCF	+3
-// PORT: Fixed ROM slots 9121.
+// slot 9121
                 if slot <> 9121 or instruction <> 6052 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -3344,9 +3344,9 @@ function agcAotUnit530 {
             }
         } else {
             if slot <= 9122 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:360
+// IMU_COMPENSATION_PACKAGE.agc:360
 //		TCF	+2
-// PORT: Fixed ROM slots 9122.
+// slot 9122
                 if slot <> 9122 or instruction <> 6052 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -3354,9 +3354,9 @@ function agcAotUnit530 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:361
+// IMU_COMPENSATION_PACKAGE.agc:361
 //		TCF	ENDOFJOB
-// PORT: Fixed ROM slots 9123.
+// slot 9123
                 if slot <> 9123 or instruction <> 6799 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -3368,11 +3368,11 @@ function agcAotUnit530 {
     } else {
         if slot <= 9125 {
             if slot <= 9124 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:362
+// IMU_COMPENSATION_PACKAGE.agc:362
 //
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:363
+// IMU_COMPENSATION_PACKAGE.agc:363
 //		CAF	PRIO31		# 2 SECONDS SCALED (CS) X 2(+8)
-// PORT: Fixed ROM slots 9124.
+// slot 9124
                 if slot <> 9124 or instruction <> 16309 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -3383,9 +3383,9 @@ function agcAotUnit530 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:364
+// IMU_COMPENSATION_PACKAGE.agc:364
 //		XCH	1/PIPADT
-// PORT: Fixed ROM slots 9125.
+// slot 9125
                 if slot <> 9125 or instruction <> 24124 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -3396,9 +3396,9 @@ function agcAotUnit530 {
             }
         } else {
             if slot <= 9126 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:365
+// IMU_COMPENSATION_PACKAGE.agc:365
 //		COM
-// PORT: Fixed ROM slots 9126.
+// slot 9126
                 if slot <> 9126 or instruction <> 16384 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -3408,9 +3408,9 @@ function agcAotUnit530 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 9127 {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:366
+// IMU_COMPENSATION_PACKAGE.agc:366
 //		AD	PIPTIME1 +1	# TIME AT PIPA1 =0
-// PORT: Fixed ROM slots 9127.
+// slot 9127
                     if slot <> 9127 or instruction <> 25254 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -3420,9 +3420,9 @@ function agcAotUnit530 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:367
+// IMU_COMPENSATION_PACKAGE.agc:367
 //		TCF	NBD2
-// PORT: Fixed ROM slots 9128.
+// slot 9128
                     if slot <> 9128 or instruction <> 6000 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -3436,6 +3436,6 @@ function agcAotUnit530 {
 }
 set agcAotRoutes[530] to agcAotUnit530@.
 
-// PORT: Source-only text without a subsequent generated declaration.
-// PORT: SOURCE IMU_COMPENSATION_PACKAGE.agc:368
+// no code for the lines below
+// IMU_COMPENSATION_PACKAGE.agc:368
 //

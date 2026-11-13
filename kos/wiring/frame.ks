@@ -1,5 +1,5 @@
-// SPDX-License-Identifier: GPL-2.0-only. KSP SHIP-RAW to the Apollo REF frame.
-// K's save places the equatorial projection of LAND(TLAND) on orbital +X.
+// KSP SHIP-RAW to the Apollo REF frame (GPL-2.0)
+// the save puts LAND(TLAND) on orbital +X
 function wEquator {
     parameter northAxis,prime.
     return wUnit(wMinus(prime,wTimes(northAxis,wDot(northAxis,prime)))).
@@ -14,7 +14,7 @@ function wRawBasis {
     parameter rawNorth,solarPrime.
     local northAxis is wUnit(rawNorth).
     local prime is wEquator(northAxis,solarPrime).
-    // Native east is prime cross north in raw component arithmetic.
+    // east = prime x north
     return list(prime,wCross(prime,northAxis),northAxis).
 }
 function wMapRaw {
@@ -22,8 +22,8 @@ function wMapRaw {
     return wApply(basisRefT,wApply(basisRaw,rawVec)).
 }
 function wComponents { parameter vec. return list(vec:x,vec:y,vec:z). }
-// BodyTarget.Position already subtracts the current ship centre of mass.
-// VesselTarget.Position can additionally include a packed-orbit velocity offset.
+// BodyTarget.Position is already relative to the ship's centre of mass
+// VesselTarget.Position can also include a packed-orbit velocity offset
 function wOwnPositionRaw { parameter bodyRelativeToShip. return wTimes(bodyRelativeToShip,-1). }
 function wSampleKsp {
     parameter vesselRef,refRows.
@@ -45,8 +45,7 @@ function wSampleKsp {
     if time:seconds <> startUt { return false. }
     return result.
 }
-// Difference inertial velocities already expressed in the same REF. Remove
-// point-mass gravity at the middle of the sample interval (m/s^2).
+// velocity difference minus gravity at the middle of the interval (m/s^2)
 function wSpecificForce {
     parameter previous,current,mu.
     local dt is current["ut"]-previous["ut"].

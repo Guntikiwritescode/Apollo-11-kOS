@@ -1,9 +1,8 @@
-// KSP flight loop. The two checkpoint restores include the reference CPU and peripherals.
 function kLogEvent {
     parameter words,kind,chan,value.
     local dev is words["wiring"].
     if kind = "radar-request" {
-        // The pinned engine requests a word during this precise MCT.
+        // radar word has to be ready this cycle
         set words[38] to wRadarRead(dev,mod(words["channel13"],8)).
     } else if kind = "channel-output" and chan < 28 {
         wOutput(dev,words["windowMct"],chan,value).
@@ -102,8 +101,7 @@ function kFly {
     local hw is addons:eagle. local frameT is wTranspose(wRefBasis(dev["pole"],dev["land"])).
     wait until hw:status <> "Loading".
     if hw:status <> "Holding" { print hw:status. return. }
-    // Check the actual state while the loader holds the saved epoch. The
-    // diagnostic and file I/O do not consume any part of the first flight window.
+    // check the lander against the saved start
     local s is kSample(hw,frameT).
     local dp is wMinus(s["r"],spec["r"]). local dv is wMinus(s["v"],spec["v"]).
     local posErr is sqrt(wDot(dp,dp)). local velErr is sqrt(wDot(dv,dv)).
@@ -158,7 +156,6 @@ function kFly {
         local wasOn is dev["engineOn"].
         set frac to frac+dtCycles. local count is floor(frac). set frac to frac-count.
         if not segmentStepTo(words,words["windowMct"]+count) { hw:halt(). break. }
-        // CPU writes can alter the status channel between device boundaries.
         set dev["ch"][12] to words["channel14"].
         set dev["ch"][24] to words["channel30"].
         set dev["ch"][26] to words["channel32"].

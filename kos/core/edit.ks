@@ -1,6 +1,3 @@
-// PORT: Apply the Block II editing transform after address selection.
-// The caller supplies an ordinary 15-bit storage word and orders the read/write.
-
 function agcEditedWord {
     parameter erasableSlot, word.
     if erasableSlot = 16 {

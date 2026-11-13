@@ -1,4 +1,3 @@
-// PORT: Accumulator overflow direction from the two raw sign positions.
 function agcOverflowDirection {
     parameter accumulator.
     local signPair is floor(accumulator / 16384).
@@ -7,8 +6,6 @@ function agcOverflowDirection {
     return 0.
 }
 
-// PORT: TS to ordinary erasable or an editing register.
-// Return A, stored word and number of instructions skipped.
 function agcStoreAccumulator {
     parameter accumulator, erasableSlot.
     local storedWord is agcEditedWord(erasableSlot, agcOverflowCorrected(accumulator)).
@@ -22,7 +19,6 @@ function agcStoreAccumulator {
     return list(65534, storedWord, 1).
 }
 
-// PORT: Normalize L at the reference's instruction boundary. Q retains raw A.
 function agcNormalizeLink {
     parameter word.
     return agcSignExtend(agcOverflowCorrected(word)).

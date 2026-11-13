@@ -1,4 +1,4 @@
-"""Copy the flight files into a KSP install.  Usage: python3 install.py /path/to/KSP"""
+# usage: python3 install.py /path/to/KSP
 import shutil
 import sys
 from pathlib import Path
@@ -7,10 +7,8 @@ HERE = Path(__file__).resolve().parent
 KSP = Path(sys.argv[1])
 SCRIPT = KSP / "Ships/Script"
 KOS = HERE / "kos"
-CORE = ("agc_sp agc_logic agc_address agc_edit agc_store agc_timers agc_channel33 agc_dp "
-        "agc_single_precision_subroutines agc_core_bus_v2 agc_core_control single_word "
-        "agc_core_paired channel-write instructions agc_core_timed agc_core_dispatch "
-        "agc_core_imu providers segment agc_core_cold_start segment_keys").split()
+CORE = ("sp logic address edit store timers channel33 dp single_precision_subroutines bus control single "
+        "paired channel instructions timing dispatch imu devices run cold_start state").split()
 
 
 def copy(source, target):
@@ -23,7 +21,6 @@ def write(target, text):
     target.write_text(text)
 
 
-# Luminary099, the wiring and the boot files.
 program = KOS / "Luminary099"
 units = ["registry"] + [f"{folder}/{path.stem}" for folder in ("rope", "source")
                         for path in sorted((program / folder).glob("*.ks"))]
@@ -35,10 +32,10 @@ flight = KOS / "flight"
 for path in (flight / "boot").glob("*.ks"):
     copy(path, SCRIPT / "boot" / path.name)
 
-# The converted program is compiled once inside kOS: runpath("0:/compile.ks").
+# run this once in kOS to compile the program
 write(SCRIPT / "compile.ks", "".join(f'compile "0:/{unit}.ks" to "0:/{unit}.ksm".\n' for unit in units))
 
-# KerboScript computer. Its parts share file-level names, so they load as one file.
+# the core files share local names so they have to load as one file
 landing = SCRIPT / "apollo-landing"
 core = "\n".join((KOS / "core" / f"{name}.ks").read_text() for name in CORE)
 write(landing / "runtime.ks", "\n".join([core, "", (flight / "rope.ks").read_text(),
@@ -53,15 +50,13 @@ write(landing / "load.ks", "\n".join(
      'runpath("0:/apollo-landing/p65.ks").', 'runpath("0:/apollo-landing/runtime.ks").']) + "\n")
 copy(flight / "p65.ks", landing / "p65.ks")
 
-# Native computer.
 native = SCRIPT / "apollo-native"
 copy(flight / "load-native.ks", native / "load.ks")
 copy(flight / "runtime-native.ks", native / "runtime-native.ks")
 copy(flight / "orbit.ks", native / "orbit.ks")
-for name in ("Luminary099.bin", "orbit.tsv", "p65-000106213702.tsv"):
+for name in ("Luminary099.bin", "orbit.tsv", "p65.tsv"):
     copy(HERE / "native" / name, KSP / "GameData/ApolloNativeAGC/PluginData" / name)
 
-# Mun, lander parts and saves.
 for name in ("Mun.cfg", "Vehicle.cfg"):
     copy(HERE / "ksp" / name, KSP / "GameData/ApolloLanding" / name)
 for save in (HERE / "ksp/saves").iterdir():

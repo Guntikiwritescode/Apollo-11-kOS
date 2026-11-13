@@ -70,7 +70,7 @@ function segmentCounter {
     }
 }
 
-// Preserve the native ring position and retired slots across checkpoint restores.
+// keep the CDU queue position when restoring
 function segmentCduPush {
     parameter words, slot, code.
     local fifo is words["imuCduFifos"][slot - 26].

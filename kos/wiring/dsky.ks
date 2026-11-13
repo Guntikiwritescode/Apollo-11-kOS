@@ -1,6 +1,4 @@
-// SPDX-License-Identifier: GPL-2.0-only. Relay layout follows the existing
-// channels-exchanges/operator-runtime/dsky-view.ks. Unknown digits, dual signs
-// and flashing lamps follow Apollo11 agc/dsky.py.
+// adapted from jweigend/Apollo11 agc/dsky.py (GPL-2.0)
 function wInitDsky {
     parameter dev,rows.
     set dev["rows"] to rows.
@@ -82,7 +80,7 @@ function wLamp {
     parameter panel,label.
     local extra is 11-label:length.
     local leftCount is floor(extra/2).
-    // Python str.center puts the odd pad left when the original width is even.
+    // python's str.center puts the odd pad on the left here
     if mod(extra,2) = 1 and mod(11,2) = 1 { set leftCount to leftCount+1. }
     local title is "           ":substring(0,leftCount)+label+"           ":substring(0,extra-leftCount).
     return choose "["+title+"]" if panel["lamps"][label] else " "+title+" ".

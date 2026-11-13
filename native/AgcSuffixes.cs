@@ -1,4 +1,3 @@
-// Suffixes of the AGC addon. Shared by the KSP addon and the offline kOS host.
 using System;
 using System.Collections.Generic;
 using kOS.Safe.Encapsulation;
@@ -29,7 +28,7 @@ public static class AgcSuffixes {
             var w = new int[l.Count]; for (int i = 0; i < w.Length; i++) w[i] = I(l[i]); AgcNative.Watch = w; }));
         // RUN(n): run n machine cycles. Returns
         //   cycle, ch14, ch30, ch32, ch33, standby, restart, the WATCH words, a count, then
-        //   (channel, value, cycle) for each output that the kOS port delivered to wOutput:
+        //   (channel, value, cycle) for each output the wiring uses:
         //   channel-output events below channel 28 (channel 7 is the bank latch, not an output).
         add("RUN", new OneArgsSuffix<ListValue, ScalarValue>(n => {
             var r = new ListValue();

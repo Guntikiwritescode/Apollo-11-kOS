@@ -1,312 +1,312 @@
-// PORT: Original source unit UPDATE_PROGRAM.agc.
-// PORT: Physical bank 43. Shared continuation entries, slots 38870–38889.
+// UPDATE_PROGRAM.agc
+// bank 43, slots 38870-38889
 function agcAotUnit2330 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 38879 {
         if slot <= 38874 {
             if slot <= 38871 {
                 if slot <= 38870 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:1
+// UPDATE_PROGRAM.agc:1
 //# Copyright:    Public domain.
-// PORT: SOURCE UPDATE_PROGRAM.agc:2
+// UPDATE_PROGRAM.agc:2
 //# Filename:     UPDATE_PROGRAM.agc
-// PORT: SOURCE UPDATE_PROGRAM.agc:3
+// UPDATE_PROGRAM.agc:3
 //# Purpose:      Part of the source code for Comanche, build 055. It
-// PORT: SOURCE UPDATE_PROGRAM.agc:4
+// UPDATE_PROGRAM.agc:4
 //#               is part of the source code for the Command Module's
-// PORT: SOURCE UPDATE_PROGRAM.agc:5
+// UPDATE_PROGRAM.agc:5
 //#               (CM) Apollo Guidance Computer (AGC), Apollo 11.
-// PORT: SOURCE UPDATE_PROGRAM.agc:6
+// UPDATE_PROGRAM.agc:6
 //# Assembler:    yaYUL
-// PORT: SOURCE UPDATE_PROGRAM.agc:7
+// UPDATE_PROGRAM.agc:7
 //# Reference:    pp. 1497-1507
-// PORT: SOURCE UPDATE_PROGRAM.agc:8
+// UPDATE_PROGRAM.agc:8
 //# Contact:      Ron Burkey <info@sandroid.org>
-// PORT: SOURCE UPDATE_PROGRAM.agc:9
+// UPDATE_PROGRAM.agc:9
 //# Website:      http://www.ibiblio.org/apollo.
-// PORT: SOURCE UPDATE_PROGRAM.agc:10
+// UPDATE_PROGRAM.agc:10
 //# Mod history:  2009-05-07 RSB	Adapted from Colossus249/UPDATE_PROGRAM.agc
-// PORT: SOURCE UPDATE_PROGRAM.agc:11
+// UPDATE_PROGRAM.agc:11
 //#				and page images. Corrected various typos
-// PORT: SOURCE UPDATE_PROGRAM.agc:12
+// UPDATE_PROGRAM.agc:12
 //#				in the transcription of program comments,
-// PORT: SOURCE UPDATE_PROGRAM.agc:13
+// UPDATE_PROGRAM.agc:13
 //#				and these should be back-ported to
-// PORT: SOURCE UPDATE_PROGRAM.agc:14
+// UPDATE_PROGRAM.agc:14
 //#				Colossus249.
-// PORT: SOURCE UPDATE_PROGRAM.agc:15
+// UPDATE_PROGRAM.agc:15
 //#
-// PORT: SOURCE UPDATE_PROGRAM.agc:16
+// UPDATE_PROGRAM.agc:16
 //# The contents of the "Comanche055" files, in general, are transcribed
-// PORT: SOURCE UPDATE_PROGRAM.agc:17
+// UPDATE_PROGRAM.agc:17
 //# from scanned documents.
-// PORT: SOURCE UPDATE_PROGRAM.agc:18
+// UPDATE_PROGRAM.agc:18
 //#
-// PORT: SOURCE UPDATE_PROGRAM.agc:19
+// UPDATE_PROGRAM.agc:19
 //#       Assemble revision 055 of AGC program Comanche by NASA
-// PORT: SOURCE UPDATE_PROGRAM.agc:20
+// UPDATE_PROGRAM.agc:20
 //#       2021113-051.  April 1, 1969.
-// PORT: SOURCE UPDATE_PROGRAM.agc:21
+// UPDATE_PROGRAM.agc:21
 //#
-// PORT: SOURCE UPDATE_PROGRAM.agc:22
+// UPDATE_PROGRAM.agc:22
 //#       This AGC program shall also be referred to as Colossus 2A
-// PORT: SOURCE UPDATE_PROGRAM.agc:23
+// UPDATE_PROGRAM.agc:23
 //#
-// PORT: SOURCE UPDATE_PROGRAM.agc:24
+// UPDATE_PROGRAM.agc:24
 //#       Prepared by
-// PORT: SOURCE UPDATE_PROGRAM.agc:25
+// UPDATE_PROGRAM.agc:25
 //#                       Massachusetts Institute of Technology
-// PORT: SOURCE UPDATE_PROGRAM.agc:26
+// UPDATE_PROGRAM.agc:26
 //#                       75 Cambridge Parkway
-// PORT: SOURCE UPDATE_PROGRAM.agc:27
+// UPDATE_PROGRAM.agc:27
 //#                       Cambridge, Massachusetts
-// PORT: SOURCE UPDATE_PROGRAM.agc:28
+// UPDATE_PROGRAM.agc:28
 //#
-// PORT: SOURCE UPDATE_PROGRAM.agc:29
+// UPDATE_PROGRAM.agc:29
 //#       under NASA contract NAS 9-4065.
-// PORT: SOURCE UPDATE_PROGRAM.agc:30
+// UPDATE_PROGRAM.agc:30
 //#
-// PORT: SOURCE UPDATE_PROGRAM.agc:31
+// UPDATE_PROGRAM.agc:31
 //# Refer directly to the online document mentioned above for further
-// PORT: SOURCE UPDATE_PROGRAM.agc:32
+// UPDATE_PROGRAM.agc:32
 //# information.  Please report any errors to info@sandroid.org.
-// PORT: SOURCE UPDATE_PROGRAM.agc:33
+// UPDATE_PROGRAM.agc:33
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:34
+// UPDATE_PROGRAM.agc:34
 //# Page 1497
-// PORT: SOURCE UPDATE_PROGRAM.agc:35
+// UPDATE_PROGRAM.agc:35
 //# PROGRAM NAME:		P27
-// PORT: SOURCE UPDATE_PROGRAM.agc:36
+// UPDATE_PROGRAM.agc:36
 //# WRITTEN BY:		KILROY/ DE WOLF
-// PORT: SOURCE UPDATE_PROGRAM.agc:37
+// UPDATE_PROGRAM.agc:37
 //#
-// PORT: SOURCE UPDATE_PROGRAM.agc:38
+// UPDATE_PROGRAM.agc:38
 //# MOD NO:		0
-// PORT: SOURCE UPDATE_PROGRAM.agc:39
+// UPDATE_PROGRAM.agc:39
 //# MOD BY:		KILROY
-// PORT: SOURCE UPDATE_PROGRAM.agc:40
+// UPDATE_PROGRAM.agc:40
 //# DATE:			01DEC67
-// PORT: SOURCE UPDATE_PROGRAM.agc:41
+// UPDATE_PROGRAM.agc:41
 //#
-// PORT: SOURCE UPDATE_PROGRAM.agc:42
+// UPDATE_PROGRAM.agc:42
 //# LOG SECTION:		UPDATE PROGRAM.
-// PORT: SOURCE UPDATE_PROGRAM.agc:43
+// UPDATE_PROGRAM.agc:43
 //#
-// PORT: SOURCE UPDATE_PROGRAM.agc:44
+// UPDATE_PROGRAM.agc:44
 //# FUNCT. DESCR.:	P27 (THE UPDATE PROGRAM) PROCESSES COMMANDS AND DATA
-// PORT: SOURCE UPDATE_PROGRAM.agc:45
+// UPDATE_PROGRAM.agc:45
 //#			INSERTIONS REQUESTED BY THE GROUND VIA UPLINK.
-// PORT: SOURCE UPDATE_PROGRAM.agc:46
+// UPDATE_PROGRAM.agc:46
 //#			THE P27 PROGRAM WILL ACCEPT UPDATES
-// PORT: SOURCE UPDATE_PROGRAM.agc:47
+// UPDATE_PROGRAM.agc:47
 //#			ONLY DURING P00 FOR THE LM, AND ONLY DURING P00,
-// PORT: SOURCE UPDATE_PROGRAM.agc:48
+// UPDATE_PROGRAM.agc:48
 //#			P02, AND FRESH START FOR THE CSM.
-// PORT: SOURCE UPDATE_PROGRAM.agc:49
+// UPDATE_PROGRAM.agc:49
 //#
-// PORT: SOURCE UPDATE_PROGRAM.agc:50
+// UPDATE_PROGRAM.agc:50
 //# CALLING SEQ:		PROGRAM IS INITIATED BY UPLINK ENTRY OF VERBS 70, 71, 72, AND 73.
-// PORT: SOURCE UPDATE_PROGRAM.agc:51
+// UPDATE_PROGRAM.agc:51
 //#
-// PORT: SOURCE UPDATE_PROGRAM.agc:52
+// UPDATE_PROGRAM.agc:52
 //# SUBROUTINES:		TESTXACT, NEWMODEX, NEWMODEX +3, GOXDSPF, BANKCALL, FINDVAC, INTPRET, INTSTALL, TPAGREE,
-// PORT: SOURCE UPDATE_PROGRAM.agc:53
+// UPDATE_PROGRAM.agc:53
 //#			INTWAKEU, ENDEXT, POSTJUMP, FALTON, NEWPHASE, PHASCHNG
-// PORT: SOURCE UPDATE_PROGRAM.agc:54
+// UPDATE_PROGRAM.agc:54
 //#
-// PORT: SOURCE UPDATE_PROGRAM.agc:55
+// UPDATE_PROGRAM.agc:55
 //# NORMAL EXIT:		TC ENDEXT
-// PORT: SOURCE UPDATE_PROGRAM.agc:56
+// UPDATE_PROGRAM.agc:56
 //#
-// PORT: SOURCE UPDATE_PROGRAM.agc:57
+// UPDATE_PROGRAM.agc:57
 //# ALARM/ABORT:		TC FALTON FOLLOWED BY TC ENDEXT
-// PORT: SOURCE UPDATE_PROGRAM.agc:58
+// UPDATE_PROGRAM.agc:58
 //#
-// PORT: SOURCE UPDATE_PROGRAM.agc:59
+// UPDATE_PROGRAM.agc:59
 //# RESTARTS:		P27 IS RESTART PROTECTED IN TWO WAYS ...
-// PORT: SOURCE UPDATE_PROGRAM.agc:60
+// UPDATE_PROGRAM.agc:60
 //#			1.	PRIOR TO VERIFLAG INVERSION(WHICH IS CAUSED BY THE GROUND/ASTRONAUT'S VERIFICATION OF UPDATE
-// PORT: SOURCE UPDATE_PROGRAM.agc:61
+// UPDATE_PROGRAM.agc:61
 //#				DATA BY SENDING A V33E WHEN V21N02 IS FLASHING)---
-// PORT: SOURCE UPDATE_PROGRAM.agc:62
+// UPDATE_PROGRAM.agc:62
 //#				NO PROTECTION EXCEPT PRE-P27 MODE IS RESTORED, COAST + ALIGN DOWNLIST IS SELECTED AND UPLINE
-// PORT: SOURCE UPDATE_PROGRAM.agc:63
+// UPDATE_PROGRAM.agc:63
 //#				ACTIVITY LIGHT IS TURNED OFF.(JUST AS IF A V34E WAS SENT DURING P27 DATA LOADS).
-// PORT: SOURCE UPDATE_PROGRAM.agc:64
+// UPDATE_PROGRAM.agc:64
 //#				V70,V71,V72 OR V73 WILL HAVE TO BE COMPLETELY RESENT BY USER.
-// PORT: SOURCE UPDATE_PROGRAM.agc:65
+// UPDATE_PROGRAM.agc:65
 //#			2.	AFTER VERIFLAG INVERSION(WHEN UPDATE OF THE SPECIFIED ERASABLES IS BEING PERFORMED)---
-// PORT: SOURCE UPDATE_PROGRAM.agc:66
+// UPDATE_PROGRAM.agc:66
 //#				PROTECTED AGAINST RESTARTS.
-// PORT: SOURCE UPDATE_PROGRAM.agc:67
+// UPDATE_PROGRAM.agc:67
 //#
-// PORT: SOURCE UPDATE_PROGRAM.agc:68
+// UPDATE_PROGRAM.agc:68
 //# DEBRIS:		UPBUFF	(20D)	TEMP STORAGE FOR ADDRESSES AND CONTENTS.
-// PORT: SOURCE UPDATE_PROGRAM.agc:69
+// UPDATE_PROGRAM.agc:69
 //#			UPVERB	(1)	VERB NUMBER MINUS 70D (E.G. FOR V72, UPVERB = 72D - 70D = 2)
-// PORT: SOURCE UPDATE_PROGRAM.agc:70
+// UPDATE_PROGRAM.agc:70
 //#			UPOLDMOD(1)	FOR MAJOR MODE INTERRUPTED BY P27.
-// PORT: SOURCE UPDATE_PROGRAM.agc:71
+// UPDATE_PROGRAM.agc:71
 //#			COMPNUMB(1)	TOTAL NUMBER OF COMPONENTS TO BE TRANSMITTED.
-// PORT: SOURCE UPDATE_PROGRAM.agc:72
+// UPDATE_PROGRAM.agc:72
 //#			UPCOUNT	(1)	ACTUAL NUMBER OF COMPONENTS RECEIVED.
-// PORT: SOURCE UPDATE_PROGRAM.agc:73
+// UPDATE_PROGRAM.agc:73
 //#			UPTEMP	(1)	SCRATCH, BUT USUALLY CONTAINS COMPONENT NUMBER TO BE CHANGED DURING VERIFY CYCLE
-// PORT: SOURCE UPDATE_PROGRAM.agc:74
+// UPDATE_PROGRAM.agc:74
 //#
-// PORT: SOURCE UPDATE_PROGRAM.agc:75
+// UPDATE_PROGRAM.agc:75
 //# INPUT:
-// PORT: SOURCE UPDATE_PROGRAM.agc:76
+// UPDATE_PROGRAM.agc:76
 //#
-// PORT: SOURCE UPDATE_PROGRAM.agc:77
+// UPDATE_PROGRAM.agc:77
 //#	ENTRY:			DESCRIPTION
-// PORT: SOURCE UPDATE_PROGRAM.agc:78
+// UPDATE_PROGRAM.agc:78
 //#
-// PORT: SOURCE UPDATE_PROGRAM.agc:79
+// UPDATE_PROGRAM.agc:79
 //#	V70EXXXXXEXXXXXE	(LIFTOFF TIME INCREMENT) DOUBLE PRECISION OCTAL TIME INCREMENT, XXXXX XXXXX,
-// PORT: SOURCE UPDATE_PROGRAM.agc:80
+// UPDATE_PROGRAM.agc:80
 //#				IS ADDED TO TEPHEM, SUBTRACTED FROM AGC CLOCK(TIME2,TIME1), SUBTRACTED FROM CSM STATE
-// PORT: SOURCE UPDATE_PROGRAM.agc:81
+// UPDATE_PROGRAM.agc:81
 //#				VECTOR TIME(TETCSM) AND SUBTRACTED FROM LEM STATE VECTOR TIME(TETLEM).
-// PORT: SOURCE UPDATE_PROGRAM.agc:82
+// UPDATE_PROGRAM.agc:82
 //#				THE DP OCTAL TIME INCREMENT IS SCALED AT 2(28).
-// PORT: SOURCE UPDATE_PROGRAM.agc:83
+// UPDATE_PROGRAM.agc:83
 //# Page 1498
-// PORT: SOURCE UPDATE_PROGRAM.agc:84
+// UPDATE_PROGRAM.agc:84
 //#	V71EIIEAAAAE		(CONTIGUOUS BLOCK UPDATE) II-2 OCTAL COMPONENTS,XXXXX,
-// PORT: SOURCE UPDATE_PROGRAM.agc:85
+// UPDATE_PROGRAM.agc:85
 //#	XXXXXE			ARE LOADED INTO ERASABLE STARTING AT ECADR, AAAA.
-// PORT: SOURCE UPDATE_PROGRAM.agc:86
+// UPDATE_PROGRAM.agc:86
 //#	XXXXXE			IT IS .GE. 3 .AND. .LE. 20D.,
-// PORT: SOURCE UPDATE_PROGRAM.agc:87
+// UPDATE_PROGRAM.agc:87
 //#				AND (AAAA + II -3) DOES NOT PRODUCE AN ADDRESS IN THE
-// PORT: SOURCE UPDATE_PROGRAM.agc:88
+// UPDATE_PROGRAM.agc:88
 //#				NEXT BANK.
-// PORT: SOURCE UPDATE_PROGRAM.agc:89
+// UPDATE_PROGRAM.agc:89
 //#	  .			SCALING IS SAME AS INTERNAL REGISTERS.
-// PORT: SOURCE UPDATE_PROGRAM.agc:90
+// UPDATE_PROGRAM.agc:90
 //#
-// PORT: SOURCE UPDATE_PROGRAM.agc:91
+// UPDATE_PROGRAM.agc:91
 //#	V72EIIE			(SCATTER UPDATE) (II-1)/2 OCTAL COMPONENTS,XXXXX, ARE
-// PORT: SOURCE UPDATE_PROGRAM.agc:92
+// UPDATE_PROGRAM.agc:92
 //#	AAAAEXXXXXE		LOADED INTO ERASABLE LOCATIONS, AAAA.
-// PORT: SOURCE UPDATE_PROGRAM.agc:93
+// UPDATE_PROGRAM.agc:93
 //#	AAAAEXXXXXE		II IS .GE. 3 .AND. .LE. 19D, AND MUST BE ODD.
-// PORT: SOURCE UPDATE_PROGRAM.agc:94
+// UPDATE_PROGRAM.agc:94
 //#	  .			SCALING IS SAME AS INTERNAL REGISTERS.
-// PORT: SOURCE UPDATE_PROGRAM.agc:95
+// UPDATE_PROGRAM.agc:95
 //#
-// PORT: SOURCE UPDATE_PROGRAM.agc:96
+// UPDATE_PROGRAM.agc:96
 //#	V73EXXXXXEXXXXXE	(OCTAL CLOCK INCREMENT) DOUBLE PRECISION OCTAL TIME
-// PORT: SOURCE UPDATE_PROGRAM.agc:97
+// UPDATE_PROGRAM.agc:97
 //#				INCREMENT XXXXX XXXXX, IS ADDED TO THE AGC CLOCK, IN
-// PORT: SOURCE UPDATE_PROGRAM.agc:98
+// UPDATE_PROGRAM.agc:98
 //#				CENTISECONDS SCALED AT (2)28.
-// PORT: SOURCE UPDATE_PROGRAM.agc:99
+// UPDATE_PROGRAM.agc:99
 //#				THIS LOAD IS THE OCTAL EQUIVALENT OF V55.
-// PORT: SOURCE UPDATE_PROGRAM.agc:100
+// UPDATE_PROGRAM.agc:100
 //#
-// PORT: SOURCE UPDATE_PROGRAM.agc:101
+// UPDATE_PROGRAM.agc:101
 //# OUTPUT:		IN ADDITION TO THE ABOVE REGISTER LOADS, ALL UPDATES
-// PORT: SOURCE UPDATE_PROGRAM.agc:102
+// UPDATE_PROGRAM.agc:102
 //#			COMPLEMENT BIT3 OF FLAGWORD7.
-// PORT: SOURCE UPDATE_PROGRAM.agc:103
+// UPDATE_PROGRAM.agc:103
 //#
-// PORT: SOURCE UPDATE_PROGRAM.agc:104
+// UPDATE_PROGRAM.agc:104
 //# ADDITIONAL NOTES:	VERB 71, JUST DEFINED ABOVE WILL BE USED TO PERFORM BUT NOT LIMITED TO THE FOLLOWING UPDATES --
-// PORT: SOURCE UPDATE_PROGRAM.agc:105
+// UPDATE_PROGRAM.agc:105
 //#			1.  CSM/LM STATE VECTOR UPDATE
-// PORT: SOURCE UPDATE_PROGRAM.agc:106
+// UPDATE_PROGRAM.agc:106
 //#			2.  REFSMMAT UPDATE
-// PORT: SOURCE UPDATE_PROGRAM.agc:107
+// UPDATE_PROGRAM.agc:107
 //#
-// PORT: SOURCE UPDATE_PROGRAM.agc:108
+// UPDATE_PROGRAM.agc:108
 //#	THE FOLLOWING COMMENTS DELINEATE EACH SPECIAL UPDATE ---
-// PORT: SOURCE UPDATE_PROGRAM.agc:109
+// UPDATE_PROGRAM.agc:109
 //#
-// PORT: SOURCE UPDATE_PROGRAM.agc:110
+// UPDATE_PROGRAM.agc:110
 //#	1.  CSM/LM STATE VECTOR UPDATE(ALL DATA ENTRIES IN OCTAL)
-// PORT: SOURCE UPDATE_PROGRAM.agc:111
+// UPDATE_PROGRAM.agc:111
 //#		ENTRIES:	DATA DEFINITION:				SCALE FACTORS:
-// PORT: SOURCE UPDATE_PROGRAM.agc:112
+// UPDATE_PROGRAM.agc:112
 //#		V71E		CONTIGUOUS BLOCK UPDATE VERB
-// PORT: SOURCE UPDATE_PROGRAM.agc:113
+// UPDATE_PROGRAM.agc:113
 //#		   21E		NUMBER OF COMPONENTS FOR STATE VECTOR UPDATE
-// PORT: SOURCE UPDATE_PROGRAM.agc:114
+// UPDATE_PROGRAM.agc:114
 //#		 AAAAE		ECADR OF 'UPSVFLAG'
-// PORT: SOURCE UPDATE_PROGRAM.agc:115
+// UPDATE_PROGRAM.agc:115
 //#		XXXXXE		STATE VECTOR IDENTIFIER: 00001 FOR CSM, 77776 FOR LEM - EARTH SPHERE OF INFLUENCE SCALING
-// PORT: SOURCE UPDATE_PROGRAM.agc:116
+// UPDATE_PROGRAM.agc:116
 //#							 00002 FOR CSM, 77775 FOR LEM - LUNAR SPHERE OF INFLUENCE SCALING
-// PORT: SOURCE UPDATE_PROGRAM.agc:117
+// UPDATE_PROGRAM.agc:117
 //#		XXXXXEXXXXXE	X POSITION
-// PORT: SOURCE UPDATE_PROGRAM.agc:118
+// UPDATE_PROGRAM.agc:118
 //#		XXXXXEXXXXXE	Y POSITION
-// PORT: SOURCE UPDATE_PROGRAM.agc:119
+// UPDATE_PROGRAM.agc:119
 //#		XXXXXEXXXXXE	Z POSITION
-// PORT: SOURCE UPDATE_PROGRAM.agc:120
+// UPDATE_PROGRAM.agc:120
 //#		XXXXXEXXXXXE	X VELOCITY
-// PORT: SOURCE UPDATE_PROGRAM.agc:121
+// UPDATE_PROGRAM.agc:121
 //#		XXXXXEXXXXXE	Y VELOCITY
-// PORT: SOURCE UPDATE_PROGRAM.agc:122
+// UPDATE_PROGRAM.agc:122
 //#		XXXXXEXXXXXE	Z VELOCITY
-// PORT: SOURCE UPDATE_PROGRAM.agc:123
+// UPDATE_PROGRAM.agc:123
 //#		XXXXXEXXXXXE	TIME FROM AGC CLOCK ZERO
-// PORT: SOURCE UPDATE_PROGRAM.agc:124
+// UPDATE_PROGRAM.agc:124
 //#		V33E		VERB 33 TO SIGNAL THAT THE STATE VECTOR IS READY TO BE STORED.
-// PORT: SOURCE UPDATE_PROGRAM.agc:125
+// UPDATE_PROGRAM.agc:125
 //#
-// PORT: SOURCE UPDATE_PROGRAM.agc:126
+// UPDATE_PROGRAM.agc:126
 //#	2.  REFSMMAT(ALL DATA ENTRIES IN OCTAL)
-// PORT: SOURCE UPDATE_PROGRAM.agc:127
+// UPDATE_PROGRAM.agc:127
 //#		ENTRIES:	DATA DEFINITIONS:				SCALE FACTORS:
-// PORT: SOURCE UPDATE_PROGRAM.agc:128
+// UPDATE_PROGRAM.agc:128
 //# Page 1499
-// PORT: SOURCE UPDATE_PROGRAM.agc:129
+// UPDATE_PROGRAM.agc:129
 //#		V71E		CONTIGUOUS BLOCK UPDATE VERB
-// PORT: SOURCE UPDATE_PROGRAM.agc:130
+// UPDATE_PROGRAM.agc:130
 //#		   24E		NUMBER OF COMPONENTS FOR REFSMMAT UPDATE
-// PORT: SOURCE UPDATE_PROGRAM.agc:131
+// UPDATE_PROGRAM.agc:131
 //#		 AAAAE		ECADR OF 'REFSMMAT'
-// PORT: SOURCE UPDATE_PROGRAM.agc:132
+// UPDATE_PROGRAM.agc:132
 //#		XXXXXEXXXXXE	ROW 1 COLUMN 1					2(-1)
-// PORT: SOURCE UPDATE_PROGRAM.agc:133
+// UPDATE_PROGRAM.agc:133
 //#		XXXXXEXXXXXE	ROW 1 COLUMN 2					2(-1)
-// PORT: SOURCE UPDATE_PROGRAM.agc:134
+// UPDATE_PROGRAM.agc:134
 //#		XXXXXEXXXXXE	ROW 1 COLUMN 3					2(-1)
-// PORT: SOURCE UPDATE_PROGRAM.agc:135
+// UPDATE_PROGRAM.agc:135
 //#		XXXXXEXXXXXE	ROW 2 COLUMN 1					2(-1)
-// PORT: SOURCE UPDATE_PROGRAM.agc:136
+// UPDATE_PROGRAM.agc:136
 //#		XXXXXEXXXXXE	ROW 2 COLUMN 2					2(-1)
-// PORT: SOURCE UPDATE_PROGRAM.agc:137
+// UPDATE_PROGRAM.agc:137
 //#		XXXXXEXXXXXE	ROW 2 COLUMN 3					2(-1)
-// PORT: SOURCE UPDATE_PROGRAM.agc:138
+// UPDATE_PROGRAM.agc:138
 //#		XXXXXEXXXXXE	ROW 3 COLUMN 1					2(-1)
-// PORT: SOURCE UPDATE_PROGRAM.agc:139
+// UPDATE_PROGRAM.agc:139
 //#		XXXXXEXXXXXE	ROW 3 COLUMN 2					2(-1)
-// PORT: SOURCE UPDATE_PROGRAM.agc:140
+// UPDATE_PROGRAM.agc:140
 //#		XXXXXEXXXXXE	ROW 3 COLUMN 3					2(-1)
-// PORT: SOURCE UPDATE_PROGRAM.agc:141
+// UPDATE_PROGRAM.agc:141
 //#		V33E		VERB 33 TO SIGNAL THAT REFSMMAT IS READY TO BE STORED.
-// PORT: SOURCE UPDATE_PROGRAM.agc:142
+// UPDATE_PROGRAM.agc:142
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:143
+// UPDATE_PROGRAM.agc:143
 //		BANK	07
-// PORT: SOURCE UPDATE_PROGRAM.agc:144
+// UPDATE_PROGRAM.agc:144
 //		SETLOC	EXTVERBS
-// PORT: SOURCE UPDATE_PROGRAM.agc:145
+// UPDATE_PROGRAM.agc:145
 //		BANK
-// PORT: SOURCE UPDATE_PROGRAM.agc:146
+// UPDATE_PROGRAM.agc:146
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:147
+// UPDATE_PROGRAM.agc:147
 //		EBANK=	TEPHEM
-// PORT: SOURCE UPDATE_PROGRAM.agc:148
+// UPDATE_PROGRAM.agc:148
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:149
+// UPDATE_PROGRAM.agc:149
 //		COUNT*	$$/P27
-// PORT: SOURCE UPDATE_PROGRAM.agc:150
+// UPDATE_PROGRAM.agc:150
 //V70UPDAT	CAF	UP70		# COMES HERE ON V70E
-// PORT: Fixed ROM slots 38870.
+// slot 38870
                     if slot <> 38870 or instruction <> 14865 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -317,9 +317,9 @@ function agcAotUnit2330 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:151
+// UPDATE_PROGRAM.agc:151
 //		TCF	V73UPDAT +1
-// PORT: Fixed ROM slots 38871.
+// slot 38871
                     if slot <> 38871 or instruction <> 6109 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -329,11 +329,11 @@ function agcAotUnit2330 {
                 }
             } else {
                 if slot <= 38872 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:152
+// UPDATE_PROGRAM.agc:152
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:153
+// UPDATE_PROGRAM.agc:153
 //V71UPDAT	CAF	UP71		# COMES HERE ON V71E
-// PORT: Fixed ROM slots 38872.
+// slot 38872
                     if slot <> 38872 or instruction <> 14863 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -345,9 +345,9 @@ function agcAotUnit2330 {
                     return choose false if checkOnly else -1.
                 } else {
                     if slot <= 38873 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:154
+// UPDATE_PROGRAM.agc:154
 //		TCF	V73UPDAT +1
-// PORT: Fixed ROM slots 38873.
+// slot 38873
                         if slot <> 38873 or instruction <> 6109 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -355,11 +355,11 @@ function agcAotUnit2330 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:155
+// UPDATE_PROGRAM.agc:155
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:156
+// UPDATE_PROGRAM.agc:156
 //V72UPDAT	CAF	UP72		# COMES HERE ON V72E
-// PORT: Fixed ROM slots 38874.
+// slot 38874
                         if slot <> 38874 or instruction <> 14862 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -375,9 +375,9 @@ function agcAotUnit2330 {
         } else {
             if slot <= 38876 {
                 if slot <= 38875 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:157
+// UPDATE_PROGRAM.agc:157
 //		TCF	V73UPDAT +1
-// PORT: Fixed ROM slots 38875.
+// slot 38875
                     if slot <> 38875 or instruction <> 6109 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -385,11 +385,11 @@ function agcAotUnit2330 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:158
+// UPDATE_PROGRAM.agc:158
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:159
+// UPDATE_PROGRAM.agc:159
 //V73UPDAT	CAF	UP73		# COMES HERE ON V73E
-// PORT: Fixed ROM slots 38876.
+// slot 38876
                     if slot <> 38876 or instruction <> 15500 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -402,11 +402,11 @@ function agcAotUnit2330 {
                 }
             } else {
                 if slot <= 38877 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:160
+// UPDATE_PROGRAM.agc:160
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:161
+// UPDATE_PROGRAM.agc:161
 // 	+1	TS	UPVERBSV	# SAVE UPVERB UNTIL IT'S OK TO ENTER P27
-// PORT: Fixed ROM slots 38877.
+// slot 38877
                     if slot <> 38877 or instruction <> 22745 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -415,11 +415,11 @@ function agcAotUnit2330 {
                     return choose false if checkOnly else -1.
                 } else {
                     if slot <= 38878 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:162
+// UPDATE_PROGRAM.agc:162
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:163
+// UPDATE_PROGRAM.agc:163
 //		TC	TESTXACT	# GRAB DISPLAY IF AVAILABLE, OTHERWISE
-// PORT: Fixed ROM slots 38878.
+// slot 38878
                         if slot <> 38878 or instruction <> 1086 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -427,13 +427,13 @@ function agcAotUnit2330 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:164
+// UPDATE_PROGRAM.agc:164
 //					# TURN*OPERATOR ERROR* ON AND TERMINATE JOB
-// PORT: SOURCE UPDATE_PROGRAM.agc:165
+// UPDATE_PROGRAM.agc:165
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:166
+// UPDATE_PROGRAM.agc:166
 //		CA	MODREG		# CHECK IF UPDATE ALLOWED
-// PORT: Fixed ROM slots 38879.
+// slot 38879
                         if slot <> 38879 or instruction <> 12809 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -450,9 +450,9 @@ function agcAotUnit2330 {
         if slot <= 38884 {
             if slot <= 38881 {
                 if slot <= 38880 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:167
+// UPDATE_PROGRAM.agc:167
 //		EXTEND			# FIRST CHECK FOR MODREG = +0, -0
-// PORT: Fixed ROM slots 38880.
+// slot 38880
                     if slot <> 38880 or instruction <> 6 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -460,9 +460,9 @@ function agcAotUnit2330 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:168
+// UPDATE_PROGRAM.agc:168
 //		BZF	+2		# (+0 = P00, -0 = FRESH START)
-// PORT: Fixed ROM slots 38881.
+// slot 38881
                     if slot <> 38881 or instruction <> 6115 { return choose false if checkOnly else -1. }
                     if extended {
                         if checkOnly { return true. }
@@ -472,9 +472,9 @@ function agcAotUnit2330 {
                 }
             } else {
                 if slot <= 38882 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:169
+// UPDATE_PROGRAM.agc:169
 //		TC	CKMDMORE	# NOW CHECK FOR PROGRAM WHICH CAN BE
-// PORT: Fixed ROM slots 38882.
+// slot 38882
                     if slot <> 38882 or instruction <> 2027 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -483,13 +483,13 @@ function agcAotUnit2330 {
                     return choose false if checkOnly else -1.
                 } else {
                     if slot <= 38883 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:170
+// UPDATE_PROGRAM.agc:170
 //					# INTERRUPTED BY P27.
-// PORT: SOURCE UPDATE_PROGRAM.agc:171
+// UPDATE_PROGRAM.agc:171
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:172
+// UPDATE_PROGRAM.agc:172
 //		CAE	MODREG		# UPDATE ALLOWED.
-// PORT: Fixed ROM slots 38883.
+// slot 38883
                         if slot <> 38883 or instruction <> 12809 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -499,9 +499,9 @@ function agcAotUnit2330 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:173
+// UPDATE_PROGRAM.agc:173
 //		TS	UPOLDMOD	# SAVE CURRENT MAJOR MODE
-// PORT: Fixed ROM slots 38884.
+// slot 38884
                         if slot <> 38884 or instruction <> 22721 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -514,11 +514,11 @@ function agcAotUnit2330 {
         } else {
             if slot <= 38886 {
                 if slot <= 38885 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:174
+// UPDATE_PROGRAM.agc:174
 //# Page 1500
-// PORT: SOURCE UPDATE_PROGRAM.agc:175
+// UPDATE_PROGRAM.agc:175
 //		CAE	UPVERBSV	# SET UPVERB TO INDICDATE TO P27
-// PORT: Fixed ROM slots 38885.
+// slot 38885
                     if slot <> 38885 or instruction <> 12505 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -528,9 +528,9 @@ function agcAotUnit2330 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:176
+// UPDATE_PROGRAM.agc:176
 //		TS	UPVERB		# WHICH EXTENDED VERB CALLED IT.
-// PORT: Fixed ROM slots 38886.
+// slot 38886
                     if slot <> 38886 or instruction <> 22722 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -540,11 +540,11 @@ function agcAotUnit2330 {
                 }
             } else {
                 if slot <= 38887 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:177
+// UPDATE_PROGRAM.agc:177
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:178
+// UPDATE_PROGRAM.agc:178
 //		CAF	ONE
-// PORT: Fixed ROM slots 38887.
+// slot 38887
                     if slot <> 38887 or instruction <> 14863 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -556,9 +556,9 @@ function agcAotUnit2330 {
                     return choose false if checkOnly else -1.
                 } else {
                     if slot <= 38888 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:179
+// UPDATE_PROGRAM.agc:179
 //		TS	UPCOUNT		# INITIALIZE UPCOUNT TO 1
-// PORT: Fixed ROM slots 38888.
+// slot 38888
                         if slot <> 38888 or instruction <> 22723 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -566,11 +566,11 @@ function agcAotUnit2330 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:180
+// UPDATE_PROGRAM.agc:180
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:181
+// UPDATE_PROGRAM.agc:181
 //		TC	POSTJUMP	# LEAVE EXTENDED VERB BANK AND
-// PORT: Fixed ROM slots 38889.
+// slot 38889
                         if slot <> 38889 or instruction <> 2497 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -586,23 +586,23 @@ function agcAotUnit2330 {
 set agcAotRoutes[2330] to agcAotUnit2330@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE UPDATE_PROGRAM.agc:182
+// UPDATE_PROGRAM.agc:182
 //		CADR	UPPART2		# GO TO UPDATE PROGRAM(P27) BANK.
-// PORT: Fixed ROM slots 38890.
+// slot 38890
     38890, 48630
 )).
 
-// PORT: Physical bank 43. Shared continuation entries, slots 38891–38900.
+// bank 43, slots 38891-38900
 function agcAotUnit2331 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 38895 {
         if slot <= 38892 {
             if slot <= 38891 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:183
+// UPDATE_PROGRAM.agc:183
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:184
+// UPDATE_PROGRAM.agc:184
 //CKMDMORE	CS	FLAGWRD5
-// PORT: Fixed ROM slots 38891.
+// slot 38891
                 if slot <> 38891 or instruction <> 16449 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -611,9 +611,9 @@ function agcAotUnit2331 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:185
+// UPDATE_PROGRAM.agc:185
 //		MASK	BIT8		# CHECK IF COMPUTER IS LGC
-// PORT: Fixed ROM slots 38892.
+// slot 38892
                 if slot <> 38892 or instruction <> 31240 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -631,9 +631,9 @@ function agcAotUnit2331 {
             }
         } else {
             if slot <= 38893 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:186
+// UPDATE_PROGRAM.agc:186
 //		CCS	A		# IS COMPUER LGC OR AGC
-// PORT: Fixed ROM slots 38893.
+// slot 38893
                 if slot <> 38893 or instruction <> 4096 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -644,9 +644,9 @@ function agcAotUnit2331 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 38894 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:187
+// UPDATE_PROGRAM.agc:187
 //UPERLEM		TCF	UPERROR		# ERROR- IT'S THE LEM + MODE IS NOT P00.
-// PORT: Fixed ROM slots 38894.
+// slot 38894
                     if slot <> 38894 or instruction <> 6132 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -654,9 +654,9 @@ function agcAotUnit2331 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:188
+// UPDATE_PROGRAM.agc:188
 //		CS	TWO
-// PORT: Fixed ROM slots 38895.
+// slot 38895
                     if slot <> 38895 or instruction <> 18958 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -671,9 +671,9 @@ function agcAotUnit2331 {
     } else {
         if slot <= 38897 {
             if slot <= 38896 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:189
+// UPDATE_PROGRAM.agc:189
 //		MASK	MODREG
-// PORT: Fixed ROM slots 38896.
+// slot 38896
                 if slot <> 38896 or instruction <> 29193 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -683,9 +683,9 @@ function agcAotUnit2331 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:190
+// UPDATE_PROGRAM.agc:190
 //		CCS	A
-// PORT: Fixed ROM slots 38897.
+// slot 38897
                 if slot <> 38897 or instruction <> 4096 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -697,9 +697,9 @@ function agcAotUnit2331 {
             }
         } else {
             if slot <= 38898 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:191
+// UPDATE_PROGRAM.agc:191
 //UPERCMC		TCF	UPERROR		# ERROR- IT'S THE CMC AND MODE IS NOT
-// PORT: Fixed ROM slots 38898.
+// slot 38898
                 if slot <> 38898 or instruction <> 6132 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -708,11 +708,11 @@ function agcAotUnit2331 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 38899 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:192
+// UPDATE_PROGRAM.agc:192
 //					# P00 OR P02.
-// PORT: SOURCE UPDATE_PROGRAM.agc:193
+// UPDATE_PROGRAM.agc:193
 //		TC	Q		# ALLOW UPDATE TO PROCEED
-// PORT: Fixed ROM slots 38899.
+// slot 38899
                     if slot <> 38899 or instruction <> 2 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -720,11 +720,11 @@ function agcAotUnit2331 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:194
+// UPDATE_PROGRAM.agc:194
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:195
+// UPDATE_PROGRAM.agc:195
 //UPERROR		TC	POSTJUMP	# TURN ON 'OPERATOR ERROR' LIGHT
-// PORT: Fixed ROM slots 38900.
+// slot 38900
                     if slot <> 38900 or instruction <> 2497 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -739,48 +739,48 @@ function agcAotUnit2331 {
 set agcAotRoutes[2331] to agcAotUnit2331@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE UPDATE_PROGRAM.agc:196
+// UPDATE_PROGRAM.agc:196
 //		CADR	UPERROUT +2	# GO TO COMMON UPDATE PROGRAM EXIT
-// PORT: Fixed ROM slots 38901.
+// slot 38901
     38901, 49112
 )).
 
-// PORT: Physical bank 27. Shared continuation entries, slots 26363–26363.
+// bank 27, slots 26363-26363
 function agcAotUnit1518 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
-// PORT: SOURCE UPDATE_PROGRAM.agc:197
+// UPDATE_PROGRAM.agc:197
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:198
+// UPDATE_PROGRAM.agc:198
 //		SBANK=	LOWSUPER
-// PORT: SOURCE UPDATE_PROGRAM.agc:199
+// UPDATE_PROGRAM.agc:199
 //UP70		EQUALS	ZERO
-// PORT: SOURCE UPDATE_PROGRAM.agc:200
+// UPDATE_PROGRAM.agc:200
 //UP71		EQUALS	ONE
-// PORT: SOURCE UPDATE_PROGRAM.agc:201
+// UPDATE_PROGRAM.agc:201
 //UP72		EQUALS	TWO
-// PORT: SOURCE UPDATE_PROGRAM.agc:202
+// UPDATE_PROGRAM.agc:202
 //UP73		EQUALS	THREE
-// PORT: SOURCE UPDATE_PROGRAM.agc:203
+// UPDATE_PROGRAM.agc:203
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:204
+// UPDATE_PROGRAM.agc:204
 //		BANK	04
-// PORT: SOURCE UPDATE_PROGRAM.agc:205
+// UPDATE_PROGRAM.agc:205
 //		SETLOC	UPDATE2
-// PORT: SOURCE UPDATE_PROGRAM.agc:206
+// UPDATE_PROGRAM.agc:206
 //		BANK
-// PORT: SOURCE UPDATE_PROGRAM.agc:207
+// UPDATE_PROGRAM.agc:207
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:208
+// UPDATE_PROGRAM.agc:208
 //		COUNT*	$$/P27
-// PORT: SOURCE UPDATE_PROGRAM.agc:209
+// UPDATE_PROGRAM.agc:209
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:210
+// UPDATE_PROGRAM.agc:210
 //UPPART2		EQUALS			# UPDATE PROGRAM - PART 2
-// PORT: SOURCE UPDATE_PROGRAM.agc:211
+// UPDATE_PROGRAM.agc:211
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:212
+// UPDATE_PROGRAM.agc:212
 //		TC	PHASCHNG	# SET RESTART GROUP 6 TO RESTORE OLD MODE
-// PORT: Fixed ROM slots 26363.
+// slot 26363
     if slot <> 26363 or instruction <> 2826 { return choose false if checkOnly else -1. }
     if not extended {
         if checkOnly { return true. }
@@ -791,31 +791,31 @@ function agcAotUnit1518 {
 set agcAotRoutes[1518] to agcAotUnit1518@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE UPDATE_PROGRAM.agc:213
+// UPDATE_PROGRAM.agc:213
 //		OCT	07026		# AND DOWNLIST AND EXIT IF RESTART OCCURS.
-// PORT: Fixed ROM slots 26364.
+// slot 26364
     26364, 7212,
-// PORT: SOURCE UPDATE_PROGRAM.agc:214
+// UPDATE_PROGRAM.agc:214
 //		OCT	30000		# PRIORITY SAME AS CHRPRIO
-// PORT: Fixed ROM slots 26365.
+// slot 26365
     26365, 24576,
-// PORT: SOURCE UPDATE_PROGRAM.agc:215
+// UPDATE_PROGRAM.agc:215
 //		EBANK=	UPBUFF
-// PORT: SOURCE UPDATE_PROGRAM.agc:216
+// UPDATE_PROGRAM.agc:216
 //		2CADR	UPOUT +1
-// PORT: Fixed ROM slots 26366 26367.
+// slot 26366 26367
     26366, 3976, 26367, 47200
 )).
 
-// PORT: Physical bank 27. Shared continuation entries, slots 26368–26370.
+// bank 27, slots 26368-26370
 function agcAotUnit1519 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 26368 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:217
+// UPDATE_PROGRAM.agc:217
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:218
+// UPDATE_PROGRAM.agc:218
 //		CAF	ONE
-// PORT: Fixed ROM slots 26368.
+// slot 26368
         if slot <> 26368 or instruction <> 14863 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -827,9 +827,9 @@ function agcAotUnit1519 {
         return choose false if checkOnly else -1.
     } else {
         if slot <= 26369 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:219
+// UPDATE_PROGRAM.agc:219
 //		TS	DNLSTCOD	# DOWNLIST
-// PORT: Fixed ROM slots 26369.
+// slot 26369
             if slot <> 26369 or instruction <> 22746 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -837,11 +837,11 @@ function agcAotUnit1519 {
             }
             return choose false if checkOnly else -1.
         } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:220
+// UPDATE_PROGRAM.agc:220
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:221
+// UPDATE_PROGRAM.agc:221
 //		TC	NEWMODEX	# SET MAJOR MODE = 27
-// PORT: Fixed ROM slots 26370.
+// slot 26370
             if slot <> 26370 or instruction <> 2796 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -854,22 +854,22 @@ function agcAotUnit1519 {
 set agcAotRoutes[1519] to agcAotUnit1519@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE UPDATE_PROGRAM.agc:222
+// UPDATE_PROGRAM.agc:222
 //# Page 1501
-// PORT: SOURCE UPDATE_PROGRAM.agc:223
+// UPDATE_PROGRAM.agc:223
 //		DEC	27
-// PORT: Fixed ROM slots 26371.
+// slot 26371
     26371, 54
 )).
 
-// PORT: Physical bank 27. Shared continuation entries, slots 26372–26372.
+// bank 27, slots 26372-26372
 function agcAotUnit1520 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
-// PORT: SOURCE UPDATE_PROGRAM.agc:224
+// UPDATE_PROGRAM.agc:224
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:225
+// UPDATE_PROGRAM.agc:225
 //		INDEX	UPVERB		# BRANCH DEPENDING ON WHETHER THE UPDATE
-// PORT: Fixed ROM slots 26372.
+// slot 26372
     if slot <> 26372 or instruction <> 20674 { return choose false if checkOnly else -1. }
     if not extended {
         if checkOnly { return true. }
@@ -884,21 +884,21 @@ function agcAotUnit1520 {
 set agcAotRoutes[1520] to agcAotUnit1520@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE UPDATE_PROGRAM.agc:226
+// UPDATE_PROGRAM.agc:226
 //		TCF	+1		# VERB REQUIRES A FIXED OR VARIABLE NUMBER
-// PORT: Fixed ROM slots 26373.
+// slot 26373
     26373, 11788
 )).
 
-// PORT: Physical bank 27. Shared continuation entries, slots 26374–26383.
+// bank 27, slots 26374-26383
 function agcAotUnit1521 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 26378 {
         if slot <= 26375 {
             if slot <= 26374 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:227
+// UPDATE_PROGRAM.agc:227
 //		TCF	+3		# V70 FIXED.		   (OF COMPONENTS.
-// PORT: Fixed ROM slots 26374.
+// slot 26374
                 if slot <> 26374 or instruction <> 5897 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -906,9 +906,9 @@ function agcAotUnit1521 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:228
+// UPDATE_PROGRAM.agc:228
 //		TCF	OHWELL1		# V71 VARIABLE - GO GET NO. OF COMPONENTS
-// PORT: Fixed ROM slots 26375.
+// slot 26375
                 if slot <> 26375 or instruction <> 5900 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -918,9 +918,9 @@ function agcAotUnit1521 {
             }
         } else {
             if slot <= 26376 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:229
+// UPDATE_PROGRAM.agc:229
 //		TCF	OHWELL1		# V72 VARIABLE - GO GET NO. OF COMPONENTS
-// PORT: Fixed ROM slots 26376.
+// slot 26376
                 if slot <> 26376 or instruction <> 5900 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -929,9 +929,9 @@ function agcAotUnit1521 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 26377 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:230
+// UPDATE_PROGRAM.agc:230
 //		CA	TWO		# V73 (AND V70) FIXED
-// PORT: Fixed ROM slots 26377.
+// slot 26377
                     if slot <> 26377 or instruction <> 14862 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -942,9 +942,9 @@ function agcAotUnit1521 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:231
+// UPDATE_PROGRAM.agc:231
 //		TS	COMPNUMB	# SET NUMBER OF COMPONENTS TO 2.
-// PORT: Fixed ROM slots 26378.
+// slot 26378
                     if slot <> 26378 or instruction <> 22720 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -957,9 +957,9 @@ function agcAotUnit1521 {
     } else {
         if slot <= 26380 {
             if slot <= 26379 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:232
+// UPDATE_PROGRAM.agc:232
 //		TCF	OHWELL2		# GO GET THE TWO UPDATE COMPONENTS
-// PORT: Fixed ROM slots 26379.
+// slot 26379
                 if slot <> 26379 or instruction <> 5919 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -967,11 +967,11 @@ function agcAotUnit1521 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:233
+// UPDATE_PROGRAM.agc:233
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:234
+// UPDATE_PROGRAM.agc:234
 //OHWELL1		CAF	ADUPBUFF	# * REQUEST USER TO SEND NUMBER  *
-// PORT: Fixed ROM slots 26380.
+// slot 26380
                 if slot <> 26380 or instruction <> 14151 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -984,9 +984,9 @@ function agcAotUnit1521 {
             }
         } else {
             if slot <= 26381 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:235
+// UPDATE_PROGRAM.agc:235
 //		TS	MPAC +2		# * OF COMPONENTS PARAMETER(II). *
-// PORT: Fixed ROM slots 26381.
+// slot 26381
                 if slot <> 26381 or instruction <> 22638 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -995,9 +995,9 @@ function agcAotUnit1521 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 26382 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:236
+// UPDATE_PROGRAM.agc:236
 //	+2	CAF	UPLOADNV	# (CKV432 RETURNS HERE IF V32 ENCOUNTERED)
-// PORT: Fixed ROM slots 26382.
+// slot 26382
                     if slot <> 26382 or instruction <> 14152 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1008,9 +1008,9 @@ function agcAotUnit1521 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:237
+// UPDATE_PROGRAM.agc:237
 //		TC	BANKCALL	# DISPLAY A FLASHING V21N01
-// PORT: Fixed ROM slots 26383.
+// slot 26383
                     if slot <> 26383 or instruction <> 2482 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1025,22 +1025,22 @@ function agcAotUnit1521 {
 set agcAotRoutes[1521] to agcAotUnit1521@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE UPDATE_PROGRAM.agc:238
+// UPDATE_PROGRAM.agc:238
 //		CADR	GOXDSPF		# TO REQUEST II.
-// PORT: Fixed ROM slots 26384.
+// slot 26384
     26384, 17122
 )).
 
-// PORT: Physical bank 27. Shared continuation entries, slots 26385–26403.
+// bank 27, slots 26385-26403
 function agcAotUnit1522 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 26393 {
         if slot <= 26388 {
             if slot <= 26386 {
                 if slot <= 26385 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:239
+// UPDATE_PROGRAM.agc:239
 //		TCF	UPOUT4		# V34 TERMINATE UPDATE(P27) RETURN
-// PORT: Fixed ROM slots 26385.
+// slot 26385
                     if slot <> 26385 or instruction <> 6084 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1048,9 +1048,9 @@ function agcAotUnit1522 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:240
+// UPDATE_PROGRAM.agc:240
 //		TCF	OHWELL1 +2
-// PORT: Fixed ROM slots 26386.
+// slot 26386
                     if slot <> 26386 or instruction <> 5902 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1060,9 +1060,9 @@ function agcAotUnit1522 {
                 }
             } else {
                 if slot <= 26387 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:241
+// UPDATE_PROGRAM.agc:241
 //		TC	CK4V32		# DATA OR V32 RETURN
-// PORT: Fixed ROM slots 26387.
+// slot 26387
                     if slot <> 26387 or instruction <> 1856 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1070,9 +1070,9 @@ function agcAotUnit1522 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:242
+// UPDATE_PROGRAM.agc:242
 //		CS	BIT2
-// PORT: Fixed ROM slots 26388.
+// slot 26388
                     if slot <> 26388 or instruction <> 18958 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1086,9 +1086,9 @@ function agcAotUnit1522 {
         } else {
             if slot <= 26390 {
                 if slot <= 26389 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:243
+// UPDATE_PROGRAM.agc:243
 //		AD	UPBUFF		# IS II(NUMBER OF COMPONENTS PARAMETER)
-// PORT: Fixed ROM slots 26389.
+// slot 26389
                     if slot <> 26389 or instruction <> 24772 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1098,9 +1098,9 @@ function agcAotUnit1522 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:244
+// UPDATE_PROGRAM.agc:244
 //		EXTEND			# .GE. 3 AND .LE. 20D.
-// PORT: Fixed ROM slots 26390.
+// slot 26390
                     if slot <> 26390 or instruction <> 6 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1110,9 +1110,9 @@ function agcAotUnit1522 {
                 }
             } else {
                 if slot <= 26391 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:245
+// UPDATE_PROGRAM.agc:245
 //		BZMF	OHWELL1 +2
-// PORT: Fixed ROM slots 26391.
+// slot 26391
                     if slot <> 26391 or instruction <> 26382 { return choose false if checkOnly else -1. }
                     if extended {
                         if checkOnly { return true. }
@@ -1121,9 +1121,9 @@ function agcAotUnit1522 {
                     return choose false if checkOnly else -1.
                 } else {
                     if slot <= 26392 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:246
+// UPDATE_PROGRAM.agc:246
 //		CS	UPBUFF
-// PORT: Fixed ROM slots 26392.
+// slot 26392
                         if slot <> 26392 or instruction <> 16580 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -1132,9 +1132,9 @@ function agcAotUnit1522 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:247
+// UPDATE_PROGRAM.agc:247
 //		AD	UP21
-// PORT: Fixed ROM slots 26393.
+// slot 26393
                         if slot <> 26393 or instruction <> 26878 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -1153,9 +1153,9 @@ function agcAotUnit1522 {
         if slot <= 26398 {
             if slot <= 26395 {
                 if slot <= 26394 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:248
+// UPDATE_PROGRAM.agc:248
 //		EXTEND
-// PORT: Fixed ROM slots 26394.
+// slot 26394
                     if slot <> 26394 or instruction <> 6 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1163,9 +1163,9 @@ function agcAotUnit1522 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:249
+// UPDATE_PROGRAM.agc:249
 //		BZMF	OHWELL1 +2
-// PORT: Fixed ROM slots 26395.
+// slot 26395
                     if slot <> 26395 or instruction <> 26382 { return choose false if checkOnly else -1. }
                     if extended {
                         if checkOnly { return true. }
@@ -1175,9 +1175,9 @@ function agcAotUnit1522 {
                 }
             } else {
                 if slot <= 26396 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:250
+// UPDATE_PROGRAM.agc:250
 //		CAE	UPBUFF
-// PORT: Fixed ROM slots 26396.
+// slot 26396
                     if slot <> 26396 or instruction <> 12484 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1188,9 +1188,9 @@ function agcAotUnit1522 {
                     return choose false if checkOnly else -1.
                 } else {
                     if slot <= 26397 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:251
+// UPDATE_PROGRAM.agc:251
 //		TS	COMPNUMB	# SAVE II IN COMPNUMB
-// PORT: Fixed ROM slots 26397.
+// slot 26397
                         if slot <> 26397 or instruction <> 22720 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -1198,15 +1198,15 @@ function agcAotUnit1522 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:252
+// UPDATE_PROGRAM.agc:252
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:253
+// UPDATE_PROGRAM.agc:253
 //# UPBUFF LOADING SEQUENCE
-// PORT: SOURCE UPDATE_PROGRAM.agc:254
+// UPDATE_PROGRAM.agc:254
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:255
+// UPDATE_PROGRAM.agc:255
 //		INCR	UPCOUNT		# INCREMENT COUNT OF COMPONENTS RECEIVED.
-// PORT: Fixed ROM slots 26398.
+// slot 26398
                         if slot <> 26398 or instruction <> 10435 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -1221,9 +1221,9 @@ function agcAotUnit1522 {
         } else {
             if slot <= 26400 {
                 if slot <= 26399 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:256
+// UPDATE_PROGRAM.agc:256
 //OHWELL2		CAF	ADUPBFM1	# CALCULATE LOCATION(ECADR) IN UPBUFF
-// PORT: Fixed ROM slots 26399.
+// slot 26399
                     if slot <> 26399 or instruction <> 14252 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1234,9 +1234,9 @@ function agcAotUnit1522 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:257
+// UPDATE_PROGRAM.agc:257
 //		AD	UPCOUNT		# WHERE NEXT COMPONENT SHOULD BE STORED.
-// PORT: Fixed ROM slots 26400.
+// slot 26400
                     if slot <> 26400 or instruction <> 24771 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1248,9 +1248,9 @@ function agcAotUnit1522 {
                 }
             } else {
                 if slot <= 26401 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:258
+// UPDATE_PROGRAM.agc:258
 //	+2	TS	MPAC +2		# PLACE ECADR INTO R3.
-// PORT: Fixed ROM slots 26401.
+// slot 26401
                     if slot <> 26401 or instruction <> 22638 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1259,9 +1259,9 @@ function agcAotUnit1522 {
                     return choose false if checkOnly else -1.
                 } else {
                     if slot <= 26402 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:259
+// UPDATE_PROGRAM.agc:259
 //	+3	CAF	UPLOADNV	# (CK4V32 RETURNS HERE IF V32 ENCOUNTERED)
-// PORT: Fixed ROM slots 26402.
+// slot 26402
                         if slot <> 26402 or instruction <> 14152 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -1272,9 +1272,9 @@ function agcAotUnit1522 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:260
+// UPDATE_PROGRAM.agc:260
 //		TC	BANKCALL	# DISPLAY A FLASHING V21N01
-// PORT: Fixed ROM slots 26403.
+// slot 26403
                         if slot <> 26403 or instruction <> 2482 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -1290,21 +1290,21 @@ function agcAotUnit1522 {
 set agcAotRoutes[1522] to agcAotUnit1522@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE UPDATE_PROGRAM.agc:261
+// UPDATE_PROGRAM.agc:261
 //		CADR	GOXDSPF		# TO REQUEST DATA.
-// PORT: Fixed ROM slots 26404.
+// slot 26404
     26404, 17122
 )).
 
-// PORT: Physical bank 27. Shared continuation entries, slots 26405–26416.
+// bank 27, slots 26405-26416
 function agcAotUnit1523 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 26410 {
         if slot <= 26407 {
             if slot <= 26405 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:262
+// UPDATE_PROGRAM.agc:262
 //		TCF	UPOUT4		# V34 TERMINATE UPDATE(P27) RETURN.
-// PORT: Fixed ROM slots 26405.
+// slot 26405
                 if slot <> 26405 or instruction <> 6084 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1313,9 +1313,9 @@ function agcAotUnit1523 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 26406 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:263
+// UPDATE_PROGRAM.agc:263
 //		TCF	OHWELL2 +3	# V33 PROCEED RETURN
-// PORT: Fixed ROM slots 26406.
+// slot 26406
                     if slot <> 26406 or instruction <> 5922 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1323,9 +1323,9 @@ function agcAotUnit1523 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:264
+// UPDATE_PROGRAM.agc:264
 //		TC	CK4V32		# DATA OR V32 RETURN
-// PORT: Fixed ROM slots 26407.
+// slot 26407
                     if slot <> 26407 or instruction <> 1856 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1336,9 +1336,9 @@ function agcAotUnit1523 {
             }
         } else {
             if slot <= 26408 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:265
+// UPDATE_PROGRAM.agc:265
 //		CS	UPCOUNT		# HAVE WE FINISHED RECEIVING ALL
-// PORT: Fixed ROM slots 26408.
+// slot 26408
                 if slot <> 26408 or instruction <> 16579 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1348,9 +1348,9 @@ function agcAotUnit1523 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 26409 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:266
+// UPDATE_PROGRAM.agc:266
 //		AD	COMPNUMB	# THE DATA WE EXPECTED.
-// PORT: Fixed ROM slots 26409.
+// slot 26409
                     if slot <> 26409 or instruction <> 24768 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1360,9 +1360,9 @@ function agcAotUnit1523 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:267
+// UPDATE_PROGRAM.agc:267
 //		EXTEND
-// PORT: Fixed ROM slots 26410.
+// slot 26410
                     if slot <> 26410 or instruction <> 6 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1375,9 +1375,9 @@ function agcAotUnit1523 {
     } else {
         if slot <= 26413 {
             if slot <= 26411 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:268
+// UPDATE_PROGRAM.agc:268
 //		BZMF	UPVERIFY	# YES- GO TO VERIFICATION SEQUENCE
-// PORT: Fixed ROM slots 26411.
+// slot 26411
                 if slot <> 26411 or instruction <> 26413 { return choose false if checkOnly else -1. }
                 if extended {
                     if checkOnly { return true. }
@@ -1386,9 +1386,9 @@ function agcAotUnit1523 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 26412 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:269
+// UPDATE_PROGRAM.agc:269
 //		TCF	OHWELL2 -1	# NO- REQUEST ADDITIONAL DATA.
-// PORT: Fixed ROM slots 26412.
+// slot 26412
                     if slot <> 26412 or instruction <> 5918 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1396,15 +1396,15 @@ function agcAotUnit1523 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:270
+// UPDATE_PROGRAM.agc:270
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:271
+// UPDATE_PROGRAM.agc:271
 //# Page 1502
-// PORT: SOURCE UPDATE_PROGRAM.agc:272
+// UPDATE_PROGRAM.agc:272
 //# VERIFY SEQUENCE
-// PORT: SOURCE UPDATE_PROGRAM.agc:273
+// UPDATE_PROGRAM.agc:273
 //UPVERIFY	CAF	ADUPTEMP	# PLACE ECADR WHERE COMPONENT NO. INDEX
-// PORT: Fixed ROM slots 26413.
+// slot 26413
                     if slot <> 26413 or instruction <> 14150 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1418,9 +1418,9 @@ function agcAotUnit1523 {
             }
         } else {
             if slot <= 26414 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:274
+// UPDATE_PROGRAM.agc:274
 //		TS	MPAC +2		# IS TO BE STORED INTO R3.
-// PORT: Fixed ROM slots 26414.
+// slot 26414
                 if slot <> 26414 or instruction <> 22638 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1429,9 +1429,9 @@ function agcAotUnit1523 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 26415 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:275
+// UPDATE_PROGRAM.agc:275
 //		CAF	UPVRFYNV	# (CK4V32 RETURNS HERE IF V32 ENCOUNTERED)
-// PORT: Fixed ROM slots 26415.
+// slot 26415
                     if slot <> 26415 or instruction <> 14153 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1442,9 +1442,9 @@ function agcAotUnit1523 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:276
+// UPDATE_PROGRAM.agc:276
 //		TC	BANKCALL	# DISPLAY A FLASHING V21N02 TO REQUEST
-// PORT: Fixed ROM slots 26416.
+// slot 26416
                     if slot <> 26416 or instruction <> 2482 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1459,22 +1459,22 @@ function agcAotUnit1523 {
 set agcAotRoutes[1523] to agcAotUnit1523@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE UPDATE_PROGRAM.agc:277
+// UPDATE_PROGRAM.agc:277
 //		CADR	GOXDSPF		# DATA CORRECTION OR VERIFICATION.
-// PORT: Fixed ROM slots 26417.
+// slot 26417
     26417, 17122
 )).
 
-// PORT: Physical bank 27. Shared continuation entries, slots 26418–26436.
+// bank 27, slots 26418-26436
 function agcAotUnit1524 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 26426 {
         if slot <= 26421 {
             if slot <= 26419 {
                 if slot <= 26418 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:278
+// UPDATE_PROGRAM.agc:278
 //		TCF	UPOUT4		# V34 TERMINATE UPDATE(P27) RETURN
-// PORT: Fixed ROM slots 26418.
+// slot 26418
                     if slot <> 26418 or instruction <> 6084 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1482,9 +1482,9 @@ function agcAotUnit1524 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:279
+// UPDATE_PROGRAM.agc:279
 //		TCF	UPSTORE		# V33 DATA SENT IS GOOD.  GO STORE IT.
-// PORT: Fixed ROM slots 26419.
+// slot 26419
                     if slot <> 26419 or instruction <> 5962 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1494,9 +1494,9 @@ function agcAotUnit1524 {
                 }
             } else {
                 if slot <= 26420 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:280
+// UPDATE_PROGRAM.agc:280
 //		TC	CK4V32		# COMPONENT NO. INDEX OR V32 RETURN
-// PORT: Fixed ROM slots 26420.
+// slot 26420
                     if slot <> 26420 or instruction <> 1856 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1504,9 +1504,9 @@ function agcAotUnit1524 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:281
+// UPDATE_PROGRAM.agc:281
 //		CA	UPTEMP		# DOES THE COMPONENT NO. INDEX JUST SENT
-// PORT: Fixed ROM slots 26421.
+// slot 26421
                     if slot <> 26421 or instruction <> 12504 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1520,9 +1520,9 @@ function agcAotUnit1524 {
         } else {
             if slot <= 26423 {
                 if slot <= 26422 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:282
+// UPDATE_PROGRAM.agc:282
 //		EXTEND			# SPECIFY A LEGAL COMPONENT NUMBER?
-// PORT: Fixed ROM slots 26422.
+// slot 26422
                     if slot <> 26422 or instruction <> 6 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1530,9 +1530,9 @@ function agcAotUnit1524 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:283
+// UPDATE_PROGRAM.agc:283
 //		BZMF	UPVERIFY	# NO, IT IS NOT POSITIVE NONZERO
-// PORT: Fixed ROM slots 26423.
+// slot 26423
                     if slot <> 26423 or instruction <> 26413 { return choose false if checkOnly else -1. }
                     if extended {
                         if checkOnly { return true. }
@@ -1542,9 +1542,9 @@ function agcAotUnit1524 {
                 }
             } else {
                 if slot <= 26424 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:284
+// UPDATE_PROGRAM.agc:284
 //		CS	UPTEMP
-// PORT: Fixed ROM slots 26424.
+// slot 26424
                     if slot <> 26424 or instruction <> 16600 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1554,9 +1554,9 @@ function agcAotUnit1524 {
                     return choose false if checkOnly else -1.
                 } else {
                     if slot <= 26425 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:285
+// UPDATE_PROGRAM.agc:285
 //		AD	COMPNUMB
-// PORT: Fixed ROM slots 26425.
+// slot 26425
                         if slot <> 26425 or instruction <> 24768 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -1566,9 +1566,9 @@ function agcAotUnit1524 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:286
+// UPDATE_PROGRAM.agc:286
 //		AD	BIT1
-// PORT: Fixed ROM slots 26426.
+// slot 26426
                         if slot <> 26426 or instruction <> 27151 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -1587,9 +1587,9 @@ function agcAotUnit1524 {
         if slot <= 26431 {
             if slot <= 26428 {
                 if slot <= 26427 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:287
+// UPDATE_PROGRAM.agc:287
 //		EXTEND
-// PORT: Fixed ROM slots 26427.
+// slot 26427
                     if slot <> 26427 or instruction <> 6 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1597,9 +1597,9 @@ function agcAotUnit1524 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:288
+// UPDATE_PROGRAM.agc:288
 //		BZMF	UPVERIFY	# NO
-// PORT: Fixed ROM slots 26428.
+// slot 26428
                     if slot <> 26428 or instruction <> 26413 { return choose false if checkOnly else -1. }
                     if extended {
                         if checkOnly { return true. }
@@ -1609,9 +1609,9 @@ function agcAotUnit1524 {
                 }
             } else {
                 if slot <= 26429 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:289
+// UPDATE_PROGRAM.agc:289
 //		CAF	ADUPBFM1	# YES- BASED ON THE COMPONENT NO. INDEX
-// PORT: Fixed ROM slots 26429.
+// slot 26429
                     if slot <> 26429 or instruction <> 14252 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1623,9 +1623,9 @@ function agcAotUnit1524 {
                     return choose false if checkOnly else -1.
                 } else {
                     if slot <= 26430 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:290
+// UPDATE_PROGRAM.agc:290
 //		AD	UPTEMP		# CALCULATE THE ECADR OF LOCATION IN
-// PORT: Fixed ROM slots 26430.
+// slot 26430
                         if slot <> 26430 or instruction <> 24792 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -1635,9 +1635,9 @@ function agcAotUnit1524 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:291
+// UPDATE_PROGRAM.agc:291
 //		TCF	OHWELL2 +2	# UPBUFF WHICH USER WANTS TO CHANGE.
-// PORT: Fixed ROM slots 26431.
+// slot 26431
                         if slot <> 26431 or instruction <> 5921 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -1650,19 +1650,19 @@ function agcAotUnit1524 {
         } else {
             if slot <= 26433 {
                 if slot <= 26432 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:292
+// UPDATE_PROGRAM.agc:292
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:293
+// UPDATE_PROGRAM.agc:293
 //UPOUT4		EQUALS	UPOUT +1	# COMES HERE ON V34 TC TERMINATE UPDATE
-// PORT: SOURCE UPDATE_PROGRAM.agc:294
+// UPDATE_PROGRAM.agc:294
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:295
+// UPDATE_PROGRAM.agc:295
 //# CHECK FOR VERB 32 SEQUENCE
-// PORT: SOURCE UPDATE_PROGRAM.agc:296
+// UPDATE_PROGRAM.agc:296
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:297
+// UPDATE_PROGRAM.agc:297
 //CK4V32		CS	MPAC		# ON DATA RETURN FROM 'GOXDSPF'
-// PORT: Fixed ROM slots 26432.
+// slot 26432
                     if slot <> 26432 or instruction <> 16492 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1671,9 +1671,9 @@ function agcAotUnit1524 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:298
+// UPDATE_PROGRAM.agc:298
 //		MASK	BIT6		# ON DATA RETURN FROM "GOXDSP"& THE CON-
-// PORT: Fixed ROM slots 26433.
+// slot 26433
                     if slot <> 26433 or instruction <> 31242 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1691,9 +1691,9 @@ function agcAotUnit1524 {
                 }
             } else {
                 if slot <= 26434 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:299
+// UPDATE_PROGRAM.agc:299
 //		CCS	A		# TENTS OF MPAC = VERB.  SO TEST FOR V32.
-// PORT: Fixed ROM slots 26434.
+// slot 26434
                     if slot <> 26434 or instruction <> 4096 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1704,9 +1704,9 @@ function agcAotUnit1524 {
                     return choose false if checkOnly else -1.
                 } else {
                     if slot <= 26435 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:300
+// UPDATE_PROGRAM.agc:300
 //		TC	Q		# IT'S NOT A V32, IT'S DATA.  PROCEED.
-// PORT: Fixed ROM slots 26435.
+// slot 26435
                         if slot <> 26435 or instruction <> 2 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -1714,9 +1714,9 @@ function agcAotUnit1524 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:301
+// UPDATE_PROGRAM.agc:301
 //		INDEX	Q
-// PORT: Fixed ROM slots 26436.
+// slot 26436
                         if slot <> 26436 or instruction <> 20482 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -1736,53 +1736,53 @@ function agcAotUnit1524 {
 set agcAotRoutes[1524] to agcAotUnit1524@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE UPDATE_PROGRAM.agc:302
+// UPDATE_PROGRAM.agc:302
 //		TC	0 -6		# V32 ENCOUNTERED - GO BACK AND GET DATA
-// PORT: Fixed ROM slots 26437.
+// slot 26437
     26437, 65522,
-// PORT: SOURCE UPDATE_PROGRAM.agc:303
+// UPDATE_PROGRAM.agc:303
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:304
+// UPDATE_PROGRAM.agc:304
 //ADUPTEMP	ADRES	UPTEMP		# ADDRESS OF TEMP STORAGE FOR CORRECTIONS
-// PORT: Fixed ROM slots 26438.
+// slot 26438
     26438, 432,
-// PORT: SOURCE UPDATE_PROGRAM.agc:305
+// UPDATE_PROGRAM.agc:305
 //ADUPBUFF	ADRES	UPBUFF		# ADDRESS OF UPDATE DATA STORAGE BUFFER
-// PORT: Fixed ROM slots 26439.
+// slot 26439
     26439, 392,
-// PORT: SOURCE UPDATE_PROGRAM.agc:306
+// UPDATE_PROGRAM.agc:306
 //UPLOADNV	VN	2101		# VERB 21 NOUN 01
-// PORT: Fixed ROM slots 26440.
+// slot 26440
     26440, 5378,
-// PORT: SOURCE UPDATE_PROGRAM.agc:307
+// UPDATE_PROGRAM.agc:307
 //UPVRFYNV	VN	2102		# VERB 21 NOUN 02
-// PORT: Fixed ROM slots 26441.
+// slot 26441
     26441, 5380
 )).
 
-// PORT: Physical bank 27. Shared continuation entries, slots 26442–26449.
+// bank 27, slots 26442-26449
 function agcAotUnit1525 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 26445 {
         if slot <= 26443 {
             if slot <= 26442 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:308
+// UPDATE_PROGRAM.agc:308
 //UP21		=	MD1		# DEC 21 = MAX NO OF COMPONENTS +1
-// PORT: SOURCE UPDATE_PROGRAM.agc:309
+// UPDATE_PROGRAM.agc:309
 //UPDTPHAS	EQUALS	FIVE
-// PORT: SOURCE UPDATE_PROGRAM.agc:310
+// UPDATE_PROGRAM.agc:310
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:311
+// UPDATE_PROGRAM.agc:311
 //# PRE-STORE AND FAN TO APPROPRIATE BRANCH SEQUENCE
-// PORT: SOURCE UPDATE_PROGRAM.agc:312
+// UPDATE_PROGRAM.agc:312
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:313
+// UPDATE_PROGRAM.agc:313
 //UPSTORE		EQUALS			# GROUND HAS VERIFIED UPDATE. STORE DATA.
-// PORT: SOURCE UPDATE_PROGRAM.agc:314
+// UPDATE_PROGRAM.agc:314
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:315
+// UPDATE_PROGRAM.agc:315
 //		INHINT
-// PORT: Fixed ROM slots 26442.
+// slot 26442
                 if slot <> 26442 or instruction <> 4 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1790,11 +1790,11 @@ function agcAotUnit1525 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:316
+// UPDATE_PROGRAM.agc:316
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:317
+// UPDATE_PROGRAM.agc:317
 //		CAE	FLAGWRD7	# INVERT VERIFLAG(BIT3 OF FLAGWRD7) TO
-// PORT: Fixed ROM slots 26443.
+// slot 26443
                 if slot <> 26443 or instruction <> 12355 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1806,9 +1806,9 @@ function agcAotUnit1525 {
             }
         } else {
             if slot <= 26444 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:318
+// UPDATE_PROGRAM.agc:318
 //		XCH	L		# INDICATE TO THE GROUND(VIA DOWNLINK)
-// PORT: Fixed ROM slots 26444.
+// slot 26444
                 if slot <> 26444 or instruction <> 23553 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1817,9 +1817,9 @@ function agcAotUnit1525 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:319
+// UPDATE_PROGRAM.agc:319
 //		CAF	BIT3		# THAT THE V33(WHICH THE GROUND SENT TO
-// PORT: Fixed ROM slots 26445.
+// slot 26445
                 if slot <> 26445 or instruction <> 14861 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1834,11 +1834,11 @@ function agcAotUnit1525 {
     } else {
         if slot <= 26447 {
             if slot <= 26446 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:320
+// UPDATE_PROGRAM.agc:320
 //# Page 1503
-// PORT: SOURCE UPDATE_PROGRAM.agc:321
+// UPDATE_PROGRAM.agc:321
 //		EXTEND			# VERIFY THE UPDATE) HAS BEEN SUCCESSFULLY
-// PORT: Fixed ROM slots 26446.
+// slot 26446
                 if slot <> 26446 or instruction <> 6 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1846,9 +1846,9 @@ function agcAotUnit1525 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:322
+// UPDATE_PROGRAM.agc:322
 //		RXOR	LCHAN		# RECEIVED BY THE UPDATE PROGRAM
-// PORT: Fixed ROM slots 26447.
+// slot 26447
                 if slot <> 26447 or instruction <> 3073 { return choose false if checkOnly else -1. }
                 if extended {
                     if checkOnly { return true. }
@@ -1860,9 +1860,9 @@ function agcAotUnit1525 {
             }
         } else {
             if slot <= 26448 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:323
+// UPDATE_PROGRAM.agc:323
 //		TS	FLAGWRD7
-// PORT: Fixed ROM slots 26448.
+// slot 26448
                 if slot <> 26448 or instruction <> 22595 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1870,11 +1870,11 @@ function agcAotUnit1525 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:324
+// UPDATE_PROGRAM.agc:324
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:325
+// UPDATE_PROGRAM.agc:325
 //		TC	PHASCHNG	# SET RESTART GROUP 6 TO REDO THE UPDATE
-// PORT: Fixed ROM slots 26449.
+// slot 26449
                 if slot <> 26449 or instruction <> 2826 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1888,21 +1888,21 @@ function agcAotUnit1525 {
 set agcAotRoutes[1525] to agcAotUnit1525@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE UPDATE_PROGRAM.agc:326
+// UPDATE_PROGRAM.agc:326
 //		OCT	04026		# DATA STORE IF A RESTART OCCURS.
-// PORT: Fixed ROM slots 26450.
+// slot 26450
     26450, 4140
 )).
 
-// PORT: Physical bank 27. Shared continuation entries, slots 26451–26463.
+// bank 27, slots 26451-26463
 function agcAotUnit1526 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 26456 {
         if slot <= 26453 {
             if slot <= 26451 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:327
+// UPDATE_PROGRAM.agc:327
 //		INHINT			# (BECAUSE PHASCHNG DID A RELINT)
-// PORT: Fixed ROM slots 26451.
+// slot 26451
                 if slot <> 26451 or instruction <> 4 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1911,11 +1911,11 @@ function agcAotUnit1526 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 26452 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:328
+// UPDATE_PROGRAM.agc:328
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:329
+// UPDATE_PROGRAM.agc:329
 //		CS	TWO		# GO TO UPFNDVAC IF INSTALL IS REQUIRED,
-// PORT: Fixed ROM slots 26452.
+// slot 26452
                     if slot <> 26452 or instruction <> 18958 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1925,9 +1925,9 @@ function agcAotUnit1526 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:330
+// UPDATE_PROGRAM.agc:330
 //		AD	UPVERB		# THAT IS, IF IT'S A V70 - V72.
-// PORT: Fixed ROM slots 26453.
+// slot 26453
                     if slot <> 26453 or instruction <> 24770 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1940,9 +1940,9 @@ function agcAotUnit1526 {
             }
         } else {
             if slot <= 26454 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:331
+// UPDATE_PROGRAM.agc:331
 //		EXTEND			# GO TO UPEND73 IF IT'S A V73.
-// PORT: Fixed ROM slots 26454.
+// slot 26454
                 if slot <> 26454 or instruction <> 6 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -1951,9 +1951,9 @@ function agcAotUnit1526 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 26455 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:332
+// UPDATE_PROGRAM.agc:332
 //		BZMF	UPFNDVAC
-// PORT: Fixed ROM slots 26455.
+// slot 26455
                     if slot <> 26455 or instruction <> 26462 { return choose false if checkOnly else -1. }
                     if extended {
                         if checkOnly { return true. }
@@ -1961,15 +1961,15 @@ function agcAotUnit1526 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:333
+// UPDATE_PROGRAM.agc:333
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:334
+// UPDATE_PROGRAM.agc:334
 //# VERB 73 BRANCH
-// PORT: SOURCE UPDATE_PROGRAM.agc:335
+// UPDATE_PROGRAM.agc:335
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:336
+// UPDATE_PROGRAM.agc:336
 //UPEND73		EXTEND			# V73-PERFORM DP OCTAL AGC CLOCK INCREMENT
-// PORT: Fixed ROM slots 26456.
+// slot 26456
                     if slot <> 26456 or instruction <> 6 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -1982,9 +1982,9 @@ function agcAotUnit1526 {
     } else {
         if slot <= 26459 {
             if slot <= 26457 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:337
+// UPDATE_PROGRAM.agc:337
 //		DCA	UPBUFF
-// PORT: Fixed ROM slots 26457.
+// slot 26457
                 if slot <> 26457 or instruction <> 12485 { return choose false if checkOnly else -1. }
                 if extended {
                     if checkOnly { return true. }
@@ -1995,9 +1995,9 @@ function agcAotUnit1526 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 26458 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:338
+// UPDATE_PROGRAM.agc:338
 //		DXCH	UPBUFF +8D
-// PORT: Fixed ROM slots 26458.
+// slot 26458
                     if slot <> 26458 or instruction <> 21709 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -2006,9 +2006,9 @@ function agcAotUnit1526 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:339
+// UPDATE_PROGRAM.agc:339
 //		TC	TIMEDIDL
-// PORT: Fixed ROM slots 26459.
+// slot 26459
                     if slot <> 26459 or instruction <> 1905 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -2020,9 +2020,9 @@ function agcAotUnit1526 {
         } else {
             if slot <= 26461 {
                 if slot <= 26460 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:340
+// UPDATE_PROGRAM.agc:340
 //		TC	FALTON		# ERROR- TURN ON *OPERATOR ERROR* LIGHT
-// PORT: Fixed ROM slots 26460.
+// slot 26460
                     if slot <> 26460 or instruction <> 2304 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -2030,9 +2030,9 @@ function agcAotUnit1526 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:341
+// UPDATE_PROGRAM.agc:341
 //		TC	UPOUT +1	# GO TO COMMON UPDATE PROGRAM EXIT
-// PORT: Fixed ROM slots 26461.
+// slot 26461
                     if slot <> 26461 or instruction <> 1988 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -2042,11 +2042,11 @@ function agcAotUnit1526 {
                 }
             } else {
                 if slot <= 26462 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:342
+// UPDATE_PROGRAM.agc:342
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:343
+// UPDATE_PROGRAM.agc:343
 //UPFNDVAC	CAF	CHRPRIO		# (USE EXTENDED VERB PRIORITY)
-// PORT: Fixed ROM slots 26462.
+// slot 26462
                     if slot <> 26462 or instruction <> 14585 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -2057,9 +2057,9 @@ function agcAotUnit1526 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:344
+// UPDATE_PROGRAM.agc:344
 //		TC	FINDVAC		# GET VAC AREA FOR 'CALL INTSTALL'
-// PORT: Fixed ROM slots 26463.
+// slot 26463
                     if slot <> 26463 or instruction <> 2663 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -2074,21 +2074,21 @@ function agcAotUnit1526 {
 set agcAotRoutes[1526] to agcAotUnit1526@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE UPDATE_PROGRAM.agc:345
+// UPDATE_PROGRAM.agc:345
 //		EBANK=	TEPHEM
-// PORT: SOURCE UPDATE_PROGRAM.agc:346
+// UPDATE_PROGRAM.agc:346
 //		2CADR	UPJOB		# (NOTE:  THIS WILL ALSO SET EBANK FOR
-// PORT: Fixed ROM slots 26464 26465.
+// slot 26464 26465
     26464, 3782, 26465, 47206
 )).
 
-// PORT: Physical bank 27. Shared continuation entries, slots 26466–26467.
+// bank 27, slots 26466-26467
 function agcAotUnit1527 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 26466 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:347
+// UPDATE_PROGRAM.agc:347
 //		TC	ENDOFJOB	# 'TEPHEM' UPDATE BY V70)
-// PORT: Fixed ROM slots 26466.
+// slot 26466
         if slot <> 26466 or instruction <> 2703 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -2096,11 +2096,11 @@ function agcAotUnit1527 {
         }
         return choose false if checkOnly else -1.
     } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:348
+// UPDATE_PROGRAM.agc:348
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:349
+// UPDATE_PROGRAM.agc:349
 //UPJOB		TC	INTPRET		# THIS COULD BE A STATE VECTOR UPDATE--SO
-// PORT: Fixed ROM slots 26467.
+// slot 26467
         if slot <> 26467 or instruction <> 3078 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -2112,32 +2112,32 @@ function agcAotUnit1527 {
 set agcAotRoutes[1527] to agcAotUnit1527@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE UPDATE_PROGRAM.agc:350
+// UPDATE_PROGRAM.agc:350
 //		CALL			# WAIT(PUT JOB TO SLEEP) IF ORBIT INT(OI)
-// PORT: Fixed ROM slots 26468.
+// slot 26468
     26468, 65320,
-// PORT: SOURCE UPDATE_PROGRAM.agc:351
+// UPDATE_PROGRAM.agc:351
 //			INTSTALL	# IS IN PROGRESS--OR--GRAB OI AND RETURN
-// PORT: Fixed ROM slots 26469.
+// slot 26469
     26469, 24132,
-// PORT: SOURCE UPDATE_PROGRAM.agc:352
+// UPDATE_PROGRAM.agc:352
 //					# TO UPWAKE IF OI IS NOT IN PROGRESS.
-// PORT: SOURCE UPDATE_PROGRAM.agc:353
+// UPDATE_PROGRAM.agc:353
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:354
+// UPDATE_PROGRAM.agc:354
 //UPWAKE		EXIT
-// PORT: Fixed ROM slots 26470.
+// slot 26470
     26470, 65532
 )).
 
-// PORT: Physical bank 27. Shared continuation entries, slots 26471–26471.
+// bank 27, slots 26471-26471
 function agcAotUnit1528 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
-// PORT: SOURCE UPDATE_PROGRAM.agc:355
+// UPDATE_PROGRAM.agc:355
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:356
+// UPDATE_PROGRAM.agc:356
 //		TC	PHASCHNG	# RESTART PROTECT(GROUP 6)
-// PORT: Fixed ROM slots 26471.
+// slot 26471
     if slot <> 26471 or instruction <> 2826 { return choose false if checkOnly else -1. }
     if not extended {
         if checkOnly { return true. }
@@ -2148,20 +2148,20 @@ function agcAotUnit1528 {
 set agcAotRoutes[1528] to agcAotUnit1528@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE UPDATE_PROGRAM.agc:357
+// UPDATE_PROGRAM.agc:357
 //		OCT	04026
-// PORT: Fixed ROM slots 26472.
+// slot 26472
     26472, 4140
 )).
 
-// PORT: Physical bank 27. Shared continuation entries, slots 26473–26473.
+// bank 27, slots 26473-26473
 function agcAotUnit1529 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
-// PORT: SOURCE UPDATE_PROGRAM.agc:358
+// UPDATE_PROGRAM.agc:358
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:359
+// UPDATE_PROGRAM.agc:359
 //		TC	UPFLAG		# SET INTEGRATION RESTART BIT
-// PORT: Fixed ROM slots 26473.
+// slot 26473
     if slot <> 26473 or instruction <> 2918 { return choose false if checkOnly else -1. }
     if not extended {
         if checkOnly { return true. }
@@ -2172,19 +2172,19 @@ function agcAotUnit1529 {
 set agcAotRoutes[1529] to agcAotUnit1529@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE UPDATE_PROGRAM.agc:360
+// UPDATE_PROGRAM.agc:360
 //		ADRES	REINTFLG
-// PORT: Fixed ROM slots 26474.
+// slot 26474
     26474, 316
 )).
 
-// PORT: Physical bank 27. Shared continuation entries, slots 26475–26476.
+// bank 27, slots 26475-26476
 function agcAotUnit1530 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 26475 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:361
+// UPDATE_PROGRAM.agc:361
 //		INHINT
-// PORT: Fixed ROM slots 26475.
+// slot 26475
         if slot <> 26475 or instruction <> 4 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -2192,13 +2192,13 @@ function agcAotUnit1530 {
         }
         return choose false if checkOnly else -1.
     } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:362
+// UPDATE_PROGRAM.agc:362
 //UPPART3		EQUALS
-// PORT: SOURCE UPDATE_PROGRAM.agc:363
+// UPDATE_PROGRAM.agc:363
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:364
+// UPDATE_PROGRAM.agc:364
 //		INDEX	UPVERB		# BRANCH TO THE APPROPRIATE UPDATE VERB
-// PORT: Fixed ROM slots 26476.
+// slot 26476
         if slot <> 26476 or instruction <> 20674 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -2214,22 +2214,22 @@ function agcAotUnit1530 {
 set agcAotRoutes[1530] to agcAotUnit1530@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE UPDATE_PROGRAM.agc:365
+// UPDATE_PROGRAM.agc:365
 //		TCF	+1		# ROUTINE TO ACTUALLY PERFORM THE UPDATE
-// PORT: Fixed ROM slots 26477.
+// slot 26477
     26477, 11996
 )).
 
-// PORT: Physical bank 27. Shared continuation entries, slots 26478–26505.
+// bank 27, slots 26478-26505
 function agcAotUnit1531 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 26491 {
         if slot <= 26484 {
             if slot <= 26480 {
                 if slot <= 26478 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:366
+// UPDATE_PROGRAM.agc:366
 //		TCF	UPEND70		# V70
-// PORT: Fixed ROM slots 26478.
+// slot 26478
                     if slot <> 26478 or instruction <> 6093 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -2238,9 +2238,9 @@ function agcAotUnit1531 {
                     return choose false if checkOnly else -1.
                 } else {
                     if slot <= 26479 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:367
+// UPDATE_PROGRAM.agc:367
 //		TCF	UPEND71		# V71
-// PORT: Fixed ROM slots 26479.
+// slot 26479
                         if slot <> 26479 or instruction <> 6036 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -2248,9 +2248,9 @@ function agcAotUnit1531 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:368
+// UPDATE_PROGRAM.agc:368
 //		TCF	UPEND72		# V72
-// PORT: Fixed ROM slots 26480.
+// slot 26480
                         if slot <> 26480 or instruction <> 6062 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -2262,15 +2262,15 @@ function agcAotUnit1531 {
             } else {
                 if slot <= 26482 {
                     if slot <= 26481 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:369
+// UPDATE_PROGRAM.agc:369
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:370
+// UPDATE_PROGRAM.agc:370
 //# Page 1504
-// PORT: SOURCE UPDATE_PROGRAM.agc:371
+// UPDATE_PROGRAM.agc:371
 //# ROUTINE TO INCREMENT CLOCK(TIME2,TIME1) WITH CONTENTS OF DP WORD AT UPBUFF.
-// PORT: SOURCE UPDATE_PROGRAM.agc:372
+// UPDATE_PROGRAM.agc:372
 //TIMEDIDL	EXTEND
-// PORT: Fixed ROM slots 26481.
+// slot 26481
                         if slot <> 26481 or instruction <> 6 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -2278,9 +2278,9 @@ function agcAotUnit1531 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:373
+// UPDATE_PROGRAM.agc:373
 //		QXCH	UPTEMP		# SAVE Q FOR RETURN
-// PORT: Fixed ROM slots 26482.
+// slot 26482
                         if slot <> 26482 or instruction <> 9432 { return choose false if checkOnly else -1. }
                         if extended {
                             if checkOnly { return true. }
@@ -2292,9 +2292,9 @@ function agcAotUnit1531 {
                     }
                 } else {
                     if slot <= 26483 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:374
+// UPDATE_PROGRAM.agc:374
 //		CAF	ZERO		# ZERO AND SAVE TIME2,TIME1
-// PORT: Fixed ROM slots 26483.
+// slot 26483
                         if slot <> 26483 or instruction <> 14865 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -2305,9 +2305,9 @@ function agcAotUnit1531 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:375
+// UPDATE_PROGRAM.agc:375
 //		ZL
-// PORT: Fixed ROM slots 26484.
+// slot 26484
                         if slot <> 26484 or instruction <> 9223 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -2322,9 +2322,9 @@ function agcAotUnit1531 {
         } else {
             if slot <= 26487 {
                 if slot <= 26485 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:376
+// UPDATE_PROGRAM.agc:376
 //		DXCH	TIME2
-// PORT: Fixed ROM slots 26485.
+// slot 26485
                     if slot <> 26485 or instruction <> 21525 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -2334,9 +2334,9 @@ function agcAotUnit1531 {
                     return choose false if checkOnly else -1.
                 } else {
                     if slot <= 26486 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:377
+// UPDATE_PROGRAM.agc:377
 //		DXCH	UPBUFF +18D	# STORE IN CASE OF OVERFLOW
-// PORT: Fixed ROM slots 26486.
+// slot 26486
                         if slot <> 26486 or instruction <> 21719 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -2345,11 +2345,11 @@ function agcAotUnit1531 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:378
+// UPDATE_PROGRAM.agc:378
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:379
+// UPDATE_PROGRAM.agc:379
 //		CAF	UPDTPHAS	# DO
-// PORT: Fixed ROM slots 26487.
+// slot 26487
                         if slot <> 26487 or instruction <> 14866 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -2364,9 +2364,9 @@ function agcAotUnit1531 {
             } else {
                 if slot <= 26489 {
                     if slot <= 26488 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:380
+// UPDATE_PROGRAM.agc:380
 //		TS	L		# A
-// PORT: Fixed ROM slots 26488.
+// slot 26488
                         if slot <> 26488 or instruction <> 22529 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -2374,9 +2374,9 @@ function agcAotUnit1531 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:381
+// UPDATE_PROGRAM.agc:381
 //		COM			# QUICK
-// PORT: Fixed ROM slots 26489.
+// slot 26489
                         if slot <> 26489 or instruction <> 16384 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -2387,9 +2387,9 @@ function agcAotUnit1531 {
                     }
                 } else {
                     if slot <= 26490 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:382
+// UPDATE_PROGRAM.agc:382
 //		DXCH	-PHASE6		# PHASCHNG
-// PORT: Fixed ROM slots 26490.
+// slot 26490
                         if slot <> 26490 or instruction <> 22005 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -2398,11 +2398,11 @@ function agcAotUnit1531 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:383
+// UPDATE_PROGRAM.agc:383
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:384
+// UPDATE_PROGRAM.agc:384
 //TIMEDIDR	INHINT
-// PORT: Fixed ROM slots 26491.
+// slot 26491
                         if slot <> 26491 or instruction <> 4 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -2417,9 +2417,9 @@ function agcAotUnit1531 {
         if slot <= 26498 {
             if slot <= 26494 {
                 if slot <= 26492 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:385
+// UPDATE_PROGRAM.agc:385
 //		CAF	ZERO
-// PORT: Fixed ROM slots 26492.
+// slot 26492
                     if slot <> 26492 or instruction <> 14865 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -2431,9 +2431,9 @@ function agcAotUnit1531 {
                     return choose false if checkOnly else -1.
                 } else {
                     if slot <= 26493 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:386
+// UPDATE_PROGRAM.agc:386
 //		ZL			# PICK UP INCREMENTER(AND ZERO
-// PORT: Fixed ROM slots 26493.
+// slot 26493
                         if slot <> 26493 or instruction <> 9223 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -2443,9 +2443,9 @@ function agcAotUnit1531 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:387
+// UPDATE_PROGRAM.agc:387
 //		TS	MPAC +2		# IT IN CASE OF RESTARTS) AND
-// PORT: Fixed ROM slots 26494.
+// slot 26494
                         if slot <> 26494 or instruction <> 22638 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -2457,9 +2457,9 @@ function agcAotUnit1531 {
             } else {
                 if slot <= 26496 {
                     if slot <= 26495 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:388
+// UPDATE_PROGRAM.agc:388
 //		DXCH	UPBUFF +8D	# STORE IT
-// PORT: Fixed ROM slots 26495.
+// slot 26495
                         if slot <> 26495 or instruction <> 21709 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -2468,9 +2468,9 @@ function agcAotUnit1531 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:389
+// UPDATE_PROGRAM.agc:389
 //		DXCH	MPAC		# INTO MPAC FOR TPAGREE.
-// PORT: Fixed ROM slots 26496.
+// slot 26496
                         if slot <> 26496 or instruction <> 21613 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -2481,11 +2481,11 @@ function agcAotUnit1531 {
                     }
                 } else {
                     if slot <= 26497 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:390
+// UPDATE_PROGRAM.agc:390
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:391
+// UPDATE_PROGRAM.agc:391
 //		EXTEND
-// PORT: Fixed ROM slots 26497.
+// slot 26497
                         if slot <> 26497 or instruction <> 6 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -2493,9 +2493,9 @@ function agcAotUnit1531 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:392
+// UPDATE_PROGRAM.agc:392
 //		DCA	UPBUFF +18D
-// PORT: Fixed ROM slots 26498.
+// slot 26498
                         if slot <> 26498 or instruction <> 12503 { return choose false if checkOnly else -1. }
                         if extended {
                             if checkOnly { return true. }
@@ -2510,9 +2510,9 @@ function agcAotUnit1531 {
         } else {
             if slot <= 26501 {
                 if slot <= 26499 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:393
+// UPDATE_PROGRAM.agc:393
 //		DAS	MPAC		# FORM SUM IN MPAC
-// PORT: Fixed ROM slots 26499.
+// slot 26499
                     if slot <> 26499 or instruction <> 8301 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -2523,9 +2523,9 @@ function agcAotUnit1531 {
                     return choose false if checkOnly else -1.
                 } else {
                     if slot <= 26500 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:394
+// UPDATE_PROGRAM.agc:394
 //		EXTEND
-// PORT: Fixed ROM slots 26500.
+// slot 26500
                         if slot <> 26500 or instruction <> 6 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -2533,9 +2533,9 @@ function agcAotUnit1531 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:395
+// UPDATE_PROGRAM.agc:395
 //		BZF	DELTATOK	# TEST FOR OVERFLOW
-// PORT: Fixed ROM slots 26501.
+// slot 26501
                         if slot <> 26501 or instruction <> 6028 { return choose false if checkOnly else -1. }
                         if extended {
                             if checkOnly { return true. }
@@ -2547,9 +2547,9 @@ function agcAotUnit1531 {
             } else {
                 if slot <= 26503 {
                     if slot <= 26502 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:396
+// UPDATE_PROGRAM.agc:396
 //		CAF	ZERO
-// PORT: Fixed ROM slots 26502.
+// slot 26502
                         if slot <> 26502 or instruction <> 14865 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -2560,9 +2560,9 @@ function agcAotUnit1531 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:397
+// UPDATE_PROGRAM.agc:397
 //		DXCH	UPBUFF +18D	# OVERFLOW, RESTORE OLD VALUE OF CLOCK
-// PORT: Fixed ROM slots 26503.
+// slot 26503
                         if slot <> 26503 or instruction <> 21719 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -2573,9 +2573,9 @@ function agcAotUnit1531 {
                     }
                 } else {
                     if slot <= 26504 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:398
+// UPDATE_PROGRAM.agc:398
 //		DAS	TIME2		# AND TURN ON OPERATOR ERROR
-// PORT: Fixed ROM slots 26504.
+// slot 26504
                         if slot <> 26504 or instruction <> 8213 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -2585,11 +2585,11 @@ function agcAotUnit1531 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:399
+// UPDATE_PROGRAM.agc:399
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:400
+// UPDATE_PROGRAM.agc:400
 //		TC	PHASCHNG	# RESTART PROTECT(GROUP 6)
-// PORT: Fixed ROM slots 26505.
+// slot 26505
                         if slot <> 26505 or instruction <> 2826 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -2605,22 +2605,22 @@ function agcAotUnit1531 {
 set agcAotRoutes[1531] to agcAotUnit1531@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE UPDATE_PROGRAM.agc:401
+// UPDATE_PROGRAM.agc:401
 //		OCT	04026
-// PORT: Fixed ROM slots 26506.
+// slot 26506
     26506, 4140
 )).
 
-// PORT: Physical bank 27. Shared continuation entries, slots 26507–26511.
+// bank 27, slots 26507-26511
 function agcAotUnit1532 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 26508 {
         if slot <= 26507 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:402
+// UPDATE_PROGRAM.agc:402
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:403
+// UPDATE_PROGRAM.agc:403
 //		TC	UPTEMP		# GO TO ERROR EXIT
-// PORT: Fixed ROM slots 26507.
+// slot 26507
             if slot <> 26507 or instruction <> 216 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -2628,11 +2628,11 @@ function agcAotUnit1532 {
             }
             return choose false if checkOnly else -1.
         } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:404
+// UPDATE_PROGRAM.agc:404
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:405
+// UPDATE_PROGRAM.agc:405
 //DELTATOK	TC	TPAGREE		# FORCE SIGN AGREEMENT
-// PORT: Fixed ROM slots 26508.
+// slot 26508
             if slot <> 26508 or instruction <> 3734 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -2642,9 +2642,9 @@ function agcAotUnit1532 {
         }
     } else {
         if slot <= 26509 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:406
+// UPDATE_PROGRAM.agc:406
 //		DXCH	MPAC
-// PORT: Fixed ROM slots 26509.
+// slot 26509
             if slot <> 26509 or instruction <> 21613 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -2654,9 +2654,9 @@ function agcAotUnit1532 {
             return choose false if checkOnly else -1.
         } else {
             if slot <= 26510 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:407
+// UPDATE_PROGRAM.agc:407
 //		DAS	TIME2		# INCREMENT TIME2,TIME1
-// PORT: Fixed ROM slots 26510.
+// slot 26510
                 if slot <> 26510 or instruction <> 8213 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -2666,11 +2666,11 @@ function agcAotUnit1532 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:408
+// UPDATE_PROGRAM.agc:408
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:409
+// UPDATE_PROGRAM.agc:409
 //		TC	PHASCHNG	# RESTART PROTECT(GROUP 6)
-// PORT: Fixed ROM slots 26511.
+// slot 26511
                 if slot <> 26511 or instruction <> 2826 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -2684,21 +2684,21 @@ function agcAotUnit1532 {
 set agcAotRoutes[1532] to agcAotUnit1532@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE UPDATE_PROGRAM.agc:410
+// UPDATE_PROGRAM.agc:410
 //		OCT	04026
-// PORT: Fixed ROM slots 26512.
+// slot 26512
     26512, 4140
 )).
 
-// PORT: Physical bank 27. Shared continuation entries, slots 26513–26514.
+// bank 27, slots 26513-26514
 function agcAotUnit1533 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 26513 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:411
+// UPDATE_PROGRAM.agc:411
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:412
+// UPDATE_PROGRAM.agc:412
 //		INHINT
-// PORT: Fixed ROM slots 26513.
+// slot 26513
         if slot <> 26513 or instruction <> 4 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -2706,9 +2706,9 @@ function agcAotUnit1533 {
         }
         return choose false if checkOnly else -1.
     } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:413
+// UPDATE_PROGRAM.agc:413
 //		INDEX	UPTEMP		# (CODED THIS WAY FOR RESTART PROTECTION)
-// PORT: Fixed ROM slots 26514.
+// slot 26514
         if slot <> 26514 or instruction <> 20696 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -2724,24 +2724,24 @@ function agcAotUnit1533 {
 set agcAotRoutes[1533] to agcAotUnit1533@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE UPDATE_PROGRAM.agc:414
+// UPDATE_PROGRAM.agc:414
 //		TC	1		# NORMAL RETURN
-// PORT: Fixed ROM slots 26515.
+// slot 26515
     26515, 2
 )).
 
-// PORT: Physical bank 27. Shared continuation entries, slots 26516–26516.
+// bank 27, slots 26516-26516
 function agcAotUnit1534 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
-// PORT: SOURCE UPDATE_PROGRAM.agc:415
+// UPDATE_PROGRAM.agc:415
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:416
+// UPDATE_PROGRAM.agc:416
 //# VERB 71 BRANCH
-// PORT: SOURCE UPDATE_PROGRAM.agc:417
+// UPDATE_PROGRAM.agc:417
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:418
+// UPDATE_PROGRAM.agc:418
 //UPEND71		CAE	UPBUFF +1	# SET EBANK
-// PORT: Fixed ROM slots 26516.
+// slot 26516
     if slot <> 26516 or instruction <> 12485 { return choose false if checkOnly else -1. }
     if not extended {
         if checkOnly { return true. }
@@ -2753,15 +2753,15 @@ function agcAotUnit1534 {
 }
 set agcAotRoutes[1534] to agcAotUnit1534@.
 
-// PORT: Physical bank 27. Shared continuation entries, slots 26517–26530.
+// bank 27, slots 26517-26530
 function agcAotUnit1535 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 26523 {
         if slot <= 26519 {
             if slot <= 26517 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:419
+// UPDATE_PROGRAM.agc:419
 //		TS	EBANK		#	AND
-// PORT: Fixed ROM slots 26517.
+// slot 26517
                 if slot <> 26517 or instruction <> 22531 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -2770,11 +2770,11 @@ function agcAotUnit1535 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 26518 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:420
+// UPDATE_PROGRAM.agc:420
 //# Page 1505
-// PORT: SOURCE UPDATE_PROGRAM.agc:421
+// UPDATE_PROGRAM.agc:421
 //		MASK	LOW8		# CALCULATE
-// PORT: Fixed ROM slots 26518.
+// slot 26518
                     if slot <> 26518 or instruction <> 30971 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -2790,9 +2790,9 @@ function agcAotUnit1535 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:422
+// UPDATE_PROGRAM.agc:422
 //		TS	UPTEMP		# S-REG VALUE OF RECEIVING AREA
-// PORT: Fixed ROM slots 26519.
+// slot 26519
                     if slot <> 26519 or instruction <> 22744 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -2804,11 +2804,11 @@ function agcAotUnit1535 {
         } else {
             if slot <= 26521 {
                 if slot <= 26520 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:423
+// UPDATE_PROGRAM.agc:423
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:424
+// UPDATE_PROGRAM.agc:424
 //		AD	NEG3		# IN THE PROCESS OF
-// PORT: Fixed ROM slots 26520.
+// slot 26520
                     if slot <> 26520 or instruction <> 28620 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -2820,9 +2820,9 @@ function agcAotUnit1535 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:425
+// UPDATE_PROGRAM.agc:425
 //		AD	COMPNUMB	# PERFORMING
-// PORT: Fixed ROM slots 26521.
+// slot 26521
                     if slot <> 26521 or instruction <> 24768 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -2834,9 +2834,9 @@ function agcAotUnit1535 {
                 }
             } else {
                 if slot <= 26522 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:426
+// UPDATE_PROGRAM.agc:426
 //		EXTEND			# THIS UPDATE
-// PORT: Fixed ROM slots 26522.
+// slot 26522
                     if slot <> 26522 or instruction <> 6 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -2844,9 +2844,9 @@ function agcAotUnit1535 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:427
+// UPDATE_PROGRAM.agc:427
 //		BZF	STORLP71	# WILL WE
-// PORT: Fixed ROM slots 26523.
+// slot 26523
                     if slot <> 26523 or instruction <> 6049 { return choose false if checkOnly else -1. }
                     if extended {
                         if checkOnly { return true. }
@@ -2859,9 +2859,9 @@ function agcAotUnit1535 {
     } else {
         if slot <= 26526 {
             if slot <= 26524 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:428
+// UPDATE_PROGRAM.agc:428
 //		MASK	BIT9		# OVERFLOW
-// PORT: Fixed ROM slots 26524.
+// slot 26524
                 if slot <> 26524 or instruction <> 31239 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -2878,9 +2878,9 @@ function agcAotUnit1535 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 26525 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:429
+// UPDATE_PROGRAM.agc:429
 //		CCS	A		# INTO THE NEXT EBANK....
-// PORT: Fixed ROM slots 26525.
+// slot 26525
                     if slot <> 26525 or instruction <> 4096 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -2890,9 +2890,9 @@ function agcAotUnit1535 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:430
+// UPDATE_PROGRAM.agc:430
 //		TCF	UPERROUT	# YES
-// PORT: Fixed ROM slots 26526.
+// slot 26526
                     if slot <> 26526 or instruction <> 6122 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -2904,11 +2904,11 @@ function agcAotUnit1535 {
         } else {
             if slot <= 26528 {
                 if slot <= 26527 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:431
+// UPDATE_PROGRAM.agc:431
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:432
+// UPDATE_PROGRAM.agc:432
 //		CA	NEG3		# NO- CALCULATE NUMBER OF
-// PORT: Fixed ROM slots 26527.
+// slot 26527
                     if slot <> 26527 or instruction <> 16332 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -2919,9 +2919,9 @@ function agcAotUnit1535 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:433
+// UPDATE_PROGRAM.agc:433
 //		AD	COMPNUMB	# WORDS TO BE STORED MINUS ONE
-// PORT: Fixed ROM slots 26528.
+// slot 26528
                     if slot <> 26528 or instruction <> 24768 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -2933,9 +2933,9 @@ function agcAotUnit1535 {
                 }
             } else {
                 if slot <= 26529 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:434
+// UPDATE_PROGRAM.agc:434
 //STORLP71	TS	MPAC		# SAVE NO. OF WORDS REMAINING MINUS ONE
-// PORT: Fixed ROM slots 26529.
+// slot 26529
                     if slot <> 26529 or instruction <> 22636 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -2943,9 +2943,9 @@ function agcAotUnit1535 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:435
+// UPDATE_PROGRAM.agc:435
 //		INDEX	A		# TAKE NEXT UPDATE WORD FROM
-// PORT: Fixed ROM slots 26530.
+// slot 26530
                     if slot <> 26530 or instruction <> 20480 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -2964,20 +2964,20 @@ function agcAotUnit1535 {
 set agcAotRoutes[1535] to agcAotUnit1535@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE UPDATE_PROGRAM.agc:436
+// UPDATE_PROGRAM.agc:436
 //		CA	UPBUFF +2	# UPBUFF AND
-// PORT: Fixed ROM slots 26531.
+// slot 26531
     26531, 24972
 )).
 
-// PORT: Physical bank 27. Shared continuation entries, slots 26532–26535.
+// bank 27, slots 26532-26535
 function agcAotUnit1536 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 26533 {
         if slot <= 26532 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:437
+// UPDATE_PROGRAM.agc:437
 //		TS	L		# SAVE IT IN L
-// PORT: Fixed ROM slots 26532.
+// slot 26532
             if slot <> 26532 or instruction <> 22529 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -2985,9 +2985,9 @@ function agcAotUnit1536 {
             }
             return choose false if checkOnly else -1.
         } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:438
+// UPDATE_PROGRAM.agc:438
 //		CA	MPAC		# CALCULATE NEXT
-// PORT: Fixed ROM slots 26533.
+// slot 26533
             if slot <> 26533 or instruction <> 12396 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -2999,9 +2999,9 @@ function agcAotUnit1536 {
         }
     } else {
         if slot <= 26534 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:439
+// UPDATE_PROGRAM.agc:439
 //		AD	UPTEMP		# RECEIVING ADDRESS
-// PORT: Fixed ROM slots 26534.
+// slot 26534
             if slot <> 26534 or instruction <> 24792 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -3011,9 +3011,9 @@ function agcAotUnit1536 {
             }
             return choose false if checkOnly else -1.
         } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:440
+// UPDATE_PROGRAM.agc:440
 //		INDEX	A
-// PORT: Fixed ROM slots 26535.
+// slot 26535
             if slot <> 26535 or instruction <> 20480 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -3030,23 +3030,23 @@ function agcAotUnit1536 {
 set agcAotRoutes[1536] to agcAotUnit1536@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE UPDATE_PROGRAM.agc:441
+// UPDATE_PROGRAM.agc:441
 //		EBANK=	1400
-// PORT: SOURCE UPDATE_PROGRAM.agc:442
+// UPDATE_PROGRAM.agc:442
 //		LXCH	1400		# UPDATE THE REGISTER  BY CONTENTS OF L
-// PORT: Fixed ROM slots 26536.
+// slot 26536
     26536, 19968
 )).
 
-// PORT: Physical bank 27. Shared continuation entries, slots 26537–26539.
+// bank 27, slots 26537-26539
 function agcAotUnit1537 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 26537 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:443
+// UPDATE_PROGRAM.agc:443
 //		EBANK=	TEPHEM
-// PORT: SOURCE UPDATE_PROGRAM.agc:444
+// UPDATE_PROGRAM.agc:444
 //		CCS	MPAC		# ARE THERE ANY WORDS LEFT TO BE STORED
-// PORT: Fixed ROM slots 26537.
+// slot 26537
         if slot <> 26537 or instruction <> 4204 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -3057,9 +3057,9 @@ function agcAotUnit1537 {
         return choose false if checkOnly else -1.
     } else {
         if slot <= 26538 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:445
+// UPDATE_PROGRAM.agc:445
 //		TCF	STORLP71	# YES
-// PORT: Fixed ROM slots 26538.
+// slot 26538
             if slot <> 26538 or instruction <> 6049 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -3067,9 +3067,9 @@ function agcAotUnit1537 {
             }
             return choose false if checkOnly else -1.
         } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:446
+// UPDATE_PROGRAM.agc:446
 //		TCF	UPOUT		# NO- THEN EXIT UPDATE PROGRAM
-// PORT: Fixed ROM slots 26539.
+// slot 26539
             if slot <> 26539 or instruction <> 6083 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -3082,21 +3082,21 @@ function agcAotUnit1537 {
 set agcAotRoutes[1537] to agcAotUnit1537@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE UPDATE_PROGRAM.agc:447
+// UPDATE_PROGRAM.agc:447
 //ADUPBFM1	ADRES	UPBUFF -1	# SAME AS ADUPBUFF BUT LESS 1 (DON'T MOVE)
-// PORT: Fixed ROM slots 26540.
+// slot 26540
     26540, 390
 )).
 
-// PORT: Physical bank 27. Shared continuation entries, slots 26541–26550.
+// bank 27, slots 26541-26550
 function agcAotUnit1538 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 26545 {
         if slot <= 26542 {
             if slot <= 26541 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:448
+// UPDATE_PROGRAM.agc:448
 //		TCF	UPOUT		# NO- EXIT UPDATE(HERE WHEN COMPNUMB = 3)
-// PORT: Fixed ROM slots 26541.
+// slot 26541
                 if slot <> 26541 or instruction <> 6083 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -3104,15 +3104,15 @@ function agcAotUnit1538 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:449
+// UPDATE_PROGRAM.agc:449
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:450
+// UPDATE_PROGRAM.agc:450
 //# VERB 72 BRANCH
-// PORT: SOURCE UPDATE_PROGRAM.agc:451
+// UPDATE_PROGRAM.agc:451
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:452
+// UPDATE_PROGRAM.agc:452
 //UPEND72		CAF	BIT1		# HAVE AN ODD NO. OF COMPONENTS
-// PORT: Fixed ROM slots 26542.
+// slot 26542
                 if slot <> 26542 or instruction <> 14863 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -3125,9 +3125,9 @@ function agcAotUnit1538 {
             }
         } else {
             if slot <= 26543 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:453
+// UPDATE_PROGRAM.agc:453
 //		MASK	COMPNUMB	# BEEN SENT FOR A V72 UPDATE...
-// PORT: Fixed ROM slots 26543.
+// slot 26543
                 if slot <> 26543 or instruction <> 28864 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -3138,9 +3138,9 @@ function agcAotUnit1538 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 26544 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:454
+// UPDATE_PROGRAM.agc:454
 //		CCS	A
-// PORT: Fixed ROM slots 26544.
+// slot 26544
                     if slot <> 26544 or instruction <> 4096 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -3150,9 +3150,9 @@ function agcAotUnit1538 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:455
+// UPDATE_PROGRAM.agc:455
 //		TCF	+2		# YES
-// PORT: Fixed ROM slots 26545.
+// slot 26545
                     if slot <> 26545 or instruction <> 6067 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -3165,9 +3165,9 @@ function agcAotUnit1538 {
     } else {
         if slot <= 26547 {
             if slot <= 26546 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:456
+// UPDATE_PROGRAM.agc:456
 //		TCF	UPERROUT	# ERROR- SHOULD BE ODD NO. OF COMPONENTS
-// PORT: Fixed ROM slots 26546.
+// slot 26546
                 if slot <> 26546 or instruction <> 6122 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -3175,9 +3175,9 @@ function agcAotUnit1538 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:457
+// UPDATE_PROGRAM.agc:457
 //		CS	BIT2
-// PORT: Fixed ROM slots 26547.
+// slot 26547
                 if slot <> 26547 or instruction <> 18958 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -3189,9 +3189,9 @@ function agcAotUnit1538 {
             }
         } else {
             if slot <= 26548 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:458
+// UPDATE_PROGRAM.agc:458
 //		AD	COMPNUMB
-// PORT: Fixed ROM slots 26548.
+// slot 26548
                 if slot <> 26548 or instruction <> 24768 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -3202,9 +3202,9 @@ function agcAotUnit1538 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 26549 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:459
+// UPDATE_PROGRAM.agc:459
 //LDLOOP72	TS	MPAC		# NOW PERFORM THE UPDATE
-// PORT: Fixed ROM slots 26549.
+// slot 26549
                     if slot <> 26549 or instruction <> 22636 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -3212,9 +3212,9 @@ function agcAotUnit1538 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:460
+// UPDATE_PROGRAM.agc:460
 //		INDEX	A
-// PORT: Fixed ROM slots 26550.
+// slot 26550
                     if slot <> 26550 or instruction <> 20480 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -3233,20 +3233,20 @@ function agcAotUnit1538 {
 set agcAotRoutes[1538] to agcAotUnit1538@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE UPDATE_PROGRAM.agc:461
+// UPDATE_PROGRAM.agc:461
 //		CAE	UPBUFF +1	# PICK UP NEXT UPDATE WORD
-// PORT: Fixed ROM slots 26551.
+// slot 26551
     26551, 24970
 )).
 
-// PORT: Physical bank 27. Shared continuation entries, slots 26552–26555.
+// bank 27, slots 26552-26555
 function agcAotUnit1539 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 26553 {
         if slot <= 26552 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:462
+// UPDATE_PROGRAM.agc:462
 //		LXCH	A
-// PORT: Fixed ROM slots 26552.
+// slot 26552
             if slot <> 26552 or instruction <> 9216 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -3256,9 +3256,9 @@ function agcAotUnit1539 {
             }
             return choose false if checkOnly else -1.
         } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:463
+// UPDATE_PROGRAM.agc:463
 //		CCS	MPAC		# SET POINTER TO ECADR(MUST BE CCS)
-// PORT: Fixed ROM slots 26553.
+// slot 26553
             if slot <> 26553 or instruction <> 4204 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -3270,9 +3270,9 @@ function agcAotUnit1539 {
         }
     } else {
         if slot <= 26554 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:464
+// UPDATE_PROGRAM.agc:464
 //		TS	MPAC
-// PORT: Fixed ROM slots 26554.
+// slot 26554
             if slot <> 26554 or instruction <> 22636 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -3280,9 +3280,9 @@ function agcAotUnit1539 {
             }
             return choose false if checkOnly else -1.
         } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:465
+// UPDATE_PROGRAM.agc:465
 //		INDEX	A
-// PORT: Fixed ROM slots 26555.
+// slot 26555
             if slot <> 26555 or instruction <> 20480 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -3299,19 +3299,19 @@ function agcAotUnit1539 {
 set agcAotRoutes[1539] to agcAotUnit1539@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE UPDATE_PROGRAM.agc:466
+// UPDATE_PROGRAM.agc:466
 //		CAE	UPBUFF +1	# PICK UP NEXT ECADR OF REG TO BE UPDATED
-// PORT: Fixed ROM slots 26556.
+// slot 26556
     26556, 24970
 )).
 
-// PORT: Physical bank 27. Shared continuation entries, slots 26557–26559.
+// bank 27, slots 26557-26559
 function agcAotUnit1540 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 26557 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:467
+// UPDATE_PROGRAM.agc:467
 //		TS	EBANK		# SET EBANK
-// PORT: Fixed ROM slots 26557.
+// slot 26557
         if slot <> 26557 or instruction <> 22531 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -3320,9 +3320,9 @@ function agcAotUnit1540 {
         return choose false if checkOnly else -1.
     } else {
         if slot <= 26558 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:468
+// UPDATE_PROGRAM.agc:468
 //		MASK	LOW8		# ISOLATE RELATIVE ADDRESS
-// PORT: Fixed ROM slots 26558.
+// slot 26558
             if slot <> 26558 or instruction <> 30971 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -3338,9 +3338,9 @@ function agcAotUnit1540 {
             }
             return choose false if checkOnly else -1.
         } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:469
+// UPDATE_PROGRAM.agc:469
 //		INDEX	A
-// PORT: Fixed ROM slots 26559.
+// slot 26559
             if slot <> 26559 or instruction <> 20480 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -3357,30 +3357,30 @@ function agcAotUnit1540 {
 set agcAotRoutes[1540] to agcAotUnit1540@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE UPDATE_PROGRAM.agc:470
+// UPDATE_PROGRAM.agc:470
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:471
+// UPDATE_PROGRAM.agc:471
 //# Page 1506
-// PORT: SOURCE UPDATE_PROGRAM.agc:472
+// UPDATE_PROGRAM.agc:472
 //		EBANK=	1400
-// PORT: SOURCE UPDATE_PROGRAM.agc:473
+// UPDATE_PROGRAM.agc:473
 //		LXCH	1400		# UPDATE THE REGISTER BY CONTENTS OF L
-// PORT: Fixed ROM slots 26560.
+// slot 26560
     26560, 19968
 )).
 
-// PORT: Physical bank 27. Shared continuation entries, slots 26561–26584.
+// bank 27, slots 26561-26584
 function agcAotUnit1541 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 26572 {
         if slot <= 26566 {
             if slot <= 26563 {
                 if slot <= 26561 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:474
+// UPDATE_PROGRAM.agc:474
 //		EBANK=	TEPHEM
-// PORT: SOURCE UPDATE_PROGRAM.agc:475
+// UPDATE_PROGRAM.agc:475
 //		CCS	MPAC		# ARE WE THORUGH THE V72 UPDATE...
-// PORT: Fixed ROM slots 26561.
+// slot 26561
                     if slot <> 26561 or instruction <> 4204 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -3391,9 +3391,9 @@ function agcAotUnit1541 {
                     return choose false if checkOnly else -1.
                 } else {
                     if slot <= 26562 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:476
+// UPDATE_PROGRAM.agc:476
 //		TCF	LDLOOP72	# NO
-// PORT: Fixed ROM slots 26562.
+// slot 26562
                         if slot <> 26562 or instruction <> 6069 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -3401,17 +3401,17 @@ function agcAotUnit1541 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:477
+// UPDATE_PROGRAM.agc:477
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:478
+// UPDATE_PROGRAM.agc:478
 //# NORMAL FINISH OF P27
-// PORT: SOURCE UPDATE_PROGRAM.agc:479
+// UPDATE_PROGRAM.agc:479
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:480
+// UPDATE_PROGRAM.agc:480
 //UPOUT		EQUALS
-// PORT: SOURCE UPDATE_PROGRAM.agc:481
+// UPDATE_PROGRAM.agc:481
 //		TC	INTWAKEU	# RELEASE  GRAB  OF ORBITAL INTEGRATION
-// PORT: Fixed ROM slots 26563.
+// slot 26563
                         if slot <> 26563 or instruction <> 1465 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -3422,9 +3422,9 @@ function agcAotUnit1541 {
                 }
             } else {
                 if slot <= 26564 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:482
+// UPDATE_PROGRAM.agc:482
 //	+1	CAE	UPOLDMOD	# RESTORE PRIOR P27 MODE
-// PORT: Fixed ROM slots 26564.
+// slot 26564
                     if slot <> 26564 or instruction <> 12481 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -3435,9 +3435,9 @@ function agcAotUnit1541 {
                     return choose false if checkOnly else -1.
                 } else {
                     if slot <= 26565 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:483
+// UPDATE_PROGRAM.agc:483
 //		TC	NEWMODEX +3
-// PORT: Fixed ROM slots 26565.
+// slot 26565
                         if slot <> 26565 or instruction <> 2799 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -3445,9 +3445,9 @@ function agcAotUnit1541 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:484
+// UPDATE_PROGRAM.agc:484
 //		CAF	ZERO
-// PORT: Fixed ROM slots 26566.
+// slot 26566
                         if slot <> 26566 or instruction <> 14865 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -3463,9 +3463,9 @@ function agcAotUnit1541 {
         } else {
             if slot <= 26569 {
                 if slot <= 26567 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:485
+// UPDATE_PROGRAM.agc:485
 //		TS	DNLSTCOD
-// PORT: Fixed ROM slots 26567.
+// slot 26567
                     if slot <> 26567 or instruction <> 22746 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -3474,9 +3474,9 @@ function agcAotUnit1541 {
                     return choose false if checkOnly else -1.
                 } else {
                     if slot <= 26568 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:486
+// UPDATE_PROGRAM.agc:486
 //		TC	UPACTOFF	# TURN OFF 'UPLINK ACTIVITY' LIGHT
-// PORT: Fixed ROM slots 26568.
+// slot 26568
                         if slot <> 26568 or instruction <> 2031 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -3484,11 +3484,11 @@ function agcAotUnit1541 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:487
+// UPDATE_PROGRAM.agc:487
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:488
+// UPDATE_PROGRAM.agc:488
 //		EXTEND			# KILL GROUP 6
-// PORT: Fixed ROM slots 26569.
+// slot 26569
                         if slot <> 26569 or instruction <> 6 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -3499,9 +3499,9 @@ function agcAotUnit1541 {
                 }
             } else {
                 if slot <= 26570 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:489
+// UPDATE_PROGRAM.agc:489
 //		DCA	NEG0
-// PORT: Fixed ROM slots 26570.
+// slot 26570
                     if slot <> 26570 or instruction <> 14865 { return choose false if checkOnly else -1. }
                     if extended {
                         if checkOnly { return true. }
@@ -3512,9 +3512,9 @@ function agcAotUnit1541 {
                     return choose false if checkOnly else -1.
                 } else {
                     if slot <= 26571 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:490
+// UPDATE_PROGRAM.agc:490
 //		DXCH	-PHASE6
-// PORT: Fixed ROM slots 26571.
+// slot 26571
                         if slot <> 26571 or instruction <> 22005 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -3523,11 +3523,11 @@ function agcAotUnit1541 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:491
+// UPDATE_PROGRAM.agc:491
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:492
+// UPDATE_PROGRAM.agc:492
 //		TC	ENDEXT		# EXTENDED VERB EXIT
-// PORT: Fixed ROM slots 26572.
+// slot 26572
                         if slot <> 26572 or instruction <> 2908 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -3542,15 +3542,15 @@ function agcAotUnit1541 {
         if slot <= 26578 {
             if slot <= 26575 {
                 if slot <= 26573 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:493
+// UPDATE_PROGRAM.agc:493
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:494
+// UPDATE_PROGRAM.agc:494
 //# VERB 70 BRANCH
-// PORT: SOURCE UPDATE_PROGRAM.agc:495
+// UPDATE_PROGRAM.agc:495
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:496
+// UPDATE_PROGRAM.agc:496
 //UPEND70		EXTEND			# V70 DOES THE FOLLOWING WITH DP DELTA
-// PORT: Fixed ROM slots 26573.
+// slot 26573
                     if slot <> 26573 or instruction <> 6 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -3559,9 +3559,9 @@ function agcAotUnit1541 {
                     return choose false if checkOnly else -1.
                 } else {
                     if slot <= 26574 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:497
+// UPDATE_PROGRAM.agc:497
 //		DCS	UPBUFF		# TIME IN UPBUFF
-// PORT: Fixed ROM slots 26574.
+// slot 26574
                         if slot <> 26574 or instruction <> 16581 { return choose false if checkOnly else -1. }
                         if extended {
                             if checkOnly { return true. }
@@ -3571,9 +3571,9 @@ function agcAotUnit1541 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:498
+// UPDATE_PROGRAM.agc:498
 //		DXCH	UPBUFF +8D
-// PORT: Fixed ROM slots 26575.
+// slot 26575
                         if slot <> 26575 or instruction <> 21709 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -3585,9 +3585,9 @@ function agcAotUnit1541 {
                 }
             } else {
                 if slot <= 26576 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:499
+// UPDATE_PROGRAM.agc:499
 //		TC	TIMEDIDL	# DECREMENT AGC CLOCK
-// PORT: Fixed ROM slots 26576.
+// slot 26576
                     if slot <> 26576 or instruction <> 1905 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -3596,11 +3596,11 @@ function agcAotUnit1541 {
                     return choose false if checkOnly else -1.
                 } else {
                     if slot <= 26577 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:500
+// UPDATE_PROGRAM.agc:500
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:501
+// UPDATE_PROGRAM.agc:501
 //		TC	UPERROUT	# ERROR WHILE DECREMENTING CLOCK -- EXIT
-// PORT: Fixed ROM slots 26577.
+// slot 26577
                         if slot <> 26577 or instruction <> 2026 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -3608,13 +3608,13 @@ function agcAotUnit1541 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:502
+// UPDATE_PROGRAM.agc:502
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:503
+// UPDATE_PROGRAM.agc:503
 //		EBANK=	TEPHEM
-// PORT: SOURCE UPDATE_PROGRAM.agc:504
+// UPDATE_PROGRAM.agc:504
 //		EXTEND
-// PORT: Fixed ROM slots 26578.
+// slot 26578
                         if slot <> 26578 or instruction <> 6 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -3627,9 +3627,9 @@ function agcAotUnit1541 {
         } else {
             if slot <= 26581 {
                 if slot <= 26579 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:505
+// UPDATE_PROGRAM.agc:505
 //		DCS	UPBUFF		# COPY DECREMENTERS FOR
-// PORT: Fixed ROM slots 26579.
+// slot 26579
                     if slot <> 26579 or instruction <> 16581 { return choose false if checkOnly else -1. }
                     if extended {
                         if checkOnly { return true. }
@@ -3640,9 +3640,9 @@ function agcAotUnit1541 {
                     return choose false if checkOnly else -1.
                 } else {
                     if slot <= 26580 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:506
+// UPDATE_PROGRAM.agc:506
 //		DXCH	UPBUFF +10D	# RESTART PROTECTION
-// PORT: Fixed ROM slots 26580.
+// slot 26580
                         if slot <> 26580 or instruction <> 21711 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -3651,9 +3651,9 @@ function agcAotUnit1541 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:507
+// UPDATE_PROGRAM.agc:507
 //		EXTEND
-// PORT: Fixed ROM slots 26581.
+// slot 26581
                         if slot <> 26581 or instruction <> 6 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -3664,9 +3664,9 @@ function agcAotUnit1541 {
                 }
             } else {
                 if slot <= 26582 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:508
+// UPDATE_PROGRAM.agc:508
 //		DCS	UPBUFF
-// PORT: Fixed ROM slots 26582.
+// slot 26582
                     if slot <> 26582 or instruction <> 16581 { return choose false if checkOnly else -1. }
                     if extended {
                         if checkOnly { return true. }
@@ -3677,9 +3677,9 @@ function agcAotUnit1541 {
                     return choose false if checkOnly else -1.
                 } else {
                     if slot <= 26583 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:509
+// UPDATE_PROGRAM.agc:509
 //		DXCH	UPBUFF +12D
-// PORT: Fixed ROM slots 26583.
+// slot 26583
                         if slot <> 26583 or instruction <> 21713 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -3688,11 +3688,11 @@ function agcAotUnit1541 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:510
+// UPDATE_PROGRAM.agc:510
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:511
+// UPDATE_PROGRAM.agc:511
 //		TC	PHASCHNG	# RESTART PROTECT(GROUP 6)
-// PORT: Fixed ROM slots 26584.
+// slot 26584
                         if slot <> 26584 or instruction <> 2826 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -3708,23 +3708,23 @@ function agcAotUnit1541 {
 set agcAotRoutes[1541] to agcAotUnit1541@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE UPDATE_PROGRAM.agc:512
+// UPDATE_PROGRAM.agc:512
 //		OCT	04026
-// PORT: Fixed ROM slots 26585.
+// slot 26585
     26585, 4140
 )).
 
-// PORT: Physical bank 27. Shared continuation entries, slots 26586–26599.
+// bank 27, slots 26586-26599
 function agcAotUnit1542 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 26592 {
         if slot <= 26588 {
             if slot <= 26586 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:513
+// UPDATE_PROGRAM.agc:513
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:514
+// UPDATE_PROGRAM.agc:514
 //		CAF	ZERO
-// PORT: Fixed ROM slots 26586.
+// slot 26586
                 if slot <> 26586 or instruction <> 14865 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -3736,9 +3736,9 @@ function agcAotUnit1542 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 26587 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:515
+// UPDATE_PROGRAM.agc:515
 //		ZL
-// PORT: Fixed ROM slots 26587.
+// slot 26587
                     if slot <> 26587 or instruction <> 9223 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -3748,9 +3748,9 @@ function agcAotUnit1542 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:516
+// UPDATE_PROGRAM.agc:516
 //		DXCH	UPBUFF +10D	# DECREMENT CSM STATE VECTOR TIME
-// PORT: Fixed ROM slots 26588.
+// slot 26588
                     if slot <> 26588 or instruction <> 21711 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -3763,9 +3763,9 @@ function agcAotUnit1542 {
         } else {
             if slot <= 26590 {
                 if slot <= 26589 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:517
+// UPDATE_PROGRAM.agc:517
 //		DAS	TETCSM
-// PORT: Fixed ROM slots 26589.
+// slot 26589
                     if slot <> 26589 or instruction <> 9081 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -3775,11 +3775,11 @@ function agcAotUnit1542 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:518
+// UPDATE_PROGRAM.agc:518
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:519
+// UPDATE_PROGRAM.agc:519
 //		CAF	ZERO
-// PORT: Fixed ROM slots 26590.
+// slot 26590
                     if slot <> 26590 or instruction <> 14865 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -3792,11 +3792,11 @@ function agcAotUnit1542 {
                 }
             } else {
                 if slot <= 26591 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:520
+// UPDATE_PROGRAM.agc:520
 //# Page 1507
-// PORT: SOURCE UPDATE_PROGRAM.agc:521
+// UPDATE_PROGRAM.agc:521
 //		ZL
-// PORT: Fixed ROM slots 26591.
+// slot 26591
                     if slot <> 26591 or instruction <> 9223 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -3806,9 +3806,9 @@ function agcAotUnit1542 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:522
+// UPDATE_PROGRAM.agc:522
 //		DXCH	UPBUFF +12D	# DECREMENT LEM STATE VECTOR TIME
-// PORT: Fixed ROM slots 26592.
+// slot 26592
                     if slot <> 26592 or instruction <> 21713 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -3822,9 +3822,9 @@ function agcAotUnit1542 {
     } else {
         if slot <= 26595 {
             if slot <= 26593 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:523
+// UPDATE_PROGRAM.agc:523
 //		DAS	TETLEM
-// PORT: Fixed ROM slots 26593.
+// slot 26593
                 if slot <> 26593 or instruction <> 9123 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -3835,11 +3835,11 @@ function agcAotUnit1542 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 26594 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:524
+// UPDATE_PROGRAM.agc:524
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:525
+// UPDATE_PROGRAM.agc:525
 //		CAF	ZERO
-// PORT: Fixed ROM slots 26594.
+// slot 26594
                     if slot <> 26594 or instruction <> 14865 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -3850,9 +3850,9 @@ function agcAotUnit1542 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:526
+// UPDATE_PROGRAM.agc:526
 //		ZL
-// PORT: Fixed ROM slots 26595.
+// slot 26595
                     if slot <> 26595 or instruction <> 9223 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -3866,9 +3866,9 @@ function agcAotUnit1542 {
         } else {
             if slot <= 26597 {
                 if slot <= 26596 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:527
+// UPDATE_PROGRAM.agc:527
 //		DXCH	UPBUFF
-// PORT: Fixed ROM slots 26596.
+// slot 26596
                     if slot <> 26596 or instruction <> 21701 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -3877,9 +3877,9 @@ function agcAotUnit1542 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:528
+// UPDATE_PROGRAM.agc:528
 //		DAS	TEPHEM +1	# INCREMENT TP TEPHEM
-// PORT: Fixed ROM slots 26597.
+// slot 26597
                     if slot <> 26597 or instruction <> 9160 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -3891,9 +3891,9 @@ function agcAotUnit1542 {
                 }
             } else {
                 if slot <= 26598 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:529
+// UPDATE_PROGRAM.agc:529
 //		ADS	TEPHEM
-// PORT: Fixed ROM slots 26598.
+// slot 26598
                     if slot <> 26598 or instruction <> 12230 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -3903,11 +3903,11 @@ function agcAotUnit1542 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:530
+// UPDATE_PROGRAM.agc:530
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:531
+// UPDATE_PROGRAM.agc:531
 //		TC	PHASCHNG	# RESTART PROTECT(GROUP 6)
-// PORT: Fixed ROM slots 26599.
+// slot 26599
                     if slot <> 26599 or instruction <> 2826 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -3922,27 +3922,27 @@ function agcAotUnit1542 {
 set agcAotRoutes[1542] to agcAotUnit1542@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE UPDATE_PROGRAM.agc:532
+// UPDATE_PROGRAM.agc:532
 //		OCT 	04026
-// PORT: Fixed ROM slots 26600.
+// slot 26600
     26600, 4140
 )).
 
-// PORT: Physical bank 27. Shared continuation entries, slots 26601–26610.
+// bank 27, slots 26601-26610
 function agcAotUnit1543 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 26605 {
         if slot <= 26602 {
             if slot <= 26601 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:533
+// UPDATE_PROGRAM.agc:533
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:534
+// UPDATE_PROGRAM.agc:534
 //		EBANK=	UPBUFF
-// PORT: SOURCE UPDATE_PROGRAM.agc:535
+// UPDATE_PROGRAM.agc:535
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:536
+// UPDATE_PROGRAM.agc:536
 //		TC	UPOUT		# GO TO STANDARD UPDATE PROGRAM EXIT
-// PORT: Fixed ROM slots 26601.
+// slot 26601
                 if slot <> 26601 or instruction <> 1987 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -3950,15 +3950,15 @@ function agcAotUnit1543 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:537
+// UPDATE_PROGRAM.agc:537
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:538
+// UPDATE_PROGRAM.agc:538
 //# ERROR SEQUENCE
-// PORT: SOURCE UPDATE_PROGRAM.agc:539
+// UPDATE_PROGRAM.agc:539
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:540
+// UPDATE_PROGRAM.agc:540
 //UPERROUT	TC	FALTON		# TURN ON *OPERATOR ERROR* LIGHT
-// PORT: Fixed ROM slots 26602.
+// slot 26602
                 if slot <> 26602 or instruction <> 2304 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -3968,9 +3968,9 @@ function agcAotUnit1543 {
             }
         } else {
             if slot <= 26603 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:541
+// UPDATE_PROGRAM.agc:541
 //		TCF	UPOUT		# GO TO COMMON UPDATE PROGRAM EXIT
-// PORT: Fixed ROM slots 26603.
+// slot 26603
                 if slot <> 26603 or instruction <> 6083 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -3979,11 +3979,11 @@ function agcAotUnit1543 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 26604 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:542
+// UPDATE_PROGRAM.agc:542
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:543
+// UPDATE_PROGRAM.agc:543
 //	+2	TC	FALTON		# TURN ON 'OPERATOR ERROR' LIGHT
-// PORT: Fixed ROM slots 26604.
+// slot 26604
                     if slot <> 26604 or instruction <> 2304 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -3991,9 +3991,9 @@ function agcAotUnit1543 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:544
+// UPDATE_PROGRAM.agc:544
 //		TC	UPACTOFF	# TURN OFF'UPLINK ACTIVITY'LIGHT
-// PORT: Fixed ROM slots 26605.
+// slot 26605
                     if slot <> 26605 or instruction <> 2031 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -4006,9 +4006,9 @@ function agcAotUnit1543 {
     } else {
         if slot <= 26607 {
             if slot <= 26606 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:545
+// UPDATE_PROGRAM.agc:545
 //		TC	ENDEXT		# EXTENDED VERB EXIT
-// PORT: Fixed ROM slots 26606.
+// slot 26606
                 if slot <> 26606 or instruction <> 2908 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -4016,21 +4016,21 @@ function agcAotUnit1543 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:546
+// UPDATE_PROGRAM.agc:546
 //					# (THE PURPOSE OF UPERROUT +2 EXIT IS
-// PORT: SOURCE UPDATE_PROGRAM.agc:547
+// UPDATE_PROGRAM.agc:547
 //					# TO PROVIDE AN ERROR EXIT WHICH DOES NOT
-// PORT: SOURCE UPDATE_PROGRAM.agc:548
+// UPDATE_PROGRAM.agc:548
 //					# RESET ANY RESTART GROUPS)
-// PORT: SOURCE UPDATE_PROGRAM.agc:549
+// UPDATE_PROGRAM.agc:549
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:550
+// UPDATE_PROGRAM.agc:550
 //# :UPACTOFF: IS A ROUTINE TO TURN OFF UPLINK ACTIVITY LIGHT ON ALL EXITS FROM UPDATE PROGRAM(P27).
-// PORT: SOURCE UPDATE_PROGRAM.agc:551
+// UPDATE_PROGRAM.agc:551
 //
-// PORT: SOURCE UPDATE_PROGRAM.agc:552
+// UPDATE_PROGRAM.agc:552
 //UPACTOFF	CS	BIT3
-// PORT: Fixed ROM slots 26607.
+// slot 26607
                 if slot <> 26607 or instruction <> 18957 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -4042,9 +4042,9 @@ function agcAotUnit1543 {
             }
         } else {
             if slot <= 26608 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:553
+// UPDATE_PROGRAM.agc:553
 //		EXTEND			# TURN OFF UPLINK ACTIVITY LIGHT
-// PORT: Fixed ROM slots 26608.
+// slot 26608
                 if slot <> 26608 or instruction <> 6 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -4053,9 +4053,9 @@ function agcAotUnit1543 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 26609 {
-// PORT: SOURCE UPDATE_PROGRAM.agc:554
+// UPDATE_PROGRAM.agc:554
 //		WAND	DSALMOUT	# (BIT 3 OF CHANNEL 11)
-// PORT: Fixed ROM slots 26609.
+// slot 26609
                     if slot <> 26609 or instruction <> 1545 { return choose false if checkOnly else -1. }
                     if extended {
                         if checkOnly { return true. }
@@ -4065,9 +4065,9 @@ function agcAotUnit1543 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE UPDATE_PROGRAM.agc:555
+// UPDATE_PROGRAM.agc:555
 //		TC	Q
-// PORT: Fixed ROM slots 26610.
+// slot 26610
                     if slot <> 26610 or instruction <> 2 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }

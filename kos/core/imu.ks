@@ -1,5 +1,3 @@
-// PORT: IMU digital phases for the pinned native bus and timing comparison.
-
 function agcCorePipaPulse {
     parameter words, slot, direction.
     if direction = 1 {

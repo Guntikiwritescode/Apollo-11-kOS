@@ -1,6 +1,3 @@
-// Development generic executor initialization, from agc_engine_init.c with
-// static-zero agc_t storage, no core dump, and Sunburst-37 initialization off.
-// Fixed rope installation and external fixture configuration are separate.
 function agcCoreColdStart {
     parameter words, keys.
     for key in keys { set words[key] to 0. }

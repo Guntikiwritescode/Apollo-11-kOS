@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-2.0-only. Apollo11 agc/sim/lm.py hardware.
+// adapted from jweigend/Apollo11 agc/sim/lm.py (GPL-2.0)
 function wInitActuators {
     parameter dev,cycle.
     set dev["jetNames"] to list("B4U","A4D","A3U","B3D","B2U","A2D","A1U","B1D",
@@ -30,7 +30,7 @@ function wAccountJets {
         }
     }
 }
-// Invoke at the cycle of EVERY channel write, including repeated words.
+// call on every channel write, repeats too
 function wOutput {
     parameter dev,cycle,ch,word.
     set dev["ch"][ch] to word.

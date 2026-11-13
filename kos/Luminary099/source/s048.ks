@@ -1,96 +1,96 @@
-// PORT: Original source unit P-AXIS_RCS_AUTOPILOT.agc.
-// PORT: Physical bank 16. Shared continuation entries, slots 16523–16529.
+// P-AXIS_RCS_AUTOPILOT.agc
+// bank 16, slots 16523-16529
 function agcAotUnit1002 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 16525 {
         if slot <= 16523 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1
+// P-AXIS_RCS_AUTOPILOT.agc:1
 //# Copyright:	Public domain.
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:2
+// P-AXIS_RCS_AUTOPILOT.agc:2
 //# Filename:	P-AXIS_RCS_AUTOPILOT.agc
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:3
+// P-AXIS_RCS_AUTOPILOT.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:4
+// P-AXIS_RCS_AUTOPILOT.agc:4
 //#		It is part of the source code for the Lunar Module's (LM)
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:5
+// P-AXIS_RCS_AUTOPILOT.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:6
+// P-AXIS_RCS_AUTOPILOT.agc:6
 //# Assembler:	yaYUL
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:7
+// P-AXIS_RCS_AUTOPILOT.agc:7
 //# Contact:	Ron Burkey <info@sandroid.org>.
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:8
+// P-AXIS_RCS_AUTOPILOT.agc:8
 //# Website:	www.ibiblio.org/apollo.
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:9
+// P-AXIS_RCS_AUTOPILOT.agc:9
 //# Pages:	1421-1441
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:10
+// P-AXIS_RCS_AUTOPILOT.agc:10
 //# Mod history:	2009-05-27 RSB	Adapted from the corresponding
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:11
+// P-AXIS_RCS_AUTOPILOT.agc:11
 //#				Luminary131 file, using page
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:12
+// P-AXIS_RCS_AUTOPILOT.agc:12
 //#				images from Luminary 1A.
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:13
+// P-AXIS_RCS_AUTOPILOT.agc:13
 //#		2009-06-05 RSB	Corrected a relative jump from
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:14
+// P-AXIS_RCS_AUTOPILOT.agc:14
 //#				+8 to +8D.
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:15
+// P-AXIS_RCS_AUTOPILOT.agc:15
 //#		2009-06-07 RSB	Corrected a typo.
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:16
+// P-AXIS_RCS_AUTOPILOT.agc:16
 //#
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:17
+// P-AXIS_RCS_AUTOPILOT.agc:17
 //# This source code has been transcribed or otherwise adapted from
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:18
+// P-AXIS_RCS_AUTOPILOT.agc:18
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:19
+// P-AXIS_RCS_AUTOPILOT.agc:19
 //# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:20
+// P-AXIS_RCS_AUTOPILOT.agc:20
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:21
+// P-AXIS_RCS_AUTOPILOT.agc:21
 //# in storage size and consequent reduction in image quality as well) are
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:22
+// P-AXIS_RCS_AUTOPILOT.agc:22
 //# available online at www.ibiblio.org/apollo.  If for some reason you
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:23
+// P-AXIS_RCS_AUTOPILOT.agc:23
 //# find that the images are illegible, contact me at info@sandroid.org
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:24
+// P-AXIS_RCS_AUTOPILOT.agc:24
 //# about getting access to the (much) higher-quality images which Paul
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:25
+// P-AXIS_RCS_AUTOPILOT.agc:25
 //# actually created.
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:26
+// P-AXIS_RCS_AUTOPILOT.agc:26
 //#
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:27
+// P-AXIS_RCS_AUTOPILOT.agc:27
 //# Notations on the hardcopy document read, in part:
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:28
+// P-AXIS_RCS_AUTOPILOT.agc:28
 //#
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:29
+// P-AXIS_RCS_AUTOPILOT.agc:29
 //#	Assemble revision 001 of AGC program LMY99 by NASA 2021112-061
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:30
+// P-AXIS_RCS_AUTOPILOT.agc:30
 //#	16:27 JULY 14, 1969
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:31
+// P-AXIS_RCS_AUTOPILOT.agc:31
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:32
+// P-AXIS_RCS_AUTOPILOT.agc:32
 //# Page 1421
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:33
+// P-AXIS_RCS_AUTOPILOT.agc:33
 //		BANK	16
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:34
+// P-AXIS_RCS_AUTOPILOT.agc:34
 //		SETLOC	DAPS1
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:35
+// P-AXIS_RCS_AUTOPILOT.agc:35
 //		BANK
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:36
+// P-AXIS_RCS_AUTOPILOT.agc:36
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:37
+// P-AXIS_RCS_AUTOPILOT.agc:37
 //		EBANK=	PERROR
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:38
+// P-AXIS_RCS_AUTOPILOT.agc:38
 //		COUNT*	$$/DAPP
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:39
+// P-AXIS_RCS_AUTOPILOT.agc:39
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:40
+// P-AXIS_RCS_AUTOPILOT.agc:40
 //# THE FOLLOWING T5RUPT ENTRY BEGINS THE PROGRAM WHICH CONTROLS THE P-AXIS ACTION OF THE LEM USING THE RCS JETS.
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:41
+// P-AXIS_RCS_AUTOPILOT.agc:41
 //# THE NOMINAL TIME BETWEEN THE P-AXIS RUPTS IS 100 MS IN ALL NON-IDLING MODES OF THE DAP.
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:42
+// P-AXIS_RCS_AUTOPILOT.agc:42
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:43
+// P-AXIS_RCS_AUTOPILOT.agc:43
 //PAXIS		CA	MS100
-// PORT: Fixed ROM slots 16523.
+// slot 16523
             if slot <> 16523 or instruction <> 16343 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -102,9 +102,9 @@ function agcAotUnit1002 {
             return choose false if checkOnly else -1.
         } else {
             if slot <= 16524 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:44
+// P-AXIS_RCS_AUTOPILOT.agc:44
 //		ADS	TIME5		# *** NECESSARY IN ORDER TO ALLOW
-// PORT: Fixed ROM slots 16524.
+// slot 16524
                 if slot <> 16524 or instruction <> 11288 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -114,13 +114,13 @@ function agcAotUnit1002 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:45
+// P-AXIS_RCS_AUTOPILOT.agc:45
 //					# SYNCHRONIZATION WITH OTHER INTERRUPTS ***
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:46
+// P-AXIS_RCS_AUTOPILOT.agc:46
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:47
+// P-AXIS_RCS_AUTOPILOT.agc:47
 //		LXCH	BANKRUPT	# INTERRUPT LEAD IN (CONTINUED)
-// PORT: Fixed ROM slots 16525.
+// slot 16525
                 if slot <> 16525 or instruction <> 9230 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -134,9 +134,9 @@ function agcAotUnit1002 {
     } else {
         if slot <= 16527 {
             if slot <= 16526 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:48
+// P-AXIS_RCS_AUTOPILOT.agc:48
 //		EXTEND
-// PORT: Fixed ROM slots 16526.
+// slot 16526
                 if slot <> 16526 or instruction <> 6 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -144,9 +144,9 @@ function agcAotUnit1002 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:49
+// P-AXIS_RCS_AUTOPILOT.agc:49
 //		QXCH	QRUPT
-// PORT: Fixed ROM slots 16527.
+// slot 16527
                 if slot <> 16527 or instruction <> 9226 { return choose false if checkOnly else -1. }
                 if extended {
                     if checkOnly { return true. }
@@ -158,15 +158,15 @@ function agcAotUnit1002 {
             }
         } else {
             if slot <= 16528 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:50
+// P-AXIS_RCS_AUTOPILOT.agc:50
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:51
+// P-AXIS_RCS_AUTOPILOT.agc:51
 //# CHECK IF DAP PASS IS PERMISSIBLE
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:52
+// P-AXIS_RCS_AUTOPILOT.agc:52
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:53
+// P-AXIS_RCS_AUTOPILOT.agc:53
 //		CCS	DAPZRUPT	# IF DAPZRUPT POSITIVE, DAP (JASK) IS
-// PORT: Fixed ROM slots 16528.
+// slot 16528
                 if slot <> 16528 or instruction <> 5103 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -176,9 +176,9 @@ function agcAotUnit1002 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:54
+// P-AXIS_RCS_AUTOPILOT.agc:54
 //		TC	BAILOUT		# STILL IN PROGRESS AND A RESTART IS
-// PORT: Fixed ROM slots 16529.
+// slot 16529
                 if slot <> 16529 or instruction <> 2972 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -192,13 +192,13 @@ function agcAotUnit1002 {
 set agcAotRoutes[1002] to agcAotUnit1002@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:55
+// P-AXIS_RCS_AUTOPILOT.agc:55
 //		OCT	02000		# CALLED FOR.  IT IS NEVER ZERO
-// PORT: Fixed ROM slots 16530.
+// slot 16530
     16530, 2048
 )).
 
-// PORT: Physical bank 16. Shared continuation entries, slots 16531–16586.
+// bank 16, slots 16531-16586
 function agcAotUnit1003 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 16558 {
@@ -206,11 +206,11 @@ function agcAotUnit1003 {
             if slot <= 16537 {
                 if slot <= 16533 {
                     if slot <= 16531 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:56
+// P-AXIS_RCS_AUTOPILOT.agc:56
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:57
+// P-AXIS_RCS_AUTOPILOT.agc:57
 //		TC	CHEKBITS	# RETURN IS TC I+1 IF DAP SHOULD STAY ON.
-// PORT: Fixed ROM slots 16531.
+// slot 16531
                         if slot <> 16531 or instruction <> 1024 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -219,11 +219,11 @@ function agcAotUnit1003 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 16532 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:58
+// P-AXIS_RCS_AUTOPILOT.agc:58
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:59
+// P-AXIS_RCS_AUTOPILOT.agc:59
 //		CA	CDUX		# READ AND STORE CDU'S
-// PORT: Fixed ROM slots 16532.
+// slot 16532
                             if slot <> 16532 or instruction <> 12314 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -233,9 +233,9 @@ function agcAotUnit1003 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:60
+// P-AXIS_RCS_AUTOPILOT.agc:60
 //		TS	DAPTREG4
-// PORT: Fixed ROM slots 16533.
+// slot 16533
                             if slot <> 16533 or instruction <> 23528 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -247,9 +247,9 @@ function agcAotUnit1003 {
                 } else {
                     if slot <= 16535 {
                         if slot <= 16534 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:61
+// P-AXIS_RCS_AUTOPILOT.agc:61
 //		CA	CDUY
-// PORT: Fixed ROM slots 16534.
+// slot 16534
                             if slot <> 16534 or instruction <> 12315 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -259,9 +259,9 @@ function agcAotUnit1003 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:62
+// P-AXIS_RCS_AUTOPILOT.agc:62
 //		TS	DAPTREG5
-// PORT: Fixed ROM slots 16535.
+// slot 16535
                             if slot <> 16535 or instruction <> 23529 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -271,9 +271,9 @@ function agcAotUnit1003 {
                         }
                     } else {
                         if slot <= 16536 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:63
+// P-AXIS_RCS_AUTOPILOT.agc:63
 //		CA	CDUZ
-// PORT: Fixed ROM slots 16536.
+// slot 16536
                             if slot <> 16536 or instruction <> 12316 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -283,9 +283,9 @@ function agcAotUnit1003 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:64
+// P-AXIS_RCS_AUTOPILOT.agc:64
 //		TS	DAPTREG6
-// PORT: Fixed ROM slots 16537.
+// slot 16537
                             if slot <> 16537 or instruction <> 23530 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -298,21 +298,21 @@ function agcAotUnit1003 {
             } else {
                 if slot <= 16540 {
                     if slot <= 16538 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:65
+// P-AXIS_RCS_AUTOPILOT.agc:65
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:66
+// P-AXIS_RCS_AUTOPILOT.agc:66
 //# ***** KALCMANU-DAP AND "RATE-HOLD"-DAP INTERFACE *****
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:67
+// P-AXIS_RCS_AUTOPILOT.agc:67
 //#
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:68
+// P-AXIS_RCS_AUTOPILOT.agc:68
 //# THE FOLLOWING SECTION IS EXECUTED EVERY 100 MS (10 TIMES A SECOND) WITHIN THE P-AXIS REACTION CONTROL SYSTEM
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:69
+// P-AXIS_RCS_AUTOPILOT.agc:69
 //# AUTOPILOT (WHENEVER THE DAP IS IN OPERATION).
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:70
+// P-AXIS_RCS_AUTOPILOT.agc:70
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:71
+// P-AXIS_RCS_AUTOPILOT.agc:71
 //		CA	CDUXD
-// PORT: Fixed ROM slots 16538.
+// slot 16538
                         if slot <> 16538 or instruction <> 13213 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -323,9 +323,9 @@ function agcAotUnit1003 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 16539 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:72
+// P-AXIS_RCS_AUTOPILOT.agc:72
 //		EXTEND
-// PORT: Fixed ROM slots 16539.
+// slot 16539
                             if slot <> 16539 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -333,9 +333,9 @@ function agcAotUnit1003 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:73
+// P-AXIS_RCS_AUTOPILOT.agc:73
 //		MSU	DELCDUX
-// PORT: Fixed ROM slots 16540.
+// slot 16540
                             if slot <> 16540 or instruction <> 9120 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -349,9 +349,9 @@ function agcAotUnit1003 {
                 } else {
                     if slot <= 16542 {
                         if slot <= 16541 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:74
+// P-AXIS_RCS_AUTOPILOT.agc:74
 //		TC	1STOTWOS
-// PORT: Fixed ROM slots 16541.
+// slot 16541
                             if slot <> 16541 or instruction <> 1198 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -359,9 +359,9 @@ function agcAotUnit1003 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:75
+// P-AXIS_RCS_AUTOPILOT.agc:75
 //		TS	CDUXD
-// PORT: Fixed ROM slots 16542.
+// slot 16542
                             if slot <> 16542 or instruction <> 23453 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -371,9 +371,9 @@ function agcAotUnit1003 {
                         }
                     } else {
                         if slot <= 16543 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:76
+// P-AXIS_RCS_AUTOPILOT.agc:76
 //		CA	CDUYD
-// PORT: Fixed ROM slots 16543.
+// slot 16543
                             if slot <> 16543 or instruction <> 13214 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -383,9 +383,9 @@ function agcAotUnit1003 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:77
+// P-AXIS_RCS_AUTOPILOT.agc:77
 //		EXTEND
-// PORT: Fixed ROM slots 16544.
+// slot 16544
                             if slot <> 16544 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -400,9 +400,9 @@ function agcAotUnit1003 {
             if slot <= 16551 {
                 if slot <= 16547 {
                     if slot <= 16545 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:78
+// P-AXIS_RCS_AUTOPILOT.agc:78
 //		MSU	DELCDUY
-// PORT: Fixed ROM slots 16545.
+// slot 16545
                         if slot <> 16545 or instruction <> 9121 { return choose false if checkOnly else -1. }
                         if extended {
                             if checkOnly { return true. }
@@ -413,9 +413,9 @@ function agcAotUnit1003 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 16546 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:79
+// P-AXIS_RCS_AUTOPILOT.agc:79
 //		TC	1STOTWOS
-// PORT: Fixed ROM slots 16546.
+// slot 16546
                             if slot <> 16546 or instruction <> 1198 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -423,9 +423,9 @@ function agcAotUnit1003 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:80
+// P-AXIS_RCS_AUTOPILOT.agc:80
 //		TS	CDUYD
-// PORT: Fixed ROM slots 16547.
+// slot 16547
                             if slot <> 16547 or instruction <> 23454 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -437,9 +437,9 @@ function agcAotUnit1003 {
                 } else {
                     if slot <= 16549 {
                         if slot <= 16548 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:81
+// P-AXIS_RCS_AUTOPILOT.agc:81
 //		CA	CDUZD
-// PORT: Fixed ROM slots 16548.
+// slot 16548
                             if slot <> 16548 or instruction <> 13215 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -449,9 +449,9 @@ function agcAotUnit1003 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:82
+// P-AXIS_RCS_AUTOPILOT.agc:82
 //		EXTEND
-// PORT: Fixed ROM slots 16549.
+// slot 16549
                             if slot <> 16549 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -461,9 +461,9 @@ function agcAotUnit1003 {
                         }
                     } else {
                         if slot <= 16550 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:83
+// P-AXIS_RCS_AUTOPILOT.agc:83
 //		MSU	DELCDUZ
-// PORT: Fixed ROM slots 16550.
+// slot 16550
                             if slot <> 16550 or instruction <> 9122 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -473,11 +473,11 @@ function agcAotUnit1003 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:84
+// P-AXIS_RCS_AUTOPILOT.agc:84
 //# Page 1422
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:85
+// P-AXIS_RCS_AUTOPILOT.agc:85
 //		TC	1STOTWOS
-// PORT: Fixed ROM slots 16551.
+// slot 16551
                             if slot <> 16551 or instruction <> 1198 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -490,9 +490,9 @@ function agcAotUnit1003 {
             } else {
                 if slot <= 16554 {
                     if slot <= 16552 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:86
+// P-AXIS_RCS_AUTOPILOT.agc:86
 //		TS	CDUZD
-// PORT: Fixed ROM slots 16552.
+// slot 16552
                         if slot <> 16552 or instruction <> 23455 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -501,9 +501,9 @@ function agcAotUnit1003 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 16553 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:87
+// P-AXIS_RCS_AUTOPILOT.agc:87
 //		EXTEND			# DIMINISH MANUAL CONTROL DIRECT RATE
-// PORT: Fixed ROM slots 16553.
+// slot 16553
                             if slot <> 16553 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -511,9 +511,9 @@ function agcAotUnit1003 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:88
+// P-AXIS_RCS_AUTOPILOT.agc:88
 //		DIM	TCP		# TIME COUNTERS.
-// PORT: Fixed ROM slots 16554.
+// slot 16554
                             if slot <> 16554 or instruction <> 12069 { return choose false if checkOnly else -1. }
                             if extended {
                                 local operandSlot is agcAddressSlot(805, words[3], words[4], words["channel7"]).
@@ -530,9 +530,9 @@ function agcAotUnit1003 {
                 } else {
                     if slot <= 16556 {
                         if slot <= 16555 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:89
+// P-AXIS_RCS_AUTOPILOT.agc:89
 //		EXTEND
-// PORT: Fixed ROM slots 16555.
+// slot 16555
                             if slot <> 16555 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -540,9 +540,9 @@ function agcAotUnit1003 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:90
+// P-AXIS_RCS_AUTOPILOT.agc:90
 //		DIM	TCQR
-// PORT: Fixed ROM slots 16556.
+// slot 16556
                             if slot <> 16556 or instruction <> 12079 { return choose false if checkOnly else -1. }
                             if extended {
                                 local operandSlot is agcAddressSlot(815, words[3], words[4], words["channel7"]).
@@ -557,25 +557,25 @@ function agcAotUnit1003 {
                         }
                     } else {
                         if slot <= 16557 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:91
+// P-AXIS_RCS_AUTOPILOT.agc:91
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:92
+// P-AXIS_RCS_AUTOPILOT.agc:92
 //# RATFLOOP COMPUTES JETRATEQ, JRATER, AND 1JACC*NO. PJEETS IN ITEMP1.
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:93
+// P-AXIS_RCS_AUTOPILOT.agc:93
 //# RETURNS TO BACKP.
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:94
+// P-AXIS_RCS_AUTOPILOT.agc:94
 //#
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:95
+// P-AXIS_RCS_AUTOPILOT.agc:95
 //# JETRATE = 1JACC*NO.PJETS*TJP		(NOTE TJ IS THE TIME FIRED DURING CSP)
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:96
+// P-AXIS_RCS_AUTOPILOT.agc:96
 //# JETRATEQ = 1JACCQ(TJU*NO.UJETS - TJV*NO.VJETS)
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:97
+// P-AXIS_RCS_AUTOPILOT.agc:97
 //# JETRATER = 1JACCR(TJU*NO.UJETS + TJV*NO.VJETS)
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:98
+// P-AXIS_RCS_AUTOPILOT.agc:98
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:99
+// P-AXIS_RCS_AUTOPILOT.agc:99
 //		TCF	PAXFILT		# PROCEEDS TO RATELOOP AFTER SUPERJOB
-// PORT: Fixed ROM slots 16557.
+// slot 16557
                             if slot <> 16557 or instruction <> 5543 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -583,9 +583,9 @@ function agcAotUnit1003 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:100
+// P-AXIS_RCS_AUTOPILOT.agc:100
 //1STOTWOS	CCS	A
-// PORT: Fixed ROM slots 16558.
+// slot 16558
                             if slot <> 16558 or instruction <> 4096 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -604,9 +604,9 @@ function agcAotUnit1003 {
             if slot <= 16565 {
                 if slot <= 16561 {
                     if slot <= 16559 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:101
+// P-AXIS_RCS_AUTOPILOT.agc:101
 //		AD	ONE
-// PORT: Fixed ROM slots 16559.
+// slot 16559
                         if slot <> 16559 or instruction <> 27115 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -619,9 +619,9 @@ function agcAotUnit1003 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 16560 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:102
+// P-AXIS_RCS_AUTOPILOT.agc:102
 //		TC	Q
-// PORT: Fixed ROM slots 16560.
+// slot 16560
                             if slot <> 16560 or instruction <> 2 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -629,9 +629,9 @@ function agcAotUnit1003 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:103
+// P-AXIS_RCS_AUTOPILOT.agc:103
 //		CS	A
-// PORT: Fixed ROM slots 16561.
+// slot 16561
                             if slot <> 16561 or instruction <> 16384 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -644,9 +644,9 @@ function agcAotUnit1003 {
                 } else {
                     if slot <= 16563 {
                         if slot <= 16562 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:104
+// P-AXIS_RCS_AUTOPILOT.agc:104
 //		TC	Q
-// PORT: Fixed ROM slots 16562.
+// slot 16562
                             if slot <> 16562 or instruction <> 2 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -654,9 +654,9 @@ function agcAotUnit1003 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:105
+// P-AXIS_RCS_AUTOPILOT.agc:105
 //SUBDIVDE	EXTEND			# OVERFLOW PROTECTION ROUTINE TO GIVE
-// PORT: Fixed ROM slots 16563.
+// slot 16563
                             if slot <> 16563 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -666,9 +666,9 @@ function agcAotUnit1003 {
                         }
                     } else {
                         if slot <= 16564 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:106
+// P-AXIS_RCS_AUTOPILOT.agc:106
 //		MP	DAPTEMP3	# POSMAX OR NEGMAX IF THE DIVIDE WOULD
-// PORT: Fixed ROM slots 16564.
+// slot 16564
                             if slot <> 16564 or instruction <> 29665 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -678,9 +678,9 @@ function agcAotUnit1003 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:107
+// P-AXIS_RCS_AUTOPILOT.agc:107
 //		DAS	OMEGAU		# OVERFLOW
-// PORT: Fixed ROM slots 16565.
+// slot 16565
                             if slot <> 16565 or instruction <> 8983 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -695,11 +695,11 @@ function agcAotUnit1003 {
             } else {
                 if slot <= 16568 {
                     if slot <= 16566 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:108
+// P-AXIS_RCS_AUTOPILOT.agc:108
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:109
+// P-AXIS_RCS_AUTOPILOT.agc:109
 // +3		EXTEND
-// PORT: Fixed ROM slots 16566.
+// slot 16566
                         if slot <> 16566 or instruction <> 6 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -708,9 +708,9 @@ function agcAotUnit1003 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 16567 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:110
+// P-AXIS_RCS_AUTOPILOT.agc:110
 //		DCA	OMEGAU
-// PORT: Fixed ROM slots 16567.
+// slot 16567
                             if slot <> 16567 or instruction <> 13079 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -720,9 +720,9 @@ function agcAotUnit1003 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:111
+// P-AXIS_RCS_AUTOPILOT.agc:111
 //		DXCH	DAPTEMP5
-// PORT: Fixed ROM slots 16568.
+// slot 16568
                             if slot <> 16568 or instruction <> 22500 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -735,9 +735,9 @@ function agcAotUnit1003 {
                 } else {
                     if slot <= 16570 {
                         if slot <= 16569 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:112
+// P-AXIS_RCS_AUTOPILOT.agc:112
 //		CCS	OMEGAU
-// PORT: Fixed ROM slots 16569.
+// slot 16569
                             if slot <> 16569 or instruction <> 4886 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -747,9 +747,9 @@ function agcAotUnit1003 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:113
+// P-AXIS_RCS_AUTOPILOT.agc:113
 //		TCF	+2
-// PORT: Fixed ROM slots 16570.
+// slot 16570
                             if slot <> 16570 or instruction <> 5308 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -759,9 +759,9 @@ function agcAotUnit1003 {
                         }
                     } else {
                         if slot <= 16571 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:114
+// P-AXIS_RCS_AUTOPILOT.agc:114
 //		TCF	DIVIDER
-// PORT: Fixed ROM slots 16571.
+// slot 16571
                             if slot <> 16571 or instruction <> 5316 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -769,9 +769,9 @@ function agcAotUnit1003 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:115
+// P-AXIS_RCS_AUTOPILOT.agc:115
 //		AD	-OCT630
-// PORT: Fixed ROM slots 16572.
+// slot 16572
                             if slot <> 16572 or instruction <> 25805 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -790,9 +790,9 @@ function agcAotUnit1003 {
             if slot <= 16579 {
                 if slot <= 16575 {
                     if slot <= 16573 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:116
+// P-AXIS_RCS_AUTOPILOT.agc:116
 //		EXTEND
-// PORT: Fixed ROM slots 16573.
+// slot 16573
                         if slot <> 16573 or instruction <> 6 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -801,9 +801,9 @@ function agcAotUnit1003 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 16574 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:117
+// P-AXIS_RCS_AUTOPILOT.agc:117
 //		BZMF	DIVIDER
-// PORT: Fixed ROM slots 16574.
+// slot 16574
                             if slot <> 16574 or instruction <> 25796 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -811,11 +811,11 @@ function agcAotUnit1003 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:118
+// P-AXIS_RCS_AUTOPILOT.agc:118
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:119
+// P-AXIS_RCS_AUTOPILOT.agc:119
 //		CCS	OMEGAU
-// PORT: Fixed ROM slots 16575.
+// slot 16575
                             if slot <> 16575 or instruction <> 4886 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -829,9 +829,9 @@ function agcAotUnit1003 {
                 } else {
                     if slot <= 16577 {
                         if slot <= 16576 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:120
+// P-AXIS_RCS_AUTOPILOT.agc:120
 //		CA	POSMAX		# 45 DEG/SEC
-// PORT: Fixed ROM slots 16576.
+// slot 16576
                             if slot <> 16576 or instruction <> 14811 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -842,9 +842,9 @@ function agcAotUnit1003 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:121
+// P-AXIS_RCS_AUTOPILOT.agc:121
 //		TC	Q
-// PORT: Fixed ROM slots 16577.
+// slot 16577
                             if slot <> 16577 or instruction <> 2 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -854,9 +854,9 @@ function agcAotUnit1003 {
                         }
                     } else {
                         if slot <= 16578 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:122
+// P-AXIS_RCS_AUTOPILOT.agc:122
 //		CS	POSMAX
-// PORT: Fixed ROM slots 16578.
+// slot 16578
                             if slot <> 16578 or instruction <> 18907 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -866,9 +866,9 @@ function agcAotUnit1003 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:123
+// P-AXIS_RCS_AUTOPILOT.agc:123
 //		TC	Q
-// PORT: Fixed ROM slots 16579.
+// slot 16579
                             if slot <> 16579 or instruction <> 2 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -881,11 +881,11 @@ function agcAotUnit1003 {
             } else {
                 if slot <= 16582 {
                     if slot <= 16580 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:124
+// P-AXIS_RCS_AUTOPILOT.agc:124
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:125
+// P-AXIS_RCS_AUTOPILOT.agc:125
 //DIVIDER		DXCH	OMEGAU
-// PORT: Fixed ROM slots 16580.
+// slot 16580
                         if slot <> 16580 or instruction <> 22295 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -895,9 +895,9 @@ function agcAotUnit1003 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 16581 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:126
+// P-AXIS_RCS_AUTOPILOT.agc:126
 //		EXTEND
-// PORT: Fixed ROM slots 16581.
+// slot 16581
                             if slot <> 16581 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -905,9 +905,9 @@ function agcAotUnit1003 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:127
+// P-AXIS_RCS_AUTOPILOT.agc:127
 //		DV	DAPTREG4
-// PORT: Fixed ROM slots 16582.
+// slot 16582
                             if slot <> 16582 or instruction <> 5096 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -921,9 +921,9 @@ function agcAotUnit1003 {
                 } else {
                     if slot <= 16584 {
                         if slot <= 16583 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:128
+// P-AXIS_RCS_AUTOPILOT.agc:128
 //		TC	Q
-// PORT: Fixed ROM slots 16583.
+// slot 16583
                             if slot <> 16583 or instruction <> 2 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -931,11 +931,11 @@ function agcAotUnit1003 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:129
+// P-AXIS_RCS_AUTOPILOT.agc:129
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:130
+// P-AXIS_RCS_AUTOPILOT.agc:130
 //OVERSUB		TS	7		# RETURNS A UNCHANGED OR LIMITED TO
-// PORT: Fixed ROM slots 16584.
+// slot 16584
                             if slot <> 16584 or instruction <> 22535 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -945,9 +945,9 @@ function agcAotUnit1003 {
                         }
                     } else {
                         if slot <= 16585 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:131
+// P-AXIS_RCS_AUTOPILOT.agc:131
 //		TC	Q		# POSMAX OR NEGMAX IF A HAS OVERFLOW
-// PORT: Fixed ROM slots 16585.
+// slot 16585
                             if slot <> 16585 or instruction <> 2 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -955,9 +955,9 @@ function agcAotUnit1003 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:132
+// P-AXIS_RCS_AUTOPILOT.agc:132
 //		INDEX	A
-// PORT: Fixed ROM slots 16586.
+// slot 16586
                             if slot <> 16586 or instruction <> 20480 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -978,20 +978,20 @@ function agcAotUnit1003 {
 set agcAotRoutes[1003] to agcAotUnit1003@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:133
+// P-AXIS_RCS_AUTOPILOT.agc:133
 //		CS	BIT15 	-1
-// PORT: Fixed ROM slots 16587.
+// slot 16587
     16587, 37816
 )).
 
-// PORT: Physical bank 16. Shared continuation entries, slots 16588–16588.
+// bank 16, slots 16588-16588
 function agcAotUnit1004 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:134
+// P-AXIS_RCS_AUTOPILOT.agc:134
 //# Page 1423
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:135
+// P-AXIS_RCS_AUTOPILOT.agc:135
 //		TC	Q
-// PORT: Fixed ROM slots 16588.
+// slot 16588
     if slot <> 16588 or instruction <> 2 { return choose false if checkOnly else -1. }
     if not extended {
         if checkOnly { return true. }
@@ -1002,15 +1002,15 @@ function agcAotUnit1004 {
 set agcAotRoutes[1004] to agcAotUnit1004@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:136
+// P-AXIS_RCS_AUTOPILOT.agc:136
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:137
+// P-AXIS_RCS_AUTOPILOT.agc:137
 //-OCT630		OCT	77147
-// PORT: Fixed ROM slots 16589.
+// slot 16589
     16589, 64718
 )).
 
-// PORT: Physical bank 16. Shared continuation entries, slots 16590–16653.
+// bank 16, slots 16590-16653
 function agcAotUnit1005 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 16621 {
@@ -1019,11 +1019,11 @@ function agcAotUnit1005 {
                 if slot <= 16593 {
                     if slot <= 16591 {
                         if slot <= 16590 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:138
+// P-AXIS_RCS_AUTOPILOT.agc:138
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:139
+// P-AXIS_RCS_AUTOPILOT.agc:139
 //BACKP		CA	DAPTEMP1
-// PORT: Fixed ROM slots 16590.
+// slot 16590
                             if slot <> 16590 or instruction <> 13279 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1033,9 +1033,9 @@ function agcAotUnit1005 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:140
+// P-AXIS_RCS_AUTOPILOT.agc:140
 //		EXTEND
-// PORT: Fixed ROM slots 16591.
+// slot 16591
                             if slot <> 16591 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1045,9 +1045,9 @@ function agcAotUnit1005 {
                         }
                     } else {
                         if slot <= 16592 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:141
+// P-AXIS_RCS_AUTOPILOT.agc:141
 //		MP	1JACC
-// PORT: Fixed ROM slots 16592.
+// slot 16592
                             if slot <> 16592 or instruction <> 29528 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -1057,9 +1057,9 @@ function agcAotUnit1005 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:142
+// P-AXIS_RCS_AUTOPILOT.agc:142
 //		TS	JETRATE
-// PORT: Fixed ROM slots 16593.
+// slot 16593
                             if slot <> 16593 or instruction <> 23525 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1071,31 +1071,31 @@ function agcAotUnit1005 {
                 } else {
                     if slot <= 16595 {
                         if slot <= 16594 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:143
+// P-AXIS_RCS_AUTOPILOT.agc:143
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:144
+// P-AXIS_RCS_AUTOPILOT.agc:144
 //# BEGINNING OF THE RATE DERIVATION
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:145
+// P-AXIS_RCS_AUTOPILOT.agc:145
 //#	OMEGAP,Q,R	BODY RATES SCALED AT PI/4
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:146
+// P-AXIS_RCS_AUTOPILOT.agc:146
 //#	TRAPEDP,Q,R	BODY ANGLE ERRORS FROM PREDICTED ANGLE (PI/40)
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:147
+// P-AXIS_RCS_AUTOPILOT.agc:147
 //#	NP(QR)TRAPS	NUMBER OF TIMES ANGLE ERROR HAS BEEN ACCUMULATED
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:148
+// P-AXIS_RCS_AUTOPILOT.agc:148
 //#	AOSQ(R)TERM	CHANGE IN RATE DUE TO OFFSET ACCELERATION.  (PI/4)
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:149
+// P-AXIS_RCS_AUTOPILOT.agc:149
 //#	JETRATE,Q,R	CHANGE IN RATE DUE TO  JET   ACCELERATION.  (PI/4)
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:150
+// P-AXIS_RCS_AUTOPILOT.agc:150
 //#	TRAPSIZE	NEGATIVE LIMIT OF MAGNITUDE OF TRAPEDP, ETC.
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:151
+// P-AXIS_RCS_AUTOPILOT.agc:151
 //#	OMEGAU		DP-TEMPORARY STORAGE
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:152
+// P-AXIS_RCS_AUTOPILOT.agc:152
 //# OMEGA = OMEGA + JETRATE + AOSTERM (+TRAPED/NTRAPS IF TRAPED BIG)
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:153
+// P-AXIS_RCS_AUTOPILOT.agc:153
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:154
+// P-AXIS_RCS_AUTOPILOT.agc:154
 //		CAE	DAPTREG4	# CDUX IS STORED HERE
-// PORT: Fixed ROM slots 16594.
+// slot 16594
                             if slot <> 16594 or instruction <> 13288 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1105,9 +1105,9 @@ function agcAotUnit1005 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:155
+// P-AXIS_RCS_AUTOPILOT.agc:155
 //		TS	L
-// PORT: Fixed ROM slots 16595.
+// slot 16595
                             if slot <> 16595 or instruction <> 22529 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1117,9 +1117,9 @@ function agcAotUnit1005 {
                         }
                     } else {
                         if slot <= 16596 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:156
+// P-AXIS_RCS_AUTOPILOT.agc:156
 //		EXTEND
-// PORT: Fixed ROM slots 16596.
+// slot 16596
                             if slot <> 16596 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1127,9 +1127,9 @@ function agcAotUnit1005 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:157
+// P-AXIS_RCS_AUTOPILOT.agc:157
 //		MSU	OLDXFORP	# SCALED AT PI
-// PORT: Fixed ROM slots 16597.
+// slot 16597
                             if slot <> 16597 or instruction <> 8992 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -1145,9 +1145,9 @@ function agcAotUnit1005 {
                 if slot <= 16601 {
                     if slot <= 16599 {
                         if slot <= 16598 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:158
+// P-AXIS_RCS_AUTOPILOT.agc:158
 //		LXCH	OLDXFORP
-// PORT: Fixed ROM slots 16598.
+// slot 16598
                             if slot <> 16598 or instruction <> 10016 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1157,9 +1157,9 @@ function agcAotUnit1005 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:159
+// P-AXIS_RCS_AUTOPILOT.agc:159
 //		TS	DAPTEMP1
-// PORT: Fixed ROM slots 16599.
+// slot 16599
                             if slot <> 16599 or instruction <> 23519 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1169,9 +1169,9 @@ function agcAotUnit1005 {
                         }
                     } else {
                         if slot <= 16600 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:160
+// P-AXIS_RCS_AUTOPILOT.agc:160
 //		CA	1/40
-// PORT: Fixed ROM slots 16600.
+// slot 16600
                             if slot <> 16600 or instruction <> 14224 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1182,9 +1182,9 @@ function agcAotUnit1005 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:161
+// P-AXIS_RCS_AUTOPILOT.agc:161
 //		TS	DAPTREG4
-// PORT: Fixed ROM slots 16601.
+// slot 16601
                             if slot <> 16601 or instruction <> 23528 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1196,9 +1196,9 @@ function agcAotUnit1005 {
                 } else {
                     if slot <= 16603 {
                         if slot <= 16602 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:162
+// P-AXIS_RCS_AUTOPILOT.agc:162
 //		CS	JETRATE
-// PORT: Fixed ROM slots 16602.
+// slot 16602
                             if slot <> 16602 or instruction <> 17381 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1207,9 +1207,9 @@ function agcAotUnit1005 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:163
+// P-AXIS_RCS_AUTOPILOT.agc:163
 //		EXTEND
-// PORT: Fixed ROM slots 16603.
+// slot 16603
                             if slot <> 16603 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1219,9 +1219,9 @@ function agcAotUnit1005 {
                         }
                     } else {
                         if slot <= 16604 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:164
+// P-AXIS_RCS_AUTOPILOT.agc:164
 //		MP	BIT14
-// PORT: Fixed ROM slots 16604.
+// slot 16604
                             if slot <> 16604 or instruction <> 31198 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -1231,9 +1231,9 @@ function agcAotUnit1005 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:165
+// P-AXIS_RCS_AUTOPILOT.agc:165
 //		ADS	TRAPEDP
-// PORT: Fixed ROM slots 16605.
+// slot 16605
                             if slot <> 16605 or instruction <> 12056 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1251,9 +1251,9 @@ function agcAotUnit1005 {
                 if slot <= 16609 {
                     if slot <= 16607 {
                         if slot <= 16606 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:166
+// P-AXIS_RCS_AUTOPILOT.agc:166
 //		CA	JETRATEQ
-// PORT: Fixed ROM slots 16606.
+// slot 16606
                             if slot <> 16606 or instruction <> 13286 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1263,9 +1263,9 @@ function agcAotUnit1005 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:167
+// P-AXIS_RCS_AUTOPILOT.agc:167
 //		AD	AOSQTERM
-// PORT: Fixed ROM slots 16607.
+// slot 16607
                             if slot <> 16607 or instruction <> 25445 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1277,9 +1277,9 @@ function agcAotUnit1005 {
                         }
                     } else {
                         if slot <= 16608 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:168
+// P-AXIS_RCS_AUTOPILOT.agc:168
 //		EXTEND
-// PORT: Fixed ROM slots 16608.
+// slot 16608
                             if slot <> 16608 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1287,9 +1287,9 @@ function agcAotUnit1005 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:169
+// P-AXIS_RCS_AUTOPILOT.agc:169
 //		MP	-BIT14
-// PORT: Fixed ROM slots 16609.
+// slot 16609
                             if slot <> 16609 or instruction <> 32734 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -1303,9 +1303,9 @@ function agcAotUnit1005 {
                 } else {
                     if slot <= 16611 {
                         if slot <= 16610 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:170
+// P-AXIS_RCS_AUTOPILOT.agc:170
 //		ADS	TRAPEDQ
-// PORT: Fixed ROM slots 16610.
+// slot 16610
                             if slot <> 16610 or instruction <> 12057 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1315,9 +1315,9 @@ function agcAotUnit1005 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:171
+// P-AXIS_RCS_AUTOPILOT.agc:171
 //		CA	JETRATER
-// PORT: Fixed ROM slots 16611.
+// slot 16611
                             if slot <> 16611 or instruction <> 13287 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1329,9 +1329,9 @@ function agcAotUnit1005 {
                         }
                     } else {
                         if slot <= 16612 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:172
+// P-AXIS_RCS_AUTOPILOT.agc:172
 //		AD	AOSRTERM
-// PORT: Fixed ROM slots 16612.
+// slot 16612
                             if slot <> 16612 or instruction <> 25446 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1341,9 +1341,9 @@ function agcAotUnit1005 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:173
+// P-AXIS_RCS_AUTOPILOT.agc:173
 //		EXTEND
-// PORT: Fixed ROM slots 16613.
+// slot 16613
                             if slot <> 16613 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1357,9 +1357,9 @@ function agcAotUnit1005 {
                 if slot <= 16617 {
                     if slot <= 16615 {
                         if slot <= 16614 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:174
+// P-AXIS_RCS_AUTOPILOT.agc:174
 //		MP	-BIT14
-// PORT: Fixed ROM slots 16614.
+// slot 16614
                             if slot <> 16614 or instruction <> 32734 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -1369,9 +1369,9 @@ function agcAotUnit1005 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:175
+// P-AXIS_RCS_AUTOPILOT.agc:175
 //		ADS	TRAPEDR
-// PORT: Fixed ROM slots 16615.
+// slot 16615
                             if slot <> 16615 or instruction <> 12058 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1383,11 +1383,11 @@ function agcAotUnit1005 {
                         }
                     } else {
                         if slot <= 16616 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:176
+// P-AXIS_RCS_AUTOPILOT.agc:176
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:177
+// P-AXIS_RCS_AUTOPILOT.agc:177
 //		CA	DAPTREG5	# CDUY IS STORED HERE
-// PORT: Fixed ROM slots 16616.
+// slot 16616
                             if slot <> 16616 or instruction <> 13289 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1397,9 +1397,9 @@ function agcAotUnit1005 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:178
+// P-AXIS_RCS_AUTOPILOT.agc:178
 //		TS	L
-// PORT: Fixed ROM slots 16617.
+// slot 16617
                             if slot <> 16617 or instruction <> 22529 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1411,9 +1411,9 @@ function agcAotUnit1005 {
                 } else {
                     if slot <= 16619 {
                         if slot <= 16618 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:179
+// P-AXIS_RCS_AUTOPILOT.agc:179
 //		EXTEND
-// PORT: Fixed ROM slots 16618.
+// slot 16618
                             if slot <> 16618 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1421,9 +1421,9 @@ function agcAotUnit1005 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:180
+// P-AXIS_RCS_AUTOPILOT.agc:180
 //		MSU	OLDYFORP	# SCALED AT PI
-// PORT: Fixed ROM slots 16619.
+// slot 16619
                             if slot <> 16619 or instruction <> 8993 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -1435,9 +1435,9 @@ function agcAotUnit1005 {
                         }
                     } else {
                         if slot <= 16620 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:181
+// P-AXIS_RCS_AUTOPILOT.agc:181
 //		LXCH	OLDYFORP
-// PORT: Fixed ROM slots 16620.
+// slot 16620
                             if slot <> 16620 or instruction <> 10017 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1447,9 +1447,9 @@ function agcAotUnit1005 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:182
+// P-AXIS_RCS_AUTOPILOT.agc:182
 //		TS	DAPTEMP2
-// PORT: Fixed ROM slots 16621.
+// slot 16621
                             if slot <> 16621 or instruction <> 23520 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1467,9 +1467,9 @@ function agcAotUnit1005 {
                 if slot <= 16625 {
                     if slot <= 16623 {
                         if slot <= 16622 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:183
+// P-AXIS_RCS_AUTOPILOT.agc:183
 //		EXTEND
-// PORT: Fixed ROM slots 16622.
+// slot 16622
                             if slot <> 16622 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1477,9 +1477,9 @@ function agcAotUnit1005 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:184
+// P-AXIS_RCS_AUTOPILOT.agc:184
 //		MP	M11		# M11 SCALED AT 1
-// PORT: Fixed ROM slots 16623.
+// slot 16623
                             if slot <> 16623 or instruction <> 29452 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -1491,11 +1491,11 @@ function agcAotUnit1005 {
                         }
                     } else {
                         if slot <= 16624 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:185
+// P-AXIS_RCS_AUTOPILOT.agc:185
 //# Page 1424
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:186
+// P-AXIS_RCS_AUTOPILOT.agc:186
 //		AD	DAPTEMP1
-// PORT: Fixed ROM slots 16624.
+// slot 16624
                             if slot <> 16624 or instruction <> 25567 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1505,9 +1505,9 @@ function agcAotUnit1005 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:187
+// P-AXIS_RCS_AUTOPILOT.agc:187
 //		DXCH	OMEGAU
-// PORT: Fixed ROM slots 16625.
+// slot 16625
                             if slot <> 16625 or instruction <> 22295 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1520,11 +1520,11 @@ function agcAotUnit1005 {
                 } else {
                     if slot <= 16627 {
                         if slot <= 16626 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:188
+// P-AXIS_RCS_AUTOPILOT.agc:188
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:189
+// P-AXIS_RCS_AUTOPILOT.agc:189
 //		TC	SUBDIVDE +3	# RETURNS WITH CDU-RATE AT PI/4
-// PORT: Fixed ROM slots 16626.
+// slot 16626
                             if slot <> 16626 or instruction <> 1206 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1532,11 +1532,11 @@ function agcAotUnit1005 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:190
+// P-AXIS_RCS_AUTOPILOT.agc:190
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:191
+// P-AXIS_RCS_AUTOPILOT.agc:191
 //		EXTEND
-// PORT: Fixed ROM slots 16627.
+// slot 16627
                             if slot <> 16627 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1546,9 +1546,9 @@ function agcAotUnit1005 {
                         }
                     } else {
                         if slot <= 16628 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:192
+// P-AXIS_RCS_AUTOPILOT.agc:192
 //		SU	OMEGAP
-// PORT: Fixed ROM slots 16628.
+// slot 16628
                             if slot <> 16628 or instruction <> 25361 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -1558,9 +1558,9 @@ function agcAotUnit1005 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:193
+// P-AXIS_RCS_AUTOPILOT.agc:193
 //		ADS	TRAPEDP
-// PORT: Fixed ROM slots 16629.
+// slot 16629
                             if slot <> 16629 or instruction <> 12056 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1576,9 +1576,9 @@ function agcAotUnit1005 {
                 if slot <= 16633 {
                     if slot <= 16631 {
                         if slot <= 16630 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:194
+// P-AXIS_RCS_AUTOPILOT.agc:194
 //		TC	OVERSUB
-// PORT: Fixed ROM slots 16630.
+// slot 16630
                             if slot <> 16630 or instruction <> 1224 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1586,9 +1586,9 @@ function agcAotUnit1005 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:195
+// P-AXIS_RCS_AUTOPILOT.agc:195
 //		TS	TRAPEDP
-// PORT: Fixed ROM slots 16631.
+// slot 16631
                             if slot <> 16631 or instruction <> 23320 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1598,9 +1598,9 @@ function agcAotUnit1005 {
                         }
                     } else {
                         if slot <= 16632 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:196
+// P-AXIS_RCS_AUTOPILOT.agc:196
 //		EXTEND
-// PORT: Fixed ROM slots 16632.
+// slot 16632
                             if slot <> 16632 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1608,9 +1608,9 @@ function agcAotUnit1005 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:197
+// P-AXIS_RCS_AUTOPILOT.agc:197
 //		DCA	DAPTEMP5
-// PORT: Fixed ROM slots 16633.
+// slot 16633
                             if slot <> 16633 or instruction <> 13284 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -1624,9 +1624,9 @@ function agcAotUnit1005 {
                 } else {
                     if slot <= 16635 {
                         if slot <= 16634 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:198
+// P-AXIS_RCS_AUTOPILOT.agc:198
 //		DAS	DXERROR
-// PORT: Fixed ROM slots 16634.
+// slot 16634
                             if slot <> 16634 or instruction <> 8999 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1636,9 +1636,9 @@ function agcAotUnit1005 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:199
+// P-AXIS_RCS_AUTOPILOT.agc:199
 //		CS	PLAST
-// PORT: Fixed ROM slots 16635.
+// slot 16635
                             if slot <> 16635 or instruction <> 17196 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1649,9 +1649,9 @@ function agcAotUnit1005 {
                         }
                     } else {
                         if slot <= 16636 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:200
+// P-AXIS_RCS_AUTOPILOT.agc:200
 //		EXTEND
-// PORT: Fixed ROM slots 16636.
+// slot 16636
                             if slot <> 16636 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1659,9 +1659,9 @@ function agcAotUnit1005 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:201
+// P-AXIS_RCS_AUTOPILOT.agc:201
 //		MP	1/40
-// PORT: Fixed ROM slots 16637.
+// slot 16637
                             if slot <> 16637 or instruction <> 30608 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -1679,9 +1679,9 @@ function agcAotUnit1005 {
                 if slot <= 16641 {
                     if slot <= 16639 {
                         if slot <= 16638 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:202
+// P-AXIS_RCS_AUTOPILOT.agc:202
 //		DAS	DXERROR		# MANUAL MODE X-ATTITUDE ERROR (DP)
-// PORT: Fixed ROM slots 16638.
+// slot 16638
                             if slot <> 16638 or instruction <> 8999 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1691,9 +1691,9 @@ function agcAotUnit1005 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:203
+// P-AXIS_RCS_AUTOPILOT.agc:203
 //		CA	DAPTREG6	# CDUZ IS STORED HERE
-// PORT: Fixed ROM slots 16639.
+// slot 16639
                             if slot <> 16639 or instruction <> 13290 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1705,9 +1705,9 @@ function agcAotUnit1005 {
                         }
                     } else {
                         if slot <= 16640 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:204
+// P-AXIS_RCS_AUTOPILOT.agc:204
 //		TS	L
-// PORT: Fixed ROM slots 16640.
+// slot 16640
                             if slot <> 16640 or instruction <> 22529 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1715,9 +1715,9 @@ function agcAotUnit1005 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:205
+// P-AXIS_RCS_AUTOPILOT.agc:205
 //		EXTEND
-// PORT: Fixed ROM slots 16641.
+// slot 16641
                             if slot <> 16641 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1729,9 +1729,9 @@ function agcAotUnit1005 {
                 } else {
                     if slot <= 16643 {
                         if slot <= 16642 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:206
+// P-AXIS_RCS_AUTOPILOT.agc:206
 //		MSU	OLDZFORQ
-// PORT: Fixed ROM slots 16642.
+// slot 16642
                             if slot <> 16642 or instruction <> 8994 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -1741,9 +1741,9 @@ function agcAotUnit1005 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:207
+// P-AXIS_RCS_AUTOPILOT.agc:207
 //		TS	DAPTEMP3
-// PORT: Fixed ROM slots 16643.
+// slot 16643
                             if slot <> 16643 or instruction <> 23521 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1753,9 +1753,9 @@ function agcAotUnit1005 {
                         }
                     } else {
                         if slot <= 16644 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:208
+// P-AXIS_RCS_AUTOPILOT.agc:208
 //		LXCH	OLDZFORQ
-// PORT: Fixed ROM slots 16644.
+// slot 16644
                             if slot <> 16644 or instruction <> 10018 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1765,9 +1765,9 @@ function agcAotUnit1005 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:209
+// P-AXIS_RCS_AUTOPILOT.agc:209
 //		CA	M21
-// PORT: Fixed ROM slots 16645.
+// slot 16645
                             if slot <> 16645 or instruction <> 13069 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1783,9 +1783,9 @@ function agcAotUnit1005 {
                 if slot <= 16649 {
                     if slot <= 16647 {
                         if slot <= 16646 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:210
+// P-AXIS_RCS_AUTOPILOT.agc:210
 //		EXTEND
-// PORT: Fixed ROM slots 16646.
+// slot 16646
                             if slot <> 16646 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1793,9 +1793,9 @@ function agcAotUnit1005 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:211
+// P-AXIS_RCS_AUTOPILOT.agc:211
 //		MP	DAPTEMP2
-// PORT: Fixed ROM slots 16647.
+// slot 16647
                             if slot <> 16647 or instruction <> 29664 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -1807,9 +1807,9 @@ function agcAotUnit1005 {
                         }
                     } else {
                         if slot <= 16648 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:212
+// P-AXIS_RCS_AUTOPILOT.agc:212
 //		DXCH	OMEGAU
-// PORT: Fixed ROM slots 16648.
+// slot 16648
                             if slot <> 16648 or instruction <> 22295 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1818,9 +1818,9 @@ function agcAotUnit1005 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:213
+// P-AXIS_RCS_AUTOPILOT.agc:213
 //		CA	M22
-// PORT: Fixed ROM slots 16649.
+// slot 16649
                             if slot <> 16649 or instruction <> 13071 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1834,9 +1834,9 @@ function agcAotUnit1005 {
                 } else {
                     if slot <= 16651 {
                         if slot <= 16650 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:214
+// P-AXIS_RCS_AUTOPILOT.agc:214
 //		TC	SUBDIVDE
-// PORT: Fixed ROM slots 16650.
+// slot 16650
                             if slot <> 16650 or instruction <> 1203 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1844,11 +1844,11 @@ function agcAotUnit1005 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:215
+// P-AXIS_RCS_AUTOPILOT.agc:215
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:216
+// P-AXIS_RCS_AUTOPILOT.agc:216
 //		EXTEND
-// PORT: Fixed ROM slots 16651.
+// slot 16651
                             if slot <> 16651 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1858,9 +1858,9 @@ function agcAotUnit1005 {
                         }
                     } else {
                         if slot <= 16652 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:217
+// P-AXIS_RCS_AUTOPILOT.agc:217
 //		SU	OMEGAQ
-// PORT: Fixed ROM slots 16652.
+// slot 16652
                             if slot <> 16652 or instruction <> 25362 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -1870,9 +1870,9 @@ function agcAotUnit1005 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:218
+// P-AXIS_RCS_AUTOPILOT.agc:218
 //		ADS	TRAPEDQ
-// PORT: Fixed ROM slots 16653.
+// slot 16653
                             if slot <> 16653 or instruction <> 12057 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -1890,7 +1890,7 @@ function agcAotUnit1005 {
 }
 set agcAotRoutes[1005] to agcAotUnit1005@.
 
-// PORT: Physical bank 16. Shared continuation entries, slots 16654–16781.
+// bank 16, slots 16654-16781
 function agcAotUnit1006 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 16717 {
@@ -1900,9 +1900,9 @@ function agcAotUnit1006 {
                     if slot <= 16657 {
                         if slot <= 16655 {
                             if slot <= 16654 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:219
+// P-AXIS_RCS_AUTOPILOT.agc:219
 //		TC	OVERSUB
-// PORT: Fixed ROM slots 16654.
+// slot 16654
                                 if slot <> 16654 or instruction <> 1224 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -1910,9 +1910,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:220
+// P-AXIS_RCS_AUTOPILOT.agc:220
 //		TS	TRAPEDQ
-// PORT: Fixed ROM slots 16655.
+// slot 16655
                                 if slot <> 16655 or instruction <> 23321 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -1922,9 +1922,9 @@ function agcAotUnit1006 {
                             }
                         } else {
                             if slot <= 16656 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:221
+// P-AXIS_RCS_AUTOPILOT.agc:221
 //		EXTEND
-// PORT: Fixed ROM slots 16656.
+// slot 16656
                                 if slot <> 16656 or instruction <> 6 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -1932,9 +1932,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:222
+// P-AXIS_RCS_AUTOPILOT.agc:222
 //		DCA	DAPTEMP5
-// PORT: Fixed ROM slots 16657.
+// slot 16657
                                 if slot <> 16657 or instruction <> 13284 { return choose false if checkOnly else -1. }
                                 if extended {
                                     if checkOnly { return true. }
@@ -1948,9 +1948,9 @@ function agcAotUnit1006 {
                     } else {
                         if slot <= 16659 {
                             if slot <= 16658 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:223
+// P-AXIS_RCS_AUTOPILOT.agc:223
 //		DAS	DYERROR
-// PORT: Fixed ROM slots 16658.
+// slot 16658
                                 if slot <> 16658 or instruction <> 9001 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -1960,9 +1960,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:224
+// P-AXIS_RCS_AUTOPILOT.agc:224
 //		CS	QLAST
-// PORT: Fixed ROM slots 16659.
+// slot 16659
                                 if slot <> 16659 or instruction <> 17197 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -1973,9 +1973,9 @@ function agcAotUnit1006 {
                             }
                         } else {
                             if slot <= 16660 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:225
+// P-AXIS_RCS_AUTOPILOT.agc:225
 //		EXTEND
-// PORT: Fixed ROM slots 16660.
+// slot 16660
                                 if slot <> 16660 or instruction <> 6 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -1983,9 +1983,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:226
+// P-AXIS_RCS_AUTOPILOT.agc:226
 //		MP	1/40
-// PORT: Fixed ROM slots 16661.
+// slot 16661
                                 if slot <> 16661 or instruction <> 30608 { return choose false if checkOnly else -1. }
                                 if extended {
                                     if checkOnly { return true. }
@@ -2001,9 +2001,9 @@ function agcAotUnit1006 {
                     if slot <= 16665 {
                         if slot <= 16663 {
                             if slot <= 16662 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:227
+// P-AXIS_RCS_AUTOPILOT.agc:227
 //		DAS	DYERROR		# MANUAL MODE Y-ATTITUDE ERROR (DP)
-// PORT: Fixed ROM slots 16662.
+// slot 16662
                                 if slot <> 16662 or instruction <> 9001 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2013,9 +2013,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:228
+// P-AXIS_RCS_AUTOPILOT.agc:228
 //		CA	M31
-// PORT: Fixed ROM slots 16663.
+// slot 16663
                                 if slot <> 16663 or instruction <> 13070 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2027,9 +2027,9 @@ function agcAotUnit1006 {
                             }
                         } else {
                             if slot <= 16664 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:229
+// P-AXIS_RCS_AUTOPILOT.agc:229
 //		EXTEND
-// PORT: Fixed ROM slots 16664.
+// slot 16664
                                 if slot <> 16664 or instruction <> 6 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2037,9 +2037,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:230
+// P-AXIS_RCS_AUTOPILOT.agc:230
 //		MP	DAPTEMP2
-// PORT: Fixed ROM slots 16665.
+// slot 16665
                                 if slot <> 16665 or instruction <> 29664 { return choose false if checkOnly else -1. }
                                 if extended {
                                     if checkOnly { return true. }
@@ -2053,9 +2053,9 @@ function agcAotUnit1006 {
                     } else {
                         if slot <= 16667 {
                             if slot <= 16666 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:231
+// P-AXIS_RCS_AUTOPILOT.agc:231
 //		DXCH	OMEGAU
-// PORT: Fixed ROM slots 16666.
+// slot 16666
                                 if slot <> 16666 or instruction <> 22295 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2064,9 +2064,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:232
+// P-AXIS_RCS_AUTOPILOT.agc:232
 //		CA	M32
-// PORT: Fixed ROM slots 16667.
+// slot 16667
                                 if slot <> 16667 or instruction <> 13072 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2078,11 +2078,11 @@ function agcAotUnit1006 {
                             }
                         } else {
                             if slot <= 16668 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:233
+// P-AXIS_RCS_AUTOPILOT.agc:233
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:234
+// P-AXIS_RCS_AUTOPILOT.agc:234
 //		TC	SUBDIVDE
-// PORT: Fixed ROM slots 16668.
+// slot 16668
                                 if slot <> 16668 or instruction <> 1203 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2090,11 +2090,11 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:235
+// P-AXIS_RCS_AUTOPILOT.agc:235
 //# Page 1425
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:236
+// P-AXIS_RCS_AUTOPILOT.agc:236
 //		EXTEND
-// PORT: Fixed ROM slots 16669.
+// slot 16669
                                 if slot <> 16669 or instruction <> 6 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2110,9 +2110,9 @@ function agcAotUnit1006 {
                     if slot <= 16673 {
                         if slot <= 16671 {
                             if slot <= 16670 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:237
+// P-AXIS_RCS_AUTOPILOT.agc:237
 //		SU	OMEGAR
-// PORT: Fixed ROM slots 16670.
+// slot 16670
                                 if slot <> 16670 or instruction <> 25363 { return choose false if checkOnly else -1. }
                                 if extended {
                                     if checkOnly { return true. }
@@ -2122,9 +2122,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:238
+// P-AXIS_RCS_AUTOPILOT.agc:238
 //		ADS	TRAPEDR
-// PORT: Fixed ROM slots 16671.
+// slot 16671
                                 if slot <> 16671 or instruction <> 12058 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2136,9 +2136,9 @@ function agcAotUnit1006 {
                             }
                         } else {
                             if slot <= 16672 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:239
+// P-AXIS_RCS_AUTOPILOT.agc:239
 //		TC	OVERSUB
-// PORT: Fixed ROM slots 16672.
+// slot 16672
                                 if slot <> 16672 or instruction <> 1224 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2146,9 +2146,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:240
+// P-AXIS_RCS_AUTOPILOT.agc:240
 //		TS	TRAPEDR		# TRAPEDS HAVE ALL BEEN COMPUTED
-// PORT: Fixed ROM slots 16673.
+// slot 16673
                                 if slot <> 16673 or instruction <> 23322 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2160,11 +2160,11 @@ function agcAotUnit1006 {
                     } else {
                         if slot <= 16675 {
                             if slot <= 16674 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:241
+// P-AXIS_RCS_AUTOPILOT.agc:241
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:242
+// P-AXIS_RCS_AUTOPILOT.agc:242
 //		EXTEND
-// PORT: Fixed ROM slots 16674.
+// slot 16674
                                 if slot <> 16674 or instruction <> 6 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2172,9 +2172,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:243
+// P-AXIS_RCS_AUTOPILOT.agc:243
 //		DCA	DAPTEMP5
-// PORT: Fixed ROM slots 16675.
+// slot 16675
                                 if slot <> 16675 or instruction <> 13284 { return choose false if checkOnly else -1. }
                                 if extended {
                                     if checkOnly { return true. }
@@ -2186,9 +2186,9 @@ function agcAotUnit1006 {
                             }
                         } else {
                             if slot <= 16676 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:244
+// P-AXIS_RCS_AUTOPILOT.agc:244
 //		DAS	DZERROR
-// PORT: Fixed ROM slots 16676.
+// slot 16676
                                 if slot <> 16676 or instruction <> 9003 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2198,9 +2198,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:245
+// P-AXIS_RCS_AUTOPILOT.agc:245
 //		CS	RLAST
-// PORT: Fixed ROM slots 16677.
+// slot 16677
                                 if slot <> 16677 or instruction <> 17198 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2215,9 +2215,9 @@ function agcAotUnit1006 {
                     if slot <= 16681 {
                         if slot <= 16679 {
                             if slot <= 16678 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:246
+// P-AXIS_RCS_AUTOPILOT.agc:246
 //		EXTEND
-// PORT: Fixed ROM slots 16678.
+// slot 16678
                                 if slot <> 16678 or instruction <> 6 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2225,9 +2225,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:247
+// P-AXIS_RCS_AUTOPILOT.agc:247
 //		MP	1/40
-// PORT: Fixed ROM slots 16679.
+// slot 16679
                                 if slot <> 16679 or instruction <> 30608 { return choose false if checkOnly else -1. }
                                 if extended {
                                     if checkOnly { return true. }
@@ -2239,9 +2239,9 @@ function agcAotUnit1006 {
                             }
                         } else {
                             if slot <= 16680 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:248
+// P-AXIS_RCS_AUTOPILOT.agc:248
 //		DAS	DZERROR		# MANUAL MODE Z-ATTITUDE ERROR (DP)
-// PORT: Fixed ROM slots 16680.
+// slot 16680
                                 if slot <> 16680 or instruction <> 9003 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2251,9 +2251,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:249
+// P-AXIS_RCS_AUTOPILOT.agc:249
 //		CA	DAPBOOLS	# PICK UP PAD LOADED STATE ESTIMATOR GAINS
-// PORT: Fixed ROM slots 16681.
+// slot 16681
                                 if slot <> 16681 or instruction <> 12361 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2267,9 +2267,9 @@ function agcAotUnit1006 {
                     } else {
                         if slot <= 16683 {
                             if slot <= 16682 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:250
+// P-AXIS_RCS_AUTOPILOT.agc:250
 //		MASK	CSMDOCKD
-// PORT: Fixed ROM slots 16682.
+// slot 16682
                                 if slot <> 16682 or instruction <> 31199 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2285,9 +2285,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:251
+// P-AXIS_RCS_AUTOPILOT.agc:251
 //		EXTEND
-// PORT: Fixed ROM slots 16683.
+// slot 16683
                                 if slot <> 16683 or instruction <> 6 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2297,9 +2297,9 @@ function agcAotUnit1006 {
                             }
                         } else {
                             if slot <= 16684 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:252
+// P-AXIS_RCS_AUTOPILOT.agc:252
 //		BZF	LMONLY
-// PORT: Fixed ROM slots 16684.
+// slot 16684
                                 if slot <> 16684 or instruction <> 5426 { return choose false if checkOnly else -1. }
                                 if extended {
                                     if checkOnly { return true. }
@@ -2307,9 +2307,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:253
+// P-AXIS_RCS_AUTOPILOT.agc:253
 //		EXTEND			# DOCKED
-// PORT: Fixed ROM slots 16685.
+// slot 16685
                                 if slot <> 16685 or instruction <> 6 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2327,9 +2327,9 @@ function agcAotUnit1006 {
                     if slot <= 16689 {
                         if slot <= 16687 {
                             if slot <= 16686 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:254
+// P-AXIS_RCS_AUTOPILOT.agc:254
 //		DCA	DKOMEGAN
-// PORT: Fixed ROM slots 16686.
+// slot 16686
                                 if slot <> 16686 or instruction <> 13061 { return choose false if checkOnly else -1. }
                                 if extended {
                                     if checkOnly { return true. }
@@ -2339,9 +2339,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:255
+// P-AXIS_RCS_AUTOPILOT.agc:255
 //		DXCH	DAPTREG4
-// PORT: Fixed ROM slots 16687.
+// slot 16687
                                 if slot <> 16687 or instruction <> 22505 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2352,9 +2352,9 @@ function agcAotUnit1006 {
                             }
                         } else {
                             if slot <= 16688 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:256
+// P-AXIS_RCS_AUTOPILOT.agc:256
 //		CA	DKTRAP
-// PORT: Fixed ROM slots 16688.
+// slot 16688
                                 if slot <> 16688 or instruction <> 13059 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2364,9 +2364,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:257
+// P-AXIS_RCS_AUTOPILOT.agc:257
 //		TCF	+5
-// PORT: Fixed ROM slots 16689.
+// slot 16689
                                 if slot <> 16689 or instruction <> 5430 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2378,9 +2378,9 @@ function agcAotUnit1006 {
                     } else {
                         if slot <= 16691 {
                             if slot <= 16690 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:258
+// P-AXIS_RCS_AUTOPILOT.agc:258
 //LMONLY		EXTEND			# UNDOCKED
-// PORT: Fixed ROM slots 16690.
+// slot 16690
                                 if slot <> 16690 or instruction <> 6 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2388,9 +2388,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:259
+// P-AXIS_RCS_AUTOPILOT.agc:259
 //		DCA	LMOMEGAN
-// PORT: Fixed ROM slots 16691.
+// slot 16691
                                 if slot <> 16691 or instruction <> 13064 { return choose false if checkOnly else -1. }
                                 if extended {
                                     if checkOnly { return true. }
@@ -2402,9 +2402,9 @@ function agcAotUnit1006 {
                             }
                         } else {
                             if slot <= 16692 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:260
+// P-AXIS_RCS_AUTOPILOT.agc:260
 //		DXCH	DAPTREG4
-// PORT: Fixed ROM slots 16692.
+// slot 16692
                                 if slot <> 16692 or instruction <> 22505 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2413,9 +2413,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:261
+// P-AXIS_RCS_AUTOPILOT.agc:261
 //		CA	LMTRAP
-// PORT: Fixed ROM slots 16693.
+// slot 16693
                                 if slot <> 16693 or instruction <> 13062 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2431,9 +2431,9 @@ function agcAotUnit1006 {
                     if slot <= 16697 {
                         if slot <= 16695 {
                             if slot <= 16694 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:262
+// P-AXIS_RCS_AUTOPILOT.agc:262
 // +5		TS	DAPTREG6
-// PORT: Fixed ROM slots 16694.
+// slot 16694
                                 if slot <> 16694 or instruction <> 23530 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2441,9 +2441,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:263
+// P-AXIS_RCS_AUTOPILOT.agc:263
 //		CCS	TRAPEDP
-// PORT: Fixed ROM slots 16695.
+// slot 16695
                                 if slot <> 16695 or instruction <> 4888 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2455,9 +2455,9 @@ function agcAotUnit1006 {
                             }
                         } else {
                             if slot <= 16696 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:264
+// P-AXIS_RCS_AUTOPILOT.agc:264
 //		TCF	+2
-// PORT: Fixed ROM slots 16696.
+// slot 16696
                                 if slot <> 16696 or instruction <> 5434 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2465,9 +2465,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:265
+// P-AXIS_RCS_AUTOPILOT.agc:265
 //		TCF	SMALPDIF
-// PORT: Fixed ROM slots 16697.
+// slot 16697
                                 if slot <> 16697 or instruction <> 5447 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2479,9 +2479,9 @@ function agcAotUnit1006 {
                     } else {
                         if slot <= 16699 {
                             if slot <= 16698 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:266
+// P-AXIS_RCS_AUTOPILOT.agc:266
 //		AD	DAPTREG6	# TRAPSIZE > ABOUT 77001 %-1.4DEG/SEC"
-// PORT: Fixed ROM slots 16698.
+// slot 16698
                                 if slot <> 16698 or instruction <> 25578 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2491,9 +2491,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:267
+// P-AXIS_RCS_AUTOPILOT.agc:267
 //		EXTEND
-// PORT: Fixed ROM slots 16699.
+// slot 16699
                                 if slot <> 16699 or instruction <> 6 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2503,9 +2503,9 @@ function agcAotUnit1006 {
                             }
                         } else {
                             if slot <= 16700 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:268
+// P-AXIS_RCS_AUTOPILOT.agc:268
 //		BZMF	SMALPDIF
-// PORT: Fixed ROM slots 16700.
+// slot 16700
                                 if slot <> 16700 or instruction <> 25927 { return choose false if checkOnly else -1. }
                                 if extended {
                                     if checkOnly { return true. }
@@ -2513,9 +2513,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:269
+// P-AXIS_RCS_AUTOPILOT.agc:269
 //		ZL
-// PORT: Fixed ROM slots 16701.
+// slot 16701
                                 if slot <> 16701 or instruction <> 9223 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2533,9 +2533,9 @@ function agcAotUnit1006 {
                     if slot <= 16705 {
                         if slot <= 16703 {
                             if slot <= 16702 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:270
+// P-AXIS_RCS_AUTOPILOT.agc:270
 //		LXCH	TRAPEDP
-// PORT: Fixed ROM slots 16702.
+// slot 16702
                                 if slot <> 16702 or instruction <> 10008 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2545,9 +2545,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:271
+// P-AXIS_RCS_AUTOPILOT.agc:271
 //		CA	ZERO
-// PORT: Fixed ROM slots 16703.
+// slot 16703
                                 if slot <> 16703 or instruction <> 14829 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2560,9 +2560,9 @@ function agcAotUnit1006 {
                             }
                         } else {
                             if slot <= 16704 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:272
+// P-AXIS_RCS_AUTOPILOT.agc:272
 //		EXTEND
-// PORT: Fixed ROM slots 16704.
+// slot 16704
                                 if slot <> 16704 or instruction <> 6 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2570,9 +2570,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:273
+// P-AXIS_RCS_AUTOPILOT.agc:273
 //		DV	NPTRAPS
-// PORT: Fixed ROM slots 16705.
+// slot 16705
                                 if slot <> 16705 or instruction <> 4891 { return choose false if checkOnly else -1. }
                                 if extended {
                                     if checkOnly { return true. }
@@ -2586,9 +2586,9 @@ function agcAotUnit1006 {
                     } else {
                         if slot <= 16707 {
                             if slot <= 16706 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:274
+// P-AXIS_RCS_AUTOPILOT.agc:274
 //		ADS	OMEGAP
-// PORT: Fixed ROM slots 16706.
+// slot 16706
                                 if slot <> 16706 or instruction <> 12049 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2598,9 +2598,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:275
+// P-AXIS_RCS_AUTOPILOT.agc:275
 //		TC	OVERSUB
-// PORT: Fixed ROM slots 16707.
+// slot 16707
                                 if slot <> 16707 or instruction <> 1224 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2610,9 +2610,9 @@ function agcAotUnit1006 {
                             }
                         } else {
                             if slot <= 16708 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:276
+// P-AXIS_RCS_AUTOPILOT.agc:276
 //		TS	OMEGAP
-// PORT: Fixed ROM slots 16708.
+// slot 16708
                                 if slot <> 16708 or instruction <> 23313 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2620,9 +2620,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:277
+// P-AXIS_RCS_AUTOPILOT.agc:277
 //		CA	DAPTREG4	ABOUT 10 OR 0 FOR DOCKED OR UNDOCKED
-// PORT: Fixed ROM slots 16709.
+// slot 16709
                                 if slot <> 16709 or instruction <> 13288 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2638,9 +2638,9 @@ function agcAotUnit1006 {
                     if slot <= 16713 {
                         if slot <= 16711 {
                             if slot <= 16710 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:278
+// P-AXIS_RCS_AUTOPILOT.agc:278
 //		TS	NPTRAPS
-// PORT: Fixed ROM slots 16710.
+// slot 16710
                                 if slot <> 16710 or instruction <> 23323 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2648,9 +2648,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:279
+// P-AXIS_RCS_AUTOPILOT.agc:279
 //SMALPDIF	INCR	NPTRAPS
-// PORT: Fixed ROM slots 16711.
+// slot 16711
                                 if slot <> 16711 or instruction <> 11035 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2662,9 +2662,9 @@ function agcAotUnit1006 {
                             }
                         } else {
                             if slot <= 16712 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:280
+// P-AXIS_RCS_AUTOPILOT.agc:280
 //P-RATE		CA	JETRATE
-// PORT: Fixed ROM slots 16712.
+// slot 16712
                                 if slot <> 16712 or instruction <> 13285 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2674,9 +2674,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:281
+// P-AXIS_RCS_AUTOPILOT.agc:281
 //		ADS	OMEGAP
-// PORT: Fixed ROM slots 16713.
+// slot 16713
                                 if slot <> 16713 or instruction <> 12049 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2690,9 +2690,9 @@ function agcAotUnit1006 {
                     } else {
                         if slot <= 16715 {
                             if slot <= 16714 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:282
+// P-AXIS_RCS_AUTOPILOT.agc:282
 //		TC	OVERSUB
-// PORT: Fixed ROM slots 16714.
+// slot 16714
                                 if slot <> 16714 or instruction <> 1224 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2700,9 +2700,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:283
+// P-AXIS_RCS_AUTOPILOT.agc:283
 //		TS	OMEGAP
-// PORT: Fixed ROM slots 16715.
+// slot 16715
                                 if slot <> 16715 or instruction <> 23313 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2712,11 +2712,11 @@ function agcAotUnit1006 {
                             }
                         } else {
                             if slot <= 16716 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:284
+// P-AXIS_RCS_AUTOPILOT.agc:284
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:285
+// P-AXIS_RCS_AUTOPILOT.agc:285
 //		CCS	TRAPEDQ
-// PORT: Fixed ROM slots 16716.
+// slot 16716
                                 if slot <> 16716 or instruction <> 4889 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2726,11 +2726,11 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:286
+// P-AXIS_RCS_AUTOPILOT.agc:286
 //# Page 1426
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:287
+// P-AXIS_RCS_AUTOPILOT.agc:287
 //		TCF	+2
-// PORT: Fixed ROM slots 16717.
+// slot 16717
                                 if slot <> 16717 or instruction <> 5455 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2750,9 +2750,9 @@ function agcAotUnit1006 {
                     if slot <= 16721 {
                         if slot <= 16719 {
                             if slot <= 16718 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:288
+// P-AXIS_RCS_AUTOPILOT.agc:288
 //		TCF	Q-RATE
-// PORT: Fixed ROM slots 16718.
+// slot 16718
                                 if slot <> 16718 or instruction <> 5476 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2760,9 +2760,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:289
+// P-AXIS_RCS_AUTOPILOT.agc:289
 //		AD	DAPTREG6	# TRAPSIZE > ABOUT 77001 %-1.4DEG/SEC"
-// PORT: Fixed ROM slots 16719.
+// slot 16719
                                 if slot <> 16719 or instruction <> 25578 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2774,9 +2774,9 @@ function agcAotUnit1006 {
                             }
                         } else {
                             if slot <= 16720 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:290
+// P-AXIS_RCS_AUTOPILOT.agc:290
 //		EXTEND
-// PORT: Fixed ROM slots 16720.
+// slot 16720
                                 if slot <> 16720 or instruction <> 6 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2784,9 +2784,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:291
+// P-AXIS_RCS_AUTOPILOT.agc:291
 //		BZMF	Q-RATE
-// PORT: Fixed ROM slots 16721.
+// slot 16721
                                 if slot <> 16721 or instruction <> 25956 { return choose false if checkOnly else -1. }
                                 if extended {
                                     if checkOnly { return true. }
@@ -2798,9 +2798,9 @@ function agcAotUnit1006 {
                     } else {
                         if slot <= 16723 {
                             if slot <= 16722 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:292
+// P-AXIS_RCS_AUTOPILOT.agc:292
 //		ZL
-// PORT: Fixed ROM slots 16722.
+// slot 16722
                                 if slot <> 16722 or instruction <> 9223 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2810,9 +2810,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:293
+// P-AXIS_RCS_AUTOPILOT.agc:293
 //		LXCH	TRAPEDQ
-// PORT: Fixed ROM slots 16723.
+// slot 16723
                                 if slot <> 16723 or instruction <> 10009 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2824,9 +2824,9 @@ function agcAotUnit1006 {
                             }
                         } else {
                             if slot <= 16724 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:294
+// P-AXIS_RCS_AUTOPILOT.agc:294
 //		CA	ZERO
-// PORT: Fixed ROM slots 16724.
+// slot 16724
                                 if slot <> 16724 or instruction <> 14829 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2837,9 +2837,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:295
+// P-AXIS_RCS_AUTOPILOT.agc:295
 //		EXTEND
-// PORT: Fixed ROM slots 16725.
+// slot 16725
                                 if slot <> 16725 or instruction <> 6 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2853,9 +2853,9 @@ function agcAotUnit1006 {
                     if slot <= 16729 {
                         if slot <= 16727 {
                             if slot <= 16726 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:296
+// P-AXIS_RCS_AUTOPILOT.agc:296
 //		DV	NQTRAPS
-// PORT: Fixed ROM slots 16726.
+// slot 16726
                                 if slot <> 16726 or instruction <> 4892 { return choose false if checkOnly else -1. }
                                 if extended {
                                     if checkOnly { return true. }
@@ -2865,9 +2865,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:297
+// P-AXIS_RCS_AUTOPILOT.agc:297
 //		TS	DAPTEMP1	# SAVE FOR OFFSET ESTIMATE
-// PORT: Fixed ROM slots 16727.
+// slot 16727
                                 if slot <> 16727 or instruction <> 23519 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2877,9 +2877,9 @@ function agcAotUnit1006 {
                             }
                         } else {
                             if slot <= 16728 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:298
+// P-AXIS_RCS_AUTOPILOT.agc:298
 //		ADS	OMEGAQ
-// PORT: Fixed ROM slots 16728.
+// slot 16728
                                 if slot <> 16728 or instruction <> 12050 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2889,9 +2889,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:299
+// P-AXIS_RCS_AUTOPILOT.agc:299
 //		TC	OVERSUB
-// PORT: Fixed ROM slots 16729.
+// slot 16729
                                 if slot <> 16729 or instruction <> 1224 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2903,9 +2903,9 @@ function agcAotUnit1006 {
                     } else {
                         if slot <= 16731 {
                             if slot <= 16730 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:300
+// P-AXIS_RCS_AUTOPILOT.agc:300
 //		TS	OMEGAQ
-// PORT: Fixed ROM slots 16730.
+// slot 16730
                                 if slot <> 16730 or instruction <> 23314 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2913,9 +2913,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:301
+// P-AXIS_RCS_AUTOPILOT.agc:301
 //		CA	DAPTREG4	# ABOUT 10 OR 0 FOR DOCKED OR UNDOCKED
-// PORT: Fixed ROM slots 16731.
+// slot 16731
                                 if slot <> 16731 or instruction <> 13288 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2927,9 +2927,9 @@ function agcAotUnit1006 {
                             }
                         } else {
                             if slot <= 16732 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:302
+// P-AXIS_RCS_AUTOPILOT.agc:302
 //		XCH	NQTRAPS
-// PORT: Fixed ROM slots 16732.
+// slot 16732
                                 if slot <> 16732 or instruction <> 24348 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2938,9 +2938,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:303
+// P-AXIS_RCS_AUTOPILOT.agc:303
 //		AD	DAPTREG5	# KAOS > ABOUT 60D %N/N_60"
-// PORT: Fixed ROM slots 16733.
+// slot 16733
                                 if slot <> 16733 or instruction <> 25577 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2958,9 +2958,9 @@ function agcAotUnit1006 {
                     if slot <= 16737 {
                         if slot <= 16735 {
                             if slot <= 16734 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:304
+// P-AXIS_RCS_AUTOPILOT.agc:304
 //		XCH	DAPTEMP1
-// PORT: Fixed ROM slots 16734.
+// slot 16734
                                 if slot <> 16734 or instruction <> 24543 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2969,9 +2969,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:305
+// P-AXIS_RCS_AUTOPILOT.agc:305
 //		EXTEND
-// PORT: Fixed ROM slots 16735.
+// slot 16735
                                 if slot <> 16735 or instruction <> 6 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -2981,9 +2981,9 @@ function agcAotUnit1006 {
                             }
                         } else {
                             if slot <= 16736 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:306
+// P-AXIS_RCS_AUTOPILOT.agc:306
 //		MP	FIVE
-// PORT: Fixed ROM slots 16736.
+// slot 16736
                                 if slot <> 16736 or instruction <> 31214 { return choose false if checkOnly else -1. }
                                 if extended {
                                     if checkOnly { return true. }
@@ -2993,9 +2993,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:307
+// P-AXIS_RCS_AUTOPILOT.agc:307
 //		EXTEND
-// PORT: Fixed ROM slots 16737.
+// slot 16737
                                 if slot <> 16737 or instruction <> 6 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -3007,9 +3007,9 @@ function agcAotUnit1006 {
                     } else {
                         if slot <= 16739 {
                             if slot <= 16738 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:308
+// P-AXIS_RCS_AUTOPILOT.agc:308
 //		DV	DAPTEMP1
-// PORT: Fixed ROM slots 16738.
+// slot 16738
                                 if slot <> 16738 or instruction <> 5087 { return choose false if checkOnly else -1. }
                                 if extended {
                                     if checkOnly { return true. }
@@ -3019,9 +3019,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:309
+// P-AXIS_RCS_AUTOPILOT.agc:309
 //		ADS	AOSQ
-// PORT: Fixed ROM slots 16739.
+// slot 16739
                                 if slot <> 16739 or instruction <> 12127 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -3033,9 +3033,9 @@ function agcAotUnit1006 {
                             }
                         } else {
                             if slot <= 16740 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:310
+// P-AXIS_RCS_AUTOPILOT.agc:310
 //Q-RATE		INCR	NQTRAPS
-// PORT: Fixed ROM slots 16740.
+// slot 16740
                                 if slot <> 16740 or instruction <> 11036 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -3045,9 +3045,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:311
+// P-AXIS_RCS_AUTOPILOT.agc:311
 //		CA	JETRATEQ
-// PORT: Fixed ROM slots 16741.
+// slot 16741
                                 if slot <> 16741 or instruction <> 13286 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -3063,9 +3063,9 @@ function agcAotUnit1006 {
                     if slot <= 16745 {
                         if slot <= 16743 {
                             if slot <= 16742 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:312
+// P-AXIS_RCS_AUTOPILOT.agc:312
 //		AD	AOSQTERM
-// PORT: Fixed ROM slots 16742.
+// slot 16742
                                 if slot <> 16742 or instruction <> 25445 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -3075,9 +3075,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:313
+// P-AXIS_RCS_AUTOPILOT.agc:313
 //		ADS	OMEGAQ
-// PORT: Fixed ROM slots 16743.
+// slot 16743
                                 if slot <> 16743 or instruction <> 12050 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -3089,9 +3089,9 @@ function agcAotUnit1006 {
                             }
                         } else {
                             if slot <= 16744 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:314
+// P-AXIS_RCS_AUTOPILOT.agc:314
 //		TC	OVERSUB
-// PORT: Fixed ROM slots 16744.
+// slot 16744
                                 if slot <> 16744 or instruction <> 1224 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -3099,9 +3099,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:315
+// P-AXIS_RCS_AUTOPILOT.agc:315
 //		TS	OMEGAQ
-// PORT: Fixed ROM slots 16745.
+// slot 16745
                                 if slot <> 16745 or instruction <> 23314 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -3113,11 +3113,11 @@ function agcAotUnit1006 {
                     } else {
                         if slot <= 16747 {
                             if slot <= 16746 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:316
+// P-AXIS_RCS_AUTOPILOT.agc:316
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:317
+// P-AXIS_RCS_AUTOPILOT.agc:317
 //		CCS	TRAPEDR
-// PORT: Fixed ROM slots 16746.
+// slot 16746
                                 if slot <> 16746 or instruction <> 4890 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -3127,9 +3127,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:318
+// P-AXIS_RCS_AUTOPILOT.agc:318
 //		TCF	+2
-// PORT: Fixed ROM slots 16747.
+// slot 16747
                                 if slot <> 16747 or instruction <> 5485 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -3139,9 +3139,9 @@ function agcAotUnit1006 {
                             }
                         } else {
                             if slot <= 16748 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:319
+// P-AXIS_RCS_AUTOPILOT.agc:319
 //		TCF	R-RATE
-// PORT: Fixed ROM slots 16748.
+// slot 16748
                                 if slot <> 16748 or instruction <> 5506 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -3149,9 +3149,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:320
+// P-AXIS_RCS_AUTOPILOT.agc:320
 //		AD	DAPTREG6	# TRAPSIZE > ABOUT 77001 %-1.4DEG/SEC"
-// PORT: Fixed ROM slots 16749.
+// slot 16749
                                 if slot <> 16749 or instruction <> 25578 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -3171,9 +3171,9 @@ function agcAotUnit1006 {
                     if slot <= 16753 {
                         if slot <= 16751 {
                             if slot <= 16750 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:321
+// P-AXIS_RCS_AUTOPILOT.agc:321
 //		EXTEND
-// PORT: Fixed ROM slots 16750.
+// slot 16750
                                 if slot <> 16750 or instruction <> 6 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -3181,9 +3181,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:322
+// P-AXIS_RCS_AUTOPILOT.agc:322
 //		BZMF	R-RATE
-// PORT: Fixed ROM slots 16751.
+// slot 16751
                                 if slot <> 16751 or instruction <> 25986 { return choose false if checkOnly else -1. }
                                 if extended {
                                     if checkOnly { return true. }
@@ -3193,9 +3193,9 @@ function agcAotUnit1006 {
                             }
                         } else {
                             if slot <= 16752 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:323
+// P-AXIS_RCS_AUTOPILOT.agc:323
 //		ZL
-// PORT: Fixed ROM slots 16752.
+// slot 16752
                                 if slot <> 16752 or instruction <> 9223 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -3205,9 +3205,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:324
+// P-AXIS_RCS_AUTOPILOT.agc:324
 //		LXCH	TRAPEDR
-// PORT: Fixed ROM slots 16753.
+// slot 16753
                                 if slot <> 16753 or instruction <> 10010 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -3221,9 +3221,9 @@ function agcAotUnit1006 {
                     } else {
                         if slot <= 16755 {
                             if slot <= 16754 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:325
+// P-AXIS_RCS_AUTOPILOT.agc:325
 //		CA	ZERO
-// PORT: Fixed ROM slots 16754.
+// slot 16754
                                 if slot <> 16754 or instruction <> 14829 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -3234,9 +3234,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:326
+// P-AXIS_RCS_AUTOPILOT.agc:326
 //		EXTEND
-// PORT: Fixed ROM slots 16755.
+// slot 16755
                                 if slot <> 16755 or instruction <> 6 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -3246,9 +3246,9 @@ function agcAotUnit1006 {
                             }
                         } else {
                             if slot <= 16756 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:327
+// P-AXIS_RCS_AUTOPILOT.agc:327
 //		DV	NRTRAPS
-// PORT: Fixed ROM slots 16756.
+// slot 16756
                                 if slot <> 16756 or instruction <> 4893 { return choose false if checkOnly else -1. }
                                 if extended {
                                     if checkOnly { return true. }
@@ -3258,9 +3258,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:328
+// P-AXIS_RCS_AUTOPILOT.agc:328
 //		TS	DAPTEMP2	# SAVE FOR OFFSET ESTIMATE
-// PORT: Fixed ROM slots 16757.
+// slot 16757
                                 if slot <> 16757 or instruction <> 23520 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -3274,9 +3274,9 @@ function agcAotUnit1006 {
                     if slot <= 16761 {
                         if slot <= 16759 {
                             if slot <= 16758 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:329
+// P-AXIS_RCS_AUTOPILOT.agc:329
 //		ADS	OMEGAR
-// PORT: Fixed ROM slots 16758.
+// slot 16758
                                 if slot <> 16758 or instruction <> 12051 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -3286,9 +3286,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:330
+// P-AXIS_RCS_AUTOPILOT.agc:330
 //		TC	OVERSUB
-// PORT: Fixed ROM slots 16759.
+// slot 16759
                                 if slot <> 16759 or instruction <> 1224 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -3298,9 +3298,9 @@ function agcAotUnit1006 {
                             }
                         } else {
                             if slot <= 16760 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:331
+// P-AXIS_RCS_AUTOPILOT.agc:331
 //		TS	OMEGAR
-// PORT: Fixed ROM slots 16760.
+// slot 16760
                                 if slot <> 16760 or instruction <> 23315 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -3308,9 +3308,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:332
+// P-AXIS_RCS_AUTOPILOT.agc:332
 //		CA	DAPTREG4	# ABOUT 10 OR 0 FOR DOCKED OR UNDOCKED
-// PORT: Fixed ROM slots 16761.
+// slot 16761
                                 if slot <> 16761 or instruction <> 13288 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -3324,9 +3324,9 @@ function agcAotUnit1006 {
                     } else {
                         if slot <= 16763 {
                             if slot <= 16762 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:333
+// P-AXIS_RCS_AUTOPILOT.agc:333
 //		XCH	NRTRAPS
-// PORT: Fixed ROM slots 16762.
+// slot 16762
                                 if slot <> 16762 or instruction <> 24349 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -3335,9 +3335,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:334
+// P-AXIS_RCS_AUTOPILOT.agc:334
 //		AD	DAPTREG5	# KAOS > ABOUT 60D %N/N_60"
-// PORT: Fixed ROM slots 16763.
+// slot 16763
                                 if slot <> 16763 or instruction <> 25577 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -3349,9 +3349,9 @@ function agcAotUnit1006 {
                             }
                         } else {
                             if slot <= 16764 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:335
+// P-AXIS_RCS_AUTOPILOT.agc:335
 //		XCH	DAPTEMP2
-// PORT: Fixed ROM slots 16764.
+// slot 16764
                                 if slot <> 16764 or instruction <> 24544 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -3360,9 +3360,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:336
+// P-AXIS_RCS_AUTOPILOT.agc:336
 //		EXTEND
-// PORT: Fixed ROM slots 16765.
+// slot 16765
                                 if slot <> 16765 or instruction <> 6 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -3378,11 +3378,11 @@ function agcAotUnit1006 {
                     if slot <= 16769 {
                         if slot <= 16767 {
                             if slot <= 16766 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:337
+// P-AXIS_RCS_AUTOPILOT.agc:337
 //# Page 1427
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:338
+// P-AXIS_RCS_AUTOPILOT.agc:338
 //		MP	FIVE
-// PORT: Fixed ROM slots 16766.
+// slot 16766
                                 if slot <> 16766 or instruction <> 31214 { return choose false if checkOnly else -1. }
                                 if extended {
                                     if checkOnly { return true. }
@@ -3392,9 +3392,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:339
+// P-AXIS_RCS_AUTOPILOT.agc:339
 //		EXTEND
-// PORT: Fixed ROM slots 16767.
+// slot 16767
                                 if slot <> 16767 or instruction <> 6 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -3404,9 +3404,9 @@ function agcAotUnit1006 {
                             }
                         } else {
                             if slot <= 16768 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:340
+// P-AXIS_RCS_AUTOPILOT.agc:340
 //		DV	DAPTEMP2
-// PORT: Fixed ROM slots 16768.
+// slot 16768
                                 if slot <> 16768 or instruction <> 5088 { return choose false if checkOnly else -1. }
                                 if extended {
                                     if checkOnly { return true. }
@@ -3416,9 +3416,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:341
+// P-AXIS_RCS_AUTOPILOT.agc:341
 //		ADS	AOSR
-// PORT: Fixed ROM slots 16769.
+// slot 16769
                                 if slot <> 16769 or instruction <> 12129 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -3432,9 +3432,9 @@ function agcAotUnit1006 {
                     } else {
                         if slot <= 16771 {
                             if slot <= 16770 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:342
+// P-AXIS_RCS_AUTOPILOT.agc:342
 //R-RATE		INCR	NRTRAPS
-// PORT: Fixed ROM slots 16770.
+// slot 16770
                                 if slot <> 16770 or instruction <> 11037 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -3444,9 +3444,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:343
+// P-AXIS_RCS_AUTOPILOT.agc:343
 //		CA	JETRATER
-// PORT: Fixed ROM slots 16771.
+// slot 16771
                                 if slot <> 16771 or instruction <> 13287 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -3458,9 +3458,9 @@ function agcAotUnit1006 {
                             }
                         } else {
                             if slot <= 16772 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:344
+// P-AXIS_RCS_AUTOPILOT.agc:344
 //		AD	AOSRTERM
-// PORT: Fixed ROM slots 16772.
+// slot 16772
                                 if slot <> 16772 or instruction <> 25446 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -3470,9 +3470,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:345
+// P-AXIS_RCS_AUTOPILOT.agc:345
 //		ADS	OMEGAR
-// PORT: Fixed ROM slots 16773.
+// slot 16773
                                 if slot <> 16773 or instruction <> 12051 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -3488,9 +3488,9 @@ function agcAotUnit1006 {
                     if slot <= 16777 {
                         if slot <= 16775 {
                             if slot <= 16774 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:346
+// P-AXIS_RCS_AUTOPILOT.agc:346
 //		TC	OVERSUB
-// PORT: Fixed ROM slots 16774.
+// slot 16774
                                 if slot <> 16774 or instruction <> 1224 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -3498,9 +3498,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:347
+// P-AXIS_RCS_AUTOPILOT.agc:347
 //		TS	OMEGAR
-// PORT: Fixed ROM slots 16775.
+// slot 16775
                                 if slot <> 16775 or instruction <> 23315 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -3510,21 +3510,21 @@ function agcAotUnit1006 {
                             }
                         } else {
                             if slot <= 16776 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:348
+// P-AXIS_RCS_AUTOPILOT.agc:348
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:349
+// P-AXIS_RCS_AUTOPILOT.agc:349
 //# END OF RATE DERIVATION
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:350
+// P-AXIS_RCS_AUTOPILOT.agc:350
 //#	BEGIN OFFSET ESTIMATER
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:351
+// P-AXIS_RCS_AUTOPILOT.agc:351
 //#		IN POWERED FLIGHT, AOSTASK WILL BE CALLED EVERY 2 SECONDS.
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:352
+// P-AXIS_RCS_AUTOPILOT.agc:352
 //#			AOS = AOS + K*SUMRATE
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:353
+// P-AXIS_RCS_AUTOPILOT.agc:353
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:354
+// P-AXIS_RCS_AUTOPILOT.agc:354
 //		CS	DAPBOOLS
-// PORT: Fixed ROM slots 16776.
+// slot 16776
                                 if slot <> 16776 or instruction <> 16457 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -3533,9 +3533,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:355
+// P-AXIS_RCS_AUTOPILOT.agc:355
 //		MASK 	DRIFTBIT
-// PORT: Fixed ROM slots 16777.
+// slot 16777
                                 if slot <> 16777 or instruction <> 31204 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -3555,9 +3555,9 @@ function agcAotUnit1006 {
                     } else {
                         if slot <= 16779 {
                             if slot <= 16778 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:356
+// P-AXIS_RCS_AUTOPILOT.agc:356
 //		CCS	A
-// PORT: Fixed ROM slots 16778.
+// slot 16778
                                 if slot <> 16778 or instruction <> 4096 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -3567,9 +3567,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:357
+// P-AXIS_RCS_AUTOPILOT.agc:357
 //		TCF	WORKTIME
-// PORT: Fixed ROM slots 16779.
+// slot 16779
                                 if slot <> 16779 or instruction <> 5524 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -3579,9 +3579,9 @@ function agcAotUnit1006 {
                             }
                         } else {
                             if slot <= 16780 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:358
+// P-AXIS_RCS_AUTOPILOT.agc:358
 //		TS	ALPHAQ		# ZERO THE OFFSET ACCELERATION VALUES.
-// PORT: Fixed ROM slots 16780.
+// slot 16780
                                 if slot <> 16780 or instruction <> 23316 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -3589,9 +3589,9 @@ function agcAotUnit1006 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:359
+// P-AXIS_RCS_AUTOPILOT.agc:359
 //		TS	ALPHAR
-// PORT: Fixed ROM slots 16781.
+// slot 16781
                                 if slot <> 16781 or instruction <> 23317 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -3608,14 +3608,14 @@ function agcAotUnit1006 {
 }
 set agcAotRoutes[1006] to agcAotUnit1006@.
 
-// PORT: Physical bank 16. Shared continuation entries, slots 16782–16786.
+// bank 16, slots 16782-16786
 function agcAotUnit1007 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 16783 {
         if slot <= 16782 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:360
+// P-AXIS_RCS_AUTOPILOT.agc:360
 //		TS	AOSQTERM
-// PORT: Fixed ROM slots 16782.
+// slot 16782
             if slot <> 16782 or instruction <> 23397 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -3623,9 +3623,9 @@ function agcAotUnit1007 {
             }
             return choose false if checkOnly else -1.
         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:361
+// P-AXIS_RCS_AUTOPILOT.agc:361
 //		TS	AOSRTERM
-// PORT: Fixed ROM slots 16783.
+// slot 16783
             if slot <> 16783 or instruction <> 23398 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -3635,9 +3635,9 @@ function agcAotUnit1007 {
         }
     } else {
         if slot <= 16784 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:362
+// P-AXIS_RCS_AUTOPILOT.agc:362
 //		TS	AOSQ
-// PORT: Fixed ROM slots 16784.
+// slot 16784
             if slot <> 16784 or instruction <> 23391 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -3646,9 +3646,9 @@ function agcAotUnit1007 {
             return choose false if checkOnly else -1.
         } else {
             if slot <= 16785 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:363
+// P-AXIS_RCS_AUTOPILOT.agc:363
 //		TS	AOSR
-// PORT: Fixed ROM slots 16785.
+// slot 16785
                 if slot <> 16785 or instruction <> 23393 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -3656,9 +3656,9 @@ function agcAotUnit1007 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:364
+// P-AXIS_RCS_AUTOPILOT.agc:364
 //		TCF	PRETIMCK
-// PORT: Fixed ROM slots 16786.
+// slot 16786
                 if slot <> 16786 or instruction <> 5559 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -3672,13 +3672,13 @@ function agcAotUnit1007 {
 set agcAotRoutes[1007] to agcAotUnit1007@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:365
+// P-AXIS_RCS_AUTOPILOT.agc:365
 //KAOS		DEC	60
-// PORT: Fixed ROM slots 16787.
+// slot 16787
     16787, 120
 )).
 
-// PORT: Physical bank 16. Shared continuation entries, slots 16788–16820.
+// bank 16, slots 16788-16820
 function agcAotUnit1008 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 16803 {
@@ -3686,9 +3686,9 @@ function agcAotUnit1008 {
             if slot <= 16791 {
                 if slot <= 16789 {
                     if slot <= 16788 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:366
+// P-AXIS_RCS_AUTOPILOT.agc:366
 //WORKTIME	CA	QACCDOT
-// PORT: Fixed ROM slots 16788.
+// slot 16788
                         if slot <> 16788 or instruction <> 13128 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -3698,9 +3698,9 @@ function agcAotUnit1008 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:367
+// P-AXIS_RCS_AUTOPILOT.agc:367
 //		EXTEND
-// PORT: Fixed ROM slots 16789.
+// slot 16789
                         if slot <> 16789 or instruction <> 6 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -3710,9 +3710,9 @@ function agcAotUnit1008 {
                     }
                 } else {
                     if slot <= 16790 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:368
+// P-AXIS_RCS_AUTOPILOT.agc:368
 //		MP	CALLCODE	# OCTAL 00032 IS DECIMAL .1 AT 2(6).
-// PORT: Fixed ROM slots 16790.
+// slot 16790
                         if slot <> 16790 or instruction <> 31222 { return choose false if checkOnly else -1. }
                         if extended {
                             if checkOnly { return true. }
@@ -3722,9 +3722,9 @@ function agcAotUnit1008 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:369
+// P-AXIS_RCS_AUTOPILOT.agc:369
 //		DAS	AOSQ
-// PORT: Fixed ROM slots 16791.
+// slot 16791
                         if slot <> 16791 or instruction <> 9056 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -3738,9 +3738,9 @@ function agcAotUnit1008 {
             } else {
                 if slot <= 16793 {
                     if slot <= 16792 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:370
+// P-AXIS_RCS_AUTOPILOT.agc:370
 //		CA	AOSQ
-// PORT: Fixed ROM slots 16792.
+// slot 16792
                         if slot <> 16792 or instruction <> 13151 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -3750,9 +3750,9 @@ function agcAotUnit1008 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:371
+// P-AXIS_RCS_AUTOPILOT.agc:371
 //		TS	ALPHAQ
-// PORT: Fixed ROM slots 16793.
+// slot 16793
                         if slot <> 16793 or instruction <> 23316 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -3762,9 +3762,9 @@ function agcAotUnit1008 {
                     }
                 } else {
                     if slot <= 16794 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:372
+// P-AXIS_RCS_AUTOPILOT.agc:372
 //		EXTEND
-// PORT: Fixed ROM slots 16794.
+// slot 16794
                         if slot <> 16794 or instruction <> 6 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -3772,9 +3772,9 @@ function agcAotUnit1008 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:373
+// P-AXIS_RCS_AUTOPILOT.agc:373
 //		MP	200MS		# .2 AT 1
-// PORT: Fixed ROM slots 16795.
+// slot 16795
                         if slot <> 16795 or instruction <> 30606 { return choose false if checkOnly else -1. }
                         if extended {
                             if checkOnly { return true. }
@@ -3790,9 +3790,9 @@ function agcAotUnit1008 {
             if slot <= 16799 {
                 if slot <= 16797 {
                     if slot <= 16796 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:374
+// P-AXIS_RCS_AUTOPILOT.agc:374
 //		TS	AOSQTERM
-// PORT: Fixed ROM slots 16796.
+// slot 16796
                         if slot <> 16796 or instruction <> 23397 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -3800,9 +3800,9 @@ function agcAotUnit1008 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:375
+// P-AXIS_RCS_AUTOPILOT.agc:375
 //		CA	RACCDOT
-// PORT: Fixed ROM slots 16797.
+// slot 16797
                         if slot <> 16797 or instruction <> 13130 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -3814,9 +3814,9 @@ function agcAotUnit1008 {
                     }
                 } else {
                     if slot <= 16798 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:376
+// P-AXIS_RCS_AUTOPILOT.agc:376
 //		EXTEND
-// PORT: Fixed ROM slots 16798.
+// slot 16798
                         if slot <> 16798 or instruction <> 6 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -3824,9 +3824,9 @@ function agcAotUnit1008 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:377
+// P-AXIS_RCS_AUTOPILOT.agc:377
 //		MP	CALLCODE	# OCTAL 00032 IS DECIMAL .1 AT 2(6).
-// PORT: Fixed ROM slots 16799.
+// slot 16799
                         if slot <> 16799 or instruction <> 31222 { return choose false if checkOnly else -1. }
                         if extended {
                             if checkOnly { return true. }
@@ -3840,9 +3840,9 @@ function agcAotUnit1008 {
             } else {
                 if slot <= 16801 {
                     if slot <= 16800 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:378
+// P-AXIS_RCS_AUTOPILOT.agc:378
 //		DAS	AOSR
-// PORT: Fixed ROM slots 16800.
+// slot 16800
                         if slot <> 16800 or instruction <> 9058 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -3852,9 +3852,9 @@ function agcAotUnit1008 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:379
+// P-AXIS_RCS_AUTOPILOT.agc:379
 //		CA	AOSR
-// PORT: Fixed ROM slots 16801.
+// slot 16801
                         if slot <> 16801 or instruction <> 13153 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -3866,9 +3866,9 @@ function agcAotUnit1008 {
                     }
                 } else {
                     if slot <= 16802 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:380
+// P-AXIS_RCS_AUTOPILOT.agc:380
 //		TS	ALPHAR
-// PORT: Fixed ROM slots 16802.
+// slot 16802
                         if slot <> 16802 or instruction <> 23317 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -3876,9 +3876,9 @@ function agcAotUnit1008 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:381
+// P-AXIS_RCS_AUTOPILOT.agc:381
 //		EXTEND
-// PORT: Fixed ROM slots 16803.
+// slot 16803
                         if slot <> 16803 or instruction <> 6 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -3894,9 +3894,9 @@ function agcAotUnit1008 {
             if slot <= 16807 {
                 if slot <= 16805 {
                     if slot <= 16804 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:382
+// P-AXIS_RCS_AUTOPILOT.agc:382
 //		MP	200MS		# .2 AT 1
-// PORT: Fixed ROM slots 16804.
+// slot 16804
                         if slot <> 16804 or instruction <> 30606 { return choose false if checkOnly else -1. }
                         if extended {
                             if checkOnly { return true. }
@@ -3906,9 +3906,9 @@ function agcAotUnit1008 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:383
+// P-AXIS_RCS_AUTOPILOT.agc:383
 //		TS	AOSRTERM
-// PORT: Fixed ROM slots 16805.
+// slot 16805
                         if slot <> 16805 or instruction <> 23398 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -3918,9 +3918,9 @@ function agcAotUnit1008 {
                     }
                 } else {
                     if slot <= 16806 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:384
+// P-AXIS_RCS_AUTOPILOT.agc:384
 //		TCF	PRETIMCK
-// PORT: Fixed ROM slots 16806.
+// slot 16806
                         if slot <> 16806 or instruction <> 5559 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -3928,13 +3928,13 @@ function agcAotUnit1008 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:385
+// P-AXIS_RCS_AUTOPILOT.agc:385
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:386
+// P-AXIS_RCS_AUTOPILOT.agc:386
 //# Page 1428
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:387
+// P-AXIS_RCS_AUTOPILOT.agc:387
 //PAXFILT		CA	CALLGMBL	# EXECUTE ACDT+C12, IF NEEDED.
-// PORT: Fixed ROM slots 16807.
+// slot 16807
                         if slot <> 16807 or instruction <> 14823 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -3949,9 +3949,9 @@ function agcAotUnit1008 {
             } else {
                 if slot <= 16809 {
                     if slot <= 16808 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:388
+// P-AXIS_RCS_AUTOPILOT.agc:388
 //		MASK	RCSFLAGS
-// PORT: Fixed ROM slots 16808.
+// slot 16808
                         if slot <> 16808 or instruction <> 29371 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -3961,9 +3961,9 @@ function agcAotUnit1008 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:389
+// P-AXIS_RCS_AUTOPILOT.agc:389
 //		CCS	A		# CALLGMBL IS NOT BIT15, SO THIS TEST IS
-// PORT: Fixed ROM slots 16809.
+// slot 16809
                         if slot <> 16809 or instruction <> 4096 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -3975,9 +3975,9 @@ function agcAotUnit1008 {
                     }
                 } else {
                     if slot <= 16810 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:390
+// P-AXIS_RCS_AUTOPILOT.agc:390
 //		TC	ACDT+C12	# VALID.
-// PORT: Fixed ROM slots 16810.
+// slot 16810
                         if slot <> 16810 or instruction <> 2014 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -3985,11 +3985,11 @@ function agcAotUnit1008 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:391
+// P-AXIS_RCS_AUTOPILOT.agc:391
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:392
+// P-AXIS_RCS_AUTOPILOT.agc:392
 //		DXCH	ARUPT
-// PORT: Fixed ROM slots 16811.
+// slot 16811
                         if slot <> 16811 or instruction <> 21513 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -4004,9 +4004,9 @@ function agcAotUnit1008 {
             if slot <= 16815 {
                 if slot <= 16813 {
                     if slot <= 16812 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:393
+// P-AXIS_RCS_AUTOPILOT.agc:393
 //		DXCH	DAPARUPT
-// PORT: Fixed ROM slots 16812.
+// slot 16812
                         if slot <> 16812 or instruction <> 22508 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -4015,9 +4015,9 @@ function agcAotUnit1008 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:394
+// P-AXIS_RCS_AUTOPILOT.agc:394
 //		CA	SUPERJOB	# SETTING UP THE SUPERJOB
-// PORT: Fixed ROM slots 16813.
+// slot 16813
                         if slot <> 16813 or instruction <> 13750 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -4030,9 +4030,9 @@ function agcAotUnit1008 {
                     }
                 } else {
                     if slot <= 16814 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:395
+// P-AXIS_RCS_AUTOPILOT.agc:395
 //		XCH	BRUPT
-// PORT: Fixed ROM slots 16814.
+// slot 16814
                         if slot <> 16814 or instruction <> 23567 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -4041,9 +4041,9 @@ function agcAotUnit1008 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:396
+// P-AXIS_RCS_AUTOPILOT.agc:396
 //		LXCH	QRUPT
-// PORT: Fixed ROM slots 16815.
+// slot 16815
                         if slot <> 16815 or instruction <> 9226 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -4057,9 +4057,9 @@ function agcAotUnit1008 {
             } else {
                 if slot <= 16817 {
                     if slot <= 16816 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:397
+// P-AXIS_RCS_AUTOPILOT.agc:397
 //		DXCH	DAPBQRPT
-// PORT: Fixed ROM slots 16816.
+// slot 16816
                         if slot <> 16816 or instruction <> 22510 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -4068,9 +4068,9 @@ function agcAotUnit1008 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:398
+// P-AXIS_RCS_AUTOPILOT.agc:398
 //		CA	SUPERADR
-// PORT: Fixed ROM slots 16817.
+// slot 16817
                         if slot <> 16817 or instruction <> 13749 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -4083,9 +4083,9 @@ function agcAotUnit1008 {
                     }
                 } else {
                     if slot <= 16818 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:399
+// P-AXIS_RCS_AUTOPILOT.agc:399
 //		DXCH	ZRUPT
-// PORT: Fixed ROM slots 16818.
+// slot 16818
                         if slot <> 16818 or instruction <> 21518 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -4095,9 +4095,9 @@ function agcAotUnit1008 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 16819 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:400
+// P-AXIS_RCS_AUTOPILOT.agc:400
 //		DXCH	DAPZRUPT
-// PORT: Fixed ROM slots 16819.
+// slot 16819
                             if slot <> 16819 or instruction <> 22512 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -4106,9 +4106,9 @@ function agcAotUnit1008 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:401
+// P-AXIS_RCS_AUTOPILOT.agc:401
 //		TCF	NOQBRSM +1	# RELINT (JUST IN CASE) AND RESUME, IN THE
-// PORT: Fixed ROM slots 16820.
+// slot 16820
                             if slot <> 16820 or instruction <> 6845 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -4125,17 +4125,17 @@ function agcAotUnit1008 {
 set agcAotRoutes[1008] to agcAotUnit1008@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:402
+// P-AXIS_RCS_AUTOPILOT.agc:402
 //					# 	FORM OF A JASK, AT SUPERJOB.
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:403
+// P-AXIS_RCS_AUTOPILOT.agc:403
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:404
+// P-AXIS_RCS_AUTOPILOT.agc:404
 //SUPERADR	GENADR	SUPERJOB +1
-// PORT: Fixed ROM slots 16821.
+// slot 16821
     16821, 2926
 )).
 
-// PORT: Physical bank 16. Shared continuation entries, slots 16822–16872.
+// bank 16, slots 16822-16872
 function agcAotUnit1009 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 16846 {
@@ -4143,15 +4143,15 @@ function agcAotUnit1009 {
             if slot <= 16827 {
                 if slot <= 16824 {
                     if slot <= 16822 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:405
+// P-AXIS_RCS_AUTOPILOT.agc:405
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:406
+// P-AXIS_RCS_AUTOPILOT.agc:406
 //# COUNT DOWN GIMBAL DRIVE TIMERS AND TURN OFF DRIVES IF REQUIRED.
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:407
+// P-AXIS_RCS_AUTOPILOT.agc:407
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:408
+// P-AXIS_RCS_AUTOPILOT.agc:408
 //SUPERJOB	TCF	RATELOOP
-// PORT: Fixed ROM slots 16822.
+// slot 16822
                         if slot <> 16822 or instruction <> 6049 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -4160,9 +4160,9 @@ function agcAotUnit1009 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 16823 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:409
+// P-AXIS_RCS_AUTOPILOT.agc:409
 //PRETIMCK	CCS	QGIMTIMR
-// PORT: Fixed ROM slots 16823.
+// slot 16823
                             if slot <> 16823 or instruction <> 5018 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -4172,9 +4172,9 @@ function agcAotUnit1009 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:410
+// P-AXIS_RCS_AUTOPILOT.agc:410
 //		TCF	DECQTIMR	# POSITIVE -- COUNTING DOWN
-// PORT: Fixed ROM slots 16824.
+// slot 16824
                             if slot <> 16824 or instruction <> 5576 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -4185,9 +4185,9 @@ function agcAotUnit1009 {
                     }
                 } else {
                     if slot <= 16825 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:411
+// P-AXIS_RCS_AUTOPILOT.agc:411
 //		TCF	TURNOFFQ	# NEGATIVE -- DRIVE SHOULD BE ENDED
-// PORT: Fixed ROM slots 16825.
+// slot 16825
                         if slot <> 16825 or instruction <> 5580 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -4196,9 +4196,9 @@ function agcAotUnit1009 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 16826 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:412
+// P-AXIS_RCS_AUTOPILOT.agc:412
 //CHKRTIMR	CCS	RGIMTIMR	# NEGATIVE -- INACTIVE
-// PORT: Fixed ROM slots 16826.
+// slot 16826
                             if slot <> 16826 or instruction <> 5020 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -4208,9 +4208,9 @@ function agcAotUnit1009 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:413
+// P-AXIS_RCS_AUTOPILOT.agc:413
 //		TCF	DECRTIMR	# (NEG ZERO -- IMPOSSIBLE)
-// PORT: Fixed ROM slots 16827.
+// slot 16827
                             if slot <> 16827 or instruction <> 5578 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -4223,9 +4223,9 @@ function agcAotUnit1009 {
             } else {
                 if slot <= 16830 {
                     if slot <= 16828 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:414
+// P-AXIS_RCS_AUTOPILOT.agc:414
 //		TCF	TURNOFFR	# REPEATED (ABOVE) FOR R AXIS.
-// PORT: Fixed ROM slots 16828.
+// slot 16828
                         if slot <> 16828 or instruction <> 5588 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -4234,11 +4234,11 @@ function agcAotUnit1009 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 16829 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:415
+// P-AXIS_RCS_AUTOPILOT.agc:415
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:416
+// P-AXIS_RCS_AUTOPILOT.agc:416
 //		EXTEND			# DECREMENT DOCKED JET INHIBITION COUNTERS
-// PORT: Fixed ROM slots 16829.
+// slot 16829
                             if slot <> 16829 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -4246,9 +4246,9 @@ function agcAotUnit1009 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:417
+// P-AXIS_RCS_AUTOPILOT.agc:417
 //		DIM	PJETCTR
-// PORT: Fixed ROM slots 16830.
+// slot 16830
                             if slot <> 16830 or instruction <> 12279 { return choose false if checkOnly else -1. }
                             if extended {
                                 local operandSlot is agcAddressSlot(1015, words[3], words[4], words["channel7"]).
@@ -4264,9 +4264,9 @@ function agcAotUnit1009 {
                     }
                 } else {
                     if slot <= 16831 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:418
+// P-AXIS_RCS_AUTOPILOT.agc:418
 //		EXTEND
-// PORT: Fixed ROM slots 16831.
+// slot 16831
                         if slot <> 16831 or instruction <> 6 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -4275,9 +4275,9 @@ function agcAotUnit1009 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 16832 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:419
+// P-AXIS_RCS_AUTOPILOT.agc:419
 //		DIM	UJETCTR
-// PORT: Fixed ROM slots 16832.
+// slot 16832
                             if slot <> 16832 or instruction <> 12280 { return choose false if checkOnly else -1. }
                             if extended {
                                 local operandSlot is agcAddressSlot(1016, words[3], words[4], words["channel7"]).
@@ -4290,9 +4290,9 @@ function agcAotUnit1009 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:420
+// P-AXIS_RCS_AUTOPILOT.agc:420
 //		EXTEND
-// PORT: Fixed ROM slots 16833.
+// slot 16833
                             if slot <> 16833 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -4307,9 +4307,9 @@ function agcAotUnit1009 {
             if slot <= 16839 {
                 if slot <= 16836 {
                     if slot <= 16834 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:421
+// P-AXIS_RCS_AUTOPILOT.agc:421
 //		DIM	VJETCTR
-// PORT: Fixed ROM slots 16834.
+// slot 16834
                         if slot <> 16834 or instruction <> 12281 { return choose false if checkOnly else -1. }
                         if extended {
                             local operandSlot is agcAddressSlot(1017, words[3], words[4], words["channel7"]).
@@ -4323,9 +4323,9 @@ function agcAotUnit1009 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 16835 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:422
+// P-AXIS_RCS_AUTOPILOT.agc:422
 //		CA	BIT12
-// PORT: Fixed ROM slots 16835.
+// slot 16835
                             if slot <> 16835 or instruction <> 14816 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -4336,9 +4336,9 @@ function agcAotUnit1009 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:423
+// P-AXIS_RCS_AUTOPILOT.agc:423
 //		MASK	RCSFLAGS
-// PORT: Fixed ROM slots 16836.
+// slot 16836
                             if slot <> 16836 or instruction <> 29371 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -4351,9 +4351,9 @@ function agcAotUnit1009 {
                     }
                 } else {
                     if slot <= 16837 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:424
+// P-AXIS_RCS_AUTOPILOT.agc:424
 //		EXTEND
-// PORT: Fixed ROM slots 16837.
+// slot 16837
                         if slot <> 16837 or instruction <> 6 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -4362,9 +4362,9 @@ function agcAotUnit1009 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 16838 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:425
+// P-AXIS_RCS_AUTOPILOT.agc:425
 //		BZF	SKIPPAXS
-// PORT: Fixed ROM slots 16838.
+// slot 16838
                             if slot <> 16838 or instruction <> 5596 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -4372,9 +4372,9 @@ function agcAotUnit1009 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:426
+// P-AXIS_RCS_AUTOPILOT.agc:426
 //		TC	CHKVISFZ
-// PORT: Fixed ROM slots 16839.
+// slot 16839
                             if slot <> 16839 or instruction <> 1504 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -4387,9 +4387,9 @@ function agcAotUnit1009 {
             } else {
                 if slot <= 16842 {
                     if slot <= 16840 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:427
+// P-AXIS_RCS_AUTOPILOT.agc:427
 //DECQTIMR	TS	QGIMTIMR	# COUNT TIMERS DOWN TO POS ZERO.
-// PORT: Fixed ROM slots 16840.
+// slot 16840
                         if slot <> 16840 or instruction <> 23450 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -4398,9 +4398,9 @@ function agcAotUnit1009 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 16841 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:428
+// P-AXIS_RCS_AUTOPILOT.agc:428
 //		TCF	CHKRTIMR
-// PORT: Fixed ROM slots 16841.
+// slot 16841
                             if slot <> 16841 or instruction <> 5562 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -4408,9 +4408,9 @@ function agcAotUnit1009 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:429
+// P-AXIS_RCS_AUTOPILOT.agc:429
 //DECRTIMR	TS	RGIMTIMR
-// PORT: Fixed ROM slots 16842.
+// slot 16842
                             if slot <> 16842 or instruction <> 23452 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -4422,9 +4422,9 @@ function agcAotUnit1009 {
                 } else {
                     if slot <= 16844 {
                         if slot <= 16843 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:430
+// P-AXIS_RCS_AUTOPILOT.agc:430
 //		TCF	CHKRTIMR +3
-// PORT: Fixed ROM slots 16843.
+// slot 16843
                             if slot <> 16843 or instruction <> 5565 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -4432,11 +4432,11 @@ function agcAotUnit1009 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:431
+// P-AXIS_RCS_AUTOPILOT.agc:431
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:432
+// P-AXIS_RCS_AUTOPILOT.agc:432
 //TURNOFFQ	TS	NEGUQ		# HALT DRIVES.
-// PORT: Fixed ROM slots 16844.
+// slot 16844
                             if slot <> 16844 or instruction <> 23361 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -4446,9 +4446,9 @@ function agcAotUnit1009 {
                         }
                     } else {
                         if slot <= 16845 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:433
+// P-AXIS_RCS_AUTOPILOT.agc:433
 //		TS	QACCDOT
-// PORT: Fixed ROM slots 16845.
+// slot 16845
                             if slot <> 16845 or instruction <> 23368 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -4456,9 +4456,9 @@ function agcAotUnit1009 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:434
+// P-AXIS_RCS_AUTOPILOT.agc:434
 //		CS	QGIMBITS
-// PORT: Fixed ROM slots 16846.
+// slot 16846
                             if slot <> 16846 or instruction <> 18951 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -4477,9 +4477,9 @@ function agcAotUnit1009 {
             if slot <= 16852 {
                 if slot <= 16849 {
                     if slot <= 16847 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:435
+// P-AXIS_RCS_AUTOPILOT.agc:435
 //		EXTEND
-// PORT: Fixed ROM slots 16847.
+// slot 16847
                         if slot <> 16847 or instruction <> 6 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -4488,11 +4488,11 @@ function agcAotUnit1009 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 16848 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:436
+// P-AXIS_RCS_AUTOPILOT.agc:436
 //# Page 1429
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:437
+// P-AXIS_RCS_AUTOPILOT.agc:437
 //		WAND	CHAN12
-// PORT: Fixed ROM slots 16848.
+// slot 16848
                             if slot <> 16848 or instruction <> 1546 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -4502,9 +4502,9 @@ function agcAotUnit1009 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:438
+// P-AXIS_RCS_AUTOPILOT.agc:438
 //		CAF	NEGMAX
-// PORT: Fixed ROM slots 16849.
+// slot 16849
                             if slot <> 16849 or instruction <> 14813 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -4518,9 +4518,9 @@ function agcAotUnit1009 {
                     }
                 } else {
                     if slot <= 16850 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:439
+// P-AXIS_RCS_AUTOPILOT.agc:439
 //		TS	QGIMTIMR
-// PORT: Fixed ROM slots 16850.
+// slot 16850
                         if slot <> 16850 or instruction <> 23450 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -4529,9 +4529,9 @@ function agcAotUnit1009 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 16851 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:440
+// P-AXIS_RCS_AUTOPILOT.agc:440
 //		TCF	CHKRTIMR
-// PORT: Fixed ROM slots 16851.
+// slot 16851
                             if slot <> 16851 or instruction <> 5562 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -4539,9 +4539,9 @@ function agcAotUnit1009 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:441
+// P-AXIS_RCS_AUTOPILOT.agc:441
 //TURNOFFR	TS	NEGUR
-// PORT: Fixed ROM slots 16852.
+// slot 16852
                             if slot <> 16852 or instruction <> 23363 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -4554,9 +4554,9 @@ function agcAotUnit1009 {
             } else {
                 if slot <= 16855 {
                     if slot <= 16853 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:442
+// P-AXIS_RCS_AUTOPILOT.agc:442
 //		TS	RACCDOT
-// PORT: Fixed ROM slots 16853.
+// slot 16853
                         if slot <> 16853 or instruction <> 23370 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -4565,9 +4565,9 @@ function agcAotUnit1009 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 16854 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:443
+// P-AXIS_RCS_AUTOPILOT.agc:443
 //		CS	RGIMBITS
-// PORT: Fixed ROM slots 16854.
+// slot 16854
                             if slot <> 16854 or instruction <> 18960 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -4577,9 +4577,9 @@ function agcAotUnit1009 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:444
+// P-AXIS_RCS_AUTOPILOT.agc:444
 //		EXTEND
-// PORT: Fixed ROM slots 16855.
+// slot 16855
                             if slot <> 16855 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -4591,9 +4591,9 @@ function agcAotUnit1009 {
                 } else {
                     if slot <= 16857 {
                         if slot <= 16856 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:445
+// P-AXIS_RCS_AUTOPILOT.agc:445
 //		WAND	CHAN12
-// PORT: Fixed ROM slots 16856.
+// slot 16856
                             if slot <> 16856 or instruction <> 1546 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -4603,9 +4603,9 @@ function agcAotUnit1009 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:446
+// P-AXIS_RCS_AUTOPILOT.agc:446
 //		CAF	NEGMAX
-// PORT: Fixed ROM slots 16857.
+// slot 16857
                             if slot <> 16857 or instruction <> 14813 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -4618,9 +4618,9 @@ function agcAotUnit1009 {
                         }
                     } else {
                         if slot <= 16858 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:447
+// P-AXIS_RCS_AUTOPILOT.agc:447
 //		TS	RGIMTIMR
-// PORT: Fixed ROM slots 16858.
+// slot 16858
                             if slot <> 16858 or instruction <> 23452 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -4628,9 +4628,9 @@ function agcAotUnit1009 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:448
+// P-AXIS_RCS_AUTOPILOT.agc:448
 //		TCF	CHKRTIMR +3
-// PORT: Fixed ROM slots 16859.
+// slot 16859
                             if slot <> 16859 or instruction <> 5565 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -4645,15 +4645,15 @@ function agcAotUnit1009 {
             if slot <= 16865 {
                 if slot <= 16862 {
                     if slot <= 16860 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:449
+// P-AXIS_RCS_AUTOPILOT.agc:449
 //QGIMBITS	EQUALS	OCT1400		# BITS 9 AND 10 (OF CHANNEL 12).
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:450
+// P-AXIS_RCS_AUTOPILOT.agc:450
 //RGIMBITS	EQUALS	PRIO6		# BITS 11 AND 12 (OF CHANNEL 12).
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:451
+// P-AXIS_RCS_AUTOPILOT.agc:451
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:452
+// P-AXIS_RCS_AUTOPILOT.agc:452
 //SKIPPAXS	CS	RCSFLAGS
-// PORT: Fixed ROM slots 16860.
+// slot 16860
                         if slot <> 16860 or instruction <> 17083 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -4663,9 +4663,9 @@ function agcAotUnit1009 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 16861 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:453
+// P-AXIS_RCS_AUTOPILOT.agc:453
 //		MASK	BIT12
-// PORT: Fixed ROM slots 16861.
+// slot 16861
                             if slot <> 16861 or instruction <> 31200 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -4681,9 +4681,9 @@ function agcAotUnit1009 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:454
+// P-AXIS_RCS_AUTOPILOT.agc:454
 //		ADS	RCSFLAGS	# BIT 12 SET TO 1.
-// PORT: Fixed ROM slots 16862.
+// slot 16862
                             if slot <> 16862 or instruction <> 11963 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -4696,9 +4696,9 @@ function agcAotUnit1009 {
                     }
                 } else {
                     if slot <= 16863 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:455
+// P-AXIS_RCS_AUTOPILOT.agc:455
 //		TCF	QRAXIS		# GO TO QRAXIS OR TO CTS.
-// PORT: Fixed ROM slots 16863.
+// slot 16863
                         if slot <> 16863 or instruction <> 6036 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -4707,37 +4707,37 @@ function agcAotUnit1009 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 16864 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:456
+// P-AXIS_RCS_AUTOPILOT.agc:456
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:457
+// P-AXIS_RCS_AUTOPILOT.agc:457
 //# Y-X TRANSLATION
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:458
+// P-AXIS_RCS_AUTOPILOT.agc:458
 //#
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:459
+// P-AXIS_RCS_AUTOPILOT.agc:459
 //# INPUT:	BITS 9-12 OF CH31 (FROM TRANSLATION CONTROLLER)
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:460
+// P-AXIS_RCS_AUTOPILOT.agc:460
 //#
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:461
+// P-AXIS_RCS_AUTOPILOT.agc:461
 //# OUTPUT:	NEXTP
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:462
+// P-AXIS_RCS_AUTOPILOT.agc:462
 //#
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:463
+// P-AXIS_RCS_AUTOPILOT.agc:463
 //#		NEXTP IS THE CHANNEL 6 CODE OF JETS FOR THE DESIRED TRANSLATION.
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:464
+// P-AXIS_RCS_AUTOPILOT.agc:464
 //#		IF THERE ARE FAILURES IN THE DESIRED POLICY, THEN
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:465
+// P-AXIS_RCS_AUTOPILOT.agc:465
 //#		(1) FOR DIAGONAL TRANS:		UNFAILED PAIR
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:466
+// P-AXIS_RCS_AUTOPILOT.agc:466
 //#						ALARM (IF NO PAIR)
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:467
+// P-AXIS_RCS_AUTOPILOT.agc:467
 //#		(2) FOR PRINCIPAL TRANS:	TRY TO TACK WITH DIAGONAL PAIRS
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:468
+// P-AXIS_RCS_AUTOPILOT.agc:468
 //#						ALARM (IF DIAGONAL PAIRS ARE FAILED)
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:469
+// P-AXIS_RCS_AUTOPILOT.agc:469
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:470
+// P-AXIS_RCS_AUTOPILOT.agc:470
 //CHKVISFZ	EXTEND
-// PORT: Fixed ROM slots 16864.
+// slot 16864
                             if slot <> 16864 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -4745,9 +4745,9 @@ function agcAotUnit1009 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:471
+// P-AXIS_RCS_AUTOPILOT.agc:471
 //		READ	CHAN31
-// PORT: Fixed ROM slots 16865.
+// slot 16865
                             if slot <> 16865 or instruction <> 25 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -4762,9 +4762,9 @@ function agcAotUnit1009 {
             } else {
                 if slot <= 16868 {
                     if slot <= 16866 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:472
+// P-AXIS_RCS_AUTOPILOT.agc:472
 //		CS	A
-// PORT: Fixed ROM slots 16866.
+// slot 16866
                         if slot <> 16866 or instruction <> 16384 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -4774,9 +4774,9 @@ function agcAotUnit1009 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 16867 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:473
+// P-AXIS_RCS_AUTOPILOT.agc:473
 //		MASK	07400OCT
-// PORT: Fixed ROM slots 16867.
+// slot 16867
                             if slot <> 16867 or instruction <> 30603 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -4788,9 +4788,9 @@ function agcAotUnit1009 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:474
+// P-AXIS_RCS_AUTOPILOT.agc:474
 //		EXTEND
-// PORT: Fixed ROM slots 16868.
+// slot 16868
                             if slot <> 16868 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -4802,9 +4802,9 @@ function agcAotUnit1009 {
                 } else {
                     if slot <= 16870 {
                         if slot <= 16869 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:475
+// P-AXIS_RCS_AUTOPILOT.agc:475
 //		BZF	TSNEXTP
-// PORT: Fixed ROM slots 16869.
+// slot 16869
                             if slot <> 16869 or instruction <> 5644 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -4812,9 +4812,9 @@ function agcAotUnit1009 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:476
+// P-AXIS_RCS_AUTOPILOT.agc:476
 //		EXTEND
-// PORT: Fixed ROM slots 16870.
+// slot 16870
                             if slot <> 16870 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -4824,9 +4824,9 @@ function agcAotUnit1009 {
                         }
                     } else {
                         if slot <= 16871 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:477
+// P-AXIS_RCS_AUTOPILOT.agc:477
 //		MP	BIT7
-// PORT: Fixed ROM slots 16871.
+// slot 16871
                             if slot <> 16871 or instruction <> 31205 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -4836,9 +4836,9 @@ function agcAotUnit1009 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:478
+// P-AXIS_RCS_AUTOPILOT.agc:478
 //		INDEX	A
-// PORT: Fixed ROM slots 16872.
+// slot 16872
                             if slot <> 16872 or instruction <> 20480 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -4859,22 +4859,22 @@ function agcAotUnit1009 {
 set agcAotRoutes[1009] to agcAotUnit1009@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:479
+// P-AXIS_RCS_AUTOPILOT.agc:479
 //		CA	INDXYZ
-// PORT: Fixed ROM slots 16873.
+// slot 16873
     16873, 28404
 )).
 
-// PORT: Physical bank 16. Shared continuation entries, slots 16874–16889.
+// bank 16, slots 16874-16889
 function agcAotUnit1010 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 16881 {
         if slot <= 16877 {
             if slot <= 16875 {
                 if slot <= 16874 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:480
+// P-AXIS_RCS_AUTOPILOT.agc:480
 //		TS	ROTINDEX
-// PORT: Fixed ROM slots 16874.
+// slot 16874
                     if slot <> 16874 or instruction <> 23524 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -4882,9 +4882,9 @@ function agcAotUnit1010 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:481
+// P-AXIS_RCS_AUTOPILOT.agc:481
 //TRYUORV		CA	SIX
-// PORT: Fixed ROM slots 16875.
+// slot 16875
                     if slot <> 16875 or instruction <> 15522 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -4897,9 +4897,9 @@ function agcAotUnit1010 {
                 }
             } else {
                 if slot <= 16876 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:482
+// P-AXIS_RCS_AUTOPILOT.agc:482
 //		TC	SELECTYZ
-// PORT: Fixed ROM slots 16876.
+// slot 16876
                     if slot <> 16876 or instruction <> 1897 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -4907,9 +4907,9 @@ function agcAotUnit1010 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:483
+// P-AXIS_RCS_AUTOPILOT.agc:483
 //		CS	SIX
-// PORT: Fixed ROM slots 16877.
+// slot 16877
                     if slot <> 16877 or instruction <> 19618 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -4923,9 +4923,9 @@ function agcAotUnit1010 {
         } else {
             if slot <= 16879 {
                 if slot <= 16878 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:484
+// P-AXIS_RCS_AUTOPILOT.agc:484
 //		AD	NUMBERT
-// PORT: Fixed ROM slots 16878.
+// slot 16878
                     if slot <> 16878 or instruction <> 25571 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -4935,9 +4935,9 @@ function agcAotUnit1010 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:485
+// P-AXIS_RCS_AUTOPILOT.agc:485
 //		EXTEND
-// PORT: Fixed ROM slots 16879.
+// slot 16879
                     if slot <> 16879 or instruction <> 6 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -4947,11 +4947,11 @@ function agcAotUnit1010 {
                 }
             } else {
                 if slot <= 16880 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:486
+// P-AXIS_RCS_AUTOPILOT.agc:486
 //# Page 1430
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:487
+// P-AXIS_RCS_AUTOPILOT.agc:487
 //		BZF	TSNEXTP -1
-// PORT: Fixed ROM slots 16880.
+// slot 16880
                     if slot <> 16880 or instruction <> 5643 { return choose false if checkOnly else -1. }
                     if extended {
                         if checkOnly { return true. }
@@ -4959,9 +4959,9 @@ function agcAotUnit1010 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:488
+// P-AXIS_RCS_AUTOPILOT.agc:488
 //		CS	FIVE
-// PORT: Fixed ROM slots 16881.
+// slot 16881
                     if slot <> 16881 or instruction <> 18926 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -4977,9 +4977,9 @@ function agcAotUnit1010 {
         if slot <= 16885 {
             if slot <= 16883 {
                 if slot <= 16882 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:489
+// P-AXIS_RCS_AUTOPILOT.agc:489
 //		AD	ROTINDEX
-// PORT: Fixed ROM slots 16882.
+// slot 16882
                     if slot <> 16882 or instruction <> 25572 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -4989,9 +4989,9 @@ function agcAotUnit1010 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:490
+// P-AXIS_RCS_AUTOPILOT.agc:490
 //		EXTEND
-// PORT: Fixed ROM slots 16883.
+// slot 16883
                     if slot <> 16883 or instruction <> 6 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -5001,9 +5001,9 @@ function agcAotUnit1010 {
                 }
             } else {
                 if slot <= 16884 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:491
+// P-AXIS_RCS_AUTOPILOT.agc:491
 //		BZMF	ALTERYZ
-// PORT: Fixed ROM slots 16884.
+// slot 16884
                     if slot <> 16884 or instruction <> 26114 { return choose false if checkOnly else -1. }
                     if extended {
                         if checkOnly { return true. }
@@ -5011,9 +5011,9 @@ function agcAotUnit1010 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:492
+// P-AXIS_RCS_AUTOPILOT.agc:492
 //		CS	NUMBERT
-// PORT: Fixed ROM slots 16885.
+// slot 16885
                     if slot <> 16885 or instruction <> 17379 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -5026,9 +5026,9 @@ function agcAotUnit1010 {
         } else {
             if slot <= 16887 {
                 if slot <= 16886 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:493
+// P-AXIS_RCS_AUTOPILOT.agc:493
 //		AD	FOUR
-// PORT: Fixed ROM slots 16886.
+// slot 16886
                     if slot <> 16886 or instruction <> 27113 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -5040,9 +5040,9 @@ function agcAotUnit1010 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:494
+// P-AXIS_RCS_AUTOPILOT.agc:494
 //		EXTEND
-// PORT: Fixed ROM slots 16887.
+// slot 16887
                     if slot <> 16887 or instruction <> 6 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -5052,9 +5052,9 @@ function agcAotUnit1010 {
                 }
             } else {
                 if slot <= 16888 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:495
+// P-AXIS_RCS_AUTOPILOT.agc:495
 //		BZMF	TSNEXTP -1
-// PORT: Fixed ROM slots 16888.
+// slot 16888
                     if slot <> 16888 or instruction <> 26123 { return choose false if checkOnly else -1. }
                     if extended {
                         if checkOnly { return true. }
@@ -5062,9 +5062,9 @@ function agcAotUnit1010 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:496
+// P-AXIS_RCS_AUTOPILOT.agc:496
 //ABORTYZ		TC	ALARM
-// PORT: Fixed ROM slots 16889.
+// slot 16889
                     if slot <> 16889 or instruction <> 2935 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -5079,22 +5079,22 @@ function agcAotUnit1010 {
 set agcAotRoutes[1010] to agcAotUnit1010@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:497
+// P-AXIS_RCS_AUTOPILOT.agc:497
 //		OCT	02001
-// PORT: Fixed ROM slots 16890.
+// slot 16890
     16890, 2050
 )).
 
-// PORT: Physical bank 16. Shared continuation entries, slots 16891–16913.
+// bank 16, slots 16891-16913
 function agcAotUnit1011 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 16901 {
         if slot <= 16895 {
             if slot <= 16892 {
                 if slot <= 16891 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:498
+// P-AXIS_RCS_AUTOPILOT.agc:498
 //		CA	BIT1		# INVERT BIT 1 OF RCSFLAGS.
-// PORT: Fixed ROM slots 16891.
+// slot 16891
                     if slot <> 16891 or instruction <> 14827 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -5105,9 +5105,9 @@ function agcAotUnit1011 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:499
+// P-AXIS_RCS_AUTOPILOT.agc:499
 //		LXCH	RCSFLAGS
-// PORT: Fixed ROM slots 16892.
+// slot 16892
                     if slot <> 16892 or instruction <> 9915 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -5119,9 +5119,9 @@ function agcAotUnit1011 {
                 }
             } else {
                 if slot <= 16893 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:500
+// P-AXIS_RCS_AUTOPILOT.agc:500
 //		EXTEND
-// PORT: Fixed ROM slots 16893.
+// slot 16893
                     if slot <> 16893 or instruction <> 6 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -5130,9 +5130,9 @@ function agcAotUnit1011 {
                     return choose false if checkOnly else -1.
                 } else {
                     if slot <= 16894 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:501
+// P-AXIS_RCS_AUTOPILOT.agc:501
 //		RXOR	1
-// PORT: Fixed ROM slots 16894.
+// slot 16894
                         if slot <> 16894 or instruction <> 3073 { return choose false if checkOnly else -1. }
                         if extended {
                             if checkOnly { return true. }
@@ -5142,9 +5142,9 @@ function agcAotUnit1011 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:502
+// P-AXIS_RCS_AUTOPILOT.agc:502
 //		TS	RCSFLAGS
-// PORT: Fixed ROM slots 16895.
+// slot 16895
                         if slot <> 16895 or instruction <> 23227 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -5157,9 +5157,9 @@ function agcAotUnit1011 {
         } else {
             if slot <= 16898 {
                 if slot <= 16896 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:503
+// P-AXIS_RCS_AUTOPILOT.agc:503
 //		CA	ZERO
-// PORT: Fixed ROM slots 16896.
+// slot 16896
                     if slot <> 16896 or instruction <> 14829 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -5171,9 +5171,9 @@ function agcAotUnit1011 {
                     return choose false if checkOnly else -1.
                 } else {
                     if slot <= 16897 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:504
+// P-AXIS_RCS_AUTOPILOT.agc:504
 //		TCF	TSNEXTP
-// PORT: Fixed ROM slots 16897.
+// slot 16897
                         if slot <> 16897 or instruction <> 5644 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -5181,9 +5181,9 @@ function agcAotUnit1011 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:505
+// P-AXIS_RCS_AUTOPILOT.agc:505
 //ALTERYZ		CA	BIT1		# INVERT BIT 1 OF RCSFLAGS.
-// PORT: Fixed ROM slots 16898.
+// slot 16898
                         if slot <> 16898 or instruction <> 14827 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -5197,9 +5197,9 @@ function agcAotUnit1011 {
                 }
             } else {
                 if slot <= 16899 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:506
+// P-AXIS_RCS_AUTOPILOT.agc:506
 //		LXCH	RCSFLAGS
-// PORT: Fixed ROM slots 16899.
+// slot 16899
                     if slot <> 16899 or instruction <> 9915 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -5210,9 +5210,9 @@ function agcAotUnit1011 {
                     return choose false if checkOnly else -1.
                 } else {
                     if slot <= 16900 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:507
+// P-AXIS_RCS_AUTOPILOT.agc:507
 //		EXTEND
-// PORT: Fixed ROM slots 16900.
+// slot 16900
                         if slot <> 16900 or instruction <> 6 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -5220,9 +5220,9 @@ function agcAotUnit1011 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:508
+// P-AXIS_RCS_AUTOPILOT.agc:508
 //		RXOR	1
-// PORT: Fixed ROM slots 16901.
+// slot 16901
                         if slot <> 16901 or instruction <> 3073 { return choose false if checkOnly else -1. }
                         if extended {
                             if checkOnly { return true. }
@@ -5239,9 +5239,9 @@ function agcAotUnit1011 {
         if slot <= 16907 {
             if slot <= 16904 {
                 if slot <= 16902 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:509
+// P-AXIS_RCS_AUTOPILOT.agc:509
 //		TS	RCSFLAGS
-// PORT: Fixed ROM slots 16902.
+// slot 16902
                     if slot <> 16902 or instruction <> 23227 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -5250,9 +5250,9 @@ function agcAotUnit1011 {
                     return choose false if checkOnly else -1.
                 } else {
                     if slot <= 16903 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:510
+// P-AXIS_RCS_AUTOPILOT.agc:510
 //		MASK	BIT1
-// PORT: Fixed ROM slots 16903.
+// slot 16903
                         if slot <> 16903 or instruction <> 31211 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -5268,9 +5268,9 @@ function agcAotUnit1011 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:511
+// P-AXIS_RCS_AUTOPILOT.agc:511
 //		AD	FOUR
-// PORT: Fixed ROM slots 16904.
+// slot 16904
                         if slot <> 16904 or instruction <> 27113 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -5285,9 +5285,9 @@ function agcAotUnit1011 {
                 }
             } else {
                 if slot <= 16905 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:512
+// P-AXIS_RCS_AUTOPILOT.agc:512
 //		ADS	ROTINDEX
-// PORT: Fixed ROM slots 16905.
+// slot 16905
                     if slot <> 16905 or instruction <> 12260 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -5298,9 +5298,9 @@ function agcAotUnit1011 {
                     return choose false if checkOnly else -1.
                 } else {
                     if slot <= 16906 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:513
+// P-AXIS_RCS_AUTOPILOT.agc:513
 //		TCF	TRYUORV
-// PORT: Fixed ROM slots 16906.
+// slot 16906
                         if slot <> 16906 or instruction <> 5611 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -5308,9 +5308,9 @@ function agcAotUnit1011 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:514
+// P-AXIS_RCS_AUTOPILOT.agc:514
 //		CA	POLYTEMP
-// PORT: Fixed ROM slots 16907.
+// slot 16907
                         if slot <> 16907 or instruction <> 13281 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -5325,9 +5325,9 @@ function agcAotUnit1011 {
         } else {
             if slot <= 16910 {
                 if slot <= 16908 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:515
+// P-AXIS_RCS_AUTOPILOT.agc:515
 //TSNEXTP		TS	NEXTP
-// PORT: Fixed ROM slots 16908.
+// slot 16908
                     if slot <> 16908 or instruction <> 23354 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -5336,25 +5336,25 @@ function agcAotUnit1011 {
                     return choose false if checkOnly else -1.
                 } else {
                     if slot <= 16909 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:516
+// P-AXIS_RCS_AUTOPILOT.agc:516
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:517
+// P-AXIS_RCS_AUTOPILOT.agc:517
 //# STATE LOGIC
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:518
+// P-AXIS_RCS_AUTOPILOT.agc:518
 //#	CHECK IN ORDER:		IF ON
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:519
+// P-AXIS_RCS_AUTOPILOT.agc:519
 //#	LPDPHASE		GO TO PURGENCY
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:520
+// P-AXIS_RCS_AUTOPILOT.agc:520
 //#	PULSES			MINIMUM PULSE LOTIC
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:521
+// P-AXIS_RCS_AUTOPILOT.agc:521
 //#	DETENT(BIT15 CH31)	RATE COMMAND
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:522
+// P-AXIS_RCS_AUTOPILOT.agc:522
 //#	GOTO TO PURGENCY
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:523
+// P-AXIS_RCS_AUTOPILOT.agc:523
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:524
+// P-AXIS_RCS_AUTOPILOT.agc:524
 //		CA	BIT13		# CHECK STICK IF IN ATT. HOLD.
-// PORT: Fixed ROM slots 16909.
+// slot 16909
                         if slot <> 16909 or instruction <> 14815 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -5365,9 +5365,9 @@ function agcAotUnit1011 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:525
+// P-AXIS_RCS_AUTOPILOT.agc:525
 //		EXTEND
-// PORT: Fixed ROM slots 16910.
+// slot 16910
                         if slot <> 16910 or instruction <> 6 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -5378,9 +5378,9 @@ function agcAotUnit1011 {
                 }
             } else {
                 if slot <= 16911 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:526
+// P-AXIS_RCS_AUTOPILOT.agc:526
 //		RAND	CHAN31
-// PORT: Fixed ROM slots 16911.
+// slot 16911
                     if slot <> 16911 or instruction <> 1049 { return choose false if checkOnly else -1. }
                     if extended {
                         if checkOnly { return true. }
@@ -5391,9 +5391,9 @@ function agcAotUnit1011 {
                     return choose false if checkOnly else -1.
                 } else {
                     if slot <= 16912 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:527
+// P-AXIS_RCS_AUTOPILOT.agc:527
 //		EXTEND
-// PORT: Fixed ROM slots 16912.
+// slot 16912
                         if slot <> 16912 or instruction <> 6 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -5401,9 +5401,9 @@ function agcAotUnit1011 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:528
+// P-AXIS_RCS_AUTOPILOT.agc:528
 //		BZF	MANMODE
-// PORT: Fixed ROM slots 16913.
+// slot 16913
                         if slot <> 16913 or instruction <> 5655 { return choose false if checkOnly else -1. }
                         if extended {
                             if checkOnly { return true. }
@@ -5418,7 +5418,7 @@ function agcAotUnit1011 {
 }
 set agcAotRoutes[1011] to agcAotUnit1011@.
 
-// PORT: Physical bank 16. Shared continuation entries, slots 16914–16985.
+// bank 16, slots 16914-16985
 function agcAotUnit1012 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 16949 {
@@ -5427,11 +5427,11 @@ function agcAotUnit1012 {
                 if slot <= 16917 {
                     if slot <= 16915 {
                         if slot <= 16914 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:529
+// P-AXIS_RCS_AUTOPILOT.agc:529
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:530
+// P-AXIS_RCS_AUTOPILOT.agc:530
 //		CA	DAPBOOLS
-// PORT: Fixed ROM slots 16914.
+// slot 16914
                             if slot <> 16914 or instruction <> 12361 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -5441,9 +5441,9 @@ function agcAotUnit1012 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:531
+// P-AXIS_RCS_AUTOPILOT.agc:531
 //		MASK	XOVINHIB
-// PORT: Fixed ROM slots 16915.
+// slot 16915
                             if slot <> 16915 or instruction <> 31203 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -5461,9 +5461,9 @@ function agcAotUnit1012 {
                         }
                     } else {
                         if slot <= 16916 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:532
+// P-AXIS_RCS_AUTOPILOT.agc:532
 //		CCS	A
-// PORT: Fixed ROM slots 16916.
+// slot 16916
                             if slot <> 16916 or instruction <> 4096 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -5473,9 +5473,9 @@ function agcAotUnit1012 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:533
+// P-AXIS_RCS_AUTOPILOT.agc:533
 //		TCF	PURGENCY	# ATTITUDE STEER DURING VISIBILITY PHASE
-// PORT: Fixed ROM slots 16917.
+// slot 16917
                             if slot <> 16917 or instruction <> 5939 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -5487,11 +5487,11 @@ function agcAotUnit1012 {
                 } else {
                     if slot <= 16919 {
                         if slot <= 16918 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:534
+// P-AXIS_RCS_AUTOPILOT.agc:534
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:535
+// P-AXIS_RCS_AUTOPILOT.agc:535
 //		TCF	DETENTCK
-// PORT: Fixed ROM slots 16918.
+// slot 16918
                             if slot <> 16918 or instruction <> 5689 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -5499,9 +5499,9 @@ function agcAotUnit1012 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:536
+// P-AXIS_RCS_AUTOPILOT.agc:536
 //MANMODE		CA	PULSES		# PULSES IS ONE FOR PULSE MODE
-// PORT: Fixed ROM slots 16919.
+// slot 16919
                             if slot <> 16919 or instruction <> 14813 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -5514,9 +5514,9 @@ function agcAotUnit1012 {
                         }
                     } else {
                         if slot <= 16920 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:537
+// P-AXIS_RCS_AUTOPILOT.agc:537
 //		MASK	DAPBOOLS
-// PORT: Fixed ROM slots 16920.
+// slot 16920
                             if slot <> 16920 or instruction <> 28745 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -5527,11 +5527,11 @@ function agcAotUnit1012 {
                             return choose false if checkOnly else -1.
                         } else {
                             if slot <= 16921 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:538
+// P-AXIS_RCS_AUTOPILOT.agc:538
 //# Page 1431
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:539
+// P-AXIS_RCS_AUTOPILOT.agc:539
 //		EXTEND
-// PORT: Fixed ROM slots 16921.
+// slot 16921
                                 if slot <> 16921 or instruction <> 6 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -5539,9 +5539,9 @@ function agcAotUnit1012 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:540
+// P-AXIS_RCS_AUTOPILOT.agc:540
 //		BZF	DETENTCK	# BRANCH FOR RATE COMMAND
-// PORT: Fixed ROM slots 16922.
+// slot 16922
                                 if slot <> 16922 or instruction <> 5689 { return choose false if checkOnly else -1. }
                                 if extended {
                                     if checkOnly { return true. }
@@ -5556,11 +5556,11 @@ function agcAotUnit1012 {
                 if slot <= 16926 {
                     if slot <= 16924 {
                         if slot <= 16923 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:541
+// P-AXIS_RCS_AUTOPILOT.agc:541
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:542
+// P-AXIS_RCS_AUTOPILOT.agc:542
 //		CA	ZERO
-// PORT: Fixed ROM slots 16923.
+// slot 16923
                             if slot <> 16923 or instruction <> 14829 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -5571,9 +5571,9 @@ function agcAotUnit1012 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:543
+// P-AXIS_RCS_AUTOPILOT.agc:543
 //		TS	PERROR
-// PORT: Fixed ROM slots 16924.
+// slot 16924
                             if slot <> 16924 or instruction <> 23348 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -5583,15 +5583,15 @@ function agcAotUnit1012 {
                         }
                     } else {
                         if slot <= 16925 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:544
+// P-AXIS_RCS_AUTOPILOT.agc:544
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:545
+// P-AXIS_RCS_AUTOPILOT.agc:545
 //# MINIMUM IMPULSE MODE
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:546
+// P-AXIS_RCS_AUTOPILOT.agc:546
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:547
+// P-AXIS_RCS_AUTOPILOT.agc:547
 //		CA	CDUX
-// PORT: Fixed ROM slots 16925.
+// slot 16925
                             if slot <> 16925 or instruction <> 12314 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -5601,9 +5601,9 @@ function agcAotUnit1012 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:548
+// P-AXIS_RCS_AUTOPILOT.agc:548
 //		TS	CDUXD
-// PORT: Fixed ROM slots 16926.
+// slot 16926
                             if slot <> 16926 or instruction <> 23453 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -5615,11 +5615,11 @@ function agcAotUnit1012 {
                 } else {
                     if slot <= 16928 {
                         if slot <= 16927 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:549
+// P-AXIS_RCS_AUTOPILOT.agc:549
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:550
+// P-AXIS_RCS_AUTOPILOT.agc:550
 //		CCS	OLDPMIN
-// PORT: Fixed ROM slots 16927.
+// slot 16927
                             if slot <> 16927 or instruction <> 4912 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -5629,9 +5629,9 @@ function agcAotUnit1012 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:551
+// P-AXIS_RCS_AUTOPILOT.agc:551
 //		TCF	CHECKP
-// PORT: Fixed ROM slots 16928.
+// slot 16928
                             if slot <> 16928 or instruction <> 5676 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -5641,11 +5641,11 @@ function agcAotUnit1012 {
                         }
                     } else {
                         if slot <= 16929 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:552
+// P-AXIS_RCS_AUTOPILOT.agc:552
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:553
+// P-AXIS_RCS_AUTOPILOT.agc:553
 //FIREP		CA	BIT3
-// PORT: Fixed ROM slots 16929.
+// slot 16929
                             if slot <> 16929 or instruction <> 14825 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -5657,9 +5657,9 @@ function agcAotUnit1012 {
                             return choose false if checkOnly else -1.
                         } else {
                             if slot <= 16930 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:554
+// P-AXIS_RCS_AUTOPILOT.agc:554
 //		EXTEND
-// PORT: Fixed ROM slots 16930.
+// slot 16930
                                 if slot <> 16930 or instruction <> 6 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -5667,9 +5667,9 @@ function agcAotUnit1012 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:555
+// P-AXIS_RCS_AUTOPILOT.agc:555
 //		RAND	CHAN31
-// PORT: Fixed ROM slots 16931.
+// slot 16931
                                 if slot <> 16931 or instruction <> 1049 { return choose false if checkOnly else -1. }
                                 if extended {
                                     if checkOnly { return true. }
@@ -5688,9 +5688,9 @@ function agcAotUnit1012 {
                 if slot <= 16935 {
                     if slot <= 16933 {
                         if slot <= 16932 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:556
+// P-AXIS_RCS_AUTOPILOT.agc:556
 //		EXTEND
-// PORT: Fixed ROM slots 16932.
+// slot 16932
                             if slot <> 16932 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -5698,9 +5698,9 @@ function agcAotUnit1012 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:557
+// P-AXIS_RCS_AUTOPILOT.agc:557
 //		BZF	+XMIN
-// PORT: Fixed ROM slots 16933.
+// slot 16933
                             if slot <> 16933 or instruction <> 5684 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -5710,11 +5710,11 @@ function agcAotUnit1012 {
                         }
                     } else {
                         if slot <= 16934 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:558
+// P-AXIS_RCS_AUTOPILOT.agc:558
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:559
+// P-AXIS_RCS_AUTOPILOT.agc:559
 //		CA	BIT4
-// PORT: Fixed ROM slots 16934.
+// slot 16934
                             if slot <> 16934 or instruction <> 14824 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -5725,9 +5725,9 @@ function agcAotUnit1012 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:560
+// P-AXIS_RCS_AUTOPILOT.agc:560
 //		EXTEND
-// PORT: Fixed ROM slots 16935.
+// slot 16935
                             if slot <> 16935 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -5739,9 +5739,9 @@ function agcAotUnit1012 {
                 } else {
                     if slot <= 16937 {
                         if slot <= 16936 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:561
+// P-AXIS_RCS_AUTOPILOT.agc:561
 //		RAND	CHAN31
-// PORT: Fixed ROM slots 16936.
+// slot 16936
                             if slot <> 16936 or instruction <> 1049 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -5751,9 +5751,9 @@ function agcAotUnit1012 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:562
+// P-AXIS_RCS_AUTOPILOT.agc:562
 //		EXTEND
-// PORT: Fixed ROM slots 16937.
+// slot 16937
                             if slot <> 16937 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -5763,9 +5763,9 @@ function agcAotUnit1012 {
                         }
                     } else {
                         if slot <= 16938 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:563
+// P-AXIS_RCS_AUTOPILOT.agc:563
 //		BZF	-XMIN
-// PORT: Fixed ROM slots 16938.
+// slot 16938
                             if slot <> 16938 or instruction <> 5682 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -5774,11 +5774,11 @@ function agcAotUnit1012 {
                             return choose false if checkOnly else -1.
                         } else {
                             if slot <= 16939 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:564
+// P-AXIS_RCS_AUTOPILOT.agc:564
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:565
+// P-AXIS_RCS_AUTOPILOT.agc:565
 //		TCF	JETSOFF
-// PORT: Fixed ROM slots 16939.
+// slot 16939
                                 if slot <> 16939 or instruction <> 5922 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -5786,11 +5786,11 @@ function agcAotUnit1012 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:566
+// P-AXIS_RCS_AUTOPILOT.agc:566
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:567
+// P-AXIS_RCS_AUTOPILOT.agc:567
 //CHECKP		EXTEND
-// PORT: Fixed ROM slots 16940.
+// slot 16940
                                 if slot <> 16940 or instruction <> 6 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -5805,9 +5805,9 @@ function agcAotUnit1012 {
                 if slot <= 16944 {
                     if slot <= 16942 {
                         if slot <= 16941 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:568
+// P-AXIS_RCS_AUTOPILOT.agc:568
 //		READ	CHAN31
-// PORT: Fixed ROM slots 16941.
+// slot 16941
                             if slot <> 16941 or instruction <> 25 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -5817,9 +5817,9 @@ function agcAotUnit1012 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:569
+// P-AXIS_RCS_AUTOPILOT.agc:569
 //		CS	A
-// PORT: Fixed ROM slots 16942.
+// slot 16942
                             if slot <> 16942 or instruction <> 16384 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -5830,9 +5830,9 @@ function agcAotUnit1012 {
                         }
                     } else {
                         if slot <= 16943 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:570
+// P-AXIS_RCS_AUTOPILOT.agc:570
 //		MASK	OCT14
-// PORT: Fixed ROM slots 16943.
+// slot 16943
                             if slot <> 16943 or instruction <> 31721 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -5848,9 +5848,9 @@ function agcAotUnit1012 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:571
+// P-AXIS_RCS_AUTOPILOT.agc:571
 //		TS	OLDPMIN
-// PORT: Fixed ROM slots 16944.
+// slot 16944
                             if slot <> 16944 or instruction <> 23344 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -5862,9 +5862,9 @@ function agcAotUnit1012 {
                 } else {
                     if slot <= 16946 {
                         if slot <= 16945 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:572
+// P-AXIS_RCS_AUTOPILOT.agc:572
 //		TCF	JETSOFF
-// PORT: Fixed ROM slots 16945.
+// slot 16945
                             if slot <> 16945 or instruction <> 5922 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -5872,11 +5872,11 @@ function agcAotUnit1012 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:573
+// P-AXIS_RCS_AUTOPILOT.agc:573
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:574
+// P-AXIS_RCS_AUTOPILOT.agc:574
 //-XMIN		CS	TEN		# ANYTHING LESS THAN 14MS. CORRECTED
-// PORT: Fixed ROM slots 16946.
+// slot 16946
                             if slot <> 16946 or instruction <> 18675 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -5888,9 +5888,9 @@ function agcAotUnit1012 {
                         }
                     } else {
                         if slot <= 16947 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:575
+// P-AXIS_RCS_AUTOPILOT.agc:575
 //		TCF	+2		#	IN JET SELECTION ROUTINE
-// PORT: Fixed ROM slots 16947.
+// slot 16947
                             if slot <> 16947 or instruction <> 5685 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -5899,9 +5899,9 @@ function agcAotUnit1012 {
                             return choose false if checkOnly else -1.
                         } else {
                             if slot <= 16948 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:576
+// P-AXIS_RCS_AUTOPILOT.agc:576
 //+XMIN		CA	TEN
-// PORT: Fixed ROM slots 16948.
+// slot 16948
                                 if slot <> 16948 or instruction <> 14579 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -5912,9 +5912,9 @@ function agcAotUnit1012 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:577
+// P-AXIS_RCS_AUTOPILOT.agc:577
 //		TS	TJP
-// PORT: Fixed ROM slots 16949.
+// slot 16949
                                 if slot <> 16949 or instruction <> 23380 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -5933,9 +5933,9 @@ function agcAotUnit1012 {
                 if slot <= 16953 {
                     if slot <= 16951 {
                         if slot <= 16950 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:578
+// P-AXIS_RCS_AUTOPILOT.agc:578
 //		CA	ONE
-// PORT: Fixed ROM slots 16950.
+// slot 16950
                             if slot <> 16950 or instruction <> 14827 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -5946,9 +5946,9 @@ function agcAotUnit1012 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:579
+// P-AXIS_RCS_AUTOPILOT.agc:579
 //		TS	OLDPMIN
-// PORT: Fixed ROM slots 16951.
+// slot 16951
                             if slot <> 16951 or instruction <> 23344 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -5958,9 +5958,9 @@ function agcAotUnit1012 {
                         }
                     } else {
                         if slot <= 16952 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:580
+// P-AXIS_RCS_AUTOPILOT.agc:580
 //		TCF	PJETSLEC -6
-// PORT: Fixed ROM slots 16952.
+// slot 16952
                             if slot <> 16952 or instruction <> 5864 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -5968,69 +5968,69 @@ function agcAotUnit1012 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:581
+// P-AXIS_RCS_AUTOPILOT.agc:581
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:582
+// P-AXIS_RCS_AUTOPILOT.agc:582
 //# 					MANUAL RATE COMMAND MODE
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:583
+// P-AXIS_RCS_AUTOPILOT.agc:583
 //# 					========================
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:584
+// P-AXIS_RCS_AUTOPILOT.agc:584
 //# 					  BY ROBERT F. STENGEL
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:585
+// P-AXIS_RCS_AUTOPILOT.agc:585
 //#
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:586
+// P-AXIS_RCS_AUTOPILOT.agc:586
 //# THIS MODE PROVIDES RCAH MANUAL CONTROL THRU 2 CONTROL LAWS:  1) DIRECT RATE AND 2) PSEUDO-AUTO.
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:587
+// P-AXIS_RCS_AUTOPILOT.agc:587
 //# THE DIRECT RATE MODE AFFORDS IMMEDIATE CONTROL WITHOUT OVERSHOOT.  THE PSEUDO-AUTO MODE PROVIDES PRECISE
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:588
+// P-AXIS_RCS_AUTOPILOT.agc:588
 //# RATE CONTROL AND ATTITUDE HOLD.
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:589
+// P-AXIS_RCS_AUTOPILOT.agc:589
 //#
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:590
+// P-AXIS_RCS_AUTOPILOT.agc:590
 //# Page 1432
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:591
+// P-AXIS_RCS_AUTOPILOT.agc:591
 //# IN DIRECT RATE, JETS ARE FIRED WHEN STICK POSITION CHANGES BY A FIXED NUMBER OF INCREMENTS IN ONE DAP CYCLE.
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:592
+// P-AXIS_RCS_AUTOPILOT.agc:592
 //# THE `BREAKOUT LEVEL' IS .6 D/S FOR LM-ONLY AND .3 D/S FOR CSM-DOCKED.  THIS LAW NULLS THE RATE ERROR TO WITHIN
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:593
+// P-AXIS_RCS_AUTOPILOT.agc:593
 //# THE `TARGET DEADBAND', WHICH EQUALS THE BREAKOUT LEVEL.
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:594
+// P-AXIS_RCS_AUTOPILOT.agc:594
 //#
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:595
+// P-AXIS_RCS_AUTOPILOT.agc:595
 //# IN PSEUDO-AUTO, BODY-FIXED RATE AND ATTITUDE ERRORS ARE SUPPLIED TO TJETLAW, WHICH EXERCISES CONTROL.
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:596
+// P-AXIS_RCS_AUTOPILOT.agc:596
 //# CONTROL SWITCHES FROM DIRECT RATE TO PSEUDO-AUTO IF THE TARGET DB IS ACHIEVED OR IF TIME IN (1) EXCEEDS 4 SEC.
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:597
+// P-AXIS_RCS_AUTOPILOT.agc:597
 //# IF THE INITIAL COMMAND DOES NOT EXCEED THE BREAKOUT LEVEL, CONTROL GOES TO PSEUDO-AUTO IMMEDIATELY.
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:598
+// P-AXIS_RCS_AUTOPILOT.agc:598
 //#
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:599
+// P-AXIS_RCS_AUTOPILOT.agc:599
 //# SINCE P-AXIS CONTROL IS SEPARATE FROM Q,R AXES CONTROL, IT IS POSSIBLE TO USE (1) IN P-AXIS AND (2) IN Q,R AXES,
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:600
+// P-AXIS_RCS_AUTOPILOT.agc:600
 //# OR VICE VERSA.  THIS ALLOWS A DEGREE OF ATTITUDE HOLD IN UNCONTROLLED AXES.  DUE TO U,V CONTROL, HOWEVER, Q AND
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:601
+// P-AXIS_RCS_AUTOPILOT.agc:601
 //# R AXES ARE COUPLED AND MUST USE THE SAME CONTROL LAW.
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:602
+// P-AXIS_RCS_AUTOPILOT.agc:602
 //#
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:603
+// P-AXIS_RCS_AUTOPILOT.agc:603
 //# HAND CONTROLLER COMMANDS ARE SCALED BY A LINEAR/QUADRATIC LAW.  FOR THE LM-ALONE, MAXIMUM COMMANDED RATES ARE 20
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:604
+// P-AXIS_RCS_AUTOPILOT.agc:604
 //# AND 4 D/S IN NORMAL AND FINE SCALING; HOWEVER, STICK SENSITIVITY AT ZERO COUNTS (OBTAINED AT A STICK DEFLECTION
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:605
+// P-AXIS_RCS_AUTOPILOT.agc:605
 //# OF 2 DEGREES FROM THE CENTERED POSITION) IS .5 OR .1 D/S PER DEGREE.  NORMAL AND FINE SCALINGS FOR THE CSM-DOCKED
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:606
+// P-AXIS_RCS_AUTOPILOT.agc:606
 //# CASE IS AUTOMATICALLY SET TO 1/10 THE ABOVE VALUES.  SCALING IS DETERMINED IN ROUTINE 3.
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:607
+// P-AXIS_RCS_AUTOPILOT.agc:607
 //#
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:608
+// P-AXIS_RCS_AUTOPILOT.agc:608
 //# ZEROENBL	ENABLES COUNTERS SO THEY CAN BE READ NEXT TIME
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:609
+// P-AXIS_RCS_AUTOPILOT.agc:609
 //# JUSTOUT	FIRST DETECTION OF OUT OF DETENT (BY OURRCBIT)
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:610
+// P-AXIS_RCS_AUTOPILOT.agc:610
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:611
+// P-AXIS_RCS_AUTOPILOT.agc:611
 //DETENTCK	EXTEND
-// PORT: Fixed ROM slots 16953.
+// slot 16953
                             if slot <> 16953 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -6042,9 +6042,9 @@ function agcAotUnit1012 {
                 } else {
                     if slot <= 16955 {
                         if slot <= 16954 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:612
+// P-AXIS_RCS_AUTOPILOT.agc:612
 //		READ	CHAN31
-// PORT: Fixed ROM slots 16954.
+// slot 16954
                             if slot <> 16954 or instruction <> 25 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -6054,9 +6054,9 @@ function agcAotUnit1012 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:613
+// P-AXIS_RCS_AUTOPILOT.agc:613
 //		TS	CH31TEMP
-// PORT: Fixed ROM slots 16955.
+// slot 16955
                             if slot <> 16955 or instruction <> 23331 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -6066,9 +6066,9 @@ function agcAotUnit1012 {
                         }
                     } else {
                         if slot <= 16956 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:614
+// P-AXIS_RCS_AUTOPILOT.agc:614
 //		MASK	BIT15		# CHECK OUT-OF-DETENT BIT.
-// PORT: Fixed ROM slots 16956.
+// slot 16956
                             if slot <> 16956 or instruction <> 31197 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -6085,9 +6085,9 @@ function agcAotUnit1012 {
                             return choose false if checkOnly else -1.
                         } else {
                             if slot <= 16957 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:615
+// P-AXIS_RCS_AUTOPILOT.agc:615
 //		EXTEND
-// PORT: Fixed ROM slots 16957.
+// slot 16957
                                 if slot <> 16957 or instruction <> 6 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -6095,9 +6095,9 @@ function agcAotUnit1012 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:616
+// P-AXIS_RCS_AUTOPILOT.agc:616
 //		BZF	RHCMOVED	# BRANCH IF OUT OF DETENT.
-// PORT: Fixed ROM slots 16958.
+// slot 16958
                                 if slot <> 16958 or instruction <> 5779 { return choose false if checkOnly else -1. }
                                 if extended {
                                     if checkOnly { return true. }
@@ -6112,9 +6112,9 @@ function agcAotUnit1012 {
                 if slot <= 16962 {
                     if slot <= 16960 {
                         if slot <= 16959 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:617
+// P-AXIS_RCS_AUTOPILOT.agc:617
 //		CAF	OURRCBIT	# IN DETENT.  CHECK THE RATE COMMAND BIT.
-// PORT: Fixed ROM slots 16959.
+// slot 16959
                             if slot <> 16959 or instruction <> 14816 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -6125,9 +6125,9 @@ function agcAotUnit1012 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:618
+// P-AXIS_RCS_AUTOPILOT.agc:618
 //		MASK	DAPBOOLS
-// PORT: Fixed ROM slots 16960.
+// slot 16960
                             if slot <> 16960 or instruction <> 28745 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -6139,9 +6139,9 @@ function agcAotUnit1012 {
                         }
                     } else {
                         if slot <= 16961 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:619
+// P-AXIS_RCS_AUTOPILOT.agc:619
 //		EXTEND
-// PORT: Fixed ROM slots 16961.
+// slot 16961
                             if slot <> 16961 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -6149,9 +6149,9 @@ function agcAotUnit1012 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:620
+// P-AXIS_RCS_AUTOPILOT.agc:620
 //		BZF	PURGENCY	# BRANCH IF NOT IN RATE COMMAND LAST PASS.
-// PORT: Fixed ROM slots 16962.
+// slot 16962
                             if slot <> 16962 or instruction <> 5939 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -6163,15 +6163,15 @@ function agcAotUnit1012 {
                 } else {
                     if slot <= 16964 {
                         if slot <= 16963 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:621
+// P-AXIS_RCS_AUTOPILOT.agc:621
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:622
+// P-AXIS_RCS_AUTOPILOT.agc:622
 //# ................................................................................
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:623
+// P-AXIS_RCS_AUTOPILOT.agc:623
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:624
+// P-AXIS_RCS_AUTOPILOT.agc:624
 //		CA	BIT9		# JUST IN DETENT??
-// PORT: Fixed ROM slots 16963.
+// slot 16963
                             if slot <> 16963 or instruction <> 14819 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -6182,9 +6182,9 @@ function agcAotUnit1012 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:625
+// P-AXIS_RCS_AUTOPILOT.agc:625
 //		MASK	RCSFLAGS
-// PORT: Fixed ROM slots 16964.
+// slot 16964
                             if slot <> 16964 or instruction <> 29371 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -6196,9 +6196,9 @@ function agcAotUnit1012 {
                         }
                     } else {
                         if slot <= 16965 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:626
+// P-AXIS_RCS_AUTOPILOT.agc:626
 //		EXTEND
-// PORT: Fixed ROM slots 16965.
+// slot 16965
                             if slot <> 16965 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -6207,9 +6207,9 @@ function agcAotUnit1012 {
                             return choose false if checkOnly else -1.
                         } else {
                             if slot <= 16966 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:627
+// P-AXIS_RCS_AUTOPILOT.agc:627
 //		BZF	RUTH
-// PORT: Fixed ROM slots 16966.
+// slot 16966
                                 if slot <> 16966 or instruction <> 5712 { return choose false if checkOnly else -1. }
                                 if extended {
                                     if checkOnly { return true. }
@@ -6217,9 +6217,9 @@ function agcAotUnit1012 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:628
+// P-AXIS_RCS_AUTOPILOT.agc:628
 //		CAF	BIT13		# CHECK FOR ATTITUDE HOLD.
-// PORT: Fixed ROM slots 16967.
+// slot 16967
                                 if slot <> 16967 or instruction <> 14815 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -6239,9 +6239,9 @@ function agcAotUnit1012 {
                 if slot <= 16971 {
                     if slot <= 16969 {
                         if slot <= 16968 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:629
+// P-AXIS_RCS_AUTOPILOT.agc:629
 //		EXTEND
-// PORT: Fixed ROM slots 16968.
+// slot 16968
                             if slot <> 16968 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -6249,9 +6249,9 @@ function agcAotUnit1012 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:630
+// P-AXIS_RCS_AUTOPILOT.agc:630
 //		RAND	CHAN31
-// PORT: Fixed ROM slots 16969.
+// slot 16969
                             if slot <> 16969 or instruction <> 1049 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -6263,9 +6263,9 @@ function agcAotUnit1012 {
                         }
                     } else {
                         if slot <= 16970 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:631
+// P-AXIS_RCS_AUTOPILOT.agc:631
 //		EXTEND
-// PORT: Fixed ROM slots 16970.
+// slot 16970
                             if slot <> 16970 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -6273,9 +6273,9 @@ function agcAotUnit1012 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:632
+// P-AXIS_RCS_AUTOPILOT.agc:632
 //		BZF	RATEDAMP	# BRANCH IF IN ATTITUDE HOLD.
-// PORT: Fixed ROM slots 16971.
+// slot 16971
                             if slot <> 16971 or instruction <> 5776 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -6287,11 +6287,11 @@ function agcAotUnit1012 {
                 } else {
                     if slot <= 16973 {
                         if slot <= 16972 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:633
+// P-AXIS_RCS_AUTOPILOT.agc:633
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:634
+// P-AXIS_RCS_AUTOPILOT.agc:634
 //		CS	BITS9,11	# IN AUTO.
-// PORT: Fixed ROM slots 16972.
+// slot 16972
                             if slot <> 16972 or instruction <> 18956 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -6301,9 +6301,9 @@ function agcAotUnit1012 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:635
+// P-AXIS_RCS_AUTOPILOT.agc:635
 //		MASK	RCSFLAGS	# (X-AXIS OVERRIDE)
-// PORT: Fixed ROM slots 16973.
+// slot 16973
                             if slot <> 16973 or instruction <> 29371 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -6315,9 +6315,9 @@ function agcAotUnit1012 {
                         }
                     } else {
                         if slot <= 16974 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:636
+// P-AXIS_RCS_AUTOPILOT.agc:636
 //		TS	RCSFLAGS	# ZERO ORBIT (BIT 11) AND JUST-IN BIT (9).
-// PORT: Fixed ROM slots 16974.
+// slot 16974
                             if slot <> 16974 or instruction <> 23227 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -6326,9 +6326,9 @@ function agcAotUnit1012 {
                             return choose false if checkOnly else -1.
                         } else {
                             if slot <= 16975 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:637
+// P-AXIS_RCS_AUTOPILOT.agc:637
 //		TCF	RATEDAMP
-// PORT: Fixed ROM slots 16975.
+// slot 16975
                                 if slot <> 16975 or instruction <> 5776 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -6336,11 +6336,11 @@ function agcAotUnit1012 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:638
+// P-AXIS_RCS_AUTOPILOT.agc:638
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:639
+// P-AXIS_RCS_AUTOPILOT.agc:639
 //RUTH		CA	RCSFLAGS
-// PORT: Fixed ROM slots 16976.
+// slot 16976
                                 if slot <> 16976 or instruction <> 12987 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -6357,9 +6357,9 @@ function agcAotUnit1012 {
                 if slot <= 16980 {
                     if slot <= 16978 {
                         if slot <= 16977 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:640
+// P-AXIS_RCS_AUTOPILOT.agc:640
 //		MASK	PBIT		# IN ATTITUDE HOLD.
-// PORT: Fixed ROM slots 16977.
+// slot 16977
                             if slot <> 16977 or instruction <> 31202 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -6375,9 +6375,9 @@ function agcAotUnit1012 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:641
+// P-AXIS_RCS_AUTOPILOT.agc:641
 //		EXTEND
-// PORT: Fixed ROM slots 16978.
+// slot 16978
                             if slot <> 16978 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -6387,9 +6387,9 @@ function agcAotUnit1012 {
                         }
                     } else {
                         if slot <= 16979 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:642
+// P-AXIS_RCS_AUTOPILOT.agc:642
 //		BZF	+2		# BRANCH IF P-RATE DAMPING IS FINISHED.
-// PORT: Fixed ROM slots 16979.
+// slot 16979
                             if slot <> 16979 or instruction <> 5717 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -6397,9 +6397,9 @@ function agcAotUnit1012 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:643
+// P-AXIS_RCS_AUTOPILOT.agc:643
 //		TCF	RATEDAMP
-// PORT: Fixed ROM slots 16980.
+// slot 16980
                             if slot <> 16980 or instruction <> 5776 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -6411,13 +6411,13 @@ function agcAotUnit1012 {
                 } else {
                     if slot <= 16982 {
                         if slot <= 16981 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:644
+// P-AXIS_RCS_AUTOPILOT.agc:644
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:645
+// P-AXIS_RCS_AUTOPILOT.agc:645
 //# Page 1433
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:646
+// P-AXIS_RCS_AUTOPILOT.agc:646
 //		CA	RCSFLAGS
-// PORT: Fixed ROM slots 16981.
+// slot 16981
                             if slot <> 16981 or instruction <> 12987 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -6427,9 +6427,9 @@ function agcAotUnit1012 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:647
+// P-AXIS_RCS_AUTOPILOT.agc:647
 //		MASK	QRBIT
-// PORT: Fixed ROM slots 16982.
+// slot 16982
                             if slot <> 16982 or instruction <> 31201 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -6447,9 +6447,9 @@ function agcAotUnit1012 {
                         }
                     } else {
                         if slot <= 16983 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:648
+// P-AXIS_RCS_AUTOPILOT.agc:648
 //		EXTEND
-// PORT: Fixed ROM slots 16983.
+// slot 16983
                             if slot <> 16983 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -6458,9 +6458,9 @@ function agcAotUnit1012 {
                             return choose false if checkOnly else -1.
                         } else {
                             if slot <= 16984 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:649
+// P-AXIS_RCS_AUTOPILOT.agc:649
 //		BZF	RATEDONE	# BRANCH IF Q,R RATE DAMPING IS FINISHED.
-// PORT: Fixed ROM slots 16984.
+// slot 16984
                                 if slot <> 16984 or instruction <> 5726 { return choose false if checkOnly else -1. }
                                 if extended {
                                     if checkOnly { return true. }
@@ -6468,9 +6468,9 @@ function agcAotUnit1012 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:650
+// P-AXIS_RCS_AUTOPILOT.agc:650
 //		TCF	RATEDAMP
-// PORT: Fixed ROM slots 16985.
+// slot 16985
                                 if slot <> 16985 or instruction <> 5776 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -6488,47 +6488,47 @@ function agcAotUnit1012 {
 set agcAotRoutes[1012] to agcAotUnit1012@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:651
+// P-AXIS_RCS_AUTOPILOT.agc:651
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:652
+// P-AXIS_RCS_AUTOPILOT.agc:652
 //# ============================================
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:653
+// P-AXIS_RCS_AUTOPILOT.agc:653
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:654
+// P-AXIS_RCS_AUTOPILOT.agc:654
 //1/10SEC		OCT	1
-// PORT: Fixed ROM slots 16986.
+// slot 16986
     16986, 2,
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:655
+// P-AXIS_RCS_AUTOPILOT.agc:655
 //40CYC		OCT	50
-// PORT: Fixed ROM slots 16987.
+// slot 16987
     16987, 80,
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:656
+// P-AXIS_RCS_AUTOPILOT.agc:656
 //PQRBIT		OCT	74777
-// PORT: Fixed ROM slots 16988.
+// slot 16988
     16988, 62462,
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:657
+// P-AXIS_RCS_AUTOPILOT.agc:657
 //BITS9,11	EQUALS	EBANK5
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:658
+// P-AXIS_RCS_AUTOPILOT.agc:658
 //LINRATP		DEC	46
-// PORT: Fixed ROM slots 16989.
+// slot 16989
     16989, 92
 )).
 
-// PORT: Physical bank 16. Shared continuation entries, slots 16990–17002.
+// bank 16, slots 16990-17002
 function agcAotUnit1013 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 16995 {
         if slot <= 16992 {
             if slot <= 16990 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:659
+// P-AXIS_RCS_AUTOPILOT.agc:659
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:660
+// P-AXIS_RCS_AUTOPILOT.agc:660
 //# ============================================
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:661
+// P-AXIS_RCS_AUTOPILOT.agc:661
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:662
+// P-AXIS_RCS_AUTOPILOT.agc:662
 //RATEDONE	CS	OURRCBIT	# MANUAL COMMAND AND DAMPING COMPLETED IN
-// PORT: Fixed ROM slots 16990.
+// slot 16990
                 if slot <> 16990 or instruction <> 18912 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -6539,9 +6539,9 @@ function agcAotUnit1013 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 16991 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:663
+// P-AXIS_RCS_AUTOPILOT.agc:663
 //		INHINT			# ALL AXES.
-// PORT: Fixed ROM slots 16991.
+// slot 16991
                     if slot <> 16991 or instruction <> 4 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -6549,9 +6549,9 @@ function agcAotUnit1013 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:664
+// P-AXIS_RCS_AUTOPILOT.agc:664
 //		MASK	DAPBOOLS
-// PORT: Fixed ROM slots 16992.
+// slot 16992
                     if slot <> 16992 or instruction <> 28745 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -6564,9 +6564,9 @@ function agcAotUnit1013 {
             }
         } else {
             if slot <= 16993 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:665
+// P-AXIS_RCS_AUTOPILOT.agc:665
 //		TS	DAPBOOLS
-// PORT: Fixed ROM slots 16993.
+// slot 16993
                 if slot <> 16993 or instruction <> 22601 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -6575,15 +6575,15 @@ function agcAotUnit1013 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 16994 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:666
+// P-AXIS_RCS_AUTOPILOT.agc:666
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:667
+// P-AXIS_RCS_AUTOPILOT.agc:667
 //# READ CDUS INTO CDU DESIRED REGISTERS
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:668
+// P-AXIS_RCS_AUTOPILOT.agc:668
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:669
+// P-AXIS_RCS_AUTOPILOT.agc:669
 //		CAF	BIT13
-// PORT: Fixed ROM slots 16994.
+// slot 16994
                     if slot <> 16994 or instruction <> 14815 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -6594,9 +6594,9 @@ function agcAotUnit1013 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:670
+// P-AXIS_RCS_AUTOPILOT.agc:670
 //		EXTEND
-// PORT: Fixed ROM slots 16995.
+// slot 16995
                     if slot <> 16995 or instruction <> 6 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -6609,9 +6609,9 @@ function agcAotUnit1013 {
     } else {
         if slot <= 16998 {
             if slot <= 16996 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:671
+// P-AXIS_RCS_AUTOPILOT.agc:671
 //		RAND	CHAN31
-// PORT: Fixed ROM slots 16996.
+// slot 16996
                 if slot <> 16996 or instruction <> 1049 { return choose false if checkOnly else -1. }
                 if extended {
                     if checkOnly { return true. }
@@ -6622,9 +6622,9 @@ function agcAotUnit1013 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 16997 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:672
+// P-AXIS_RCS_AUTOPILOT.agc:672
 //		EXTEND
-// PORT: Fixed ROM slots 16997.
+// slot 16997
                     if slot <> 16997 or instruction <> 6 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -6632,9 +6632,9 @@ function agcAotUnit1013 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:673
+// P-AXIS_RCS_AUTOPILOT.agc:673
 //		BZF	+4
-// PORT: Fixed ROM slots 16998.
+// slot 16998
                     if slot <> 16998 or instruction <> 5738 { return choose false if checkOnly else -1. }
                     if extended {
                         if checkOnly { return true. }
@@ -6646,9 +6646,9 @@ function agcAotUnit1013 {
         } else {
             if slot <= 17000 {
                 if slot <= 16999 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:674
+// P-AXIS_RCS_AUTOPILOT.agc:674
 //		CA	CDUX		# (X-AXIS OVERRIDE)
-// PORT: Fixed ROM slots 16999.
+// slot 16999
                     if slot <> 16999 or instruction <> 12314 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -6658,9 +6658,9 @@ function agcAotUnit1013 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:675
+// P-AXIS_RCS_AUTOPILOT.agc:675
 //		TS	CDUXD
-// PORT: Fixed ROM slots 17000.
+// slot 17000
                     if slot <> 17000 or instruction <> 23453 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -6670,9 +6670,9 @@ function agcAotUnit1013 {
                 }
             } else {
                 if slot <= 17001 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:676
+// P-AXIS_RCS_AUTOPILOT.agc:676
 //		TC	+3
-// PORT: Fixed ROM slots 17001.
+// slot 17001
                     if slot <> 17001 or instruction <> 1644 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -6680,9 +6680,9 @@ function agcAotUnit1013 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:677
+// P-AXIS_RCS_AUTOPILOT.agc:677
 //		TC	IBNKCALL
-// PORT: Fixed ROM slots 17002.
+// slot 17002
                     if slot <> 17002 or instruction <> 2492 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -6697,13 +6697,13 @@ function agcAotUnit1013 {
 set agcAotRoutes[1013] to agcAotUnit1013@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:678
+// P-AXIS_RCS_AUTOPILOT.agc:678
 //		FCADR	ZATTEROR
-// PORT: Fixed ROM slots 17003.
+// slot 17003
     17003, 32982
 )).
 
-// PORT: Physical bank 16. Shared continuation entries, slots 17004–17046.
+// bank 16, slots 17004-17046
 function agcAotUnit1014 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 17024 {
@@ -6711,9 +6711,9 @@ function agcAotUnit1014 {
             if slot <= 17008 {
                 if slot <= 17005 {
                     if slot <= 17004 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:679
+// P-AXIS_RCS_AUTOPILOT.agc:679
 //		RELINT
-// PORT: Fixed ROM slots 17004.
+// slot 17004
                         if slot <> 17004 or instruction <> 3 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -6721,9 +6721,9 @@ function agcAotUnit1014 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:680
+// P-AXIS_RCS_AUTOPILOT.agc:680
 //		TCF	PURGENCY
-// PORT: Fixed ROM slots 17005.
+// slot 17005
                         if slot <> 17005 or instruction <> 5939 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -6733,11 +6733,11 @@ function agcAotUnit1014 {
                     }
                 } else {
                     if slot <= 17006 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:681
+// P-AXIS_RCS_AUTOPILOT.agc:681
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:682
+// P-AXIS_RCS_AUTOPILOT.agc:682
 //		TS	PERROR
-// PORT: Fixed ROM slots 17006.
+// slot 17006
                         if slot <> 17006 or instruction <> 23348 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -6746,9 +6746,9 @@ function agcAotUnit1014 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 17007 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:683
+// P-AXIS_RCS_AUTOPILOT.agc:683
 //JUSTOUT		CA	OURRCBIT	# INITIALIZATION -- FIRST MANUAL PASS.
-// PORT: Fixed ROM slots 17007.
+// slot 17007
                             if slot <> 17007 or instruction <> 14816 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -6759,9 +6759,9 @@ function agcAotUnit1014 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:684
+// P-AXIS_RCS_AUTOPILOT.agc:684
 //		ADS	DAPBOOLS
-// PORT: Fixed ROM slots 17008.
+// slot 17008
                             if slot <> 17008 or instruction <> 11337 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -6776,9 +6776,9 @@ function agcAotUnit1014 {
             } else {
                 if slot <= 17010 {
                     if slot <= 17009 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:685
+// P-AXIS_RCS_AUTOPILOT.agc:685
 //		CA	ZERO
-// PORT: Fixed ROM slots 17009.
+// slot 17009
                         if slot <> 17009 or instruction <> 14829 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -6789,9 +6789,9 @@ function agcAotUnit1014 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:686
+// P-AXIS_RCS_AUTOPILOT.agc:686
 //		TS	DXERROR
-// PORT: Fixed ROM slots 17010.
+// slot 17010
                         if slot <> 17010 or instruction <> 23334 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -6801,9 +6801,9 @@ function agcAotUnit1014 {
                     }
                 } else {
                     if slot <= 17011 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:687
+// P-AXIS_RCS_AUTOPILOT.agc:687
 //		TS	DXERROR +1
-// PORT: Fixed ROM slots 17011.
+// slot 17011
                         if slot <> 17011 or instruction <> 23335 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -6812,9 +6812,9 @@ function agcAotUnit1014 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 17012 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:688
+// P-AXIS_RCS_AUTOPILOT.agc:688
 //		TS	DYERROR
-// PORT: Fixed ROM slots 17012.
+// slot 17012
                             if slot <> 17012 or instruction <> 23336 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -6822,9 +6822,9 @@ function agcAotUnit1014 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:689
+// P-AXIS_RCS_AUTOPILOT.agc:689
 //		TS	DYERROR +1
-// PORT: Fixed ROM slots 17013.
+// slot 17013
                             if slot <> 17013 or instruction <> 23337 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -6839,9 +6839,9 @@ function agcAotUnit1014 {
             if slot <= 17018 {
                 if slot <= 17015 {
                     if slot <= 17014 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:690
+// P-AXIS_RCS_AUTOPILOT.agc:690
 //		TS	DZERROR
-// PORT: Fixed ROM slots 17014.
+// slot 17014
                         if slot <> 17014 or instruction <> 23338 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -6849,9 +6849,9 @@ function agcAotUnit1014 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:691
+// P-AXIS_RCS_AUTOPILOT.agc:691
 //		TS	DZERROR +1
-// PORT: Fixed ROM slots 17015.
+// slot 17015
                         if slot <> 17015 or instruction <> 23339 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -6861,9 +6861,9 @@ function agcAotUnit1014 {
                     }
                 } else {
                     if slot <= 17016 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:692
+// P-AXIS_RCS_AUTOPILOT.agc:692
 //		TS	PLAST
-// PORT: Fixed ROM slots 17016.
+// slot 17016
                         if slot <> 17016 or instruction <> 23340 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -6872,9 +6872,9 @@ function agcAotUnit1014 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 17017 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:693
+// P-AXIS_RCS_AUTOPILOT.agc:693
 //		TS	QLAST
-// PORT: Fixed ROM slots 17017.
+// slot 17017
                             if slot <> 17017 or instruction <> 23341 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -6882,9 +6882,9 @@ function agcAotUnit1014 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:694
+// P-AXIS_RCS_AUTOPILOT.agc:694
 //		TS	RLAST
-// PORT: Fixed ROM slots 17018.
+// slot 17018
                             if slot <> 17018 or instruction <> 23342 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -6897,9 +6897,9 @@ function agcAotUnit1014 {
             } else {
                 if slot <= 17021 {
                     if slot <= 17019 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:695
+// P-AXIS_RCS_AUTOPILOT.agc:695
 //		TS	Q-RHCCTR
-// PORT: Fixed ROM slots 17019.
+// slot 17019
                         if slot <> 17019 or instruction <> 22562 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -6908,9 +6908,9 @@ function agcAotUnit1014 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 17020 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:696
+// P-AXIS_RCS_AUTOPILOT.agc:696
 //		TS	R-RHCCTR
-// PORT: Fixed ROM slots 17020.
+// slot 17020
                             if slot <> 17020 or instruction <> 22564 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -6918,9 +6918,9 @@ function agcAotUnit1014 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:697
+// P-AXIS_RCS_AUTOPILOT.agc:697
 //		CA	PQRBIT
-// PORT: Fixed ROM slots 17021.
+// slot 17021
                             if slot <> 17021 or instruction <> 13916 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -6934,9 +6934,9 @@ function agcAotUnit1014 {
                     }
                 } else {
                     if slot <= 17022 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:698
+// P-AXIS_RCS_AUTOPILOT.agc:698
 //		MASK	RCSFLAGS
-// PORT: Fixed ROM slots 17022.
+// slot 17022
                         if slot <> 17022 or instruction <> 29371 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -6947,9 +6947,9 @@ function agcAotUnit1014 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 17023 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:699
+// P-AXIS_RCS_AUTOPILOT.agc:699
 //		TS	RCSFLAGS	# BITS 10 AND 11 OF RCSFLAGS ARE 0.
-// PORT: Fixed ROM slots 17023.
+// slot 17023
                             if slot <> 17023 or instruction <> 23227 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -6957,11 +6957,11 @@ function agcAotUnit1014 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:700
+// P-AXIS_RCS_AUTOPILOT.agc:700
 //# Page 1434
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:701
+// P-AXIS_RCS_AUTOPILOT.agc:701
 //		CS	RCSFLAGS	# SET 'JUST-IN' BIT TO 1.
-// PORT: Fixed ROM slots 17024.
+// slot 17024
                             if slot <> 17024 or instruction <> 17083 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -6979,9 +6979,9 @@ function agcAotUnit1014 {
             if slot <= 17029 {
                 if slot <= 17026 {
                     if slot <= 17025 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:702
+// P-AXIS_RCS_AUTOPILOT.agc:702
 //		MASK	BIT9
-// PORT: Fixed ROM slots 17025.
+// slot 17025
                         if slot <> 17025 or instruction <> 31203 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -6997,9 +6997,9 @@ function agcAotUnit1014 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:703
+// P-AXIS_RCS_AUTOPILOT.agc:703
 //		ADS	RCSFLAGS
-// PORT: Fixed ROM slots 17026.
+// slot 17026
                         if slot <> 17026 or instruction <> 11963 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -7011,9 +7011,9 @@ function agcAotUnit1014 {
                     }
                 } else {
                     if slot <= 17027 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:704
+// P-AXIS_RCS_AUTOPILOT.agc:704
 //		TC	ZEROENBL
-// PORT: Fixed ROM slots 17027.
+// slot 17027
                         if slot <> 17027 or instruction <> 1669 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -7022,9 +7022,9 @@ function agcAotUnit1014 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 17028 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:705
+// P-AXIS_RCS_AUTOPILOT.agc:705
 //		TCF	JETSOFF
-// PORT: Fixed ROM slots 17028.
+// slot 17028
                             if slot <> 17028 or instruction <> 5922 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -7032,9 +7032,9 @@ function agcAotUnit1014 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:706
+// P-AXIS_RCS_AUTOPILOT.agc:706
 //ZEROENBL	LXCH	R-RHCCTR
-// PORT: Fixed ROM slots 17029.
+// slot 17029
                             if slot <> 17029 or instruction <> 9252 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -7049,9 +7049,9 @@ function agcAotUnit1014 {
             } else {
                 if slot <= 17032 {
                     if slot <= 17030 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:707
+// P-AXIS_RCS_AUTOPILOT.agc:707
 //		CA	Q-RHCCTR
-// PORT: Fixed ROM slots 17030.
+// slot 17030
                         if slot <> 17030 or instruction <> 12322 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -7062,9 +7062,9 @@ function agcAotUnit1014 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 17031 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:708
+// P-AXIS_RCS_AUTOPILOT.agc:708
 //		DXCH	SAVEHAND
-// PORT: Fixed ROM slots 17031.
+// slot 17031
                             if slot <> 17031 or instruction <> 22323 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -7073,9 +7073,9 @@ function agcAotUnit1014 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:709
+// P-AXIS_RCS_AUTOPILOT.agc:709
 //		CA	ZERO
-// PORT: Fixed ROM slots 17032.
+// slot 17032
                             if slot <> 17032 or instruction <> 14829 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -7089,9 +7089,9 @@ function agcAotUnit1014 {
                     }
                 } else {
                     if slot <= 17033 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:710
+// P-AXIS_RCS_AUTOPILOT.agc:710
 //		TS	P-RHCCTR
-// PORT: Fixed ROM slots 17033.
+// slot 17033
                         if slot <> 17033 or instruction <> 22563 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -7100,9 +7100,9 @@ function agcAotUnit1014 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 17034 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:711
+// P-AXIS_RCS_AUTOPILOT.agc:711
 //		TS	Q-RHCCTR
-// PORT: Fixed ROM slots 17034.
+// slot 17034
                             if slot <> 17034 or instruction <> 22562 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -7110,9 +7110,9 @@ function agcAotUnit1014 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:712
+// P-AXIS_RCS_AUTOPILOT.agc:712
 //		TS	R-RHCCTR
-// PORT: Fixed ROM slots 17035.
+// slot 17035
                             if slot <> 17035 or instruction <> 22564 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -7127,9 +7127,9 @@ function agcAotUnit1014 {
             if slot <= 17040 {
                 if slot <= 17037 {
                     if slot <= 17036 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:713
+// P-AXIS_RCS_AUTOPILOT.agc:713
 //		CA	BITS8,9
-// PORT: Fixed ROM slots 17036.
+// slot 17036
                         if slot <> 17036 or instruction <> 14223 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -7140,9 +7140,9 @@ function agcAotUnit1014 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:714
+// P-AXIS_RCS_AUTOPILOT.agc:714
 //		EXTEND
-// PORT: Fixed ROM slots 17037.
+// slot 17037
                         if slot <> 17037 or instruction <> 6 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -7152,9 +7152,9 @@ function agcAotUnit1014 {
                     }
                 } else {
                     if slot <= 17038 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:715
+// P-AXIS_RCS_AUTOPILOT.agc:715
 //		WOR	CHAN13		# COUNTERS ZEROED AND ENABLED
-// PORT: Fixed ROM slots 17038.
+// slot 17038
                         if slot <> 17038 or instruction <> 2571 { return choose false if checkOnly else -1. }
                         if extended {
                             if checkOnly { return true. }
@@ -7165,9 +7165,9 @@ function agcAotUnit1014 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 17039 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:716
+// P-AXIS_RCS_AUTOPILOT.agc:716
 //		TC	Q
-// PORT: Fixed ROM slots 17039.
+// slot 17039
                             if slot <> 17039 or instruction <> 2 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -7175,9 +7175,9 @@ function agcAotUnit1014 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:717
+// P-AXIS_RCS_AUTOPILOT.agc:717
 //RATEDAMP	CA	ZERO
-// PORT: Fixed ROM slots 17040.
+// slot 17040
                             if slot <> 17040 or instruction <> 14829 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -7193,9 +7193,9 @@ function agcAotUnit1014 {
             } else {
                 if slot <= 17043 {
                     if slot <= 17041 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:718
+// P-AXIS_RCS_AUTOPILOT.agc:718
 //		TS	P-RHCCTR
-// PORT: Fixed ROM slots 17041.
+// slot 17041
                         if slot <> 17041 or instruction <> 22563 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -7204,9 +7204,9 @@ function agcAotUnit1014 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 17042 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:719
+// P-AXIS_RCS_AUTOPILOT.agc:719
 //		TCF	RATERROR
-// PORT: Fixed ROM slots 17042.
+// slot 17042
                             if slot <> 17042 or instruction <> 5783 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -7214,11 +7214,11 @@ function agcAotUnit1014 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:720
+// P-AXIS_RCS_AUTOPILOT.agc:720
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:721
+// P-AXIS_RCS_AUTOPILOT.agc:721
 //RHCMOVED	CA	OURRCBIT	# P CONTROL
-// PORT: Fixed ROM slots 17043.
+// slot 17043
                             if slot <> 17043 or instruction <> 14816 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -7232,9 +7232,9 @@ function agcAotUnit1014 {
                     }
                 } else {
                     if slot <= 17044 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:722
+// P-AXIS_RCS_AUTOPILOT.agc:722
 //		MASK	DAPBOOLS
-// PORT: Fixed ROM slots 17044.
+// slot 17044
                         if slot <> 17044 or instruction <> 28745 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -7245,9 +7245,9 @@ function agcAotUnit1014 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 17045 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:723
+// P-AXIS_RCS_AUTOPILOT.agc:723
 //		EXTEND
-// PORT: Fixed ROM slots 17045.
+// slot 17045
                             if slot <> 17045 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -7255,9 +7255,9 @@ function agcAotUnit1014 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:724
+// P-AXIS_RCS_AUTOPILOT.agc:724
 //		BZF	JUSTOUT -1
-// PORT: Fixed ROM slots 17046.
+// slot 17046
                             if slot <> 17046 or instruction <> 5742 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -7273,7 +7273,7 @@ function agcAotUnit1014 {
 }
 set agcAotRoutes[1014] to agcAotUnit1014@.
 
-// PORT: Physical bank 16. Shared continuation entries, slots 17047–17163.
+// bank 16, slots 17047-17163
 function agcAotUnit1015 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 17104 {
@@ -7282,9 +7282,9 @@ function agcAotUnit1015 {
                 if slot <= 17053 {
                     if slot <= 17049 {
                         if slot <= 17047 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:725
+// P-AXIS_RCS_AUTOPILOT.agc:725
 //RATERROR	CA	CDUX		# FINDCDUW REQUIRES THAT CDUXD=CDUX DURING
-// PORT: Fixed ROM slots 17047.
+// slot 17047
                             if slot <> 17047 or instruction <> 12314 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -7295,9 +7295,9 @@ function agcAotUnit1015 {
                             return choose false if checkOnly else -1.
                         } else {
                             if slot <= 17048 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:726
+// P-AXIS_RCS_AUTOPILOT.agc:726
 //		TS	CDUXD		# X-AXIS OVERRIDE
-// PORT: Fixed ROM slots 17048.
+// slot 17048
                                 if slot <> 17048 or instruction <> 23453 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -7305,9 +7305,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:727
+// P-AXIS_RCS_AUTOPILOT.agc:727
 //		CCS	P-RHCCTR
-// PORT: Fixed ROM slots 17049.
+// slot 17049
                                 if slot <> 17049 or instruction <> 4131 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -7321,9 +7321,9 @@ function agcAotUnit1015 {
                     } else {
                         if slot <= 17051 {
                             if slot <= 17050 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:728
+// P-AXIS_RCS_AUTOPILOT.agc:728
 //		TCF	+3
-// PORT: Fixed ROM slots 17050.
+// slot 17050
                                 if slot <> 17050 or instruction <> 5789 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -7331,9 +7331,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:729
+// P-AXIS_RCS_AUTOPILOT.agc:729
 //		TCF	+2
-// PORT: Fixed ROM slots 17051.
+// slot 17051
                                 if slot <> 17051 or instruction <> 5789 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -7343,9 +7343,9 @@ function agcAotUnit1015 {
                             }
                         } else {
                             if slot <= 17052 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:730
+// P-AXIS_RCS_AUTOPILOT.agc:730
 //		TCF	+1
-// PORT: Fixed ROM slots 17052.
+// slot 17052
                                 if slot <> 17052 or instruction <> 5789 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -7353,9 +7353,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:731
+// P-AXIS_RCS_AUTOPILOT.agc:731
 //		DOUBLE			# LINEAR/QUADRATIC CONTROLLER SCALING
-// PORT: Fixed ROM slots 17053.
+// slot 17053
                                 if slot <> 17053 or instruction <> 24576 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -7370,9 +7370,9 @@ function agcAotUnit1015 {
                 } else {
                     if slot <= 17056 {
                         if slot <= 17054 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:732
+// P-AXIS_RCS_AUTOPILOT.agc:732
 //		DOUBLE			# (SEE EXPLANATION OF Q,R-AXES RCS
-// PORT: Fixed ROM slots 17054.
+// slot 17054
                             if slot <> 17054 or instruction <> 24576 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -7383,9 +7383,9 @@ function agcAotUnit1015 {
                             return choose false if checkOnly else -1.
                         } else {
                             if slot <= 17055 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:733
+// P-AXIS_RCS_AUTOPILOT.agc:733
 //		AD	LINRATP		# AUTOPILOT)
-// PORT: Fixed ROM slots 17055.
+// slot 17055
                                 if slot <> 17055 or instruction <> 26205 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -7397,9 +7397,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:734
+// P-AXIS_RCS_AUTOPILOT.agc:734
 //		EXTEND
-// PORT: Fixed ROM slots 17056.
+// slot 17056
                                 if slot <> 17056 or instruction <> 6 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -7411,9 +7411,9 @@ function agcAotUnit1015 {
                     } else {
                         if slot <= 17058 {
                             if slot <= 17057 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:735
+// P-AXIS_RCS_AUTOPILOT.agc:735
 //		MP	P-RHCCTR
-// PORT: Fixed ROM slots 17057.
+// slot 17057
                                 if slot <> 17057 or instruction <> 28707 { return choose false if checkOnly else -1. }
                                 if extended {
                                     if checkOnly { return true. }
@@ -7423,9 +7423,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:736
+// P-AXIS_RCS_AUTOPILOT.agc:736
 //		CA	L
-// PORT: Fixed ROM slots 17058.
+// slot 17058
                                 if slot <> 17058 or instruction <> 12289 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -7437,9 +7437,9 @@ function agcAotUnit1015 {
                             }
                         } else {
                             if slot <= 17059 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:737
+// P-AXIS_RCS_AUTOPILOT.agc:737
 //		EXTEND
-// PORT: Fixed ROM slots 17059.
+// slot 17059
                                 if slot <> 17059 or instruction <> 6 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -7447,9 +7447,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:738
+// P-AXIS_RCS_AUTOPILOT.agc:738
 //		MP	STIKSENS
-// PORT: Fixed ROM slots 17060.
+// slot 17060
                                 if slot <> 17060 or instruction <> 29476 { return choose false if checkOnly else -1. }
                                 if extended {
                                     if checkOnly { return true. }
@@ -7466,9 +7466,9 @@ function agcAotUnit1015 {
                 if slot <= 17067 {
                     if slot <= 17063 {
                         if slot <= 17061 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:739
+// P-AXIS_RCS_AUTOPILOT.agc:739
 //		XCH	PLAST
-// PORT: Fixed ROM slots 17061.
+// slot 17061
                             if slot <> 17061 or instruction <> 24364 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -7478,9 +7478,9 @@ function agcAotUnit1015 {
                             return choose false if checkOnly else -1.
                         } else {
                             if slot <= 17062 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:740
+// P-AXIS_RCS_AUTOPILOT.agc:740
 //		COM
-// PORT: Fixed ROM slots 17062.
+// slot 17062
                                 if slot <> 17062 or instruction <> 16384 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -7489,9 +7489,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:741
+// P-AXIS_RCS_AUTOPILOT.agc:741
 //		AD	PLAST
-// PORT: Fixed ROM slots 17063.
+// slot 17063
                                 if slot <> 17063 or instruction <> 25388 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -7505,9 +7505,9 @@ function agcAotUnit1015 {
                     } else {
                         if slot <= 17065 {
                             if slot <= 17064 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:742
+// P-AXIS_RCS_AUTOPILOT.agc:742
 //		TS	DAPTEMP1
-// PORT: Fixed ROM slots 17064.
+// slot 17064
                                 if slot <> 17064 or instruction <> 23519 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -7515,9 +7515,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:743
+// P-AXIS_RCS_AUTOPILOT.agc:743
 //		TC	ZEROENBL	# INTERVAL.  ZERO AND ENABLE ACA COUNTERS.
-// PORT: Fixed ROM slots 17065.
+// slot 17065
                                 if slot <> 17065 or instruction <> 1669 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -7527,9 +7527,9 @@ function agcAotUnit1015 {
                             }
                         } else {
                             if slot <= 17066 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:744
+// P-AXIS_RCS_AUTOPILOT.agc:744
 //		CS	PLAST
-// PORT: Fixed ROM slots 17066.
+// slot 17066
                                 if slot <> 17066 or instruction <> 17196 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -7538,9 +7538,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:745
+// P-AXIS_RCS_AUTOPILOT.agc:745
 //		AD	OMEGAP
-// PORT: Fixed ROM slots 17067.
+// slot 17067
                                 if slot <> 17067 or instruction <> 25361 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -7556,9 +7556,9 @@ function agcAotUnit1015 {
                     if slot <= 17071 {
                         if slot <= 17069 {
                             if slot <= 17068 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:746
+// P-AXIS_RCS_AUTOPILOT.agc:746
 //		TS	EDOTP
-// PORT: Fixed ROM slots 17068.
+// slot 17068
                                 if slot <> 17068 or instruction <> 23319 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -7566,9 +7566,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:747
+// P-AXIS_RCS_AUTOPILOT.agc:747
 //		CCS	DAPTEMP1	# IF P COMMAND CHANGE EXCEEDS BREAKOUT
-// PORT: Fixed ROM slots 17069.
+// slot 17069
                                 if slot <> 17069 or instruction <> 5087 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -7580,9 +7580,9 @@ function agcAotUnit1015 {
                             }
                         } else {
                             if slot <= 17070 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:748
+// P-AXIS_RCS_AUTOPILOT.agc:748
 //		TCF	+3		# LEVEL, GO TO DIRECT RATE CONTROL.  IF NOT
-// PORT: Fixed ROM slots 17070.
+// slot 17070
                                 if slot <> 17070 or instruction <> 5809 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -7590,9 +7590,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:749
+// P-AXIS_RCS_AUTOPILOT.agc:749
 //		TCF	+8D		# CHECK FOR DIRECT RATE CONTROL LAST TIME.
-// PORT: Fixed ROM slots 17071.
+// slot 17071
                                 if slot <> 17071 or instruction <> 5815 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -7604,9 +7604,9 @@ function agcAotUnit1015 {
                     } else {
                         if slot <= 17073 {
                             if slot <= 17072 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:750
+// P-AXIS_RCS_AUTOPILOT.agc:750
 //		TCF	+1
-// PORT: Fixed ROM slots 17072.
+// slot 17072
                                 if slot <> 17072 or instruction <> 5809 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -7614,11 +7614,11 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:751
+// P-AXIS_RCS_AUTOPILOT.agc:751
 //# Page 1435
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:752
+// P-AXIS_RCS_AUTOPILOT.agc:752
 //		AD	-RATEDB
-// PORT: Fixed ROM slots 17073.
+// slot 17073
                                 if slot <> 17073 or instruction <> 25406 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -7630,9 +7630,9 @@ function agcAotUnit1015 {
                             }
                         } else {
                             if slot <= 17074 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:753
+// P-AXIS_RCS_AUTOPILOT.agc:753
 //		EXTEND
-// PORT: Fixed ROM slots 17074.
+// slot 17074
                                 if slot <> 17074 or instruction <> 6 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -7640,9 +7640,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:754
+// P-AXIS_RCS_AUTOPILOT.agc:754
 //		BZMF	+4
-// PORT: Fixed ROM slots 17075.
+// slot 17075
                                 if slot <> 17075 or instruction <> 26295 { return choose false if checkOnly else -1. }
                                 if extended {
                                     if checkOnly { return true. }
@@ -7659,9 +7659,9 @@ function agcAotUnit1015 {
                 if slot <= 17082 {
                     if slot <= 17078 {
                         if slot <= 17076 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:755
+// P-AXIS_RCS_AUTOPILOT.agc:755
 //		CA	40CYC
-// PORT: Fixed ROM slots 17076.
+// slot 17076
                             if slot <> 17076 or instruction <> 13915 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -7673,9 +7673,9 @@ function agcAotUnit1015 {
                             return choose false if checkOnly else -1.
                         } else {
                             if slot <= 17077 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:756
+// P-AXIS_RCS_AUTOPILOT.agc:756
 //		TS	TCP
-// PORT: Fixed ROM slots 17077.
+// slot 17077
                                 if slot <> 17077 or instruction <> 23333 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -7683,9 +7683,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:757
+// P-AXIS_RCS_AUTOPILOT.agc:757
 //		TC	PEGI
-// PORT: Fixed ROM slots 17078.
+// slot 17078
                                 if slot <> 17078 or instruction <> 1728 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -7697,9 +7697,9 @@ function agcAotUnit1015 {
                     } else {
                         if slot <= 17080 {
                             if slot <= 17079 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:758
+// P-AXIS_RCS_AUTOPILOT.agc:758
 //		CA	RCSFLAGS	# CHECK FOR DIRECT RATE COMMAND LAST TIME.
-// PORT: Fixed ROM slots 17079.
+// slot 17079
                                 if slot <> 17079 or instruction <> 12987 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -7709,9 +7709,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:759
+// P-AXIS_RCS_AUTOPILOT.agc:759
 //		MASK	PBIT
-// PORT: Fixed ROM slots 17080.
+// slot 17080
                                 if slot <> 17080 or instruction <> 31202 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -7729,9 +7729,9 @@ function agcAotUnit1015 {
                             }
                         } else {
                             if slot <= 17081 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:760
+// P-AXIS_RCS_AUTOPILOT.agc:760
 //		EXTEND
-// PORT: Fixed ROM slots 17081.
+// slot 17081
                                 if slot <> 17081 or instruction <> 6 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -7739,9 +7739,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:761
+// P-AXIS_RCS_AUTOPILOT.agc:761
 //		BZF	+2
-// PORT: Fixed ROM slots 17082.
+// slot 17082
                                 if slot <> 17082 or instruction <> 5820 { return choose false if checkOnly else -1. }
                                 if extended {
                                     if checkOnly { return true. }
@@ -7754,9 +7754,9 @@ function agcAotUnit1015 {
                 } else {
                     if slot <= 17085 {
                         if slot <= 17083 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:762
+// P-AXIS_RCS_AUTOPILOT.agc:762
 //		TC	PEGI		# TO PURE RATE COMMAND
-// PORT: Fixed ROM slots 17083.
+// slot 17083
                             if slot <> 17083 or instruction <> 1728 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -7765,9 +7765,9 @@ function agcAotUnit1015 {
                             return choose false if checkOnly else -1.
                         } else {
                             if slot <= 17084 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:763
+// P-AXIS_RCS_AUTOPILOT.agc:763
 //		CA	DXERROR		# PSEUDO-AUTO CONTROL.
-// PORT: Fixed ROM slots 17084.
+// slot 17084
                                 if slot <> 17084 or instruction <> 13094 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -7777,9 +7777,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:764
+// P-AXIS_RCS_AUTOPILOT.agc:764
 //		TS	E		# X-ATTITUDE ERROR (SP)
-// PORT: Fixed ROM slots 17085.
+// slot 17085
                                 if slot <> 17085 or instruction <> 23530 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -7791,9 +7791,9 @@ function agcAotUnit1015 {
                     } else {
                         if slot <= 17087 {
                             if slot <= 17086 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:765
+// P-AXIS_RCS_AUTOPILOT.agc:765
 //		TS	PERROR		# LOAD P-AXIS ERROR FOR MODE1 FDAI DISPLAY
-// PORT: Fixed ROM slots 17086.
+// slot 17086
                                 if slot <> 17086 or instruction <> 23348 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -7801,9 +7801,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:766
+// P-AXIS_RCS_AUTOPILOT.agc:766
 //		TC	PURGENCY +4
-// PORT: Fixed ROM slots 17087.
+// slot 17087
                                 if slot <> 17087 or instruction <> 1847 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -7813,9 +7813,9 @@ function agcAotUnit1015 {
                             }
                         } else {
                             if slot <= 17088 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:767
+// P-AXIS_RCS_AUTOPILOT.agc:767
 //PEGI		CA	CDUX		# DIRECT RATE CONTROL.
-// PORT: Fixed ROM slots 17088.
+// slot 17088
                                 if slot <> 17088 or instruction <> 12314 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -7825,9 +7825,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:768
+// P-AXIS_RCS_AUTOPILOT.agc:768
 //		TS	CDUXD
-// PORT: Fixed ROM slots 17089.
+// slot 17089
                                 if slot <> 17089 or instruction <> 23453 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -7842,9 +7842,9 @@ function agcAotUnit1015 {
                 if slot <= 17096 {
                     if slot <= 17092 {
                         if slot <= 17090 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:769
+// P-AXIS_RCS_AUTOPILOT.agc:769
 //		CA	ZERO
-// PORT: Fixed ROM slots 17090.
+// slot 17090
                             if slot <> 17090 or instruction <> 14829 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -7856,9 +7856,9 @@ function agcAotUnit1015 {
                             return choose false if checkOnly else -1.
                         } else {
                             if slot <= 17091 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:770
+// P-AXIS_RCS_AUTOPILOT.agc:770
 //		TS	DXERROR
-// PORT: Fixed ROM slots 17091.
+// slot 17091
                                 if slot <> 17091 or instruction <> 23334 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -7866,9 +7866,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:771
+// P-AXIS_RCS_AUTOPILOT.agc:771
 //		TS	DXERROR +1
-// PORT: Fixed ROM slots 17092.
+// slot 17092
                                 if slot <> 17092 or instruction <> 23335 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -7880,9 +7880,9 @@ function agcAotUnit1015 {
                     } else {
                         if slot <= 17094 {
                             if slot <= 17093 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:772
+// P-AXIS_RCS_AUTOPILOT.agc:772
 //		TS	PERROR		# ZERO P-AXIS ERROR FOR MODE1 FDAI DISPLAY
-// PORT: Fixed ROM slots 17093.
+// slot 17093
                                 if slot <> 17093 or instruction <> 23348 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -7890,9 +7890,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:773
+// P-AXIS_RCS_AUTOPILOT.agc:773
 //		CCS	EDOTP
-// PORT: Fixed ROM slots 17094.
+// slot 17094
                                 if slot <> 17094 or instruction <> 4887 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -7904,9 +7904,9 @@ function agcAotUnit1015 {
                             }
                         } else {
                             if slot <= 17095 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:774
+// P-AXIS_RCS_AUTOPILOT.agc:774
 //		TC	+3
-// PORT: Fixed ROM slots 17095.
+// slot 17095
                                 if slot <> 17095 or instruction <> 1738 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -7914,9 +7914,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:775
+// P-AXIS_RCS_AUTOPILOT.agc:775
 //		TC	+2
-// PORT: Fixed ROM slots 17096.
+// slot 17096
                                 if slot <> 17096 or instruction <> 1738 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -7930,9 +7930,9 @@ function agcAotUnit1015 {
                     if slot <= 17100 {
                         if slot <= 17098 {
                             if slot <= 17097 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:776
+// P-AXIS_RCS_AUTOPILOT.agc:776
 //		TC	+1
-// PORT: Fixed ROM slots 17097.
+// slot 17097
                                 if slot <> 17097 or instruction <> 1738 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -7940,9 +7940,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:777
+// P-AXIS_RCS_AUTOPILOT.agc:777
 //		TS	ABSEDOTP
-// PORT: Fixed ROM slots 17098.
+// slot 17098
                                 if slot <> 17098 or instruction <> 23519 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -7952,9 +7952,9 @@ function agcAotUnit1015 {
                             }
                         } else {
                             if slot <= 17099 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:778
+// P-AXIS_RCS_AUTOPILOT.agc:778
 //		AD	TARGETDB
-// PORT: Fixed ROM slots 17099.
+// slot 17099
                                 if slot <> 17099 or instruction <> 25406 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -7964,9 +7964,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:779
+// P-AXIS_RCS_AUTOPILOT.agc:779
 //		EXTEND			# IF RATE ERROR IS LESS THAN DEADBANK,
-// PORT: Fixed ROM slots 17100.
+// slot 17100
                                 if slot <> 17100 or instruction <> 6 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -7978,9 +7978,9 @@ function agcAotUnit1015 {
                     } else {
                         if slot <= 17102 {
                             if slot <= 17101 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:780
+// P-AXIS_RCS_AUTOPILOT.agc:780
 //		BZMF	LAST		# FIRE, AN SWITCH TO PSEUDO-AUTO.
-// PORT: Fixed ROM slots 17101.
+// slot 17101
                                 if slot <> 17101 or instruction <> 26325 { return choose false if checkOnly else -1. }
                                 if extended {
                                     if checkOnly { return true. }
@@ -7988,9 +7988,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:781
+// P-AXIS_RCS_AUTOPILOT.agc:781
 //		CA	TCP
-// PORT: Fixed ROM slots 17102.
+// slot 17102
                                 if slot <> 17102 or instruction <> 13093 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8002,9 +8002,9 @@ function agcAotUnit1015 {
                             }
                         } else {
                             if slot <= 17103 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:782
+// P-AXIS_RCS_AUTOPILOT.agc:782
 //		EXTEND			# IF TIME IN RATE COMMAND EXCEEDS 4 SEC.
-// PORT: Fixed ROM slots 17103.
+// slot 17103
                                 if slot <> 17103 or instruction <> 6 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8012,9 +8012,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:783
+// P-AXIS_RCS_AUTOPILOT.agc:783
 //		BZMF	LAST
-// PORT: Fixed ROM slots 17104.
+// slot 17104
                                 if slot <> 17104 or instruction <> 26325 { return choose false if checkOnly else -1. }
                                 if extended {
                                     if checkOnly { return true. }
@@ -8033,9 +8033,9 @@ function agcAotUnit1015 {
                 if slot <= 17111 {
                     if slot <= 17107 {
                         if slot <= 17105 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:784
+// P-AXIS_RCS_AUTOPILOT.agc:784
 //		CS	RCSFLAGS
-// PORT: Fixed ROM slots 17105.
+// slot 17105
                             if slot <> 17105 or instruction <> 17083 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -8045,9 +8045,9 @@ function agcAotUnit1015 {
                             return choose false if checkOnly else -1.
                         } else {
                             if slot <= 17106 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:785
+// P-AXIS_RCS_AUTOPILOT.agc:785
 //		MASK	PBIT
-// PORT: Fixed ROM slots 17106.
+// slot 17106
                                 if slot <> 17106 or instruction <> 31202 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8063,9 +8063,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:786
+// P-AXIS_RCS_AUTOPILOT.agc:786
 //		ADS	RCSFLAGS	# BIT 10 IS 1.
-// PORT: Fixed ROM slots 17107.
+// slot 17107
                                 if slot <> 17107 or instruction <> 11963 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8079,9 +8079,9 @@ function agcAotUnit1015 {
                     } else {
                         if slot <= 17109 {
                             if slot <= 17108 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:787
+// P-AXIS_RCS_AUTOPILOT.agc:787
 //		TCF	+4
-// PORT: Fixed ROM slots 17108.
+// slot 17108
                                 if slot <> 17108 or instruction <> 5848 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8089,9 +8089,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:788
+// P-AXIS_RCS_AUTOPILOT.agc:788
 //LAST		CS	PBIT
-// PORT: Fixed ROM slots 17109.
+// slot 17109
                                 if slot <> 17109 or instruction <> 18914 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8103,9 +8103,9 @@ function agcAotUnit1015 {
                             }
                         } else {
                             if slot <= 17110 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:789
+// P-AXIS_RCS_AUTOPILOT.agc:789
 //		MASK	RCSFLAGS
-// PORT: Fixed ROM slots 17110.
+// slot 17110
                                 if slot <> 17110 or instruction <> 29371 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8115,9 +8115,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:790
+// P-AXIS_RCS_AUTOPILOT.agc:790
 //		TS	RCSFLAGS	# BIT 10 IS 0.
-// PORT: Fixed ROM slots 17111.
+// slot 17111
                                 if slot <> 17111 or instruction <> 23227 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8130,9 +8130,9 @@ function agcAotUnit1015 {
                 } else {
                     if slot <= 17114 {
                         if slot <= 17112 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:791
+// P-AXIS_RCS_AUTOPILOT.agc:791
 //		CS	EDOTP
-// PORT: Fixed ROM slots 17112.
+// slot 17112
                             if slot <> 17112 or instruction <> 17175 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -8142,9 +8142,9 @@ function agcAotUnit1015 {
                             return choose false if checkOnly else -1.
                         } else {
                             if slot <= 17113 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:792
+// P-AXIS_RCS_AUTOPILOT.agc:792
 //		EXTEND
-// PORT: Fixed ROM slots 17113.
+// slot 17113
                                 if slot <> 17113 or instruction <> 6 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8152,9 +8152,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:793
+// P-AXIS_RCS_AUTOPILOT.agc:793
 //		MP	1/ANETP		# 1/2JTACC SCALED AT 2EXP(7)/PI
-// PORT: Fixed ROM slots 17114.
+// slot 17114
                                 if slot <> 17114 or instruction <> 29545 { return choose false if checkOnly else -1. }
                                 if extended {
                                     if checkOnly { return true. }
@@ -8168,9 +8168,9 @@ function agcAotUnit1015 {
                     } else {
                         if slot <= 17116 {
                             if slot <= 17115 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:794
+// P-AXIS_RCS_AUTOPILOT.agc:794
 //		DAS	A
-// PORT: Fixed ROM slots 17115.
+// slot 17115
                                 if slot <> 17115 or instruction <> 8193 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8180,9 +8180,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:795
+// P-AXIS_RCS_AUTOPILOT.agc:795
 //		TC	OVERSUB
-// PORT: Fixed ROM slots 17116.
+// slot 17116
                                 if slot <> 17116 or instruction <> 1224 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8192,9 +8192,9 @@ function agcAotUnit1015 {
                             }
                         } else {
                             if slot <= 17117 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:796
+// P-AXIS_RCS_AUTOPILOT.agc:796
 //		EXTEND
-// PORT: Fixed ROM slots 17117.
+// slot 17117
                                 if slot <> 17117 or instruction <> 6 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8202,9 +8202,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:797
+// P-AXIS_RCS_AUTOPILOT.agc:797
 //		MP	25/32		# A CONTAINS TJET SCALED AT 2EXP(4)(16/25)
-// PORT: Fixed ROM slots 17118.
+// slot 17118
                                 if slot <> 17118 or instruction <> 32718 { return choose false if checkOnly else -1. }
                                 if extended {
                                     if checkOnly { return true. }
@@ -8221,9 +8221,9 @@ function agcAotUnit1015 {
                 if slot <= 17125 {
                     if slot <= 17121 {
                         if slot <= 17119 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:798
+// P-AXIS_RCS_AUTOPILOT.agc:798
 //		TS	TJP		# 4.JET TIME
-// PORT: Fixed ROM slots 17119.
+// slot 17119
                             if slot <> 17119 or instruction <> 23380 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -8232,9 +8232,9 @@ function agcAotUnit1015 {
                             return choose false if checkOnly else -1.
                         } else {
                             if slot <= 17120 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:799
+// P-AXIS_RCS_AUTOPILOT.agc:799
 //		CA	ABSEDOTP
-// PORT: Fixed ROM slots 17120.
+// slot 17120
                                 if slot <> 17120 or instruction <> 13279 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8244,9 +8244,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:800
+// P-AXIS_RCS_AUTOPILOT.agc:800
 //		AD	-2JETLIM	# COMPARING DELTA RATE WITH 2 JET LIMIT
-// PORT: Fixed ROM slots 17121.
+// slot 17121
                                 if slot <> 17121 or instruction <> 25405 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8260,9 +8260,9 @@ function agcAotUnit1015 {
                     } else {
                         if slot <= 17123 {
                             if slot <= 17122 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:801
+// P-AXIS_RCS_AUTOPILOT.agc:801
 //		EXTEND
-// PORT: Fixed ROM slots 17122.
+// slot 17122
                                 if slot <> 17122 or instruction <> 6 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8270,11 +8270,11 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:802
+// P-AXIS_RCS_AUTOPILOT.agc:802
 //# Page 1436
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:803
+// P-AXIS_RCS_AUTOPILOT.agc:803
 //		BZMF	+3
-// PORT: Fixed ROM slots 17123.
+// slot 17123
                                 if slot <> 17123 or instruction <> 26342 { return choose false if checkOnly else -1. }
                                 if extended {
                                     if checkOnly { return true. }
@@ -8284,11 +8284,11 @@ function agcAotUnit1015 {
                             }
                         } else {
                             if slot <= 17124 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:804
+// P-AXIS_RCS_AUTOPILOT.agc:804
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:805
+// P-AXIS_RCS_AUTOPILOT.agc:805
 //		CA	SIX
-// PORT: Fixed ROM slots 17124.
+// slot 17124
                                 if slot <> 17124 or instruction <> 15522 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8299,9 +8299,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:806
+// P-AXIS_RCS_AUTOPILOT.agc:806
 //		TCF	+8D
-// PORT: Fixed ROM slots 17125.
+// slot 17125
                                 if slot <> 17125 or instruction <> 5869 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8315,9 +8315,9 @@ function agcAotUnit1015 {
                     if slot <= 17129 {
                         if slot <= 17127 {
                             if slot <= 17126 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:807
+// P-AXIS_RCS_AUTOPILOT.agc:807
 //		CA	TJP
-// PORT: Fixed ROM slots 17126.
+// slot 17126
                                 if slot <> 17126 or instruction <> 13140 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8327,9 +8327,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:808
+// P-AXIS_RCS_AUTOPILOT.agc:808
 //		ADS	TJP
-// PORT: Fixed ROM slots 17127.
+// slot 17127
                                 if slot <> 17127 or instruction <> 12116 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8341,51 +8341,51 @@ function agcAotUnit1015 {
                             }
                         } else {
                             if slot <= 17128 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:809
+// P-AXIS_RCS_AUTOPILOT.agc:809
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:810
+// P-AXIS_RCS_AUTOPILOT.agc:810
 //# GOES TO PJETSLEC FOR TWO JETS
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:811
+// P-AXIS_RCS_AUTOPILOT.agc:811
 //# P-JET-SELECTION-ROUTINE (ROTATION)
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:812
+// P-AXIS_RCS_AUTOPILOT.agc:812
 //#
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:813
+// P-AXIS_RCS_AUTOPILOT.agc:813
 //# INPUT:	NUMBERT		4,5,6 FOR WHICH PAIR OR 4 JETS
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:814
+// P-AXIS_RCS_AUTOPILOT.agc:814
 //#		TJP		+ FOR +P ROTATION
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:815
+// P-AXIS_RCS_AUTOPILOT.agc:815
 //#
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:816
+// P-AXIS_RCS_AUTOPILOT.agc:816
 //# OUTPUT:	CHANNEL 6
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:817
+// P-AXIS_RCS_AUTOPILOT.agc:817
 //#		PJUMPADR	FOR P-AXIS SKIP
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:818
+// P-AXIS_RCS_AUTOPILOT.agc:818
 //#		(JTLST CALL)	(SMALL TJP)
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:819
+// P-AXIS_RCS_AUTOPILOT.agc:819
 //#
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:820
+// P-AXIS_RCS_AUTOPILOT.agc:820
 //# ORDER OF POLICIES TRIED IN CASE OF FAILURE.
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:821
+// P-AXIS_RCS_AUTOPILOT.agc:821
 //#	+P	-P
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:822
+// P-AXIS_RCS_AUTOPILOT.agc:822
 //#	7,15	8,16
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:823
+// P-AXIS_RCS_AUTOPILOT.agc:823
 //#	4,12	3,11
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:824
+// P-AXIS_RCS_AUTOPILOT.agc:824
 //#	4,7	8,11
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:825
+// P-AXIS_RCS_AUTOPILOT.agc:825
 //#	7,12	11,16
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:826
+// P-AXIS_RCS_AUTOPILOT.agc:826
 //#	12,15	3,16
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:827
+// P-AXIS_RCS_AUTOPILOT.agc:827
 //#	4,15	3,8
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:828
+// P-AXIS_RCS_AUTOPILOT.agc:828
 //#	ALARM	ALARM
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:829
+// P-AXIS_RCS_AUTOPILOT.agc:829
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:830
+// P-AXIS_RCS_AUTOPILOT.agc:830
 //		CA	AORBSYST
-// PORT: Fixed ROM slots 17128.
+// slot 17128
                                 if slot <> 17128 or instruction <> 14823 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8396,9 +8396,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:831
+// P-AXIS_RCS_AUTOPILOT.agc:831
 //		MASK	DAPBOOLS
-// PORT: Fixed ROM slots 17129.
+// slot 17129
                                 if slot <> 17129 or instruction <> 28745 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8412,9 +8412,9 @@ function agcAotUnit1015 {
                     } else {
                         if slot <= 17131 {
                             if slot <= 17130 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:832
+// P-AXIS_RCS_AUTOPILOT.agc:832
 //		CCS	A
-// PORT: Fixed ROM slots 17130.
+// slot 17130
                                 if slot <> 17130 or instruction <> 4096 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8424,9 +8424,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:833
+// P-AXIS_RCS_AUTOPILOT.agc:833
 //		CA	ONE
-// PORT: Fixed ROM slots 17131.
+// slot 17131
                                 if slot <> 17131 or instruction <> 14827 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8439,9 +8439,9 @@ function agcAotUnit1015 {
                             }
                         } else {
                             if slot <= 17132 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:834
+// P-AXIS_RCS_AUTOPILOT.agc:834
 //		AD	FOUR
-// PORT: Fixed ROM slots 17132.
+// slot 17132
                                 if slot <> 17132 or instruction <> 27113 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8453,9 +8453,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:835
+// P-AXIS_RCS_AUTOPILOT.agc:835
 //		TS	NUMBERT
-// PORT: Fixed ROM slots 17133.
+// slot 17133
                                 if slot <> 17133 or instruction <> 23523 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8472,9 +8472,9 @@ function agcAotUnit1015 {
                 if slot <= 17140 {
                     if slot <= 17136 {
                         if slot <= 17134 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:836
+// P-AXIS_RCS_AUTOPILOT.agc:836
 //PJETSLEC	CA	ONE
-// PORT: Fixed ROM slots 17134.
+// slot 17134
                             if slot <> 17134 or instruction <> 14827 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -8486,9 +8486,9 @@ function agcAotUnit1015 {
                             return choose false if checkOnly else -1.
                         } else {
                             if slot <= 17135 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:837
+// P-AXIS_RCS_AUTOPILOT.agc:837
 //		TS	L
-// PORT: Fixed ROM slots 17135.
+// slot 17135
                                 if slot <> 17135 or instruction <> 22529 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8496,9 +8496,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:838
+// P-AXIS_RCS_AUTOPILOT.agc:838
 //		CCS	TJP
-// PORT: Fixed ROM slots 17136.
+// slot 17136
                                 if slot <> 17136 or instruction <> 4948 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8512,9 +8512,9 @@ function agcAotUnit1015 {
                     } else {
                         if slot <= 17138 {
                             if slot <= 17137 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:839
+// P-AXIS_RCS_AUTOPILOT.agc:839
 //		TCF	+5
-// PORT: Fixed ROM slots 17137.
+// slot 17137
                                 if slot <> 17137 or instruction <> 5878 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8522,9 +8522,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:840
+// P-AXIS_RCS_AUTOPILOT.agc:840
 //		TCF	JETSOFF
-// PORT: Fixed ROM slots 17138.
+// slot 17138
                                 if slot <> 17138 or instruction <> 5922 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8534,9 +8534,9 @@ function agcAotUnit1015 {
                             }
                         } else {
                             if slot <= 17139 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:841
+// P-AXIS_RCS_AUTOPILOT.agc:841
 //		TCF	+2
-// PORT: Fixed ROM slots 17139.
+// slot 17139
                                 if slot <> 17139 or instruction <> 5877 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8544,9 +8544,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:842
+// P-AXIS_RCS_AUTOPILOT.agc:842
 //		TCF	JETSOFF
-// PORT: Fixed ROM slots 17140.
+// slot 17140
                                 if slot <> 17140 or instruction <> 5922 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8560,9 +8560,9 @@ function agcAotUnit1015 {
                     if slot <= 17144 {
                         if slot <= 17142 {
                             if slot <= 17141 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:843
+// P-AXIS_RCS_AUTOPILOT.agc:843
 //		ZL
-// PORT: Fixed ROM slots 17141.
+// slot 17141
                                 if slot <> 17141 or instruction <> 9223 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8572,9 +8572,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:844
+// P-AXIS_RCS_AUTOPILOT.agc:844
 //		AD	ONE
-// PORT: Fixed ROM slots 17142.
+// slot 17142
                                 if slot <> 17142 or instruction <> 27115 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8588,9 +8588,9 @@ function agcAotUnit1015 {
                             }
                         } else {
                             if slot <= 17143 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:845
+// P-AXIS_RCS_AUTOPILOT.agc:845
 //		TS	ABSTJ
-// PORT: Fixed ROM slots 17143.
+// slot 17143
                                 if slot <> 17143 or instruction <> 23519 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8598,9 +8598,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:846
+// P-AXIS_RCS_AUTOPILOT.agc:846
 //		LXCH	ROTINDEX
-// PORT: Fixed ROM slots 17144.
+// slot 17144
                                 if slot <> 17144 or instruction <> 10212 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8614,9 +8614,9 @@ function agcAotUnit1015 {
                     } else {
                         if slot <= 17146 {
                             if slot <= 17145 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:847
+// P-AXIS_RCS_AUTOPILOT.agc:847
 //		TC	SELECTP
-// PORT: Fixed ROM slots 17145.
+// slot 17145
                                 if slot <> 17145 or instruction <> 1881 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8624,9 +8624,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:848
+// P-AXIS_RCS_AUTOPILOT.agc:848
 //		CS	SIX
-// PORT: Fixed ROM slots 17146.
+// slot 17146
                                 if slot <> 17146 or instruction <> 19618 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8638,9 +8638,9 @@ function agcAotUnit1015 {
                             }
                         } else {
                             if slot <= 17147 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:849
+// P-AXIS_RCS_AUTOPILOT.agc:849
 //		AD	NUMBERT
-// PORT: Fixed ROM slots 17147.
+// slot 17147
                                 if slot <> 17147 or instruction <> 25571 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8650,9 +8650,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:850
+// P-AXIS_RCS_AUTOPILOT.agc:850
 //		EXTEND
-// PORT: Fixed ROM slots 17148.
+// slot 17148
                                 if slot <> 17148 or instruction <> 6 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8667,9 +8667,9 @@ function agcAotUnit1015 {
                 if slot <= 17155 {
                     if slot <= 17151 {
                         if slot <= 17149 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:851
+// P-AXIS_RCS_AUTOPILOT.agc:851
 //		BZF	+2
-// PORT: Fixed ROM slots 17149.
+// slot 17149
                             if slot <> 17149 or instruction <> 5887 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -8678,11 +8678,11 @@ function agcAotUnit1015 {
                             return choose false if checkOnly else -1.
                         } else {
                             if slot <= 17150 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:852
+// P-AXIS_RCS_AUTOPILOT.agc:852
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:853
+// P-AXIS_RCS_AUTOPILOT.agc:853
 //		CS	TWO
-// PORT: Fixed ROM slots 17150.
+// slot 17150
                                 if slot <> 17150 or instruction <> 18922 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8692,13 +8692,13 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:854
+// P-AXIS_RCS_AUTOPILOT.agc:854
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:855
+// P-AXIS_RCS_AUTOPILOT.agc:855
 //# Page 1437
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:856
+// P-AXIS_RCS_AUTOPILOT.agc:856
 //		AD	FOUR
-// PORT: Fixed ROM slots 17151.
+// slot 17151
                                 if slot <> 17151 or instruction <> 27113 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8714,9 +8714,9 @@ function agcAotUnit1015 {
                     } else {
                         if slot <= 17153 {
                             if slot <= 17152 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:857
+// P-AXIS_RCS_AUTOPILOT.agc:857
 //		TS	NO.PJETS
-// PORT: Fixed ROM slots 17152.
+// slot 17152
                                 if slot <> 17152 or instruction <> 23377 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8724,9 +8724,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:858
+// P-AXIS_RCS_AUTOPILOT.agc:858
 //		CA	POLYTEMP
-// PORT: Fixed ROM slots 17153.
+// slot 17153
                                 if slot <> 17153 or instruction <> 13281 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8738,9 +8738,9 @@ function agcAotUnit1015 {
                             }
                         } else {
                             if slot <= 17154 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:859
+// P-AXIS_RCS_AUTOPILOT.agc:859
 //		TC	WRITEP
-// PORT: Fixed ROM slots 17154.
+// slot 17154
                                 if slot <> 17154 or instruction <> 3052 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8748,9 +8748,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:860
+// P-AXIS_RCS_AUTOPILOT.agc:860
 //		CS	ABSTJ
-// PORT: Fixed ROM slots 17155.
+// slot 17155
                                 if slot <> 17155 or instruction <> 17375 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8765,9 +8765,9 @@ function agcAotUnit1015 {
                     if slot <= 17159 {
                         if slot <= 17157 {
                             if slot <= 17156 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:861
+// P-AXIS_RCS_AUTOPILOT.agc:861
 //		AD	+150MST6
-// PORT: Fixed ROM slots 17156.
+// slot 17156
                                 if slot <> 17156 or instruction <> 26506 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8779,9 +8779,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:862
+// P-AXIS_RCS_AUTOPILOT.agc:862
 //		EXTEND
-// PORT: Fixed ROM slots 17157.
+// slot 17157
                                 if slot <> 17157 or instruction <> 6 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8791,9 +8791,9 @@ function agcAotUnit1015 {
                             }
                         } else {
                             if slot <= 17158 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:863
+// P-AXIS_RCS_AUTOPILOT.agc:863
 //		BZMF	QRAXIS		# GO TO QRAXIS OR TO GTS.
-// PORT: Fixed ROM slots 17158.
+// slot 17158
                                 if slot <> 17158 or instruction <> 26516 { return choose false if checkOnly else -1. }
                                 if extended {
                                     if checkOnly { return true. }
@@ -8801,11 +8801,11 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:864
+// P-AXIS_RCS_AUTOPILOT.agc:864
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:865
+// P-AXIS_RCS_AUTOPILOT.agc:865
 //		AD	-136MST6
-// PORT: Fixed ROM slots 17159.
+// slot 17159
                                 if slot <> 17159 or instruction <> 26490 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8821,9 +8821,9 @@ function agcAotUnit1015 {
                     } else {
                         if slot <= 17161 {
                             if slot <= 17160 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:866
+// P-AXIS_RCS_AUTOPILOT.agc:866
 //		EXTEND
-// PORT: Fixed ROM slots 17160.
+// slot 17160
                                 if slot <> 17160 or instruction <> 6 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8831,9 +8831,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:867
+// P-AXIS_RCS_AUTOPILOT.agc:867
 //		BZMF	+5
-// PORT: Fixed ROM slots 17161.
+// slot 17161
                                 if slot <> 17161 or instruction <> 26382 { return choose false if checkOnly else -1. }
                                 if extended {
                                     if checkOnly { return true. }
@@ -8843,11 +8843,11 @@ function agcAotUnit1015 {
                             }
                         } else {
                             if slot <= 17162 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:868
+// P-AXIS_RCS_AUTOPILOT.agc:868
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:869
+// P-AXIS_RCS_AUTOPILOT.agc:869
 //		ADS	ABSTJ
-// PORT: Fixed ROM slots 17162.
+// slot 17162
                                 if slot <> 17162 or instruction <> 12255 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8857,9 +8857,9 @@ function agcAotUnit1015 {
                                 }
                                 return choose false if checkOnly else -1.
                             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:870
+// P-AXIS_RCS_AUTOPILOT.agc:870
 //		INDEX	ROTINDEX
-// PORT: Fixed ROM slots 17163.
+// slot 17163
                                 if slot <> 17163 or instruction <> 21476 { return choose false if checkOnly else -1. }
                                 if not extended {
                                     if checkOnly { return true. }
@@ -8881,20 +8881,20 @@ function agcAotUnit1015 {
 set agcAotRoutes[1015] to agcAotUnit1015@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:871
+// P-AXIS_RCS_AUTOPILOT.agc:871
 //		CA	MINTIMES
-// PORT: Fixed ROM slots 17164.
+// slot 17164
     17164, 28450
 )).
 
-// PORT: Physical bank 16. Shared continuation entries, slots 17165–17170.
+// bank 16, slots 17165-17170
 function agcAotUnit1016 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 17167 {
         if slot <= 17165 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:872
+// P-AXIS_RCS_AUTOPILOT.agc:872
 //		TS	TJP
-// PORT: Fixed ROM slots 17165.
+// slot 17165
             if slot <> 17165 or instruction <> 23380 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -8903,11 +8903,11 @@ function agcAotUnit1016 {
             return choose false if checkOnly else -1.
         } else {
             if slot <= 17166 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:873
+// P-AXIS_RCS_AUTOPILOT.agc:873
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:874
+// P-AXIS_RCS_AUTOPILOT.agc:874
 //		CA	ABSTJ
-// PORT: Fixed ROM slots 17166.
+// slot 17166
                 if slot <> 17166 or instruction <> 13279 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -8917,9 +8917,9 @@ function agcAotUnit1016 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:875
+// P-AXIS_RCS_AUTOPILOT.agc:875
 //		ZL
-// PORT: Fixed ROM slots 17167.
+// slot 17167
                 if slot <> 17167 or instruction <> 9223 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -8932,9 +8932,9 @@ function agcAotUnit1016 {
         }
     } else {
         if slot <= 17168 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:876
+// P-AXIS_RCS_AUTOPILOT.agc:876
 //		INHINT
-// PORT: Fixed ROM slots 17168.
+// slot 17168
             if slot <> 17168 or instruction <> 4 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -8943,9 +8943,9 @@ function agcAotUnit1016 {
             return choose false if checkOnly else -1.
         } else {
             if slot <= 17169 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:877
+// P-AXIS_RCS_AUTOPILOT.agc:877
 //		DXCH	T6FURTHA
-// PORT: Fixed ROM slots 17169.
+// slot 17169
                 if slot <> 17169 or instruction <> 22329 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -8954,9 +8954,9 @@ function agcAotUnit1016 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:878
+// P-AXIS_RCS_AUTOPILOT.agc:878
 //		TC	IBNKCALL
-// PORT: Fixed ROM slots 17170.
+// slot 17170
                 if slot <> 17170 or instruction <> 2492 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -8970,20 +8970,20 @@ function agcAotUnit1016 {
 set agcAotRoutes[1016] to agcAotUnit1016@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:879
+// P-AXIS_RCS_AUTOPILOT.agc:879
 //		CADR	JTLST
-// PORT: Fixed ROM slots 17171.
+// slot 17171
     17171, 31896
 )).
 
-// PORT: Physical bank 16. Shared continuation entries, slots 17172–17176.
+// bank 16, slots 17172-17176
 function agcAotUnit1017 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 17173 {
         if slot <= 17172 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:880
+// P-AXIS_RCS_AUTOPILOT.agc:880
 //		CS	BIT12
-// PORT: Fixed ROM slots 17172.
+// slot 17172
             if slot <> 17172 or instruction <> 18912 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -8993,9 +8993,9 @@ function agcAotUnit1017 {
             }
             return choose false if checkOnly else -1.
         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:881
+// P-AXIS_RCS_AUTOPILOT.agc:881
 //		MASK	RCSFLAGS
-// PORT: Fixed ROM slots 17173.
+// slot 17173
             if slot <> 17173 or instruction <> 29371 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -9007,9 +9007,9 @@ function agcAotUnit1017 {
         }
     } else {
         if slot <= 17174 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:882
+// P-AXIS_RCS_AUTOPILOT.agc:882
 //		TS	RCSFLAGS	# BIT 12 SET TO 0.
-// PORT: Fixed ROM slots 17174.
+// slot 17174
             if slot <> 17174 or instruction <> 23227 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -9018,9 +9018,9 @@ function agcAotUnit1017 {
             return choose false if checkOnly else -1.
         } else {
             if slot <= 17175 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:883
+// P-AXIS_RCS_AUTOPILOT.agc:883
 //		TC	ALTSYST
-// PORT: Fixed ROM slots 17175.
+// slot 17175
                 if slot <> 17175 or instruction <> 1817 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -9028,9 +9028,9 @@ function agcAotUnit1017 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:884
+// P-AXIS_RCS_AUTOPILOT.agc:884
 //		TCF	QRAXIS
-// PORT: Fixed ROM slots 17176.
+// slot 17176
                 if slot <> 17176 or instruction <> 6036 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -9043,7 +9043,7 @@ function agcAotUnit1017 {
 }
 set agcAotRoutes[1017] to agcAotUnit1017@.
 
-// PORT: Physical bank 16. Shared continuation entries, slots 17177–17214.
+// bank 16, slots 17177-17214
 function agcAotUnit1018 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 17195 {
@@ -9051,11 +9051,11 @@ function agcAotUnit1018 {
             if slot <= 17180 {
                 if slot <= 17178 {
                     if slot <= 17177 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:885
+// P-AXIS_RCS_AUTOPILOT.agc:885
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:886
+// P-AXIS_RCS_AUTOPILOT.agc:886
 //ALTSYST		CA	DAPBOOLS	# ALTERNATE P-AXIS JETS
-// PORT: Fixed ROM slots 17177.
+// slot 17177
                         if slot <> 17177 or instruction <> 12361 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -9065,9 +9065,9 @@ function agcAotUnit1018 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:887
+// P-AXIS_RCS_AUTOPILOT.agc:887
 //		TS	L
-// PORT: Fixed ROM slots 17178.
+// slot 17178
                         if slot <> 17178 or instruction <> 22529 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -9077,9 +9077,9 @@ function agcAotUnit1018 {
                     }
                 } else {
                     if slot <= 17179 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:888
+// P-AXIS_RCS_AUTOPILOT.agc:888
 //		CA	AORBSYST
-// PORT: Fixed ROM slots 17179.
+// slot 17179
                         if slot <> 17179 or instruction <> 14823 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -9090,9 +9090,9 @@ function agcAotUnit1018 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:889
+// P-AXIS_RCS_AUTOPILOT.agc:889
 //		EXTEND
-// PORT: Fixed ROM slots 17180.
+// slot 17180
                         if slot <> 17180 or instruction <> 6 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -9104,9 +9104,9 @@ function agcAotUnit1018 {
             } else {
                 if slot <= 17182 {
                     if slot <= 17181 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:890
+// P-AXIS_RCS_AUTOPILOT.agc:890
 //		RXOR	LCHAN
-// PORT: Fixed ROM slots 17181.
+// slot 17181
                         if slot <> 17181 or instruction <> 3073 { return choose false if checkOnly else -1. }
                         if extended {
                             if checkOnly { return true. }
@@ -9116,9 +9116,9 @@ function agcAotUnit1018 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:891
+// P-AXIS_RCS_AUTOPILOT.agc:891
 //		TS	DAPBOOLS
-// PORT: Fixed ROM slots 17182.
+// slot 17182
                         if slot <> 17182 or instruction <> 22601 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -9128,9 +9128,9 @@ function agcAotUnit1018 {
                     }
                 } else {
                     if slot <= 17183 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:892
+// P-AXIS_RCS_AUTOPILOT.agc:892
 //		RELINT
-// PORT: Fixed ROM slots 17183.
+// slot 17183
                         if slot <> 17183 or instruction <> 3 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -9139,9 +9139,9 @@ function agcAotUnit1018 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 17184 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:893
+// P-AXIS_RCS_AUTOPILOT.agc:893
 //		TC	Q
-// PORT: Fixed ROM slots 17184.
+// slot 17184
                             if slot <> 17184 or instruction <> 2 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -9149,11 +9149,11 @@ function agcAotUnit1018 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:894
+// P-AXIS_RCS_AUTOPILOT.agc:894
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:895
+// P-AXIS_RCS_AUTOPILOT.agc:895
 //DKALT		TC	ALTSYST
-// PORT: Fixed ROM slots 17185.
+// slot 17185
                             if slot <> 17185 or instruction <> 1817 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -9168,11 +9168,11 @@ function agcAotUnit1018 {
             if slot <= 17190 {
                 if slot <= 17187 {
                     if slot <= 17186 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:896
+// P-AXIS_RCS_AUTOPILOT.agc:896
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:897
+// P-AXIS_RCS_AUTOPILOT.agc:897
 //JETSOFF		TC	WRITEP 	-1
-// PORT: Fixed ROM slots 17186.
+// slot 17186
                         if slot <> 17186 or instruction <> 3051 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -9180,9 +9180,9 @@ function agcAotUnit1018 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:898
+// P-AXIS_RCS_AUTOPILOT.agc:898
 //		CA	ZERO
-// PORT: Fixed ROM slots 17187.
+// slot 17187
                         if slot <> 17187 or instruction <> 14829 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -9195,9 +9195,9 @@ function agcAotUnit1018 {
                     }
                 } else {
                     if slot <= 17188 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:899
+// P-AXIS_RCS_AUTOPILOT.agc:899
 //		TS	TJP
-// PORT: Fixed ROM slots 17188.
+// slot 17188
                         if slot <> 17188 or instruction <> 23380 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -9206,9 +9206,9 @@ function agcAotUnit1018 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 17189 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:900
+// P-AXIS_RCS_AUTOPILOT.agc:900
 //		TCF	QRAXIS
-// PORT: Fixed ROM slots 17189.
+// slot 17189
                             if slot <> 17189 or instruction <> 6036 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -9216,15 +9216,15 @@ function agcAotUnit1018 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:901
+// P-AXIS_RCS_AUTOPILOT.agc:901
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:902
+// P-AXIS_RCS_AUTOPILOT.agc:902
 //# (NOTE -- M13 = 1 IDENTICALLY IMPLIES NULL MULTIPLICATION.)
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:903
+// P-AXIS_RCS_AUTOPILOT.agc:903
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:904
+// P-AXIS_RCS_AUTOPILOT.agc:904
 //CALCPERR	CA	CDUY		# P-ERROR CALCULATION.
-// PORT: Fixed ROM slots 17190.
+// slot 17190
                             if slot <> 17190 or instruction <> 12315 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -9239,9 +9239,9 @@ function agcAotUnit1018 {
             } else {
                 if slot <= 17192 {
                     if slot <= 17191 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:905
+// P-AXIS_RCS_AUTOPILOT.agc:905
 //		EXTEND
-// PORT: Fixed ROM slots 17191.
+// slot 17191
                         if slot <> 17191 or instruction <> 6 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -9249,9 +9249,9 @@ function agcAotUnit1018 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:906
+// P-AXIS_RCS_AUTOPILOT.agc:906
 //		MSU	CDUYD		# CDU VALUE -- ANGLE DESIRED (Y-AXIS)
-// PORT: Fixed ROM slots 17192.
+// slot 17192
                         if slot <> 17192 or instruction <> 9118 { return choose false if checkOnly else -1. }
                         if extended {
                             if checkOnly { return true. }
@@ -9263,11 +9263,11 @@ function agcAotUnit1018 {
                     }
                 } else {
                     if slot <= 17193 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:907
+// P-AXIS_RCS_AUTOPILOT.agc:907
 //# Page 1438
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:908
+// P-AXIS_RCS_AUTOPILOT.agc:908
 //		EXTEND
-// PORT: Fixed ROM slots 17193.
+// slot 17193
                         if slot <> 17193 or instruction <> 6 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -9276,9 +9276,9 @@ function agcAotUnit1018 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 17194 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:909
+// P-AXIS_RCS_AUTOPILOT.agc:909
 //		MP	M11		# (CDUY-CDUYD)M11 SCALED AT PI RADIANS
-// PORT: Fixed ROM slots 17194.
+// slot 17194
                             if slot <> 17194 or instruction <> 29452 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -9288,9 +9288,9 @@ function agcAotUnit1018 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:910
+// P-AXIS_RCS_AUTOPILOT.agc:910
 //		XCH	E		# SAVE FIRST TERM (OF TWO)
-// PORT: Fixed ROM slots 17195.
+// slot 17195
                             if slot <> 17195 or instruction <> 24554 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -9308,9 +9308,9 @@ function agcAotUnit1018 {
             if slot <= 17199 {
                 if slot <= 17197 {
                     if slot <= 17196 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:911
+// P-AXIS_RCS_AUTOPILOT.agc:911
 //		CA	CDUX		# THIRD COMPONENT
-// PORT: Fixed ROM slots 17196.
+// slot 17196
                         if slot <> 17196 or instruction <> 12314 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -9320,9 +9320,9 @@ function agcAotUnit1018 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:912
+// P-AXIS_RCS_AUTOPILOT.agc:912
 //		EXTEND
-// PORT: Fixed ROM slots 17197.
+// slot 17197
                         if slot <> 17197 or instruction <> 6 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -9332,9 +9332,9 @@ function agcAotUnit1018 {
                     }
                 } else {
                     if slot <= 17198 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:913
+// P-AXIS_RCS_AUTOPILOT.agc:913
 //		MSU	CDUXD		# CDU VALUE -- ANGLE DESIRED (X-AXIS)
-// PORT: Fixed ROM slots 17198.
+// slot 17198
                         if slot <> 17198 or instruction <> 9117 { return choose false if checkOnly else -1. }
                         if extended {
                             if checkOnly { return true. }
@@ -9344,13 +9344,13 @@ function agcAotUnit1018 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:914
+// P-AXIS_RCS_AUTOPILOT.agc:914
 //#		EXTEND
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:915
+// P-AXIS_RCS_AUTOPILOT.agc:915
 //#		MP	M13
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:916
+// P-AXIS_RCS_AUTOPILOT.agc:916
 //		AD	DELPEROR	# KALCMANU INTERFACE ERROR.
-// PORT: Fixed ROM slots 17199.
+// slot 17199
                         if slot <> 17199 or instruction <> 25279 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -9364,9 +9364,9 @@ function agcAotUnit1018 {
             } else {
                 if slot <= 17201 {
                     if slot <= 17200 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:917
+// P-AXIS_RCS_AUTOPILOT.agc:917
 //		ADS	E		# SAVE SUM OF TERMS.  COULD BE OVERFLOW.
-// PORT: Fixed ROM slots 17200.
+// slot 17200
                         if slot <> 17200 or instruction <> 12266 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -9376,9 +9376,9 @@ function agcAotUnit1018 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:918
+// P-AXIS_RCS_AUTOPILOT.agc:918
 //		XCH	PERROR		# SAVE P-ERROR FOR EIGHT-BALL DISPLAY.
-// PORT: Fixed ROM slots 17201.
+// slot 17201
                         if slot <> 17201 or instruction <> 24372 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -9389,9 +9389,9 @@ function agcAotUnit1018 {
                     }
                 } else {
                     if slot <= 17202 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:919
+// P-AXIS_RCS_AUTOPILOT.agc:919
 //		TC	Q		# RETURN TO CALLER
-// PORT: Fixed ROM slots 17202.
+// slot 17202
                         if slot <> 17202 or instruction <> 2 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -9400,15 +9400,15 @@ function agcAotUnit1018 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 17203 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:920
+// P-AXIS_RCS_AUTOPILOT.agc:920
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:921
+// P-AXIS_RCS_AUTOPILOT.agc:921
 //# P-AXIS URGENCY FUNCTION CALCULATION.
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:922
+// P-AXIS_RCS_AUTOPILOT.agc:922
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:923
+// P-AXIS_RCS_AUTOPILOT.agc:923
 //PURGENCY	TC	CALCPERR	# CALCULATE P-AXIS ERRORS.
-// PORT: Fixed ROM slots 17203.
+// slot 17203
                             if slot <> 17203 or instruction <> 1830 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -9416,9 +9416,9 @@ function agcAotUnit1018 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:924
+// P-AXIS_RCS_AUTOPILOT.agc:924
 //		CS	OMEGAPD		# THIS CODING IS COMMON TO BOTH LM DAP AND
-// PORT: Fixed ROM slots 17204.
+// slot 17204
                             if slot <> 17204 or instruction <> 17315 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -9434,9 +9434,9 @@ function agcAotUnit1018 {
             if slot <= 17209 {
                 if slot <= 17206 {
                     if slot <= 17205 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:925
+// P-AXIS_RCS_AUTOPILOT.agc:925
 //		AD	OMEGAP		# SPS-BACKUP MODE.
-// PORT: Fixed ROM slots 17205.
+// slot 17205
                         if slot <> 17205 or instruction <> 25361 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -9446,9 +9446,9 @@ function agcAotUnit1018 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:926
+// P-AXIS_RCS_AUTOPILOT.agc:926
 //		TS	EDOTP		# EDOTP = OMEGAP - OMEGAPD AT PI/4 RAD/SEC
-// PORT: Fixed ROM slots 17206.
+// slot 17206
                         if slot <> 17206 or instruction <> 23319 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -9458,11 +9458,11 @@ function agcAotUnit1018 {
                     }
                 } else {
                     if slot <= 17207 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:927
+// P-AXIS_RCS_AUTOPILOT.agc:927
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:928
+// P-AXIS_RCS_AUTOPILOT.agc:928
 //		CS	ONE
-// PORT: Fixed ROM slots 17207.
+// slot 17207
                         if slot <> 17207 or instruction <> 18923 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -9473,9 +9473,9 @@ function agcAotUnit1018 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 17208 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:929
+// P-AXIS_RCS_AUTOPILOT.agc:929
 //		TS	AXISCTR
-// PORT: Fixed ROM slots 17208.
+// slot 17208
                             if slot <> 17208 or instruction <> 23365 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -9483,9 +9483,9 @@ function agcAotUnit1018 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:930
+// P-AXIS_RCS_AUTOPILOT.agc:930
 //		CA	DAPBOOLS
-// PORT: Fixed ROM slots 17209.
+// slot 17209
                             if slot <> 17209 or instruction <> 12361 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -9500,9 +9500,9 @@ function agcAotUnit1018 {
             } else {
                 if slot <= 17211 {
                     if slot <= 17210 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:931
+// P-AXIS_RCS_AUTOPILOT.agc:931
 //		MASK	CSMDOCKD
-// PORT: Fixed ROM slots 17210.
+// slot 17210
                         if slot <> 17210 or instruction <> 31199 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -9518,9 +9518,9 @@ function agcAotUnit1018 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:932
+// P-AXIS_RCS_AUTOPILOT.agc:932
 //		EXTEND
-// PORT: Fixed ROM slots 17211.
+// slot 17211
                         if slot <> 17211 or instruction <> 6 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -9530,9 +9530,9 @@ function agcAotUnit1018 {
                     }
                 } else {
                     if slot <= 17212 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:933
+// P-AXIS_RCS_AUTOPILOT.agc:933
 //		BZF	HEADTJET
-// PORT: Fixed ROM slots 17212.
+// slot 17212
                         if slot <> 17212 or instruction <> 5957 { return choose false if checkOnly else -1. }
                         if extended {
                             if checkOnly { return true. }
@@ -9541,9 +9541,9 @@ function agcAotUnit1018 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 17213 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:934
+// P-AXIS_RCS_AUTOPILOT.agc:934
 //		INHINT			# IF CSMDOCKD = 1, GOT TO DOCKED RCS LOGIC
-// PORT: Fixed ROM slots 17213.
+// slot 17213
                             if slot <> 17213 or instruction <> 4 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -9551,9 +9551,9 @@ function agcAotUnit1018 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:935
+// P-AXIS_RCS_AUTOPILOT.agc:935
 //		TC	IBNKCALL
-// PORT: Fixed ROM slots 17214.
+// slot 17214
                             if slot <> 17214 or instruction <> 2492 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -9570,23 +9570,23 @@ function agcAotUnit1018 {
 set agcAotRoutes[1018] to agcAotUnit1018@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:936
+// P-AXIS_RCS_AUTOPILOT.agc:936
 //		CADR	SPSRCS
-// PORT: Fixed ROM slots 17215.
+// slot 17215
     17215, 36782
 )).
 
-// PORT: Physical bank 16. Shared continuation entries, slots 17216–17224.
+// bank 16, slots 17216-17224
 function agcAotUnit1019 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 17219 {
         if slot <= 17217 {
             if slot <= 17216 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:937
+// P-AXIS_RCS_AUTOPILOT.agc:937
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:938
+// P-AXIS_RCS_AUTOPILOT.agc:938
 //		CA	TJP
-// PORT: Fixed ROM slots 17216.
+// slot 17216
                 if slot <> 17216 or instruction <> 13140 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -9596,9 +9596,9 @@ function agcAotUnit1019 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:939
+// P-AXIS_RCS_AUTOPILOT.agc:939
 //		EXTEND
-// PORT: Fixed ROM slots 17217.
+// slot 17217
                 if slot <> 17217 or instruction <> 6 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -9608,9 +9608,9 @@ function agcAotUnit1019 {
             }
         } else {
             if slot <= 17218 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:940
+// P-AXIS_RCS_AUTOPILOT.agc:940
 //		BZF	DKALT		# IF TJP = ZERO, CHANGE AORBSYST.
-// PORT: Fixed ROM slots 17218.
+// slot 17218
                 if slot <> 17218 or instruction <> 5921 { return choose false if checkOnly else -1. }
                 if extended {
                     if checkOnly { return true. }
@@ -9618,9 +9618,9 @@ function agcAotUnit1019 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:941
+// P-AXIS_RCS_AUTOPILOT.agc:941
 //		RELINT
-// PORT: Fixed ROM slots 17219.
+// slot 17219
                 if slot <> 17219 or instruction <> 3 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -9632,9 +9632,9 @@ function agcAotUnit1019 {
     } else {
         if slot <= 17221 {
             if slot <= 17220 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:942
+// P-AXIS_RCS_AUTOPILOT.agc:942
 //		TCF	PJETSLEC -6	# SELECT AORBSYST AND USE TWO JETS.
-// PORT: Fixed ROM slots 17220.
+// slot 17220
                 if slot <> 17220 or instruction <> 5864 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -9642,9 +9642,9 @@ function agcAotUnit1019 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:943
+// P-AXIS_RCS_AUTOPILOT.agc:943
 //HEADTJET	CA	ZERO
-// PORT: Fixed ROM slots 17221.
+// slot 17221
                 if slot <> 17221 or instruction <> 14829 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -9657,9 +9657,9 @@ function agcAotUnit1019 {
             }
         } else {
             if slot <= 17222 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:944
+// P-AXIS_RCS_AUTOPILOT.agc:944
 //		TS	SENSETYP
-// PORT: Fixed ROM slots 17222.
+// slot 17222
                 if slot <> 17222 or instruction <> 23360 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -9668,9 +9668,9 @@ function agcAotUnit1019 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 17223 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:945
+// P-AXIS_RCS_AUTOPILOT.agc:945
 //		INHINT
-// PORT: Fixed ROM slots 17223.
+// slot 17223
                     if slot <> 17223 or instruction <> 4 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -9678,9 +9678,9 @@ function agcAotUnit1019 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:946
+// P-AXIS_RCS_AUTOPILOT.agc:946
 //		TC	IBNKCALL
-// PORT: Fixed ROM slots 17224.
+// slot 17224
                     if slot <> 17224 or instruction <> 2492 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -9695,21 +9695,21 @@ function agcAotUnit1019 {
 set agcAotRoutes[1019] to agcAotUnit1019@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:947
+// P-AXIS_RCS_AUTOPILOT.agc:947
 //		CADR	TJETLAW
-// PORT: Fixed ROM slots 17225.
+// slot 17225
     17225, 32084
 )).
 
-// PORT: Physical bank 16. Shared continuation entries, slots 17226–17238.
+// bank 16, slots 17226-17238
 function agcAotUnit1020 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 17231 {
         if slot <= 17228 {
             if slot <= 17226 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:948
+// P-AXIS_RCS_AUTOPILOT.agc:948
 //		RELINT
-// PORT: Fixed ROM slots 17226.
+// slot 17226
                 if slot <> 17226 or instruction <> 3 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -9718,11 +9718,11 @@ function agcAotUnit1020 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 17227 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:949
+// P-AXIS_RCS_AUTOPILOT.agc:949
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:950
+// P-AXIS_RCS_AUTOPILOT.agc:950
 //		CS	FIREFCT
-// PORT: Fixed ROM slots 17227.
+// slot 17227
                     if slot <> 17227 or instruction <> 17377 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -9731,9 +9731,9 @@ function agcAotUnit1020 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:951
+// P-AXIS_RCS_AUTOPILOT.agc:951
 //		AD	-FOURDEG
-// PORT: Fixed ROM slots 17228.
+// slot 17228
                     if slot <> 17228 or instruction <> 26456 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -9748,9 +9748,9 @@ function agcAotUnit1020 {
             }
         } else {
             if slot <= 17229 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:952
+// P-AXIS_RCS_AUTOPILOT.agc:952
 //		EXTEND
-// PORT: Fixed ROM slots 17229.
+// slot 17229
                 if slot <> 17229 or instruction <> 6 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -9759,9 +9759,9 @@ function agcAotUnit1020 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 17230 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:953
+// P-AXIS_RCS_AUTOPILOT.agc:953
 //		BZMF	PJETSLEC -6
-// PORT: Fixed ROM slots 17230.
+// slot 17230
                     if slot <> 17230 or instruction <> 26344 { return choose false if checkOnly else -1. }
                     if extended {
                         if checkOnly { return true. }
@@ -9769,9 +9769,9 @@ function agcAotUnit1020 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:954
+// P-AXIS_RCS_AUTOPILOT.agc:954
 //		CCS	TJP
-// PORT: Fixed ROM slots 17231.
+// slot 17231
                     if slot <> 17231 or instruction <> 4948 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -9786,9 +9786,9 @@ function agcAotUnit1020 {
     } else {
         if slot <= 17234 {
             if slot <= 17232 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:955
+// P-AXIS_RCS_AUTOPILOT.agc:955
 //		TCF	+2
-// PORT: Fixed ROM slots 17232.
+// slot 17232
                 if slot <> 17232 or instruction <> 5970 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -9797,9 +9797,9 @@ function agcAotUnit1020 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 17233 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:956
+// P-AXIS_RCS_AUTOPILOT.agc:956
 //		TCF	JETSOFF
-// PORT: Fixed ROM slots 17233.
+// slot 17233
                     if slot <> 17233 or instruction <> 5922 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -9807,11 +9807,11 @@ function agcAotUnit1020 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:957
+// P-AXIS_RCS_AUTOPILOT.agc:957
 //# Page 1439
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:958
+// P-AXIS_RCS_AUTOPILOT.agc:958
 //		AD	-160MST6
-// PORT: Fixed ROM slots 17234.
+// slot 17234
                     if slot <> 17234 or instruction <> 26455 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -9827,9 +9827,9 @@ function agcAotUnit1020 {
         } else {
             if slot <= 17236 {
                 if slot <= 17235 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:959
+// P-AXIS_RCS_AUTOPILOT.agc:959
 //		EXTEND
-// PORT: Fixed ROM slots 17235.
+// slot 17235
                     if slot <> 17235 or instruction <> 6 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -9837,9 +9837,9 @@ function agcAotUnit1020 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:960
+// P-AXIS_RCS_AUTOPILOT.agc:960
 //		BZMF	PJETSLEC -6
-// PORT: Fixed ROM slots 17236.
+// slot 17236
                     if slot <> 17236 or instruction <> 26344 { return choose false if checkOnly else -1. }
                     if extended {
                         if checkOnly { return true. }
@@ -9849,9 +9849,9 @@ function agcAotUnit1020 {
                 }
             } else {
                 if slot <= 17237 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:961
+// P-AXIS_RCS_AUTOPILOT.agc:961
 //		CA	SIX
-// PORT: Fixed ROM slots 17237.
+// slot 17237
                     if slot <> 17237 or instruction <> 15522 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -9862,9 +9862,9 @@ function agcAotUnit1020 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:962
+// P-AXIS_RCS_AUTOPILOT.agc:962
 //		TCF	PJETSLEC -1
-// PORT: Fixed ROM slots 17238.
+// slot 17238
                     if slot <> 17238 or instruction <> 5869 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -9879,43 +9879,43 @@ function agcAotUnit1020 {
 set agcAotRoutes[1020] to agcAotUnit1020@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:963
+// P-AXIS_RCS_AUTOPILOT.agc:963
 //-160MST6	DEC	-256
-// PORT: Fixed ROM slots 17239.
+// slot 17239
     17239, 65022,
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:964
+// P-AXIS_RCS_AUTOPILOT.agc:964
 //-FOURDEG	DEC	-.08888
-// PORT: Fixed ROM slots 17240.
+// slot 17240
     17240, 62622
 )).
 
-// PORT: Physical bank 16. Shared continuation entries, slots 17241–17243.
+// bank 16, slots 17241-17243
 function agcAotUnit1021 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 17241 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:965
+// P-AXIS_RCS_AUTOPILOT.agc:965
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:966
+// P-AXIS_RCS_AUTOPILOT.agc:966
 //# Page 1440
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:967
+// P-AXIS_RCS_AUTOPILOT.agc:967
 //# JET POLICY CONSTRUCTION SUBROUTINE
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:968
+// P-AXIS_RCS_AUTOPILOT.agc:968
 //#
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:969
+// P-AXIS_RCS_AUTOPILOT.agc:969
 //# INPUT:	ROTINDEX, NUMBERT
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:970
+// P-AXIS_RCS_AUTOPILOT.agc:970
 //#
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:971
+// P-AXIS_RCS_AUTOPILOT.agc:971
 //# OUTPUT:	POLYTEMP (JET POLICY)
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:972
+// P-AXIS_RCS_AUTOPILOT.agc:972
 //#
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:973
+// P-AXIS_RCS_AUTOPILOT.agc:973
 //# THIS SUBROUTINE SELECT A SUBSET OF THE DESIRED JETS WHICH HAS NO FAILURE
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:974
+// P-AXIS_RCS_AUTOPILOT.agc:974
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:975
+// P-AXIS_RCS_AUTOPILOT.agc:975
 //SELECTP		CA	SIX
-// PORT: Fixed ROM slots 17241.
+// slot 17241
         if slot <> 17241 or instruction <> 15522 { return choose false if checkOnly else -1. }
         if not extended {
             if checkOnly { return true. }
@@ -9927,9 +9927,9 @@ function agcAotUnit1021 {
         return choose false if checkOnly else -1.
     } else {
         if slot <= 17242 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:976
+// P-AXIS_RCS_AUTOPILOT.agc:976
 //		TS	TEMPNUM
-// PORT: Fixed ROM slots 17242.
+// slot 17242
             if slot <> 17242 or instruction <> 23522 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -9937,9 +9937,9 @@ function agcAotUnit1021 {
             }
             return choose false if checkOnly else -1.
         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:977
+// P-AXIS_RCS_AUTOPILOT.agc:977
 //		INDEX	NUMBERT
-// PORT: Fixed ROM slots 17243.
+// slot 17243
             if slot <> 17243 or instruction <> 21475 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -9956,18 +9956,18 @@ function agcAotUnit1021 {
 set agcAotRoutes[1021] to agcAotUnit1021@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:978
+// P-AXIS_RCS_AUTOPILOT.agc:978
 //		CA	TYPEP
-// PORT: Fixed ROM slots 17244.
+// slot 17244
     17244, 28390
 )).
 
-// PORT: Physical bank 16. Shared continuation entries, slots 17245–17245.
+// bank 16, slots 17245-17245
 function agcAotUnit1022 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:979
+// P-AXIS_RCS_AUTOPILOT.agc:979
 //		INDEX	ROTINDEX
-// PORT: Fixed ROM slots 17245.
+// slot 17245
     if slot <> 17245 or instruction <> 21476 { return choose false if checkOnly else -1. }
     if not extended {
         if checkOnly { return true. }
@@ -9982,21 +9982,21 @@ function agcAotUnit1022 {
 set agcAotRoutes[1022] to agcAotUnit1022@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:980
+// P-AXIS_RCS_AUTOPILOT.agc:980
 //		MASK	JETSALL
-// PORT: Fixed ROM slots 17246.
+// slot 17246
     17246, 61144
 )).
 
-// PORT: Physical bank 16. Shared continuation entries, slots 17247–17254.
+// bank 16, slots 17247-17254
 function agcAotUnit1023 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 17250 {
         if slot <= 17248 {
             if slot <= 17247 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:981
+// P-AXIS_RCS_AUTOPILOT.agc:981
 //		TS	POLYTEMP
-// PORT: Fixed ROM slots 17247.
+// slot 17247
                 if slot <> 17247 or instruction <> 23521 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -10004,9 +10004,9 @@ function agcAotUnit1023 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:982
+// P-AXIS_RCS_AUTOPILOT.agc:982
 //		MASK	CH6MASK
-// PORT: Fixed ROM slots 17248.
+// slot 17248
                 if slot <> 17248 or instruction <> 29363 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -10018,9 +10018,9 @@ function agcAotUnit1023 {
             }
         } else {
             if slot <= 17249 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:983
+// P-AXIS_RCS_AUTOPILOT.agc:983
 //		CCS	A
-// PORT: Fixed ROM slots 17249.
+// slot 17249
                 if slot <> 17249 or instruction <> 4096 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -10030,9 +10030,9 @@ function agcAotUnit1023 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:984
+// P-AXIS_RCS_AUTOPILOT.agc:984
 //		TCF	+2
-// PORT: Fixed ROM slots 17250.
+// slot 17250
                 if slot <> 17250 or instruction <> 5988 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -10044,9 +10044,9 @@ function agcAotUnit1023 {
     } else {
         if slot <= 17252 {
             if slot <= 17251 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:985
+// P-AXIS_RCS_AUTOPILOT.agc:985
 //		TC	Q
-// PORT: Fixed ROM slots 17251.
+// slot 17251
                 if slot <> 17251 or instruction <> 2 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -10054,9 +10054,9 @@ function agcAotUnit1023 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:986
+// P-AXIS_RCS_AUTOPILOT.agc:986
 //		CCS	TEMPNUM
-// PORT: Fixed ROM slots 17252.
+// slot 17252
                 if slot <> 17252 or instruction <> 5090 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -10068,9 +10068,9 @@ function agcAotUnit1023 {
             }
         } else {
             if slot <= 17253 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:987
+// P-AXIS_RCS_AUTOPILOT.agc:987
 //		TCF	+4
-// PORT: Fixed ROM slots 17253.
+// slot 17253
                 if slot <> 17253 or instruction <> 5993 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -10078,9 +10078,9 @@ function agcAotUnit1023 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:988
+// P-AXIS_RCS_AUTOPILOT.agc:988
 //		TC	ALARM
-// PORT: Fixed ROM slots 17254.
+// slot 17254
                 if slot <> 17254 or instruction <> 2935 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -10094,20 +10094,20 @@ function agcAotUnit1023 {
 set agcAotRoutes[1023] to agcAotUnit1023@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:989
+// P-AXIS_RCS_AUTOPILOT.agc:989
 //		OCT	02003
-// PORT: Fixed ROM slots 17255.
+// slot 17255
     17255, 2054
 )).
 
-// PORT: Physical bank 16. Shared continuation entries, slots 17256–17259.
+// bank 16, slots 17256-17259
 function agcAotUnit1024 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 17257 {
         if slot <= 17256 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:990
+// P-AXIS_RCS_AUTOPILOT.agc:990
 //		TCF	JETSOFF		# ********** TCF ALARMJET **********
-// PORT: Fixed ROM slots 17256.
+// slot 17256
             if slot <> 17256 or instruction <> 5922 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -10115,9 +10115,9 @@ function agcAotUnit1024 {
             }
             return choose false if checkOnly else -1.
         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:991
+// P-AXIS_RCS_AUTOPILOT.agc:991
 //SELECTYZ	TS	NUMBERT
-// PORT: Fixed ROM slots 17257.
+// slot 17257
             if slot <> 17257 or instruction <> 23523 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -10127,9 +10127,9 @@ function agcAotUnit1024 {
         }
     } else {
         if slot <= 17258 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:992
+// P-AXIS_RCS_AUTOPILOT.agc:992
 //		TCF	SELECTP	+1
-// PORT: Fixed ROM slots 17258.
+// slot 17258
             if slot <> 17258 or instruction <> 5978 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -10137,9 +10137,9 @@ function agcAotUnit1024 {
             }
             return choose false if checkOnly else -1.
         } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:993
+// P-AXIS_RCS_AUTOPILOT.agc:993
 // -1		TCF	ABORTYZ +2
-// PORT: Fixed ROM slots 17259.
+// slot 17259
             if slot <> 17259 or instruction <> 5627 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -10152,195 +10152,195 @@ function agcAotUnit1024 {
 set agcAotRoutes[1024] to agcAotUnit1024@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:994
+// P-AXIS_RCS_AUTOPILOT.agc:994
 //JETSALL		OCT	00252
-// PORT: Fixed ROM slots 17260.
+// slot 17260
     17260, 340,
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:995
+// P-AXIS_RCS_AUTOPILOT.agc:995
 //		OCT	00125		# +P
-// PORT: Fixed ROM slots 17261.
+// slot 17261
     17261, 170,
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:996
+// P-AXIS_RCS_AUTOPILOT.agc:996
 //		OCT	00140		# -Y
-// PORT: Fixed ROM slots 17262.
+// slot 17262
     17262, 192,
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:997
+// P-AXIS_RCS_AUTOPILOT.agc:997
 //		OCT	00006		# -Z
-// PORT: Fixed ROM slots 17263.
+// slot 17263
     17263, 12,
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:998
+// P-AXIS_RCS_AUTOPILOT.agc:998
 //		OCT	00220		# +Y
-// PORT: Fixed ROM slots 17264.
+// slot 17264
     17264, 288,
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:999
+// P-AXIS_RCS_AUTOPILOT.agc:999
 //		OCT	00011		# +Z
-// PORT: Fixed ROM slots 17265.
+// slot 17265
     17265, 18,
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1000
+// P-AXIS_RCS_AUTOPILOT.agc:1000
 //		OCT	00151		# +V
-// PORT: Fixed ROM slots 17266.
+// slot 17266
     17266, 210,
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1001
+// P-AXIS_RCS_AUTOPILOT.agc:1001
 //TYPEP		OCT	00146		# -U
-// PORT: Fixed ROM slots 17267.
+// slot 17267
     17267, 204,
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1002
+// P-AXIS_RCS_AUTOPILOT.agc:1002
 //		OCT	00226		# -V
-// PORT: Fixed ROM slots 17268.
+// slot 17268
     17268, 300,
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1003
+// P-AXIS_RCS_AUTOPILOT.agc:1003
 //		OCT	00231		# +U
-// PORT: Fixed ROM slots 17269.
+// slot 17269
     17269, 306,
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1004
+// P-AXIS_RCS_AUTOPILOT.agc:1004
 //		OCT	00151		# +V
-// PORT: Fixed ROM slots 17270.
+// slot 17270
     17270, 210,
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1005
+// P-AXIS_RCS_AUTOPILOT.agc:1005
 //		OCT	00132		# 1-3
-// PORT: Fixed ROM slots 17271.
+// slot 17271
     17271, 180,
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1006
+// P-AXIS_RCS_AUTOPILOT.agc:1006
 //		OCT	00245		# 2-4
-// PORT: Fixed ROM slots 17272.
+// slot 17272
     17272, 330,
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1007
+// P-AXIS_RCS_AUTOPILOT.agc:1007
 //		OCT	00377		# ALL
-// PORT: Fixed ROM slots 17273.
+// slot 17273
     17273, 510,
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1008
+// P-AXIS_RCS_AUTOPILOT.agc:1008
 //INDXYZ		=	-136MST6
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1009
+// P-AXIS_RCS_AUTOPILOT.agc:1009
 //-136MST6	DEC	-218
-// PORT: Fixed ROM slots 17274.
+// slot 17274
     17274, 65098,
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1010
+// P-AXIS_RCS_AUTOPILOT.agc:1010
 //		DEC	4
-// PORT: Fixed ROM slots 17275.
+// slot 17275
     17275, 8,
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1011
+// P-AXIS_RCS_AUTOPILOT.agc:1011
 //		DEC	2
-// PORT: Fixed ROM slots 17276.
+// slot 17276
     17276, 4,
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1012
+// P-AXIS_RCS_AUTOPILOT.agc:1012
 //		OCT	07776
-// PORT: Fixed ROM slots 17277.
+// slot 17277
     17277, 8188,
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1013
+// P-AXIS_RCS_AUTOPILOT.agc:1013
 //		DEC	5
-// PORT: Fixed ROM slots 17278.
+// slot 17278
     17278, 10,
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1014
+// P-AXIS_RCS_AUTOPILOT.agc:1014
 //		DEC	9
-// PORT: Fixed ROM slots 17279.
+// slot 17279
     17279, 18,
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1015
+// P-AXIS_RCS_AUTOPILOT.agc:1015
 //		DEC	10
-// PORT: Fixed ROM slots 17280.
+// slot 17280
     17280, 20,
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1016
+// P-AXIS_RCS_AUTOPILOT.agc:1016
 //		OCT	07776
-// PORT: Fixed ROM slots 17281.
+// slot 17281
     17281, 8188,
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1017
+// P-AXIS_RCS_AUTOPILOT.agc:1017
 //		DEC	3
-// PORT: Fixed ROM slots 17282.
+// slot 17282
     17282, 6,
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1018
+// P-AXIS_RCS_AUTOPILOT.agc:1018
 //# Page 1441
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1019
+// P-AXIS_RCS_AUTOPILOT.agc:1019
 //		DEC	8
-// PORT: Fixed ROM slots 17283.
+// slot 17283
     17283, 16,
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1020
+// P-AXIS_RCS_AUTOPILOT.agc:1020
 //		DEC	7
-// PORT: Fixed ROM slots 17284.
+// slot 17284
     17284, 14,
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1021
+// P-AXIS_RCS_AUTOPILOT.agc:1021
 //		OCT	07776		# THESE INDEXES OF MASK JETSALL WILL
-// PORT: Fixed ROM slots 17285.
+// slot 17285
     17285, 8188,
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1022
+// P-AXIS_RCS_AUTOPILOT.agc:1022
 //		OCT	07776		# CHANGE THE INSTRUCTION AT SELECTP +4
-// PORT: Fixed ROM slots 17286.
+// slot 17286
     17286, 8188,
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1023
+// P-AXIS_RCS_AUTOPILOT.agc:1023
 //		OCT	07776		# TO BE		TC JETSALL -1
-// PORT: Fixed ROM slots 17287.
+// slot 17287
     17287, 8188,
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1024
+// P-AXIS_RCS_AUTOPILOT.agc:1024
 //		OCT	07776		# ONLY USED FOR TRANSLATION FAILURE
-// PORT: Fixed ROM slots 17288.
+// slot 17288
     17288, 8188,
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1025
+// P-AXIS_RCS_AUTOPILOT.agc:1025
 //		OCT	07776
-// PORT: Fixed ROM slots 17289.
+// slot 17289
     17289, 8188,
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1026
+// P-AXIS_RCS_AUTOPILOT.agc:1026
 //+150MST6	DEC	240
-// PORT: Fixed ROM slots 17290.
+// slot 17290
     17290, 480,
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1027
+// P-AXIS_RCS_AUTOPILOT.agc:1027
 //07400OCT	OCT	07400
-// PORT: Fixed ROM slots 17291.
+// slot 17291
     17291, 7680,
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1028
+// P-AXIS_RCS_AUTOPILOT.agc:1028
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1029
+// P-AXIS_RCS_AUTOPILOT.agc:1029
 //# T-JET LAW FIXED CONSTANTS
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1030
+// P-AXIS_RCS_AUTOPILOT.agc:1030
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1031
+// P-AXIS_RCS_AUTOPILOT.agc:1031
 //NORMSCL		OCT	266
-// PORT: Fixed ROM slots 17292.
+// slot 17292
     17292, 364,
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1032
+// P-AXIS_RCS_AUTOPILOT.agc:1032
 //-100MS		DEC	-.1
-// PORT: Fixed ROM slots 17293.
+// slot 17293
     17293, 62258,
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1033
+// P-AXIS_RCS_AUTOPILOT.agc:1033
 //200MS		DEC	.2
-// PORT: Fixed ROM slots 17294.
+// slot 17294
     17294, 6554,
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1034
+// P-AXIS_RCS_AUTOPILOT.agc:1034
 //25/32		=	PRIO31		# (DEC .78125)
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1035
+// P-AXIS_RCS_AUTOPILOT.agc:1035
 //BITS8,9		OCTAL	00600
-// PORT: Fixed ROM slots 17295.
+// slot 17295
     17295, 768,
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1036
+// P-AXIS_RCS_AUTOPILOT.agc:1036
 //1/40		DEC	.02500
-// PORT: Fixed ROM slots 17296.
+// slot 17296
     17296, 820,
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1037
+// P-AXIS_RCS_AUTOPILOT.agc:1037
 //MINTIMES	DEC	-22
-// PORT: Fixed ROM slots 17297.
+// slot 17297
     17297, 65490,
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1038
+// P-AXIS_RCS_AUTOPILOT.agc:1038
 //		DEC	22
-// PORT: Fixed ROM slots 17298.
+// slot 17298
     17298, 44,
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1039
+// P-AXIS_RCS_AUTOPILOT.agc:1039
 //PSKIPADR	GENADR	SKIPPAXS
-// PORT: Fixed ROM slots 17299.
+// slot 17299
     17299, 3000
 )).
 
-// PORT: Physical bank 16. Shared continuation entries, slots 17300–17310.
+// bank 16, slots 17300-17310
 function agcAotUnit1025 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 17304 {
         if slot <= 17301 {
             if slot <= 17300 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1040
+// P-AXIS_RCS_AUTOPILOT.agc:1040
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1041
+// P-AXIS_RCS_AUTOPILOT.agc:1041
 //# GOES TO Q,R-AXES RCS AUTOPILOT
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1042
+// P-AXIS_RCS_AUTOPILOT.agc:1042
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1043
+// P-AXIS_RCS_AUTOPILOT.agc:1043
 //QRAXIS		CS	OMEGARD
-// PORT: Fixed ROM slots 17300.
+// slot 17300
                 if slot <> 17300 or instruction <> 17317 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -10349,9 +10349,9 @@ function agcAotUnit1025 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1044
+// P-AXIS_RCS_AUTOPILOT.agc:1044
 //		AD	OMEGAR
-// PORT: Fixed ROM slots 17301.
+// slot 17301
                 if slot <> 17301 or instruction <> 25363 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -10363,9 +10363,9 @@ function agcAotUnit1025 {
             }
         } else {
             if slot <= 17302 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1045
+// P-AXIS_RCS_AUTOPILOT.agc:1045
 //		TC	OVERSUB
-// PORT: Fixed ROM slots 17302.
+// slot 17302
                 if slot <> 17302 or instruction <> 1224 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -10374,9 +10374,9 @@ function agcAotUnit1025 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 17303 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1046
+// P-AXIS_RCS_AUTOPILOT.agc:1046
 //		TS	EDOTR
-// PORT: Fixed ROM slots 17303.
+// slot 17303
                     if slot <> 17303 or instruction <> 23327 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -10384,9 +10384,9 @@ function agcAotUnit1025 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1047
+// P-AXIS_RCS_AUTOPILOT.agc:1047
 //		CS	OMEGAQD
-// PORT: Fixed ROM slots 17304.
+// slot 17304
                     if slot <> 17304 or instruction <> 17316 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -10400,9 +10400,9 @@ function agcAotUnit1025 {
     } else {
         if slot <= 17307 {
             if slot <= 17305 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1048
+// P-AXIS_RCS_AUTOPILOT.agc:1048
 //		AD	OMEGAQ
-// PORT: Fixed ROM slots 17305.
+// slot 17305
                 if slot <> 17305 or instruction <> 25362 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -10413,9 +10413,9 @@ function agcAotUnit1025 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 17306 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1049
+// P-AXIS_RCS_AUTOPILOT.agc:1049
 //		TC	OVERSUB
-// PORT: Fixed ROM slots 17306.
+// slot 17306
                     if slot <> 17306 or instruction <> 1224 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -10423,9 +10423,9 @@ function agcAotUnit1025 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1050
+// P-AXIS_RCS_AUTOPILOT.agc:1050
 //		TS	EDOTQ
-// PORT: Fixed ROM slots 17307.
+// slot 17307
                     if slot <> 17307 or instruction <> 23326 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -10436,9 +10436,9 @@ function agcAotUnit1025 {
             }
         } else {
             if slot <= 17308 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1051
+// P-AXIS_RCS_AUTOPILOT.agc:1051
 //		EXTEND
-// PORT: Fixed ROM slots 17308.
+// slot 17308
                 if slot <> 17308 or instruction <> 6 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -10447,9 +10447,9 @@ function agcAotUnit1025 {
                 return choose false if checkOnly else -1.
             } else {
                 if slot <= 17309 {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1052
+// P-AXIS_RCS_AUTOPILOT.agc:1052
 //		DCA	QERRCALL
-// PORT: Fixed ROM slots 17309.
+// slot 17309
                     if slot <> 17309 or instruction <> 14240 { return choose false if checkOnly else -1. }
                     if extended {
                         if checkOnly { return true. }
@@ -10459,9 +10459,9 @@ function agcAotUnit1025 {
                     }
                     return choose false if checkOnly else -1.
                 } else {
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1053
+// P-AXIS_RCS_AUTOPILOT.agc:1053
 //		DTCB
-// PORT: Fixed ROM slots 17310.
+// slot 17310
                     if slot <> 17310 or instruction <> 21510 { return choose false if checkOnly else -1. }
                     if not extended {
                         if checkOnly { return true. }
@@ -10477,13 +10477,13 @@ function agcAotUnit1025 {
 set agcAotRoutes[1025] to agcAotUnit1025@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1054
+// P-AXIS_RCS_AUTOPILOT.agc:1054
 //
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1055
+// P-AXIS_RCS_AUTOPILOT.agc:1055
 //		EBANK=	AOSQ
-// PORT: SOURCE P-AXIS_RCS_AUTOPILOT.agc:1056
+// P-AXIS_RCS_AUTOPILOT.agc:1056
 //QERRCALL	2CADR	CALLQERR
-// PORT: Fixed ROM slots 17311 17312.
+// slot 17311 17312
     17311, 2164, 17312, 30860
 )).
 

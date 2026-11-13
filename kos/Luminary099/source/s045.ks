@@ -1,184 +1,184 @@
-// PORT: Original source unit MAIN.agc.
-// PORT: Source-only text without a subsequent generated declaration.
-// PORT: SOURCE MAIN.agc:1
+// MAIN.agc
+// no code for the lines below
+// MAIN.agc:1
 //$ASSEMBLY_AND_OPERATION_INFORMATION.agc		# pp. 1-27
-// PORT: SOURCE MAIN.agc:2
+// MAIN.agc:2
 //$TAGS_FOR_RELATIVE_SETLOC.agc			# pp. 28-37
-// PORT: SOURCE MAIN.agc:3
+// MAIN.agc:3
 //$CONTROLLED_CONSTANTS.agc			# pp. 38-53
-// PORT: SOURCE MAIN.agc:4
+// MAIN.agc:4
 //$INPUT_OUTPUT_CHANNEL_BIT_DESCRIPTIONS.agc	# pp. 54-60
-// PORT: SOURCE MAIN.agc:5
+// MAIN.agc:5
 //$FLAGWORD_ASSIGNMENTS.agc			# pp. 61-88
-// PORT: SOURCE MAIN.agc:6
+// MAIN.agc:6
 //						# p.  89 is a GAP-generated table
-// PORT: SOURCE MAIN.agc:7
+// MAIN.agc:7
 //$ERASABLE_ASSIGNMENTS.agc			# pp. 90-152
-// PORT: SOURCE MAIN.agc:8
+// MAIN.agc:8
 //$INTERRUPT_LEAD_INS.agc				# pp. 153-154
-// PORT: SOURCE MAIN.agc:9
+// MAIN.agc:9
 //$T4RUPT_PROGRAM.agc				# pp. 155-189
-// PORT: SOURCE MAIN.agc:10
+// MAIN.agc:10
 //$RCS_FAILURE_MONITOR.agc			# pp. 190-192
-// PORT: SOURCE MAIN.agc:11
+// MAIN.agc:11
 //$DOWNLINK_LISTS.agc				# pp. 193-205
-// PORT: SOURCE MAIN.agc:12
+// MAIN.agc:12
 //$AGS_INITIALIZATION.agc				# pp. 206-210
-// PORT: SOURCE MAIN.agc:13
+// MAIN.agc:13
 //$FRESH_START_AND_RESTART.agc			# pp. 211-237
-// PORT: SOURCE MAIN.agc:14
+// MAIN.agc:14
 //$RESTART_TABLES.agc				# pp. 238-243
-// PORT: SOURCE MAIN.agc:15
+// MAIN.agc:15
 //$AOTMARK.agc					# pp. 244-261
-// PORT: SOURCE MAIN.agc:16
+// MAIN.agc:16
 //$EXTENDED_VERBS.agc				# pp. 262-300
-// PORT: SOURCE MAIN.agc:17
+// MAIN.agc:17
 //$PINBALL_NOUN_TABLES.agc			# pp. 301-319
-// PORT: SOURCE MAIN.agc:18
+// MAIN.agc:18
 //$LEM_GEOMETRY.agc				# pp. 320-325
-// PORT: SOURCE MAIN.agc:19
+// MAIN.agc:19
 //$IMU_COMPENSATION_PACKAGE.agc			# pp. 326-337
-// PORT: SOURCE MAIN.agc:20
+// MAIN.agc:20
 //$R63.agc					# pp. 338-341
-// PORT: SOURCE MAIN.agc:21
+// MAIN.agc:21
 //$ATTITUDE_MANEUVER_ROUTINE.agc			# pp. 342-363
-// PORT: SOURCE MAIN.agc:22
+// MAIN.agc:22
 //$GIMBAL_LOCK_AVOIDANCE.agc			# p.  364
-// PORT: SOURCE MAIN.agc:23
+// MAIN.agc:23
 //$KALCMANU_STEERING.agc				# pp. 365-369
-// PORT: SOURCE MAIN.agc:24
+// MAIN.agc:24
 //$SYSTEM_TEST_STANDARD_LEAD_INS.agc		# pp. 370-372
-// PORT: SOURCE MAIN.agc:25
+// MAIN.agc:25
 //$IMU_PERFORMANCE_TEST_2.agc			# pp. 373-381
-// PORT: SOURCE MAIN.agc:26
+// MAIN.agc:26
 //$IMU_PERFORMANCE_TESTS_4.agc			# pp. 382-389
-// PORT: SOURCE MAIN.agc:27
+// MAIN.agc:27
 //$PINBALL_GAME_BUTTONS_AND_LIGHTS.agc		# pp. 390-471
-// PORT: SOURCE MAIN.agc:28
+// MAIN.agc:28
 //$R60_62.agc					# pp. 472-485
-// PORT: SOURCE MAIN.agc:29
+// MAIN.agc:29
 //$S-BAND_ANTENNA_FOR_LM.agc			# pp. 486-489
-// PORT: SOURCE MAIN.agc:30
+// MAIN.agc:30
 //$RADAR_LEADIN_ROUTINES.agc			# pp. 490-491
-// PORT: SOURCE MAIN.agc:31
+// MAIN.agc:31
 //$P20-P25.agc					# pp. 492-614
-// PORT: SOURCE MAIN.agc:32
+// MAIN.agc:32
 //$P30_P37.agc					# pp. 615-617
-// PORT: SOURCE MAIN.agc:33
+// MAIN.agc:33
 //$P32-P35_P72-P75.agc				# pp. 618-650
-// PORT: SOURCE MAIN.agc:34
+// MAIN.agc:34
 //$LAMBERT_AIMPOINT_GUIDANCE.agc			# pp. 651-653
-// PORT: SOURCE MAIN.agc:35
+// MAIN.agc:35
 //$GROUND_TRACKING_DETERMINATION_PROGRAM.agc	# pp. 654-657
-// PORT: SOURCE MAIN.agc:36
+// MAIN.agc:36
 //$P34-35_P74-75.agc				# pp. 658-702
-// PORT: SOURCE MAIN.agc:37
+// MAIN.agc:37
 //$R31.agc					# pp. 703-708
-// PORT: SOURCE MAIN.agc:38
+// MAIN.agc:38
 //$P76.agc					# pp. 709-711
-// PORT: SOURCE MAIN.agc:39
+// MAIN.agc:39
 //$R30.agc					# pp. 712-722
-// PORT: SOURCE MAIN.agc:40
+// MAIN.agc:40
 //$STABLE_ORBIT.agc				# pp. 723-730
-// PORT: SOURCE MAIN.agc:41
+// MAIN.agc:41
 //$BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc	# pp. 731-751
-// PORT: SOURCE MAIN.agc:42
+// MAIN.agc:42
 //$P40-P47.agc					# pp. 752-784
-// PORT: SOURCE MAIN.agc:43
+// MAIN.agc:43
 //$THE_LUNAR_LANDING.agc				# pp. 785-792
-// PORT: SOURCE MAIN.agc:44
+// MAIN.agc:44
 //$THROTTLE_CONTROL_ROUTINES.agc			# pp. 793-797
-// PORT: SOURCE MAIN.agc:45
+// MAIN.agc:45
 //$LUNAR_LANDING_GUIDANCE_EQUATIONS.agc		# pp. 798-828
-// PORT: SOURCE MAIN.agc:46
+// MAIN.agc:46
 //$P70-P71.agc					# pp. 829-837
-// PORT: SOURCE MAIN.agc:47
+// MAIN.agc:47
 //$P12.agc					# pp. 838-842
-// PORT: SOURCE MAIN.agc:48
+// MAIN.agc:48
 //$ASCENT_GUIDANCE.agc				# pp. 843-856
-// PORT: SOURCE MAIN.agc:49
+// MAIN.agc:49
 //$SERVICER.agc					# pp. 857-897
-// PORT: SOURCE MAIN.agc:50
+// MAIN.agc:50
 //$LANDING_ANALOG_DISPLAYS.agc			# pp. 898-907
-// PORT: SOURCE MAIN.agc:51
+// MAIN.agc:51
 //$FINDCDUW--GUIDAP_INTERFACE.agc			# pp. 908-925
-// PORT: SOURCE MAIN.agc:52
+// MAIN.agc:52
 //$P51-P53.agc					# pp. 926-983
-// PORT: SOURCE MAIN.agc:53
+// MAIN.agc:53
 //$LUNAR_AND_SOLAR_EPHEMERIDES_SUBROUTINES.agc	# pp. 984-987
-// PORT: SOURCE MAIN.agc:54
+// MAIN.agc:54
 //$DOWN_TELEMETRY_PROGRAM.agc			# pp. 988-997
-// PORT: SOURCE MAIN.agc:55
+// MAIN.agc:55
 //$INTER-BANK_COMMUNICATION.agc			# pp. 998-1001
-// PORT: SOURCE MAIN.agc:56
+// MAIN.agc:56
 //$INTERPRETER.agc				# pp. 1002-1094
-// PORT: SOURCE MAIN.agc:57
+// MAIN.agc:57
 //$FIXED_FIXED_CONSTANT_POOL.agc			# pp. 1095-1099
-// PORT: SOURCE MAIN.agc:58
+// MAIN.agc:58
 //$INTERPRETIVE_CONSTANT.agc			# pp. 1100-1101
-// PORT: SOURCE MAIN.agc:59
+// MAIN.agc:59
 //$SINGLE_PRECISION_SUBROUTINES.agc		# p.  1102
-// PORT: SOURCE MAIN.agc:60
+// MAIN.agc:60
 //$EXECUTIVE.agc					# pp. 1103-1116
-// PORT: SOURCE MAIN.agc:61
+// MAIN.agc:61
 //$WAITLIST.agc					# pp. 1117-1132
-// PORT: SOURCE MAIN.agc:62
+// MAIN.agc:62
 //$LATITUDE_LONGITUDE_SUBROUTINES.agc		# pp. 1133-1139
-// PORT: SOURCE MAIN.agc:63
+// MAIN.agc:63
 //$PLANETARY_INERTIAL_ORIENTATION.agc		# pp. 1140-1148
-// PORT: SOURCE MAIN.agc:64
+// MAIN.agc:64
 //$MEASUREMENT_INCORPORATION.agc			# pp. 1149-1158
-// PORT: SOURCE MAIN.agc:65
+// MAIN.agc:65
 //$CONIC_SUBROUTINES.agc				# pp. 1159-1204
-// PORT: SOURCE MAIN.agc:66
+// MAIN.agc:66
 //$INTEGRATION_INITIALIZATION.agc			# pp. 1205-1226
-// PORT: SOURCE MAIN.agc:67
+// MAIN.agc:67
 //$ORBITAL_INTEGRATION.agc			# pp. 1227-1248
-// PORT: SOURCE MAIN.agc:68
+// MAIN.agc:68
 //$INFLIGHT_ALIGNMENT_ROUTINES.agc		# pp. 1249-1258
-// PORT: SOURCE MAIN.agc:69
+// MAIN.agc:69
 //$POWERED_FLIGHT_SUBROUTINES.agc			# pp. 1259-1267
-// PORT: SOURCE MAIN.agc:70
+// MAIN.agc:70
 //$TIME_OF_FREE_FALL.agc				# pp. 1268-1283
-// PORT: SOURCE MAIN.agc:71
+// MAIN.agc:71
 //$AGC_BLOCK_TWO_SELF_CHECK.agc			# pp. 1284-1293
-// PORT: SOURCE MAIN.agc:72
+// MAIN.agc:72
 //$PHASE_TABLE_MAINTENANCE.agc			# pp. 1294-1302
-// PORT: SOURCE MAIN.agc:73
+// MAIN.agc:73
 //$RESTARTS_ROUTINE.agc				# pp. 1303-1308
-// PORT: SOURCE MAIN.agc:74
+// MAIN.agc:74
 //$IMU_MODE_SWITCHING_ROUTINES.agc		# pp. 1309-1337
-// PORT: SOURCE MAIN.agc:75
+// MAIN.agc:75
 //$KEYRUPT_UPRUPT.agc				# pp. 1338-1340
-// PORT: SOURCE MAIN.agc:76
+// MAIN.agc:76
 //$DISPLAY_INTERFACE_ROUTINES.agc			# pp. 1341-1373
-// PORT: SOURCE MAIN.agc:77
+// MAIN.agc:77
 //$SERVICE_ROUTINES.agc				# pp. 1374-1380
-// PORT: SOURCE MAIN.agc:78
+// MAIN.agc:78
 //$ALARM_AND_ABORT.agc				# pp. 1381-1385
-// PORT: SOURCE MAIN.agc:79
+// MAIN.agc:79
 //$UPDATE_PROGRAM.agc				# pp. 1386-1396
-// PORT: SOURCE MAIN.agc:80
+// MAIN.agc:80
 //$RTB_OP_CODES.agc				# pp. 1397-1402
-// PORT: SOURCE MAIN.agc:81
+// MAIN.agc:81
 //$T6-RUPT_PROGRAMS.agc				# pp. 1403-1405
-// PORT: SOURCE MAIN.agc:82
+// MAIN.agc:82
 //$DAP_INTERFACE_SUBROUTINES.agc			# pp. 1406-1409
-// PORT: SOURCE MAIN.agc:83
+// MAIN.agc:83
 //$DAPIDLER_PROGRAM.agc				# pp. 1410-1420
-// PORT: SOURCE MAIN.agc:84
+// MAIN.agc:84
 //$P-AXIS_RCS_AUTOPILOT.agc			# pp. 1421-1441
-// PORT: SOURCE MAIN.agc:85
+// MAIN.agc:85
 //$Q_R-AXIS_RCS_AUTOPILOT.agc			# pp. 1442-1459
-// PORT: SOURCE MAIN.agc:86
+// MAIN.agc:86
 //$TJET_LAW.agc					# pp. 1460-1469
-// PORT: SOURCE MAIN.agc:87
+// MAIN.agc:87
 //$KALMAN_FILTER.agc				# pp. 1470-1471
-// PORT: SOURCE MAIN.agc:88
+// MAIN.agc:88
 //$TRIM_GIMBAL_CNTROL_SYSTEM.agc			# pp. 1472-1484
-// PORT: SOURCE MAIN.agc:89
+// MAIN.agc:89
 //$AOSTASK_AND_AOSJOB.agc				# pp. 1485-1506
-// PORT: SOURCE MAIN.agc:90
+// MAIN.agc:90
 //$SPS_BACK-UP_RCS_CONTROL.agc			# pp. 1507-1510
-// PORT: SOURCE MAIN.agc:91
+// MAIN.agc:91
 //						# pp. 1511-1743: GAP-generated tables.

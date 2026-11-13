@@ -1,5 +1,3 @@
-// Original pinned engine timing tables, indexed by instruction / 1024.
-// No additional BZF/BZMF delay is inserted in the native comparison mode.
 local coreBasicTiming is list(
     0,0,0,0, 1,0,0,0, 2,1,1,1, 1,1,1,1,
     1,1,1,1, 1,2,1,1, 1,1,1,1, 1,1,1,1).
@@ -7,7 +5,6 @@ local coreExtraTiming is list(
     1,1,1,1, 5,0,0,0, 1,1,1,1, 2,2,2,2,
     2,2,2,2, 1,1,1,1, 1,0,0,0, 2,2,2,2).
 
-// Called only after the clock returns cpu and after the effectful fetch.
 function agcCoreTimedCpuGate {
     parameter words, instruction, oldEB, oldFB, oldBB, debuggerMask.
     local irq is agcCoreControlAdmit(words, instruction, debuggerMask).
@@ -27,8 +24,7 @@ function agcCoreTimedCpuGate {
     return -1.
 }
 
-// TIME6 expiration is a real CPU bus write. Do not update its CH13 latch
-// before the shared write provider observes the previous channel value.
+// TIME6 timeout writes channel 13
 function agcCoreTimedTimerPhase {
     parameter words, phase, channelAdapter.
     local previousCh13 is words["channel13"].
@@ -70,7 +66,6 @@ function agcCoreTimedHandTraps {
     }
 }
 
-// One serviced divider edge. Returns true if its charge consumes this MCT.
 function agcCoreTimedDivider {
     parameter words, providers.
     set words["scalerResidual"] to words["scalerResidual"] - 80.

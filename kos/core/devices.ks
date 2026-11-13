@@ -1,4 +1,3 @@
-// Pin-compatible peripheral phases for the generic executor.
 function segmentEvent {
     parameter words,kind,chan,raw.
     kLogEvent(words,kind,chan,raw).
@@ -16,7 +15,7 @@ function segmentDisplay {
     local old is words["dskyChannel163"].
     local ch11 is words["channel11"].
     local lampTest is mod(floor(words["channel13"] / 512), 2) = 1.
-    // The EL off latch survives the periodic DSKY update.
+    // EL off stays latched through DSKY updates
     local lamps is old - mod(old,512) + mod(floor(old / 2),4) * 2.
     if words["restartLight"] or lampTest { set lamps to lamps + 128. }
     if words["standby"] or lampTest { set lamps to lamps + 256. }
@@ -116,7 +115,6 @@ function segmentDevices {
 }
 function segmentAccess {
     parameter words, address, slot.
-    // Pinned ropes have zero parity flags and are loaded in full.
 }
 function segmentPhysical { parameter words, slot. return words[slot]. }
 function segmentEffective { parameter words, address. return words[agcCoreResolve(words,address)]. }

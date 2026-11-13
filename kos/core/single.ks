@@ -1,6 +1,3 @@
-// PORT: Ready-cycle bodies. The dispatcher owns fetch, timing and AllDone.
-// Fixed operands use the verified rope slots of the shared bus.
-
 function agcCoreCA {
     parameter words, address.
     if address = 0 { return. }
@@ -11,12 +8,11 @@ function agcCoreCA {
     local slot is agcCoreResolve(words, address).
     local source is words[slot].
     set words[0] to agcSignExtend(mod(source, 32768)).
-    // Re-read the physical operand after setting A. EB=0 can alias A.
+    // read the operand again, with EB=0 it can be A itself
     set source to words[slot].
     agcCoreAssign(words, slot, source - 65536 * floor(source / 32768)).
 }
 
-// The dispatcher sets tcTransient for every CS.
 function agcCoreCS {
     parameter words, address.
     if address < 3 {
@@ -26,7 +22,7 @@ function agcCoreCS {
     local slot is agcCoreResolve(words, address).
     local source is words[slot].
     set words[0] to agcSignExtend(32767 - mod(source, 32768)).
-    // Re-read the physical operand after setting A. EB=0 can alias A.
+    // read the operand again, with EB=0 it can be A itself
     set source to words[slot].
     agcCoreAssign(words, slot, source - 65536 * floor(source / 32768)).
 }
@@ -89,7 +85,6 @@ function agcCoreMSU {
     local negative is mod(floor(difference / 16384), 2) = 1.
     if negative { set difference to difference - 1. }
     if address = 2 {
-        // The upper bit is forced on negative, otherwise retain the wide difference.
         set words[0] to mod(difference, 65536).
         if negative { set words[0] to mod(difference, 32768) + 32768. }
     } else {

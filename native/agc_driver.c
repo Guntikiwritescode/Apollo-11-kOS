@@ -1,4 +1,4 @@
-/* Quiet observer for the pinned yaAGC. All numbers in files are decimal. */
+/* Runs yaAGC from a file of timed inputs, logs every channel write and saves checkpoints. Numbers in files are decimal. */
 #include <ctype.h>
 #include <errno.h>
 #include <inttypes.h>
@@ -75,7 +75,7 @@ static void snapshot(void) {
     if (!out) fail("cannot create state file");
     fprintf(out, "SNAP\t%s\t%" PRIu64 "\t%" PRIu64 "\n", cycle ? "STEP" : "INIT", line_no, cycle);
 #define FIELD(n, max) fprintf(out, "FIELD\t%s\t%" PRIu64 "\n", #n, (uint64_t)cpu.n & (uint64_t)(max));
-#include "fields.inc"
+#include "cpu_fields.inc"
 #undef FIELD
     for (int b = 0; b < 8; b++)
         for (int i = 0; i < 256; i++)
@@ -121,7 +121,7 @@ static uint64_t num(const char *word, uint64_t maximum) {
 }
 static void scalar(const char *name, const char *word) {
 #define FIELD(n, max) if (!strcmp(#n, name)) { cpu.n = num(word, max); return; }
-#include "fields.inc"
+#include "cpu_fields.inc"
 #undef FIELD
     fail("unknown field");
 }
@@ -193,7 +193,7 @@ int main(int argc, char **argv) {
     if (argc == 8) fail("pristine archive cannot restore private device state");
 #endif
     if ((argc != 7 && argc != 8) || (strcmp(argv[3],"Comanche055") && strcmp(argv[3],"Luminary099"))) {
-        fputs("usage: oracle [--quiet] ROPE SEED PROGRAM STATE_DIR OUTPUTS EVENTS [START_STATE]\n", stderr);
+        fputs("usage: agc_driver [--quiet] ROPE SEED PROGRAM STATE_DIR OUTPUTS EVENTS [START_STATE]\n", stderr);
         return 2;
     }
     if (flight_init(argv[1], !strcmp(argv[3],"Luminary099"))) fail("rope initialization failed");

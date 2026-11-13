@@ -1,5 +1,5 @@
-// PORT: Original source unit RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc.
-// PORT: Physical bank 22. Shared continuation entries, slots 21287–21318.
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc
+// bank 22, slots 21287-21318
 function agcAotUnit1208 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 21302 {
@@ -7,109 +7,109 @@ function agcAotUnit1208 {
             if slot <= 21290 {
                 if slot <= 21288 {
                     if slot <= 21287 {
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:1
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:1
 //# Copyright:	Public domain.
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:2
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:2
 //# Filename:	RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:3
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:3
 //# Purpose:	Part of the source code for Colossus 2A, AKA Comanche 055.
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:4
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:4
 //#		It is part of the source code for the Command Module's (CM)
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:5
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:6
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:6
 //# Assembler:	yaYUL
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:7
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:7
 //# Contact:	Ron Burkey <info@sandroid.org>.
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:8
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:8
 //# Website:	www.ibiblio.org/apollo.
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:9
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:9
 //# Pages:	1037-1038
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:10
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:10
 //# Mod history:	2009-05-13 RSB	Adapted from the Colossus249/ file of the
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:11
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:11
 //#				same name, using Comanche055 page images.
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:12
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:12
 //#		2009-05-20 RSB	A "Page N" comment was corrected.
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:13
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:13
 //#
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:14
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:14
 //# This source code has been transcribed or otherwise adapted from digitized
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:15
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:15
 //# images of a hardcopy from the MIT Museum.  The digitization was performed
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:16
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:16
 //# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:17
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:17
 //# thanks to both.  The images (with suitable reduction in storage size and
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:18
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:18
 //# consequent reduction in image quality as well) are available online at
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:19
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:19
 //# www.ibiblio.org/apollo.  If for some reason you find that the images are
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:20
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:20
 //# illegible, contact me at info@sandroid.org about getting access to the
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:21
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:21
 //# (much) higher-quality images which Paul actually created.
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:22
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:22
 //#
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:23
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:23
 //# Notations on the hardcopy document read, in part:
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:24
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:24
 //#
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:25
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:25
 //#	Assemble revision 055 of AGC program Comanche by NASA
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:26
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:26
 //#	2021113-051.  10:28 APR. 1, 1969
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:27
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:27
 //#
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:28
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:28
 //#	This AGC program shall also be referred to as
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:29
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:29
 //#			Colossus 2A
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:30
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:30
 //
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:31
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:31
 //# Page 1037
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:32
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:32
 //# CALCULATION OF  AMGB, AMBG  ONCE EVERY SECOND
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:33
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:33
 //#
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:34
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:34
 //#	AMGB =	1	SIN(PSI)		0
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:35
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:35
 //#		0	COS(PSI)COS(PHI)	SIN(PHI)
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:36
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:36
 //#		0	-COS(PSI)SIN(PHI)	COS(PHI)
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:37
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:37
 //#
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:38
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:38
 //#	AMBG =	1	-TAN(PSI)COS(PHI)	TAN(PSI)SIN(PHI)
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:39
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:39
 //#		0	COS(PHI)/COS(PSI)	-SIN(PHI)/COS(PSI)
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:40
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:40
 //#		0	SIN(PHI)		COS(PHI)
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:41
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:41
 //#
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:42
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:42
 //# WHERE PHI AND PSI ARE CDU ANGLES
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:43
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:43
 //
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:44
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:44
 //
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:45
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:45
 //		BANK	20
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:46
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:46
 //		SETLOC	DAPS8
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:47
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:47
 //		BANK
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:48
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:48
 //
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:49
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:49
 //		COUNT*	$$/DAPEX
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:50
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:50
 //		EBANK=	KMPAC
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:51
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:51
 //AMBGUPDT	CA	FLAGWRD6	# CHECK FOR RCS AUTOPILOT
-// PORT: Fixed ROM slots 21287.
+// slot 21287
                         if slot <> 21287 or instruction <> 12354 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -119,9 +119,9 @@ function agcAotUnit1208 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:52
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:52
 //		EXTEND
-// PORT: Fixed ROM slots 21288.
+// slot 21288
                         if slot <> 21288 or instruction <> 6 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -131,9 +131,9 @@ function agcAotUnit1208 {
                     }
                 } else {
                     if slot <= 21289 {
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:53
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:53
 //		BZMF	ENDOFJOB	# BIT15 = 0, BIT14 = 1
-// PORT: Fixed ROM slots 21289.
+// slot 21289
                         if slot <> 21289 or instruction <> 27279 { return choose false if checkOnly else -1. }
                         if extended {
                             if checkOnly { return true. }
@@ -141,9 +141,9 @@ function agcAotUnit1208 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:54
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:54
 //		MASK	BIT14		# IF NOT RCS, EXIT
-// PORT: Fixed ROM slots 21290.
+// slot 21290
                         if slot <> 21290 or instruction <> 31234 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -163,9 +163,9 @@ function agcAotUnit1208 {
             } else {
                 if slot <= 21292 {
                     if slot <= 21291 {
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:55
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:55
 //		EXTEND
-// PORT: Fixed ROM slots 21291.
+// slot 21291
                         if slot <> 21291 or instruction <> 6 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -173,9 +173,9 @@ function agcAotUnit1208 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:56
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:56
 //		BZF	ENDOFJOB	# TO PROTECT TVC DAP ON SWITCHOVER
-// PORT: Fixed ROM slots 21292.
+// slot 21292
                         if slot <> 21292 or instruction <> 6799 { return choose false if checkOnly else -1. }
                         if extended {
                             if checkOnly { return true. }
@@ -185,11 +185,11 @@ function agcAotUnit1208 {
                     }
                 } else {
                     if slot <= 21293 {
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:57
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:57
 //
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:58
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:58
 //		CA	CDUZ
-// PORT: Fixed ROM slots 21293.
+// slot 21293
                         if slot <> 21293 or instruction <> 12316 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -199,9 +199,9 @@ function agcAotUnit1208 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:59
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:59
 //		TC	SPSIN2
-// PORT: Fixed ROM slots 21294.
+// slot 21294
                         if slot <> 21294 or instruction <> 2621 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -215,9 +215,9 @@ function agcAotUnit1208 {
             if slot <= 21298 {
                 if slot <= 21296 {
                     if slot <= 21295 {
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:60
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:60
 //		TS	AMGB1		# CALCULATE AMGB
-// PORT: Fixed ROM slots 21295.
+// slot 21295
                         if slot <> 21295 or instruction <> 23456 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -225,9 +225,9 @@ function agcAotUnit1208 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:61
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:61
 //		CA	CDUZ
-// PORT: Fixed ROM slots 21296.
+// slot 21296
                         if slot <> 21296 or instruction <> 12316 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -239,9 +239,9 @@ function agcAotUnit1208 {
                     }
                 } else {
                     if slot <= 21297 {
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:62
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:62
 //		TC	SPCOS2
-// PORT: Fixed ROM slots 21297.
+// slot 21297
                         if slot <> 21297 or instruction <> 2620 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -249,9 +249,9 @@ function agcAotUnit1208 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:63
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:63
 //		TS	CAPSI		# MUST CHECK FOR GIMBAL LOCK
-// PORT: Fixed ROM slots 21298.
+// slot 21298
                         if slot <> 21298 or instruction <> 23461 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -263,9 +263,9 @@ function agcAotUnit1208 {
             } else {
                 if slot <= 21300 {
                     if slot <= 21299 {
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:64
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:64
 //		CAF	QUADANGL	# = 7.25  DEGREES JET QUAD ANGULAR OFFSET
-// PORT: Fixed ROM slots 21299.
+// slot 21299
                         if slot <> 21299 or instruction <> 14151 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -276,9 +276,9 @@ function agcAotUnit1208 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:65
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:65
 //		EXTEND
-// PORT: Fixed ROM slots 21300.
+// slot 21300
                         if slot <> 21300 or instruction <> 6 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -288,9 +288,9 @@ function agcAotUnit1208 {
                     }
                 } else {
                     if slot <= 21301 {
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:66
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:66
 //		MSU	CDUX
-// PORT: Fixed ROM slots 21301.
+// slot 21301
                         if slot <> 21301 or instruction <> 8218 { return choose false if checkOnly else -1. }
                         if extended {
                             if checkOnly { return true. }
@@ -300,9 +300,9 @@ function agcAotUnit1208 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:67
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:67
 //		COM			# CDUX - 7.25 DEG
-// PORT: Fixed ROM slots 21302.
+// slot 21302
                         if slot <> 21302 or instruction <> 16384 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -319,9 +319,9 @@ function agcAotUnit1208 {
             if slot <= 21306 {
                 if slot <= 21304 {
                     if slot <= 21303 {
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:68
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:68
 //		TC	SPCOS1
-// PORT: Fixed ROM slots 21303.
+// slot 21303
                         if slot <> 21303 or instruction <> 2620 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -329,9 +329,9 @@ function agcAotUnit1208 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:69
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:69
 //		TS	AMGB8
-// PORT: Fixed ROM slots 21304.
+// slot 21304
                         if slot <> 21304 or instruction <> 23460 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -341,9 +341,9 @@ function agcAotUnit1208 {
                     }
                 } else {
                     if slot <= 21305 {
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:70
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:70
 //		EXTEND
-// PORT: Fixed ROM slots 21305.
+// slot 21305
                         if slot <> 21305 or instruction <> 6 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -351,9 +351,9 @@ function agcAotUnit1208 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:71
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:71
 //		MP	CAPSI
-// PORT: Fixed ROM slots 21306.
+// slot 21306
                         if slot <> 21306 or instruction <> 29605 { return choose false if checkOnly else -1. }
                         if extended {
                             if checkOnly { return true. }
@@ -367,9 +367,9 @@ function agcAotUnit1208 {
             } else {
                 if slot <= 21308 {
                     if slot <= 21307 {
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:72
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:72
 //		TS	AMGB4
-// PORT: Fixed ROM slots 21307.
+// slot 21307
                         if slot <> 21307 or instruction <> 23457 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -377,9 +377,9 @@ function agcAotUnit1208 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:73
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:73
 //		CAF	QUADANGL
-// PORT: Fixed ROM slots 21308.
+// slot 21308
                         if slot <> 21308 or instruction <> 14151 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -392,9 +392,9 @@ function agcAotUnit1208 {
                     }
                 } else {
                     if slot <= 21309 {
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:74
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:74
 //		EXTEND
-// PORT: Fixed ROM slots 21309.
+// slot 21309
                         if slot <> 21309 or instruction <> 6 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -402,9 +402,9 @@ function agcAotUnit1208 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:75
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:75
 //		MSU	CDUX
-// PORT: Fixed ROM slots 21310.
+// slot 21310
                         if slot <> 21310 or instruction <> 8218 { return choose false if checkOnly else -1. }
                         if extended {
                             if checkOnly { return true. }
@@ -420,9 +420,9 @@ function agcAotUnit1208 {
             if slot <= 21314 {
                 if slot <= 21312 {
                     if slot <= 21311 {
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:76
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:76
 //		COM			# CDUX - 7.25 DEG
-// PORT: Fixed ROM slots 21311.
+// slot 21311
                         if slot <> 21311 or instruction <> 16384 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -431,9 +431,9 @@ function agcAotUnit1208 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:77
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:77
 //		TC	SPSIN1
-// PORT: Fixed ROM slots 21312.
+// slot 21312
                         if slot <> 21312 or instruction <> 2621 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -443,9 +443,9 @@ function agcAotUnit1208 {
                     }
                 } else {
                     if slot <= 21313 {
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:78
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:78
 //		TS	AMGB5
-// PORT: Fixed ROM slots 21313.
+// slot 21313
                         if slot <> 21313 or instruction <> 23458 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -453,9 +453,9 @@ function agcAotUnit1208 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:79
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:79
 //		EXTEND
-// PORT: Fixed ROM slots 21314.
+// slot 21314
                         if slot <> 21314 or instruction <> 6 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -467,9 +467,9 @@ function agcAotUnit1208 {
             } else {
                 if slot <= 21316 {
                     if slot <= 21315 {
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:80
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:80
 //		MP	CAPSI
-// PORT: Fixed ROM slots 21315.
+// slot 21315
                         if slot <> 21315 or instruction <> 29605 { return choose false if checkOnly else -1. }
                         if extended {
                             if checkOnly { return true. }
@@ -479,9 +479,9 @@ function agcAotUnit1208 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:81
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:81
 //		COM
-// PORT: Fixed ROM slots 21316.
+// slot 21316
                         if slot <> 21316 or instruction <> 16384 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -492,11 +492,11 @@ function agcAotUnit1208 {
                     }
                 } else {
                     if slot <= 21317 {
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:82
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:82
 //# Page 1038
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:83
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:83
 //		TS	AMGB7
-// PORT: Fixed ROM slots 21317.
+// slot 21317
                         if slot <> 21317 or instruction <> 23459 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -504,9 +504,9 @@ function agcAotUnit1208 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:84
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:84
 //		TCF	ENDOFJOB
-// PORT: Fixed ROM slots 21318.
+// slot 21318
                         if slot <> 21318 or instruction <> 6799 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -522,9 +522,9 @@ function agcAotUnit1208 {
 set agcAotRoutes[1208] to agcAotUnit1208@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:85
+// RCS-CSM_DAP_EXECUTIVE_PROGRAMS.agc:85
 //QUADANGL	DEC	660		# = 7.25 DEGREES
-// PORT: Fixed ROM slots 21319.
+// slot 21319
     21319, 1320
 )).
 

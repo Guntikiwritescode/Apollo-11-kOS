@@ -1,14 +1,6 @@
-// Apollo 11 P65 flight with the original Luminary099 rope on the pinned
-// Virtual AGC engine (yaAGC), called from the kOS addon AGC.
-// Built from apollo-landing/runtime.ks. Changes from that file:
-//  * the CPU steps run in addons:agc instead of segmentStepTo;
-//  * kInputs passes pulses, channels and keys to addons:agc;
-//  * the radar word table is refreshed from wRadarRead before each step;
-//  * logs go to 0:/apollo-native/, and pace.csv adds the wall clock.
-// The wiring, sensors, actuators, crew and EAGLE hardware calls are unchanged.
+// flight.ks but the CPU runs in addons:agc
 
-// kStartP65 fills words with segmentLoad. Here words only carries the copy of
-// the start state used by the check against the native state.
+// the start files call this, words is only used to check the addon state
 function segmentLoad {
     parameter words, first, values.
     local address is first.
@@ -22,7 +14,6 @@ function kOctKey { parameter n.
     until n = 0 { set s to mod(n,8):tostring+s. set n to floor(n/8). }
     return "channel"+(choose "0" if s = "" else s).
 }
-// Every erasable word and every input channel the start state lists must match.
 function kNativeCheck {
     parameter agc,words.
     local bad is 0.
@@ -44,8 +35,7 @@ function kNativeCheck {
     print text. log text to "0:/apollo-native/selfcheck.txt".
     return bad = 0.
 }
-// Copy the native state that the wiring reads, then deliver each output to
-// wOutput at its own cycle, as kLogEvent does in the kOS port.
+// copy what the wiring reads, then pass each output to wOutput at its cycle
 function kNativeWords {
     parameter words,dev,r.
     set words["windowMct"] to r[0].
@@ -60,9 +50,7 @@ function kNativeWords {
         set i to i+3. set n to n-1.
     }
 }
-// wRadarRead reads only slant, lowScale and velAnt, which change only in
-// wSensors between steps. The table therefore gives the same word that the
-// kOS port computes at the request cycle.
+// radar words only change in wSensors, so one table per step is enough
 function kNativeStep {
     parameter agc,words,dev,count.
     local table is list().
@@ -164,8 +152,7 @@ function kFly {
     local hw is addons:eagle. local frameT is wTranspose(wRefBasis(dev["pole"],dev["land"])).
     wait until hw:status <> "Loading".
     if hw:status <> "Holding" { print hw:status. return. }
-    // Check the actual state while the loader holds the saved epoch. The
-    // diagnostic and file I/O do not consume any part of the first flight window.
+    // check the lander against the saved start
     local s is kSample(hw,frameT).
     local dp is wMinus(s["r"],spec["r"]). local dv is wMinus(s["v"],spec["v"]).
     local posErr is sqrt(wDot(dp,dp)). local velErr is sqrt(wDot(dv,dv)).
@@ -222,7 +209,6 @@ function kFly {
         local wasOn is dev["engineOn"].
         set frac to frac+dtCycles. local count is floor(frac). set frac to frac-count.
         if not kNativeStep(agc,words,dev,count) { hw:halt(). break. }
-        // CPU writes can alter the status channel between device boundaries.
         set dev["ch"][12] to words["channel14"].
         set dev["ch"][24] to words["channel30"].
         set dev["ch"][26] to words["channel32"].

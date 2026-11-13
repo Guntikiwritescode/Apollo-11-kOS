@@ -1,6 +1,3 @@
-// PORT: Isolated exact-body dispatch seam for dynamically formed orders.
-// All inputs are decoded raw words after fetch and admission. Timing belongs
-// to the timed core. This is not a whole-hardware qualification claim.
 function agcCoreDispatchBody {
     parameter words, instruction, accumulator, readEffective, readPhysical,
         readAdjacent, channelAdapter.
@@ -21,7 +18,6 @@ function agcCoreDispatchBody {
     if extended {
         if quarter < 4 {
             local channelOperation is floor(instruction / 512).
-            // EDRUPT must have been handled by admission before this boundary.
             if channelOperation = 7 { return -1. }
             agcCoreChannelInstruction(words, channelOperation, mod(instruction, 512), channelAdapter).
         } else if quarter = 4 {
@@ -84,8 +80,6 @@ function agcCoreDispatchBody {
     return list(false, false, transient, false, false).
 }
 
-// PORT: Pure preflight for the unresolved paired-predecessor domains.
-// This does not discharge the caller's complete presence/parity obligation.
 function agcCoreCanDispatchBody {
     parameter words, instruction, extended.
     local quarter is floor(instruction / 1024).
@@ -101,8 +95,6 @@ function agcCoreCanDispatchBody {
     return true.
 }
 
-// PORT: One native-compatible MCT for declared provider and operand domains.
-// Return labels preserve stopped and held boundaries for the development harness.
 function agcCoreComposedMct {
     parameter words, providers, readEffective, readPhysical, readAdjacent,
         channelAdapter, debuggerMask is 2047.
@@ -121,8 +113,7 @@ function agcCoreComposedMct {
     if not agcCoreCanDispatchBody(words, instruction, words["extraCode"]) {
         return "unresolved-domain".
     }
-    // Choose before Begin consumes INDEX and BRUPT. The physical-slot lookup
-    // is pure: the fetch above is the only fetch bus transaction in this MCT.
+    // pick the path before INDEX and BRUPT get used up
     local unit is false.
     local slot is -1.
     if words:haskey("selectDirectBody") and fetchPC >= 1024
@@ -139,8 +130,6 @@ function agcCoreComposedMct {
         set flags to unit:call(words, slot, instruction, words["extraCode"], false,
             readPhysical, readAdjacent, readEffective, channelAdapter).
     }
-    // The pure preflight must exclude all body refusal domains. A refusal
-    // is retained as a stopped development boundary, never normal completion.
     if not flags:istype("List") { return "unresolved-body". }
     agcCoreFinish(words, oldEB, oldFB, oldBB,
         flags[0], flags[1], flags[2], flags[3], flags[4]).

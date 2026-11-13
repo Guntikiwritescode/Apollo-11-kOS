@@ -1,5 +1,5 @@
-// PORT: Original source unit INTERRUPT_LEAD_INS.agc.
-// PORT: Physical bank 02. Shared continuation entries, slots 4096–4139.
+// INTERRUPT_LEAD_INS.agc
+// bank 02, slots 4096-4139
 function agcAotUnit140 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 4117 {
@@ -7,79 +7,79 @@ function agcAotUnit140 {
             if slot <= 4100 {
                 if slot <= 4097 {
                     if slot <= 4096 {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:1
+// INTERRUPT_LEAD_INS.agc:1
 //# Copyright:	Public domain.
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:2
+// INTERRUPT_LEAD_INS.agc:2
 //# Filename:	INTERRUPT_LEAD_INS.agc
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:3
+// INTERRUPT_LEAD_INS.agc:3
 //# Purpose:	Part of the source code for Comanche, build 055.
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:4
+// INTERRUPT_LEAD_INS.agc:4
 //#		It is part of the source code for the Command Module's (CM)
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:5
+// INTERRUPT_LEAD_INS.agc:5
 //#		Apollo Guidance Computer (AGC), Apollo 11.
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:6
+// INTERRUPT_LEAD_INS.agc:6
 //# Assembler:	yaYUL
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:7
+// INTERRUPT_LEAD_INS.agc:7
 //# Reference:	pp. 131-132
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:8
+// INTERRUPT_LEAD_INS.agc:8
 //# Contact:	Ron Burkey <info@sandroid.org>,
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:9
+// INTERRUPT_LEAD_INS.agc:9
 //#  		Fabrizio Bernardini <fabrizio@spacecraft.it>
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:10
+// INTERRUPT_LEAD_INS.agc:10
 //# Website:	http://www.ibiblio.org/apollo.
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:11
+// INTERRUPT_LEAD_INS.agc:11
 //# Mod history:	09/05/09 FB	Transcription of Batch FB-1 Assignment.
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:12
+// INTERRUPT_LEAD_INS.agc:12
 //#
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:13
+// INTERRUPT_LEAD_INS.agc:13
 //# The contents of the "Comanche055" files, in general, are transcribed
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:14
+// INTERRUPT_LEAD_INS.agc:14
 //# from scanned documents.
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:15
+// INTERRUPT_LEAD_INS.agc:15
 //#
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:16
+// INTERRUPT_LEAD_INS.agc:16
 //#	Assemble revision 055 of AGC program Comanche by NASA
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:17
+// INTERRUPT_LEAD_INS.agc:17
 //#	2021113-051.  April 1, 1969.
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:18
+// INTERRUPT_LEAD_INS.agc:18
 //#
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:19
+// INTERRUPT_LEAD_INS.agc:19
 //#	This AGC program shall also be referred to as Colossus 2A
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:20
+// INTERRUPT_LEAD_INS.agc:20
 //#
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:21
+// INTERRUPT_LEAD_INS.agc:21
 //#	Prepared by
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:22
+// INTERRUPT_LEAD_INS.agc:22
 //#			Massachusetts Institute of Technology
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:23
+// INTERRUPT_LEAD_INS.agc:23
 //#			75 Cambridge Parkway
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:24
+// INTERRUPT_LEAD_INS.agc:24
 //#			Cambridge, Massachusetts
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:25
+// INTERRUPT_LEAD_INS.agc:25
 //#
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:26
+// INTERRUPT_LEAD_INS.agc:26
 //#	under NASA contract NAS 9-4065.
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:27
+// INTERRUPT_LEAD_INS.agc:27
 //#
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:28
+// INTERRUPT_LEAD_INS.agc:28
 //# Refer directly to the online document mentioned above for further
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:29
+// INTERRUPT_LEAD_INS.agc:29
 //# information.  Please report any errors to info@sandroid.org.
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:30
+// INTERRUPT_LEAD_INS.agc:30
 //
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:31
+// INTERRUPT_LEAD_INS.agc:31
 //# Page 131
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:32
+// INTERRUPT_LEAD_INS.agc:32
 //		SETLOC	4000
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:33
+// INTERRUPT_LEAD_INS.agc:33
 //
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:34
+// INTERRUPT_LEAD_INS.agc:34
 //		COUNT	02/RUPTS
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:35
+// INTERRUPT_LEAD_INS.agc:35
 //
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:36
+// INTERRUPT_LEAD_INS.agc:36
 //		INHINT			# GO
-// PORT: Fixed ROM slots 4096.
+// slot 4096
                         if slot <> 4096 or instruction <> 4 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -87,9 +87,9 @@ function agcAotUnit140 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:37
+// INTERRUPT_LEAD_INS.agc:37
 //		CAF	GOBB
-// PORT: Fixed ROM slots 4097.
+// slot 4097
                         if slot <> 4097 or instruction <> 14380 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -102,9 +102,9 @@ function agcAotUnit140 {
                     }
                 } else {
                     if slot <= 4098 {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:38
+// INTERRUPT_LEAD_INS.agc:38
 //		XCH	BBANK
-// PORT: Fixed ROM slots 4098.
+// slot 4098
                         if slot <> 4098 or instruction <> 23558 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -114,9 +114,9 @@ function agcAotUnit140 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 4099 {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:39
+// INTERRUPT_LEAD_INS.agc:39
 //		TCF	GOPROG
-// PORT: Fixed ROM slots 4099.
+// slot 4099
                             if slot <> 4099 or instruction <> 5462 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -124,11 +124,11 @@ function agcAotUnit140 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:40
+// INTERRUPT_LEAD_INS.agc:40
 //
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:41
+// INTERRUPT_LEAD_INS.agc:41
 //		DXCH	ARUPT		# T6RUPT
-// PORT: Fixed ROM slots 4100.
+// slot 4100
                             if slot <> 4100 or instruction <> 21513 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -142,9 +142,9 @@ function agcAotUnit140 {
             } else {
                 if slot <= 4103 {
                     if slot <= 4101 {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:42
+// INTERRUPT_LEAD_INS.agc:42
 //		EXTEND
-// PORT: Fixed ROM slots 4101.
+// slot 4101
                         if slot <> 4101 or instruction <> 6 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -153,9 +153,9 @@ function agcAotUnit140 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 4102 {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:43
+// INTERRUPT_LEAD_INS.agc:43
 //		DCA	T6LOC
-// PORT: Fixed ROM slots 4102.
+// slot 4102
                             if slot <> 4102 or instruction <> 13001 { return choose false if checkOnly else -1. }
                             if extended {
                                 if checkOnly { return true. }
@@ -165,9 +165,9 @@ function agcAotUnit140 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:44
+// INTERRUPT_LEAD_INS.agc:44
 //		DTCB
-// PORT: Fixed ROM slots 4103.
+// slot 4103
                             if slot <> 4103 or instruction <> 21510 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -179,11 +179,11 @@ function agcAotUnit140 {
                     }
                 } else {
                     if slot <= 4104 {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:45
+// INTERRUPT_LEAD_INS.agc:45
 //
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:46
+// INTERRUPT_LEAD_INS.agc:46
 //		DXCH	ARUPT		# T5RUPT
-// PORT: Fixed ROM slots 4104.
+// slot 4104
                         if slot <> 4104 or instruction <> 21513 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -193,9 +193,9 @@ function agcAotUnit140 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 4105 {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:47
+// INTERRUPT_LEAD_INS.agc:47
 //		CS	TIME5
-// PORT: Fixed ROM slots 4105.
+// slot 4105
                             if slot <> 4105 or instruction <> 16408 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -204,9 +204,9 @@ function agcAotUnit140 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:48
+// INTERRUPT_LEAD_INS.agc:48
 //		AD	.5SEC
-// PORT: Fixed ROM slots 4106.
+// slot 4106
                             if slot <> 4106 or instruction <> 27166 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -225,9 +225,9 @@ function agcAotUnit140 {
             if slot <= 4111 {
                 if slot <= 4108 {
                     if slot <= 4107 {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:49
+// INTERRUPT_LEAD_INS.agc:49
 //		TCF	T5RUPT
-// PORT: Fixed ROM slots 4107.
+// slot 4107
                         if slot <> 4107 or instruction <> 6197 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -235,11 +235,11 @@ function agcAotUnit140 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:50
+// INTERRUPT_LEAD_INS.agc:50
 //
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:51
+// INTERRUPT_LEAD_INS.agc:51
 //		DXCH	ARUPT		# T3RUPT
-// PORT: Fixed ROM slots 4108.
+// slot 4108
                         if slot <> 4108 or instruction <> 21513 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -250,9 +250,9 @@ function agcAotUnit140 {
                     }
                 } else {
                     if slot <= 4109 {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:52
+// INTERRUPT_LEAD_INS.agc:52
 //		CAF	T3RPTBB
-// PORT: Fixed ROM slots 4109.
+// slot 4109
                         if slot <> 4109 or instruction <> 14381 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -264,9 +264,9 @@ function agcAotUnit140 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 4110 {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:53
+// INTERRUPT_LEAD_INS.agc:53
 //		XCH	BBANK
-// PORT: Fixed ROM slots 4110.
+// slot 4110
                             if slot <> 4110 or instruction <> 23558 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -275,9 +275,9 @@ function agcAotUnit140 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:54
+// INTERRUPT_LEAD_INS.agc:54
 //		TCF	T3RUPT
-// PORT: Fixed ROM slots 4111.
+// slot 4111
                             if slot <> 4111 or instruction <> 5902 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -290,11 +290,11 @@ function agcAotUnit140 {
             } else {
                 if slot <= 4114 {
                     if slot <= 4112 {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:55
+// INTERRUPT_LEAD_INS.agc:55
 //
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:56
+// INTERRUPT_LEAD_INS.agc:56
 //		DXCH	ARUPT		# T4RUPT
-// PORT: Fixed ROM slots 4112.
+// slot 4112
                         if slot <> 4112 or instruction <> 21513 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -304,9 +304,9 @@ function agcAotUnit140 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 4113 {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:57
+// INTERRUPT_LEAD_INS.agc:57
 //		CAF	T4RPTBB
-// PORT: Fixed ROM slots 4113.
+// slot 4113
                             if slot <> 4113 or instruction <> 14387 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -317,9 +317,9 @@ function agcAotUnit140 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:58
+// INTERRUPT_LEAD_INS.agc:58
 //		XCH	BBANK
-// PORT: Fixed ROM slots 4114.
+// slot 4114
                             if slot <> 4114 or instruction <> 23558 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -331,9 +331,9 @@ function agcAotUnit140 {
                     }
                 } else {
                     if slot <= 4115 {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:59
+// INTERRUPT_LEAD_INS.agc:59
 //		TCF	T4RUPT
-// PORT: Fixed ROM slots 4115.
+// slot 4115
                         if slot <> 4115 or instruction <> 5120 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -342,11 +342,11 @@ function agcAotUnit140 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 4116 {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:60
+// INTERRUPT_LEAD_INS.agc:60
 //
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:61
+// INTERRUPT_LEAD_INS.agc:61
 //		DXCH	ARUPT		# KEYRUPT1
-// PORT: Fixed ROM slots 4116.
+// slot 4116
                             if slot <> 4116 or instruction <> 21513 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -355,9 +355,9 @@ function agcAotUnit140 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:62
+// INTERRUPT_LEAD_INS.agc:62
 //		CAF	KEYRPTBB
-// PORT: Fixed ROM slots 4117.
+// slot 4117
                             if slot <> 4117 or instruction <> 14382 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -377,9 +377,9 @@ function agcAotUnit140 {
             if slot <= 4122 {
                 if slot <= 4119 {
                     if slot <= 4118 {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:63
+// INTERRUPT_LEAD_INS.agc:63
 //		XCH	BBANK
-// PORT: Fixed ROM slots 4118.
+// slot 4118
                         if slot <> 4118 or instruction <> 23558 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -388,9 +388,9 @@ function agcAotUnit140 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:64
+// INTERRUPT_LEAD_INS.agc:64
 //		TCF	KEYRUPT1
-// PORT: Fixed ROM slots 4119.
+// slot 4119
                         if slot <> 4119 or instruction <> 6075 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -400,11 +400,11 @@ function agcAotUnit140 {
                     }
                 } else {
                     if slot <= 4120 {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:65
+// INTERRUPT_LEAD_INS.agc:65
 //
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:66
+// INTERRUPT_LEAD_INS.agc:66
 //		DXCH	ARUPT		# KEYRUPT2
-// PORT: Fixed ROM slots 4120.
+// slot 4120
                         if slot <> 4120 or instruction <> 21513 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -414,9 +414,9 @@ function agcAotUnit140 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 4121 {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:67
+// INTERRUPT_LEAD_INS.agc:67
 //		CAF	MKRUPTBB
-// PORT: Fixed ROM slots 4121.
+// slot 4121
                             if slot <> 4121 or instruction <> 14383 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -427,9 +427,9 @@ function agcAotUnit140 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:68
+// INTERRUPT_LEAD_INS.agc:68
 //		XCH	BBANK
-// PORT: Fixed ROM slots 4122.
+// slot 4122
                             if slot <> 4122 or instruction <> 23558 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -443,9 +443,9 @@ function agcAotUnit140 {
             } else {
                 if slot <= 4125 {
                     if slot <= 4123 {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:69
+// INTERRUPT_LEAD_INS.agc:69
 //		TCF	MARKRUPT
-// PORT: Fixed ROM slots 4123.
+// slot 4123
                         if slot <> 4123 or instruction <> 5188 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -454,11 +454,11 @@ function agcAotUnit140 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 4124 {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:70
+// INTERRUPT_LEAD_INS.agc:70
 //
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:71
+// INTERRUPT_LEAD_INS.agc:71
 //		DXCH	ARUPT		# UPRUPT
-// PORT: Fixed ROM slots 4124.
+// slot 4124
                             if slot <> 4124 or instruction <> 21513 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -467,9 +467,9 @@ function agcAotUnit140 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:72
+// INTERRUPT_LEAD_INS.agc:72
 //		CAF	UPRPTBB
-// PORT: Fixed ROM slots 4125.
+// slot 4125
                             if slot <> 4125 or instruction <> 14382 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -483,9 +483,9 @@ function agcAotUnit140 {
                     }
                 } else {
                     if slot <= 4126 {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:73
+// INTERRUPT_LEAD_INS.agc:73
 //		XCH	BBANK
-// PORT: Fixed ROM slots 4126.
+// slot 4126
                         if slot <> 4126 or instruction <> 23558 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -495,9 +495,9 @@ function agcAotUnit140 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 4127 {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:74
+// INTERRUPT_LEAD_INS.agc:74
 //		TCF	UPRUPT
-// PORT: Fixed ROM slots 4127.
+// slot 4127
                             if slot <> 4127 or instruction <> 6094 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -505,11 +505,11 @@ function agcAotUnit140 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:75
+// INTERRUPT_LEAD_INS.agc:75
 //
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:76
+// INTERRUPT_LEAD_INS.agc:76
 //		DXCH	ARUPT		# DOWNRUPT
-// PORT: Fixed ROM slots 4128.
+// slot 4128
                             if slot <> 4128 or instruction <> 21513 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -525,9 +525,9 @@ function agcAotUnit140 {
             if slot <= 4133 {
                 if slot <= 4130 {
                     if slot <= 4129 {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:77
+// INTERRUPT_LEAD_INS.agc:77
 //		CAF	DWNRPTBB
-// PORT: Fixed ROM slots 4129.
+// slot 4129
                         if slot <> 4129 or instruction <> 14384 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -538,9 +538,9 @@ function agcAotUnit140 {
                         }
                         return choose false if checkOnly else -1.
                     } else {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:78
+// INTERRUPT_LEAD_INS.agc:78
 //		XCH	BBANK
-// PORT: Fixed ROM slots 4130.
+// slot 4130
                         if slot <> 4130 or instruction <> 23558 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -551,9 +551,9 @@ function agcAotUnit140 {
                     }
                 } else {
                     if slot <= 4131 {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:79
+// INTERRUPT_LEAD_INS.agc:79
 //		TCF	DODOWNTM
-// PORT: Fixed ROM slots 4131.
+// slot 4131
                         if slot <> 4131 or instruction <> 5969 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -562,11 +562,11 @@ function agcAotUnit140 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 4132 {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:80
+// INTERRUPT_LEAD_INS.agc:80
 //
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:81
+// INTERRUPT_LEAD_INS.agc:81
 //		DXCH	ARUPT		# RADAR RUPT
-// PORT: Fixed ROM slots 4132.
+// slot 4132
                             if slot <> 4132 or instruction <> 21513 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -575,11 +575,11 @@ function agcAotUnit140 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:82
+// INTERRUPT_LEAD_INS.agc:82
 //# Page 132
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:83
+// INTERRUPT_LEAD_INS.agc:83
 //		CAF	RDRPTBB
-// PORT: Fixed ROM slots 4133.
+// slot 4133
                             if slot <> 4133 or instruction <> 14385 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -595,9 +595,9 @@ function agcAotUnit140 {
             } else {
                 if slot <= 4136 {
                     if slot <= 4134 {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:84
+// INTERRUPT_LEAD_INS.agc:84
 //		XCH	BBANK
-// PORT: Fixed ROM slots 4134.
+// slot 4134
                         if slot <> 4134 or instruction <> 23558 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -607,9 +607,9 @@ function agcAotUnit140 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 4135 {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:85
+// INTERRUPT_LEAD_INS.agc:85
 //		TCF	VHFREAD
-// PORT: Fixed ROM slots 4135.
+// slot 4135
                             if slot <> 4135 or instruction <> 5444 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -617,11 +617,11 @@ function agcAotUnit140 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:86
+// INTERRUPT_LEAD_INS.agc:86
 //
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:87
+// INTERRUPT_LEAD_INS.agc:87
 //		DXCH	ARUPT		# HAND CONTROL RUPT
-// PORT: Fixed ROM slots 4136.
+// slot 4136
                             if slot <> 4136 or instruction <> 21513 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -633,9 +633,9 @@ function agcAotUnit140 {
                     }
                 } else {
                     if slot <= 4137 {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:88
+// INTERRUPT_LEAD_INS.agc:88
 //		CAF	HCRUPTBB
-// PORT: Fixed ROM slots 4137.
+// slot 4137
                         if slot <> 4137 or instruction <> 14386 { return choose false if checkOnly else -1. }
                         if not extended {
                             if checkOnly { return true. }
@@ -647,9 +647,9 @@ function agcAotUnit140 {
                         return choose false if checkOnly else -1.
                     } else {
                         if slot <= 4138 {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:89
+// INTERRUPT_LEAD_INS.agc:89
 //		XCH	BBANK
-// PORT: Fixed ROM slots 4138.
+// slot 4138
                             if slot <> 4138 or instruction <> 23558 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -658,9 +658,9 @@ function agcAotUnit140 {
                             }
                             return choose false if checkOnly else -1.
                         } else {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:90
+// INTERRUPT_LEAD_INS.agc:90
 //		TCF	RESUME +3	# NOT USED
-// PORT: Fixed ROM slots 4139.
+// slot 4139
                             if slot <> 4139 or instruction <> 6878 { return choose false if checkOnly else -1. }
                             if not extended {
                                 if checkOnly { return true. }
@@ -677,86 +677,86 @@ function agcAotUnit140 {
 set agcAotRoutes[140] to agcAotUnit140@.
 
 agcAotInstallSourceRope(list(
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:91
+// INTERRUPT_LEAD_INS.agc:91
 //		EBANK=	LST1		# RESTART USES E0,E3
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:92
+// INTERRUPT_LEAD_INS.agc:92
 //GOBB		BBCON	GOPROG
-// PORT: Fixed ROM slots 4140.
+// slot 4140
     4140, 10342,
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:93
+// INTERRUPT_LEAD_INS.agc:93
 //
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:94
+// INTERRUPT_LEAD_INS.agc:94
 //		EBANK=	LST1
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:95
+// INTERRUPT_LEAD_INS.agc:95
 //T3RPTBB		BBCON	T3RUPT
-// PORT: Fixed ROM slots 4141.
+// slot 4141
     4141, 2150,
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:96
+// INTERRUPT_LEAD_INS.agc:96
 //
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:97
+// INTERRUPT_LEAD_INS.agc:97
 //		EBANK=	KEYTEMP1
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:98
+// INTERRUPT_LEAD_INS.agc:98
 //KEYRPTBB	BBCON	KEYRUPT1
-// PORT: Fixed ROM slots 4142.
+// slot 4142
     4142, 14432,
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:99
+// INTERRUPT_LEAD_INS.agc:99
 //
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:100
+// INTERRUPT_LEAD_INS.agc:100
 //		EBANK=	MRKBUF1
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:101
+// INTERRUPT_LEAD_INS.agc:101
 //MKRUPTBB	BBCON	MARKRUPT
-// PORT: Fixed ROM slots 4143.
+// slot 4143
     4143, 14446,
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:102
+// INTERRUPT_LEAD_INS.agc:102
 //
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:103
+// INTERRUPT_LEAD_INS.agc:103
 //UPRPTBB		=	KEYRPTBB
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:104
+// INTERRUPT_LEAD_INS.agc:104
 //
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:105
+// INTERRUPT_LEAD_INS.agc:105
 //		EBANK=	DNTMBUFF
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:106
+// INTERRUPT_LEAD_INS.agc:106
 //DWNRPTBB	BBCON	DODOWNTM
-// PORT: Fixed ROM slots 4144.
+// slot 4144
     4144, 10336,
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:107
+// INTERRUPT_LEAD_INS.agc:107
 //
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:108
+// INTERRUPT_LEAD_INS.agc:108
 //		EBANK=	DATATEST
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:109
+// INTERRUPT_LEAD_INS.agc:109
 //RDRPTBB		BBCON	VHFREAD
-// PORT: Fixed ROM slots 4145.
+// slot 4145
     4145, 47214,
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:110
+// INTERRUPT_LEAD_INS.agc:110
 //		EBANK=	TIME1
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:111
+// INTERRUPT_LEAD_INS.agc:111
 //HCRUPTBB	BBCON	RESUME		# NOT USED
-// PORT: Fixed ROM slots 4146.
+// slot 4146
     4146, 4192,
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:112
+// INTERRUPT_LEAD_INS.agc:112
 //		EBANK=	DSRUPTSW
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:113
+// INTERRUPT_LEAD_INS.agc:113
 //T4RPTBB		BBCON	T4RUPT
-// PORT: Fixed ROM slots 4147.
+// slot 4147
     4147, 12388,
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:114
+// INTERRUPT_LEAD_INS.agc:114
 //		EBANK=	TIME1
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:115
+// INTERRUPT_LEAD_INS.agc:115
 //T5RPTBB		BBCON	T5RUPT
-// PORT: Fixed ROM slots 4148.
+// slot 4148
     4148, 4192
 )).
 
-// PORT: Physical bank 02. Shared continuation entries, slots 4149–4153.
+// bank 02, slots 4149-4153
 function agcAotUnit141 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 4150 {
         if slot <= 4149 {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:116
+// INTERRUPT_LEAD_INS.agc:116
 //
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:117
+// INTERRUPT_LEAD_INS.agc:117
 //T5RUPT		EXTEND
-// PORT: Fixed ROM slots 4149.
+// slot 4149
             if slot <> 4149 or instruction <> 6 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -764,9 +764,9 @@ function agcAotUnit141 {
             }
             return choose false if checkOnly else -1.
         } else {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:118
+// INTERRUPT_LEAD_INS.agc:118
 //		BZMF	NOQBRSM
-// PORT: Fixed ROM slots 4150.
+// slot 4150
             if slot <> 4150 or instruction <> 27359 { return choose false if checkOnly else -1. }
             if extended {
                 if checkOnly { return true. }
@@ -776,9 +776,9 @@ function agcAotUnit141 {
         }
     } else {
         if slot <= 4151 {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:119
+// INTERRUPT_LEAD_INS.agc:119
 //		EXTEND
-// PORT: Fixed ROM slots 4151.
+// slot 4151
             if slot <> 4151 or instruction <> 6 { return choose false if checkOnly else -1. }
             if not extended {
                 if checkOnly { return true. }
@@ -787,9 +787,9 @@ function agcAotUnit141 {
             return choose false if checkOnly else -1.
         } else {
             if slot <= 4152 {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:120
+// INTERRUPT_LEAD_INS.agc:120
 //		DCA	T5LOC
-// PORT: Fixed ROM slots 4152.
+// slot 4152
                 if slot <> 4152 or instruction <> 13003 { return choose false if checkOnly else -1. }
                 if extended {
                     if checkOnly { return true. }
@@ -799,9 +799,9 @@ function agcAotUnit141 {
                 }
                 return choose false if checkOnly else -1.
             } else {
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:121
+// INTERRUPT_LEAD_INS.agc:121
 //		DTCB
-// PORT: Fixed ROM slots 4153.
+// slot 4153
                 if slot <> 4153 or instruction <> 21510 { return choose false if checkOnly else -1. }
                 if not extended {
                     if checkOnly { return true. }
@@ -815,6 +815,6 @@ function agcAotUnit141 {
 }
 set agcAotRoutes[141] to agcAotUnit141@.
 
-// PORT: Source-only text without a subsequent generated declaration.
-// PORT: SOURCE INTERRUPT_LEAD_INS.agc:122
+// no code for the lines below
+// INTERRUPT_LEAD_INS.agc:122
 //
