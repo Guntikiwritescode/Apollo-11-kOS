@@ -1,0 +1,25 @@
+// DEVELOPMENT ONLY: exact nibble decomposition, separate from the current runtime.
+local nibbleAnd is list(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 2, 2, 0, 0, 2, 2, 0, 0, 2, 2, 0, 0, 2, 2, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 0, 0, 0, 4, 4, 4, 4, 0, 0, 0, 0, 4, 4, 4, 4, 0, 1, 0, 1, 4, 5, 4, 5, 0, 1, 0, 1, 4, 5, 4, 5, 0, 0, 2, 2, 4, 4, 6, 6, 0, 0, 2, 2, 4, 4, 6, 6, 0, 1, 2, 3, 4, 5, 6, 7, 0, 1, 2, 3, 4, 5, 6, 7, 0, 0, 0, 0, 0, 0, 0, 0, 8, 8, 8, 8, 8, 8, 8, 8, 0, 1, 0, 1, 0, 1, 0, 1, 8, 9, 8, 9, 8, 9, 8, 9, 0, 0, 2, 2, 0, 0, 2, 2, 8, 8, 10, 10, 8, 8, 10, 10, 0, 1, 2, 3, 0, 1, 2, 3, 8, 9, 10, 11, 8, 9, 10, 11, 0, 0, 0, 0, 4, 4, 4, 4, 8, 8, 8, 8, 12, 12, 12, 12, 0, 1, 0, 1, 4, 5, 4, 5, 8, 9, 8, 9, 12, 13, 12, 13, 0, 0, 2, 2, 4, 4, 6, 6, 8, 8, 10, 10, 12, 12, 14, 14, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15).
+function agcAnd16 {
+    parameter leftWord, rightWord.
+    local factor is 1.
+    local resultWord is 0.
+    until factor = 65536 {
+        local tableIndex is mod(leftWord, 16) * 16 + mod(rightWord, 16).
+        set resultWord to resultWord + factor * nibbleAnd[tableIndex].
+        set leftWord to floor(leftWord / 16).
+        set rightWord to floor(rightWord / 16).
+        set factor to factor * 16.
+    }
+    return resultWord.
+}
+
+function agcOr16 {
+    parameter leftWord, rightWord.
+    return leftWord + rightWord - agcAnd16(leftWord, rightWord).
+}
+
+function agcXor16 {
+    parameter leftWord, rightWord.
+    return leftWord + rightWord - 2 * agcAnd16(leftWord, rightWord).
+}

@@ -1,0 +1,6396 @@
+// PORT: Original source unit REENTRY_CONTROL.agc.
+agcAotInstallSourceRope(list(
+// PORT: SOURCE REENTRY_CONTROL.agc:1
+//# Copyright:	Public domain.
+// PORT: SOURCE REENTRY_CONTROL.agc:2
+//# Filename:	REENTRY_CONTROL.agc
+// PORT: SOURCE REENTRY_CONTROL.agc:3
+//# Purpose:	Part of the source code for Colossus 2A, AKA Comanche 055.
+// PORT: SOURCE REENTRY_CONTROL.agc:4
+//#		It is part of the source code for the Command Module's (CM)
+// PORT: SOURCE REENTRY_CONTROL.agc:5
+//#		Apollo Guidance Computer (AGC), for Apollo 11.
+// PORT: SOURCE REENTRY_CONTROL.agc:6
+//# Assembler:	yaYUL
+// PORT: SOURCE REENTRY_CONTROL.agc:7
+//# Contact:	Ron Burkey <info@sandroid.org>.
+// PORT: SOURCE REENTRY_CONTROL.agc:8
+//# Website:	www.ibiblio.org/apollo.
+// PORT: SOURCE REENTRY_CONTROL.agc:9
+//# Pages:	844-882
+// PORT: SOURCE REENTRY_CONTROL.agc:10
+//# Mod history:	2009-05-08 RSB	Adapted from the Colossus249/ file of the
+// PORT: SOURCE REENTRY_CONTROL.agc:11
+//#				same name, using Comanche055 page images.
+// PORT: SOURCE REENTRY_CONTROL.agc:12
+//#		2009-05-23 RSB	In a couple of 2OCT statements, removed the
+// PORT: SOURCE REENTRY_CONTROL.agc:13
+//#				space between the first and second octal words.
+// PORT: SOURCE REENTRY_CONTROL.agc:14
+//#
+// PORT: SOURCE REENTRY_CONTROL.agc:15
+//# This source code has been transcribed or otherwise adapted from digitized
+// PORT: SOURCE REENTRY_CONTROL.agc:16
+//# images of a hardcopy from the MIT Museum.  The digitization was performed
+// PORT: SOURCE REENTRY_CONTROL.agc:17
+//# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+// PORT: SOURCE REENTRY_CONTROL.agc:18
+//# thanks to both.  The images (with suitable reduction in storage size and
+// PORT: SOURCE REENTRY_CONTROL.agc:19
+//# consequent reduction in image quality as well) are available online at
+// PORT: SOURCE REENTRY_CONTROL.agc:20
+//# www.ibiblio.org/apollo.  If for some reason you find that the images are
+// PORT: SOURCE REENTRY_CONTROL.agc:21
+//# illegible, contact me at info@sandroid.org about getting access to the
+// PORT: SOURCE REENTRY_CONTROL.agc:22
+//# (much) higher-quality images which Paul actually created.
+// PORT: SOURCE REENTRY_CONTROL.agc:23
+//#
+// PORT: SOURCE REENTRY_CONTROL.agc:24
+//# Notations on the hardcopy document read, in part:
+// PORT: SOURCE REENTRY_CONTROL.agc:25
+//#
+// PORT: SOURCE REENTRY_CONTROL.agc:26
+//#	Assemble revision 055 of AGC program Comanche by NASA
+// PORT: SOURCE REENTRY_CONTROL.agc:27
+//#	2021113-051.  10:28 APR. 1, 1969
+// PORT: SOURCE REENTRY_CONTROL.agc:28
+//#
+// PORT: SOURCE REENTRY_CONTROL.agc:29
+//#	This AGC program shall also be referred to as
+// PORT: SOURCE REENTRY_CONTROL.agc:30
+//#			Colossus 2A
+// PORT: SOURCE REENTRY_CONTROL.agc:31
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:32
+//# Page 844
+// PORT: SOURCE REENTRY_CONTROL.agc:33
+//# ENTRY INITIALIZATION ROUTINE
+// PORT: SOURCE REENTRY_CONTROL.agc:34
+//# ----------------------------
+// PORT: SOURCE REENTRY_CONTROL.agc:35
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:36
+//		BANK	25
+// PORT: SOURCE REENTRY_CONTROL.agc:37
+//		SETLOC	REENTRY
+// PORT: SOURCE REENTRY_CONTROL.agc:38
+//		BANK
+// PORT: SOURCE REENTRY_CONTROL.agc:39
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:40
+//		COUNT*	$$/ENTRY
+// PORT: SOURCE REENTRY_CONTROL.agc:41
+//		EBANK=	RTINIT
+// PORT: SOURCE REENTRY_CONTROL.agc:42
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:43
+//EBENTRY		=	EBANK7
+// PORT: SOURCE REENTRY_CONTROL.agc:44
+//EBAOG		EQUALS	EBANK6
+// PORT: SOURCE REENTRY_CONTROL.agc:45
+//NTRYPRIO	EQUALS	PRIO20		# (SERVICER)
+// PORT: SOURCE REENTRY_CONTROL.agc:46
+//CM/FLAGS	EQUALS	STATE +6
+// PORT: SOURCE REENTRY_CONTROL.agc:47
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:48
+//STARTENT	EXIT			# MM = 63
+// PORT: Fixed ROM slots 23552.
+    23552, 65532
+)).
+
+// PORT: Physical bank 25. Shared continuation entries, slots 23553–23559.
+function agcAotUnit1403 {
+    parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
+    if slot <= 23555 {
+        if slot <= 23553 {
+// PORT: SOURCE REENTRY_CONTROL.agc:49
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:50
+//					# COME HERE FROM CM/POSE.  RESTARTED IN CM/POSE.
+// PORT: SOURCE REENTRY_CONTROL.agc:51
+//		CS	ENTMASK		# INITIALIZE ALL SWITCHES TO ZERO
+// PORT: Fixed ROM slots 23553.
+            if slot <> 23553 or instruction <> 17483 { return choose false if checkOnly else -1. }
+            if not extended {
+                if checkOnly { return true. }
+                local fixedOperand is mod(readEffective:call(words, 1099), 32768).
+                set words[0] to agcSignExtend(32767 - fixedOperand).
+                return list(false, false, true, false, false).
+            }
+            return choose false if checkOnly else -1.
+        } else {
+            if slot <= 23554 {
+// PORT: SOURCE REENTRY_CONTROL.agc:52
+//					# EXCEPT LATSW, ENTRYDSP, AND GONEPAST.
+// PORT: SOURCE REENTRY_CONTROL.agc:53
+//					# GONEBY 112D BIT8 FLAG7, SELF-INITIALIZING.
+// PORT: SOURCE REENTRY_CONTROL.agc:54
+//		INHINT
+// PORT: Fixed ROM slots 23554.
+                if slot <> 23554 or instruction <> 4 { return choose false if checkOnly else -1. }
+                if not extended {
+                    if checkOnly { return true. }
+                    return agcCoreControlExecute(words, 4, words[0], readEffective).
+                }
+                return choose false if checkOnly else -1.
+            } else {
+// PORT: SOURCE REENTRY_CONTROL.agc:55
+//		MASK	CM/FLAGS
+// PORT: Fixed ROM slots 23555.
+                if slot <> 23555 or instruction <> 28738 { return choose false if checkOnly else -1. }
+                if not extended {
+                    if checkOnly { return true. }
+                    local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                    agcCoreMASK(words, 66).
+                    return list(false, false, inheritedTransient, false, false).
+                }
+                return choose false if checkOnly else -1.
+            }
+        }
+    } else {
+        if slot <= 23557 {
+            if slot <= 23556 {
+// PORT: SOURCE REENTRY_CONTROL.agc:56
+//					# ENTRYDSP = 92D B13
+// PORT: SOURCE REENTRY_CONTROL.agc:57
+//					# GONEPAST=95D B10.	RELVELSW=96D B9
+// PORT: SOURCE REENTRY_CONTROL.agc:58
+//					# EGSW = 97D B8		NOSWITCH = 98D B7
+// PORT: SOURCE REENTRY_CONTROL.agc:59
+//					# HIND=99D B6		INRLSW=100D B5
+// PORT: SOURCE REENTRY_CONTROL.agc:60
+//					# LATSW=101D B4		.05GSW=102D B3
+// PORT: SOURCE REENTRY_CONTROL.agc:61
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:62
+//		AD	ENTRYSW		# SET ENTRYDSP, LATSW, GONEPAST.
+// PORT: Fixed ROM slots 23556.
+                if slot <> 23556 or instruction <> 25676 { return choose false if checkOnly else -1. }
+                if not extended {
+                    if checkOnly { return true. }
+                    local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                    local entryA is words[0].
+                    local fixedOperand is mod(readEffective:call(words, 1100), 32768).
+                    set words[0] to agcAddSP16(entryA, agcSignExtend(fixedOperand)).
+                    return list(false, false, inheritedTransient, false, false).
+                }
+                return choose false if checkOnly else -1.
+            } else {
+// PORT: SOURCE REENTRY_CONTROL.agc:63
+//		TS	CM/FLAGS
+// PORT: Fixed ROM slots 23557.
+                if slot <> 23557 or instruction <> 22594 { return choose false if checkOnly else -1. }
+                if not extended {
+                    if checkOnly { return true. }
+                    return agcCoreControlExecute(words, 22594, words[0], readEffective).
+                }
+                return choose false if checkOnly else -1.
+            }
+        } else {
+            if slot <= 23558 {
+// PORT: SOURCE REENTRY_CONTROL.agc:64
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:65
+//		RELINT
+// PORT: Fixed ROM slots 23558.
+                if slot <> 23558 or instruction <> 3 { return choose false if checkOnly else -1. }
+                if not extended {
+                    if checkOnly { return true. }
+                    return agcCoreControlExecute(words, 3, words[0], readEffective).
+                }
+                return choose false if checkOnly else -1.
+            } else {
+// PORT: SOURCE REENTRY_CONTROL.agc:66
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:67
+//		TC	INTPRET
+// PORT: Fixed ROM slots 23559.
+                if slot <> 23559 or instruction <> 3078 { return choose false if checkOnly else -1. }
+                if not extended {
+                    if checkOnly { return true. }
+                    return agcCoreControlExecute(words, 3078, words[0], readEffective).
+                }
+                return choose false if checkOnly else -1.
+            }
+        }
+    }
+}
+set agcAotRoutes[1403] to agcAotUnit1403@.
+
+agcAotInstallSourceRope(list(
+// PORT: SOURCE REENTRY_CONTROL.agc:68
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:69
+//		SLOAD
+// PORT: Fixed ROM slots 23560.
+    23560, 65466,
+// PORT: SOURCE REENTRY_CONTROL.agc:70
+//			LODPAD
+// PORT: Fixed ROM slots 23561.
+    23561, 3090,
+// PORT: SOURCE REENTRY_CONTROL.agc:71
+//		STORE	LOD
+// PORT: Fixed ROM slots 23562.
+    23562, 3884,
+// PORT: SOURCE REENTRY_CONTROL.agc:72
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:73
+//		SLOAD
+// PORT: Fixed ROM slots 23563.
+    23563, 65466,
+// PORT: SOURCE REENTRY_CONTROL.agc:74
+//			LADPAD
+// PORT: Fixed ROM slots 23564.
+    23564, 3088,
+// PORT: SOURCE REENTRY_CONTROL.agc:75
+//		STORE	LAD
+// PORT: Fixed ROM slots 23565.
+    23565, 3880,
+// PORT: SOURCE REENTRY_CONTROL.agc:76
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:77
+//		DMP			# L/DCMINR = LAD COS(15)
+// PORT: Fixed ROM slots 23566.
+    23566, 65290,
+// PORT: SOURCE REENTRY_CONTROL.agc:78
+//			COS15
+// PORT: Fixed ROM slots 23567.
+    23567, 13734,
+// PORT: SOURCE REENTRY_CONTROL.agc:79
+//		STODL	L/DCMINR
+// PORT: Fixed ROM slots 23568.
+    23568, 16176,
+// PORT: SOURCE REENTRY_CONTROL.agc:80
+//			LATSLOPE
+// PORT: Fixed ROM slots 23569.
+    23569, 13516,
+// PORT: SOURCE REENTRY_CONTROL.agc:81
+//		DMP	SR1		# KLAT = LAD/24
+// PORT: Fixed ROM slots 23570.
+    23570, 57866,
+// PORT: SOURCE REENTRY_CONTROL.agc:82
+//			LAD
+// PORT: Fixed ROM slots 23571.
+    23571, 3880,
+// PORT: SOURCE REENTRY_CONTROL.agc:83
+//# Page 845
+// PORT: SOURCE REENTRY_CONTROL.agc:84
+//		STODL	KLAT
+// PORT: Fixed ROM slots 23572.
+    23572, 16180,
+// PORT: SOURCE REENTRY_CONTROL.agc:85
+//			Q7F
+// PORT: Fixed ROM slots 23573.
+    23573, 13566,
+// PORT: SOURCE REENTRY_CONTROL.agc:86
+//		STODL	Q7		# Q7 = Q7F
+// PORT: Fixed ROM slots 23574.
+    23574, 15610,
+// PORT: SOURCE REENTRY_CONTROL.agc:87
+//			NEARONE		# 1.0 -1BIT
+// PORT: Fixed ROM slots 23575.
+    23575, 15860,
+// PORT: SOURCE REENTRY_CONTROL.agc:88
+//		STODL	FACTOR
+// PORT: Fixed ROM slots 23576.
+    23576, 16152,
+// PORT: SOURCE REENTRY_CONTROL.agc:89
+//			LAD
+// PORT: Fixed ROM slots 23577.
+    23577, 3880,
+// PORT: SOURCE REENTRY_CONTROL.agc:90
+//		SIGN	DCOMP
+// PORT: Fixed ROM slots 23578.
+    23578, 48874,
+// PORT: SOURCE REENTRY_CONTROL.agc:91
+//			HEADSUP		# MAY BE NOISE FOR DISPLAY P61
+// PORT: Fixed ROM slots 23579.
+    23579, 3502,
+// PORT: SOURCE REENTRY_CONTROL.agc:92
+//		STCALL	L/D		# L/D = - LAD SGN(HEADSUP)
+// PORT: Fixed ROM slots 23580.
+    23580, 32568,
+// PORT: SOURCE REENTRY_CONTROL.agc:93
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:94
+//			STARTEN1	# RETURN VIA GOTOADDR
+// PORT: Fixed ROM slots 23581.
+    23581, 43110,
+// PORT: SOURCE REENTRY_CONTROL.agc:95
+//		VLOAD	VXV
+// PORT: Fixed ROM slots 23582.
+    23582, 40442,
+// PORT: SOURCE REENTRY_CONTROL.agc:96
+//			VN		# (-7) M/CS
+// PORT: Fixed ROM slots 23583.
+    23583, 1278,
+// PORT: SOURCE REENTRY_CONTROL.agc:97
+//			UNITR		# .5 UNIT		REF COORDS
+// PORT: Fixed ROM slots 23584.
+    23584, 2016,
+// PORT: SOURCE REENTRY_CONTROL.agc:98
+//		UNIT	DOT
+// PORT: Fixed ROM slots 23585.
+    23585, 41308,
+// PORT: SOURCE REENTRY_CONTROL.agc:99
+//			RT		# RT/2 TARGET VECTOR	REF COORDS
+// PORT: Fixed ROM slots 23586.
+    23586, 3704,
+// PORT: SOURCE REENTRY_CONTROL.agc:100
+//		STORE	LATANG		# LATANG = UNI.RT /4
+// PORT: Fixed ROM slots 23587.
+    23587, 3964,
+// PORT: SOURCE REENTRY_CONTROL.agc:101
+//		DCOMP	RTB
+// PORT: Fixed ROM slots 23588.
+    23588, 40060,
+// PORT: SOURCE REENTRY_CONTROL.agc:102
+//			SIGNMPAC
+// PORT: Fixed ROM slots 23589.
+    23589, 38804,
+// PORT: SOURCE REENTRY_CONTROL.agc:103
+//		STODL	K2ROLL		# K2ROLL = -SGN(LATANG)
+// PORT: Fixed ROM slots 23590.
+    23590, 16200,
+// PORT: SOURCE REENTRY_CONTROL.agc:104
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:105
+//			LAD
+// PORT: Fixed ROM slots 23591.
+    23591, 3880,
+// PORT: SOURCE REENTRY_CONTROL.agc:106
+//		DMP	DAD
+// PORT: Fixed ROM slots 23592.
+    23592, 36106,
+// PORT: SOURCE REENTRY_CONTROL.agc:107
+//			Q21
+// PORT: Fixed ROM slots 23593.
+    23593, 13570,
+// PORT: SOURCE REENTRY_CONTROL.agc:108
+//			Q22
+// PORT: Fixed ROM slots 23594.
+    23594, 13574,
+// PORT: SOURCE REENTRY_CONTROL.agc:109
+//		STORE	Q2		# Q2 = -1152 + 500 LAD
+// PORT: Fixed ROM slots 23595.
+    23595, 3988,
+// PORT: SOURCE REENTRY_CONTROL.agc:110
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:111
+//		SSP	SSP
+// PORT: Fixed ROM slots 23596.
+    23596, 55730,
+// PORT: SOURCE REENTRY_CONTROL.agc:112
+//			GOTOADDR	# SET SELECTOR FOR INITIAL PASS
+// PORT: Fixed ROM slots 23597.
+    23597, 3916,
+// PORT: SOURCE REENTRY_CONTROL.agc:113
+//			INITROLL
+// PORT: Fixed ROM slots 23598.
+    23598, 43360,
+// PORT: SOURCE REENTRY_CONTROL.agc:114
+//			POSEXIT
+// PORT: Fixed ROM slots 23599.
+    23599, 3498,
+// PORT: SOURCE REENTRY_CONTROL.agc:115
+//			SCALEPOP	# SET CM/POSE TO CONTINUE AT SCALEPOP
+// PORT: Fixed ROM slots 23600.
+    23600, 43162,
+// PORT: SOURCE REENTRY_CONTROL.agc:116
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:117
+//		RTB
+// PORT: Fixed ROM slots 23601.
+    23601, 65336,
+// PORT: SOURCE REENTRY_CONTROL.agc:118
+//			SERVNOUT	# OMIT INITIAL DISPLAY, SINCE 1ST GUESSBAD
+// PORT: Fixed ROM slots 23602.
+    23602, 44818,
+// PORT: SOURCE REENTRY_CONTROL.agc:119
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:120
+//# CALCULATE THE INITIAL TARGET VECTOR: RTINIT, ALSO RTEAST, RTNORM AND RT.  ALL ARE .5 UNIT AND IN
+// PORT: SOURCE REENTRY_CONTROL.agc:121
+//# REFERENCE COORDINATES.
+// PORT: SOURCE REENTRY_CONTROL.agc:122
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:123
+//STARTEN1	STQ	VLOAD
+// PORT: Fixed ROM slots 23603.
+    23603, 64800,
+// PORT: SOURCE REENTRY_CONTROL.agc:124
+//			GOTOADDR
+// PORT: Fixed ROM slots 23604.
+    23604, 3914,
+// PORT: SOURCE REENTRY_CONTROL.agc:125
+//			LAT(SPL)	# TARGET COORDINATES
+// PORT: Fixed ROM slots 23605.
+    23605, 3586,
+// PORT: SOURCE REENTRY_CONTROL.agc:126
+//		CLEAR	CLEAR		# DO CALL USING PAD RADIUS.  WILL UNIT IT.
+// PORT: Fixed ROM slots 23606.
+    23606, 35864,
+// PORT: SOURCE REENTRY_CONTROL.agc:127
+//			ERADFLAG	# ANYWAY.
+// PORT: Fixed ROM slots 23607.
+    23607, 868,
+// PORT: SOURCE REENTRY_CONTROL.agc:128
+//			LUNAFLAG
+// PORT: Fixed ROM slots 23608.
+    23608, 1894,
+// PORT: SOURCE REENTRY_CONTROL.agc:129
+//		STODL	LAT
+// PORT: Fixed ROM slots 23609.
+    23609, 13448,
+// PORT: SOURCE REENTRY_CONTROL.agc:130
+//			3ZEROS
+// PORT: Fixed ROM slots 23610.
+    23610, 13754,
+// PORT: SOURCE REENTRY_CONTROL.agc:131
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:132
+//		STODL	LAT +4		# SET ALT=0.
+// PORT: Fixed ROM slots 23611.
+    23611, 13456,
+// PORT: SOURCE REENTRY_CONTROL.agc:133
+//			PIPTIME		# ESTABLISH RTINIT AT TIME OF PRESENT
+// PORT: Fixed ROM slots 23612.
+    23612, 1290,
+// PORT: SOURCE REENTRY_CONTROL.agc:134
+//# Page 846
+// PORT: SOURCE REENTRY_CONTROL.agc:135
+//					# RN AND VN.
+// PORT: SOURCE REENTRY_CONTROL.agc:136
+//		STCALL	TIME/RTO	# SAVE TIME BASE OF RTINIT.
+// PORT: Fixed ROM slots 23613.
+    23613, 32424,
+// PORT: SOURCE REENTRY_CONTROL.agc:137
+//			LALOTORV	# C(MPAC) =TIME  (PIPTIME)
+// PORT: Fixed ROM slots 23614.
+    23614, 23106,
+// PORT: SOURCE REENTRY_CONTROL.agc:138
+//		UNIT			# ANSWER IN ALPHAV ALSO
+// PORT: Fixed ROM slots 23615.
+    23615, 65372,
+// PORT: SOURCE REENTRY_CONTROL.agc:139
+//		STODL	RTINIT		# .5 UNIT TARGET		REF COORDS
+// PORT: Fixed ROM slots 23616.
+    23616, 15956,
+// PORT: SOURCE REENTRY_CONTROL.agc:140
+//			500SEC		# NOMINAL ENTRY TIME FOR P63
+// PORT: Fixed ROM slots 23617.
+    23617, 10388,
+// PORT: SOURCE REENTRY_CONTROL.agc:141
+//					# TIME/RTO = PIPTIME, STILL.
+// PORT: SOURCE REENTRY_CONTROL.agc:142
+//		STCALL	DTEAROT		# INITIALIZE EARROT
+// PORT: Fixed ROM slots 23618.
+    23618, 32524,
+// PORT: SOURCE REENTRY_CONTROL.agc:143
+//			EARROT1		# GET RT
+// PORT: Fixed ROM slots 23619.
+    23619, 39194,
+// PORT: SOURCE REENTRY_CONTROL.agc:144
+//		DOT	SL1
+// PORT: Fixed ROM slots 23620.
+    23620, 59970,
+// PORT: SOURCE REENTRY_CONTROL.agc:145
+//			UNITR		# RT/2 IN MPAC
+// PORT: Fixed ROM slots 23621.
+    23621, 2016,
+// PORT: SOURCE REENTRY_CONTROL.agc:146
+//		ACOS
+// PORT: Fixed ROM slots 23622.
+    23622, 65452,
+// PORT: SOURCE REENTRY_CONTROL.agc:147
+//		STCALL	THETAH		# RANGE ANGLE /360
+// PORT: Fixed ROM slots 23623.
+    23623, 32644,
+// PORT: SOURCE REENTRY_CONTROL.agc:148
+//			GOTOADDR	# RETURN TO CALLER
+// PORT: Fixed ROM slots 23624.
+    23624, 3914,
+// PORT: SOURCE REENTRY_CONTROL.agc:149
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:150
+//500SEC		2DEC	50000 B-28	# CS
+// PORT: Fixed ROM slots 23625 23626.
+    23625, 6, 23626, 1696,
+// PORT: SOURCE REENTRY_CONTROL.agc:151
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:152
+//ENTMASK		OCT	11774
+// PORT: Fixed ROM slots 23627.
+    23627, 10232,
+// PORT: SOURCE REENTRY_CONTROL.agc:153
+//ENTRYSW		OCT	11010		# ENTRYDSP B13, GONEPAST B10, LATSW B4
+// PORT: Fixed ROM slots 23628.
+    23628, 9232,
+// PORT: SOURCE REENTRY_CONTROL.agc:154
+//# Page 847
+// PORT: SOURCE REENTRY_CONTROL.agc:155
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:156
+//SCALEPOP	CALL
+// PORT: Fixed ROM slots 23629.
+    23629, 65320,
+// PORT: SOURCE REENTRY_CONTROL.agc:157
+//			TARGETNG
+// PORT: Fixed ROM slots 23630.
+    23630, 43178,
+// PORT: SOURCE REENTRY_CONTROL.agc:158
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:159
+//		EXIT
+// PORT: Fixed ROM slots 23631.
+    23631, 65532
+)).
+
+// PORT: Physical bank 25. Shared continuation entries, slots 23632–23632.
+function agcAotUnit1404 {
+    parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
+// PORT: SOURCE REENTRY_CONTROL.agc:160
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:161
+//REFAZE10	TC	PHASCHNG
+// PORT: Fixed ROM slots 23632.
+    if slot <> 23632 or instruction <> 2826 { return choose false if checkOnly else -1. }
+    if not extended {
+        if checkOnly { return true. }
+        return agcCoreControlExecute(words, 2826, words[0], readEffective).
+    }
+    return choose false if checkOnly else -1.
+}
+set agcAotRoutes[1404] to agcAotUnit1404@.
+
+agcAotInstallSourceRope(list(
+// PORT: SOURCE REENTRY_CONTROL.agc:162
+//		OCT	10035		# SERVICER 5.3 RESTART AT REFAZE10
+// PORT: Fixed ROM slots 23633.
+    23633, 8250
+)).
+
+// PORT: Physical bank 25. Shared continuation entries, slots 23634–23634.
+function agcAotUnit1405 {
+    parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
+// PORT: SOURCE REENTRY_CONTROL.agc:163
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:164
+//		TC	INTPRET
+// PORT: Fixed ROM slots 23634.
+    if slot <> 23634 or instruction <> 3078 { return choose false if checkOnly else -1. }
+    if not extended {
+        if checkOnly { return true. }
+        return agcCoreControlExecute(words, 3078, words[0], readEffective).
+    }
+    return choose false if checkOnly else -1.
+}
+set agcAotRoutes[1405] to agcAotUnit1405@.
+
+agcAotInstallSourceRope(list(
+// PORT: SOURCE REENTRY_CONTROL.agc:165
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:166
+//# JUMP TO PARTICULAR RE-ENTRY PHASE:
+// PORT: SOURCE REENTRY_CONTROL.agc:167
+//#SEQUENCE
+// PORT: SOURCE REENTRY_CONTROL.agc:168
+//		GOTO
+// PORT: Fixed ROM slots 23635.
+    23635, 65360,
+// PORT: SOURCE REENTRY_CONTROL.agc:169
+//			GOTOADDR
+// PORT: Fixed ROM slots 23636.
+    23636, 3914,
+// PORT: SOURCE REENTRY_CONTROL.agc:170
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:171
+//# GOTOADDR CONTAINS THE ADDRESS OF THE ROLL COMMAND EQUATIONS TO THE CURRENT PHASE OF
+// PORT: SOURCE REENTRY_CONTROL.agc:172
+//# RE-ENTRY.  SEQUENCING IS AS FOLLOWS:
+// PORT: SOURCE REENTRY_CONTROL.agc:173
+//#
+// PORT: SOURCE REENTRY_CONTROL.agc:174
+//# INITROLL	ADDRESS IS SET HERE INITIALLY.  HOLDS INITIAL ROLL ATTITUDE UNTIL  KAT  IS EXCEEDED.  THEN HOLDS NEW ROLL
+// PORT: SOURCE REENTRY_CONTROL.agc:175
+//#		ATTITUDE UNTIL  VRTHRESH  IS EXCEEDED.  THEN BRANCHES TO
+// PORT: SOURCE REENTRY_CONTROL.agc:176
+//#
+// PORT: SOURCE REENTRY_CONTROL.agc:177
+//# HUNTEST	THIS SECTION CHECKS TO SEE IF THE PREDICTED RANGE AT NOMINAL   L/D FROM PRESENT CONDITIONS IS LESS
+// PORT: SOURCE REENTRY_CONTROL.agc:178
+//#		THAN THE DESIRED RANGE.
+// PORT: SOURCE REENTRY_CONTROL.agc:179
+//#			IF NOT --- A ROLL COMMAND IS GENERATED BY THE CONSTANT DRAG CONTROLLER.
+// PORT: SOURCE REENTRY_CONTROL.agc:180
+//#			IF SO  --- CONTROL AND GOTOADDR ARE SET TO UPCONTRL.
+// PORT: SOURCE REENTRY_CONTROL.agc:181
+//#		USUALLY NO ITERATION IS INVOLVED EXCEPT IF THE RANGE DESIRED IS TOO LONG ON THE FIRST PASS THROUGH
+// PORT: SOURCE REENTRY_CONTROL.agc:182
+//#		HUNTEST.
+// PORT: SOURCE REENTRY_CONTROL.agc:183
+//#
+// PORT: SOURCE REENTRY_CONTROL.agc:184
+//# UPCONTRL	CONTROLS ROLL DURING THE SUPER-CIRCULAR PHASE.  UPCONTRL IS TERMINATED EITHER
+// PORT: SOURCE REENTRY_CONTROL.agc:185
+//#			(A) WHEN THE DRAG (AS MEASURED BY THE PIPAS) FALLS BELOW Q7, OR
+// PORT: SOURCE REENTRY_CONTROL.agc:186
+//#			(B) IF RDOT IS NEGATIVE AND REFERENCE VL EXCEEDS V.
+// PORT: SOURCE REENTRY_CONTROL.agc:187
+//#		IN CASE (A),  GOTOADDR  IS SET TO  KEP2  AND IN CASE (B), TO  PREDICT3  SKIPPING THE KEPLER PHASE OF
+// PORT: SOURCE REENTRY_CONTROL.agc:188
+//#		ENTRY.
+// PORT: SOURCE REENTRY_CONTROL.agc:189
+//#
+// PORT: SOURCE REENTRY_CONTROL.agc:190
+//# KEP2		GOTOADDR IS SET HERE DURING THE KEPLER PHASE TO MONITOR DRAG.  THE SPACECRAFT IS INSTANTANEOUSLY
+// PORT: SOURCE REENTRY_CONTROL.agc:191
+//#		TRIMMED IN PITCH AND YAW TO THE COMPUTED RELATIVE VELOCITY.  THE LAST COMPUTED ROLL ANGLE IS MAINTAINED.
+// PORT: SOURCE REENTRY_CONTROL.agc:192
+//#		WHEN THE MEASURED DRAG EXCEEDS Q7 +0.5,  GOTOADDR  IS SET TO
+// PORT: SOURCE REENTRY_CONTROL.agc:193
+//#
+// PORT: SOURCE REENTRY_CONTROL.agc:194
+//# PREDICT3	THIS CONTROLS THE FINAL SUB-ORBITAL PHASE. ROLL COMMANDS CEASE
+// PORT: SOURCE REENTRY_CONTROL.agc:195
+//#		WHEN  V  IS LESS THAN  VQUIT .  AN EXIT IS MADE TO
+// PORT: SOURCE REENTRY_CONTROL.agc:196
+//#
+// PORT: SOURCE REENTRY_CONTROL.agc:197
+//# P67.1		THE LAST COMPUTED ROLL ANGLE IS MAINTAINED.  RATE DAMPING IS DONE IN PITCH AND YAW.  PRESENT LATITUDE
+// PORT: SOURCE REENTRY_CONTROL.agc:198
+//#		AND LONGITUDE ARE COMPUTED FOR DISPLAY.
+// PORT: SOURCE REENTRY_CONTROL.agc:199
+//#		ENTRY IS TERMINATED WHEN DISKY RESPONSE IS MADE TO TO THIS FINAL FLASHING DISPLAY.
+// PORT: SOURCE REENTRY_CONTROL.agc:200
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:201
+//# Page 848
+// PORT: SOURCE REENTRY_CONTROL.agc:202
+//# PROCESS AVERAGE G OUTPUT...SCALE IT AND GET INPUT DATA
+// PORT: SOURCE REENTRY_CONTROL.agc:203
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:204
+//# * START  TARGETING ...
+// PORT: SOURCE REENTRY_CONTROL.agc:205
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:206
+//		EBANK=	RTINIT
+// PORT: SOURCE REENTRY_CONTROL.agc:207
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:208
+//					# TARGETNG IS CALLED BY P61, FROM GROUP 4.
+// PORT: SOURCE REENTRY_CONTROL.agc:209
+//					# TARGETNG IS CALLED BY ENTRY, FROM GROUP 5.
+// PORT: SOURCE REENTRY_CONTROL.agc:210
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:211
+//					# ALL MM COME HERE.
+// PORT: SOURCE REENTRY_CONTROL.agc:212
+//TARGETNG	BOFF	VLOAD		# ENTER WITH PROPER EB FROM CM/POSE(TEST)
+// PORT: Fixed ROM slots 23637.
+    23637, 64792,
+// PORT: SOURCE REENTRY_CONTROL.agc:213
+//			RELVELSW	# RELVELSW = 96D BIT9
+// PORT: Fixed ROM slots 23638.
+    23638, 3532,
+// PORT: SOURCE REENTRY_CONTROL.agc:214
+//			GETVEL		# WANT INERTIAL VEL.  GO GET IT.
+// PORT: Fixed ROM slots 23639.
+    23639, 43190,
+// PORT: SOURCE REENTRY_CONTROL.agc:215
+//			-VREL		# NEW V IS RELATIVE, CONTINUE
+// PORT: Fixed ROM slots 23640.
+    23640, 3756,
+// PORT: SOURCE REENTRY_CONTROL.agc:216
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:217
+//		VCOMP	GOTO		# (VREL) = (V) + KWE UNITR*UNITW
+// PORT: Fixed ROM slots 23641.
+    23641, 43132,
+// PORT: SOURCE REENTRY_CONTROL.agc:218
+//			GETUNITV -1	# - VREL WAS LEFT BY CM/POSE
+// PORT: Fixed ROM slots 23642.
+    23642, 43196,
+// PORT: SOURCE REENTRY_CONTROL.agc:219
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:220
+//GETVEL		VLOAD	VXSC		# INERTIAL V WANTED
+// PORT: Fixed ROM slots 23643.
+    23643, 61946,
+// PORT: SOURCE REENTRY_CONTROL.agc:221
+//			VN		# KVSCALE = (12800 / .3048) / 2VS
+// PORT: Fixed ROM slots 23644.
+    23644, 1278,
+// PORT: SOURCE REENTRY_CONTROL.agc:222
+//			KVSCALE		# KVSCALE = .81491944
+// PORT: Fixed ROM slots 23645.
+    23645, 13618,
+// PORT: SOURCE REENTRY_CONTROL.agc:223
+//		STORE	VEL		# V/2 VS
+// PORT: Fixed ROM slots 23646.
+    23646, 3740,
+// PORT: SOURCE REENTRY_CONTROL.agc:224
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:225
+//GETUNITV	UNIT	STQ
+// PORT: Fixed ROM slots 23647.
+    23647, 36956,
+// PORT: SOURCE REENTRY_CONTROL.agc:226
+//			60GENRET
+// PORT: Fixed ROM slots 23648.
+    23648, 3574,
+// PORT: SOURCE REENTRY_CONTROL.agc:227
+//		STODL	UNITV
+// PORT: Fixed ROM slots 23649.
+    23649, 16016,
+// PORT: SOURCE REENTRY_CONTROL.agc:228
+//			34D
+// PORT: Fixed ROM slots 23650.
+    23650, 70,
+// PORT: SOURCE REENTRY_CONTROL.agc:229
+//		STORE	VSQUARE		# VSQ/4
+// PORT: Fixed ROM slots 23651.
+    23651, 3876,
+// PORT: SOURCE REENTRY_CONTROL.agc:230
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:231
+//		DSU			# LEQ = VSQUARE - 1
+// PORT: Fixed ROM slots 23652.
+    23652, 65322,
+// PORT: SOURCE REENTRY_CONTROL.agc:232
+//			FOURTH		# 4 G-S FULL SCALE
+// PORT: Fixed ROM slots 23653.
+    23653, 13738,
+// PORT: SOURCE REENTRY_CONTROL.agc:233
+//		STODL	LEQ		# LEQ/4
+// PORT: Fixed ROM slots 23654.
+    23654, 16216,
+// PORT: SOURCE REENTRY_CONTROL.agc:234
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:235
+//			36D
+// PORT: Fixed ROM slots 23655.
+    23655, 74,
+// PORT: SOURCE REENTRY_CONTROL.agc:236
+//		STOVL	V		# V/2 VS = VEL/2 VS
+// PORT: Fixed ROM slots 23656.
+    23656, 24440,
+// PORT: SOURCE REENTRY_CONTROL.agc:237
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:238
+//			VEL
+// PORT: Fixed ROM slots 23657.
+    23657, 3740,
+// PORT: SOURCE REENTRY_CONTROL.agc:239
+//		DOT	SL1		# RDOT= V.UNITR
+// PORT: Fixed ROM slots 23658.
+    23658, 59970,
+// PORT: SOURCE REENTRY_CONTROL.agc:240
+//			UNITR
+// PORT: Fixed ROM slots 23659.
+    23659, 2016,
+// PORT: SOURCE REENTRY_CONTROL.agc:241
+//		STOVL	RDOT		# RDOT /2 VS
+// PORT: Fixed ROM slots 23660.
+    23660, 24448,
+// PORT: SOURCE REENTRY_CONTROL.agc:242
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:243
+//			DELV		# PIPA COUNTS IN PLATFORM COORDS.
+// PORT: Fixed ROM slots 23661.
+    23661, 1254,
+// PORT: SOURCE REENTRY_CONTROL.agc:244
+//		ABVAL	DMP
+// PORT: Fixed ROM slots 23662.
+    23662, 34124,
+// PORT: SOURCE REENTRY_CONTROL.agc:245
+//			KASCALE
+// PORT: Fixed ROM slots 23663.
+    23663, 13622,
+// PORT: SOURCE REENTRY_CONTROL.agc:246
+//		SL1	BZE
+// PORT: Fixed ROM slots 23664.
+    23664, 44244,
+// PORT: SOURCE REENTRY_CONTROL.agc:247
+//			SETMIND
+// PORT: Fixed ROM slots 23665.
+    23665, 46262,
+// PORT: SOURCE REENTRY_CONTROL.agc:248
+//DSTORE		STOVL	D		# ACCELERATION USED TO APPROX DRAG
+// PORT: Fixed ROM slots 23666.
+    23666, 24384,
+// PORT: SOURCE REENTRY_CONTROL.agc:249
+//			VEL
+// PORT: Fixed ROM slots 23667.
+    23667, 3740,
+// PORT: SOURCE REENTRY_CONTROL.agc:250
+//		VXV	UNIT		# UNI = UNIT(V*R)
+// PORT: Fixed ROM slots 23668.
+    23668, 44602,
+// PORT: SOURCE REENTRY_CONTROL.agc:251
+//# Page 849
+// PORT: SOURCE REENTRY_CONTROL.agc:252
+//			UNITR
+// PORT: Fixed ROM slots 23669.
+    23669, 2016,
+// PORT: SOURCE REENTRY_CONTROL.agc:253
+//		STORE	UNI		# .5 UNI		REF COORDS.
+// PORT: Fixed ROM slots 23670.
+    23670, 3716,
+// PORT: SOURCE REENTRY_CONTROL.agc:254
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:255
+//		BOFF	DLOAD
+// PORT: Fixed ROM slots 23671.
+    23671, 58648,
+// PORT: SOURCE REENTRY_CONTROL.agc:256
+//			RELVELSW
+// PORT: Fixed ROM slots 23672.
+    23672, 3532,
+// PORT: SOURCE REENTRY_CONTROL.agc:257
+//			GETETA
+// PORT: Fixed ROM slots 23673.
+    23673, 46200,
+// PORT: SOURCE REENTRY_CONTROL.agc:258
+//			3ZEROS
+// PORT: Fixed ROM slots 23674.
+    23674, 13754,
+// PORT: SOURCE REENTRY_CONTROL.agc:259
+//UPDATERT	DSU	DAD		# PIPTIME-TIME/RTO =ELAPSED TIME SINCE
+// PORT: Fixed ROM slots 23675.
+    23675, 36138,
+// PORT: SOURCE REENTRY_CONTROL.agc:260
+//					# RTINIT WAS ESTABLISHED.
+// PORT: SOURCE REENTRY_CONTROL.agc:261
+//			TIME/RTO
+// PORT: Fixed ROM slots 23676.
+    23676, 3752,
+// PORT: SOURCE REENTRY_CONTROL.agc:262
+//			PIPTIME
+// PORT: Fixed ROM slots 23677.
+    23677, 1290,
+// PORT: SOURCE REENTRY_CONTROL.agc:263
+//		STCALL	DTEAROT		# GET PREDICTED TARGET VECTOR RT
+// PORT: Fixed ROM slots 23678.
+    23678, 32524,
+// PORT: SOURCE REENTRY_CONTROL.agc:264
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:265
+//			EARROT2
+// PORT: Fixed ROM slots 23679.
+    23679, 39210,
+// PORT: SOURCE REENTRY_CONTROL.agc:266
+//		DOT	SETPD		# SINCE (RT) UNIT VECT, THIS IS 1/4 MAX
+// PORT: Fixed ROM slots 23680.
+    23680, 33090,
+// PORT: SOURCE REENTRY_CONTROL.agc:267
+//			UNI		# LATANG = RT.UNI
+// PORT: Fixed ROM slots 23681.
+    23681, 3716,
+// PORT: SOURCE REENTRY_CONTROL.agc:268
+//			0
+// PORT: Fixed ROM slots 23682.
+    23682, 2,
+// PORT: SOURCE REENTRY_CONTROL.agc:269
+//		STOVL	LATANG		# LATANG = MAC LATANG / 4
+// PORT: Fixed ROM slots 23683.
+    23683, 24444,
+// PORT: SOURCE REENTRY_CONTROL.agc:270
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:271
+//			RT
+// PORT: Fixed ROM slots 23684.
+    23684, 3704,
+// PORT: SOURCE REENTRY_CONTROL.agc:272
+//		CLEAR
+// PORT: Fixed ROM slots 23685.
+    23685, 65304,
+// PORT: SOURCE REENTRY_CONTROL.agc:273
+//			GONEBY		# SHOW HAVE NOT GONE PAST TARGET.
+// PORT: Fixed ROM slots 23686.
+    23686, 3950,
+// PORT: SOURCE REENTRY_CONTROL.agc:274
+//		VXV	DOT		# IF RT*UNITR.UNI NEG, GONEBY=1
+// PORT: Fixed ROM slots 23687.
+    23687, 41274,
+// PORT: SOURCE REENTRY_CONTROL.agc:275
+//			UNITR		# GONEPAST IS CONDITIONAL SW SET IN
+// PORT: Fixed ROM slots 23688.
+    23688, 2016,
+// PORT: SOURCE REENTRY_CONTROL.agc:276
+//			UNI		# FINAL PHASE.
+// PORT: Fixed ROM slots 23689.
+    23689, 3716,
+// PORT: SOURCE REENTRY_CONTROL.agc:277
+//		BPL	SET
+// PORT: Fixed ROM slots 23690.
+    23690, 35912,
+// PORT: SOURCE REENTRY_CONTROL.agc:278
+//			+2
+// PORT: Fixed ROM slots 23691.
+    23691, 43290,
+// PORT: SOURCE REENTRY_CONTROL.agc:279
+//			GONEBY		# SHOW HAVE GONE PAST TARGET.
+// PORT: Fixed ROM slots 23692.
+    23692, 3694,
+// PORT: SOURCE REENTRY_CONTROL.agc:280
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:281
+//		VLOAD
+// PORT: Fixed ROM slots 23693.
+    23693, 65530,
+// PORT: SOURCE REENTRY_CONTROL.agc:282
+//			RT
+// PORT: Fixed ROM slots 23694.
+    23694, 3704,
+// PORT: SOURCE REENTRY_CONTROL.agc:283
+//GETANGLE	DOT	DSU		# THETA = ARCCOS(RT.UNITR)
+// PORT: Fixed ROM slots 23695.
+    23695, 38210,
+// PORT: SOURCE REENTRY_CONTROL.agc:284
+//			UNITR
+// PORT: Fixed ROM slots 23696.
+    23696, 2016,
+// PORT: SOURCE REENTRY_CONTROL.agc:285
+//			NEAR1/4		# TO IMPROVE ACCURACY, CALC RANGE BY
+// PORT: Fixed ROM slots 23697.
+    23697, 13542,
+// PORT: SOURCE REENTRY_CONTROL.agc:286
+//		BPL	DAD		# TINYTHET IF HIGH ORDER PART OF
+// PORT: Fixed ROM slots 23698.
+    23698, 36168,
+// PORT: SOURCE REENTRY_CONTROL.agc:287
+//			TINYTHET	# ARCCOS ARGUMENT IS ZERO
+// PORT: Fixed ROM slots 23699.
+    23699, 46268,
+// PORT: SOURCE REENTRY_CONTROL.agc:288
+//			NEAR1/4
+// PORT: Fixed ROM slots 23700.
+    23700, 13542,
+// PORT: SOURCE REENTRY_CONTROL.agc:289
+//		SL1	ACOS
+// PORT: Fixed ROM slots 23701.
+    23701, 54996,
+// PORT: SOURCE REENTRY_CONTROL.agc:290
+//THETDONE	STORE	THETAH		# THETAH/360
+// PORT: Fixed ROM slots 23702.
+    23702, 3972,
+// PORT: SOURCE REENTRY_CONTROL.agc:291
+//					# HI WORD, LO BIT =1.32 NM=360 60/16384
+// PORT: SOURCE REENTRY_CONTROL.agc:292
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:293
+//		BON	DCOMP
+// PORT: Fixed ROM slots 23703.
+    23703, 48664
+)).
+
+agcAotInstallSourceRope(list(
+// PORT: SOURCE REENTRY_CONTROL.agc:294
+//			GONEBY		# =1 IF HAVE GONE PAST TARGET.
+// PORT: Fixed ROM slots 23704.
+    23704, 3982,
+// PORT: SOURCE REENTRY_CONTROL.agc:295
+//					# (SIGN MAY BECOME ERRATIC VERY NEAR
+// PORT: SOURCE REENTRY_CONTROL.agc:296
+//					# TARGET DUE TO LOSS OF PRECISION.)
+// PORT: SOURCE REENTRY_CONTROL.agc:297
+//			+1
+// PORT: Fixed ROM slots 23705.
+    23705, 43316,
+// PORT: SOURCE REENTRY_CONTROL.agc:298
+//		STODL	RTGON67		# RANGE ERROR:  NEG IF WILL FALL SHORT.
+// PORT: Fixed ROM slots 23706.
+    23706, 16280,
+// PORT: SOURCE REENTRY_CONTROL.agc:299
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:300
+//			D
+// PORT: Fixed ROM slots 23707.
+    23707, 3904,
+// PORT: SOURCE REENTRY_CONTROL.agc:301
+//		DSU	BMN
+// PORT: Fixed ROM slots 23708.
+    23708, 41002,
+// PORT: SOURCE REENTRY_CONTROL.agc:302
+//# Page 850
+// PORT: SOURCE REENTRY_CONTROL.agc:303
+//			.05G
+// PORT: Fixed ROM slots 23709.
+    23709, 13634,
+// PORT: SOURCE REENTRY_CONTROL.agc:304
+//			NO.05G
+// PORT: Fixed ROM slots 23710.
+    23710, 43354,
+// PORT: SOURCE REENTRY_CONTROL.agc:305
+//		SET	VLOAD
+// PORT: Fixed ROM slots 23711.
+    23711, 64792,
+// PORT: SOURCE REENTRY_CONTROL.agc:306
+//			.05GSW
+// PORT: Fixed ROM slots 23712.
+    23712, 3192,
+// PORT: SOURCE REENTRY_CONTROL.agc:307
+//			DELVREF
+// PORT: Fixed ROM slots 23713.
+    23713, 3638,
+// PORT: SOURCE REENTRY_CONTROL.agc:308
+//		PUSH	DOT
+// PORT: Fixed ROM slots 23714.
+    23714, 41228,
+// PORT: SOURCE REENTRY_CONTROL.agc:309
+//			UXA/2
+// PORT: Fixed ROM slots 23715.
+    23715, 3780,
+// PORT: SOURCE REENTRY_CONTROL.agc:310
+//		SL1	DSQ
+// PORT: Fixed ROM slots 23716.
+    23716, 52948,
+// PORT: SOURCE REENTRY_CONTROL.agc:311
+//		PDVL	VSQ		# EXCHANGE WITH PDL.
+// PORT: Fixed ROM slots 23717.
+    23717, 40602,
+// PORT: SOURCE REENTRY_CONTROL.agc:312
+//		DSU	DDV
+// PORT: Fixed ROM slots 23718.
+    23718, 47402,
+// PORT: SOURCE REENTRY_CONTROL.agc:313
+//			0
+// PORT: Fixed ROM slots 23719.
+    23719, 2,
+// PORT: SOURCE REENTRY_CONTROL.agc:314
+//		BOV	SQRT
+// PORT: Fixed ROM slots 23720.
+    23720, 62976,
+// PORT: SOURCE REENTRY_CONTROL.agc:315
+//			NOLDCALC	# OVFL LAST CLEARED IN EARROT2 ABOVE.
+// PORT: Fixed ROM slots 23721.
+    23721, 43350,
+// PORT: SOURCE REENTRY_CONTROL.agc:316
+//		STORE	L/DCALC
+// PORT: Fixed ROM slots 23722.
+    23722, 4014,
+// PORT: SOURCE REENTRY_CONTROL.agc:317
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:318
+//NOLDCALC	GOTO
+// PORT: Fixed ROM slots 23723.
+    23723, 65360,
+// PORT: SOURCE REENTRY_CONTROL.agc:319
+//			60GENRET
+// PORT: Fixed ROM slots 23724.
+    23724, 3574,
+// PORT: SOURCE REENTRY_CONTROL.agc:320
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:321
+//NO.05G		CLEAR	GOTO		# THIS WAY FOR DAP. (MAY INTERRUPT)
+// PORT: Fixed ROM slots 23725.
+    23725, 43032,
+// PORT: SOURCE REENTRY_CONTROL.agc:322
+//			.05GSW		# .05GSW = 102D B3
+// PORT: Fixed ROM slots 23726.
+    23726, 3448,
+// PORT: SOURCE REENTRY_CONTROL.agc:323
+//			NOLDCALC	# KEEP SINGLE EXIT FOR TARGETNG
+// PORT: Fixed ROM slots 23727.
+    23727, 43350,
+// PORT: SOURCE REENTRY_CONTROL.agc:324
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:325
+//# Page 851
+// PORT: SOURCE REENTRY_CONTROL.agc:326
+//# SUBROUTINES CALLED BY SCALEPOP (TARGETING):
+// PORT: SOURCE REENTRY_CONTROL.agc:327
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:328
+//		BANK	26
+// PORT: SOURCE REENTRY_CONTROL.agc:329
+//		SETLOC	REENTRY1
+// PORT: SOURCE REENTRY_CONTROL.agc:330
+//		BANK
+// PORT: SOURCE REENTRY_CONTROL.agc:331
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:332
+//		COUNT*	$$/ENTRY
+// PORT: SOURCE REENTRY_CONTROL.agc:333
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:334
+//GETETA		DLOAD	DDV		# D = D +D(-RDOT/HS -2D/V)  DT/2
+// PORT: Fixed ROM slots 25148.
+    25148, 47562,
+// PORT: SOURCE REENTRY_CONTROL.agc:335
+//					# DT/2 = 2/2 =1
+// PORT: SOURCE REENTRY_CONTROL.agc:336
+//			RDOT
+// PORT: Fixed ROM slots 25149.
+    25149, 3968,
+// PORT: SOURCE REENTRY_CONTROL.agc:337
+//			-HSCALED
+// PORT: Fixed ROM slots 25150.
+    25150, 13726,
+// PORT: SOURCE REENTRY_CONTROL.agc:338
+//		PDDL	DMP
+// PORT: Fixed ROM slots 25151.
+    25151, 34218,
+// PORT: SOURCE REENTRY_CONTROL.agc:339
+//			D
+// PORT: Fixed ROM slots 25152.
+    25152, 3904,
+// PORT: SOURCE REENTRY_CONTROL.agc:340
+//			-KSCALE
+// PORT: Fixed ROM slots 25153.
+    25153, 13730,
+// PORT: SOURCE REENTRY_CONTROL.agc:341
+//		DDV	DAD
+// PORT: Fixed ROM slots 25154.
+    25154, 36210,
+// PORT: SOURCE REENTRY_CONTROL.agc:342
+//			V
+// PORT: Fixed ROM slots 25155.
+    25155, 3960,
+// PORT: SOURCE REENTRY_CONTROL.agc:343
+//					# -RDOT/HS FROM PDL.
+// PORT: SOURCE REENTRY_CONTROL.agc:344
+//		DMP	DAD
+// PORT: Fixed ROM slots 25156.
+    25156, 36106,
+// PORT: SOURCE REENTRY_CONTROL.agc:345
+//			D
+// PORT: Fixed ROM slots 25157.
+    25157, 3904,
+// PORT: SOURCE REENTRY_CONTROL.agc:346
+//			D
+// PORT: Fixed ROM slots 25158.
+    25158, 3904,
+// PORT: SOURCE REENTRY_CONTROL.agc:347
+//		STORE	D
+// PORT: Fixed ROM slots 25159.
+    25159, 3904,
+// PORT: SOURCE REENTRY_CONTROL.agc:348
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:349
+//		BON	DLOAD		# EGSW INDICATES FINAL PHASE.
+// PORT: Fixed ROM slots 25160.
+    25160, 58648,
+// PORT: SOURCE REENTRY_CONTROL.agc:350
+//			EGSW
+// PORT: Fixed ROM slots 25161.
+    25161, 3470,
+// PORT: SOURCE REENTRY_CONTROL.agc:351
+//			SUBETA
+// PORT: Fixed ROM slots 25162.
+    25162, 46238,
+// PORT: SOURCE REENTRY_CONTROL.agc:352
+//			THETAH
+// PORT: Fixed ROM slots 25163.
+    25163, 3972,
+// PORT: SOURCE REENTRY_CONTROL.agc:353
+//		DMP	GOTO
+// PORT: Fixed ROM slots 25164.
+    25164, 43018,
+// PORT: SOURCE REENTRY_CONTROL.agc:354
+//			KTETA		# = 1000X2PI/(2)E14 163.84
+// PORT: Fixed ROM slots 25165.
+    25165, 13626,
+// PORT: SOURCE REENTRY_CONTROL.agc:355
+//			UPDATERT
+// PORT: Fixed ROM slots 25166.
+    25166, 43254,
+// PORT: SOURCE REENTRY_CONTROL.agc:356
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:357
+//SUBETA		DLOAD	DSU		# SWITCH FROM INERTIAL TO RELATIVE VEL.
+// PORT: Fixed ROM slots 25167.
+    25167, 38346,
+// PORT: SOURCE REENTRY_CONTROL.agc:358
+//			V
+// PORT: Fixed ROM slots 25168.
+    25168, 3960,
+// PORT: SOURCE REENTRY_CONTROL.agc:359
+//			VMIN
+// PORT: Fixed ROM slots 25169.
+    25169, 13738,
+// PORT: SOURCE REENTRY_CONTROL.agc:360
+//		BPL	SET
+// PORT: Fixed ROM slots 25170.
+    25170, 35912,
+// PORT: SOURCE REENTRY_CONTROL.agc:361
+//			SUBETA2
+// PORT: Fixed ROM slots 25171.
+    25171, 46250,
+// PORT: SOURCE REENTRY_CONTROL.agc:362
+//			RELVELSW
+// PORT: Fixed ROM slots 25172.
+    25172, 3180,
+// PORT: SOURCE REENTRY_CONTROL.agc:363
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:364
+//SUBETA2		DLOAD	DMP
+// PORT: Fixed ROM slots 25173.
+    25173, 34250,
+// PORT: SOURCE REENTRY_CONTROL.agc:365
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:366
+//			THETAH
+// PORT: Fixed ROM slots 25174.
+    25174, 3972,
+// PORT: SOURCE REENTRY_CONTROL.agc:367
+//			KT1		# KT1 = KT
+// PORT: Fixed ROM slots 25175.
+    25175, 13630,
+// PORT: SOURCE REENTRY_CONTROL.agc:368
+//		DDV	GOTO
+// PORT: Fixed ROM slots 25176.
+    25176, 43122,
+// PORT: SOURCE REENTRY_CONTROL.agc:369
+//			V		# KT = RE(2 PI)/2 VS 16384 163.84/ 2 VSAT
+// PORT: Fixed ROM slots 25177.
+    25177, 3960,
+// PORT: SOURCE REENTRY_CONTROL.agc:370
+//			UPDATERT
+// PORT: Fixed ROM slots 25178.
+    25178, 43254,
+// PORT: SOURCE REENTRY_CONTROL.agc:371
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:372
+//SETMIND		DLOAD	GOTO
+// PORT: Fixed ROM slots 25179.
+    25179, 43210,
+// PORT: SOURCE REENTRY_CONTROL.agc:373
+//			1BITDP
+// PORT: Fixed ROM slots 25180.
+    25180, 14764,
+// PORT: SOURCE REENTRY_CONTROL.agc:374
+//			DSTORE
+// PORT: Fixed ROM slots 25181.
+    25181, 43236,
+// PORT: SOURCE REENTRY_CONTROL.agc:375
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:376
+//# Page 852
+// PORT: SOURCE REENTRY_CONTROL.agc:377
+//TINYTHET	DSU	ABS		# ENTER WITH X-.249
+// PORT: Fixed ROM slots 25182.
+    25182, 42538,
+// PORT: SOURCE REENTRY_CONTROL.agc:378
+//			1BITDP +1	# GET 1/4 - MPAC
+// PORT: Fixed ROM slots 25183.
+    25183, 14766,
+// PORT: SOURCE REENTRY_CONTROL.agc:379
+//		SL	SQRT		# SCALE UP BEFORE SQRT
+// PORT: Fixed ROM slots 25184.
+    25184, 63074,
+// PORT: SOURCE REENTRY_CONTROL.agc:380
+//			13D		# HAS FACTOR FOR UP SCALING
+// PORT: Fixed ROM slots 25185.
+    25185, 16668,
+// PORT: SOURCE REENTRY_CONTROL.agc:381
+//		DMP	GOTO
+// PORT: Fixed ROM slots 25186.
+    25186, 43018,
+// PORT: SOURCE REENTRY_CONTROL.agc:382
+//			KACOS
+// PORT: Fixed ROM slots 25187.
+    25187, 13646,
+// PORT: SOURCE REENTRY_CONTROL.agc:383
+//			THETDONE
+// PORT: Fixed ROM slots 25188.
+    25188, 43308,
+// PORT: SOURCE REENTRY_CONTROL.agc:384
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:385
+//# Page 853
+// PORT: SOURCE REENTRY_CONTROL.agc:386
+//# * START	INITIAL ROLL ...
+// PORT: SOURCE REENTRY_CONTROL.agc:387
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:388
+//		BANK	25
+// PORT: SOURCE REENTRY_CONTROL.agc:389
+//		SETLOC	REENTRY
+// PORT: SOURCE REENTRY_CONTROL.agc:390
+//		BANK
+// PORT: SOURCE REENTRY_CONTROL.agc:391
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:392
+//		COUNT*	$$/ENTRY
+// PORT: SOURCE REENTRY_CONTROL.agc:393
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:394
+//					# MM = 63 , 64 ..
+// PORT: SOURCE REENTRY_CONTROL.agc:395
+//INITROLL	BON	BOFF		# IF D- .05G NEG, GO TO LIMITL/D
+// PORT: Fixed ROM slots 23728.
+    23728, 35864,
+// PORT: SOURCE REENTRY_CONTROL.agc:396
+//			INRLSW
+// PORT: Fixed ROM slots 23729.
+    23729, 3476,
+// PORT: SOURCE REENTRY_CONTROL.agc:397
+//			INITRL1
+// PORT: Fixed ROM slots 23730.
+    23730, 43492,
+// PORT: SOURCE REENTRY_CONTROL.agc:398
+//			.05GSW
+// PORT: Fixed ROM slots 23731.
+    23731, 3544,
+// PORT: SOURCE REENTRY_CONTROL.agc:399
+//			LIMITL/D
+// PORT: Fixed ROM slots 23732.
+    23732, 44716,
+// PORT: SOURCE REENTRY_CONTROL.agc:400
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:401
+//					# MM = 64, NOW
+// PORT: SOURCE REENTRY_CONTROL.agc:402
+//					#	      3
+// PORT: SOURCE REENTRY_CONTROL.agc:403
+//					# KA = KA1 LEQ  + KA2
+// PORT: SOURCE REENTRY_CONTROL.agc:404
+//		DLOAD	DSQ
+// PORT: Fixed ROM slots 23733.
+    23733, 52938,
+// PORT: SOURCE REENTRY_CONTROL.agc:405
+//			LEQ
+// PORT: Fixed ROM slots 23734.
+    23734, 3928,
+// PORT: SOURCE REENTRY_CONTROL.agc:406
+//		DMP	DDV
+// PORT: Fixed ROM slots 23735.
+    23735, 47370,
+// PORT: SOURCE REENTRY_CONTROL.agc:407
+//			LEQ
+// PORT: Fixed ROM slots 23736.
+    23736, 3928,
+// PORT: SOURCE REENTRY_CONTROL.agc:408
+//			1/KA1		# = 25 /(64  1.8)
+// PORT: Fixed ROM slots 23737.
+    23737, 13706,
+// PORT: SOURCE REENTRY_CONTROL.agc:409
+//		DAD	RTB
+// PORT: Fixed ROM slots 23738.
+    23738, 39962,
+// PORT: SOURCE REENTRY_CONTROL.agc:410
+//			KA2		# = .2
+// PORT: Fixed ROM slots 23739.
+    23739, 13710,
+// PORT: SOURCE REENTRY_CONTROL.agc:411
+//			P64		# ROLLC		VI		RDOT
+// PORT: Fixed ROM slots 23740.
+    23740, 45622,
+// PORT: SOURCE REENTRY_CONTROL.agc:412
+//					# XXX.XX DEG	XXXXX. FPS	XXXXX. FPS
+// PORT: SOURCE REENTRY_CONTROL.agc:413
+//		STORE	KAT
+// PORT: Fixed ROM slots 23741.
+    23741, 4000,
+// PORT: SOURCE REENTRY_CONTROL.agc:414
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:415
+//		DSU	BMN
+// PORT: Fixed ROM slots 23742.
+    23742, 41002,
+// PORT: SOURCE REENTRY_CONTROL.agc:416
+//			KALIM
+// PORT: Fixed ROM slots 23743.
+    23743, 13722,
+// PORT: SOURCE REENTRY_CONTROL.agc:417
+//			+4
+// PORT: Fixed ROM slots 23744.
+    23744, 43400,
+// PORT: SOURCE REENTRY_CONTROL.agc:418
+//		DLOAD
+// PORT: Fixed ROM slots 23745.
+    23745, 65482,
+// PORT: SOURCE REENTRY_CONTROL.agc:419
+//			KALIM
+// PORT: Fixed ROM slots 23746.
+    23746, 13722,
+// PORT: SOURCE REENTRY_CONTROL.agc:420
+//		STORE	KAT
+// PORT: Fixed ROM slots 23747.
+    23747, 4000,
+// PORT: SOURCE REENTRY_CONTROL.agc:421
+//		DLOAD	DSU		# IF V-VFINAL1 NEG, GO TO FINAL PHASE.
+// PORT: Fixed ROM slots 23748.
+    23748, 38346
+)).
+
+agcAotInstallSourceRope(list(
+// PORT: SOURCE REENTRY_CONTROL.agc:422
+//			V
+// PORT: Fixed ROM slots 23749.
+    23749, 3960,
+// PORT: SOURCE REENTRY_CONTROL.agc:423
+//			VFINAL1
+// PORT: Fixed ROM slots 23750.
+    23750, 13702,
+// PORT: SOURCE REENTRY_CONTROL.agc:424
+//		CLEAR	BPL		# (CAN'T CLEAR INRLSW AFTER HERE: RESTARTS)
+// PORT: Fixed ROM slots 23751.
+    23751, 42008,
+// PORT: SOURCE REENTRY_CONTROL.agc:425
+//			GONEPAST	# GONEPAST WAS INITIALLY SET=1 TO FORCE
+// PORT: Fixed ROM slots 23752.
+    23752, 3434,
+// PORT: SOURCE REENTRY_CONTROL.agc:426
+//					# ROLLC TO REMAIN AS DEFINED BY HEADSUP
+// PORT: SOURCE REENTRY_CONTROL.agc:427
+//					# UNTIL START OF P64.  (UNTIL D > .05G)
+// PORT: SOURCE REENTRY_CONTROL.agc:428
+//			D0EQ
+// PORT: Fixed ROM slots 23753.
+    23753, 43420,
+// PORT: SOURCE REENTRY_CONTROL.agc:429
+//		SSP	GOTO
+// PORT: Fixed ROM slots 23754.
+    23754, 43186,
+// PORT: SOURCE REENTRY_CONTROL.agc:430
+//			GOTOADDR
+// PORT: Fixed ROM slots 23755.
+    23755, 3916,
+// PORT: SOURCE REENTRY_CONTROL.agc:431
+//			KEP2		# AND IDLE UNTIL D > 0.2 G.  (NO P66 HERE)
+// PORT: Fixed ROM slots 23756.
+    23756, 44446,
+// PORT: SOURCE REENTRY_CONTROL.agc:432
+//			INROLOUT	# GO TO LIMITL/D AFTER SETTING INRLSW.
+// PORT: Fixed ROM slots 23757.
+    23757, 43474,
+// PORT: SOURCE REENTRY_CONTROL.agc:433
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:434
+//D0EQ		DLOAD	DMP		# D0 = KA3 LEQ + KA4
+// PORT: Fixed ROM slots 23758.
+    23758, 34250,
+// PORT: SOURCE REENTRY_CONTROL.agc:435
+//# Page 854
+// PORT: SOURCE REENTRY_CONTROL.agc:436
+//			LEQ
+// PORT: Fixed ROM slots 23759.
+    23759, 3928,
+// PORT: SOURCE REENTRY_CONTROL.agc:437
+//			KA3
+// PORT: Fixed ROM slots 23760.
+    23760, 13714,
+// PORT: SOURCE REENTRY_CONTROL.agc:438
+//		DAD
+// PORT: Fixed ROM slots 23761.
+    23761, 65306,
+// PORT: SOURCE REENTRY_CONTROL.agc:439
+//			KA4
+// PORT: Fixed ROM slots 23762.
+    23762, 13718,
+// PORT: SOURCE REENTRY_CONTROL.agc:440
+//		STORE	D0		# D0/805
+// PORT: Fixed ROM slots 23763.
+    23763, 3984,
+// PORT: SOURCE REENTRY_CONTROL.agc:441
+//		BDDV	BOV
+// PORT: Fixed ROM slots 23764.
+    23764, 32874,
+// PORT: SOURCE REENTRY_CONTROL.agc:442
+//			C001		# (-4/25 G) B-8
+// PORT: Fixed ROM slots 23765.
+    23765, 13678,
+// PORT: SOURCE REENTRY_CONTROL.agc:443
+//			+1		# CLEAR OVFIND, IF ON.
+// PORT: Fixed ROM slots 23766.
+    23766, 43438,
+// PORT: SOURCE REENTRY_CONTROL.agc:444
+//		STODL	C/D0		# (-4/D0) B-8
+// PORT: Fixed ROM slots 23767.
+    23767, 16268,
+// PORT: SOURCE REENTRY_CONTROL.agc:445
+//			LAD		# IF V-VFINAL +K(RDOT/V)CUBED POS,L/D=-LAD
+// PORT: Fixed ROM slots 23768.
+    23768, 3880,
+// PORT: SOURCE REENTRY_CONTROL.agc:446
+//		STODL	L/D
+// PORT: Fixed ROM slots 23769.
+    23769, 16184,
+// PORT: SOURCE REENTRY_CONTROL.agc:447
+//			RDOT
+// PORT: Fixed ROM slots 23770.
+    23770, 3968,
+// PORT: SOURCE REENTRY_CONTROL.agc:448
+//		DDV	PUSH
+// PORT: Fixed ROM slots 23771.
+    23771, 34418,
+// PORT: SOURCE REENTRY_CONTROL.agc:449
+//			V
+// PORT: Fixed ROM slots 23772.
+    23772, 3960,
+// PORT: SOURCE REENTRY_CONTROL.agc:450
+//		DSQ	DMP
+// PORT: Fixed ROM slots 23773.
+    23773, 34204,
+// PORT: SOURCE REENTRY_CONTROL.agc:451
+//		DDV	DSU
+// PORT: Fixed ROM slots 23774.
+    23774, 38258,
+// PORT: SOURCE REENTRY_CONTROL.agc:452
+//			1/K44
+// PORT: Fixed ROM slots 23775.
+    23775, 13694,
+// PORT: SOURCE REENTRY_CONTROL.agc:453
+//			VFINAL
+// PORT: Fixed ROM slots 23776.
+    23776, 13698,
+// PORT: SOURCE REENTRY_CONTROL.agc:454
+//					#		    3
+// PORT: SOURCE REENTRY_CONTROL.agc:455
+//					# V-VFINAL +(RDOT/V)  / K44	OVFL $
+// PORT: SOURCE REENTRY_CONTROL.agc:456
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:457
+//		DAD	BOV
+// PORT: Fixed ROM slots 23777.
+    23777, 32794,
+// PORT: SOURCE REENTRY_CONTROL.agc:458
+//			V
+// PORT: Fixed ROM slots 23778.
+    23778, 3960,
+// PORT: SOURCE REENTRY_CONTROL.agc:459
+//			INROLOUT	# GO TO LIMITL/D AFTER SETTING INRLSW.
+// PORT: Fixed ROM slots 23779.
+    23779, 43474,
+// PORT: SOURCE REENTRY_CONTROL.agc:460
+//		BMN	DLOAD
+// PORT: Fixed ROM slots 23780.
+    23780, 58688,
+// PORT: SOURCE REENTRY_CONTROL.agc:461
+//			INROLOUT	# GO TO LIMITL/D AFTER SETTING INRLSW.
+// PORT: Fixed ROM slots 23781.
+    23781, 43474,
+// PORT: SOURCE REENTRY_CONTROL.agc:462
+//			LAD
+// PORT: Fixed ROM slots 23782.
+    23782, 3880,
+// PORT: SOURCE REENTRY_CONTROL.agc:463
+//		DCOMP
+// PORT: Fixed ROM slots 23783.
+    23783, 65404,
+// PORT: SOURCE REENTRY_CONTROL.agc:464
+//		STORE	L/D
+// PORT: Fixed ROM slots 23784.
+    23784, 3896,
+// PORT: SOURCE REENTRY_CONTROL.agc:465
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:466
+//					# SET INRLSW AT END FOR RESTART PROTECTION
+// PORT: SOURCE REENTRY_CONTROL.agc:467
+//INROLOUT	BOFSET			# END OF PRE .05G PATH OF INITROLL.
+// PORT: Fixed ROM slots 23785.
+    23785, 65304,
+// PORT: SOURCE REENTRY_CONTROL.agc:468
+//			INRLSW		# SWITCH IS ZERO INITIALLY.
+// PORT: Fixed ROM slots 23786.
+    23786, 3156,
+// PORT: SOURCE REENTRY_CONTROL.agc:469
+//			LIMITL/D	# (GO TO)
+// PORT: Fixed ROM slots 23787.
+    23787, 44716,
+// PORT: SOURCE REENTRY_CONTROL.agc:470
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:471
+//KATEST		DLOAD	DSU		# IF KAT - D POS, GO TO CONSTD
+// PORT: Fixed ROM slots 23788.
+    23788, 38346,
+// PORT: SOURCE REENTRY_CONTROL.agc:472
+//			KAT
+// PORT: Fixed ROM slots 23789.
+    23789, 4000,
+// PORT: SOURCE REENTRY_CONTROL.agc:473
+//			D		# IF POS, OUT WITH COMMAND VIA LIMITL/D
+// PORT: Fixed ROM slots 23790.
+    23790, 3904,
+// PORT: SOURCE REENTRY_CONTROL.agc:474
+//		BPL	GOTO
+// PORT: Fixed ROM slots 23791.
+    23791, 43080,
+// PORT: SOURCE REENTRY_CONTROL.agc:475
+//			LIMITL/D
+// PORT: Fixed ROM slots 23792.
+    23792, 44716,
+// PORT: SOURCE REENTRY_CONTROL.agc:476
+//			CONSTD
+// PORT: Fixed ROM slots 23793.
+    23793, 44340,
+// PORT: SOURCE REENTRY_CONTROL.agc:477
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:478
+//INITRL1		DLOAD	DAD		# IF RDOT + VRCONT POS, GO TO HUNTEST
+// PORT: Fixed ROM slots 23794.
+    23794, 36298,
+// PORT: SOURCE REENTRY_CONTROL.agc:479
+//			RDOT
+// PORT: Fixed ROM slots 23795.
+    23795, 3968,
+// PORT: SOURCE REENTRY_CONTROL.agc:480
+//			VRCONT
+// PORT: Fixed ROM slots 23796.
+    23796, 13666,
+// PORT: SOURCE REENTRY_CONTROL.agc:481
+//		BMN	CALL		# IF POSITIVE, FALL INTO HUNTEST.
+// PORT: Fixed ROM slots 23797.
+    23797, 37952,
+// PORT: SOURCE REENTRY_CONTROL.agc:482
+//			KATEST
+// PORT: Fixed ROM slots 23798.
+    23798, 43480,
+// PORT: SOURCE REENTRY_CONTROL.agc:483
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:484
+//			FOREHUNT	# INITIALIZE HUNTEST.
+// PORT: Fixed ROM slots 23799.
+    23799, 44068,
+// PORT: SOURCE REENTRY_CONTROL.agc:485
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:486
+//# Page 855
+// PORT: SOURCE REENTRY_CONTROL.agc:487
+//# * START	HUNT TEST ..
+// PORT: SOURCE REENTRY_CONTROL.agc:488
+//					# MM = 64
+// PORT: SOURCE REENTRY_CONTROL.agc:489
+//		SSP			# INITIALIZE HUNTEST ON FIRST PASS
+// PORT: Fixed ROM slots 23800.
+    23800, 65458,
+// PORT: SOURCE REENTRY_CONTROL.agc:490
+//			GOTOADDR
+// PORT: Fixed ROM slots 23801.
+    23801, 3916,
+// PORT: SOURCE REENTRY_CONTROL.agc:491
+//			HUNTEST		# MUST GO AFTER FOREHUNT FOR RESTARTS.
+// PORT: Fixed ROM slots 23802.
+    23802, 43510,
+// PORT: SOURCE REENTRY_CONTROL.agc:492
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:493
+//HUNTEST		DLOAD
+// PORT: Fixed ROM slots 23803.
+    23803, 65482,
+// PORT: SOURCE REENTRY_CONTROL.agc:494
+//			D
+// PORT: Fixed ROM slots 23804.
+    23804, 3904,
+// PORT: SOURCE REENTRY_CONTROL.agc:495
+//		STODL	A1		# A1/805 = A1/25G
+// PORT: Fixed ROM slots 23805.
+    23805, 16232,
+// PORT: SOURCE REENTRY_CONTROL.agc:496
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:497
+//			LAD
+// PORT: Fixed ROM slots 23806.
+    23806, 3880,
+// PORT: SOURCE REENTRY_CONTROL.agc:498
+//		STODL	TEM1B
+// PORT: Fixed ROM slots 23807.
+    23807, 16206,
+// PORT: SOURCE REENTRY_CONTROL.agc:499
+//			RDOT
+// PORT: Fixed ROM slots 23808.
+    23808, 3968,
+// PORT: SOURCE REENTRY_CONTROL.agc:500
+//		BMN	DLOAD		# IF RDOT NEG,TEM1B=LAD, OTHERWISE = LEWD
+// PORT: Fixed ROM slots 23809.
+    23809, 58688,
+// PORT: SOURCE REENTRY_CONTROL.agc:501
+//			A0CALC
+// PORT: Fixed ROM slots 23810.
+    23810, 43532,
+// PORT: SOURCE REENTRY_CONTROL.agc:502
+//			LEWD
+// PORT: Fixed ROM slots 23811.
+    23811, 4010,
+// PORT: SOURCE REENTRY_CONTROL.agc:503
+//		STODL	TEM1B
+// PORT: Fixed ROM slots 23812.
+    23812, 16206,
+// PORT: SOURCE REENTRY_CONTROL.agc:504
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:505
+//			RDOT
+// PORT: Fixed ROM slots 23813.
+    23813, 3968,
+// PORT: SOURCE REENTRY_CONTROL.agc:506
+//A0CALC		DDV	DAD		# V1 = V + RDOT/TEM1B
+// PORT: Fixed ROM slots 23814.
+    23814, 36210,
+// PORT: SOURCE REENTRY_CONTROL.agc:507
+//			TEM1B
+// PORT: Fixed ROM slots 23815.
+    23815, 3918,
+// PORT: SOURCE REENTRY_CONTROL.agc:508
+//			V
+// PORT: Fixed ROM slots 23816.
+    23816, 3960,
+// PORT: SOURCE REENTRY_CONTROL.agc:509
+//		STODL	V1		# V1/2 VS
+// PORT: Fixed ROM slots 23817.
+    23817, 12716,
+// PORT: SOURCE REENTRY_CONTROL.agc:510
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:511
+//			RDOT
+// PORT: Fixed ROM slots 23818.
+    23818, 3968,
+// PORT: SOURCE REENTRY_CONTROL.agc:512
+//		DSQ	DDV		# A0=(V1/V)SQ(D+RDOT SQ/(TEM1B 2 C1 HS)
+// PORT: Fixed ROM slots 23819.
+    23819, 47516,
+// PORT: SOURCE REENTRY_CONTROL.agc:513
+//			TEM1B
+// PORT: Fixed ROM slots 23820.
+    23820, 3918,
+// PORT: SOURCE REENTRY_CONTROL.agc:514
+//		DDV	DAD
+// PORT: Fixed ROM slots 23821.
+    23821, 36210,
+// PORT: SOURCE REENTRY_CONTROL.agc:515
+//			2C1HS
+// PORT: Fixed ROM slots 23822.
+    23822, 13686,
+// PORT: SOURCE REENTRY_CONTROL.agc:516
+//			D
+// PORT: Fixed ROM slots 23823.
+    23823, 3904,
+// PORT: SOURCE REENTRY_CONTROL.agc:517
+//		DMP	DMP
+// PORT: Fixed ROM slots 23824.
+    23824, 34058,
+// PORT: SOURCE REENTRY_CONTROL.agc:518
+//			V1
+// PORT: Fixed ROM slots 23825.
+    23825, 428,
+// PORT: SOURCE REENTRY_CONTROL.agc:519
+//			V1
+// PORT: Fixed ROM slots 23826.
+    23826, 428,
+// PORT: SOURCE REENTRY_CONTROL.agc:520
+//		DDV
+// PORT: Fixed ROM slots 23827.
+    23827, 65394,
+// PORT: SOURCE REENTRY_CONTROL.agc:521
+//			VSQUARE
+// PORT: Fixed ROM slots 23828.
+    23828, 3876,
+// PORT: SOURCE REENTRY_CONTROL.agc:522
+//		STODL	A0		# A0/805 = A0/25G
+// PORT: Fixed ROM slots 23829.
+    23829, 12720,
+// PORT: SOURCE REENTRY_CONTROL.agc:523
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:524
+//			RDOT
+// PORT: Fixed ROM slots 23830.
+    23830, 3968,
+// PORT: SOURCE REENTRY_CONTROL.agc:525
+//		BPL	DLOAD
+// PORT: Fixed ROM slots 23831.
+    23831, 58696,
+// PORT: SOURCE REENTRY_CONTROL.agc:526
+//			V1LEAD
+// PORT: Fixed ROM slots 23832.
+    23832, 43574,
+// PORT: SOURCE REENTRY_CONTROL.agc:527
+//			A0
+// PORT: Fixed ROM slots 23833.
+    23833, 432,
+// PORT: SOURCE REENTRY_CONTROL.agc:528
+//		STORE	A1		# A1/25G
+// PORT: Fixed ROM slots 23834.
+    23834, 3944,
+// PORT: SOURCE REENTRY_CONTROL.agc:529
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:530
+//V1LEAD		DLOAD	BPL		# IF L/D NEG, V1=V1 - 1000
+// PORT: Fixed ROM slots 23835.
+    23835, 42186,
+// PORT: SOURCE REENTRY_CONTROL.agc:531
+//			L/D
+// PORT: Fixed ROM slots 23836.
+    23836, 3896,
+// PORT: SOURCE REENTRY_CONTROL.agc:532
+//			HUNTEST1
+// PORT: Fixed ROM slots 23837.
+    23837, 43588,
+// PORT: SOURCE REENTRY_CONTROL.agc:533
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:534
+//		DLOAD	DSU
+// PORT: Fixed ROM slots 23838.
+    23838, 38346,
+// PORT: SOURCE REENTRY_CONTROL.agc:535
+//			V1
+// PORT: Fixed ROM slots 23839.
+    23839, 428,
+// PORT: SOURCE REENTRY_CONTROL.agc:536
+//# Page 856
+// PORT: SOURCE REENTRY_CONTROL.agc:537
+//			VQUIT
+// PORT: Fixed ROM slots 23840.
+    23840, 13594,
+// PORT: SOURCE REENTRY_CONTROL.agc:538
+//		STORE	V1
+// PORT: Fixed ROM slots 23841.
+    23841, 428,
+// PORT: SOURCE REENTRY_CONTROL.agc:539
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:540
+//HUNTEST1	DLOAD	DMP		# ALP = 2 C1 HS A0/LEWD V1 V1
+// PORT: Fixed ROM slots 23842.
+    23842, 34250,
+// PORT: SOURCE REENTRY_CONTROL.agc:541
+//			A0
+// PORT: Fixed ROM slots 23843.
+    23843, 432,
+// PORT: SOURCE REENTRY_CONTROL.agc:542
+//			2C1HS
+// PORT: Fixed ROM slots 23844.
+    23844, 13686,
+// PORT: SOURCE REENTRY_CONTROL.agc:543
+//		DDV	SETPD
+// PORT: Fixed ROM slots 23845.
+    23845, 33138,
+// PORT: SOURCE REENTRY_CONTROL.agc:544
+//			V1
+// PORT: Fixed ROM slots 23846.
+    23846, 428,
+// PORT: SOURCE REENTRY_CONTROL.agc:545
+//			0
+// PORT: Fixed ROM slots 23847.
+    23847, 2,
+// PORT: SOURCE REENTRY_CONTROL.agc:546
+//		DDV	DDV
+// PORT: Fixed ROM slots 23848.
+    23848, 47474,
+// PORT: SOURCE REENTRY_CONTROL.agc:547
+//			V1
+// PORT: Fixed ROM slots 23849.
+    23849, 428,
+// PORT: SOURCE REENTRY_CONTROL.agc:548
+//			LEWD
+// PORT: Fixed ROM slots 23850.
+    23850, 4010,
+// PORT: SOURCE REENTRY_CONTROL.agc:549
+//		STORE	ALP
+// PORT: Fixed ROM slots 23851.
+    23851, 3976
+)).
+
+agcAotInstallSourceRope(list(
+// PORT: SOURCE REENTRY_CONTROL.agc:550
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:551
+//		BDSU	BDDV		# FACT1 = V1 / (1 - ALP)
+// PORT: Fixed ROM slots 23852.
+    23852, 46370,
+// PORT: SOURCE REENTRY_CONTROL.agc:552
+//			BARELY1
+// PORT: Fixed ROM slots 23853.
+    23853, 15860,
+// PORT: SOURCE REENTRY_CONTROL.agc:553
+//			V1
+// PORT: Fixed ROM slots 23854.
+    23854, 428,
+// PORT: SOURCE REENTRY_CONTROL.agc:554
+//		STODL	FACT1		# FACT1 / 2VS
+// PORT: Fixed ROM slots 23855.
+    23855, 16156,
+// PORT: SOURCE REENTRY_CONTROL.agc:555
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:556
+//			ALP
+// PORT: Fixed ROM slots 23856.
+    23856, 3976,
+// PORT: SOURCE REENTRY_CONTROL.agc:557
+//		DSU	DMP		# FACT2 = ALP(ALP - 1) / A0
+// PORT: Fixed ROM slots 23857.
+    23857, 34090,
+// PORT: SOURCE REENTRY_CONTROL.agc:558
+//			BARELY1
+// PORT: Fixed ROM slots 23858.
+    23858, 15860,
+// PORT: SOURCE REENTRY_CONTROL.agc:559
+//			ALP
+// PORT: Fixed ROM slots 23859.
+    23859, 3976,
+// PORT: SOURCE REENTRY_CONTROL.agc:560
+//		DDV
+// PORT: Fixed ROM slots 23860.
+    23860, 65394,
+// PORT: SOURCE REENTRY_CONTROL.agc:561
+//			A0
+// PORT: Fixed ROM slots 23861.
+    23861, 432,
+// PORT: SOURCE REENTRY_CONTROL.agc:562
+//		STORE	FACT2		# FACT2 (25G)
+// PORT: Fixed ROM slots 23862.
+    23862, 3872,
+// PORT: SOURCE REENTRY_CONTROL.agc:563
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:564
+//		DMP	DAD
+// PORT: Fixed ROM slots 23863.
+    23863, 36106,
+// PORT: SOURCE REENTRY_CONTROL.agc:565
+//			Q7		# Q7 / 805 = Q7 / 25G
+// PORT: Fixed ROM slots 23864.
+    23864, 3322,
+// PORT: SOURCE REENTRY_CONTROL.agc:566
+//			ALP		# VL=FACT1 (1-SQRT(Q7 FACT2 +ALP) )
+// PORT: Fixed ROM slots 23865.
+    23865, 3976,
+// PORT: SOURCE REENTRY_CONTROL.agc:567
+//		SQRT	BDSU
+// PORT: Fixed ROM slots 23866.
+    23866, 37356,
+// PORT: SOURCE REENTRY_CONTROL.agc:568
+//			BARELY1
+// PORT: Fixed ROM slots 23867.
+    23867, 15860,
+// PORT: SOURCE REENTRY_CONTROL.agc:569
+//		DMP
+// PORT: Fixed ROM slots 23868.
+    23868, 65290,
+// PORT: SOURCE REENTRY_CONTROL.agc:570
+//			FACT1
+// PORT: Fixed ROM slots 23869.
+    23869, 3868,
+// PORT: SOURCE REENTRY_CONTROL.agc:571
+//		STORE	VL		# VL / 2 VS
+// PORT: Fixed ROM slots 23870.
+    23870, 4078,
+// PORT: SOURCE REENTRY_CONTROL.agc:572
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:573
+//		BDSU	DMP		# GAMMAL1 = LEWD (V1-VL)/VL
+// PORT: Fixed ROM slots 23871.
+    23871, 34082,
+// PORT: SOURCE REENTRY_CONTROL.agc:574
+//			V1
+// PORT: Fixed ROM slots 23872.
+    23872, 428,
+// PORT: SOURCE REENTRY_CONTROL.agc:575
+//			LEWD
+// PORT: Fixed ROM slots 23873.
+    23873, 4010,
+// PORT: SOURCE REENTRY_CONTROL.agc:576
+//		DDV
+// PORT: Fixed ROM slots 23874.
+    23874, 65394,
+// PORT: SOURCE REENTRY_CONTROL.agc:577
+//			VL
+// PORT: Fixed ROM slots 23875.
+    23875, 4078,
+// PORT: SOURCE REENTRY_CONTROL.agc:578
+//		STODL	GAMMAL1		# GAMMAL1 USED IN UPCONTROL
+// PORT: Fixed ROM slots 23876.
+    23876, 12334,
+// PORT: SOURCE REENTRY_CONTROL.agc:579
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:580
+//					# GAMMAL1 = PDL 22D.
+// PORT: SOURCE REENTRY_CONTROL.agc:581
+//			VL
+// PORT: Fixed ROM slots 23877.
+    23877, 4078,
+// PORT: SOURCE REENTRY_CONTROL.agc:582
+//		DSU	BMN		# IF VL-VLMIN NEG, GO TO PREFINAL
+// PORT: Fixed ROM slots 23878.
+    23878, 41002,
+// PORT: SOURCE REENTRY_CONTROL.agc:583
+//			VLMIN
+// PORT: Fixed ROM slots 23879.
+    23879, 13578,
+// PORT: SOURCE REENTRY_CONTROL.agc:584
+//			PREFINAL
+// PORT: Fixed ROM slots 23880.
+    23880, 44470,
+// PORT: SOURCE REENTRY_CONTROL.agc:585
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:586
+//		DLOAD	DSQ
+// PORT: Fixed ROM slots 23881.
+    23881, 52938,
+// PORT: SOURCE REENTRY_CONTROL.agc:587
+//# Page 857
+// PORT: SOURCE REENTRY_CONTROL.agc:588
+//			VL
+// PORT: Fixed ROM slots 23882.
+    23882, 4078,
+// PORT: SOURCE REENTRY_CONTROL.agc:589
+//		STODL	VBARS		# VBARS / 4 VS VS
+// PORT: Fixed ROM slots 23883.
+    23883, 16236,
+// PORT: SOURCE REENTRY_CONTROL.agc:590
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:591
+//			HALVE		# IF VSAT-VL NEG, GO TO CONSTD
+// PORT: Fixed ROM slots 23884.
+    23884, 13750,
+// PORT: SOURCE REENTRY_CONTROL.agc:592
+//		DSU	BMN
+// PORT: Fixed ROM slots 23885.
+    23885, 41002,
+// PORT: SOURCE REENTRY_CONTROL.agc:593
+//			VL
+// PORT: Fixed ROM slots 23886.
+    23886, 4078,
+// PORT: SOURCE REENTRY_CONTROL.agc:594
+//			BECONSTD	# SET MODE=HUNTEST, CONTINUE IN CONSTD
+// PORT: Fixed ROM slots 23887.
+    23887, 44332,
+// PORT: SOURCE REENTRY_CONTROL.agc:595
+//		STODL	DVL		# DVL / 2VS
+// PORT: Fixed ROM slots 23888.
+    23888, 16228,
+// PORT: SOURCE REENTRY_CONTROL.agc:596
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:597
+//			HALVE
+// PORT: Fixed ROM slots 23889.
+    23889, 13750,
+// PORT: SOURCE REENTRY_CONTROL.agc:598
+//		STORE	VS1		# VS1 = VSAT
+// PORT: Fixed ROM slots 23890.
+    23890, 3956,
+// PORT: SOURCE REENTRY_CONTROL.agc:599
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:600
+//		DSU	BMN		# IF V1 GREATER THAN VSAT, GO ON
+// PORT: Fixed ROM slots 23891.
+    23891, 41002,
+// PORT: SOURCE REENTRY_CONTROL.agc:601
+//			V1
+// PORT: Fixed ROM slots 23892.
+    23892, 428,
+// PORT: SOURCE REENTRY_CONTROL.agc:602
+//			GETDHOOK
+// PORT: Fixed ROM slots 23893.
+    23893, 43702,
+// PORT: SOURCE REENTRY_CONTROL.agc:603
+//		BDSU
+// PORT: Fixed ROM slots 23894.
+    23894, 65314,
+// PORT: SOURCE REENTRY_CONTROL.agc:604
+//			DVL
+// PORT: Fixed ROM slots 23895.
+    23895, 3940,
+// PORT: SOURCE REENTRY_CONTROL.agc:605
+//		STODL	DVL		# DVL = DVL - (VSAT-V1) = V1 - VL
+// PORT: Fixed ROM slots 23896.
+    23896, 16228,
+// PORT: SOURCE REENTRY_CONTROL.agc:606
+//			V1
+// PORT: Fixed ROM slots 23897.
+    23897, 428,
+// PORT: SOURCE REENTRY_CONTROL.agc:607
+//		STORE	VS1		# VS1 = V1, IN THIS CASE
+// PORT: Fixed ROM slots 23898.
+    23898, 3956,
+// PORT: SOURCE REENTRY_CONTROL.agc:608
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:609
+//GETDHOOK	DLOAD	CALL		# DHOOK=((1-VS1/FACT1) SQ -ALP)/FACT2
+// PORT: Fixed ROM slots 23899.
+    23899, 38090,
+// PORT: SOURCE REENTRY_CONTROL.agc:610
+//			VS1		# VS1 / 2 VS
+// PORT: Fixed ROM slots 23900.
+    23900, 3956,
+// PORT: SOURCE REENTRY_CONTROL.agc:611
+//			DHOOKYQ7	# GO CALC DHOOK
+// PORT: Fixed ROM slots 23901.
+    23901, 44040,
+// PORT: SOURCE REENTRY_CONTROL.agc:612
+//		STORE	DHOOK		# DHOOK / 25G
+// PORT: Fixed ROM slots 23902.
+    23902, 3932,
+// PORT: SOURCE REENTRY_CONTROL.agc:613
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:614
+//		SR	DDV
+// PORT: Fixed ROM slots 23903.
+    23903, 47458,
+// PORT: SOURCE REENTRY_CONTROL.agc:615
+//			6		# CHOOK
+// PORT: Fixed ROM slots 23904.
+    23904, 17166,
+// PORT: SOURCE REENTRY_CONTROL.agc:616
+//			Q7
+// PORT: Fixed ROM slots 23905.
+    23905, 3322,
+// PORT: SOURCE REENTRY_CONTROL.agc:617
+//		DSU
+// PORT: Fixed ROM slots 23906.
+    23906, 65322,
+// PORT: SOURCE REENTRY_CONTROL.agc:618
+//			CHOOK		# = .25/16 = (-6)
+// PORT: Fixed ROM slots 23907.
+    23907, 13650,
+// PORT: SOURCE REENTRY_CONTROL.agc:619
+//		STORE	AHOOKDV
+// PORT: Fixed ROM slots 23908.
+    23908, 3936,
+// PORT: SOURCE REENTRY_CONTROL.agc:620
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:621
+//		DAD	DMP		# GAMMAL= GAMMAL1-CH1 DVL SQ(1+AHOOK DVL)
+// PORT: Fixed ROM slots 23909.
+    23909, 34074,
+// PORT: SOURCE REENTRY_CONTROL.agc:622
+//			1/16TH
+// PORT: Fixed ROM slots 23910.
+    23910, 15852,
+// PORT: SOURCE REENTRY_CONTROL.agc:623
+//			CH1
+// PORT: Fixed ROM slots 23911.
+    23911, 13658,
+// PORT: SOURCE REENTRY_CONTROL.agc:624
+//		DMP	DMP
+// PORT: Fixed ROM slots 23912.
+    23912, 34058,
+// PORT: SOURCE REENTRY_CONTROL.agc:625
+//			DVL
+// PORT: Fixed ROM slots 23913.
+    23913, 3940,
+// PORT: SOURCE REENTRY_CONTROL.agc:626
+//			DVL
+// PORT: Fixed ROM slots 23914.
+    23914, 3940,
+// PORT: SOURCE REENTRY_CONTROL.agc:627
+//		DDV	DDV
+// PORT: Fixed ROM slots 23915.
+    23915, 47474,
+// PORT: SOURCE REENTRY_CONTROL.agc:628
+//			DHOOK
+// PORT: Fixed ROM slots 23916.
+    23916, 3932,
+// PORT: SOURCE REENTRY_CONTROL.agc:629
+//			VBARS
+// PORT: Fixed ROM slots 23917.
+    23917, 3948,
+// PORT: SOURCE REENTRY_CONTROL.agc:630
+//		BDSU	BMN
+// PORT: Fixed ROM slots 23918.
+    23918, 40994,
+// PORT: SOURCE REENTRY_CONTROL.agc:631
+//			GAMMAL1
+// PORT: Fixed ROM slots 23919.
+    23919, 46,
+// PORT: SOURCE REENTRY_CONTROL.agc:632
+//			NEGAMA
+// PORT: Fixed ROM slots 23920.
+    23920, 43986,
+// PORT: SOURCE REENTRY_CONTROL.agc:633
+//HUNTEST3	STORE	GAMMAL
+// PORT: Fixed ROM slots 23921.
+    23921, 4082,
+// PORT: SOURCE REENTRY_CONTROL.agc:634
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:635
+//		DSU			# GAMMAL1=GAMMAL1 +Q19 (GAMMAL-GAMMAL1)
+// PORT: Fixed ROM slots 23922.
+    23922, 65322,
+// PORT: SOURCE REENTRY_CONTROL.agc:636
+//			GAMMAL1
+// PORT: Fixed ROM slots 23923.
+    23923, 46,
+// PORT: SOURCE REENTRY_CONTROL.agc:637
+//		DMP	DAD
+// PORT: Fixed ROM slots 23924.
+    23924, 36106,
+// PORT: SOURCE REENTRY_CONTROL.agc:638
+//# Page 858
+// PORT: SOURCE REENTRY_CONTROL.agc:639
+//			Q19
+// PORT: Fixed ROM slots 23925.
+    23925, 13750,
+// PORT: SOURCE REENTRY_CONTROL.agc:640
+//			GAMMAL1
+// PORT: Fixed ROM slots 23926.
+    23926, 46,
+// PORT: SOURCE REENTRY_CONTROL.agc:641
+//		STODL	GAMMAL1
+// PORT: Fixed ROM slots 23927.
+    23927, 12334,
+// PORT: SOURCE REENTRY_CONTROL.agc:642
+//			GAMMAL
+// PORT: Fixed ROM slots 23928.
+    23928, 4082,
+// PORT: SOURCE REENTRY_CONTROL.agc:643
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:644
+//# Page 859
+// PORT: SOURCE REENTRY_CONTROL.agc:645
+//# *START	RANGE PREDICTION ...
+// PORT: SOURCE REENTRY_CONTROL.agc:646
+//					# C(MPAC) = GAMMAL
+// PORT: SOURCE REENTRY_CONTROL.agc:647
+//RANGER		DSQ	SR2		# COSG = 1-GAMMAL SQ/2, TRUNCATED SERIES
+// PORT: Fixed ROM slots 23929.
+    23929, 49820,
+// PORT: SOURCE REENTRY_CONTROL.agc:648
+//		BDSU
+// PORT: Fixed ROM slots 23930.
+    23930, 65314,
+// PORT: SOURCE REENTRY_CONTROL.agc:649
+//			HALVE
+// PORT: Fixed ROM slots 23931.
+    23931, 13750,
+// PORT: SOURCE REENTRY_CONTROL.agc:650
+//		STODL	COSG/2
+// PORT: Fixed ROM slots 23932.
+    23932, 16240,
+// PORT: SOURCE REENTRY_CONTROL.agc:651
+//			VBARS		# E=SQRT(1+VBARS........
+// PORT: Fixed ROM slots 23933.
+    23933, 3948,
+// PORT: SOURCE REENTRY_CONTROL.agc:652
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:653
+//		DSU	DMP
+// PORT: Fixed ROM slots 23934.
+    23934, 34090,
+// PORT: SOURCE REENTRY_CONTROL.agc:654
+//			HALVE
+// PORT: Fixed ROM slots 23935.
+    23935, 13750,
+// PORT: SOURCE REENTRY_CONTROL.agc:655
+//			VBARS
+// PORT: Fixed ROM slots 23936.
+    23936, 3948,
+// PORT: SOURCE REENTRY_CONTROL.agc:656
+//		DMP	DMP
+// PORT: Fixed ROM slots 23937.
+    23937, 34058,
+// PORT: SOURCE REENTRY_CONTROL.agc:657
+//			COSG/2
+// PORT: Fixed ROM slots 23938.
+    23938, 3952,
+// PORT: SOURCE REENTRY_CONTROL.agc:658
+//			COSG/2
+// PORT: Fixed ROM slots 23939.
+    23939, 3952,
+// PORT: SOURCE REENTRY_CONTROL.agc:659
+//		SL2	DAD
+// PORT: Fixed ROM slots 23940.
+    23940, 36244,
+// PORT: SOURCE REENTRY_CONTROL.agc:660
+//			C1/16		# C1/16 = 1/16
+// PORT: Fixed ROM slots 23941.
+    23941, 15852,
+// PORT: SOURCE REENTRY_CONTROL.agc:661
+//		SQRT	PDDL		# E/4 INTO PDL
+// PORT: Fixed ROM slots 23942.
+    23942, 54764,
+// PORT: SOURCE REENTRY_CONTROL.agc:662
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:663
+//			VBARS
+// PORT: Fixed ROM slots 23943.
+    23943, 3948,
+// PORT: SOURCE REENTRY_CONTROL.agc:664
+//		DMP	DMP		# ASKEP/2 = ARCSIN(VBARS COSG SING/E)
+// PORT: Fixed ROM slots 23944.
+    23944, 34058,
+// PORT: SOURCE REENTRY_CONTROL.agc:665
+//			COSG/2
+// PORT: Fixed ROM slots 23945.
+    23945, 3952,
+// PORT: SOURCE REENTRY_CONTROL.agc:666
+//			GAMMAL
+// PORT: Fixed ROM slots 23946.
+    23946, 4082,
+// PORT: SOURCE REENTRY_CONTROL.agc:667
+//		DDV	ASIN
+// PORT: Fixed ROM slots 23947.
+    23947, 56946,
+// PORT: SOURCE REENTRY_CONTROL.agc:668
+//		SL1	PUSH		# ASKEP TO PDL 0.
+// PORT: Fixed ROM slots 23948.
+    23948, 34516,
+// PORT: SOURCE REENTRY_CONTROL.agc:669
+//		STODL	ASKEP		# BALLISTIC RANGE	ASKEP/2PI
+// PORT: Fixed ROM slots 23949.
+    23949, 16306,
+// PORT: SOURCE REENTRY_CONTROL.agc:670
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:671
+//					# FOR TM, STORE RANGE COMPONENTS OVERLAPPING (SP)
+// PORT: SOURCE REENTRY_CONTROL.agc:672
+//			VL
+// PORT: Fixed ROM slots 23950.
+    23950, 4078,
+// PORT: SOURCE REENTRY_CONTROL.agc:673
+//		DMP	DAD		# ASP1 = Q2 + Q3 VL
+// PORT: Fixed ROM slots 23951.
+    23951, 36106,
+// PORT: SOURCE REENTRY_CONTROL.agc:674
+//			Q3
+// PORT: Fixed ROM slots 23952.
+    23952, 13554,
+// PORT: SOURCE REENTRY_CONTROL.agc:675
+//			Q2
+// PORT: Fixed ROM slots 23953.
+    23953, 3988,
+// PORT: SOURCE REENTRY_CONTROL.agc:676
+//		STORE	ASP1		# FINAL PHASE RANGE	ASP1/2 PI
+// PORT: Fixed ROM slots 23954.
+    23954, 4020,
+// PORT: SOURCE REENTRY_CONTROL.agc:677
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:678
+//		PDDL	DSQ		# ASP1 TO PDL 2.
+// PORT: Fixed ROM slots 23955.
+    23955, 52906
+)).
+
+agcAotInstallSourceRope(list(
+// PORT: SOURCE REENTRY_CONTROL.agc:679
+//			V1
+// PORT: Fixed ROM slots 23956.
+    23956, 428,
+// PORT: SOURCE REENTRY_CONTROL.agc:680
+//					#		    2
+// PORT: SOURCE REENTRY_CONTROL.agc:681
+//					# ASPUP= -C12 LOG(V1 Q7/VBARS A0)/GAMMAL1
+// PORT: SOURCE REENTRY_CONTROL.agc:682
+//		DMP	DDV
+// PORT: Fixed ROM slots 23957.
+    23957, 47370,
+// PORT: SOURCE REENTRY_CONTROL.agc:683
+//			Q7
+// PORT: Fixed ROM slots 23958.
+    23958, 3322,
+// PORT: SOURCE REENTRY_CONTROL.agc:684
+//			VBARS
+// PORT: Fixed ROM slots 23959.
+    23959, 3948,
+// PORT: SOURCE REENTRY_CONTROL.agc:685
+//		DDV	CALL
+// PORT: Fixed ROM slots 23960.
+    23960, 38002,
+// PORT: SOURCE REENTRY_CONTROL.agc:686
+//			A0
+// PORT: Fixed ROM slots 23961.
+    23961, 432,
+// PORT: SOURCE REENTRY_CONTROL.agc:687
+//			LOG		# RETURN WITH -LOG IN MPAC
+// PORT: Fixed ROM slots 23962.
+    23962, 39130,
+// PORT: SOURCE REENTRY_CONTROL.agc:688
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:689
+//		DMP	DDV
+// PORT: Fixed ROM slots 23963.
+    23963, 47370,
+// PORT: SOURCE REENTRY_CONTROL.agc:690
+//			C12
+// PORT: Fixed ROM slots 23964.
+    23964, 13582,
+// PORT: SOURCE REENTRY_CONTROL.agc:691
+//			GAMMAL1
+// PORT: Fixed ROM slots 23965.
+    23965, 46,
+// PORT: SOURCE REENTRY_CONTROL.agc:692
+//		STORE	ASPUP		# UP PHASE RANGE	ASPUP / 2 PI
+// PORT: Fixed ROM slots 23966.
+    23966, 4022,
+// PORT: SOURCE REENTRY_CONTROL.agc:693
+//# Page 860
+// PORT: SOURCE REENTRY_CONTROL.agc:694
+//		PDDL	DMP		# ASPUP TO PDL 4.
+// PORT: Fixed ROM slots 23967.
+    23967, 34218,
+// PORT: SOURCE REENTRY_CONTROL.agc:695
+//			KC3		# KC3 = -4 VS VS / 2 PI 805 RE
+// PORT: Fixed ROM slots 23968.
+    23968, 13662,
+// PORT: SOURCE REENTRY_CONTROL.agc:696
+//					# ASPDWN = KC3 RDOT V / A0
+// PORT: SOURCE REENTRY_CONTROL.agc:697
+//			RDOT
+// PORT: Fixed ROM slots 23969.
+    23969, 3968,
+// PORT: SOURCE REENTRY_CONTROL.agc:698
+//		DMP	DDV
+// PORT: Fixed ROM slots 23970.
+    23970, 47370,
+// PORT: SOURCE REENTRY_CONTROL.agc:699
+//			V
+// PORT: Fixed ROM slots 23971.
+    23971, 3960,
+// PORT: SOURCE REENTRY_CONTROL.agc:700
+//			A0
+// PORT: Fixed ROM slots 23972.
+    23972, 432,
+// PORT: SOURCE REENTRY_CONTROL.agc:701
+//		DDV	PUSH		# ASPDWN TO PDL 6.
+// PORT: Fixed ROM slots 23973.
+    23973, 34418,
+// PORT: SOURCE REENTRY_CONTROL.agc:702
+//			LAD
+// PORT: Fixed ROM slots 23974.
+    23974, 3880,
+// PORT: SOURCE REENTRY_CONTROL.agc:703
+//		STODL	ASPDWN		# RANGE TO PULL OUT	ASPDWN /2 PI
+// PORT: Fixed ROM slots 23975.
+    23975, 16312,
+// PORT: SOURCE REENTRY_CONTROL.agc:704
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:705
+//			Q6
+// PORT: Fixed ROM slots 23976.
+    23976, 13562,
+// PORT: SOURCE REENTRY_CONTROL.agc:706
+//		DSU	DMP		# ASP3 = Q5(Q6-GAMMAL)
+// PORT: Fixed ROM slots 23977.
+    23977, 34090,
+// PORT: SOURCE REENTRY_CONTROL.agc:707
+//			GAMMAL
+// PORT: Fixed ROM slots 23978.
+    23978, 4082,
+// PORT: SOURCE REENTRY_CONTROL.agc:708
+//			Q5
+// PORT: Fixed ROM slots 23979.
+    23979, 13558,
+// PORT: SOURCE REENTRY_CONTROL.agc:709
+//		STOVL	ASP3		# GAMMA CORRECTION	ASP3/2PI
+// PORT: Fixed ROM slots 23980.
+    23980, 24506,
+// PORT: SOURCE REENTRY_CONTROL.agc:710
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:711
+//			ASKEP		# GET HI-WD AND
+// PORT: Fixed ROM slots 23981.
+    23981, 4018,
+// PORT: SOURCE REENTRY_CONTROL.agc:712
+//		STODL	ASPS(TM)	# SAVE HI-WORD OF ASP'S FOR TM.
+// PORT: Fixed ROM slots 23982.
+    23982, 15532,
+// PORT: SOURCE REENTRY_CONTROL.agc:713
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:714
+//			ASP3
+// PORT: Fixed ROM slots 23983.
+    23983, 4026,
+// PORT: SOURCE REENTRY_CONTROL.agc:715
+//		DAD	DAD
+// PORT: Fixed ROM slots 23984.
+    23984, 36122,
+// PORT: SOURCE REENTRY_CONTROL.agc:716
+//					# ASPDWN FROM PDL 6.
+// PORT: SOURCE REENTRY_CONTROL.agc:717
+//					# ASPUP FROM PDL 4.
+// PORT: SOURCE REENTRY_CONTROL.agc:718
+//		DAD	DAD
+// PORT: Fixed ROM slots 23985.
+    23985, 36122,
+// PORT: SOURCE REENTRY_CONTROL.agc:719
+//					# ASP1 FROM PDL 2.
+// PORT: SOURCE REENTRY_CONTROL.agc:720
+//					# ASKEP FROM PDL 0.
+// PORT: SOURCE REENTRY_CONTROL.agc:721
+//		DSU	BOVB		# CLEAR OVFIND.
+// PORT: Fixed ROM slots 23986.
+    23986, 33834,
+// PORT: SOURCE REENTRY_CONTROL.agc:722
+//			THETAH
+// PORT: Fixed ROM slots 23987.
+    23987, 3972,
+// PORT: SOURCE REENTRY_CONTROL.agc:723
+//			TCDANZIG
+// PORT: Fixed ROM slots 23988.
+    23988, 48596,
+// PORT: SOURCE REENTRY_CONTROL.agc:724
+//		STORE	DIFF		# DIFF = (ASP-THETAH) / 2 PI
+// PORT: Fixed ROM slots 23989.
+    23989, 3856,
+// PORT: SOURCE REENTRY_CONTROL.agc:725
+//					# ASP=ASKEP+ASP1+ASPUP+ASP3+ASPDWN = TOTAL RANGE
+// PORT: SOURCE REENTRY_CONTROL.agc:726
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:727
+//		ABS	DSU		# IF ABS(THETAH-ASP) -25NM NEG, GO TO UPSY
+// PORT: Fixed ROM slots 23990.
+    23990, 38220,
+// PORT: SOURCE REENTRY_CONTROL.agc:728
+//			25NM
+// PORT: Fixed ROM slots 23991.
+    23991, 13606,
+// PORT: SOURCE REENTRY_CONTROL.agc:729
+//		BMN	BON
+// PORT: Fixed ROM slots 23992.
+    23992, 35904,
+// PORT: SOURCE REENTRY_CONTROL.agc:730
+//			GOTOUPSY
+// PORT: Fixed ROM slots 23993.
+    23993, 44086,
+// PORT: SOURCE REENTRY_CONTROL.agc:731
+//			HIND
+// PORT: Fixed ROM slots 23994.
+    23994, 3474,
+// PORT: SOURCE REENTRY_CONTROL.agc:732
+//			GETLEWD
+// PORT: Fixed ROM slots 23995.
+    23995, 43902,
+// PORT: SOURCE REENTRY_CONTROL.agc:733
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:734
+//		DLOAD	BPL
+// PORT: Fixed ROM slots 23996.
+    23996, 42186,
+// PORT: SOURCE REENTRY_CONTROL.agc:735
+//			DIFF
+// PORT: Fixed ROM slots 23997.
+    23997, 3856,
+// PORT: SOURCE REENTRY_CONTROL.agc:736
+//			DCONSTD		# EVENTUALLY SETS MODE = HUNTEST.
+// PORT: Fixed ROM slots 23998.
+    23998, 44322,
+// PORT: SOURCE REENTRY_CONTROL.agc:737
+//GETDLEWD	DLOAD	DMP
+// PORT: Fixed ROM slots 23999.
+    23999, 34250,
+// PORT: SOURCE REENTRY_CONTROL.agc:738
+//					# DLEWD = DLEWD (DIFF/(DIFFOLD-DIFF))
+// PORT: SOURCE REENTRY_CONTROL.agc:739
+//			DLEWD
+// PORT: Fixed ROM slots 24000.
+    24000, 3908,
+// PORT: SOURCE REENTRY_CONTROL.agc:740
+//			DIFF
+// PORT: Fixed ROM slots 24001.
+    24001, 3856,
+// PORT: SOURCE REENTRY_CONTROL.agc:741
+//		PDDL	DSU
+// PORT: Fixed ROM slots 24002.
+    24002, 38314,
+// PORT: SOURCE REENTRY_CONTROL.agc:742
+//			DIFFOLD
+// PORT: Fixed ROM slots 24003.
+    24003, 3860,
+// PORT: SOURCE REENTRY_CONTROL.agc:743
+//			DIFF
+// PORT: Fixed ROM slots 24004.
+    24004, 3856,
+// PORT: SOURCE REENTRY_CONTROL.agc:744
+//# Page 861
+// PORT: SOURCE REENTRY_CONTROL.agc:745
+//		BDDV
+// PORT: Fixed ROM slots 24005.
+    24005, 65386,
+// PORT: SOURCE REENTRY_CONTROL.agc:746
+//LWDSTORE	STADR
+// PORT: Fixed ROM slots 24006.
+    24006, 65324,
+// PORT: SOURCE REENTRY_CONTROL.agc:747
+//		STORE	DLEWD
+// PORT: Fixed ROM slots 24007.
+    24007, 61626,
+// PORT: SOURCE REENTRY_CONTROL.agc:748
+//		DAD	BMN		# IF LEWD+DLEWD NEG, DLEWD=-LEWD/2
+// PORT: Fixed ROM slots 24008.
+    24008, 40986,
+// PORT: SOURCE REENTRY_CONTROL.agc:749
+//			LEWD
+// PORT: Fixed ROM slots 24009.
+    24009, 4010,
+// PORT: SOURCE REENTRY_CONTROL.agc:750
+//			LEWDPTR
+// PORT: Fixed ROM slots 24010.
+    24010, 43978,
+// PORT: SOURCE REENTRY_CONTROL.agc:751
+//		BOV
+// PORT: Fixed ROM slots 24011.
+    24011, 65280,
+// PORT: SOURCE REENTRY_CONTROL.agc:752
+//			LEWDOVFL
+// PORT: Fixed ROM slots 24012.
+    24012, 43970,
+// PORT: SOURCE REENTRY_CONTROL.agc:753
+//		STORE	LEWD
+// PORT: Fixed ROM slots 24013.
+    24013, 4010,
+// PORT: SOURCE REENTRY_CONTROL.agc:754
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:755
+//SIDETRAK	EXIT
+// PORT: Fixed ROM slots 24014.
+    24014, 65532
+)).
+
+// PORT: Physical bank 25. Shared continuation entries, slots 24015–24019.
+function agcAotUnit1406 {
+    parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
+    if slot <= 24016 {
+        if slot <= 24015 {
+// PORT: SOURCE REENTRY_CONTROL.agc:756
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:757
+//		CA	EBENTRY
+// PORT: Fixed ROM slots 24015.
+            if slot <> 24015 or instruction <> 14896 { return choose false if checkOnly else -1. }
+            if not extended {
+                if checkOnly { return true. }
+                local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                local fixedOperand is mod(readEffective:call(words, 2608), 32768).
+                set words[0] to agcSignExtend(fixedOperand).
+                return list(false, false, inheritedTransient, false, false).
+            }
+            return choose false if checkOnly else -1.
+        } else {
+// PORT: SOURCE REENTRY_CONTROL.agc:758
+//		TS	EBANK
+// PORT: Fixed ROM slots 24016.
+            if slot <> 24016 or instruction <> 22531 { return choose false if checkOnly else -1. }
+            if not extended {
+                if checkOnly { return true. }
+                return agcCoreControlExecute(words, 22531, words[0], readEffective).
+            }
+            return choose false if checkOnly else -1.
+        }
+    } else {
+        if slot <= 24017 {
+// PORT: SOURCE REENTRY_CONTROL.agc:759
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:760
+//		CA	PRIO16		# DROP GRP 5 RESTART PRIO TO 1 LESS THAN
+// PORT: Fixed ROM slots 24017.
+            if slot <> 24017 or instruction <> 14904 { return choose false if checkOnly else -1. }
+            if not extended {
+                if checkOnly { return true. }
+                local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                local fixedOperand is mod(readEffective:call(words, 2616), 32768).
+                set words[0] to agcSignExtend(fixedOperand).
+                return list(false, false, inheritedTransient, false, false).
+            }
+            return choose false if checkOnly else -1.
+        } else {
+            if slot <= 24018 {
+// PORT: SOURCE REENTRY_CONTROL.agc:761
+//		TS	PHSPRDT5	# GRP 4.
+// PORT: Fixed ROM slots 24018.
+                if slot <> 24018 or instruction <> 23092 { return choose false if checkOnly else -1. }
+                if not extended {
+                    if checkOnly { return true. }
+                    return agcCoreControlExecute(words, 23092, words[0], readEffective).
+                }
+                return choose false if checkOnly else -1.
+            } else {
+// PORT: SOURCE REENTRY_CONTROL.agc:762
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:763
+//		TC	PHASCHNG
+// PORT: Fixed ROM slots 24019.
+                if slot <> 24019 or instruction <> 2826 { return choose false if checkOnly else -1. }
+                if not extended {
+                    if checkOnly { return true. }
+                    return agcCoreControlExecute(words, 2826, words[0], readEffective).
+                }
+                return choose false if checkOnly else -1.
+            }
+        }
+    }
+}
+set agcAotRoutes[1406] to agcAotUnit1406@.
+
+agcAotInstallSourceRope(list(
+// PORT: SOURCE REENTRY_CONTROL.agc:764
+//		OCT	00474		# RESTART GRP 4 AT PRE-HUNT.
+// PORT: Fixed ROM slots 24020.
+    24020, 632
+)).
+
+// PORT: Physical bank 25. Shared continuation entries, slots 24021–24025.
+function agcAotUnit1407 {
+    parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
+    if slot <= 24022 {
+        if slot <= 24021 {
+// PORT: SOURCE REENTRY_CONTROL.agc:765
+//					# FORCE RESTART TO PICK UP IN GRP 4:
+// PORT: SOURCE REENTRY_CONTROL.agc:766
+//					# USE PRIO 17 FOR GRP 4 (< SERVICER PRIO)
+// PORT: SOURCE REENTRY_CONTROL.agc:767
+//		CA	PRIO16		# CONTINUE GRP 5 AT LOWER PRIO THAN EITHER
+// PORT: Fixed ROM slots 24021.
+            if slot <> 24021 or instruction <> 14904 { return choose false if checkOnly else -1. }
+            if not extended {
+                if checkOnly { return true. }
+                local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                local fixedOperand is mod(readEffective:call(words, 2616), 32768).
+                set words[0] to agcSignExtend(fixedOperand).
+                return list(false, false, inheritedTransient, false, false).
+            }
+            return choose false if checkOnly else -1.
+        } else {
+// PORT: SOURCE REENTRY_CONTROL.agc:768
+//					# GRP 4 OR SERVICER.
+// PORT: SOURCE REENTRY_CONTROL.agc:769
+//		TC	PRIOCHNG
+// PORT: Fixed ROM slots 24022.
+            if slot <> 24022 or instruction <> 2696 { return choose false if checkOnly else -1. }
+            if not extended {
+                if checkOnly { return true. }
+                return agcCoreControlExecute(words, 2696, words[0], readEffective).
+            }
+            return choose false if checkOnly else -1.
+        }
+    } else {
+        if slot <= 24023 {
+// PORT: SOURCE REENTRY_CONTROL.agc:770
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:771
+//		CAF	ADENDEXT	# SIDETRACK NEXT PASS UNTIL THIS ONE DONE.
+// PORT: Fixed ROM slots 24023.
+            if slot <> 24023 or instruction <> 13850 { return choose false if checkOnly else -1. }
+            if not extended {
+                if checkOnly { return true. }
+                local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                local fixedOperand is mod(readEffective:call(words, 1562), 32768).
+                set words[0] to agcSignExtend(fixedOperand).
+                return list(false, false, inheritedTransient, false, false).
+            }
+            return choose false if checkOnly else -1.
+        } else {
+            if slot <= 24024 {
+// PORT: SOURCE REENTRY_CONTROL.agc:772
+//		TS	GOTOADDR	# ONLY AFTER RESTART IS LEFT AFTER DETOUR.
+// PORT: Fixed ROM slots 24024.
+                if slot <> 24024 or instruction <> 23461 { return choose false if checkOnly else -1. }
+                if not extended {
+                    if checkOnly { return true. }
+                    return agcCoreControlExecute(words, 23461, words[0], readEffective).
+                }
+                return choose false if checkOnly else -1.
+            } else {
+// PORT: SOURCE REENTRY_CONTROL.agc:773
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:774
+//		TC	INTPRET
+// PORT: Fixed ROM slots 24025.
+                if slot <> 24025 or instruction <> 3078 { return choose false if checkOnly else -1. }
+                if not extended {
+                    if checkOnly { return true. }
+                    return agcCoreControlExecute(words, 3078, words[0], readEffective).
+                }
+                return choose false if checkOnly else -1.
+            }
+        }
+    }
+}
+set agcAotRoutes[1407] to agcAotUnit1407@.
+
+agcAotInstallSourceRope(list(
+// PORT: SOURCE REENTRY_CONTROL.agc:775
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:776
+//		DLOAD	SET
+// PORT: Fixed ROM slots 24026.
+    24026, 36042,
+// PORT: SOURCE REENTRY_CONTROL.agc:777
+//			DIFF
+// PORT: Fixed ROM slots 24027.
+    24027, 3856,
+// PORT: SOURCE REENTRY_CONTROL.agc:778
+//			HIND
+// PORT: Fixed ROM slots 24028.
+    24028, 3186,
+// PORT: SOURCE REENTRY_CONTROL.agc:779
+//		STODL	DIFFOLD		# DIFFOLD / 2 PI
+// PORT: Fixed ROM slots 24029.
+    24029, 16148,
+// PORT: SOURCE REENTRY_CONTROL.agc:780
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:781
+//			Q7F
+// PORT: Fixed ROM slots 24030.
+    24030, 13566,
+// PORT: SOURCE REENTRY_CONTROL.agc:782
+//		STCALL	Q7		# Q7 / 805 FPSS
+// PORT: Fixed ROM slots 24031.
+    24031, 31994,
+// PORT: SOURCE REENTRY_CONTROL.agc:783
+//			HUNTEST		# (GO TO)
+// PORT: Fixed ROM slots 24032.
+    24032, 43510,
+// PORT: SOURCE REENTRY_CONTROL.agc:784
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:785
+//LEWDOVFL	DLOAD
+// PORT: Fixed ROM slots 24033.
+    24033, 65482,
+// PORT: SOURCE REENTRY_CONTROL.agc:786
+//			NEARONE
+// PORT: Fixed ROM slots 24034.
+    24034, 15860,
+// PORT: SOURCE REENTRY_CONTROL.agc:787
+//		STCALL	LEWD
+// PORT: Fixed ROM slots 24035.
+    24035, 32682,
+// PORT: SOURCE REENTRY_CONTROL.agc:788
+//			DCONSTD		# (GO TO)  ALSO WILL SET MODE = HUNTEST
+// PORT: Fixed ROM slots 24036.
+    24036, 44322,
+// PORT: SOURCE REENTRY_CONTROL.agc:789
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:790
+//LEWDPTR		DLOAD	SR1
+// PORT: Fixed ROM slots 24037.
+    24037, 58058,
+// PORT: SOURCE REENTRY_CONTROL.agc:791
+//			LEWD
+// PORT: Fixed ROM slots 24038.
+    24038, 4010,
+// PORT: SOURCE REENTRY_CONTROL.agc:792
+//		DCOMP	GOTO
+// PORT: Fixed ROM slots 24039.
+    24039, 43132,
+// PORT: SOURCE REENTRY_CONTROL.agc:793
+//			LWDSTORE
+// PORT: Fixed ROM slots 24040.
+    24040, 43916,
+// PORT: SOURCE REENTRY_CONTROL.agc:794
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:795
+//# Page 862
+// PORT: SOURCE REENTRY_CONTROL.agc:796
+//# NEGAMA IS PART OF HUNTEST ...
+// PORT: SOURCE REENTRY_CONTROL.agc:797
+//NEGAMA		DMP	DMP		# ENTER WITH GAMMAL IN MPAC
+// PORT: Fixed ROM slots 24041.
+    24041, 34058,
+// PORT: SOURCE REENTRY_CONTROL.agc:798
+//			VL
+// PORT: Fixed ROM slots 24042.
+    24042, 4078,
+// PORT: SOURCE REENTRY_CONTROL.agc:799
+//			1/3RD
+// PORT: Fixed ROM slots 24043.
+    24043, 13518,
+// PORT: SOURCE REENTRY_CONTROL.agc:800
+//		PDDL	DMP		# PUSH GAMMAL VL/3
+// PORT: Fixed ROM slots 24044.
+    24044, 34218,
+// PORT: SOURCE REENTRY_CONTROL.agc:801
+//			LEWD
+// PORT: Fixed ROM slots 24045.
+    24045, 4010,
+// PORT: SOURCE REENTRY_CONTROL.agc:802
+//			1/3RD
+// PORT: Fixed ROM slots 24046.
+    24046, 13518,
+// PORT: SOURCE REENTRY_CONTROL.agc:803
+//		PDDL	DAD		# PUSH LEWD/3
+// PORT: Fixed ROM slots 24047.
+    24047, 36266,
+// PORT: SOURCE REENTRY_CONTROL.agc:804
+//			AHOOKDV
+// PORT: Fixed ROM slots 24048.
+    24048, 3936,
+// PORT: SOURCE REENTRY_CONTROL.agc:805
+//			1/24TH
+// PORT: Fixed ROM slots 24049.
+    24049, 13654,
+// PORT: SOURCE REENTRY_CONTROL.agc:806
+//		DMP	DMP		# DEL VL = (GAMMAL VL/3)/(LEWD/3-DVL
+// PORT: Fixed ROM slots 24050.
+    24050, 34058,
+// PORT: SOURCE REENTRY_CONTROL.agc:807
+//			DVL		# (2/3 + AHOOKDV)(CH1 GS/DHOOK VL))
+// PORT: Fixed ROM slots 24051.
+    24051, 3940,
+// PORT: SOURCE REENTRY_CONTROL.agc:808
+//			CH1
+// PORT: Fixed ROM slots 24052.
+    24052, 13658,
+// PORT: SOURCE REENTRY_CONTROL.agc:809
+//		DDV	DDV
+// PORT: Fixed ROM slots 24053.
+    24053, 47474,
+// PORT: SOURCE REENTRY_CONTROL.agc:810
+//			DHOOK
+// PORT: Fixed ROM slots 24054.
+    24054, 3932,
+// PORT: SOURCE REENTRY_CONTROL.agc:811
+//			VL
+// PORT: Fixed ROM slots 24055.
+    24055, 4078,
+// PORT: SOURCE REENTRY_CONTROL.agc:812
+//		BDSU	BDDV
+// PORT: Fixed ROM slots 24056.
+    24056, 46370,
+// PORT: SOURCE REENTRY_CONTROL.agc:813
+//					# LEWD/3
+// PORT: SOURCE REENTRY_CONTROL.agc:814
+//					# GAMMAL VL /3
+// PORT: SOURCE REENTRY_CONTROL.agc:815
+//		DAD
+// PORT: Fixed ROM slots 24057.
+    24057, 65306,
+// PORT: SOURCE REENTRY_CONTROL.agc:816
+//			VL
+// PORT: Fixed ROM slots 24058.
+    24058, 4078,
+// PORT: SOURCE REENTRY_CONTROL.agc:817
+//		STCALL	VL		# VL/2 VS
+// PORT: Fixed ROM slots 24059.
+    24059, 32750,
+// PORT: SOURCE REENTRY_CONTROL.agc:818
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:819
+//			DHOOKYQ7	# GO CALC Q7
+// PORT: Fixed ROM slots 24060.
+    24060, 44040,
+// PORT: SOURCE REENTRY_CONTROL.agc:820
+//					# Q7=((1-VL/FACT1)SQ - ALP)/FACT2
+// PORT: SOURCE REENTRY_CONTROL.agc:821
+//		STODL	Q7		# Q7 / 25G
+// PORT: Fixed ROM slots 24061.
+    24061, 15610,
+// PORT: SOURCE REENTRY_CONTROL.agc:822
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:823
+//			VL
+// PORT: Fixed ROM slots 24062.
+    24062, 4078,
+// PORT: SOURCE REENTRY_CONTROL.agc:824
+//		DSQ
+// PORT: Fixed ROM slots 24063.
+    24063, 65436,
+// PORT: SOURCE REENTRY_CONTROL.agc:825
+//		STODL	VBARS		# VBARS / 4 VS VS
+// PORT: Fixed ROM slots 24064.
+    24064, 16236,
+// PORT: SOURCE REENTRY_CONTROL.agc:826
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:827
+//			3ZEROS
+// PORT: Fixed ROM slots 24065.
+    24065, 13754,
+// PORT: SOURCE REENTRY_CONTROL.agc:828
+//		GOTO			# SET GAMMAL = 0
+// PORT: Fixed ROM slots 24066.
+    24066, 65360,
+// PORT: SOURCE REENTRY_CONTROL.agc:829
+//			HUNTEST3
+// PORT: Fixed ROM slots 24067.
+    24067, 43746,
+// PORT: SOURCE REENTRY_CONTROL.agc:830
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:831
+//DHOOKYQ7	SR1	DDV		# SUBROUTINE TO CALC DHOOK OR Q7)
+// PORT: Fixed ROM slots 24068.
+    24068, 47556,
+// PORT: SOURCE REENTRY_CONTROL.agc:832
+//			FACT1
+// PORT: Fixed ROM slots 24069.
+    24069, 3868,
+// PORT: SOURCE REENTRY_CONTROL.agc:833
+//		BDSU	SL1
+// PORT: Fixed ROM slots 24070.
+    24070, 59938,
+// PORT: SOURCE REENTRY_CONTROL.agc:834
+//			HALVE
+// PORT: Fixed ROM slots 24071.
+    24071, 13750,
+// PORT: SOURCE REENTRY_CONTROL.agc:835
+//		DSQ	DSU
+// PORT: Fixed ROM slots 24072.
+    24072, 38300,
+// PORT: SOURCE REENTRY_CONTROL.agc:836
+//			ALP
+// PORT: Fixed ROM slots 24073.
+    24073, 3976,
+// PORT: SOURCE REENTRY_CONTROL.agc:837
+//		DDV	RVQ
+// PORT: Fixed ROM slots 24074.
+    24074, 36466,
+// PORT: SOURCE REENTRY_CONTROL.agc:838
+//			FACT2
+// PORT: Fixed ROM slots 24075.
+    24075, 3872
+)).
+
+// PORT: Physical bank 25. Shared continuation entries, slots 24076–24076.
+function agcAotUnit1408 {
+    parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
+// PORT: SOURCE REENTRY_CONTROL.agc:839
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:840
+//# Page 863
+// PORT: SOURCE REENTRY_CONTROL.agc:841
+//					# COME TO PRE-HUNT WHEN RESTART OCCURS AFTER
+// PORT: SOURCE REENTRY_CONTROL.agc:842
+//					# HUNTEST IS SIDE-TRACKED AT SIDETRAK.
+// PORT: SOURCE REENTRY_CONTROL.agc:843
+//					# PICK UP IN GROUP 4.
+// PORT: SOURCE REENTRY_CONTROL.agc:844
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:845
+//PRE-HUNT	TC	INTPRET
+// PORT: Fixed ROM slots 24076.
+    if slot <> 24076 or instruction <> 3078 { return choose false if checkOnly else -1. }
+    if not extended {
+        if checkOnly { return true. }
+        return agcCoreControlExecute(words, 3078, words[0], readEffective).
+    }
+    return choose false if checkOnly else -1.
+}
+set agcAotRoutes[1408] to agcAotUnit1408@.
+
+agcAotInstallSourceRope(list(
+// PORT: SOURCE REENTRY_CONTROL.agc:846
+//		CLEAR	CALL
+// PORT: Fixed ROM slots 24077.
+    24077, 37912,
+// PORT: SOURCE REENTRY_CONTROL.agc:847
+//			HIND		# HIND	99D BIT 6 FLAG 6
+// PORT: Fixed ROM slots 24078.
+    24078, 3442,
+// PORT: SOURCE REENTRY_CONTROL.agc:848
+//			FOREHUNT	# RE-INITIALIZE HUNTEST AFTER RE-START.
+// PORT: Fixed ROM slots 24079.
+    24079, 44068,
+// PORT: SOURCE REENTRY_CONTROL.agc:849
+//		GOTO
+// PORT: Fixed ROM slots 24080.
+    24080, 65360,
+// PORT: SOURCE REENTRY_CONTROL.agc:850
+//			HUNTEST
+// PORT: Fixed ROM slots 24081.
+    24081, 43510,
+// PORT: SOURCE REENTRY_CONTROL.agc:851
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:852
+//FOREHUNT	DLOAD			# INITIALIZE HUNTEST.
+// PORT: Fixed ROM slots 24082.
+    24082, 65482,
+// PORT: SOURCE REENTRY_CONTROL.agc:853
+//			3ZEROS
+// PORT: Fixed ROM slots 24083.
+    24083, 13754,
+// PORT: SOURCE REENTRY_CONTROL.agc:854
+//		STODL	DIFFOLD
+// PORT: Fixed ROM slots 24084.
+    24084, 16148,
+// PORT: SOURCE REENTRY_CONTROL.agc:855
+//			DLEWD0
+// PORT: Fixed ROM slots 24085.
+    24085, 13534,
+// PORT: SOURCE REENTRY_CONTROL.agc:856
+//		STODL	DLEWD
+// PORT: Fixed ROM slots 24086.
+    24086, 16196,
+// PORT: SOURCE REENTRY_CONTROL.agc:857
+//			LEWD1
+// PORT: Fixed ROM slots 24087.
+    24087, 13522,
+// PORT: SOURCE REENTRY_CONTROL.agc:858
+//		STORE	LEWD
+// PORT: Fixed ROM slots 24088.
+    24088, 4010,
+// PORT: SOURCE REENTRY_CONTROL.agc:859
+//		RVQ
+// PORT: Fixed ROM slots 24089.
+    24089, 65308,
+// PORT: SOURCE REENTRY_CONTROL.agc:860
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:861
+//ADENDEXT	CADR	ENDEXIT
+// PORT: Fixed ROM slots 24090.
+    24090, 44796,
+// PORT: SOURCE REENTRY_CONTROL.agc:862
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:863
+//# Page 864
+// PORT: SOURCE REENTRY_CONTROL.agc:864
+//# * START	UP CONTROL ...
+// PORT: SOURCE REENTRY_CONTROL.agc:865
+//					# MM = 65
+// PORT: SOURCE REENTRY_CONTROL.agc:866
+//GOTOUPSY	RTB			# END OF HUNTEST
+// PORT: Fixed ROM slots 24091.
+    24091, 65336,
+// PORT: SOURCE REENTRY_CONTROL.agc:867
+//			P65		# HUNTEST USE OF GRP4 IS DISABLED BY P65
+// PORT: Fixed ROM slots 24092.
+    24092, 45634,
+// PORT: SOURCE REENTRY_CONTROL.agc:868
+//					# USE FOR DISPLAY.
+// PORT: SOURCE REENTRY_CONTROL.agc:869
+//					# SET MODE = UPCONTRL.
+// PORT: SOURCE REENTRY_CONTROL.agc:870
+//					# RETURN FROM P65 DIRECTLY TO UPCONTRL
+// PORT: SOURCE REENTRY_CONTROL.agc:871
+//					# VIA THE GOTOADDR AT REFAZE10.
+// PORT: SOURCE REENTRY_CONTROL.agc:872
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:873
+//UPCONTRL	DLOAD	DSU		# IF D-140 POS, NOSWITCH =1
+// PORT: Fixed ROM slots 24093.
+    24093, 38346,
+// PORT: SOURCE REENTRY_CONTROL.agc:874
+//			D		# (SUPPRESS LATERAL SWITCH)
+// PORT: Fixed ROM slots 24094.
+    24094, 3904,
+// PORT: SOURCE REENTRY_CONTROL.agc:875
+//			C21
+// PORT: Fixed ROM slots 24095.
+    24095, 13602,
+// PORT: SOURCE REENTRY_CONTROL.agc:876
+//		BMN	SET
+// PORT: Fixed ROM slots 24096.
+    24096, 35904,
+// PORT: SOURCE REENTRY_CONTROL.agc:877
+//			+2
+// PORT: Fixed ROM slots 24097.
+    24097, 44102,
+// PORT: SOURCE REENTRY_CONTROL.agc:878
+//			NOSWITCH
+// PORT: Fixed ROM slots 24098.
+    24098, 3184,
+// PORT: SOURCE REENTRY_CONTROL.agc:879
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:880
+//		DLOAD	DSU		# IF V-V1 POS, GO TO DOWN CONTROL.
+// PORT: Fixed ROM slots 24099.
+    24099, 38346,
+// PORT: SOURCE REENTRY_CONTROL.agc:881
+//			V
+// PORT: Fixed ROM slots 24100.
+    24100, 3960,
+// PORT: SOURCE REENTRY_CONTROL.agc:882
+//			V1
+// PORT: Fixed ROM slots 24101.
+    24101, 428,
+// PORT: SOURCE REENTRY_CONTROL.agc:883
+//		BPL	DLOAD
+// PORT: Fixed ROM slots 24102.
+    24102, 58696,
+// PORT: SOURCE REENTRY_CONTROL.agc:884
+//			DOWNCNTL
+// PORT: Fixed ROM slots 24103.
+    24103, 44384,
+// PORT: SOURCE REENTRY_CONTROL.agc:885
+//			D
+// PORT: Fixed ROM slots 24104.
+    24104, 3904,
+// PORT: SOURCE REENTRY_CONTROL.agc:886
+//		DSU	BMN		# IF D- Q7 NEG, GO TO KEP
+// PORT: Fixed ROM slots 24105.
+    24105, 41002,
+// PORT: SOURCE REENTRY_CONTROL.agc:887
+//			Q7
+// PORT: Fixed ROM slots 24106.
+    24106, 3322,
+// PORT: SOURCE REENTRY_CONTROL.agc:888
+//			KEP
+// PORT: Fixed ROM slots 24107.
+    24107, 44438,
+// PORT: SOURCE REENTRY_CONTROL.agc:889
+//		DLOAD	BPL		# IF RDOT NEG, DO VLTEST
+// PORT: Fixed ROM slots 24108.
+    24108, 42186,
+// PORT: SOURCE REENTRY_CONTROL.agc:890
+//			RDOT
+// PORT: Fixed ROM slots 24109.
+    24109, 3968,
+// PORT: SOURCE REENTRY_CONTROL.agc:891
+//			CONT1
+// PORT: Fixed ROM slots 24110.
+    24110, 44138,
+// PORT: SOURCE REENTRY_CONTROL.agc:892
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:893
+//VLTEST		DLOAD	DSU		# IF V-VL-C18 NEG,EGSW=1,MODE=PREDICT3
+// PORT: Fixed ROM slots 24111.
+    24111, 38346,
+// PORT: SOURCE REENTRY_CONTROL.agc:894
+//			V
+// PORT: Fixed ROM slots 24112.
+    24112, 3960,
+// PORT: SOURCE REENTRY_CONTROL.agc:895
+//			VL
+// PORT: Fixed ROM slots 24113.
+    24113, 4078,
+// PORT: SOURCE REENTRY_CONTROL.agc:896
+//		DSU	BMN
+// PORT: Fixed ROM slots 24114.
+    24114, 41002,
+// PORT: SOURCE REENTRY_CONTROL.agc:897
+//			C18
+// PORT: Fixed ROM slots 24115.
+    24115, 13546,
+// PORT: SOURCE REENTRY_CONTROL.agc:898
+//			PREFINAL
+// PORT: Fixed ROM slots 24116.
+    24116, 44470,
+// PORT: SOURCE REENTRY_CONTROL.agc:899
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:900
+//CONT1		DLOAD			# IF D-A0 POS, L/D = LAD, GO TO LIMITL/D
+// PORT: Fixed ROM slots 24117.
+    24117, 65482,
+// PORT: SOURCE REENTRY_CONTROL.agc:901
+//			D
+// PORT: Fixed ROM slots 24118.
+    24118, 3904,
+// PORT: SOURCE REENTRY_CONTROL.agc:902
+//		DSU	BMN
+// PORT: Fixed ROM slots 24119.
+    24119, 41002,
+// PORT: SOURCE REENTRY_CONTROL.agc:903
+//			A0
+// PORT: Fixed ROM slots 24120.
+    24120, 432,
+// PORT: SOURCE REENTRY_CONTROL.agc:904
+//			CONT3
+// PORT: Fixed ROM slots 24121.
+    24121, 44154,
+// PORT: SOURCE REENTRY_CONTROL.agc:905
+//		DLOAD	GOTO
+// PORT: Fixed ROM slots 24122.
+    24122, 43210,
+// PORT: SOURCE REENTRY_CONTROL.agc:906
+//			LAD
+// PORT: Fixed ROM slots 24123.
+    24123, 3880,
+// PORT: SOURCE REENTRY_CONTROL.agc:907
+//			STOREL/D
+// PORT: Fixed ROM slots 24124.
+    24124, 44714,
+// PORT: SOURCE REENTRY_CONTROL.agc:908
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:909
+//CONT3		DLOAD	DMP		# VREF=FACT1(1-SQRT(FACT2 D + ALP))
+// PORT: Fixed ROM slots 24125.
+    24125, 34250,
+// PORT: SOURCE REENTRY_CONTROL.agc:910
+//			D
+// PORT: Fixed ROM slots 24126.
+    24126, 3904,
+// PORT: SOURCE REENTRY_CONTROL.agc:911
+//			FACT2
+// PORT: Fixed ROM slots 24127.
+    24127, 3872,
+// PORT: SOURCE REENTRY_CONTROL.agc:912
+//# Page 865
+// PORT: SOURCE REENTRY_CONTROL.agc:913
+//		DAD	SQRT
+// PORT: Fixed ROM slots 24128.
+    24128, 63002,
+// PORT: SOURCE REENTRY_CONTROL.agc:914
+//			ALP
+// PORT: Fixed ROM slots 24129.
+    24129, 3976,
+// PORT: SOURCE REENTRY_CONTROL.agc:915
+//		BDSU	DMP
+// PORT: Fixed ROM slots 24130.
+    24130, 34082,
+// PORT: SOURCE REENTRY_CONTROL.agc:916
+//			BARELY1
+// PORT: Fixed ROM slots 24131.
+    24131, 15860,
+// PORT: SOURCE REENTRY_CONTROL.agc:917
+//			FACT1
+// PORT: Fixed ROM slots 24132.
+    24132, 3868,
+// PORT: SOURCE REENTRY_CONTROL.agc:918
+//		STORE	VREF		# VREF / 2VS
+// PORT: Fixed ROM slots 24133.
+    24133, 1248,
+// PORT: SOURCE REENTRY_CONTROL.agc:919
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:920
+//		BDSU	DMP		# RDOTREF = LEWD(V1-VREF)
+// PORT: Fixed ROM slots 24134.
+    24134, 34082,
+// PORT: SOURCE REENTRY_CONTROL.agc:921
+//			V1
+// PORT: Fixed ROM slots 24135.
+    24135, 428,
+// PORT: SOURCE REENTRY_CONTROL.agc:922
+//			LEWD
+// PORT: Fixed ROM slots 24136.
+    24136, 4010,
+// PORT: SOURCE REENTRY_CONTROL.agc:923
+//		STODL	RDOTREF		# RDOTREF / 2VS
+// PORT: Fixed ROM slots 24137.
+    24137, 13532,
+// PORT: SOURCE REENTRY_CONTROL.agc:924
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:925
+//			VS1
+// PORT: Fixed ROM slots 24138.
+    24138, 3956,
+// PORT: SOURCE REENTRY_CONTROL.agc:926
+//		DSU	BMN		# IF VSAT-VREF NEG, GO TO CONTINU2
+// PORT: Fixed ROM slots 24139.
+    24139, 41002,
+// PORT: SOURCE REENTRY_CONTROL.agc:927
+//			VREF
+// PORT: Fixed ROM slots 24140.
+    24140, 1248,
+// PORT: SOURCE REENTRY_CONTROL.agc:928
+//			CONTINU2
+// PORT: Fixed ROM slots 24141.
+    24141, 44216,
+// PORT: SOURCE REENTRY_CONTROL.agc:929
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:930
+//		PUSH	PUSH		# VS1-VREF  TO PDL TWICE
+// PORT: Fixed ROM slots 24142.
+    24142, 34316,
+// PORT: SOURCE REENTRY_CONTROL.agc:931
+//		DMP	DDV		# RDHOOK=CHI(1+DV AHOOKDV/DVL) DV DV
+// PORT: Fixed ROM slots 24143.
+    24143, 47370,
+// PORT: SOURCE REENTRY_CONTROL.agc:932
+//			AHOOKDV		#	/DHOOK VREF
+// PORT: Fixed ROM slots 24144.
+    24144, 3936,
+// PORT: SOURCE REENTRY_CONTROL.agc:933
+//			DVL		# WHERE  DV = (VS1-VREF)
+// PORT: Fixed ROM slots 24145.
+    24145, 3940,
+// PORT: SOURCE REENTRY_CONTROL.agc:934
+//		DAD	DMP
+// PORT: Fixed ROM slots 24146.
+    24146, 34074,
+// PORT: SOURCE REENTRY_CONTROL.agc:935
+//			1/16TH
+// PORT: Fixed ROM slots 24147.
+    24147, 15852,
+// PORT: SOURCE REENTRY_CONTROL.agc:936
+//			CH1
+// PORT: Fixed ROM slots 24148.
+    24148, 13658,
+// PORT: SOURCE REENTRY_CONTROL.agc:937
+//		DMP	DMP
+// PORT: Fixed ROM slots 24149.
+    24149, 34058,
+// PORT: SOURCE REENTRY_CONTROL.agc:938
+//					# VS1-VREF  FROM PDL TWICE.
+// PORT: SOURCE REENTRY_CONTROL.agc:939
+//		DDV
+// PORT: Fixed ROM slots 24150.
+    24150, 65394,
+// PORT: SOURCE REENTRY_CONTROL.agc:940
+//			DHOOK
+// PORT: Fixed ROM slots 24151.
+    24151, 3932,
+// PORT: SOURCE REENTRY_CONTROL.agc:941
+//		DDV	BDSU
+// PORT: Fixed ROM slots 24152.
+    24152, 37234,
+// PORT: SOURCE REENTRY_CONTROL.agc:942
+//			VREF
+// PORT: Fixed ROM slots 24153.
+    24153, 1248,
+// PORT: SOURCE REENTRY_CONTROL.agc:943
+//			RDOTREF		# C(RDOTREF)= LEWD (V1-VREF)
+// PORT: Fixed ROM slots 24154.
+    24154, 1244,
+// PORT: SOURCE REENTRY_CONTROL.agc:944
+//		STORE	RDOTREF		# RDOTREF = RDOTREF - RDHOOK
+// PORT: Fixed ROM slots 24155.
+    24155, 1244,
+// PORT: SOURCE REENTRY_CONTROL.agc:945
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:946
+//CONTINU2	DLOAD	DSU
+// PORT: Fixed ROM slots 24156.
+    24156, 38346,
+// PORT: SOURCE REENTRY_CONTROL.agc:947
+//			D
+// PORT: Fixed ROM slots 24157.
+    24157, 3904,
+// PORT: SOURCE REENTRY_CONTROL.agc:948
+//			Q7MIN
+// PORT: Fixed ROM slots 24158.
+    24158, 13718,
+// PORT: SOURCE REENTRY_CONTROL.agc:949
+//		BOVB	BMN
+// PORT: Fixed ROM slots 24159.
+    24159, 40968,
+// PORT: SOURCE REENTRY_CONTROL.agc:950
+//			TCDANZIG	# CLEAR OVFL IND, IF ON.
+// PORT: Fixed ROM slots 24160.
+    24160, 48596,
+// PORT: SOURCE REENTRY_CONTROL.agc:951
+//			UPCNTRL3
+// PORT: Fixed ROM slots 24161.
+    24161, 44244,
+// PORT: SOURCE REENTRY_CONTROL.agc:952
+//		DLOAD	DSU
+// PORT: Fixed ROM slots 24162.
+    24162, 38346,
+// PORT: SOURCE REENTRY_CONTROL.agc:953
+//			A1
+// PORT: Fixed ROM slots 24163.
+    24163, 3944,
+// PORT: SOURCE REENTRY_CONTROL.agc:954
+//			Q7
+// PORT: Fixed ROM slots 24164.
+    24164, 3322,
+// PORT: SOURCE REENTRY_CONTROL.agc:955
+//		PDDL	DSU
+// PORT: Fixed ROM slots 24165.
+    24165, 38314,
+// PORT: SOURCE REENTRY_CONTROL.agc:956
+//			D
+// PORT: Fixed ROM slots 24166.
+    24166, 3904,
+// PORT: SOURCE REENTRY_CONTROL.agc:957
+//			Q7
+// PORT: Fixed ROM slots 24167.
+    24167, 3322,
+// PORT: SOURCE REENTRY_CONTROL.agc:958
+//		DDV	STADR
+// PORT: Fixed ROM slots 24168.
+    24168, 38514,
+// PORT: SOURCE REENTRY_CONTROL.agc:959
+//		STORE	FACTOR		# FACTOR / 25G
+// PORT: Fixed ROM slots 24169.
+    24169, 61670,
+// PORT: SOURCE REENTRY_CONTROL.agc:960
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:961
+//# Page 866
+// PORT: SOURCE REENTRY_CONTROL.agc:962
+//# SKIPPER
+// PORT: SOURCE REENTRY_CONTROL.agc:963
+//					# DELTA L/D=-((RDOT-RDOTREF)F1 KB1+V-VREF)F1 KB2
+// PORT: SOURCE REENTRY_CONTROL.agc:964
+//					#	WHERE F1 = FACTOR
+// PORT: SOURCE REENTRY_CONTROL.agc:965
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:966
+//UPCNTRL3	DLOAD
+// PORT: Fixed ROM slots 24170.
+    24170, 65482,
+// PORT: SOURCE REENTRY_CONTROL.agc:967
+//			RDOT
+// PORT: Fixed ROM slots 24171.
+    24171, 3968,
+// PORT: SOURCE REENTRY_CONTROL.agc:968
+//		DSU	DMP		# L/D = LEWD
+// PORT: Fixed ROM slots 24172.
+    24172, 34090,
+// PORT: SOURCE REENTRY_CONTROL.agc:969
+//			RDOTREF		# -((RDOT-RDOTREF)F1/KB1+V-VREF)F1/KB2
+// PORT: Fixed ROM slots 24173.
+    24173, 1244,
+// PORT: SOURCE REENTRY_CONTROL.agc:970
+//			FACTOR
+// PORT: Fixed ROM slots 24174.
+    24174, 3864,
+// PORT: SOURCE REENTRY_CONTROL.agc:971
+//		DDV	DAD
+// PORT: Fixed ROM slots 24175.
+    24175, 36210,
+// PORT: SOURCE REENTRY_CONTROL.agc:972
+//			1/KB1
+// PORT: Fixed ROM slots 24176.
+    24176, 13586,
+// PORT: SOURCE REENTRY_CONTROL.agc:973
+//			V
+// PORT: Fixed ROM slots 24177.
+    24177, 3960
+)).
+
+agcAotInstallSourceRope(list(
+// PORT: SOURCE REENTRY_CONTROL.agc:974
+//		DSU	DMP
+// PORT: Fixed ROM slots 24178.
+    24178, 34090,
+// PORT: SOURCE REENTRY_CONTROL.agc:975
+//			VREF
+// PORT: Fixed ROM slots 24179.
+    24179, 1248,
+// PORT: SOURCE REENTRY_CONTROL.agc:976
+//			FACTOR
+// PORT: Fixed ROM slots 24180.
+    24180, 3864,
+// PORT: SOURCE REENTRY_CONTROL.agc:977
+//		DDV	PUSH
+// PORT: Fixed ROM slots 24181.
+    24181, 34418,
+// PORT: SOURCE REENTRY_CONTROL.agc:978
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:979
+//			-1/KB2		# DELTA L/D INTO PDL
+// PORT: Fixed ROM slots 24182.
+    24182, 13590,
+// PORT: SOURCE REENTRY_CONTROL.agc:980
+//		BOV	ABS		# NONLINEAR CIRCUIT FOR REDUCING HIGH GAIN
+// PORT: Fixed ROM slots 24183.
+    24183, 42496,
+// PORT: SOURCE REENTRY_CONTROL.agc:981
+//			GOMAXL/D
+// PORT: Fixed ROM slots 24184.
+    24184, 44660,
+// PORT: SOURCE REENTRY_CONTROL.agc:982
+//		DSU	BMN
+// PORT: Fixed ROM slots 24185.
+    24185, 41002,
+// PORT: SOURCE REENTRY_CONTROL.agc:983
+//			PT1/16
+// PORT: Fixed ROM slots 24186.
+    24186, 13690,
+// PORT: SOURCE REENTRY_CONTROL.agc:984
+//			NEXT1
+// PORT: Fixed ROM slots 24187.
+    24187, 44288,
+// PORT: SOURCE REENTRY_CONTROL.agc:985
+//		DMP	DAD
+// PORT: Fixed ROM slots 24188.
+    24188, 36106,
+// PORT: SOURCE REENTRY_CONTROL.agc:986
+//			POINT1
+// PORT: Fixed ROM slots 24189.
+    24189, 13526,
+// PORT: SOURCE REENTRY_CONTROL.agc:987
+//			PT1/16
+// PORT: Fixed ROM slots 24190.
+    24190, 13690,
+// PORT: SOURCE REENTRY_CONTROL.agc:988
+//		SIGN	PUSH		# ATTACH SIGN OF PUSH TO MPAC THEN PUSH
+// PORT: Fixed ROM slots 24191.
+    24191, 34538,
+// PORT: SOURCE REENTRY_CONTROL.agc:989
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:990
+//NEXT1		DLOAD	SL4
+// PORT: Fixed ROM slots 24192.
+    24192, 35530,
+// PORT: SOURCE REENTRY_CONTROL.agc:991
+//					# DELTA L/D FROM PDL.
+// PORT: SOURCE REENTRY_CONTROL.agc:992
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:993
+//		DAD
+// PORT: Fixed ROM slots 24193.
+    24193, 65306,
+// PORT: SOURCE REENTRY_CONTROL.agc:994
+//			LEWD
+// PORT: Fixed ROM slots 24194.
+    24194, 4010,
+// PORT: SOURCE REENTRY_CONTROL.agc:995
+//NEGTESTS	BOV	PUSH		# L/D TO PDL FOR USE IN NEGTESTS.
+// PORT: Fixed ROM slots 24195.
+    24195, 34304,
+// PORT: SOURCE REENTRY_CONTROL.agc:996
+//			GOMAXL/D
+// PORT: Fixed ROM slots 24196.
+    24196, 44660,
+// PORT: SOURCE REENTRY_CONTROL.agc:997
+//		STODL	L/D
+// PORT: Fixed ROM slots 24197.
+    24197, 16184,
+// PORT: SOURCE REENTRY_CONTROL.agc:998
+//					# IF D-C20 POS, LATSW =0
+// PORT: SOURCE REENTRY_CONTROL.agc:999
+//					# AND IF L/D NEG, L/D = 0.
+// PORT: SOURCE REENTRY_CONTROL.agc:1000
+//			D
+// PORT: Fixed ROM slots 24198.
+    24198, 3904,
+// PORT: SOURCE REENTRY_CONTROL.agc:1001
+//		DSU	BMN
+// PORT: Fixed ROM slots 24199.
+    24199, 41002,
+// PORT: SOURCE REENTRY_CONTROL.agc:1002
+//			C20
+// PORT: Fixed ROM slots 24200.
+    24200, 13598,
+// PORT: SOURCE REENTRY_CONTROL.agc:1003
+//			LIMITL/D
+// PORT: Fixed ROM slots 24201.
+    24201, 44716,
+// PORT: SOURCE REENTRY_CONTROL.agc:1004
+//		CLEAR	DLOAD
+// PORT: Fixed ROM slots 24202.
+    24202, 58648,
+// PORT: SOURCE REENTRY_CONTROL.agc:1005
+//			LATSW		# =21D.  ROLL OVER TOP, REGARDLESS.
+// PORT: Fixed ROM slots 24203.
+    24203, 3446,
+// PORT: SOURCE REENTRY_CONTROL.agc:1006
+//					# L/D FROM PDL.
+// PORT: SOURCE REENTRY_CONTROL.agc:1007
+//		BPL	DLOAD
+// PORT: Fixed ROM slots 24204.
+    24204, 58696,
+// PORT: SOURCE REENTRY_CONTROL.agc:1008
+//			LIMITL/D
+// PORT: Fixed ROM slots 24205.
+    24205, 44716,
+// PORT: SOURCE REENTRY_CONTROL.agc:1009
+//			3ZEROS
+// PORT: Fixed ROM slots 24206.
+    24206, 13754,
+// PORT: SOURCE REENTRY_CONTROL.agc:1010
+//		STCALL	L/D
+// PORT: Fixed ROM slots 24207.
+    24207, 32568,
+// PORT: SOURCE REENTRY_CONTROL.agc:1011
+//			LIMITL/D	# (GO TO)
+// PORT: Fixed ROM slots 24208.
+    24208, 44716,
+// PORT: SOURCE REENTRY_CONTROL.agc:1012
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1013
+//# Page 867
+// PORT: SOURCE REENTRY_CONTROL.agc:1014
+//DCONSTD		DLOAD			# TWO RANGER ENTRIES TO CONSTD HERE
+// PORT: Fixed ROM slots 24209.
+    24209, 65482,
+// PORT: SOURCE REENTRY_CONTROL.agc:1015
+//			DIFF
+// PORT: Fixed ROM slots 24210.
+    24210, 3856,
+// PORT: SOURCE REENTRY_CONTROL.agc:1016
+//					# SAVE OLD VALUE OF DIFF FOR NEXT PASS.
+// PORT: SOURCE REENTRY_CONTROL.agc:1017
+//		STODL	DIFFOLD		# DIFFOLD / 2 PI
+// PORT: Fixed ROM slots 24211.
+    24211, 16148,
+// PORT: SOURCE REENTRY_CONTROL.agc:1018
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1019
+//			Q7F
+// PORT: Fixed ROM slots 24212.
+    24212, 13566,
+// PORT: SOURCE REENTRY_CONTROL.agc:1020
+//		STORE	Q7
+// PORT: Fixed ROM slots 24213.
+    24213, 3322,
+// PORT: SOURCE REENTRY_CONTROL.agc:1021
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1022
+//BECONSTD	SSP	RTB		# A HUNTEST ENTRY INTO CONSTD.
+// PORT: Fixed ROM slots 24214.
+    24214, 40114,
+// PORT: SOURCE REENTRY_CONTROL.agc:1023
+//			GOTOADDR	# RESET MODE TO HUNTEST
+// PORT: Fixed ROM slots 24215.
+    24215, 3916,
+// PORT: SOURCE REENTRY_CONTROL.agc:1024
+//			HUNTEST
+// PORT: Fixed ROM slots 24216.
+    24216, 43510,
+// PORT: SOURCE REENTRY_CONTROL.agc:1025
+//			KILLGRP4	# DEACTIVATE GRP4 FROM HUNTEST.
+// PORT: Fixed ROM slots 24217.
+    24217, 45708,
+// PORT: SOURCE REENTRY_CONTROL.agc:1026
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1027
+//CONSTD		BOVB
+// PORT: Fixed ROM slots 24218.
+    24218, 65288,
+// PORT: SOURCE REENTRY_CONTROL.agc:1028
+//			TCDANZIG	# CLEAR OVF IND IF ON.
+// PORT: Fixed ROM slots 24219.
+    24219, 48596,
+// PORT: SOURCE REENTRY_CONTROL.agc:1029
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1030
+//		DLOAD	DMP
+// PORT: Fixed ROM slots 24220.
+    24220, 34250,
+// PORT: SOURCE REENTRY_CONTROL.agc:1031
+//			LEQ
+// PORT: Fixed ROM slots 24221.
+    24221, 3928,
+// PORT: SOURCE REENTRY_CONTROL.agc:1032
+//			C/D0		# C/D0 = -4/D0 B-8
+// PORT: Fixed ROM slots 24222.
+    24222, 3980,
+// PORT: SOURCE REENTRY_CONTROL.agc:1033
+//		PDDL	DMP		# LEQ C/D0 INTO PDL
+// PORT: Fixed ROM slots 24223.
+    24223, 34218,
+// PORT: SOURCE REENTRY_CONTROL.agc:1034
+//			2HS		# 2HS / 4 VS VS
+// PORT: Fixed ROM slots 24224.
+    24224, 13670,
+// PORT: SOURCE REENTRY_CONTROL.agc:1035
+//			D0
+// PORT: Fixed ROM slots 24225.
+    24225, 3984,
+// PORT: SOURCE REENTRY_CONTROL.agc:1036
+//		DDV	DAD		# RDOTREF = -2 HS D0/V
+// PORT: Fixed ROM slots 24226.
+    24226, 36210,
+// PORT: SOURCE REENTRY_CONTROL.agc:1037
+//			V
+// PORT: Fixed ROM slots 24227.
+    24227, 3960,
+// PORT: SOURCE REENTRY_CONTROL.agc:1038
+//			RDOT
+// PORT: Fixed ROM slots 24228.
+    24228, 3968,
+// PORT: SOURCE REENTRY_CONTROL.agc:1039
+//		DMP	DAD
+// PORT: Fixed ROM slots 24229.
+    24229, 36106,
+// PORT: SOURCE REENTRY_CONTROL.agc:1040
+//			K2D		# C/D0 LEQ + K2D(RDOT-RDOTREF) INTO PD
+// PORT: Fixed ROM slots 24230.
+    24230, 13614,
+// PORT: SOURCE REENTRY_CONTROL.agc:1041
+//		PDDL
+// PORT: Fixed ROM slots 24231.
+    24231, 65450,
+// PORT: SOURCE REENTRY_CONTROL.agc:1042
+//			D0		# D0 /805
+// PORT: Fixed ROM slots 24232.
+    24232, 3984,
+// PORT: SOURCE REENTRY_CONTROL.agc:1043
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1044
+//CONSTD1		BDSU			# ENTER WITH DREF IN MPAC
+// PORT: Fixed ROM slots 24233.
+    24233, 65314,
+// PORT: SOURCE REENTRY_CONTROL.agc:1045
+//			D
+// PORT: Fixed ROM slots 24234.
+    24234, 3904,
+// PORT: SOURCE REENTRY_CONTROL.agc:1046
+//		DMP	DAD
+// PORT: Fixed ROM slots 24235.
+    24235, 36106,
+// PORT: SOURCE REENTRY_CONTROL.agc:1047
+//			K1D		# K2D TERM FROM PUSH
+// PORT: Fixed ROM slots 24236.
+    24236, 13610,
+// PORT: SOURCE REENTRY_CONTROL.agc:1048
+//		SL	GOTO
+// PORT: Fixed ROM slots 24237.
+    24237, 43106,
+// PORT: SOURCE REENTRY_CONTROL.agc:1049
+//			8D
+// PORT: Fixed ROM slots 24238.
+    24238, 16658,
+// PORT: SOURCE REENTRY_CONTROL.agc:1050
+//			NEGTESTS	# (GO TO)
+// PORT: Fixed ROM slots 24239.
+    24239, 44294,
+// PORT: SOURCE REENTRY_CONTROL.agc:1051
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1052
+//DOWNCNTL	BOVB			# INITIAL PART OF UPCONTROL.
+// PORT: Fixed ROM slots 24240.
+    24240, 65288,
+// PORT: SOURCE REENTRY_CONTROL.agc:1053
+//			TCDANZIG	# CLEAR OVFIND, IF ON.
+// PORT: Fixed ROM slots 24241.
+    24241, 48596,
+// PORT: SOURCE REENTRY_CONTROL.agc:1054
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1055
+//		DLOAD	SR
+// PORT: Fixed ROM slots 24242.
+    24242, 45514,
+// PORT: SOURCE REENTRY_CONTROL.agc:1056
+//			LAD
+// PORT: Fixed ROM slots 24243.
+    24243, 3880,
+// PORT: SOURCE REENTRY_CONTROL.agc:1057
+//			8D
+// PORT: Fixed ROM slots 24244.
+    24244, 17170,
+// PORT: SOURCE REENTRY_CONTROL.agc:1058
+//		PDDL	DSU		# RDTR = LAD(V1-V)
+// PORT: Fixed ROM slots 24245.
+    24245, 38314,
+// PORT: SOURCE REENTRY_CONTROL.agc:1059
+//			V
+// PORT: Fixed ROM slots 24246.
+    24246, 3960,
+// PORT: SOURCE REENTRY_CONTROL.agc:1060
+//			V1
+// PORT: Fixed ROM slots 24247.
+    24247, 428,
+// PORT: SOURCE REENTRY_CONTROL.agc:1061
+//		DMP	DAD
+// PORT: Fixed ROM slots 24248.
+    24248, 36106,
+// PORT: SOURCE REENTRY_CONTROL.agc:1062
+//			LAD
+// PORT: Fixed ROM slots 24249.
+    24249, 3880,
+// PORT: SOURCE REENTRY_CONTROL.agc:1063
+//# Page 868
+// PORT: SOURCE REENTRY_CONTROL.agc:1064
+//			RDOT
+// PORT: Fixed ROM slots 24250.
+    24250, 3968,
+// PORT: SOURCE REENTRY_CONTROL.agc:1065
+//		DMP	DAD
+// PORT: Fixed ROM slots 24251.
+    24251, 36106,
+// PORT: SOURCE REENTRY_CONTROL.agc:1066
+//			K2D
+// PORT: Fixed ROM slots 24252.
+    24252, 13614,
+// PORT: SOURCE REENTRY_CONTROL.agc:1067
+//					# PUSH UP LAD.
+// PORT: SOURCE REENTRY_CONTROL.agc:1068
+//		PDDL	DSU		# LAD + K2D(RDOT-RDTR) INTO PD
+// PORT: Fixed ROM slots 24253.
+    24253, 38314,
+// PORT: SOURCE REENTRY_CONTROL.agc:1069
+//			V1
+// PORT: Fixed ROM slots 24254.
+    24254, 428,
+// PORT: SOURCE REENTRY_CONTROL.agc:1070
+//			V
+// PORT: Fixed ROM slots 24255.
+    24255, 3960,
+// PORT: SOURCE REENTRY_CONTROL.agc:1071
+//		DSQ	DMP
+// PORT: Fixed ROM slots 24256.
+    24256, 34204,
+// PORT: SOURCE REENTRY_CONTROL.agc:1072
+//			LAD
+// PORT: Fixed ROM slots 24257.
+    24257, 3880,
+// PORT: SOURCE REENTRY_CONTROL.agc:1073
+//		DDV	PDDL		# (V1-V)SQ LAD/(2 C1 HS) INTO PD
+// PORT: Fixed ROM slots 24258.
+    24258, 54642,
+// PORT: SOURCE REENTRY_CONTROL.agc:1074
+//			2C1HS
+// PORT: Fixed ROM slots 24259.
+    24259, 13686,
+// PORT: SOURCE REENTRY_CONTROL.agc:1075
+//			V1
+// PORT: Fixed ROM slots 24260.
+    24260, 428,
+// PORT: SOURCE REENTRY_CONTROL.agc:1076
+//		DSQ	DDV
+// PORT: Fixed ROM slots 24261.
+    24261, 47516,
+// PORT: SOURCE REENTRY_CONTROL.agc:1077
+//			VSQUARE
+// PORT: Fixed ROM slots 24262.
+    24262, 3876,
+// PORT: SOURCE REENTRY_CONTROL.agc:1078
+//		BDDV	DSU		# DREF = (V/V1)SQ A0 - PD
+// PORT: Fixed ROM slots 24263.
+    24263, 38250,
+// PORT: SOURCE REENTRY_CONTROL.agc:1079
+//			A0
+// PORT: Fixed ROM slots 24264.
+    24264, 432,
+// PORT: SOURCE REENTRY_CONTROL.agc:1080
+//					# PUSH UP HERE
+// PORT: SOURCE REENTRY_CONTROL.agc:1081
+//		GOTO			# C(MPAC) = DREF
+// PORT: Fixed ROM slots 24265.
+    24265, 65360,
+// PORT: SOURCE REENTRY_CONTROL.agc:1082
+//			CONSTD1
+// PORT: Fixed ROM slots 24266.
+    24266, 44370,
+// PORT: SOURCE REENTRY_CONTROL.agc:1083
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1084
+//					#              2           2
+// PORT: SOURCE REENTRY_CONTROL.agc:1085
+//					# DREF = (V/V1)  A0 -(V-V1)  LAD/2 C1 HS
+// PORT: SOURCE REENTRY_CONTROL.agc:1086
+//# Page 869
+// PORT: SOURCE REENTRY_CONTROL.agc:1087
+//# * START	BALLISTIC PHASE ...
+// PORT: SOURCE REENTRY_CONTROL.agc:1088
+//					# MM = 66	UPCONTRL ENTRY INTO KEP2.
+// PORT: SOURCE REENTRY_CONTROL.agc:1089
+//KEP		RTB	SSP
+// PORT: Fixed ROM slots 24267.
+    24267, 55608,
+// PORT: SOURCE REENTRY_CONTROL.agc:1090
+//			P66		# DISPLAY TRIM GIMBAL ANGLE VALUES.
+// PORT: Fixed ROM slots 24268.
+    24268, 45688,
+// PORT: SOURCE REENTRY_CONTROL.agc:1091
+//			GOTOADDR	# SET GOTOADDR TO KEPLER PHASE.
+// PORT: Fixed ROM slots 24269.
+    24269, 3916,
+// PORT: SOURCE REENTRY_CONTROL.agc:1092
+//			KEP2
+// PORT: Fixed ROM slots 24270.
+    24270, 44446,
+// PORT: SOURCE REENTRY_CONTROL.agc:1093
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1094
+//					# KEP2 CAN ALSO BE STARTED UP DIRECTLY FROM INITROLL
+// PORT: SOURCE REENTRY_CONTROL.agc:1095
+//					# IN P64.  PROGRAM WILL IDLE IN P64 UNTIL D EXCEEDS
+// PORT: SOURCE REENTRY_CONTROL.agc:1096
+//					# .2 G BEFORE GOING ON TO P67.
+// PORT: SOURCE REENTRY_CONTROL.agc:1097
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1098
+//KEP2		DLOAD	DSU		# IF Q7F+KDMIN -D NEG, GO TO FINAL PHASE.
+// PORT: Fixed ROM slots 24271.
+    24271, 38346,
+// PORT: SOURCE REENTRY_CONTROL.agc:1099
+//			Q7FKDMIN	# (Q7F + KDMIN)/805
+// PORT: Fixed ROM slots 24272.
+    24272, 13550,
+// PORT: SOURCE REENTRY_CONTROL.agc:1100
+//			D
+// PORT: Fixed ROM slots 24273.
+    24273, 3904,
+// PORT: SOURCE REENTRY_CONTROL.agc:1101
+//		BMN	TLOAD
+// PORT: Fixed ROM slots 24274.
+    24274, 59712
+)).
+
+agcAotInstallSourceRope(list(
+// PORT: SOURCE REENTRY_CONTROL.agc:1102
+//			PREFINAL
+// PORT: Fixed ROM slots 24275.
+    24275, 44470,
+// PORT: SOURCE REENTRY_CONTROL.agc:1103
+//					# SET ROLLHOLD = ROLLC, IN CASE CMDAPMOD
+// PORT: SOURCE REENTRY_CONTROL.agc:1104
+//			ROLLC		# = +1 EVER ENTERED.
+// PORT: Fixed ROM slots 24276.
+    24276, 3484,
+// PORT: SOURCE REENTRY_CONTROL.agc:1105
+//		BON	TLOAD		# IF D > .05G, KEEP PRESENT ROLL COMMAND.
+// PORT: Fixed ROM slots 24277.
+    24277, 59672,
+// PORT: SOURCE REENTRY_CONTROL.agc:1106
+//			.05GSW		# IF D < .05G, SET ROLL COMMAND = 0.
+// PORT: Fixed ROM slots 24278.
+    24278, 3480,
+// PORT: SOURCE REENTRY_CONTROL.agc:1107
+//			+2
+// PORT: Fixed ROM slots 24279.
+    24279, 44466,
+// PORT: SOURCE REENTRY_CONTROL.agc:1108
+//			3ZEROS		# SET ROLLC & ROLLHOLD =0.
+// PORT: Fixed ROM slots 24280.
+    24280, 13754,
+// PORT: SOURCE REENTRY_CONTROL.agc:1109
+//+2		STCALL	ROLLC		# (SP ROLLHOLD FOLLOWS DP ROLLC)
+// PORT: Fixed ROM slots 24281.
+    24281, 32156,
+// PORT: SOURCE REENTRY_CONTROL.agc:1110
+//			P62.3		# CALC DESIRED GIMBAL ANGLES AT PRESENT
+// PORT: Fixed ROM slots 24282.
+    24282, 45570,
+// PORT: SOURCE REENTRY_CONTROL.agc:1111
+//					# RN, VN TO YIELD TRIM ATTITUDE.
+// PORT: SOURCE REENTRY_CONTROL.agc:1112
+//					# AVAILABLE IN CPHI'S FOR N22.
+// PORT: SOURCE REENTRY_CONTROL.agc:1113
+//# Page 870
+// PORT: SOURCE REENTRY_CONTROL.agc:1114
+//# START FINAL PHASE ...
+// PORT: SOURCE REENTRY_CONTROL.agc:1115
+//					# MM = 67
+// PORT: SOURCE REENTRY_CONTROL.agc:1116
+//PREFINAL	SSP	RTB
+// PORT: Fixed ROM slots 24283.
+    24283, 40114,
+// PORT: SOURCE REENTRY_CONTROL.agc:1117
+//			GOTOADDR	# RESTART PROTECT: RESET GOTOADDR IF CAME
+// PORT: Fixed ROM slots 24284.
+    24284, 3916,
+// PORT: SOURCE REENTRY_CONTROL.agc:1118
+//			PREFINAL	# FROM HUNTEST.
+// PORT: Fixed ROM slots 24285.
+    24285, 44470,
+// PORT: SOURCE REENTRY_CONTROL.agc:1119
+//			P67		# DISABLES GRP4.  FINE IF FROM HUNTEST.BUT
+// PORT: Fixed ROM slots 24286.
+    24286, 45696,
+// PORT: SOURCE REENTRY_CONTROL.agc:1120
+//					# MAY ALSO REMOVE RESTART PROTECTION OF
+// PORT: SOURCE REENTRY_CONTROL.agc:1121
+//					# N69 (P65).
+// PORT: SOURCE REENTRY_CONTROL.agc:1122
+//					# ROLLC		XRNGERR		DNRNGERR
+// PORT: SOURCE REENTRY_CONTROL.agc:1123
+//					# XXX.XX DEG	XXXX.X NM	XXXX.X NM
+// PORT: SOURCE REENTRY_CONTROL.agc:1124
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1125
+//		SET	SSP
+// PORT: Fixed ROM slots 24287.
+    24287, 55576,
+// PORT: SOURCE REENTRY_CONTROL.agc:1126
+//			EGSW
+// PORT: Fixed ROM slots 24288.
+    24288, 3182,
+// PORT: SOURCE REENTRY_CONTROL.agc:1127
+//			GOTOADDR
+// PORT: Fixed ROM slots 24289.
+    24289, 3916,
+// PORT: SOURCE REENTRY_CONTROL.agc:1128
+//			PREDICT3
+// PORT: Fixed ROM slots 24290.
+    24290, 44486,
+// PORT: SOURCE REENTRY_CONTROL.agc:1129
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1130
+//PREDICT3	DLOAD	DSU		# IF V-VQUIT NEG, STOP STEERING
+// PORT: Fixed ROM slots 24291.
+    24291, 38346,
+// PORT: SOURCE REENTRY_CONTROL.agc:1131
+//			V
+// PORT: Fixed ROM slots 24292.
+    24292, 3960,
+// PORT: SOURCE REENTRY_CONTROL.agc:1132
+//			VQUIT
+// PORT: Fixed ROM slots 24293.
+    24293, 13594,
+// PORT: SOURCE REENTRY_CONTROL.agc:1133
+//		BMN	EXIT
+// PORT: Fixed ROM slots 24294.
+    24294, 65088,
+// PORT: SOURCE REENTRY_CONTROL.agc:1134
+//			STEEROFF
+// PORT: Fixed ROM slots 24295.
+    24295, 44822
+)).
+
+// PORT: Physical bank 25. Shared continuation entries, slots 24296–24301.
+function agcAotUnit1409 {
+    parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
+    if slot <= 24298 {
+        if slot <= 24296 {
+// PORT: SOURCE REENTRY_CONTROL.agc:1135
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1136
+//		CA	EBENTRY		# PRECAUTIONARY.
+// PORT: Fixed ROM slots 24296.
+            if slot <> 24296 or instruction <> 14896 { return choose false if checkOnly else -1. }
+            if not extended {
+                if checkOnly { return true. }
+                local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                local fixedOperand is mod(readEffective:call(words, 2608), 32768).
+                set words[0] to agcSignExtend(fixedOperand).
+                return list(false, false, inheritedTransient, false, false).
+            }
+            return choose false if checkOnly else -1.
+        } else {
+            if slot <= 24297 {
+// PORT: SOURCE REENTRY_CONTROL.agc:1137
+//		TS	EBANK
+// PORT: Fixed ROM slots 24297.
+                if slot <> 24297 or instruction <> 22531 { return choose false if checkOnly else -1. }
+                if not extended {
+                    if checkOnly { return true. }
+                    return agcCoreControlExecute(words, 22531, words[0], readEffective).
+                }
+                return choose false if checkOnly else -1.
+            } else {
+// PORT: SOURCE REENTRY_CONTROL.agc:1138
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1139
+//		CA	TWELVE
+// PORT: Fixed ROM slots 24298.
+                if slot <> 24298 or instruction <> 15353 { return choose false if checkOnly else -1. }
+                if not extended {
+                    if checkOnly { return true. }
+                    local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                    local fixedOperand is mod(readEffective:call(words, 3065), 32768).
+                    set words[0] to agcSignExtend(fixedOperand).
+                    return list(false, false, inheritedTransient, false, false).
+                }
+                return choose false if checkOnly else -1.
+            }
+        }
+    } else {
+        if slot <= 24299 {
+// PORT: SOURCE REENTRY_CONTROL.agc:1140
+//BACK		TS	JJ
+// PORT: Fixed ROM slots 24299.
+            if slot <> 24299 or instruction <> 23545 { return choose false if checkOnly else -1. }
+            if not extended {
+                if checkOnly { return true. }
+                return agcCoreControlExecute(words, 23545, words[0], readEffective).
+            }
+            return choose false if checkOnly else -1.
+        } else {
+            if slot <= 24300 {
+// PORT: SOURCE REENTRY_CONTROL.agc:1141
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1142
+//		CS	V
+// PORT: Fixed ROM slots 24300.
+                if slot <> 24300 or instruction <> 17339 { return choose false if checkOnly else -1. }
+                if not extended {
+                    if checkOnly { return true. }
+                    agcCoreCS(words, 955).
+                    return list(false, false, true, false, false).
+                }
+                return choose false if checkOnly else -1.
+            } else {
+// PORT: SOURCE REENTRY_CONTROL.agc:1143
+//		INDEX	JJ
+// PORT: Fixed ROM slots 24301.
+                if slot <> 24301 or instruction <> 21497 { return choose false if checkOnly else -1. }
+                if not extended {
+                    if checkOnly { return true. }
+                    return agcCoreControlExecute(words, 21497, words[0], readEffective).
+                }
+                if extended {
+                    if checkOnly { return true. }
+                    return agcCoreControlExecute(words, 21497, words[0], readEffective).
+                }
+                return choose false if checkOnly else -1.
+            }
+        }
+    }
+}
+set agcAotRoutes[1409] to agcAotUnit1409@.
+
+agcAotInstallSourceRope(list(
+// PORT: SOURCE REENTRY_CONTROL.agc:1144
+//		AD	VREFER		# VREF - V, HIGHEST VREF AT END OF TABLE.
+// PORT: Fixed ROM slots 24302.
+    24302, 53054
+)).
+
+// PORT: Physical bank 25. Shared continuation entries, slots 24303–24308.
+function agcAotUnit1410 {
+    parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
+    if slot <= 24305 {
+        if slot <= 24303 {
+// PORT: SOURCE REENTRY_CONTROL.agc:1145
+//		CCS	A		# IF VREF-V POS LOOP BACK
+// PORT: Fixed ROM slots 24303.
+            if slot <> 24303 or instruction <> 4096 { return choose false if checkOnly else -1. }
+            if not extended {
+                if checkOnly { return true. }
+                local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                agcCoreCCS(words, 0).
+                return list(false, false, inheritedTransient, false, false).
+            }
+            return choose false if checkOnly else -1.
+        } else {
+            if slot <= 24304 {
+// PORT: SOURCE REENTRY_CONTROL.agc:1146
+//		CCS	JJ		# DECREMENT JJ, JJ CANNOT BE ZERO
+// PORT: Fixed ROM slots 24304.
+                if slot <> 24304 or instruction <> 5113 { return choose false if checkOnly else -1. }
+                if not extended {
+                    if checkOnly { return true. }
+                    local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                    agcCoreCCS(words, 1017).
+                    return list(false, false, inheritedTransient, false, false).
+                }
+                return choose false if checkOnly else -1.
+            } else {
+// PORT: SOURCE REENTRY_CONTROL.agc:1147
+//		TCF	BACK
+// PORT: Fixed ROM slots 24305.
+                if slot <> 24305 or instruction <> 5867 { return choose false if checkOnly else -1. }
+                if not extended {
+                    if checkOnly { return true. }
+                    return agcCoreControlExecute(words, 5867, words[0], readEffective).
+                }
+                return choose false if checkOnly else -1.
+            }
+        }
+    } else {
+        if slot <= 24306 {
+// PORT: SOURCE REENTRY_CONTROL.agc:1148
+//		AD	ONE
+// PORT: Fixed ROM slots 24306.
+            if slot <> 24306 or instruction <> 27151 { return choose false if checkOnly else -1. }
+            if not extended {
+                if checkOnly { return true. }
+                local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                local entryA is words[0].
+                local fixedOperand is mod(readEffective:call(words, 2575), 32768).
+                set words[0] to agcAddSP16(entryA, agcSignExtend(fixedOperand)).
+                return list(false, false, inheritedTransient, false, false).
+            }
+            return choose false if checkOnly else -1.
+        } else {
+            if slot <= 24307 {
+// PORT: SOURCE REENTRY_CONTROL.agc:1149
+//		TS	TEM1B		# V-VREF IN TEM1B (MUST BE POSITIVE NUM)
+// PORT: Fixed ROM slots 24307.
+                if slot <> 24307 or instruction <> 23462 { return choose false if checkOnly else -1. }
+                if not extended {
+                    if checkOnly { return true. }
+                    return agcCoreControlExecute(words, 23462, words[0], readEffective).
+                }
+                return choose false if checkOnly else -1.
+            } else {
+// PORT: SOURCE REENTRY_CONTROL.agc:1150
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1151
+//		INDEX	JJ
+// PORT: Fixed ROM slots 24308.
+                if slot <> 24308 or instruction <> 21497 { return choose false if checkOnly else -1. }
+                if not extended {
+                    if checkOnly { return true. }
+                    return agcCoreControlExecute(words, 21497, words[0], readEffective).
+                }
+                if extended {
+                    if checkOnly { return true. }
+                    return agcCoreControlExecute(words, 21497, words[0], readEffective).
+                }
+                return choose false if checkOnly else -1.
+            }
+        }
+    }
+}
+set agcAotRoutes[1410] to agcAotUnit1410@.
+
+agcAotInstallSourceRope(list(
+// PORT: SOURCE REENTRY_CONTROL.agc:1152
+//		CS	VREFER
+// PORT: Fixed ROM slots 24309.
+    24309, 36670
+)).
+
+// PORT: Physical bank 25. Shared continuation entries, slots 24310–24310.
+function agcAotUnit1411 {
+    parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
+// PORT: SOURCE REENTRY_CONTROL.agc:1153
+//		INDEX	JJ
+// PORT: Fixed ROM slots 24310.
+    if slot <> 24310 or instruction <> 21497 { return choose false if checkOnly else -1. }
+    if not extended {
+        if checkOnly { return true. }
+        return agcCoreControlExecute(words, 21497, words[0], readEffective).
+    }
+    if extended {
+        if checkOnly { return true. }
+        return agcCoreControlExecute(words, 21497, words[0], readEffective).
+    }
+    return choose false if checkOnly else -1.
+}
+set agcAotRoutes[1411] to agcAotUnit1411@.
+
+agcAotInstallSourceRope(list(
+// PORT: SOURCE REENTRY_CONTROL.agc:1154
+//		AD	VREFER +1	# V(K+1) - V(K)			(POS NUM)
+// PORT: Fixed ROM slots 24311.
+    24311, 53056
+)).
+
+// PORT: Physical bank 25. Shared continuation entries, slots 24312–24321.
+function agcAotUnit1412 {
+    parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
+    if slot <= 24316 {
+        if slot <= 24313 {
+            if slot <= 24312 {
+// PORT: SOURCE REENTRY_CONTROL.agc:1155
+//		XCH	TEM1B
+// PORT: Fixed ROM slots 24312.
+                if slot <> 24312 or instruction <> 24486 { return choose false if checkOnly else -1. }
+                if not extended {
+                    if checkOnly { return true. }
+                    agcCoreExchange(words, 0, 934, readPhysical).
+                    return list(false, false, true, false, false).
+                }
+                return choose false if checkOnly else -1.
+            } else {
+// PORT: SOURCE REENTRY_CONTROL.agc:1156
+//		ZL
+// PORT: Fixed ROM slots 24313.
+                if slot <> 24313 or instruction <> 9223 { return choose false if checkOnly else -1. }
+                if not extended {
+                    if checkOnly { return true. }
+                    local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                    agcCoreExchange(words, 1, 7, readPhysical).
+                    return list(false, false, inheritedTransient, false, false).
+                }
+                return choose false if checkOnly else -1.
+            }
+        } else {
+            if slot <= 24314 {
+// PORT: SOURCE REENTRY_CONTROL.agc:1157
+//		EXTEND
+// PORT: Fixed ROM slots 24314.
+                if slot <> 24314 or instruction <> 6 { return choose false if checkOnly else -1. }
+                if not extended {
+                    if checkOnly { return true. }
+                    return agcCoreControlExecute(words, 6, words[0], readEffective).
+                }
+                return choose false if checkOnly else -1.
+            } else {
+                if slot <= 24315 {
+// PORT: SOURCE REENTRY_CONTROL.agc:1158
+//		DV	TEM1B
+// PORT: Fixed ROM slots 24315.
+                    if slot <> 24315 or instruction <> 5030 { return choose false if checkOnly else -1. }
+                    if extended {
+                        if checkOnly { return true. }
+                        local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                        agcCoreDv(words, 934, readEffective:call(words, 934)).
+                        return list(false, false, inheritedTransient, false, false).
+                    }
+                    return choose false if checkOnly else -1.
+                } else {
+// PORT: SOURCE REENTRY_CONTROL.agc:1159
+//		TS	GRAD		# GRAD = (V-VREF)/(VK+1 - VK)	(POS NUM
+// PORT: Fixed ROM slots 24316.
+                    if slot <> 24316 or instruction <> 23465 { return choose false if checkOnly else -1. }
+                    if not extended {
+                        if checkOnly { return true. }
+                        return agcCoreControlExecute(words, 23465, words[0], readEffective).
+                    }
+                    return choose false if checkOnly else -1.
+                }
+            }
+        }
+    } else {
+        if slot <= 24318 {
+            if slot <= 24317 {
+// PORT: SOURCE REENTRY_CONTROL.agc:1160
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1161
+//		CAF	FIVE
+// PORT: Fixed ROM slots 24317.
+                if slot <> 24317 or instruction <> 14866 { return choose false if checkOnly else -1. }
+                if not extended {
+                    if checkOnly { return true. }
+                    local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                    local fixedOperand is mod(readEffective:call(words, 2578), 32768).
+                    set words[0] to agcSignExtend(fixedOperand).
+                    return list(false, false, inheritedTransient, false, false).
+                }
+                return choose false if checkOnly else -1.
+            } else {
+// PORT: SOURCE REENTRY_CONTROL.agc:1162
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1163
+//# Page 871
+// PORT: SOURCE REENTRY_CONTROL.agc:1164
+//BACK2		TS	MM
+// PORT: Fixed ROM slots 24318.
+                if slot <> 24318 or instruction <> 23464 { return choose false if checkOnly else -1. }
+                if not extended {
+                    if checkOnly { return true. }
+                    return agcCoreControlExecute(words, 23464, words[0], readEffective).
+                }
+                return choose false if checkOnly else -1.
+            }
+        } else {
+            if slot <= 24319 {
+// PORT: SOURCE REENTRY_CONTROL.agc:1165
+//		CAF	THIRTEEN
+// PORT: Fixed ROM slots 24319.
+                if slot <> 24319 or instruction <> 14869 { return choose false if checkOnly else -1. }
+                if not extended {
+                    if checkOnly { return true. }
+                    local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                    local fixedOperand is mod(readEffective:call(words, 2581), 32768).
+                    set words[0] to agcSignExtend(fixedOperand).
+                    return list(false, false, inheritedTransient, false, false).
+                }
+                return choose false if checkOnly else -1.
+            } else {
+                if slot <= 24320 {
+// PORT: SOURCE REENTRY_CONTROL.agc:1166
+//		ADS	JJ
+// PORT: Fixed ROM slots 24320.
+                    if slot <> 24320 or instruction <> 12281 { return choose false if checkOnly else -1. }
+                    if not extended {
+                        if checkOnly { return true. }
+                        local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                        agcCoreADS(words, 1017).
+                        return list(false, false, inheritedTransient, false, false).
+                    }
+                    return choose false if checkOnly else -1.
+                } else {
+// PORT: SOURCE REENTRY_CONTROL.agc:1167
+//		INDEX	A
+// PORT: Fixed ROM slots 24321.
+                    if slot <> 24321 or instruction <> 20480 { return choose false if checkOnly else -1. }
+                    if not extended {
+                        if checkOnly { return true. }
+                        return agcCoreControlExecute(words, 20480, words[0], readEffective).
+                    }
+                    if extended {
+                        if checkOnly { return true. }
+                        return agcCoreControlExecute(words, 20480, words[0], readEffective).
+                    }
+                    return choose false if checkOnly else -1.
+                }
+            }
+        }
+    }
+}
+set agcAotRoutes[1412] to agcAotUnit1412@.
+
+agcAotInstallSourceRope(list(
+// PORT: SOURCE REENTRY_CONTROL.agc:1168
+//		CS	VREFER
+// PORT: Fixed ROM slots 24322.
+    24322, 36670
+)).
+
+// PORT: Physical bank 25. Shared continuation entries, slots 24323–24323.
+function agcAotUnit1413 {
+    parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
+// PORT: SOURCE REENTRY_CONTROL.agc:1169
+//		INDEX	JJ
+// PORT: Fixed ROM slots 24323.
+    if slot <> 24323 or instruction <> 21497 { return choose false if checkOnly else -1. }
+    if not extended {
+        if checkOnly { return true. }
+        return agcCoreControlExecute(words, 21497, words[0], readEffective).
+    }
+    if extended {
+        if checkOnly { return true. }
+        return agcCoreControlExecute(words, 21497, words[0], readEffective).
+    }
+    return choose false if checkOnly else -1.
+}
+set agcAotRoutes[1413] to agcAotUnit1413@.
+
+agcAotInstallSourceRope(list(
+// PORT: SOURCE REENTRY_CONTROL.agc:1170
+//		AD	VREFER	 +1	# X(K+1) - X(K)
+// PORT: Fixed ROM slots 24324.
+    24324, 53056
+)).
+
+// PORT: Physical bank 25. Shared continuation entries, slots 24325–24327.
+function agcAotUnit1414 {
+    parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
+    if slot <= 24325 {
+// PORT: SOURCE REENTRY_CONTROL.agc:1171
+//		EXTEND
+// PORT: Fixed ROM slots 24325.
+        if slot <> 24325 or instruction <> 6 { return choose false if checkOnly else -1. }
+        if not extended {
+            if checkOnly { return true. }
+            return agcCoreControlExecute(words, 6, words[0], readEffective).
+        }
+        return choose false if checkOnly else -1.
+    } else {
+        if slot <= 24326 {
+// PORT: SOURCE REENTRY_CONTROL.agc:1172
+//		MP	GRAD
+// PORT: Fixed ROM slots 24326.
+            if slot <> 24326 or instruction <> 29609 { return choose false if checkOnly else -1. }
+            if extended {
+                if checkOnly { return true. }
+                local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                agcCoreMp(words, 937, readEffective:call(words, 937)).
+                return list(false, false, inheritedTransient, false, false).
+            }
+            return choose false if checkOnly else -1.
+        } else {
+// PORT: SOURCE REENTRY_CONTROL.agc:1173
+//		INDEX	JJ
+// PORT: Fixed ROM slots 24327.
+            if slot <> 24327 or instruction <> 21497 { return choose false if checkOnly else -1. }
+            if not extended {
+                if checkOnly { return true. }
+                return agcCoreControlExecute(words, 21497, words[0], readEffective).
+            }
+            if extended {
+                if checkOnly { return true. }
+                return agcCoreControlExecute(words, 21497, words[0], readEffective).
+            }
+            return choose false if checkOnly else -1.
+        }
+    }
+}
+set agcAotRoutes[1414] to agcAotUnit1414@.
+
+agcAotInstallSourceRope(list(
+// PORT: SOURCE REENTRY_CONTROL.agc:1174
+//		AD	VREFER
+// PORT: Fixed ROM slots 24328.
+    24328, 53054
+)).
+
+// PORT: Physical bank 25. Shared continuation entries, slots 24329–24329.
+function agcAotUnit1415 {
+    parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
+// PORT: SOURCE REENTRY_CONTROL.agc:1175
+//		INDEX	MM
+// PORT: Fixed ROM slots 24329.
+    if slot <> 24329 or instruction <> 21416 { return choose false if checkOnly else -1. }
+    if not extended {
+        if checkOnly { return true. }
+        return agcCoreControlExecute(words, 21416, words[0], readEffective).
+    }
+    if extended {
+        if checkOnly { return true. }
+        return agcCoreControlExecute(words, 21416, words[0], readEffective).
+    }
+    return choose false if checkOnly else -1.
+}
+set agcAotRoutes[1415] to agcAotUnit1415@.
+
+agcAotInstallSourceRope(list(
+// PORT: SOURCE REENTRY_CONTROL.agc:1176
+//		TS	FX		# FX = AK + GRAD (AK+1 - AK)
+// PORT: Fixed ROM slots 24330.
+    24330, 46932
+)).
+
+// PORT: Physical bank 25. Shared continuation entries, slots 24331–24350.
+function agcAotUnit1416 {
+    parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
+    if slot <= 24340 {
+        if slot <= 24335 {
+            if slot <= 24332 {
+                if slot <= 24331 {
+// PORT: SOURCE REENTRY_CONTROL.agc:1177
+//		CCS	MM
+// PORT: Fixed ROM slots 24331.
+                    if slot <> 24331 or instruction <> 5032 { return choose false if checkOnly else -1. }
+                    if not extended {
+                        if checkOnly { return true. }
+                        local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                        agcCoreCCS(words, 936).
+                        return list(false, false, inheritedTransient, false, false).
+                    }
+                    return choose false if checkOnly else -1.
+                } else {
+// PORT: SOURCE REENTRY_CONTROL.agc:1178
+//		TCF	BACK2
+// PORT: Fixed ROM slots 24332.
+                    if slot <> 24332 or instruction <> 5886 { return choose false if checkOnly else -1. }
+                    if not extended {
+                        if checkOnly { return true. }
+                        return agcCoreControlExecute(words, 5886, words[0], readEffective).
+                    }
+                    return choose false if checkOnly else -1.
+                }
+            } else {
+                if slot <= 24333 {
+// PORT: SOURCE REENTRY_CONTROL.agc:1179
+//		XCH	FX 	+1	# ZERO FX +1 AND GET DREFR
+// PORT: Fixed ROM slots 24333.
+                    if slot <> 24333 or instruction <> 24491 { return choose false if checkOnly else -1. }
+                    if not extended {
+                        if checkOnly { return true. }
+                        agcCoreExchange(words, 0, 939, readPhysical).
+                        return list(false, false, true, false, false).
+                    }
+                    return choose false if checkOnly else -1.
+                } else {
+                    if slot <= 24334 {
+// PORT: SOURCE REENTRY_CONTROL.agc:1180
+//		AD	D
+// PORT: Fixed ROM slots 24334.
+                        if slot <> 24334 or instruction <> 25503 { return choose false if checkOnly else -1. }
+                        if not extended {
+                            if checkOnly { return true. }
+                            local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                            agcCoreAD(words, 927).
+                            return list(false, false, inheritedTransient, false, false).
+                        }
+                        return choose false if checkOnly else -1.
+                    } else {
+// PORT: SOURCE REENTRY_CONTROL.agc:1181
+//		EXTEND
+// PORT: Fixed ROM slots 24335.
+                        if slot <> 24335 or instruction <> 6 { return choose false if checkOnly else -1. }
+                        if not extended {
+                            if checkOnly { return true. }
+                            return agcCoreControlExecute(words, 6, words[0], readEffective).
+                        }
+                        return choose false if checkOnly else -1.
+                    }
+                }
+            }
+        } else {
+            if slot <= 24337 {
+                if slot <= 24336 {
+// PORT: SOURCE REENTRY_CONTROL.agc:1182
+//		MP	FX	+5	# F1
+// PORT: Fixed ROM slots 24336.
+                    if slot <> 24336 or instruction <> 29615 { return choose false if checkOnly else -1. }
+                    if extended {
+                        if checkOnly { return true. }
+                        local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                        agcCoreMp(words, 943, readEffective:call(words, 943)).
+                        return list(false, false, inheritedTransient, false, false).
+                    }
+                    return choose false if checkOnly else -1.
+                } else {
+// PORT: SOURCE REENTRY_CONTROL.agc:1183
+//		DXCH	MPAC		# MPAC = F1(D-DREF)
+// PORT: Fixed ROM slots 24337.
+                    if slot <> 24337 or instruction <> 21613 { return choose false if checkOnly else -1. }
+                    if not extended {
+                        if checkOnly { return true. }
+                        if not agcCoreDoubleExchange(words, "DXCH", 109, readPhysical, readAdjacent) { return -1. }
+                        return list(false, false, true, false, false).
+                    }
+                    return choose false if checkOnly else -1.
+                }
+            } else {
+                if slot <= 24338 {
+// PORT: SOURCE REENTRY_CONTROL.agc:1184
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1185
+//		EXTEND
+// PORT: Fixed ROM slots 24338.
+                    if slot <> 24338 or instruction <> 6 { return choose false if checkOnly else -1. }
+                    if not extended {
+                        if checkOnly { return true. }
+                        return agcCoreControlExecute(words, 6, words[0], readEffective).
+                    }
+                    return choose false if checkOnly else -1.
+                } else {
+                    if slot <= 24339 {
+// PORT: SOURCE REENTRY_CONTROL.agc:1186
+//		DCS	RDOT		# FORM RDOTREF - RDOT
+// PORT: Fixed ROM slots 24339.
+                        if slot <> 24339 or instruction <> 17344 { return choose false if checkOnly else -1. }
+                        if extended {
+                            if checkOnly { return true. }
+                            local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                            if not agcCoreDoubleExchange(words, "DCS", 960, readPhysical, readAdjacent) { return -1. }
+                            return list(false, false, inheritedTransient, false, false).
+                        }
+                        return choose false if checkOnly else -1.
+                    } else {
+// PORT: SOURCE REENTRY_CONTROL.agc:1187
+//		DDOUBL
+// PORT: Fixed ROM slots 24340.
+                        if slot <> 24340 or instruction <> 8193 { return choose false if checkOnly else -1. }
+                        if not extended {
+                            if checkOnly { return true. }
+                            local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                            if not agcCoreDas(words, 1) { return -1. }
+                            return list(false, false, inheritedTransient, false, false).
+                        }
+                        return choose false if checkOnly else -1.
+                    }
+                }
+            }
+        }
+    } else {
+        if slot <= 24345 {
+            if slot <= 24342 {
+                if slot <= 24341 {
+// PORT: SOURCE REENTRY_CONTROL.agc:1188
+//		DDOUBL
+// PORT: Fixed ROM slots 24341.
+                    if slot <> 24341 or instruction <> 8193 { return choose false if checkOnly else -1. }
+                    if not extended {
+                        if checkOnly { return true. }
+                        local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                        if not agcCoreDas(words, 1) { return -1. }
+                        return list(false, false, inheritedTransient, false, false).
+                    }
+                    return choose false if checkOnly else -1.
+                } else {
+// PORT: SOURCE REENTRY_CONTROL.agc:1189
+//		DDOUBL			# SCALE UP BY 8 FOR THIS PHASE.
+// PORT: Fixed ROM slots 24342.
+                    if slot <> 24342 or instruction <> 8193 { return choose false if checkOnly else -1. }
+                    if not extended {
+                        if checkOnly { return true. }
+                        local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                        if not agcCoreDas(words, 1) { return -1. }
+                        return list(false, false, inheritedTransient, false, false).
+                    }
+                    return choose false if checkOnly else -1.
+                }
+            } else {
+                if slot <= 24343 {
+// PORT: SOURCE REENTRY_CONTROL.agc:1190
+//		AD	FX 	+3	# RDOTREF
+// PORT: Fixed ROM slots 24343.
+                    if slot <> 24343 or instruction <> 25517 { return choose false if checkOnly else -1. }
+                    if not extended {
+                        if checkOnly { return true. }
+                        local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                        agcCoreAD(words, 941).
+                        return list(false, false, inheritedTransient, false, false).
+                    }
+                    return choose false if checkOnly else -1.
+                } else {
+                    if slot <= 24344 {
+// PORT: SOURCE REENTRY_CONTROL.agc:1191
+//		EXTEND
+// PORT: Fixed ROM slots 24344.
+                        if slot <> 24344 or instruction <> 6 { return choose false if checkOnly else -1. }
+                        if not extended {
+                            if checkOnly { return true. }
+                            return agcCoreControlExecute(words, 6, words[0], readEffective).
+                        }
+                        return choose false if checkOnly else -1.
+                    } else {
+// PORT: SOURCE REENTRY_CONTROL.agc:1192
+//		MP	FX 	+4	# F2
+// PORT: Fixed ROM slots 24345.
+                        if slot <> 24345 or instruction <> 29614 { return choose false if checkOnly else -1. }
+                        if extended {
+                            if checkOnly { return true. }
+                            local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                            agcCoreMp(words, 942, readEffective:call(words, 942)).
+                            return list(false, false, inheritedTransient, false, false).
+                        }
+                        return choose false if checkOnly else -1.
+                    }
+                }
+            }
+        } else {
+            if slot <= 24347 {
+                if slot <= 24346 {
+// PORT: SOURCE REENTRY_CONTROL.agc:1193
+//		AD	FX	+2	# RTOGO
+// PORT: Fixed ROM slots 24346.
+                    if slot <> 24346 or instruction <> 25516 { return choose false if checkOnly else -1. }
+                    if not extended {
+                        if checkOnly { return true. }
+                        local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                        agcCoreAD(words, 940).
+                        return list(false, false, inheritedTransient, false, false).
+                    }
+                    return choose false if checkOnly else -1.
+                } else {
+// PORT: SOURCE REENTRY_CONTROL.agc:1194
+//		DAS	MPAC		# ADD F2(DADV1-DADVR)
+// PORT: Fixed ROM slots 24347.
+                    if slot <> 24347 or instruction <> 8301 { return choose false if checkOnly else -1. }
+                    if not extended {
+                        if checkOnly { return true. }
+                        local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                        if not agcCoreDas(words, 109) { return -1. }
+                        return list(false, false, inheritedTransient, false, false).
+                    }
+                    return choose false if checkOnly else -1.
+                }
+            } else {
+                if slot <= 24348 {
+// PORT: SOURCE REENTRY_CONTROL.agc:1195
+//		CA	MPAC
+// PORT: Fixed ROM slots 24348.
+                    if slot <> 24348 or instruction <> 12396 { return choose false if checkOnly else -1. }
+                    if not extended {
+                        if checkOnly { return true. }
+                        local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                        agcCoreCA(words, 108).
+                        return list(false, false, inheritedTransient, false, false).
+                    }
+                    return choose false if checkOnly else -1.
+                } else {
+                    if slot <= 24349 {
+// PORT: SOURCE REENTRY_CONTROL.agc:1196
+//		TS	PREDANG
+// PORT: Fixed ROM slots 24349.
+                        if slot <> 24349 or instruction <> 23544 { return choose false if checkOnly else -1. }
+                        if not extended {
+                            if checkOnly { return true. }
+                            return agcCoreControlExecute(words, 23544, words[0], readEffective).
+                        }
+                        return choose false if checkOnly else -1.
+                    } else {
+// PORT: SOURCE REENTRY_CONTROL.agc:1197
+//					# L/D = LOD + (THETA- PREDANG)/ Y
+// PORT: SOURCE REENTRY_CONTROL.agc:1198
+//		TC	INTPRET
+// PORT: Fixed ROM slots 24350.
+                        if slot <> 24350 or instruction <> 3078 { return choose false if checkOnly else -1. }
+                        if not extended {
+                            if checkOnly { return true. }
+                            return agcCoreControlExecute(words, 3078, words[0], readEffective).
+                        }
+                        return choose false if checkOnly else -1.
+                    }
+                }
+            }
+        }
+    }
+}
+set agcAotRoutes[1416] to agcAotUnit1416@.
+
+agcAotInstallSourceRope(list(
+// PORT: SOURCE REENTRY_CONTROL.agc:1199
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1200
+//		SR3	DSU
+// PORT: Fixed ROM slots 24351.
+    24351, 38212,
+// PORT: SOURCE REENTRY_CONTROL.agc:1201
+//			THETAH
+// PORT: Fixed ROM slots 24352.
+    24352, 3972,
+// PORT: SOURCE REENTRY_CONTROL.agc:1202
+//		BON	BOFF
+// PORT: Fixed ROM slots 24353.
+    24353, 35864,
+// PORT: SOURCE REENTRY_CONTROL.agc:1203
+//			GONEPAST
+// PORT: Fixed ROM slots 24354.
+    24354, 3466,
+// PORT: SOURCE REENTRY_CONTROL.agc:1204
+//			GONEGLAD
+// PORT: Fixed ROM slots 24355.
+    24355, 44656,
+// PORT: SOURCE REENTRY_CONTROL.agc:1205
+//			GONEBY
+// PORT: Fixed ROM slots 24356.
+    24356, 4046,
+// PORT: SOURCE REENTRY_CONTROL.agc:1206
+//			HAVDNRNG
+// PORT: Fixed ROM slots 24357.
+    24357, 44630,
+// PORT: SOURCE REENTRY_CONTROL.agc:1207
+//		DLOAD	SET		# SET GONEPAST IF GONEBY SET & LATCH IN-PLACE
+// PORT: Fixed ROM slots 24358.
+    24358, 36042,
+// PORT: SOURCE REENTRY_CONTROL.agc:1208
+//			MAXRNG		# DISPLAY = 9999.9 IF GONEBY
+// PORT: Fixed ROM slots 24359.
+    24359, 12278,
+// PORT: SOURCE REENTRY_CONTROL.agc:1209
+//			GONEPAST
+// PORT: Fixed ROM slots 24360.
+    24360, 3178,
+// PORT: SOURCE REENTRY_CONTROL.agc:1210
+//		STCALL	DNRNGERR
+// PORT: Fixed ROM slots 24361.
+    24361, 32668,
+// PORT: SOURCE REENTRY_CONTROL.agc:1211
+//			GONEGLAD
+// PORT: Fixed ROM slots 24362.
+    24362, 44656,
+// PORT: SOURCE REENTRY_CONTROL.agc:1212
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1213
+//HAVDNRNG	STORE	DNRNGERR	# = (PREDANG - THETA) /360
+// PORT: Fixed ROM slots 24363.
+    24363, 3996,
+// PORT: SOURCE REENTRY_CONTROL.agc:1214
+//# Page 872
+// PORT: SOURCE REENTRY_CONTROL.agc:1215
+//		DCOMP			# FALL SHORT IF NEG, OVERSHOOT IF POS
+// PORT: Fixed ROM slots 24364.
+    24364, 65404,
+// PORT: SOURCE REENTRY_CONTROL.agc:1216
+//		BOVB	DDV
+// PORT: Fixed ROM slots 24365.
+    24365, 47368,
+// PORT: SOURCE REENTRY_CONTROL.agc:1217
+//			TCDANZIG	# CLEAR OVFIND IF ON.
+// PORT: Fixed ROM slots 24366.
+    24366, 48596,
+// PORT: SOURCE REENTRY_CONTROL.agc:1218
+//			FX		# FX= DRANGE/D L/D = Y
+// PORT: Fixed ROM slots 24367.
+    24367, 3926,
+// PORT: SOURCE REENTRY_CONTROL.agc:1219
+//		SL	BOV
+// PORT: Fixed ROM slots 24368.
+    24368, 32866,
+// PORT: SOURCE REENTRY_CONTROL.agc:1220
+//			5
+// PORT: Fixed ROM slots 24369.
+    24369, 16652,
+// PORT: SOURCE REENTRY_CONTROL.agc:1221
+//			GOMAXL/D
+// PORT: Fixed ROM slots 24370.
+    24370, 44660,
+// PORT: SOURCE REENTRY_CONTROL.agc:1222
+//		DAD	BOV
+// PORT: Fixed ROM slots 24371.
+    24371, 32794,
+// PORT: SOURCE REENTRY_CONTROL.agc:1223
+//			LOD
+// PORT: Fixed ROM slots 24372.
+    24372, 3884,
+// PORT: SOURCE REENTRY_CONTROL.agc:1224
+//			GOMAXL/D
+// PORT: Fixed ROM slots 24373.
+    24373, 44660,
+// PORT: SOURCE REENTRY_CONTROL.agc:1225
+//		STCALL	L/D
+// PORT: Fixed ROM slots 24374.
+    24374, 32568,
+// PORT: SOURCE REENTRY_CONTROL.agc:1226
+//			GLIMITER	# (GO TO)
+// PORT: Fixed ROM slots 24375.
+    24375, 44668,
+// PORT: SOURCE REENTRY_CONTROL.agc:1227
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1228
+//# GONEGLAD AND GOPOSMAX ENTRY POINTS FOR GLIMITER ...
+// PORT: SOURCE REENTRY_CONTROL.agc:1229
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1230
+//GONEGLAD	DLOAD			# SET L/D = -LAD
+// PORT: Fixed ROM slots 24376.
+    24376, 65482,
+// PORT: SOURCE REENTRY_CONTROL.agc:1231
+//			GONEGLAD	# (ANY NEGATIVE NUMBER WILL DO)
+// PORT: Fixed ROM slots 24377.
+    24377, 11890,
+// PORT: SOURCE REENTRY_CONTROL.agc:1232
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1233
+//GOMAXL/D	RTB	DMP		# L/D = LAD SIGN(MPAC)
+// PORT: Fixed ROM slots 24378.
+    24378, 34104,
+// PORT: SOURCE REENTRY_CONTROL.agc:1234
+//			SIGNMPAC
+// PORT: Fixed ROM slots 24379.
+    24379, 38804,
+// PORT: SOURCE REENTRY_CONTROL.agc:1235
+//			LAD
+// PORT: Fixed ROM slots 24380.
+    24380, 3880,
+// PORT: SOURCE REENTRY_CONTROL.agc:1236
+//		STORE	L/D		# AND FALL INTO GLIMITER SECTION
+// PORT: Fixed ROM slots 24381.
+    24381, 3896,
+// PORT: SOURCE REENTRY_CONTROL.agc:1237
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1238
+//GLIMITER	DLOAD	DSU		# IF GMAX/2-D POS, GO TO LIMITL/D
+// PORT: Fixed ROM slots 24382.
+    24382, 38346,
+// PORT: SOURCE REENTRY_CONTROL.agc:1239
+//			GMAX/2
+// PORT: Fixed ROM slots 24383.
+    24383, 13538,
+// PORT: SOURCE REENTRY_CONTROL.agc:1240
+//			D
+// PORT: Fixed ROM slots 24384.
+    24384, 3904,
+// PORT: SOURCE REENTRY_CONTROL.agc:1241
+//		BPL	DAD		# IF GMAX  -D NEG, GO TO GOPOSLAD
+// PORT: Fixed ROM slots 24385.
+    24385, 36168,
+// PORT: SOURCE REENTRY_CONTROL.agc:1242
+//			LIMITL/D
+// PORT: Fixed ROM slots 24386.
+    24386, 44716,
+// PORT: SOURCE REENTRY_CONTROL.agc:1243
+//			GMAX/2
+// PORT: Fixed ROM slots 24387.
+    24387, 13538,
+// PORT: SOURCE REENTRY_CONTROL.agc:1244
+//		BMN	DMP
+// PORT: Fixed ROM slots 24388.
+    24388, 34112,
+// PORT: SOURCE REENTRY_CONTROL.agc:1245
+//			GOPOSLAD
+// PORT: Fixed ROM slots 24389.
+    24389, 44710,
+// PORT: SOURCE REENTRY_CONTROL.agc:1246
+//			2HS
+// PORT: Fixed ROM slots 24390.
+    24390, 13670,
+// PORT: SOURCE REENTRY_CONTROL.agc:1247
+//		PDDL	DMP		# 2HS(GMAX-D) INTO PD
+// PORT: Fixed ROM slots 24391.
+    24391, 34218,
+// PORT: SOURCE REENTRY_CONTROL.agc:1248
+//			LEQ
+// PORT: Fixed ROM slots 24392.
+    24392, 3928,
+// PORT: SOURCE REENTRY_CONTROL.agc:1249
+//			1/GMAX
+// PORT: Fixed ROM slots 24393.
+    24393, 13750,
+// PORT: SOURCE REENTRY_CONTROL.agc:1250
+//		DAD	DMP
+// PORT: Fixed ROM slots 24394.
+    24394, 34074,
+// PORT: SOURCE REENTRY_CONTROL.agc:1251
+//			LAD
+// PORT: Fixed ROM slots 24395.
+    24395, 3880,
+// PORT: SOURCE REENTRY_CONTROL.agc:1252
+//		PDDL	DDV		# 2HS(GMAX-D) (LEQ/GMAX+LAD) INTO PD
+// PORT: Fixed ROM slots 24396.
+    24396, 47530,
+// PORT: SOURCE REENTRY_CONTROL.agc:1253
+//			2HSGMXSQ
+// PORT: Fixed ROM slots 24397.
+    24397, 13674,
+// PORT: SOURCE REENTRY_CONTROL.agc:1254
+//			VSQUARE
+// PORT: Fixed ROM slots 24398.
+    24398, 3876,
+// PORT: SOURCE REENTRY_CONTROL.agc:1255
+//		DAD	SQRT		# XLIM = SQRT(PD+(2HSGMAX/V)SQ)
+// PORT: Fixed ROM slots 24399.
+    24399, 63002,
+// PORT: SOURCE REENTRY_CONTROL.agc:1256
+//		DAD	BPL		# IF RDOT+XLIM POS, GO TO LIMITL/D
+// PORT: Fixed ROM slots 24400.
+    24400, 42010,
+// PORT: SOURCE REENTRY_CONTROL.agc:1257
+//			RDOT
+// PORT: Fixed ROM slots 24401.
+    24401, 3968,
+// PORT: SOURCE REENTRY_CONTROL.agc:1258
+//			LIMITL/D
+// PORT: Fixed ROM slots 24402.
+    24402, 44716,
+// PORT: SOURCE REENTRY_CONTROL.agc:1259
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1260
+//GOPOSLAD	DLOAD
+// PORT: Fixed ROM slots 24403.
+    24403, 65482,
+// PORT: SOURCE REENTRY_CONTROL.agc:1261
+//			LAD
+// PORT: Fixed ROM slots 24404.
+    24404, 3880,
+// PORT: SOURCE REENTRY_CONTROL.agc:1262
+//STOREL/D	STORE	L/D
+// PORT: Fixed ROM slots 24405.
+    24405, 3896,
+// PORT: SOURCE REENTRY_CONTROL.agc:1263
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1264
+//# Page 873
+// PORT: SOURCE REENTRY_CONTROL.agc:1265
+//LIMITL/D	DLOAD
+// PORT: Fixed ROM slots 24406.
+    24406, 65482,
+// PORT: SOURCE REENTRY_CONTROL.agc:1266
+//			L/D
+// PORT: Fixed ROM slots 24407.
+    24407, 3896,
+// PORT: SOURCE REENTRY_CONTROL.agc:1267
+//		STODL	L/D1
+// PORT: Fixed ROM slots 24408.
+    24408, 16188,
+// PORT: SOURCE REENTRY_CONTROL.agc:1268
+//			VSQUARE
+// PORT: Fixed ROM slots 24409.
+    24409, 3876,
+// PORT: SOURCE REENTRY_CONTROL.agc:1269
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1270
+//		BON			# NO LATERAL CONTROL IF PAST TARGET
+// PORT: Fixed ROM slots 24410.
+    24410, 65304,
+// PORT: SOURCE REENTRY_CONTROL.agc:1271
+//			GONEPAST
+// PORT: Fixed ROM slots 24411.
+    24411, 3466,
+// PORT: SOURCE REENTRY_CONTROL.agc:1272
+//			L355
+// PORT: Fixed ROM slots 24412.
+    24412, 44780,
+// PORT: SOURCE REENTRY_CONTROL.agc:1273
+//		DMP	DAD		# Y= KLAT VSQUARE + LATBIAS
+// PORT: Fixed ROM slots 24413.
+    24413, 36106,
+// PORT: SOURCE REENTRY_CONTROL.agc:1274
+//			KLAT
+// PORT: Fixed ROM slots 24414.
+    24414, 3892,
+// PORT: SOURCE REENTRY_CONTROL.agc:1275
+//			LATBIAS		# Y INTO PD
+// PORT: Fixed ROM slots 24415.
+    24415, 13638,
+// PORT: SOURCE REENTRY_CONTROL.agc:1276
+//L350		PDDL	ABS		# IF ABS(L/D)-L/DCMINR NEG, GO TO L353
+// PORT: Fixed ROM slots 24416.
+    24416, 42666,
+// PORT: SOURCE REENTRY_CONTROL.agc:1277
+//			L/D
+// PORT: Fixed ROM slots 24417.
+    24417, 3896,
+// PORT: SOURCE REENTRY_CONTROL.agc:1278
+//		DSU	BMN
+// PORT: Fixed ROM slots 24418.
+    24418, 41002,
+// PORT: SOURCE REENTRY_CONTROL.agc:1279
+//			L/DCMINR
+// PORT: Fixed ROM slots 24419.
+    24419, 3888,
+// PORT: SOURCE REENTRY_CONTROL.agc:1280
+//			L353
+// PORT: Fixed ROM slots 24420.
+    24420, 44758,
+// PORT: SOURCE REENTRY_CONTROL.agc:1281
+//		DLOAD	SIGN		# IF K2ROLL LATANG NEG, GO TO L357
+// PORT: Fixed ROM slots 24421.
+    24421, 62922,
+// PORT: SOURCE REENTRY_CONTROL.agc:1282
+//			LATANG
+// PORT: Fixed ROM slots 24422.
+    24422, 3964,
+// PORT: SOURCE REENTRY_CONTROL.agc:1283
+//			K2ROLL
+// PORT: Fixed ROM slots 24423.
+    24423, 3912,
+// PORT: SOURCE REENTRY_CONTROL.agc:1284
+//		BMN	DLOAD
+// PORT: Fixed ROM slots 24424.
+    24424, 58688,
+// PORT: SOURCE REENTRY_CONTROL.agc:1285
+//			L357
+// PORT: Fixed ROM slots 24425.
+    24425, 44852,
+// PORT: SOURCE REENTRY_CONTROL.agc:1286
+//		SR1	PUSH		# Y = Y/2
+// PORT: Fixed ROM slots 24426.
+    24426, 34500,
+// PORT: SOURCE REENTRY_CONTROL.agc:1287
+//L353		DLOAD	SIGN		# IF LATANG SIGN(K2ROLL)-Y POS, SWITCH
+// PORT: Fixed ROM slots 24427.
+    24427, 62922,
+// PORT: SOURCE REENTRY_CONTROL.agc:1288
+//			LATANG
+// PORT: Fixed ROM slots 24428.
+    24428, 3964,
+// PORT: SOURCE REENTRY_CONTROL.agc:1289
+//			K2ROLL
+// PORT: Fixed ROM slots 24429.
+    24429, 3912,
+// PORT: SOURCE REENTRY_CONTROL.agc:1290
+//		DSU
+// PORT: Fixed ROM slots 24430.
+    24430, 65322,
+// PORT: SOURCE REENTRY_CONTROL.agc:1291
+//		BMN	DLOAD
+// PORT: Fixed ROM slots 24431.
+    24431, 58688,
+// PORT: SOURCE REENTRY_CONTROL.agc:1292
+//			L355
+// PORT: Fixed ROM slots 24432.
+    24432, 44780,
+// PORT: SOURCE REENTRY_CONTROL.agc:1293
+//			K2ROLL
+// PORT: Fixed ROM slots 24433.
+    24433, 3912,
+// PORT: SOURCE REENTRY_CONTROL.agc:1294
+//		BONCLR	DCOMP		# IF NOSWITCH =1, K2ROLL= K2ROLL
+// PORT: Fixed ROM slots 24434.
+    24434, 48664,
+// PORT: SOURCE REENTRY_CONTROL.agc:1295
+//			NOSWITCH
+// PORT: Fixed ROM slots 24435.
+    24435, 3344,
+// PORT: SOURCE REENTRY_CONTROL.agc:1296
+//			L355
+// PORT: Fixed ROM slots 24436.
+    24436, 44780,
+// PORT: SOURCE REENTRY_CONTROL.agc:1297
+//		STORE	K2ROLL		# K2ROLL = -K2ROLL
+// PORT: Fixed ROM slots 24437.
+    24437, 3912,
+// PORT: SOURCE REENTRY_CONTROL.agc:1298
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1299
+//L355		DLOAD	DDV		# ROLLC = ACOS( (L/D1) / LAD)
+// PORT: Fixed ROM slots 24438.
+    24438, 47562,
+// PORT: SOURCE REENTRY_CONTROL.agc:1300
+//			L/D1
+// PORT: Fixed ROM slots 24439.
+    24439, 3900,
+// PORT: SOURCE REENTRY_CONTROL.agc:1301
+//			LAD		# MPAC SET TO +-1 IF OVERFLOW***
+// PORT: Fixed ROM slots 24440.
+    24440, 3880,
+// PORT: SOURCE REENTRY_CONTROL.agc:1302
+//		SR1	ACOS
+// PORT: Fixed ROM slots 24441.
+    24441, 54980,
+// PORT: SOURCE REENTRY_CONTROL.agc:1303
+//		SIGN	CLEAR
+// PORT: Fixed ROM slots 24442.
+    24442, 36074,
+// PORT: SOURCE REENTRY_CONTROL.agc:1304
+//			K2ROLL
+// PORT: Fixed ROM slots 24443.
+    24443, 3912,
+// PORT: SOURCE REENTRY_CONTROL.agc:1305
+//			NOSWITCH
+// PORT: Fixed ROM slots 24444.
+    24444, 3440,
+// PORT: SOURCE REENTRY_CONTROL.agc:1306
+//		STORE	ROLLC
+// PORT: Fixed ROM slots 24445.
+    24445, 3484,
+// PORT: SOURCE REENTRY_CONTROL.agc:1307
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1308
+//ENDEXIT		EXIT
+// PORT: Fixed ROM slots 24446.
+    24446, 65532
+)).
+
+// PORT: Physical bank 25. Shared continuation entries, slots 24447–24452.
+function agcAotUnit1417 {
+    parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
+    if slot <= 24449 {
+        if slot <= 24447 {
+// PORT: SOURCE REENTRY_CONTROL.agc:1309
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1310
+//OVERNOUT	CA	BIT13		# ENTRYDSP =92D B13
+// PORT: Fixed ROM slots 24447.
+            if slot <> 24447 or instruction <> 14851 { return choose false if checkOnly else -1. }
+            if not extended {
+                if checkOnly { return true. }
+                local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                local fixedOperand is mod(readEffective:call(words, 2563), 32768).
+                set words[0] to agcSignExtend(fixedOperand).
+                return list(false, false, inheritedTransient, false, false).
+            }
+            return choose false if checkOnly else -1.
+        } else {
+            if slot <= 24448 {
+// PORT: SOURCE REENTRY_CONTROL.agc:1311
+//		MASK	CM/FLAGS
+// PORT: Fixed ROM slots 24448.
+                if slot <> 24448 or instruction <> 28738 { return choose false if checkOnly else -1. }
+                if not extended {
+                    if checkOnly { return true. }
+                    local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                    agcCoreMASK(words, 66).
+                    return list(false, false, inheritedTransient, false, false).
+                }
+                return choose false if checkOnly else -1.
+            } else {
+// PORT: SOURCE REENTRY_CONTROL.agc:1312
+//		EXTEND
+// PORT: Fixed ROM slots 24449.
+                if slot <> 24449 or instruction <> 6 { return choose false if checkOnly else -1. }
+                if not extended {
+                    if checkOnly { return true. }
+                    return agcCoreControlExecute(words, 6, words[0], readEffective).
+                }
+                return choose false if checkOnly else -1.
+            }
+        }
+    } else {
+        if slot <= 24450 {
+// PORT: SOURCE REENTRY_CONTROL.agc:1313
+//		BZF	NODISKY		# OMIT DISPLAY.
+// PORT: Fixed ROM slots 24450.
+            if slot <> 24450 or instruction <> 6022 { return choose false if checkOnly else -1. }
+            if extended {
+                if checkOnly { return true. }
+                return agcCoreControlExecute(words, 6022, words[0], readEffective).
+            }
+            return choose false if checkOnly else -1.
+        } else {
+            if slot <= 24451 {
+// PORT: SOURCE REENTRY_CONTROL.agc:1314
+//# Page 874
+// PORT: SOURCE REENTRY_CONTROL.agc:1315
+//		CA	ENTRYVN		# ALL ENTRY DISPLAYS ARE DONE HERE.
+// PORT: Fixed ROM slots 24451.
+                if slot <> 24451 or instruction <> 12979 { return choose false if checkOnly else -1. }
+                if not extended {
+                    if checkOnly { return true. }
+                    local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                    agcCoreCA(words, 691).
+                    return list(false, false, inheritedTransient, false, false).
+                }
+                return choose false if checkOnly else -1.
+            } else {
+// PORT: SOURCE REENTRY_CONTROL.agc:1316
+//		TC	BANKCALL
+// PORT: Fixed ROM slots 24452.
+                if slot <> 24452 or instruction <> 2482 { return choose false if checkOnly else -1. }
+                if not extended {
+                    if checkOnly { return true. }
+                    return agcCoreControlExecute(words, 2482, words[0], readEffective).
+                }
+                return choose false if checkOnly else -1.
+            }
+        }
+    }
+}
+set agcAotRoutes[1417] to agcAotUnit1417@.
+
+agcAotInstallSourceRope(list(
+// PORT: SOURCE REENTRY_CONTROL.agc:1317
+//		CADR	REGODSPR	# NO ABORT IF DISKY IN USE
+// PORT: Fixed ROM slots 24453.
+    24453, 17300
+)).
+
+// PORT: Physical bank 25. Shared continuation entries, slots 24454–24457.
+function agcAotUnit1418 {
+    parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
+    if slot <= 24455 {
+        if slot <= 24454 {
+// PORT: SOURCE REENTRY_CONTROL.agc:1318
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1319
+//NODISKY		INHINT
+// PORT: Fixed ROM slots 24454.
+            if slot <> 24454 or instruction <> 4 { return choose false if checkOnly else -1. }
+            if not extended {
+                if checkOnly { return true. }
+                return agcCoreControlExecute(words, 4, words[0], readEffective).
+            }
+            return choose false if checkOnly else -1.
+        } else {
+// PORT: SOURCE REENTRY_CONTROL.agc:1320
+//		CCS	NEWJOB		# PROTECT READACCS GRP 5, IF SIDETRACKED.
+// PORT: Fixed ROM slots 24455.
+            if slot <> 24455 or instruction <> 4151 { return choose false if checkOnly else -1. }
+            if not extended {
+                if checkOnly { return true. }
+                local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                agcCoreCCS(words, 55).
+                return list(false, false, inheritedTransient, false, false).
+            }
+            return choose false if checkOnly else -1.
+        }
+    } else {
+        if slot <= 24456 {
+// PORT: SOURCE REENTRY_CONTROL.agc:1321
+//		TC	CHANG1
+// PORT: Fixed ROM slots 24456.
+            if slot <> 24456 or instruction <> 2676 { return choose false if checkOnly else -1. }
+            if not extended {
+                if checkOnly { return true. }
+                return agcCoreControlExecute(words, 2676, words[0], readEffective).
+            }
+            return choose false if checkOnly else -1.
+        } else {
+// PORT: SOURCE REENTRY_CONTROL.agc:1322
+//SERVNOUT	TC	POSTJUMP	# ( COME HERE FROM P67.3 )
+// PORT: Fixed ROM slots 24457.
+            if slot <> 24457 or instruction <> 2497 { return choose false if checkOnly else -1. }
+            if not extended {
+                if checkOnly { return true. }
+                return agcCoreControlExecute(words, 2497, words[0], readEffective).
+            }
+            return choose false if checkOnly else -1.
+        }
+    }
+}
+set agcAotRoutes[1418] to agcAotUnit1418@.
+
+agcAotInstallSourceRope(list(
+// PORT: SOURCE REENTRY_CONTROL.agc:1323
+//		CADR	SERVEXIT	# AND END AVERAGEG JOB VIA  ENDOFJOB.
+// PORT: Fixed ROM slots 24458.
+    24458, 64814,
+// PORT: SOURCE REENTRY_CONTROL.agc:1324
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1325
+//# Page 875
+// PORT: SOURCE REENTRY_CONTROL.agc:1326
+//# DISPLAY WHEN V IS LESS THAN VQUIT.
+// PORT: SOURCE REENTRY_CONTROL.agc:1327
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1328
+//STEEROFF	EXIT
+// PORT: Fixed ROM slots 24459.
+    24459, 65532
+)).
+
+// PORT: Physical bank 25. Shared continuation entries, slots 24460–24463.
+function agcAotUnit1419 {
+    parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
+    if slot <= 24461 {
+        if slot <= 24460 {
+// PORT: SOURCE REENTRY_CONTROL.agc:1329
+//		CA	EBENTRY		# PRECAUTIONARY.
+// PORT: Fixed ROM slots 24460.
+            if slot <> 24460 or instruction <> 14896 { return choose false if checkOnly else -1. }
+            if not extended {
+                if checkOnly { return true. }
+                local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                local fixedOperand is mod(readEffective:call(words, 2608), 32768).
+                set words[0] to agcSignExtend(fixedOperand).
+                return list(false, false, inheritedTransient, false, false).
+            }
+            return choose false if checkOnly else -1.
+        } else {
+// PORT: SOURCE REENTRY_CONTROL.agc:1330
+//		TS	EBANK
+// PORT: Fixed ROM slots 24461.
+            if slot <> 24461 or instruction <> 22531 { return choose false if checkOnly else -1. }
+            if not extended {
+                if checkOnly { return true. }
+                return agcCoreControlExecute(words, 22531, words[0], readEffective).
+            }
+            return choose false if checkOnly else -1.
+        }
+    } else {
+        if slot <= 24462 {
+// PORT: SOURCE REENTRY_CONTROL.agc:1331
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1332
+//		CA	PRIO16		# 2 LESS THAN NTRYPRIO.
+// PORT: Fixed ROM slots 24462.
+            if slot <> 24462 or instruction <> 14904 { return choose false if checkOnly else -1. }
+            if not extended {
+                if checkOnly { return true. }
+                local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                local fixedOperand is mod(readEffective:call(words, 2616), 32768).
+                set words[0] to agcSignExtend(fixedOperand).
+                return list(false, false, inheritedTransient, false, false).
+            }
+            return choose false if checkOnly else -1.
+        } else {
+// PORT: SOURCE REENTRY_CONTROL.agc:1333
+//		TC	NOVAC
+// PORT: Fixed ROM slots 24463.
+            if slot <> 24463 or instruction <> 2652 { return choose false if checkOnly else -1. }
+            if not extended {
+                if checkOnly { return true. }
+                return agcCoreControlExecute(words, 2652, words[0], readEffective).
+            }
+            return choose false if checkOnly else -1.
+        }
+    }
+}
+set agcAotRoutes[1419] to agcAotUnit1419@.
+
+agcAotInstallSourceRope(list(
+// PORT: SOURCE REENTRY_CONTROL.agc:1334
+//		EBANK=	AOG		# ANY EB HERE
+// PORT: SOURCE REENTRY_CONTROL.agc:1335
+//		2CADR	P67.1		# START UP REMAINDER OF P67
+// PORT: Fixed ROM slots 24464 24465.
+    24464, 2708, 24465, 45164
+)).
+
+// PORT: Physical bank 25. Shared continuation entries, slots 24466–24466.
+function agcAotUnit1420 {
+    parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
+// PORT: SOURCE REENTRY_CONTROL.agc:1336
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1337
+//					# RTOGO		LAT		LONG
+// PORT: SOURCE REENTRY_CONTROL.agc:1338
+//					# XXXX.X NM	XXX.XX DEG	XXX.XX DEG
+// PORT: SOURCE REENTRY_CONTROL.agc:1339
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1340
+//		TC	2PHSCHNG	# INHINT/RELINT DONE.
+// PORT: Fixed ROM slots 24466.
+    if slot <> 24466 or instruction <> 2810 { return choose false if checkOnly else -1. }
+    if not extended {
+        if checkOnly { return true. }
+        return agcCoreControlExecute(words, 2810, words[0], readEffective).
+    }
+    return choose false if checkOnly else -1.
+}
+set agcAotRoutes[1420] to agcAotUnit1420@.
+
+agcAotInstallSourceRope(list(
+// PORT: SOURCE REENTRY_CONTROL.agc:1341
+//		OCT	00414		# 4.41 RESTART FOR P67.1 DISPLAY JOB.
+// PORT: Fixed ROM slots 24467.
+    24467, 536,
+// PORT: SOURCE REENTRY_CONTROL.agc:1342
+//		OCT	10035		# SERVICER 5.3 RESTART.
+// PORT: Fixed ROM slots 24468.
+    24468, 8250
+)).
+
+// PORT: Physical bank 25. Shared continuation entries, slots 24469–24471.
+function agcAotUnit1421 {
+    parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
+    if slot <= 24469 {
+// PORT: SOURCE REENTRY_CONTROL.agc:1343
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1344
+//		CA	P67.2CAD	# HEREAFTER, DO LAT, LONG.
+// PORT: Fixed ROM slots 24469.
+        if slot <> 24469 or instruction <> 14233 { return choose false if checkOnly else -1. }
+        if not extended {
+            if checkOnly { return true. }
+            local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+            local fixedOperand is mod(readEffective:call(words, 1945), 32768).
+            set words[0] to agcSignExtend(fixedOperand).
+            return list(false, false, inheritedTransient, false, false).
+        }
+        return choose false if checkOnly else -1.
+    } else {
+        if slot <= 24470 {
+// PORT: SOURCE REENTRY_CONTROL.agc:1345
+//		TS	GOTOADDR
+// PORT: Fixed ROM slots 24470.
+            if slot <> 24470 or instruction <> 23461 { return choose false if checkOnly else -1. }
+            if not extended {
+                if checkOnly { return true. }
+                return agcCoreControlExecute(words, 23461, words[0], readEffective).
+            }
+            return choose false if checkOnly else -1.
+        } else {
+// PORT: SOURCE REENTRY_CONTROL.agc:1346
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1347
+//		TC	INTPRET
+// PORT: Fixed ROM slots 24471.
+            if slot <> 24471 or instruction <> 3078 { return choose false if checkOnly else -1. }
+            if not extended {
+                if checkOnly { return true. }
+                return agcCoreControlExecute(words, 3078, words[0], readEffective).
+            }
+            return choose false if checkOnly else -1.
+        }
+    }
+}
+set agcAotRoutes[1421] to agcAotUnit1421@.
+
+agcAotInstallSourceRope(list(
+// PORT: SOURCE REENTRY_CONTROL.agc:1348
+//		GOTO
+// PORT: Fixed ROM slots 24472.
+    24472, 65360,
+// PORT: SOURCE REENTRY_CONTROL.agc:1349
+//P67.2CAD		P67.2		# CONTINUE FOR LAT, LONG THIS TIME.
+// PORT: Fixed ROM slots 24473.
+    24473, 45746,
+// PORT: SOURCE REENTRY_CONTROL.agc:1350
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1351
+//L357		DLOAD	SIGN		# L/D = L/DCMINR SIGN(L/D)
+// PORT: Fixed ROM slots 24474.
+    24474, 62922,
+// PORT: SOURCE REENTRY_CONTROL.agc:1352
+//			L/DCMINR
+// PORT: Fixed ROM slots 24475.
+    24475, 3888,
+// PORT: SOURCE REENTRY_CONTROL.agc:1353
+//			L/D
+// PORT: Fixed ROM slots 24476.
+    24476, 3896,
+// PORT: SOURCE REENTRY_CONTROL.agc:1354
+//		STCALL	L/D1
+// PORT: Fixed ROM slots 24477.
+    24477, 32572,
+// PORT: SOURCE REENTRY_CONTROL.agc:1355
+//			L355		# (GO TO)
+// PORT: Fixed ROM slots 24478.
+    24478, 44780,
+// PORT: SOURCE REENTRY_CONTROL.agc:1356
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1357
+//# Page 876
+// PORT: SOURCE REENTRY_CONTROL.agc:1358
+//# TABLE USED FOR SUB-ORBITAL REFERENCE TRAJECTORY CONTROL.
+// PORT: SOURCE REENTRY_CONTROL.agc:1359
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1360
+//VREFER		DEC	.019288		# REFERENCE VELOCITY SCALED V/51532.3946
+// PORT: Fixed ROM slots 24479.
+    24479, 632,
+// PORT: SOURCE REENTRY_CONTROL.agc:1361
+//		DEC	.040809		# 13 POINTS ARE STORED AS THE INDEPENDENT
+// PORT: Fixed ROM slots 24480.
+    24480, 1338,
+// PORT: SOURCE REENTRY_CONTROL.agc:1362
+//		DEC	.076107		# VARIABLE AND THEN SIX 13 POINT FUNCTIONS
+// PORT: Fixed ROM slots 24481.
+    24481, 2494,
+// PORT: SOURCE REENTRY_CONTROL.agc:1363
+//		DEC	.122156		# OF V ARE STORED CONSECUTIVELY
+// PORT: Fixed ROM slots 24482.
+    24482, 4002,
+// PORT: SOURCE REENTRY_CONTROL.agc:1364
+//		DEC	.165546
+// PORT: Fixed ROM slots 24483.
+    24483, 5424,
+// PORT: SOURCE REENTRY_CONTROL.agc:1365
+//		DEC	.196012
+// PORT: Fixed ROM slots 24484.
+    24484, 6422,
+// PORT: SOURCE REENTRY_CONTROL.agc:1366
+//		DEC	.271945
+// PORT: Fixed ROM slots 24485.
+    24485, 8912,
+// PORT: SOURCE REENTRY_CONTROL.agc:1367
+//		DEC	.309533
+// PORT: Fixed ROM slots 24486.
+    24486, 10142,
+// PORT: SOURCE REENTRY_CONTROL.agc:1368
+//		DEC	.356222
+// PORT: Fixed ROM slots 24487.
+    24487, 11672,
+// PORT: SOURCE REENTRY_CONTROL.agc:1369
+//		DEC	.404192
+// PORT: Fixed ROM slots 24488.
+    24488, 13244,
+// PORT: SOURCE REENTRY_CONTROL.agc:1370
+//		DEC	.448067
+// PORT: Fixed ROM slots 24489.
+    24489, 14682,
+// PORT: SOURCE REENTRY_CONTROL.agc:1371
+//		DEC	.456023
+// PORT: Fixed ROM slots 24490.
+    24490, 14942,
+// PORT: SOURCE REENTRY_CONTROL.agc:1372
+//		DEC	.67918		# HIGHVELOCITY FOR SAFETY.
+// PORT: Fixed ROM slots 24491.
+    24491, 22256,
+// PORT: SOURCE REENTRY_CONTROL.agc:1373
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1374
+//		DEC	-.010337	# DRANGE/DA	SCALED DRDA/(2700/805)
+// PORT: Fixed ROM slots 24492.
+    24492, 65196,
+// PORT: SOURCE REENTRY_CONTROL.agc:1375
+//		DEC	-.016550
+// PORT: Fixed ROM slots 24493.
+    24493, 64992,
+// PORT: SOURCE REENTRY_CONTROL.agc:1376
+//		DEC	-.026935
+// PORT: Fixed ROM slots 24494.
+    24494, 64652,
+// PORT: SOURCE REENTRY_CONTROL.agc:1377
+//		DEC	-.042039
+// PORT: Fixed ROM slots 24495.
+    24495, 64156,
+// PORT: SOURCE REENTRY_CONTROL.agc:1378
+//		DEC	-.058974
+// PORT: Fixed ROM slots 24496.
+    24496, 63602,
+// PORT: SOURCE REENTRY_CONTROL.agc:1379
+//		DEC	-.070721
+// PORT: Fixed ROM slots 24497.
+    24497, 63216,
+// PORT: SOURCE REENTRY_CONTROL.agc:1380
+//		DEC	-.098538
+// PORT: Fixed ROM slots 24498.
+    24498, 62306,
+// PORT: SOURCE REENTRY_CONTROL.agc:1381
+//		DEC	-.107482
+// PORT: Fixed ROM slots 24499.
+    24499, 62012,
+// PORT: SOURCE REENTRY_CONTROL.agc:1382
+//		DEC	-.147762
+// PORT: Fixed ROM slots 24500.
+    24500, 60692,
+// PORT: SOURCE REENTRY_CONTROL.agc:1383
+//		DEC	-.193289
+// PORT: Fixed ROM slots 24501.
+    24501, 59200,
+// PORT: SOURCE REENTRY_CONTROL.agc:1384
+//		DEC	-.602557
+// PORT: Fixed ROM slots 24502.
+    24502, 45790,
+// PORT: SOURCE REENTRY_CONTROL.agc:1385
+//		DEC	-.99999
+// PORT: Fixed ROM slots 24503.
+    24503, 32768,
+// PORT: SOURCE REENTRY_CONTROL.agc:1386
+//		DEC	-.99999
+// PORT: Fixed ROM slots 24504.
+    24504, 32768,
+// PORT: SOURCE REENTRY_CONTROL.agc:1387
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1388
+//		DEC	-.0478599 B-3	# -DRANGE/DRDOT
+// PORT: Fixed ROM slots 24505.
+    24505, 65338,
+// PORT: SOURCE REENTRY_CONTROL.agc:1389
+//		DEC	-.0683663 B-3	# SCALED ((2VS/8 2700) DR/DRDOT)
+// PORT: Fixed ROM slots 24506.
+    24506, 65254,
+// PORT: SOURCE REENTRY_CONTROL.agc:1390
+//		DEC	-.1343468 B-3
+// PORT: Fixed ROM slots 24507.
+    24507, 64984,
+// PORT: SOURCE REENTRY_CONTROL.agc:1391
+//		DEC	-.2759846 B-3
+// PORT: Fixed ROM slots 24508.
+    24508, 64404,
+// PORT: SOURCE REENTRY_CONTROL.agc:1392
+//		DEC	-.4731437 B-3
+// PORT: Fixed ROM slots 24509.
+    24509, 63596,
+// PORT: SOURCE REENTRY_CONTROL.agc:1393
+//		DEC	-.6472087 B-3
+// PORT: Fixed ROM slots 24510.
+    24510, 62884,
+// PORT: SOURCE REENTRY_CONTROL.agc:1394
+//		DEC	-1.171693 B-3
+// PORT: Fixed ROM slots 24511.
+    24511, 60734,
+// PORT: SOURCE REENTRY_CONTROL.agc:1395
+//		DEC	-1.466382 B-3
+// PORT: Fixed ROM slots 24512.
+    24512, 59528,
+// PORT: SOURCE REENTRY_CONTROL.agc:1396
+//		DEC	-1.905171 B-3
+// PORT: Fixed ROM slots 24513.
+    24513, 57730,
+// PORT: SOURCE REENTRY_CONTROL.agc:1397
+//		DEC	-2.547990 B-3
+// PORT: Fixed ROM slots 24514.
+    24514, 55098,
+// PORT: SOURCE REENTRY_CONTROL.agc:1398
+//		DEC	-4.151220 B-3
+// PORT: Fixed ROM slots 24515.
+    24515, 48530,
+// PORT: SOURCE REENTRY_CONTROL.agc:1399
+//		DEC	-5.813617 B-3
+// PORT: Fixed ROM slots 24516.
+    24516, 41722,
+// PORT: SOURCE REENTRY_CONTROL.agc:1400
+//		DEC	-5.813617 B-3
+// PORT: Fixed ROM slots 24517.
+    24517, 41722,
+// PORT: SOURCE REENTRY_CONTROL.agc:1401
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1402
+//# Page 877
+// PORT: SOURCE REENTRY_CONTROL.agc:1403
+//		DEC	-.0134001  B3	# RDOTREF	SCALED (8 RDT/2VS)
+// PORT: Fixed ROM slots 24518.
+    24518, 62022,
+// PORT: SOURCE REENTRY_CONTROL.agc:1404
+//		DEC	-.013947   B3
+// PORT: Fixed ROM slots 24519.
+    24519, 61878,
+// PORT: SOURCE REENTRY_CONTROL.agc:1405
+//		DEC	-.013462   B3
+// PORT: Fixed ROM slots 24520.
+    24520, 62006,
+// PORT: SOURCE REENTRY_CONTROL.agc:1406
+//		DEC	-.011813   B3
+// PORT: Fixed ROM slots 24521.
+    24521, 62438,
+// PORT: SOURCE REENTRY_CONTROL.agc:1407
+//		DEC	-.0095631  B3
+// PORT: Fixed ROM slots 24522.
+    24522, 63028,
+// PORT: SOURCE REENTRY_CONTROL.agc:1408
+//		DEC	-.00806946 B3
+// PORT: Fixed ROM slots 24523.
+    24523, 63418,
+// PORT: SOURCE REENTRY_CONTROL.agc:1409
+//		DEC	-.006828   B3
+// PORT: Fixed ROM slots 24524.
+    24524, 63744,
+// PORT: SOURCE REENTRY_CONTROL.agc:1410
+//		DEC	-.00806946 B3
+// PORT: Fixed ROM slots 24525.
+    24525, 63418,
+// PORT: SOURCE REENTRY_CONTROL.agc:1411
+//		DEC	-.0109791  B3
+// PORT: Fixed ROM slots 24526.
+    24526, 62656,
+// PORT: SOURCE REENTRY_CONTROL.agc:1412
+//		DEC	-.0151498  B3
+// PORT: Fixed ROM slots 24527.
+    24527, 61562,
+// PORT: SOURCE REENTRY_CONTROL.agc:1413
+//		DEC	-.0179817  B3
+// PORT: Fixed ROM slots 24528.
+    24528, 60820,
+// PORT: SOURCE REENTRY_CONTROL.agc:1414
+//		DEC	-.0159061  B3
+// PORT: Fixed ROM slots 24529.
+    24529, 61364,
+// PORT: SOURCE REENTRY_CONTROL.agc:1415
+//		DEC	-.0159061  B3
+// PORT: Fixed ROM slots 24530.
+    24530, 61364,
+// PORT: SOURCE REENTRY_CONTROL.agc:1416
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1417
+//		DEC	.0008067	# RANGE TO GO SCALED RTOGO/2700
+// PORT: Fixed ROM slots 24531.
+    24531, 26,
+// PORT: SOURCE REENTRY_CONTROL.agc:1418
+//		DEC	.0032963	#	8.9
+// PORT: Fixed ROM slots 24532.
+    24532, 108,
+// PORT: SOURCE REENTRY_CONTROL.agc:1419
+//		DEC	.0081852	#	22.1
+// PORT: Fixed ROM slots 24533.
+    24533, 268,
+// PORT: SOURCE REENTRY_CONTROL.agc:1420
+//		DEC	.017148
+// PORT: Fixed ROM slots 24534.
+    24534, 562,
+// PORT: SOURCE REENTRY_CONTROL.agc:1421
+//		DEC	.027926
+// PORT: Fixed ROM slots 24535.
+    24535, 916,
+// PORT: SOURCE REENTRY_CONTROL.agc:1422
+//		DEC	.037
+// PORT: Fixed ROM slots 24536.
+    24536, 1212,
+// PORT: SOURCE REENTRY_CONTROL.agc:1423
+//		DEC	.063296
+// PORT: Fixed ROM slots 24537.
+    24537, 2074,
+// PORT: SOURCE REENTRY_CONTROL.agc:1424
+//		DEC	.077889
+// PORT: Fixed ROM slots 24538.
+    24538, 2552,
+// PORT: SOURCE REENTRY_CONTROL.agc:1425
+//		DEC	.098815
+// PORT: Fixed ROM slots 24539.
+    24539, 3238,
+// PORT: SOURCE REENTRY_CONTROL.agc:1426
+//		DEC	.127519
+// PORT: Fixed ROM slots 24540.
+    24540, 4178,
+// PORT: SOURCE REENTRY_CONTROL.agc:1427
+//		DEC	.186963
+// PORT: Fixed ROM slots 24541.
+    24541, 6126,
+// PORT: SOURCE REENTRY_CONTROL.agc:1428
+//		DEC	.238148
+// PORT: Fixed ROM slots 24542.
+    24542, 7804,
+// PORT: SOURCE REENTRY_CONTROL.agc:1429
+//		DEC	.294185185
+// PORT: Fixed ROM slots 24543.
+    24543, 9640,
+// PORT: SOURCE REENTRY_CONTROL.agc:1430
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1431
+//		DEC	-.051099	# -AREF/805
+// PORT: Fixed ROM slots 24544.
+    24544, 63860,
+// PORT: SOURCE REENTRY_CONTROL.agc:1432
+//		DEC	-.074534
+// PORT: Fixed ROM slots 24545.
+    24545, 63092,
+// PORT: SOURCE REENTRY_CONTROL.agc:1433
+//		DEC	-.101242
+// PORT: Fixed ROM slots 24546.
+    24546, 62216,
+// PORT: SOURCE REENTRY_CONTROL.agc:1434
+//		DEC	-.116646
+// PORT: Fixed ROM slots 24547.
+    24547, 61712,
+// PORT: SOURCE REENTRY_CONTROL.agc:1435
+//		DEC	-.122360
+// PORT: Fixed ROM slots 24548.
+    24548, 61524,
+// PORT: SOURCE REENTRY_CONTROL.agc:1436
+//		DEC	-.127081
+// PORT: Fixed ROM slots 24549.
+    24549, 61370,
+// PORT: SOURCE REENTRY_CONTROL.agc:1437
+//		DEC	-.147453
+// PORT: Fixed ROM slots 24550.
+    24550, 60702,
+// PORT: SOURCE REENTRY_CONTROL.agc:1438
+//		DEC	-.155528
+// PORT: Fixed ROM slots 24551.
+    24551, 60438,
+// PORT: SOURCE REENTRY_CONTROL.agc:1439
+//		DEC	-.149565
+// PORT: Fixed ROM slots 24552.
+    24552, 60634,
+// PORT: SOURCE REENTRY_CONTROL.agc:1440
+//		DEC	-.118509
+// PORT: Fixed ROM slots 24553.
+    24553, 61650,
+// PORT: SOURCE REENTRY_CONTROL.agc:1441
+//		DEC	-.034907
+// PORT: Fixed ROM slots 24554.
+    24554, 64390,
+// PORT: SOURCE REENTRY_CONTROL.agc:1442
+//		DEC	-.007950
+// PORT: Fixed ROM slots 24555.
+    24555, 65274,
+// PORT: SOURCE REENTRY_CONTROL.agc:1443
+//		DEC	-.007950
+// PORT: Fixed ROM slots 24556.
+    24556, 65274,
+// PORT: SOURCE REENTRY_CONTROL.agc:1444
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1445
+//# Page 878
+// PORT: SOURCE REENTRY_CONTROL.agc:1446
+//		DEC	.004491		# DRANGE/D L/D SCALED Y/2700
+// PORT: Fixed ROM slots 24557.
+    24557, 148,
+// PORT: SOURCE REENTRY_CONTROL.agc:1447
+//		DEC	.008081
+// PORT: Fixed ROM slots 24558.
+    24558, 264,
+// PORT: SOURCE REENTRY_CONTROL.agc:1448
+//		DEC	.016030
+// PORT: Fixed ROM slots 24559.
+    24559, 526,
+// PORT: SOURCE REENTRY_CONTROL.agc:1449
+//		DEC	.035815
+// PORT: Fixed ROM slots 24560.
+    24560, 1174,
+// PORT: SOURCE REENTRY_CONTROL.agc:1450
+//		DEC	.069422
+// PORT: Fixed ROM slots 24561.
+    24561, 2274,
+// PORT: SOURCE REENTRY_CONTROL.agc:1451
+//		DEC	.104519
+// PORT: Fixed ROM slots 24562.
+    24562, 3424,
+// PORT: SOURCE REENTRY_CONTROL.agc:1452
+//		DEC	.122
+// PORT: Fixed ROM slots 24563.
+    24563, 3998,
+// PORT: SOURCE REENTRY_CONTROL.agc:1453
+//		DEC	.172407
+// PORT: Fixed ROM slots 24564.
+    24564, 5650,
+// PORT: SOURCE REENTRY_CONTROL.agc:1454
+//		DEC	.252852
+// PORT: Fixed ROM slots 24565.
+    24565, 8286,
+// PORT: SOURCE REENTRY_CONTROL.agc:1455
+//		DEC	.363148
+// PORT: Fixed ROM slots 24566.
+    24566, 11900,
+// PORT: SOURCE REENTRY_CONTROL.agc:1456
+//		DEC	.512963
+// PORT: Fixed ROM slots 24567.
+    24567, 16808,
+// PORT: SOURCE REENTRY_CONTROL.agc:1457
+//		DEC	.558519
+// PORT: Fixed ROM slots 24568.
+    24568, 18302,
+// PORT: SOURCE REENTRY_CONTROL.agc:1458
+//		DEC	.558519		# END OF STORED REFERENCE
+// PORT: Fixed ROM slots 24569.
+    24569, 18302,
+// PORT: SOURCE REENTRY_CONTROL.agc:1459
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1460
+//# Page 879
+// PORT: SOURCE REENTRY_CONTROL.agc:1461
+//# REENTRY CONSTANTS.
+// PORT: SOURCE REENTRY_CONTROL.agc:1462
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1463
+//# DEFINED BY EQUALS
+// PORT: SOURCE REENTRY_CONTROL.agc:1464
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1465
+//DEC15		=	LOW4
+// PORT: SOURCE REENTRY_CONTROL.agc:1466
+//#GAMMAL1	=	22D
+// PORT: SOURCE REENTRY_CONTROL.agc:1467
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1468
+//MAXRNG		2OCT	1663106755	# DNRNGERR = 9999.9 IF GONEPAST=1
+// PORT: Fixed ROM slots 24570 24571.
+    24570, 15154, 24571, 7130,
+// PORT: SOURCE REENTRY_CONTROL.agc:1469
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1470
+//		BANK	26
+// PORT: SOURCE REENTRY_CONTROL.agc:1471
+//		SETLOC	REENTRY1
+// PORT: SOURCE REENTRY_CONTROL.agc:1472
+//		BANK
+// PORT: SOURCE REENTRY_CONTROL.agc:1473
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1474
+//		COUNT*	$$/ENTRY
+// PORT: SOURCE REENTRY_CONTROL.agc:1475
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1476
+//BARELY1		=	NEARONE		# COMMON TO BOTH DISK,DANCE.DEFND IN TFF
+// PORT: SOURCE REENTRY_CONTROL.agc:1477
+//#1BITDP					# COMMON TO BOTH DISK AND DANCE. DEFND IN VECPOINT.
+// PORT: SOURCE REENTRY_CONTROL.agc:1478
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1479
+//1/12TH		DEC	.083333		# DP 1/12 USES HI WORD IN 1/3 BELOW
+// PORT: Fixed ROM slots 25189.
+    25189, 2730
+)).
+
+agcAotInstallSourceRope(list(
+// PORT: SOURCE REENTRY_CONTROL.agc:1480
+//1/3RD		2DEC	.3333333333	# DP 1/3
+// PORT: Fixed ROM slots 25190 25191.
+    25190, 10922, 25191, 10922,
+// PORT: SOURCE REENTRY_CONTROL.agc:1481
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1482
+//1/16TH		=	DP2(-4)
+// PORT: SOURCE REENTRY_CONTROL.agc:1483
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1484
+//# BELOW:  VS = VSAT = 25766.1973 FT/SEC
+// PORT: SOURCE REENTRY_CONTROL.agc:1485
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1486
+//#	  RE = 21,202,900 FEET
+// PORT: SOURCE REENTRY_CONTROL.agc:1487
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1488
+//LEWD1		2DEC	.15
+// PORT: Fixed ROM slots 25192 25193.
+    25192, 4914, 25193, 19660,
+// PORT: SOURCE REENTRY_CONTROL.agc:1489
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1490
+//POINT1		2DEC	.1
+// PORT: Fixed ROM slots 25194 25195.
+    25194, 3276, 25195, 13108,
+// PORT: SOURCE REENTRY_CONTROL.agc:1491
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1492
+//POINT2		2DEC	.2		# .2
+// PORT: Fixed ROM slots 25196 25197.
+    25196, 6552, 25197, 26214,
+// PORT: SOURCE REENTRY_CONTROL.agc:1493
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1494
+//DLEWD0		2DEC	-.05		# -.05
+// PORT: Fixed ROM slots 25198 25199.
+    25198, 63896, 25199, 58980,
+// PORT: SOURCE REENTRY_CONTROL.agc:1495
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1496
+//GMAX/2		2DEC	.16		# 8 GS / 2
+// PORT: Fixed ROM slots 25200 25201.
+    25200, 5242, 25201, 14418,
+// PORT: SOURCE REENTRY_CONTROL.agc:1497
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1498
+//3ZEROS		EQUALS	HI6ZEROS
+// PORT: SOURCE REENTRY_CONTROL.agc:1499
+//NEAR1/4		2OCT	0777700000	# 1/4 LESS 1 BIT IN UPPER PART.
+// PORT: Fixed ROM slots 25202 25203.
+    25202, 8190, 25203, 0,
+// PORT: SOURCE REENTRY_CONTROL.agc:1500
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1501
+//C18		2DEC	.0097026346	# 500/2VS
+// PORT: Fixed ROM slots 25204 25205.
+    25204, 316, 25205, 31718,
+// PORT: SOURCE REENTRY_CONTROL.agc:1502
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1503
+//Q7FKDMIN	2DEC	.0080745342	# 6.5/805  (Q7F +KDMIN) = 6 + .5)
+// PORT: Fixed ROM slots 25206 25207.
+    25206, 264, 25207, 9606,
+// PORT: SOURCE REENTRY_CONTROL.agc:1504
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1505
+//C1/16		=	DP2(-4)
+// PORT: SOURCE REENTRY_CONTROL.agc:1506
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1507
+//Q3		2DEC	.167003132	# .07 2VS/21600
+// PORT: Fixed ROM slots 25208 25209.
+    25208, 5472, 25209, 5876,
+// PORT: SOURCE REENTRY_CONTROL.agc:1508
+//# Page 880
+// PORT: SOURCE REENTRY_CONTROL.agc:1509
+//Q5		2DEC	.326388889	# .3 23500/21600
+// PORT: Fixed ROM slots 25210 25211.
+    25210, 10694, 25211, 18204,
+// PORT: SOURCE REENTRY_CONTROL.agc:1510
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1511
+//Q6		2DEC	.0349		# 2 DEG. APPROX 820/23500
+// PORT: Fixed ROM slots 25212 25213.
+    25212, 1142, 25213, 26266,
+// PORT: SOURCE REENTRY_CONTROL.agc:1512
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1513
+//Q7F		2DEC	.0074534161	# 6/805  (VALUE OF Q7 IN FIXED MEM.)
+// PORT: Fixed ROM slots 25214 25215.
+    25214, 244, 25215, 3826,
+// PORT: SOURCE REENTRY_CONTROL.agc:1514
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1515
+//Q19		=	HALVE		# Q19 = .5
+// PORT: SOURCE REENTRY_CONTROL.agc:1516
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1517
+//Q21		2DEC	.0231481481	# 500/21600
+// PORT: Fixed ROM slots 25216 25217.
+    25216, 758, 25217, 8496,
+// PORT: SOURCE REENTRY_CONTROL.agc:1518
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1519
+//Q22		2DEC	-.053333333	# -1152/21600
+// PORT: Fixed ROM slots 25218 25219.
+    25218, 63788, 25219, 38882,
+// PORT: SOURCE REENTRY_CONTROL.agc:1520
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1521
+//VLMIN		2DEC	.34929485	# 18000/2 VS
+// PORT: Fixed ROM slots 25220 25221.
+    25220, 11444, 25221, 27748,
+// PORT: SOURCE REENTRY_CONTROL.agc:1522
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1523
+//VMIN		=	FOURTH		# (VS/2) / 2VS
+// PORT: SOURCE REENTRY_CONTROL.agc:1524
+//C12		2DEC	.00684572901	# 32 28500/(21202900 2 PI)
+// PORT: Fixed ROM slots 25222 25223.
+    25222, 224, 25223, 5256,
+// PORT: SOURCE REENTRY_CONTROL.agc:1525
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1526
+//1/KB1		2DEC	.29411765	# 1 / 3.4
+// PORT: Fixed ROM slots 25224 25225.
+    25224, 9636, 25225, 26986,
+// PORT: SOURCE REENTRY_CONTROL.agc:1527
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1528
+//-1/KB2		2DEC	-.0057074322 B4	# = -1/(.0034 2 VS) EXP +4
+// PORT: Fixed ROM slots 25226 25227.
+    25226, 62542, 25227, 59992,
+// PORT: SOURCE REENTRY_CONTROL.agc:1529
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1530
+//VQUIT		2DEC	.019405269	# 1000 /2VS
+// PORT: Fixed ROM slots 25228 25229.
+    25228, 634, 25229, 30668,
+// PORT: SOURCE REENTRY_CONTROL.agc:1531
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1532
+//C20		2DEC	.21739130	# (175 FPSS) LIFT UP IF ABOVE C20
+// PORT: Fixed ROM slots 25230 25231.
+    25230, 7122, 25231, 24218,
+// PORT: SOURCE REENTRY_CONTROL.agc:1533
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1534
+//C21		2DEC	.17391304	# 140/805
+// PORT: Fixed ROM slots 25232 25233.
+    25232, 5698, 25233, 12820,
+// PORT: SOURCE REENTRY_CONTROL.agc:1535
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1536
+//25NM		2DEC	.0011574074	# 25/21600	(25 NAUT MILES)
+// PORT: Fixed ROM slots 25234 25235.
+    25234, 36, 25235, 31554,
+// PORT: SOURCE REENTRY_CONTROL.agc:1537
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1538
+//K1D		2DEC	.0314453125	# =C16 805/256 = .01 805/256
+// PORT: Fixed ROM slots 25236 25237.
+    25236, 1030, 25237, 6554,
+// PORT: SOURCE REENTRY_CONTROL.agc:1539
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1540
+//K2D		2DEC	-.201298418	# -C17 2VS/256 = -.001 2VS/256
+// PORT: Fixed ROM slots 25238 25239.
+    25238, 58938, 25239, 63132,
+// PORT: SOURCE REENTRY_CONTROL.agc:1541
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1542
+//KVSCALE		2DEC	.81491944	# 12800/(2 VS .3048)
+// PORT: Fixed ROM slots 25240 25241.
+    25240, 26702, 25241, 20974,
+// PORT: SOURCE REENTRY_CONTROL.agc:1543
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1544
+//KASCALE		2DEC	.97657358	# 5.85 16384/(4 .3048 100 805)
+// PORT: Fixed ROM slots 25242 25243.
+    25242, 32000, 25243, 5948,
+// PORT: SOURCE REENTRY_CONTROL.agc:1545
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1546
+//KTETA		2DEC*	.383495203 E2 B-14* # 1000 2PI/16384(163.84)
+// PORT: Fixed ROM slots 25244 25245.
+    25244, 76, 25245, 11454,
+// PORT: SOURCE REENTRY_CONTROL.agc:1547
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1548
+//KT1		2DEC*	.157788327 E 2 B-14* # RE(2PI)/2 VS(16384) 163.84
+// PORT: Fixed ROM slots 25246 25247.
+    25246, 30, 25247, 25520,
+// PORT: SOURCE REENTRY_CONTROL.agc:1549
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1550
+//.05G		2DEC	.002		# .05/25
+// PORT: Fixed ROM slots 25248 25249.
+    25248, 64, 25249, 25166,
+// PORT: SOURCE REENTRY_CONTROL.agc:1551
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1552
+//LATBIAS		2DEC	.00003		# APPRX .5 NM/ 4(21600/2 PI)
+// PORT: Fixed ROM slots 25250 25251.
+    25250, 0, 25251, 16106,
+// PORT: SOURCE REENTRY_CONTROL.agc:1553
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1554
+//KWE		2DEC	.120056652 B-1
+// PORT: Fixed ROM slots 25252 25253.
+    25252, 1966, 25253, 16518,
+// PORT: SOURCE REENTRY_CONTROL.agc:1555
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1556
+//KACOS		2DEC	.004973592	# 1/32(2PI)
+// PORT: Fixed ROM slots 25254 25255.
+    25254, 162, 25255, 15968,
+// PORT: SOURCE REENTRY_CONTROL.agc:1557
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1558
+//CHOOK		2DEC	1 B-6		# .25/16
+// PORT: Fixed ROM slots 25256 25257.
+    25256, 512, 25257, 0,
+// PORT: SOURCE REENTRY_CONTROL.agc:1559
+//# Page 881
+// PORT: SOURCE REENTRY_CONTROL.agc:1560
+//1/24TH		2DEC	.0833333333 B-1
+// PORT: Fixed ROM slots 25258 25259.
+    25258, 1364, 25259, 21846,
+// PORT: SOURCE REENTRY_CONTROL.agc:1561
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1562
+//CH1		2DEC	.32 B1		# 16 CH1/25 = 16 (1) /25
+// PORT: Fixed ROM slots 25260 25261.
+    25260, 20970, 25261, 24904,
+// PORT: SOURCE REENTRY_CONTROL.agc:1563
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1564
+//KC3		2DEC	-.0247622232	# -(4 VS VS/ 2 PI 805 RE)
+// PORT: Fixed ROM slots 25262 25263.
+    25262, 64724, 25263, 42456,
+// PORT: SOURCE REENTRY_CONTROL.agc:1565
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1566
+//VRCONT		2DEC	.0135836886	# 700/2 VSAT
+// PORT: Fixed ROM slots 25264 25265.
+    25264, 444, 25265, 18192,
+// PORT: SOURCE REENTRY_CONTROL.agc:1567
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1568
+//HALVE		EQUALS	HIDPHALF
+// PORT: SOURCE REENTRY_CONTROL.agc:1569
+//FOURTH		EQUALS	HIDP1/4
+// PORT: SOURCE REENTRY_CONTROL.agc:1570
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1571
+//1/GMAX		EQUALS	HALVE		# 4/GMAX = 4 / 8
+// PORT: SOURCE REENTRY_CONTROL.agc:1572
+//2HS		2DEC	.0172786611	# 2 28500 25 32.2/(4 VS VS)
+// PORT: Fixed ROM slots 25266 25267.
+    25266, 566, 25267, 3066,
+// PORT: SOURCE REENTRY_CONTROL.agc:1573
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1574
+//2HSGMXSQ	2DEC	.0000305717	# (2 28500 8 32.2/ 4 VS VS)SQ
+// PORT: Fixed ROM slots 25268 25269.
+    25268, 0, 25269, 16414,
+// PORT: SOURCE REENTRY_CONTROL.agc:1575
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1576
+//C001		2DEC	-.000625	# -(4/25)/256	LEQ/D0 CONST
+// PORT: Fixed ROM slots 25270 25271.
+    25270, 65514, 25271, 57670,
+// PORT: SOURCE REENTRY_CONTROL.agc:1577
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1578
+//POINT8		2DEC	.8
+// PORT: Fixed ROM slots 25272 25273.
+    25272, 26214, 25273, 6554,
+// PORT: SOURCE REENTRY_CONTROL.agc:1579
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1580
+//2C1HS		2DEC	.0215983264	# 2 1.25 28500 805/(2 VS)SQ
+// PORT: Fixed ROM slots 25274 25275.
+    25274, 706, 25275, 28410,
+// PORT: SOURCE REENTRY_CONTROL.agc:1581
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1582
+//PT1/16		2DEC	.1 B-4
+// PORT: Fixed ROM slots 25276 25277.
+    25276, 204, 25277, 13108,
+// PORT: SOURCE REENTRY_CONTROL.agc:1583
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1584
+//1/K44		2DEC	.00260929464	# 2 VS/19749550
+// PORT: Fixed ROM slots 25278 25279.
+    25278, 84, 25279, 24598,
+// PORT: SOURCE REENTRY_CONTROL.agc:1585
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1586
+//VFINAL		2DEC	.51618016	# 26600/2 VS
+// PORT: Fixed ROM slots 25280 25281.
+    25280, 16914, 25281, 3138,
+// PORT: SOURCE REENTRY_CONTROL.agc:1587
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1588
+//VFINAL1		2DEC	.523942273	# = 27000 / 2 VS
+// PORT: Fixed ROM slots 25282 25283.
+    25282, 17168, 25283, 8854,
+// PORT: SOURCE REENTRY_CONTROL.agc:1589
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1590
+//1/KA1		2DEC	.30048077	# 25/(1.3 64)
+// PORT: Fixed ROM slots 25284 25285.
+    25284, 9846, 25285, 2522,
+// PORT: SOURCE REENTRY_CONTROL.agc:1591
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1592
+//KA2		2DEC	.008		# .2/25
+// PORT: Fixed ROM slots 25286 25287.
+    25286, 262, 25287, 2360,
+// PORT: SOURCE REENTRY_CONTROL.agc:1593
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1594
+//KA3		2DEC	.44720497	# = 90 4/805
+// PORT: Fixed ROM slots 25288 25289.
+    25288, 14654, 25289, 204,
+// PORT: SOURCE REENTRY_CONTROL.agc:1595
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1596
+//KA4		2DEC	.049689441	# 40/805
+// PORT: Fixed ROM slots 25290 25291.
+    25290, 1628, 25291, 3664,
+// PORT: SOURCE REENTRY_CONTROL.agc:1597
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1598
+//KALIM		2DEC	.06		# 1.5/25
+// PORT: Fixed ROM slots 25292 25293.
+    25292, 1966, 25293, 1310,
+// PORT: SOURCE REENTRY_CONTROL.agc:1599
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1600
+//Q7MIN		=	KA4		# = 40/805 = .049689441
+// PORT: SOURCE REENTRY_CONTROL.agc:1601
+//-HSCALED	2DEC	-.55305018	# -28500/2 VS
+// PORT: Fixed ROM slots 25294 25295.
+    25294, 47412, 25295, 59828,
+// PORT: SOURCE REENTRY_CONTROL.agc:1602
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1603
+//-KSCALE		2DEC	-.0312424837	# -805/VS
+// PORT: Fixed ROM slots 25296 25297.
+    25296, 64512, 25297, 36802,
+// PORT: SOURCE REENTRY_CONTROL.agc:1604
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1605
+//COS15		2DEC	.965
+// PORT: Fixed ROM slots 25298 25299.
+    25298, 31620, 25299, 18350
+)).
+
+// PORT: Source-only text without a subsequent generated declaration.
+// PORT: SOURCE REENTRY_CONTROL.agc:1606
+//
+// PORT: SOURCE REENTRY_CONTROL.agc:1607
+//LATSLOPE	EQUALS	1/12TH
+// PORT: SOURCE REENTRY_CONTROL.agc:1608
+//# ... END OF RE-ENTRY CONSTANTS ...
+// PORT: SOURCE REENTRY_CONTROL.agc:1609
+//

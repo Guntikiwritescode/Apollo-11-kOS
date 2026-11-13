@@ -1,0 +1,1986 @@
+// PORT: Original source unit MEASUREMENT_INCORPORATION.agc.
+agcAotInstallSourceRope(list(
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:1
+//# Copyright:	Public domain.
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:2
+//# Filename:	MEASUREMENT_INCORPORATION.agc
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:3
+//# Purpose:	Part of the source code for Luminary 1A build 099.
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:4
+//#		It is part of the source code for the Lunar Module's (LM)
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:5
+//#		Apollo Guidance Computer (AGC), for Apollo 11.
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:6
+//#
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:7
+//# Assembler:	yaYUL
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:8
+//# Contact:	Jim Lawton <jim DOT lawton AT gmail DOT com>
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:9
+//# Website:	www.ibiblio.org/apollo.
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:10
+//# Pages:	1149-1158
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:11
+//# Mod history:	2009-05-28 JL	Updated from page images.
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:12
+//#		2011-01-06 JL	Fixed pseudo-label indentation.
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:13
+//#
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:14
+//# This source code has been transcribed or otherwise adapted from digitized
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:15
+//# images of a hardcopy from the MIT Museum.  The digitization was performed
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:16
+//# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:17
+//# thanks to both.  The images (with suitable reduction in storage size and
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:18
+//# consequent reduction in image quality as well) are available online at
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:19
+//# www.ibiblio.org/apollo.  If for some reason you find that the images are
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:20
+//# illegible, contact me at info@sandroid.org about getting access to the
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:21
+//# (much) higher-quality images which Paul actually created.
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:22
+//#
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:23
+//# Notations on the hardcopy document read, in part:
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:24
+//#
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:25
+//#    Assemble revision 001 of AGC program LMY99 by NASA 2021112-061
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:26
+//#    16:27 JULY 14, 1969
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:27
+//
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:28
+//# Page 1149
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:29
+//# INCORP1 -- PERFORMS THE SIX DIMENSIONAL STATE VECTOR DEVIATION FOR POSITION
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:30
+//# AND VELOCITY OR THE NINE-DIMENSIONAL DEVIATION OF POSITION, VELOCITY, AND
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:31
+//# RADAR OR LANDMARK BIAS. THE OUTPUT OF THE BVECTOR ROUTINE ALONG WITH THE
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:32
+//# ERROR TRANSITION MATRIX (W) ARE USED AS INPU TO THE ROUTINE. THE DEVIATION
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:33
+//# IS OBTAINED BY COMPUTING AN ESTIMATED TRACKING MEASUREMENT FROM THE
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:34
+//# CURRENT STATE VECTOR AND COMPARING IT WITH AN ACTUAL TRACKING MEASUREMENT
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:35
+//# AND APPLYING A STATISTICAL WEIGHTING VECTOR.
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:36
+//#
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:37
+//# INPUT
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:38
+//#	 DMENFLG = 0 (6-DIMENSIONAL BVECTOR), =1 (9-DIMENSIONAL)
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:39
+//#	       W = ERROR TRANSITION MATRIX 6X6 OR 9X9
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:40
+//#	VARIANCE = VARIANCE (SCALAR)
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:41
+//#	  DELTAQ = MEASURED DEVIATION (SCALAR)
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:42
+//#	 BVECTOR = 6 OR 9 DIMENSIONAL BVECTOR
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:43
+//#
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:44
+//# OUTPUT
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:45
+//#	  DELTAX = STATE VECTOR DEVIATIONS 6 OR 9 DIMENSIONAL
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:46
+//#	      ZI = VECTOR USED FOR THE INCORPORATION 6 OR 9 DIMENSIONAL
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:47
+//#	   GAMMA = SCALAR
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:48
+//#	   OMEGA = OMEGA WEIGHTING VECTOR 6 OR 9 DIMENSIONAL
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:49
+//#
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:50
+//# CALLING SEQUENCE
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:51
+//#	L	CALL 	INCORP1
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:52
+//#
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:53
+//# NORMAL EXIT
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:54
+//#	L+1 OF CALLING SEQUENCE
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:55
+//
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:56
+//		BANK	37
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:57
+//		SETLOC	MEASINC
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:58
+//		BANK
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:59
+//
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:60
+//		COUNT*	$$/INCOR
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:61
+//
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:62
+//		EBANK=	W
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:63
+//
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:64
+//INCORP1		STQ
+// PORT: Fixed ROM slots 21849.
+    21849, 65312,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:65
+//			EGRESS
+// PORT: Fixed ROM slots 21850.
+    21850, 3060,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:66
+//		AXT,1	SSP
+// PORT: Fixed ROM slots 21851.
+    21851, 55792,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:67
+//			54D
+// PORT: Fixed ROM slots 21852.
+    21852, 108,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:68
+//			S1
+// PORT: Fixed ROM slots 21853.
+    21853, 82,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:69
+//			18D		# IX1 = 54 	S1= 18
+// PORT: Fixed ROM slots 21854.
+    21854, 36,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:70
+//		AXT,2	SSP
+// PORT: Fixed ROM slots 21855.
+    21855, 55800,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:71
+//			18D
+// PORT: Fixed ROM slots 21856.
+    21856, 36,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:72
+//			S2
+// PORT: Fixed ROM slots 21857.
+    21857, 84,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:73
+//			6		# IX2 = 18	S2=6
+// PORT: Fixed ROM slots 21858.
+    21858, 12,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:74
+//Z123		VLOAD	MXV*
+// PORT: Fixed ROM slots 21859.
+    21859, 53242,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:75
+//			BVECTOR		# BVECTOR (0)
+// PORT: Fixed ROM slots 21860.
+    21860, 3754,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:76
+//			W +54D,1
+// PORT: Fixed ROM slots 21861.
+    21861, 2670,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:77
+//		STORE	ZI +18D,2
+// PORT: Fixed ROM slots 21862.
+    21862, 11114,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:78
+//		VLOAD
+// PORT: Fixed ROM slots 21863.
+    21863, 65530,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:79
+//			BVECTOR +6	# BVECTOR (1)
+// PORT: Fixed ROM slots 21864.
+    21864, 3766,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:80
+//# Page 1150
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:81
+//		MXV*	VAD*
+// PORT: Fixed ROM slots 21865.
+    21865, 43934,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:82
+//			W +108D,1
+// PORT: Fixed ROM slots 21866.
+    21866, 2778,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:83
+//			ZI +18D,2
+// PORT: Fixed ROM slots 21867.
+    21867, 62612,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:84
+//		STORE	ZI +18D,2
+// PORT: Fixed ROM slots 21868.
+    21868, 11114,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:85
+//		VLOAD
+// PORT: Fixed ROM slots 21869.
+    21869, 65530,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:86
+//			BVECTOR +12D	# BVECTOR (2)
+// PORT: Fixed ROM slots 21870.
+    21870, 3778,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:87
+//		MXV*	VAD*
+// PORT: Fixed ROM slots 21871.
+    21871, 43934,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:88
+//			W +162D,1
+// PORT: Fixed ROM slots 21872.
+    21872, 2886,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:89
+//			ZI +18D,2	# B(0)*W+B(1)*(W+54)+B(2)*(W+108) FIRST PASS
+// PORT: Fixed ROM slots 21873.
+    21873, 62612,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:90
+//		STORE	ZI +18D,2	# ZI THEN Z2 THEN Z3
+// PORT: Fixed ROM slots 21874.
+    21874, 11114,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:91
+//		TIX,1
+// PORT: Fixed ROM slots 21875.
+    21875, 65408,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:92
+//			INCOR1
+// PORT: Fixed ROM slots 21876.
+    21876, 39658,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:93
+//INCOR1		TIX,2	BON
+// PORT: Fixed ROM slots 21877.
+    21877, 35976,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:94
+//			Z123		# LOOP FOR Z1,Z2,Z3
+// PORT: Fixed ROM slots 21878.
+    21878, 39622,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:95
+//			DMENFLG
+// PORT: Fixed ROM slots 21879.
+    21879, 2956,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:96
+//			INCOR1A
+// PORT: Fixed ROM slots 21880.
+    21880, 39672,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:97
+//		VLOAD
+// PORT: Fixed ROM slots 21881.
+    21881, 65530,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:98
+//			ZEROVECS
+// PORT: Fixed ROM slots 21882.
+    21882, 6820,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:99
+//		STORE	ZI +12D
+// PORT: Fixed ROM slots 21883.
+    21883, 2910,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:100
+//INCOR1A		SETPD	VLOAD
+// PORT: Fixed ROM slots 21884.
+    21884, 64770,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:101
+//			0
+// PORT: Fixed ROM slots 21885.
+    21885, 2,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:102
+//			ZI
+// PORT: Fixed ROM slots 21886.
+    21886, 2886,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:103
+//		VSQ	RTB
+// PORT: Fixed ROM slots 21887.
+    21887, 39996,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:104
+//			TPMODE
+// PORT: Fixed ROM slots 21888.
+    21888, 18230,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:105
+//		PDVL	VSQ
+// PORT: Fixed ROM slots 21889.
+    21889, 40602,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:106
+//			ZI +6
+// PORT: Fixed ROM slots 21890.
+    21890, 2898,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:107
+//		RTB	TAD
+// PORT: Fixed ROM slots 21891.
+    21891, 63800,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:108
+//			TPMODE
+// PORT: Fixed ROM slots 21892.
+    21892, 18230,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:109
+//		PDVL	VSQ
+// PORT: Fixed ROM slots 21893.
+    21893, 40602,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:110
+//			ZI +12D
+// PORT: Fixed ROM slots 21894.
+    21894, 2910,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:111
+//		RTB	TAD
+// PORT: Fixed ROM slots 21895.
+    21895, 63800,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:112
+//			TPMODE
+// PORT: Fixed ROM slots 21896.
+    21896, 18230,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:113
+//		TAD	AXT,2
+// PORT: Fixed ROM slots 21897.
+    21897, 64754,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:114
+//			VARIANCE
+// PORT: Fixed ROM slots 21898.
+    21898, 2958,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:115
+//			0
+// PORT: Fixed ROM slots 21899.
+    21899, 0,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:116
+//		STORE	TRIPA		# ZI*2 + Z2*2 + Z3*2 + VARIANCE
+// PORT: Fixed ROM slots 21900.
+    21900, 2922,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:117
+//		TLOAD	BOV
+// PORT: Fixed ROM slots 21901.
+    21901, 32978,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:118
+//			VARIANCE	# CLEAR OVFIND
+// PORT: Fixed ROM slots 21902.
+    21902, 2958,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:119
+//			+1
+// PORT: Fixed ROM slots 21903.
+    21903, 39712,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:120
+//		STORE	TEMPVAR		# TEMP STORAGE FOR VARIANCE
+// PORT: Fixed ROM slots 21904.
+    21904, 2928,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:121
+//		BZE
+// PORT: Fixed ROM slots 21905.
+    21905, 65368,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:122
+//			INCOR1C
+// PORT: Fixed ROM slots 21906.
+    21906, 39730,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:123
+//INCOR1B		SL2	BOV
+// PORT: Fixed ROM slots 21907.
+    21907, 32916,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:124
+//			INCOR1C
+// PORT: Fixed ROM slots 21908.
+    21908, 39730,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:125
+//		STORE	TEMPVAR
+// PORT: Fixed ROM slots 21909.
+    21909, 2928,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:126
+//		INCR,2	GOTO
+// PORT: Fixed ROM slots 21910.
+    21910, 43160,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:127
+//		DEC	1
+// PORT: Fixed ROM slots 21911.
+    21911, 2,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:128
+//			INCOR1B
+// PORT: Fixed ROM slots 21912.
+    21912, 39718
+)).
+
+agcAotInstallSourceRope(list(
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:129
+//INCOR1C		TLOAD	ROUND
+// PORT: Fixed ROM slots 21913.
+    21913, 50898,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:130
+//			TRIPA
+// PORT: Fixed ROM slots 21914.
+    21914, 2922,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:131
+//# Page 1151
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:132
+//		DMP	SQRT
+// PORT: Fixed ROM slots 21915.
+    21915, 62986,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:133
+//			TEMPVAR
+// PORT: Fixed ROM slots 21916.
+    21916, 2928,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:134
+//		SL*	TAD
+// PORT: Fixed ROM slots 21917.
+    21917, 63838,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:135
+//			0,2
+// PORT: Fixed ROM slots 21918.
+    21918, 48892,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:136
+//			TRIPA
+// PORT: Fixed ROM slots 21919.
+    21919, 2922,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:137
+//		NORM	INCR,2
+// PORT: Fixed ROM slots 21920.
+    21920, 52354,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:138
+//			X2
+// PORT: Fixed ROM slots 21921.
+    21921, 80,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:139
+//		DEC	-2
+// PORT: Fixed ROM slots 21922.
+    21922, 65530,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:140
+//		SXA,2	AXT,2
+// PORT: Fixed ROM slots 21923.
+    21923, 64696,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:141
+//			NORMGAM		# NORMALIZATION COUNT -2 FOR GAMMA
+// PORT: Fixed ROM slots 21924.
+    21924, 2182,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:142
+//			162D
+// PORT: Fixed ROM slots 21925.
+    21925, 324,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:143
+//		BDDV	SETPD
+// PORT: Fixed ROM slots 21926.
+    21926, 33130,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:144
+//			DP1/4TH
+// PORT: Fixed ROM slots 21927.
+    21927, 6804,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:145
+//			0
+// PORT: Fixed ROM slots 21928.
+    21928, 2,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:146
+//		STORE	GAMMA
+// PORT: Fixed ROM slots 21929.
+    21929, 3712,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:147
+//		TLOAD	NORM
+// PORT: Fixed ROM slots 21930.
+    21930, 49618,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:148
+//			TRIPA
+// PORT: Fixed ROM slots 21931.
+    21931, 2922,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:149
+//			X1
+// PORT: Fixed ROM slots 21932.
+    21932, 78,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:150
+//		DLOAD	PDDL		# PD 0-1 = NORM (A)
+// PORT: Fixed ROM slots 21933.
+    21933, 54730,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:151
+//			MPAC
+// PORT: Fixed ROM slots 21934.
+    21934, 218,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:152
+//			DELTAQ
+// PORT: Fixed ROM slots 21935.
+    21935, 3790,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:153
+//		NORM
+// PORT: Fixed ROM slots 21936.
+    21936, 65410,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:154
+//			S1
+// PORT: Fixed ROM slots 21937.
+    21937, 82,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:155
+//		XSU,1	SR1
+// PORT: Fixed ROM slots 21938.
+    21938, 57952,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:156
+//			S1
+// PORT: Fixed ROM slots 21939.
+    21939, 80,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:157
+//		DDV	PUSH		# PD 0-1 = DELTAQ/A
+// PORT: Fixed ROM slots 21940.
+    21940, 34418,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:158
+//		GOTO
+// PORT: Fixed ROM slots 21941.
+    21941, 65360,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:159
+//			NEWZCOMP
+// PORT: Fixed ROM slots 21942.
+    21942, 38802,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:160
+// -3		SSP
+// PORT: Fixed ROM slots 21943.
+    21943, 65458,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:161
+//			S2
+// PORT: Fixed ROM slots 21944.
+    21944, 84,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:162
+//			54D
+// PORT: Fixed ROM slots 21945.
+    21945, 108,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:163
+//INCOR2		VLOAD	VXM*		# COMPUT OMEGA1,2,3
+// PORT: Fixed ROM slots 21946.
+    21946, 50170,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:164
+//			ZI
+// PORT: Fixed ROM slots 21947.
+    21947, 2886,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:165
+//			W +162D,2
+// PORT: Fixed ROM slots 21948.
+    21948, 62648,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:166
+//		PUSH	VLOAD
+// PORT: Fixed ROM slots 21949.
+    21949, 64780,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:167
+//			ZI +6
+// PORT: Fixed ROM slots 21950.
+    21950, 2898,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:168
+//		VXM*	VAD
+// PORT: Fixed ROM slots 21951.
+    21951, 44422,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:169
+//			W +180D,2
+// PORT: Fixed ROM slots 21952.
+    21952, 62612,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:170
+//		PUSH	VLOAD
+// PORT: Fixed ROM slots 21953.
+    21953, 64780,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:171
+//			ZI +12D
+// PORT: Fixed ROM slots 21954.
+    21954, 2910,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:172
+//		VXM*	VAD
+// PORT: Fixed ROM slots 21955.
+    21955, 44422,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:173
+//			W +198D,2
+// PORT: Fixed ROM slots 21956.
+    21956, 62576,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:174
+//		PUSH	TIX,2		# PD 2-7=OMEGA1, 8-13=OMEGA2, 14-19=OMEGA3
+// PORT: Fixed ROM slots 21957.
+    21957, 50188,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:175
+//			INCOR2
+// PORT: Fixed ROM slots 21958.
+    21958, 39796,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:176
+//		VLOAD	STADR
+// PORT: Fixed ROM slots 21959.
+    21959, 38650,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:177
+//		STORE	OMEGA +12D
+// PORT: Fixed ROM slots 21960.
+    21960, 61792,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:178
+//		VLOAD	STADR
+// PORT: Fixed ROM slots 21961.
+    21961, 38650,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:179
+//		STORE	OMEGA +6
+// PORT: Fixed ROM slots 21962.
+    21962, 61804,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:180
+//		VLOAD	STADR
+// PORT: Fixed ROM slots 21963.
+    21963, 38650,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:181
+//		STORE	OMEGA
+// PORT: Fixed ROM slots 21964.
+    21964, 61816,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:182
+//# Page 1152
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:183
+//		BON	VLOAD
+// PORT: Fixed ROM slots 21965.
+    21965, 64792,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:184
+//			DMENFLG
+// PORT: Fixed ROM slots 21966.
+    21966, 2956,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:185
+//			INCOR2AB
+// PORT: Fixed ROM slots 21967.
+    21967, 39844,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:186
+//			ZEROVECS
+// PORT: Fixed ROM slots 21968.
+    21968, 6820,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:187
+//		STORE	OMEGA +12D
+// PORT: Fixed ROM slots 21969.
+    21969, 3742,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:188
+//INCOR2AB	AXT,2	SSP
+// PORT: Fixed ROM slots 21970.
+    21970, 55800,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:189
+//			18D
+// PORT: Fixed ROM slots 21971.
+    21971, 36,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:190
+//			S2
+// PORT: Fixed ROM slots 21972.
+    21972, 84,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:191
+//			6
+// PORT: Fixed ROM slots 21973.
+    21973, 12,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:192
+//INCOR3		VLOAD*
+// PORT: Fixed ROM slots 21974.
+    21974, 65526,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:193
+//			OMEGA +18D,2
+// PORT: Fixed ROM slots 21975.
+    21975, 61780,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:194
+//		VXSC	VSL*
+// PORT: Fixed ROM slots 21976.
+    21976, 45026,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:195
+//			0		# DELTAQ/A
+// PORT: Fixed ROM slots 21977.
+    21977, 2,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:196
+//			0,1
+// PORT: Fixed ROM slots 21978.
+    21978, 16642,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:197
+//		STORE	DELTAX +18D,2
+// PORT: Fixed ROM slots 21979.
+    21979, 11150,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:198
+//		TIX,2	VLOAD
+// PORT: Fixed ROM slots 21980.
+    21980, 64904,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:199
+//			INCOR3
+// PORT: Fixed ROM slots 21981.
+    21981, 39852,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:200
+//			DELTAX +6
+// PORT: Fixed ROM slots 21982.
+    21982, 2934,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:201
+//		VSL3
+// PORT: Fixed ROM slots 21983.
+    21983, 65460,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:202
+//		STORE	DELTAX +6
+// PORT: Fixed ROM slots 21984.
+    21984, 2934,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:203
+//		GOTO
+// PORT: Fixed ROM slots 21985.
+    21985, 65360,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:204
+//			EGRESS
+// PORT: Fixed ROM slots 21986.
+    21986, 3060,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:205
+//
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:206
+//# Page 1153
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:207
+//# INCORP2 - INCORPORATES THE COMPUTED STATE VECTOR DEVIATIONS INTO THE
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:208
+//# ESTIMATED STATE VECTOR. THE STATE VECTOR UPDATED MAY BE FOR EITHER THE
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:209
+//# LEM OR THE CSM. DETERMINED BY FLAG VEHUPFLG. (ZERO = LEM) (1 = CSM)
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:210
+//#
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:211
+//# INPUT
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:212
+//#	PERMANENT STATE VECTOR FOR EITHER THE LEM OR CSM
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:213
+//#	VEHUPFLG = UPDATE VEHICLE 0=LEM  1=CSM
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:214
+//#	W = ERROR TRANSITION MATRIX
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:215
+//#	DELTAX = COMPUTED STATE VECTOR DEVIATIONS
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:216
+//# 	DMENFLG = SIZE OF W MATRIX (ZERO=6X6) (1=9X9)
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:217
+//#	GAMMA = SCALAR FOR INCORPORATION
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:218
+//# 	ZI = VECTOR USED IN INCORPORATION
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:219
+//#	OMEGA = WEIGHTING VECTOR
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:220
+//#
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:221
+//# OUTPUT
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:222
+//#	UPDATED PERMANENT STATE VECTOR
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:223
+//#
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:224
+//# CALLING SEQUENCE
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:225
+//#	L	CALL	INCORP2
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:226
+//#
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:227
+//# NORMAL EXIT
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:228
+//#	L+1 OF CALLING SEQUENCE
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:229
+//#
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:230
+//
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:231
+//		SETLOC	MEASINC1
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:232
+//		BANK
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:233
+//
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:234
+//		COUNT*	$$/INCOR
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:235
+//
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:236
+//INCORP2		STQ	CALL
+// PORT: Fixed ROM slots 21987.
+    21987, 37920,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:237
+//			EGRESS
+// PORT: Fixed ROM slots 21988.
+    21988, 3060,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:238
+//			INTSTALL
+// PORT: Fixed ROM slots 21989.
+    21989, 24088,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:239
+//		VLOAD	VXSC		# CALC. GAMMA * OMEGA1,2,3
+// PORT: Fixed ROM slots 21990.
+    21990, 61946,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:240
+//			OMEGA
+// PORT: Fixed ROM slots 21991.
+    21991, 3718,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:241
+//			GAMMA
+// PORT: Fixed ROM slots 21992.
+    21992, 3712,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:242
+//		STOVL	OMEGAM1
+// PORT: Fixed ROM slots 21993.
+    21993, 23446,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:243
+//			OMEGA +6
+// PORT: Fixed ROM slots 21994.
+    21994, 3730,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:244
+//		VXSC
+// PORT: Fixed ROM slots 21995.
+    21995, 65506,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:245
+//			GAMMA
+// PORT: Fixed ROM slots 21996.
+    21996, 3712,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:246
+//		STOVL	OMEGAM2
+// PORT: Fixed ROM slots 21997.
+    21997, 23458,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:247
+//			OMEGA +12D
+// PORT: Fixed ROM slots 21998.
+    21998, 3742,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:248
+//		VXSC
+// PORT: Fixed ROM slots 21999.
+    21999, 65506,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:249
+//			GAMMA
+// PORT: Fixed ROM slots 22000.
+    22000, 3712,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:250
+//		STORE	OMEGAM3
+// PORT: Fixed ROM slots 22001.
+    22001, 2990,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:251
+//		EXIT
+// PORT: Fixed ROM slots 22002.
+    22002, 65532
+)).
+
+// PORT: Physical bank 23. Shared continuation entries, slots 22003–22009.
+function agcAotUnit1361 {
+    parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
+    if slot <= 22005 {
+        if slot <= 22003 {
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:252
+//		CAF	54DD		# INITIAL IX 1 SETTING FOR W MATRIX
+// PORT: Fixed ROM slots 22003.
+            if slot <> 22003 or instruction <> 13988 { return choose false if checkOnly else -1. }
+            if not extended {
+                if checkOnly { return true. }
+                local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                local fixedOperand is mod(readEffective:call(words, 1700), 32768).
+                set words[0] to agcSignExtend(fixedOperand).
+                return list(false, false, inheritedTransient, false, false).
+            }
+            return choose false if checkOnly else -1.
+        } else {
+            if slot <= 22004 {
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:253
+//		TS	WIXA
+// PORT: Fixed ROM slots 22004.
+                if slot <> 22004 or instruction <> 23248 { return choose false if checkOnly else -1. }
+                if not extended {
+                    if checkOnly { return true. }
+                    return agcCoreControlExecute(words, 23248, words[0], readEffective).
+                }
+                return choose false if checkOnly else -1.
+            } else {
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:254
+//		TS	WIXB
+// PORT: Fixed ROM slots 22005.
+                if slot <> 22005 or instruction <> 23249 { return choose false if checkOnly else -1. }
+                if not extended {
+                    if checkOnly { return true. }
+                    return agcCoreControlExecute(words, 23249, words[0], readEffective).
+                }
+                return choose false if checkOnly else -1.
+            }
+        }
+    } else {
+        if slot <= 22007 {
+            if slot <= 22006 {
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:255
+//		CAF	ZERO
+// PORT: Fixed ROM slots 22006.
+                if slot <> 22006 or instruction <> 14829 { return choose false if checkOnly else -1. }
+                if not extended {
+                    if checkOnly { return true. }
+                    local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                    local fixedOperand is mod(readEffective:call(words, 2541), 32768).
+                    set words[0] to agcSignExtend(fixedOperand).
+                    return list(false, false, inheritedTransient, false, false).
+                }
+                return choose false if checkOnly else -1.
+            } else {
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:256
+//		TS	ZIXA		# INITIAL IX 2 SETTING FOR Z COMPONENT
+// PORT: Fixed ROM slots 22007.
+                if slot <> 22007 or instruction <> 23250 { return choose false if checkOnly else -1. }
+                if not extended {
+                    if checkOnly { return true. }
+                    return agcCoreControlExecute(words, 23250, words[0], readEffective).
+                }
+                return choose false if checkOnly else -1.
+            }
+        } else {
+            if slot <= 22008 {
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:257
+//		TS	ZIXB
+// PORT: Fixed ROM slots 22008.
+                if slot <> 22008 or instruction <> 23251 { return choose false if checkOnly else -1. }
+                if not extended {
+                    if checkOnly { return true. }
+                    return agcCoreControlExecute(words, 23251, words[0], readEffective).
+                }
+                return choose false if checkOnly else -1.
+            } else {
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:258
+//FAZA		TC	PHASCHNG
+// PORT: Fixed ROM slots 22009.
+                if slot <> 22009 or instruction <> 2795 { return choose false if checkOnly else -1. }
+                if not extended {
+                    if checkOnly { return true. }
+                    return agcCoreControlExecute(words, 2795, words[0], readEffective).
+                }
+                return choose false if checkOnly else -1.
+            }
+        }
+    }
+}
+set agcAotRoutes[1361] to agcAotUnit1361@.
+
+agcAotInstallSourceRope(list(
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:259
+//# Page 1154
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:260
+//		OCT	04022
+// PORT: Fixed ROM slots 22010.
+    22010, 4132
+)).
+
+// PORT: Physical bank 23. Shared continuation entries, slots 22011–22011.
+function agcAotUnit1362 {
+    parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:261
+//		TC	UPFLAG
+// PORT: Fixed ROM slots 22011.
+    if slot <> 22011 or instruction <> 2884 { return choose false if checkOnly else -1. }
+    if not extended {
+        if checkOnly { return true. }
+        return agcCoreControlExecute(words, 2884, words[0], readEffective).
+    }
+    return choose false if checkOnly else -1.
+}
+set agcAotRoutes[1362] to agcAotUnit1362@.
+
+agcAotInstallSourceRope(list(
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:262
+//		ADRES	REINTFLG
+// PORT: Fixed ROM slots 22012.
+    22012, 316
+)).
+
+// PORT: Physical bank 23. Shared continuation entries, slots 22013–22017.
+function agcAotUnit1363 {
+    parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
+    if slot <= 22014 {
+        if slot <= 22013 {
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:263
+//FAZA1		CA	WIXB		# START FIRST PHASE OF INCORP2
+// PORT: Fixed ROM slots 22013.
+            if slot <> 22013 or instruction <> 13009 { return choose false if checkOnly else -1. }
+            if not extended {
+                if checkOnly { return true. }
+                local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                agcCoreCA(words, 721).
+                return list(false, false, inheritedTransient, false, false).
+            }
+            return choose false if checkOnly else -1.
+        } else {
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:264
+//		TS	WIXA		# TO UPDATE 6 OR 9 DIM. W MATRIX IN TEMP
+// PORT: Fixed ROM slots 22014.
+            if slot <> 22014 or instruction <> 23248 { return choose false if checkOnly else -1. }
+            if not extended {
+                if checkOnly { return true. }
+                return agcCoreControlExecute(words, 23248, words[0], readEffective).
+            }
+            return choose false if checkOnly else -1.
+        }
+    } else {
+        if slot <= 22015 {
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:265
+//		CA	ZIXB
+// PORT: Fixed ROM slots 22015.
+            if slot <> 22015 or instruction <> 13011 { return choose false if checkOnly else -1. }
+            if not extended {
+                if checkOnly { return true. }
+                local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                agcCoreCA(words, 723).
+                return list(false, false, inheritedTransient, false, false).
+            }
+            return choose false if checkOnly else -1.
+        } else {
+            if slot <= 22016 {
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:266
+//		TS	ZIXA
+// PORT: Fixed ROM slots 22016.
+                if slot <> 22016 or instruction <> 23250 { return choose false if checkOnly else -1. }
+                if not extended {
+                    if checkOnly { return true. }
+                    return agcCoreControlExecute(words, 23250, words[0], readEffective).
+                }
+                return choose false if checkOnly else -1.
+            } else {
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:267
+//		TC	INTPRET
+// PORT: Fixed ROM slots 22017.
+                if slot <> 22017 or instruction <> 3103 { return choose false if checkOnly else -1. }
+                if not extended {
+                    if checkOnly { return true. }
+                    return agcCoreControlExecute(words, 3103, words[0], readEffective).
+                }
+                return choose false if checkOnly else -1.
+            }
+        }
+    }
+}
+set agcAotRoutes[1363] to agcAotUnit1363@.
+
+agcAotInstallSourceRope(list(
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:268
+//		LXA,1	LXA,2
+// PORT: Fixed ROM slots 22018.
+    22018, 60624,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:269
+//			WIXA
+// PORT: Fixed ROM slots 22019.
+    22019, 1440,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:270
+//			ZIXA
+// PORT: Fixed ROM slots 22020.
+    22020, 1444,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:271
+//		SSP	DLOAD*
+// PORT: Fixed ROM slots 22021.
+    22021, 58290,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:272
+//			S1
+// PORT: Fixed ROM slots 22022.
+    22022, 82,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:273
+//			6
+// PORT: Fixed ROM slots 22023.
+    22023, 12,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:274
+//			ZI,2
+// PORT: Fixed ROM slots 22024.
+    22024, 62648,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:275
+//		DCOMP	NORM		# CALC UPPER 3X9 PARTITION OF W MATRIX
+// PORT: Fixed ROM slots 22025.
+    22025, 49532,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:276
+//			S2
+// PORT: Fixed ROM slots 22026.
+    22026, 84,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:277
+//		VXSC	XCHX,2
+// PORT: Fixed ROM slots 22027.
+    22027, 54498,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:278
+//			OMEGAM1
+// PORT: Fixed ROM slots 22028.
+    22028, 2966,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:279
+//			S2
+// PORT: Fixed ROM slots 22029.
+    22029, 82,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:280
+//		LXC,2	XAD,2
+// PORT: Fixed ROM slots 22030.
+    22030, 48328,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:281
+//			X2
+// PORT: Fixed ROM slots 22031.
+    22031, 78,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:282
+//			NORMGAM
+// PORT: Fixed ROM slots 22032.
+    22032, 2182,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:283
+//		VSL*	XCHX,2
+// PORT: Fixed ROM slots 22033.
+    22033, 54366,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:284
+//			0,2
+// PORT: Fixed ROM slots 22034.
+    22034, 48892,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:285
+//			S2
+// PORT: Fixed ROM slots 22035.
+    22035, 82,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:286
+//		VAD*
+// PORT: Fixed ROM slots 22036.
+    22036, 65366,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:287
+//			W +54D,1
+// PORT: Fixed ROM slots 22037.
+    22037, 2670,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:288
+//		STORE	HOLDW
+// PORT: Fixed ROM slots 22038.
+    22038, 3002,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:289
+//		DLOAD*	DCOMP		# CALC MIDDLE 3X9 PARTITION OF W MATRIX
+// PORT: Fixed ROM slots 22039.
+    22039, 48838,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:290
+//			ZI,2
+// PORT: Fixed ROM slots 22040.
+    22040, 62648,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:291
+//		NORM	VXSC
+// PORT: Fixed ROM slots 22041.
+    22041, 61826,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:292
+//			S2
+// PORT: Fixed ROM slots 22042.
+    22042, 84,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:293
+//			OMEGAM2
+// PORT: Fixed ROM slots 22043.
+    22043, 2978,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:294
+//		XCHX,2	LXC,2
+// PORT: Fixed ROM slots 22044.
+    22044, 58536,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:295
+//			S2
+// PORT: Fixed ROM slots 22045.
+    22045, 82,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:296
+//			X2
+// PORT: Fixed ROM slots 22046.
+    22046, 78,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:297
+//		XAD,2	VSL*
+// PORT: Fixed ROM slots 22047.
+    22047, 44920,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:298
+//			NORMGAM
+// PORT: Fixed ROM slots 22048.
+    22048, 2182,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:299
+//			0,2
+// PORT: Fixed ROM slots 22049.
+    22049, 48892,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:300
+//		XCHX,2	VAD*
+// PORT: Fixed ROM slots 22050.
+    22050, 43944,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:301
+//			S2
+// PORT: Fixed ROM slots 22051.
+    22051, 82,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:302
+//			W +108D,1
+// PORT: Fixed ROM slots 22052.
+    22052, 2778,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:303
+//		STORE	HOLDW +6
+// PORT: Fixed ROM slots 22053.
+    22053, 3014,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:304
+//		BOFF
+// PORT: Fixed ROM slots 22054.
+    22054, 65304,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:305
+//			DMENFLG		# BRANCH IF 6 DIMENSIONAL
+// PORT: Fixed ROM slots 22055.
+    22055, 3020,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:306
+//			FAZB
+// PORT: Fixed ROM slots 22056.
+    22056, 40048,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:307
+//		DLOAD*	DCOMP		# CALC LOWER 3X9 PARTITION OF W MATRIX
+// PORT: Fixed ROM slots 22057.
+    22057, 48838,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:308
+//			ZI,2
+// PORT: Fixed ROM slots 22058.
+    22058, 62648,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:309
+//		NORM	VXSC
+// PORT: Fixed ROM slots 22059.
+    22059, 61826,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:310
+//# Page 1155
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:311
+//			S2
+// PORT: Fixed ROM slots 22060.
+    22060, 84,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:312
+//			OMEGAM3
+// PORT: Fixed ROM slots 22061.
+    22061, 2990,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:313
+//		XCHX,2	LXC,2
+// PORT: Fixed ROM slots 22062.
+    22062, 58536,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:314
+//			S2
+// PORT: Fixed ROM slots 22063.
+    22063, 82,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:315
+//			X2
+// PORT: Fixed ROM slots 22064.
+    22064, 78,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:316
+//		XAD,2	VSL*
+// PORT: Fixed ROM slots 22065.
+    22065, 44920,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:317
+//			NORMGAM
+// PORT: Fixed ROM slots 22066.
+    22066, 2182,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:318
+//			0,2
+// PORT: Fixed ROM slots 22067.
+    22067, 48892,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:319
+//		XCHX,2	VAD*
+// PORT: Fixed ROM slots 22068.
+    22068, 43944,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:320
+//			S2
+// PORT: Fixed ROM slots 22069.
+    22069, 82,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:321
+//			W +162D,1
+// PORT: Fixed ROM slots 22070.
+    22070, 2886,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:322
+//		STORE	HOLDW +12D
+// PORT: Fixed ROM slots 22071.
+    22071, 3026,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:323
+//FAZB		CALL
+// PORT: Fixed ROM slots 22072.
+    22072, 65320,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:324
+//			GRP2PC
+// PORT: Fixed ROM slots 22073.
+    22073, 9544,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:325
+//		EXIT
+// PORT: Fixed ROM slots 22074.
+    22074, 65532
+)).
+
+// PORT: Physical bank 23. Shared continuation entries, slots 22075–22081.
+function agcAotUnit1364 {
+    parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
+    if slot <= 22077 {
+        if slot <= 22075 {
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:326
+//FAZB1		CA	WIXA		# START 2ND PHASE OF INCORP2 TO TRANSFER
+// PORT: Fixed ROM slots 22075.
+            if slot <> 22075 or instruction <> 13008 { return choose false if checkOnly else -1. }
+            if not extended {
+                if checkOnly { return true. }
+                local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                agcCoreCA(words, 720).
+                return list(false, false, inheritedTransient, false, false).
+            }
+            return choose false if checkOnly else -1.
+        } else {
+            if slot <= 22076 {
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:327
+//		AD	6DD		# 	TEMP REG TO PERM W MATRIX
+// PORT: Fixed ROM slots 22076.
+                if slot <> 22076 or instruction <> 26277 { return choose false if checkOnly else -1. }
+                if not extended {
+                    if checkOnly { return true. }
+                    local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                    local entryA is words[0].
+                    local fixedOperand is mod(readEffective:call(words, 1701), 32768).
+                    set words[0] to agcAddSP16(entryA, agcSignExtend(fixedOperand)).
+                    return list(false, false, inheritedTransient, false, false).
+                }
+                return choose false if checkOnly else -1.
+            } else {
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:328
+//		TS	WIXB
+// PORT: Fixed ROM slots 22077.
+                if slot <> 22077 or instruction <> 23249 { return choose false if checkOnly else -1. }
+                if not extended {
+                    if checkOnly { return true. }
+                    return agcCoreControlExecute(words, 23249, words[0], readEffective).
+                }
+                return choose false if checkOnly else -1.
+            }
+        }
+    } else {
+        if slot <= 22079 {
+            if slot <= 22078 {
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:329
+//		CA	ZIXA
+// PORT: Fixed ROM slots 22078.
+                if slot <> 22078 or instruction <> 13010 { return choose false if checkOnly else -1. }
+                if not extended {
+                    if checkOnly { return true. }
+                    local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                    agcCoreCA(words, 722).
+                    return list(false, false, inheritedTransient, false, false).
+                }
+                return choose false if checkOnly else -1.
+            } else {
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:330
+//		AD	MINUS2
+// PORT: Fixed ROM slots 22079.
+                if slot <> 22079 or instruction <> 28646 { return choose false if checkOnly else -1. }
+                if not extended {
+                    if checkOnly { return true. }
+                    local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                    local entryA is words[0].
+                    local fixedOperand is mod(readEffective:call(words, 4070), 32768).
+                    set words[0] to agcAddSP16(entryA, agcSignExtend(fixedOperand)).
+                    return list(false, false, inheritedTransient, false, false).
+                }
+                return choose false if checkOnly else -1.
+            }
+        } else {
+            if slot <= 22080 {
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:331
+//		TS	ZIXB
+// PORT: Fixed ROM slots 22080.
+                if slot <> 22080 or instruction <> 23251 { return choose false if checkOnly else -1. }
+                if not extended {
+                    if checkOnly { return true. }
+                    return agcCoreControlExecute(words, 23251, words[0], readEffective).
+                }
+                return choose false if checkOnly else -1.
+            } else {
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:332
+//		TC	INTPRET
+// PORT: Fixed ROM slots 22081.
+                if slot <> 22081 or instruction <> 3103 { return choose false if checkOnly else -1. }
+                if not extended {
+                    if checkOnly { return true. }
+                    return agcCoreControlExecute(words, 3103, words[0], readEffective).
+                }
+                return choose false if checkOnly else -1.
+            }
+        }
+    }
+}
+set agcAotRoutes[1364] to agcAotUnit1364@.
+
+agcAotInstallSourceRope(list(
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:333
+//		LXA,1	SSP
+// PORT: Fixed ROM slots 22082.
+    22082, 55760,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:334
+//			WIXA
+// PORT: Fixed ROM slots 22083.
+    22083, 1440,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:335
+//			S1
+// PORT: Fixed ROM slots 22084.
+    22084, 82,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:336
+//			6
+// PORT: Fixed ROM slots 22085.
+    22085, 12,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:337
+//		VLOAD
+// PORT: Fixed ROM slots 22086.
+    22086, 65530,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:338
+//			HOLDW
+// PORT: Fixed ROM slots 22087.
+    22087, 3002,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:339
+//		STORE	W +54D,1
+// PORT: Fixed ROM slots 22088.
+    22088, 6766,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:340
+//		VLOAD
+// PORT: Fixed ROM slots 22089.
+    22089, 65530,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:341
+//			HOLDW +6
+// PORT: Fixed ROM slots 22090.
+    22090, 3014,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:342
+//		STORE	W +108D,1
+// PORT: Fixed ROM slots 22091.
+    22091, 6874,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:343
+//		BOFF	VLOAD
+// PORT: Fixed ROM slots 22092.
+    22092, 64792,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:344
+//			DMENFLG
+// PORT: Fixed ROM slots 22093.
+    22093, 3020,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:345
+//			FAZB5
+// PORT: Fixed ROM slots 22094.
+    22094, 40108,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:346
+//			HOLDW +12D
+// PORT: Fixed ROM slots 22095.
+    22095, 3026,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:347
+//		STORE	W +162D,1
+// PORT: Fixed ROM slots 22096.
+    22096, 6982,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:348
+//FAZB2		TIX,1	GOTO
+// PORT: Fixed ROM slots 22097.
+    22097, 43136,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:349
+//			+2
+// PORT: Fixed ROM slots 22098.
+    22098, 40104,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:350
+//			FAZC		# DONE WITH W MATRIX.  UPDATE STATE VECTOR
+// PORT: Fixed ROM slots 22099.
+    22099, 40120,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:351
+//		RTB
+// PORT: Fixed ROM slots 22100.
+    22100, 65336,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:352
+//			FAZA
+// PORT: Fixed ROM slots 22101.
+    22101, 39922,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:353
+//FAZB5		SLOAD	DAD
+// PORT: Fixed ROM slots 22102.
+    22102, 36282,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:354
+//			ZIXB
+// PORT: Fixed ROM slots 22103.
+    22103, 1448,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:355
+//			12DD
+// PORT: Fixed ROM slots 22104.
+    22104, 7502,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:356
+//		BHIZ	GOTO
+// PORT: Fixed ROM slots 22105.
+    22105, 43056,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:357
+//			FAZC
+// PORT: Fixed ROM slots 22106.
+    22106, 40120,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:358
+//			FAZB2
+// PORT: Fixed ROM slots 22107.
+    22107, 40098,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:359
+//FAZC		CALL
+// PORT: Fixed ROM slots 22108.
+    22108, 65320,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:360
+//			GRP2PC
+// PORT: Fixed ROM slots 22109.
+    22109, 9544,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:361
+//# Page 1156
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:362
+//		VLOAD	VAD		# START 3RD PHASE OF INCORP2
+// PORT: Fixed ROM slots 22110.
+    22110, 44538,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:363
+//			X789		# 7TH, 8TH, 9TH COMPONENT OF STATE VECTOR
+// PORT: Fixed ROM slots 22111.
+    22111, 1922,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:364
+//			DELTAX +12D	# INCORPORATION FOR X789
+// PORT: Fixed ROM slots 22112.
+    22112, 2946,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:365
+//		STORE	TX789
+// PORT: Fixed ROM slots 22113.
+    22113, 3700,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:366
+//		BON	RTB
+// PORT: Fixed ROM slots 22114.
+    22114, 39960,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:367
+//			VEHUPFLG
+// PORT: Fixed ROM slots 22115.
+    22115, 910,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:368
+//			DOCSM
+// PORT: Fixed ROM slots 22116.
+    22116, 40248,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:369
+//			MOVEPLEM
+// PORT: Fixed ROM slots 22117.
+    22117, 23536,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:370
+//FAZAB		BOVB	AXT,2
+// PORT: Fixed ROM slots 22118.
+    22118, 64520,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:371
+//			TCDANZIG
+// PORT: Fixed ROM slots 22119.
+    22119, 49110,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:372
+//			0
+// PORT: Fixed ROM slots 22120.
+    22120, 0,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:373
+//		BOFF	AXT,2
+// PORT: Fixed ROM slots 22121.
+    22121, 64536,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:374
+//			MOONTHIS
+// PORT: Fixed ROM slots 22122.
+    22122, 4552,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:375
+//			+2
+// PORT: Fixed ROM slots 22123.
+    22123, 40154,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:376
+//			2
+// PORT: Fixed ROM slots 22124.
+    22124, 4,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:377
+//		VLOAD	VSR*
+// PORT: Fixed ROM slots 22125.
+    22125, 45050,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:378
+//			DELTAX		# B27 IF MOON ORBIT, B29 IF EARTH
+// PORT: Fixed ROM slots 22126.
+    22126, 2922,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:379
+//			0 -7,2
+// PORT: Fixed ROM slots 22127.
+    22127, 48394,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:380
+//		VAD	BOV
+// PORT: Fixed ROM slots 22128.
+    22128, 32858,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:381
+//			TDELTAV
+// PORT: Fixed ROM slots 22129.
+    22129, 1698,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:382
+//			FAZAB1
+// PORT: Fixed ROM slots 22130.
+    22130, 40184,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:383
+//		STOVL	TDELTAV
+// PORT: Fixed ROM slots 22131.
+    22131, 22178,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:384
+//			DELTAX +6	# B5 IF MOON ORBIT, B7 IF EARTH
+// PORT: Fixed ROM slots 22132.
+    22132, 2934,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:385
+//		VSR*	VAD
+// PORT: Fixed ROM slots 22133.
+    22133, 44382,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:386
+//			0 -4,2
+// PORT: Fixed ROM slots 22134.
+    22134, 48388,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:387
+//			TNUV
+// PORT: Fixed ROM slots 22135.
+    22135, 1710,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:388
+//		BOV
+// PORT: Fixed ROM slots 22136.
+    22136, 65280,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:389
+//			FAZAB2
+// PORT: Fixed ROM slots 22137.
+    22137, 40192,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:390
+//		STCALL	TNUV
+// PORT: Fixed ROM slots 22138.
+    22138, 30382,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:391
+//			FAZAB3
+// PORT: Fixed ROM slots 22139.
+    22139, 40206,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:392
+//FAZAB1		VLOAD	VAD
+// PORT: Fixed ROM slots 22140.
+    22140, 44538,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:393
+//			RCV
+// PORT: Fixed ROM slots 22141.
+    22141, 1722,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:394
+//			DELTAX
+// PORT: Fixed ROM slots 22142.
+    22142, 2922,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:395
+//		STORE	RCV
+// PORT: Fixed ROM slots 22143.
+    22143, 1722,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:396
+//FAZAB2		VLOAD	VAD
+// PORT: Fixed ROM slots 22144.
+    22144, 44538,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:397
+//			VCV
+// PORT: Fixed ROM slots 22145.
+    22145, 1734,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:398
+//			DELTAX +6
+// PORT: Fixed ROM slots 22146.
+    22146, 2934,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:399
+//		STORE	VCV
+// PORT: Fixed ROM slots 22147.
+    22147, 1734,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:400
+//		SXA,2	CALL
+// PORT: Fixed ROM slots 22148.
+    22148, 38072,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:401
+//			PBODY
+// PORT: Fixed ROM slots 22149.
+    22149, 2096,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:402
+//			RECTIFY
+// PORT: Fixed ROM slots 22150.
+    22150, 20034,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:403
+//FAZAB3		CALL
+// PORT: Fixed ROM slots 22151.
+    22151, 65320,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:404
+//			GRP2PC
+// PORT: Fixed ROM slots 22152.
+    22152, 9544,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:405
+//		BON	RTB
+// PORT: Fixed ROM slots 22153.
+    22153, 39960,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:406
+//			VEHUPFLG
+// PORT: Fixed ROM slots 22154.
+    22154, 910,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:407
+//			DOCSM1
+// PORT: Fixed ROM slots 22155.
+    22155, 40254,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:408
+//			MOVEALEM
+// PORT: Fixed ROM slots 22156.
+    22156, 23502,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:409
+//		CALL
+// PORT: Fixed ROM slots 22157.
+    22157, 65320,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:410
+//			SVDWN2		# STORE DOWNLINK STATE VECTOR
+// PORT: Fixed ROM slots 22158.
+    22158, 22640,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:411
+//FAZAB4		CALL
+// PORT: Fixed ROM slots 22159.
+    22159, 65320,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:412
+//# Page 1157
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:413
+//			GRP2PC		# PHASE CHANGE
+// PORT: Fixed ROM slots 22160.
+    22160, 9544,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:414
+//		BOFF	VLOAD
+// PORT: Fixed ROM slots 22161.
+    22161, 64792,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:415
+//			DMENFLG
+// PORT: Fixed ROM slots 22162.
+    22162, 3020,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:416
+//			FAZAB5		# 6 DIMENSIONAL
+// PORT: Fixed ROM slots 22163.
+    22163, 40236,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:417
+//			TX789		# 9 DIMENSIONAL
+// PORT: Fixed ROM slots 22164.
+    22164, 3700,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:418
+//		STORE	X789
+// PORT: Fixed ROM slots 22165.
+    22165, 1922,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:419
+//FAZAB5		LXA,1	SXA,1
+// PORT: Fixed ROM slots 22166.
+    22166, 55504,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:420
+//			EGRESS
+// PORT: Fixed ROM slots 22167.
+    22167, 3060,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:421
+//			QPRET
+// PORT: Fixed ROM slots 22168.
+    22168, 84,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:422
+//		EXIT
+// PORT: Fixed ROM slots 22169.
+    22169, 65532
+)).
+
+// PORT: Physical bank 23. Shared continuation entries, slots 22170–22170.
+function agcAotUnit1365 {
+    parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:423
+//		TC	POSTJUMP	# EXIT
+// PORT: Fixed ROM slots 22170.
+    if slot <> 22170 or instruction <> 2461 { return choose false if checkOnly else -1. }
+    if not extended {
+        if checkOnly { return true. }
+        return agcCoreControlExecute(words, 2461, words[0], readEffective).
+    }
+    return choose false if checkOnly else -1.
+}
+set agcAotRoutes[1365] to agcAotUnit1365@.
+
+agcAotInstallSourceRope(list(
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:424
+//		CADR	INTWAKE
+// PORT: Fixed ROM slots 22171.
+    22171, 24106,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:425
+//DOCSM		RTB	GOTO
+// PORT: Fixed ROM slots 22172.
+    22172, 43064,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:426
+//			MOVEPCSM
+// PORT: Fixed ROM slots 22173.
+    22173, 23462,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:427
+//			FAZAB
+// PORT: Fixed ROM slots 22174.
+    22174, 40140,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:428
+//DOCSM1		RTB	CALL
+// PORT: Fixed ROM slots 22175.
+    22175, 37944,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:429
+//			MOVEACSM
+// PORT: Fixed ROM slots 22176.
+    22176, 23416,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:430
+//			SVDWN1		# STORE DOWNLINK STATE VECTOR
+// PORT: Fixed ROM slots 22177.
+    22177, 22680,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:431
+//		GOTO
+// PORT: Fixed ROM slots 22178.
+    22178, 65360,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:432
+//			FAZAB4
+// PORT: Fixed ROM slots 22179.
+    22179, 40222,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:433
+//ZEROD		=	ZEROVECS
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:434
+//54DD		DEC	54
+// PORT: Fixed ROM slots 22180.
+    22180, 108,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:435
+//6DD		DEC	-6
+// PORT: Fixed ROM slots 22181.
+    22181, 65522,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:436
+//12DD		DEC	12
+// PORT: Fixed ROM slots 22182.
+    22182, 24,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:437
+//
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:438
+//		SETLOC	RENDEZ
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:439
+//		BANK
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:440
+//		COUNT*	$$/INCOR
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:441
+//
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:442
+//NEWZCOMP	VLOAD	ABVAL
+// PORT: Fixed ROM slots 21449.
+    21449, 42746,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:443
+//			ZI
+// PORT: Fixed ROM slots 21450.
+    21450, 2886,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:444
+//		STOVL	NORMZI
+// PORT: Fixed ROM slots 21451.
+    21451, 20554,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:445
+//			ZI +6
+// PORT: Fixed ROM slots 21452.
+    21452, 2898,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:446
+//		ABVAL	PUSH
+// PORT: Fixed ROM slots 21453.
+    21453, 34380,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:447
+//		DSU	BMN
+// PORT: Fixed ROM slots 21454.
+    21454, 41002,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:448
+//			NORMZI
+// PORT: Fixed ROM slots 21455.
+    21455, 74,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:449
+//			+3
+// PORT: Fixed ROM slots 21456.
+    21456, 38822,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:450
+//		DLOAD	STADR
+// PORT: Fixed ROM slots 21457.
+    21457, 38602,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:451
+//		STORE	NORMZI
+// PORT: Fixed ROM slots 21458.
+    21458, 65460,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:452
+//		VLOAD	ABVAL
+// PORT: Fixed ROM slots 21459.
+    21459, 42746,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:453
+//			ZI +12D
+// PORT: Fixed ROM slots 21460.
+    21460, 2910,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:454
+//		PUSH	DSU
+// PORT: Fixed ROM slots 21461.
+    21461, 38156,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:455
+//			NORMZI
+// PORT: Fixed ROM slots 21462.
+    21462, 74,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:456
+//		BMN	DLOAD
+// PORT: Fixed ROM slots 21463.
+    21463, 58688,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:457
+//			+3
+// PORT: Fixed ROM slots 21464.
+    21464, 38838,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:458
+//		STADR
+// PORT: Fixed ROM slots 21465.
+    21465, 65324,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:459
+//		STORE	NORMZI		# LARGEST ABVAL
+// PORT: Fixed ROM slots 21466.
+    21466, 65460,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:460
+//		DLOAD	SXA,1
+// PORT: Fixed ROM slots 21467.
+    21467, 55498,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:461
+//			NORMZI
+// PORT: Fixed ROM slots 21468.
+    21468, 74,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:462
+//			NORMZI		# SAVE X1
+// PORT: Fixed ROM slots 21469.
+    21469, 72,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:463
+//		NORM	INCR,1
+// PORT: Fixed ROM slots 21470.
+    21470, 51330,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:464
+//# Page 1158
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:465
+//			X1
+// PORT: Fixed ROM slots 21471.
+    21471, 78,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:466
+//		DEC	2
+// PORT: Fixed ROM slots 21472.
+    21472, 4,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:467
+//		VLOAD	VSL*
+// PORT: Fixed ROM slots 21473.
+    21473, 45050,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:468
+//			ZI
+// PORT: Fixed ROM slots 21474.
+    21474, 2886,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:469
+//			0,1
+// PORT: Fixed ROM slots 21475.
+    21475, 16642,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:470
+//		STOVL	ZI
+// PORT: Fixed ROM slots 21476.
+    21476, 23366,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:471
+//			ZI +6
+// PORT: Fixed ROM slots 21477.
+    21477, 2898,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:472
+//		VSL*
+// PORT: Fixed ROM slots 21478.
+    21478, 65374,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:473
+//			0,1
+// PORT: Fixed ROM slots 21479.
+    21479, 16642,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:474
+//		STOVL	ZI +6
+// PORT: Fixed ROM slots 21480.
+    21480, 23378,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:475
+//			ZI +12D
+// PORT: Fixed ROM slots 21481.
+    21481, 2910,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:476
+//		VSL*	SXA,1
+// PORT: Fixed ROM slots 21482.
+    21482, 55390,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:477
+//			0,1
+// PORT: Fixed ROM slots 21483.
+    21483, 16642,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:478
+//			NORMZI +1	# SAVE SHIFT
+// PORT: Fixed ROM slots 21484.
+    21484, 74,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:479
+//		STORE	ZI +12D
+// PORT: Fixed ROM slots 21485.
+    21485, 2910,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:480
+//		LXA,1	XSU,1
+// PORT: Fixed ROM slots 21486.
+    21486, 45264,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:481
+//			NORMGAM
+// PORT: Fixed ROM slots 21487.
+    21487, 2182,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:482
+//			NORMZI +1
+// PORT: Fixed ROM slots 21488.
+    21488, 74,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:483
+//		XSU,1
+// PORT: Fixed ROM slots 21489.
+    21489, 65376,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:484
+//			NORMZI +1
+// PORT: Fixed ROM slots 21490.
+    21490, 74,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:485
+//		SXA,1	LXC,1
+// PORT: Fixed ROM slots 21491.
+    21491, 57520,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:486
+//			NORMGAM
+// PORT: Fixed ROM slots 21492.
+    21492, 2182,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:487
+//			NORMZI +1
+// PORT: Fixed ROM slots 21493.
+    21493, 74,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:488
+//		XAD,1	SETPD
+// PORT: Fixed ROM slots 21494.
+    21494, 33136,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:489
+//			NORMZI
+// PORT: Fixed ROM slots 21495.
+    21495, 72,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:490
+//			2D
+// PORT: Fixed ROM slots 21496.
+    21496, 6,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:491
+//		GOTO
+// PORT: Fixed ROM slots 21497.
+    21497, 65360,
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:492
+//			INCOR2 -3
+// PORT: Fixed ROM slots 21498.
+    21498, 39790
+)).
+
+// PORT: Source-only text without a subsequent generated declaration.
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:493
+//NORMZI		=	36D
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:494
+//
+// PORT: SOURCE MEASUREMENT_INCORPORATION.agc:495
+//

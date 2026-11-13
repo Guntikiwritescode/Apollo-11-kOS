@@ -1,0 +1,553 @@
+// PORT: Original source unit GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc.
+// PORT: Physical bank 35. Shared continuation entries, slots 32040–32043.
+function agcAotUnit2035 {
+    parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
+    if slot <= 32041 {
+        if slot <= 32040 {
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:1
+//# Copyright:	Public domain.
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:2
+//# Filename:	LAMBERT_AIMPOINT_GUIDANCE.agc
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:3
+//# Purpose: 	Part of the source code for Luminary 1A build 099.
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:4
+//#		It is part of the source code for the Lunar Module's (LM)
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:5
+//#		Apollo Guidance Computer (AGC), for Apollo 11.
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:6
+//# Assembler:	yaYUL
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:7
+//# Contact:	Ron Burkey <info@sandroid.org>.
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:8
+//# Website:	www.ibiblio.org/apollo.
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:9
+//# Pages:	651-653
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:10
+//# Mod history:	2009-05-18 RSB	Transcribed from Luminary 099
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:11
+//#				page images.
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:12
+//#		2009-06-05 RSB	Corrected 4 typos.
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:13
+//#		2009-06-07 RSB	Fixed a typo.
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:14
+//#
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:15
+//# This source code has been transcribed or otherwise adapted from
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:16
+//# digitized images of a hardcopy from the MIT Museum.  The digitization
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:17
+//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:18
+//# the Museum.  Many thanks to both.  The images (with suitable reduction
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:19
+//# in storage size and consequent reduction in image quality as well) are
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:20
+//# available online at www.ibiblio.org/apollo.  If for some reason you
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:21
+//# find that the images are illegible, contact me at info@sandroid.org
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:22
+//# about getting access to the (much) higher-quality images which Paul
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:23
+//# actually created.
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:24
+//#
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:25
+//# Notations on the hardcopy document read, in part:
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:26
+//#
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:27
+//#	Assemble revision 001 of AGC program LMY99 by NASA 2021112-061
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:28
+//#	16:27 JULY 14,1969
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:29
+//
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:30
+//# Page 651
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:31
+//
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:32
+//# GENERAL  LAMBERT AIMPOINT GUIDANCE **
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:33
+//# WRITTEN  BY RAMA M AIYAWAR
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:34
+//
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:35
+//# PROGRAM P-31 DESCRIPTION **
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:36
+//#
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:37
+//# 1.	   TO ACCEPT TARGETING PARAMETERS OBTAINED FROM A SOURCE EXTERNAL
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:38
+//#	   TO THE LEM AND COMPUTE THERE FROM THE REQUIRED-VELOCITY AND
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:39
+//#	   OTHER INITIAL CONDITIONS REQUIRED BY LM FOR DESIRED MANEUVER.
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:40
+//#	   THE TARGETING PARAMETERS ARE TIG (TIME OF IGNITION), TARGET
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:41
+//#	   VECTOR (RTARG), AND THE TIME FROM TIG UNTIL THE TARGET IS
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:42
+//#	   REACHED(DELLT4),DESIRED TIME OF FLIGHT FROM  RINIT TO RTARG..
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:43
+//
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:44
+//# ASSUMPTIONS **
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:45
+//#
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:46
+//# 1.	   THE TARGET PARAMETERS MAY HAVE BEEN LOADED PRIOR TO THE
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:47
+//#	   EXECUTION OF THIS PROGRAM.
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:48
+//# 2.	   THIS PROGRAM IS APPLICABLE IN EITHER EARTH OR LUNAR ORBIT.
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:49
+//# 3.	   THIS PROGRAM IS DESIGNED FOR ONE-MAN OPERATION, AND SHOULD
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:50
+//#	   BE SELECTED BY THE ASTRONAUT BY DSKY ENTRY  V37 E31.
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:51
+//
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:52
+//# SUBROUTINES USED **
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:53
+//#
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:54
+//# MANUPARM, TTG/N35, R02BOTH, MIDGIM, DISPMGA, FLAGDOWN, BANKCALL,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:55
+//# GOTOPOOH, ENDOFJOB, PHASCHNG, GOFLASHR, GOFLASH.
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:56
+//#
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:57
+//# MANUPARM	  CALCULATES APOGEE, PERIGEE ALTITUDES AND DELTAV DESIRED
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:58
+//#		  FOR THE MANEUVER.
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:59
+//#
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:60
+//# TTG/N35	  CLOCKTASK - UPDATES CLOCK.
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:61
+//#
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:62
+//# MIDGIM	  CALCULATES MIDDLE GIMBAL ANGLE FOR DISPLAY.
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:63
+//#
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:64
+//# R02BOTH	  IMU - STATUS CHECK ROUTINE.
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:65
+//
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:66
+//# DISPLAYS USED IN P-31LM **
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:67
+//#
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:68
+//# V06N33	  DISPLAY SOTRED  TIG (IN HRS. MINS. SECS)
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:69
+//# V06N42	  DISPLAY APOGEE, PERIGEE, DELTAV.
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:70
+//# V16N35	  DISPLAY TIME FROM TIG.
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:71
+//# V06N45	  TIME FROM IGNITION AND MIDDLE GIMBAL ANGLE.
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:72
+//
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:73
+//# ERASABLE INITIALIZATION REQUIRED **
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:74
+//#
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:75
+//# TIG		  TIME OF IGNITION    DP    (B+28) CS.
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:76
+//#
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:77
+//# DELLT4	  DESIRED TIME OF FLIGHT   DP  (B+28) CS
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:78
+//#		  FROM RINIT TO RTARG .
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:79
+//#
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:80
+//# RTARG		  RADIUS VECTOR OF TARGET POSITION VECTOR
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:81
+//#		  RADIUS VECTOR   SCALED TO  (B+29)METERS IF EARTH ORBIT
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:82
+//# Page 652
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:83
+//#		  RADIUS VECTOR SCALED TO    (B+27)METERS IF MOON  ORBIT
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:84
+//
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:85
+//# OUTPUT **
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:86
+//#
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:87
+//# HAPO		  APOGEE ALTITUDE
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:88
+//# HPER		  PERIGEE ALTITUDE
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:89
+//# VGDISP	  MAG.OF DELTAV FOR DISPLAY ,SCALING	  B+7 M/CS EARTH
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:90
+//#		  MAG.OF DELTAV FOR DISPLAY,SCALING	  B+5 M/CS MOON
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:91
+//# MIDGIM	  MIDDLE GIMBAL ANGLE
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:92
+//# XDELVFLG	  RESETS XDELVFLG FOR LAMBERT VG COMPUTATIONS
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:93
+//
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:94
+//# ALARMS OR ABORTS  NONE **
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:95
+//
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:96
+//# RESTARTS  ARE VIA GROUP 4 **
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:97
+//
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:98
+//		SETLOC	GLM
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:99
+//		BANK
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:100
+//
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:101
+//		EBANK=	SUBEXIT
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:102
+//
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:103
+//		COUNT*	$$/P31
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:104
+//P31		TC	P20FLGON
+// PORT: Fixed ROM slots 32040.
+            if slot <> 32040 or instruction <> 1265 { return choose false if checkOnly else -1. }
+            if not extended {
+                if checkOnly { return true. }
+                return agcCoreControlExecute(words, 1265, words[0], readEffective).
+            }
+            return choose false if checkOnly else -1.
+        } else {
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:105
+//		CAF	V06N33		# TIG
+// PORT: Fixed ROM slots 32041.
+            if slot <> 32041 or instruction <> 13333 { return choose false if checkOnly else -1. }
+            if not extended {
+                if checkOnly { return true. }
+                local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                local fixedOperand is mod(readEffective:call(words, 1045), 32768).
+                set words[0] to agcSignExtend(fixedOperand).
+                return list(false, false, inheritedTransient, false, false).
+            }
+            return choose false if checkOnly else -1.
+        }
+    } else {
+        if slot <= 32042 {
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:106
+//		TC	VNPOOH
+// PORT: Fixed ROM slots 32042.
+            if slot <> 32042 or instruction <> 1994 { return choose false if checkOnly else -1. }
+            if not extended {
+                if checkOnly { return true. }
+                return agcCoreControlExecute(words, 1994, words[0], readEffective).
+            }
+            return choose false if checkOnly else -1.
+        } else {
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:107
+//		TC	INTPRET
+// PORT: Fixed ROM slots 32043.
+            if slot <> 32043 or instruction <> 3103 { return choose false if checkOnly else -1. }
+            if not extended {
+                if checkOnly { return true. }
+                return agcCoreControlExecute(words, 3103, words[0], readEffective).
+            }
+            return choose false if checkOnly else -1.
+        }
+    }
+}
+set agcAotRoutes[2035] to agcAotUnit2035@.
+
+agcAotInstallSourceRope(list(
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:108
+//		CLEAR	DLOAD
+// PORT: Fixed ROM slots 32044.
+    32044, 58648,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:109
+//			UPDATFLG
+// PORT: Fixed ROM slots 32045.
+    32045, 880,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:110
+//			TIG
+// PORT: Fixed ROM slots 32046.
+    32046, 3652,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:111
+//		STCALL	TDEC1		# INTEGRATE STATE VECTORS TO TIG
+// PORT: Fixed ROM slots 32047.
+    32047, 28738,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:112
+//			LEMPREC
+// PORT: Fixed ROM slots 32048.
+    32048, 23646,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:113
+//		VLOAD	SETPD
+// PORT: Fixed ROM slots 32049.
+    32049, 33274,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:114
+//			RATT
+// PORT: Fixed ROM slots 32050.
+    32050, 2,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:115
+//			0D
+// PORT: Fixed ROM slots 32051.
+    32051, 2,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:116
+//		STORE	RTIG
+// PORT: Fixed ROM slots 32052.
+    32052, 3908,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:117
+//		STOVL	RINIT
+// PORT: Fixed ROM slots 32053.
+    32053, 22950,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:118
+//			VATT
+// PORT: Fixed ROM slots 32054.
+    32054, 14,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:119
+//		STORE	VTIG
+// PORT: Fixed ROM slots 32055.
+    32055, 3920,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:120
+//		STODL	VINIT
+// PORT: Fixed ROM slots 32056.
+    32056, 14770,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:121
+//			P30ZERO
+// PORT: Fixed ROM slots 32057.
+    32057, 27168,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:122
+//		PUSH	PDDL		# E4 AND NUMIT = 0
+// PORT: Fixed ROM slots 32058.
+    32058, 54540,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:123
+//			DELLT4
+// PORT: Fixed ROM slots 32059.
+    32059, 3668,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:124
+//		DAD	SXA,1
+// PORT: Fixed ROM slots 32060.
+    32060, 55322,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:125
+//			TIG
+// PORT: Fixed ROM slots 32061.
+    32061, 3652,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:126
+//			RTX1
+// PORT: Fixed ROM slots 32062.
+    32062, 3068,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:127
+//		STORE	TPASS4
+// PORT: Fixed ROM slots 32063.
+    32063, 3890,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:128
+//		SXA,2	CALL
+// PORT: Fixed ROM slots 32064.
+    32064, 38072,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:129
+//			RTX2
+// PORT: Fixed ROM slots 32065.
+    32065, 3070,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:130
+//			INITVEL
+// PORT: Fixed ROM slots 32066.
+    32066, 18432,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:131
+//		VLOAD	PUSH
+// PORT: Fixed ROM slots 32067.
+    32067, 34554,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:132
+//# Page 653
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:133
+//			DELVEET3
+// PORT: Fixed ROM slots 32068.
+    32068, 2540,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:134
+//		STORE	DELVSIN
+// PORT: Fixed ROM slots 32069.
+    32069, 3932,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:135
+//		ABVAL	CLEAR
+// PORT: Fixed ROM slots 32070.
+    32070, 35916,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:136
+//			XDELVFLG
+// PORT: Fixed ROM slots 32071.
+    32071, 1390,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:137
+//		STCALL	VGDISP
+// PORT: Fixed ROM slots 32072.
+    32072, 32616,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:138
+//			GET.LVC
+// PORT: Fixed ROM slots 32073.
+    32073, 14262,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:139
+//		VLOAD	PDVL
+// PORT: Fixed ROM slots 32074.
+    32074, 52730,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:140
+//			RTIG
+// PORT: Fixed ROM slots 32075.
+    32075, 3908,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:141
+//			VIPRIME
+// PORT: Fixed ROM slots 32076.
+    32076, 2494,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:142
+//		CALL
+// PORT: Fixed ROM slots 32077.
+    32077, 65320,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:143
+//			PERIAPO1
+// PORT: Fixed ROM slots 32078.
+    32078, 39324,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:144
+//		CALL
+// PORT: Fixed ROM slots 32079.
+    32079, 65320,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:145
+//			SHIFTR1
+// PORT: Fixed ROM slots 32080.
+    32080, 39468,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:146
+//		CALL			# LIMIT DISPLAY TO 9999.9 N. MI.
+// PORT: Fixed ROM slots 32081.
+    32081, 65320,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:147
+//			MAXCHK
+// PORT: Fixed ROM slots 32082.
+    32082, 38716,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:148
+//		STODL	HPER
+// PORT: Fixed ROM slots 32083.
+    32083, 14754,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:149
+//			4D
+// PORT: Fixed ROM slots 32084.
+    32084, 10,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:150
+//		CALL
+// PORT: Fixed ROM slots 32085.
+    32085, 65320,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:151
+//			SHIFTR1
+// PORT: Fixed ROM slots 32086.
+    32086, 39468,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:152
+//		CALL			# LIMIT DISPLAY TO 9999.9 N. MI.
+// PORT: Fixed ROM slots 32087.
+    32087, 65320,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:153
+//			MAXCHK
+// PORT: Fixed ROM slots 32088.
+    32088, 38716,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:154
+//		STORE	HAPO
+// PORT: Fixed ROM slots 32089.
+    32089, 2462,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:155
+//		EXIT
+// PORT: Fixed ROM slots 32090.
+    32090, 65532
+)).
+
+// PORT: Physical bank 35. Shared continuation entries, slots 32091–32095.
+function agcAotUnit2036 {
+    parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
+    if slot <= 32092 {
+        if slot <= 32091 {
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:156
+//		CAF	V06N81		# DELVLVC
+// PORT: Fixed ROM slots 32091.
+            if slot <> 32091 or instruction <> 14295 { return choose false if checkOnly else -1. }
+            if not extended {
+                if checkOnly { return true. }
+                local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                local fixedOperand is mod(readEffective:call(words, 2007), 32768).
+                set words[0] to agcSignExtend(fixedOperand).
+                return list(false, false, inheritedTransient, false, false).
+            }
+            return choose false if checkOnly else -1.
+        } else {
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:157
+//		TC	VNPOOH
+// PORT: Fixed ROM slots 32092.
+            if slot <> 32092 or instruction <> 1994 { return choose false if checkOnly else -1. }
+            if not extended {
+                if checkOnly { return true. }
+                return agcCoreControlExecute(words, 1994, words[0], readEffective).
+            }
+            return choose false if checkOnly else -1.
+        }
+    } else {
+        if slot <= 32093 {
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:158
+//		CAF	V06N42		# HAPO, HPER, VGDISP
+// PORT: Fixed ROM slots 32093.
+            if slot <> 32093 or instruction <> 13334 { return choose false if checkOnly else -1. }
+            if not extended {
+                if checkOnly { return true. }
+                local inheritedTransient is agcCoreInheritedTCTransient(words, instruction).
+                local fixedOperand is mod(readEffective:call(words, 1046), 32768).
+                set words[0] to agcSignExtend(fixedOperand).
+                return list(false, false, inheritedTransient, false, false).
+            }
+            return choose false if checkOnly else -1.
+        } else {
+            if slot <= 32094 {
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:159
+//		TC	VNPOOH
+// PORT: Fixed ROM slots 32094.
+                if slot <> 32094 or instruction <> 1994 { return choose false if checkOnly else -1. }
+                if not extended {
+                    if checkOnly { return true. }
+                    return agcCoreControlExecute(words, 1994, words[0], readEffective).
+                }
+                return choose false if checkOnly else -1.
+            } else {
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:160
+//		TC	INTPRET
+// PORT: Fixed ROM slots 32095.
+                if slot <> 32095 or instruction <> 3103 { return choose false if checkOnly else -1. }
+                if not extended {
+                    if checkOnly { return true. }
+                    return agcCoreControlExecute(words, 3103, words[0], readEffective).
+                }
+                return choose false if checkOnly else -1.
+            }
+        }
+    }
+}
+set agcAotRoutes[2036] to agcAotUnit2036@.
+
+agcAotInstallSourceRope(list(
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:161
+//REVN1645	SET	CALL		# TRKMKCNT, TTOGO, +MGA
+// PORT: Fixed ROM slots 32096.
+    32096, 37912,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:162
+//			FINALFLG
+// PORT: Fixed ROM slots 32097.
+    32097, 1138,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:163
+//			VN1645
+// PORT: Fixed ROM slots 32098.
+    32098, 61196,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:164
+//		GOTO
+// PORT: Fixed ROM slots 32099.
+    32099, 65360,
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:165
+//			REVN1645
+// PORT: Fixed ROM slots 32100.
+    32100, 60096
+)).
+
+// PORT: Source-only text without a subsequent generated declaration.
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:166
+//
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:167
+//
+// PORT: SOURCE GENERAL_LAMBERT_AIMPOINT_GUIDANCE.agc:168
+//# *** END OF LEMP30S .103 ***
