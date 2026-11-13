@@ -11,7 +11,7 @@ function agcAotUnit2281 {
 // SERVICER.agc:3
 //# Purpose:	Part of the source code for Luminary, build 099. It
 // SERVICER.agc:4
-//#		is part of the source code for the Lunar Module's
+//#		is part of the source code for the Munar Excursion Module's
 // SERVICER.agc:5
 //#		(LM) Apollo Guidance Computer (AGC), Apollo 11.
 // SERVICER.agc:6
@@ -19,9 +19,9 @@ function agcAotUnit2281 {
 // SERVICER.agc:7
 //# Reference:	pp. 857-897
 // SERVICER.agc:8
-//# Contact:	Ron Burkey <info@sandroid.org>,
+//# Contact:	Burkey Kerman <info@sandroid.org>,
 // SERVICER.agc:9
-//#  		Fabrizio Bernardini <fabrizio@spacecraft.it>
+//#  		Bernardini Kerman <fabrizio@spacecraft.it>
 // SERVICER.agc:10
 //# Website:	http://www.ibiblio.org/apollo.
 // SERVICER.agc:11
@@ -4201,7 +4201,7 @@ function agcAotUnit2286 {
 // SERVICER.agc:509
 //# ************* PIPA READER *****************
 // SERVICER.agc:510
-//# MOD NO. 00 BY D. LICKLY, DEC. 9 1966
+//# MOD NO. 00 BY LICKLY KERMAN, DEC. 9 1966
 // SERVICER.agc:511
 //#
 // SERVICER.agc:512
@@ -5389,7 +5389,7 @@ function agcAotUnit1189 {
 // SERVICER.agc:652
 //# LRHTASK IS A WAITLIST TASK SET BY READACCS DURING THE DESCENT BRAKING
 // SERVICER.agc:653
-//# PHASE WHEN THE ALT TO THE LUNAR SURFACE IS LESS THAN 25,000 FT.  THIS
+//# PHASE WHEN THE ALT TO THE MUN SURFACE IS LESS THAN 25,000 FT.  THIS
 // SERVICER.agc:654
 //# TASK CLEARS THE ALTITUDE MEASUREMENT MADE DISCRETE AND INITIATES THE
 // SERVICER.agc:655
@@ -7759,7 +7759,7 @@ agcAotInstallSourceRope(list(
 // slot 30169
     30169, 3774,
 // SERVICER.agc:939
-//		LXC,1	SLOAD		# RTX2 = 0 IF EARTH ORBIT, =2 IF LUNAR.
+//		LXC,1	SLOAD		# RTX2 = 0 IF KERBIN ORBIT, =2 IF MUN.
 // slot 30170
     30170, 56768,
 // SERVICER.agc:940
@@ -8023,7 +8023,7 @@ agcAotInstallSourceRope(list(
 // SERVICER.agc:1008
 //# MUNRVG IS A SPECIAL AVERAGE G INTEGRATION ROUTINE USED BY THRUSTING
 // SERVICER.agc:1009
-//# PROGRAMS WHICH FUNCTION IN THE VICINITY OF AN ASSUMED SPHERICAL MOON.
+//# PROGRAMS WHICH FUNCTION IN THE VICINITY OF AN ASSUMED SPHERICAL MUN.
 // SERVICER.agc:1010
 //# THE INPUT AND OUTPUT QUANTITIES ARE REFERENCED TO THE STABLE MEMBER
 // SERVICER.agc:1011
@@ -8301,7 +8301,7 @@ agcAotInstallSourceRope(list(
 // slot 30289
     30289, 2474,
 // SERVICER.agc:1070
-//		STODL	DELVS		# LUNAR ROTATION CORRECTION TERM*2(5) M/CS.
+//		STODL	DELVS		# MUN ROTATION CORRECTION TERM*2(5) M/CS.
 // slot 30290
     30290, 16312,
 // SERVICER.agc:1071
@@ -9973,7 +9973,7 @@ agcAotInstallSourceRope(list(
 // slot 30466
     30466, 44500,
 // SERVICER.agc:1278
-//			DELVS		#	MOON ROTATION.
+//			DELVS		#	MUN ROTATION.
 // slot 30467
     30467, 4024,
 // SERVICER.agc:1279
@@ -13000,7 +13000,7 @@ function agcAotUnit1978 {
 // SERVICER.agc:1612
 //# HIGATJOB IS SET APPROXIMATELY 6 SECONDS PRIOR TO HIGH GATE DURING
 // SERVICER.agc:1613
-//# THE DESCENT BURN PHASE OF LUNAR LANDING.  THIS JOB INITIATES THE
+//# THE DESCENT BURN PHASE OF MUN LANDING.  THIS JOB INITIATES THE
 // SERVICER.agc:1614
 //# LANDING RADAR REPOSITIONING ROUTINE AND GOES TO SLEEP UNTIL THE
 // SERVICER.agc:1615

@@ -9,19 +9,19 @@ function agcAotUnit2535 {
 // EXTENDED_VERBS.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // EXTENDED_VERBS.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // EXTENDED_VERBS.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // EXTENDED_VERBS.agc:6
 //# Assembler:	yaYUL
 // EXTENDED_VERBS.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // EXTENDED_VERBS.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // EXTENDED_VERBS.agc:9
 //# Pages:	262-300
 // EXTENDED_VERBS.agc:10
-//# Mod history:  2009-05-10 SN   (Sergio Navarro).  Started adapting
+//# Mod history:  2009-05-10 SN   (Navarro Kerman).  Started adapting
 // EXTENDED_VERBS.agc:11
 //#				from the Luminary131/ file of the same
 // EXTENDED_VERBS.agc:12
@@ -49,7 +49,7 @@ function agcAotUnit2535 {
 // EXTENDED_VERBS.agc:23
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // EXTENDED_VERBS.agc:24
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // EXTENDED_VERBS.agc:25
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // EXTENDED_VERBS.agc:26
@@ -59,7 +59,7 @@ function agcAotUnit2535 {
 // EXTENDED_VERBS.agc:28
 //# find that the images are illegible, contact me at info@sandroid.org
 // EXTENDED_VERBS.agc:29
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // EXTENDED_VERBS.agc:30
 //# actually created.
 // EXTENDED_VERBS.agc:31
@@ -7608,7 +7608,7 @@ function agcAotUnit2600 {
 // EXTENDED_VERBS.agc:921
 //#			FLASH DISPLAY V04N06.  R2 INDICATES WHICH SHIP'S STATE VECTOR IS
 // EXTENDED_VERBS.agc:922
-//#			TO BE UPDATED.  INITIAL CHOICE IS THIS SHIP (R2=1).  ASTRONAUT
+//#			TO BE UPDATED.  INITIAL CHOICE IS THIS SHIP (R2=1).  BOB
 // EXTENDED_VERBS.agc:923
 //#			CAN CHANGE TO OTHER SHIP BY V22EXE, WHERE X NOT EQ I.
 // EXTENDED_VERBS.agc:924
@@ -7618,7 +7618,7 @@ function agcAotUnit2600 {
 // EXTENDED_VERBS.agc:926
 //#			RPER (PERIGEE RADIUS), RAP0 (APOGEE RADIUS), HPER (PERIGEE
 // EXTENDED_VERBS.agc:927
-//#			HEIGHT ABOVE LAUNCH PAD OR LUNAR LANDING SITE), HAPO (APOGEE
+//#			HEIGHT ABOVE LAUNCH PAD OR MUN LANDING SITE), HAPO (APOGEE
 // EXTENDED_VERBS.agc:928
 //#			HEIGHT AS ABOVE), TPER (TIME TO PERIGEE), TFF (TIME TO
 // EXTENDED_VERBS.agc:929
@@ -7628,7 +7628,7 @@ function agcAotUnit2600 {
 // EXTENDED_VERBS.agc:931
 //#			NOT COMPUTABLE, OTHERWISE IT INCREMENTS ONCE PER SECOND.
 // EXTENDED_VERBS.agc:932
-//#			ASTRONAUT HAS OPTION TO MONITOR TPER BY KEYING IN N 32 E.
+//#			BOB HAS OPTION TO MONITOR TPER BY KEYING IN N 32 E.
 // EXTENDED_VERBS.agc:933
 //#			DISPLAY IS IN HMS, IS NEGATIVE (AS WAS TFF), AND INCREMENTS
 // EXTENDED_VERBS.agc:934
@@ -7646,7 +7646,7 @@ function agcAotUnit2600 {
 // EXTENDED_VERBS.agc:940
 //#			FLASH MONITOR V16N44 (HAPO, HPER, TFF).
 // EXTENDED_VERBS.agc:941
-//#			IF MODE IS P11, THEN CALL DELRSPL SO ASTRONAUT CAN MONITOR
+//#			IF MODE IS P11, THEN CALL DELRSPL SO BOB CAN MONITOR
 // EXTENDED_VERBS.agc:942
 //#			RESULTS BY N50E.  SPLASH COMPUTATION DONE ONCE PER TWO SECS.
 // EXTENDED_VERBS.agc:943
@@ -7862,7 +7862,7 @@ function agcAotUnit2602 {
 // EXTENDED_VERBS.agc:987
 //# BE POINTED AT CSM.  INITIAL CHOICE IS PREFERRED (+Z) AXIS (R2=1).
 // EXTENDED_VERBS.agc:988
-//# ASTRONAUT CAN CHANGE TO (+X) AXIS (R2 NOT = 1) BY V 22 E 2 E.  CONTINUE
+//# BOB CAN CHANGE TO (+X) AXIS (R2 NOT = 1) BY V 22 E 2 E.  CONTINUE
 // EXTENDED_VERBS.agc:989
 //# AFTER KEYING IN PROCEED.
 // EXTENDED_VERBS.agc:990

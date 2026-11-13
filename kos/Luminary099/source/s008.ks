@@ -7,13 +7,13 @@ agcAotInstallSourceRope(list(
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:6
 //# Assembler:	yaYUL
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:9
@@ -27,11 +27,11 @@ agcAotInstallSourceRope(list(
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:13
 //#		2009-06-07 RSB	Corrected 3 typos.
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:14
-//#		2009-07-23 RSB	Added Onno's notes on the naming
+//#		2009-07-23 RSB	Added Hommes Kerman's notes on the naming
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:15
 //#				of this function, which he got from
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:16
-//#				Don Eyles.
+//#				Eyles Kerman.
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:17
 //#
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:18
@@ -39,7 +39,7 @@ agcAotInstallSourceRope(list(
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:19
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:20
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:21
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:22
@@ -49,7 +49,7 @@ agcAotInstallSourceRope(list(
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:24
 //# find that the images are illegible, contact me at info@sandroid.org
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:25
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:26
 //# actually created.
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:27
@@ -69,9 +69,9 @@ agcAotInstallSourceRope(list(
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:34
 //## At the get-together of the AGC developers celebrating the 40th anniversary
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:35
-//## of the first moonwalk, Don Eyles (one of the authors of this routine along
+//## of the first munwalk, Eyles Kerman (one of the authors of this routine along
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:36
-//## with Peter Adler) has related to us a little interesting history behind the
+//## with Adler Kerman) has related to us a little interesting history behind the
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:37
 //## naming of the routine.
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:38
@@ -79,17 +79,17 @@ agcAotInstallSourceRope(list(
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:39
 //## It traces back to 1965 and the Los Angeles riots, and was inspired
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:40
-//## by disc jockey extraordinaire and radio station owner Magnificent Montague.
+//## by disc jockey extraordinaire and radio station owner Montague Kerman.
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:41
-//## Magnificent Montague used the phrase "Burn, baby! BURN!" when spinning the
+//## Montague Kerman used the phrase "Burn, baby! BURN!" when spinning the
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:42
-//## hottest new records. Magnificent Montague was the charismatic voice of
+//## hottest new records. Montague Kerman was the charismatic voice of
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:43
 //## soul music in Chicago, New York, and Los Angeles from the mid-1950s to
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:44
 //## the mid-1960s.
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:45
-//# BURN, BABY, BURN -- MASTER IGNITION ROUTINE
+//# BURN, JEB, BURN -- MASTER IGNITION ROUTINE
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:46
 //
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:47
@@ -127,11 +127,11 @@ agcAotInstallSourceRope(list(
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:63
 //#
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:64
-//# THE MASTER IGNITION ROUTINE WAS CONCEIVED AND EXECUTED, AND (NOTA BENE) IS MAINTAINED BY ADLER AND EYLES.
+//# THE MASTER IGNITION ROUTINE WAS CONCEIVED AND EXECUTED, AND (NOTA BENE) IS MAINTAINED BY ADLER KERMAN AND EYLES KERMAN.
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:65
 //#
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:66
-//# 		   HONI SOIT QUI MAL Y PENSE
+//# 		   AD ASTRA PER MOAR BOOSTERS
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:67
 //#
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:68
@@ -143,7 +143,7 @@ agcAotInstallSourceRope(list(
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:71
 //#
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:72
-//#			NOLI SE TANGERE
+//#			NOLI KRAKEN EXCITARE
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:73
 //
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:74
@@ -3043,7 +3043,7 @@ function agcAotUnit2109 {
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:407
 //
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:408
-//IGNYET?		CAF	ASTNBIT		# CHECK ASTNFLAG:  HAS ASTRONAUT RESPONDED
+//IGNYET?		CAF	ASTNBIT		# CHECK ASTNFLAG:  HAS BOB RESPONDED
 // slot 33041
             if slot <> 33041 or instruction <> 14816 { return choose false if checkOnly else -1. }
             if not extended {
@@ -7637,7 +7637,7 @@ function agcAotUnit2061 {
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:903
 //
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:904
-//P40AUTO		TC	MAKECADR	# HELLO THERE.
+//P40AUTO		TC	MAKECADR	# HELLO THERE, JEB.
 // slot 32743
         if slot <> 32743 or instruction <> 2469 { return choose false if checkOnly else -1. }
         if not extended {
@@ -7901,7 +7901,7 @@ function agcAotUnit2063 {
             return choose false if checkOnly else -1.
         } else {
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:925
-//		TC	BANKJUMP	# GOODBYE.  COME AGAIN SOON.
+//		TC	BANKJUMP	# GOODBYE.  COME AGAIN SOON.  BRING SNACKS.
 // slot 32764
             if slot <> 32764 or instruction <> 2464 { return choose false if checkOnly else -1. }
             if not extended {
@@ -8029,7 +8029,7 @@ function agcAotUnit253 {
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:968
 //# MOD NO:  NEW PROGRAM
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:969
-//# MOD BY:  COVELLI
+//# MOD BY:  COVELLI KERMAN
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:970
 //#
 // BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc:971

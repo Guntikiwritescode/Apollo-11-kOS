@@ -12,19 +12,19 @@ function agcAotUnit1118 {
 // DAP_INTERFACE_SUBROUTINES.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // DAP_INTERFACE_SUBROUTINES.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // DAP_INTERFACE_SUBROUTINES.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // DAP_INTERFACE_SUBROUTINES.agc:6
 //# Assembler:	yaYUL
 // DAP_INTERFACE_SUBROUTINES.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // DAP_INTERFACE_SUBROUTINES.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // DAP_INTERFACE_SUBROUTINES.agc:9
 //# Pages:	1406-1409
 // DAP_INTERFACE_SUBROUTINES.agc:10
-//# Mod history:  2009-05-10 SN   (Sergio Navarro).  Started adapting
+//# Mod history:  2009-05-10 SN   (Navarro Kerman).  Started adapting
 // DAP_INTERFACE_SUBROUTINES.agc:11
 //#				from the Luminary131/ file of the same
 // DAP_INTERFACE_SUBROUTINES.agc:12
@@ -36,7 +36,7 @@ function agcAotUnit1118 {
 // DAP_INTERFACE_SUBROUTINES.agc:15
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // DAP_INTERFACE_SUBROUTINES.agc:16
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // DAP_INTERFACE_SUBROUTINES.agc:17
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // DAP_INTERFACE_SUBROUTINES.agc:18
@@ -46,7 +46,7 @@ function agcAotUnit1118 {
 // DAP_INTERFACE_SUBROUTINES.agc:20
 //# find that the images are illegible, contact me at info@sandroid.org
 // DAP_INTERFACE_SUBROUTINES.agc:21
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // DAP_INTERFACE_SUBROUTINES.agc:22
 //# actually created.
 // DAP_INTERFACE_SUBROUTINES.agc:23
@@ -80,7 +80,7 @@ function agcAotUnit1118 {
 // DAP_INTERFACE_SUBROUTINES.agc:37
 //# MOD 0		DATE	11/15/66	BY GEORGE W. CHERRY
 // DAP_INTERFACE_SUBROUTINES.agc:38
-//# MOD 1			 1/23/67	MODIFICATION BY PETER ADLER
+//# MOD 1			 1/23/67	MODIFICATION BY ADLER KERMAN
 // DAP_INTERFACE_SUBROUTINES.agc:39
 //#
 // DAP_INTERFACE_SUBROUTINES.agc:40
@@ -130,9 +130,9 @@ function agcAotUnit1118 {
 // DAP_INTERFACE_SUBROUTINES.agc:62
 //#	SETMAXDB, SETMINDB, RESTORDB, PFLITEDB
 // DAP_INTERFACE_SUBROUTINES.agc:63
-//# MODIFIED:	30 JANUARY 1968 BY P S WEISSMAN TO CREATE RESTORDB.
+//# MODIFIED:	30 JANUARY 1968 BY WEISSMAN KERMAN TO CREATE RESTORDB.
 // DAP_INTERFACE_SUBROUTINES.agc:64
-//# MODIFIED:	1 MARCH 1968 BY P S WEISSMAN TO SAVE EBANK AND CREATE PFLITEDB
+//# MODIFIED:	1 MARCH 1968 BY WEISSMAN KERMAN TO SAVE EBANK AND CREATE PFLITEDB
 // DAP_INTERFACE_SUBROUTINES.agc:65
 //#
 // DAP_INTERFACE_SUBROUTINES.agc:66

@@ -11,13 +11,13 @@ function agcAotUnit2014 {
 // P32-P35_P72-P75.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // P32-P35_P72-P75.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // P32-P35_P72-P75.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // P32-P35_P72-P75.agc:6
 //# Assembler:	yaYUL
 // P32-P35_P72-P75.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // P32-P35_P72-P75.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // P32-P35_P72-P75.agc:9
@@ -35,7 +35,7 @@ function agcAotUnit2014 {
 // P32-P35_P72-P75.agc:15
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // P32-P35_P72-P75.agc:16
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // P32-P35_P72-P75.agc:17
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // P32-P35_P72-P75.agc:18
@@ -45,7 +45,7 @@ function agcAotUnit2014 {
 // P32-P35_P72-P75.agc:20
 //# find that the images are illegible, contact me at info@sandroid.org
 // P32-P35_P72-P75.agc:21
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // P32-P35_P72-P75.agc:22
 //# actually created.
 // P32-P35_P72-P75.agc:23
@@ -69,7 +69,7 @@ function agcAotUnit2014 {
 // P32-P35_P72-P75.agc:32
 //# MOD NO -1       LOG SECTION -- P32-P35, P72-P75
 // P32-P35_P72-P75.agc:33
-//# MOD BY WHITE.P  DATE 1JUNE67
+//# MOD BY WHITE KERMAN  DATE 1JUNE67
 // P32-P35_P72-P75.agc:34
 //#
 // P32-P35_P72-P75.agc:35
@@ -89,15 +89,15 @@ function agcAotUnit2014 {
 // P32-P35_P72-P75.agc:42
 //#	(2)	TO CALCULATE THESE PARAMETERS BASED UPON MANEUVER DATA
 // P32-P35_P72-P75.agc:43
-//#		APPROVED AND KEYED INTO THE DSKY BY THE ASTRONAUT.
+//#		APPROVED AND KEYED INTO THE DSKY BY BOB.
 // P32-P35_P72-P75.agc:44
 //
 // P32-P35_P72-P75.agc:45
-//#	(3)	TO DISPLAY TO THE ASTRONAUT AND THE GROUND DEPENDENT VARIABLES
+//#	(3)	TO DISPLAY TO BOB AND THE GROUND DEPENDENT VARIABLES
 // P32-P35_P72-P75.agc:46
 //#		ASSOCIATED WITH THE CONCENTRIC FLIGHT PLAN MANEUVERS FOR
 // P32-P35_P72-P75.agc:47
-//#		APPROVAL BY THE ASTRONAUT/GROUND.
+//#		APPROVAL BY BOB/GROUND.
 // P32-P35_P72-P75.agc:48
 //
 // P32-P35_P72-P75.agc:49
@@ -153,7 +153,7 @@ function agcAotUnit2014 {
 // P32-P35_P72-P75.agc:74
 //#	(6)	THE PERICENTER ALTITUDE OF THE ORBIT FOLLOWING CSI AND CDH
 // P32-P35_P72-P75.agc:75
-//#		MUST BE GREATER THAN 35,000 FT (LUNAR ORBIT) OR 85 NM (EARTH
+//#		MUST BE GREATER THAN 35,000 FT (MUN ORBIT) OR 85 NM (KERBIN
 // P32-P35_P72-P75.agc:76
 //#		ORBIT) FOR SUCCESSFUL COMPLETION OF THIS PROGRAM.
 // P32-P35_P72-P75.agc:77
@@ -247,7 +247,7 @@ function agcAotUnit2014 {
 // P32-P35_P72-P75.agc:121
 //#
 // P32-P35_P72-P75.agc:122
-//#	(14)	THIS PROGRAM IS SELECTED BY THE ASTRONAUT BY DSKY ENTRY
+//#	(14)	THIS PROGRAM IS SELECTED BY BOB BY DSKY ENTRY
 // P32-P35_P72-P75.agc:123
 //#
 // P32-P35_P72-P75.agc:124
@@ -1226,7 +1226,7 @@ function agcAotUnit2021 {
 // P32-P35_P72-P75.agc:327
 //# MOD NO -1			LOC SECTION -- P32-P35, P72-P75
 // P32-P35_P72-P75.agc:328
-//# MOD BY WHITE, P.		DATE: 1 JUNE 67
+//# MOD BY WHITE KERMAN		DATE: 1 JUNE 67
 // P32-P35_P72-P75.agc:329
 //#
 // P32-P35_P72-P75.agc:330
@@ -1242,15 +1242,15 @@ function agcAotUnit2021 {
 // P32-P35_P72-P75.agc:335
 //#	(2)	TO CALCULATE THESE PARAMETERS BASED UPON MANEUVER DATA
 // P32-P35_P72-P75.agc:336
-//#		APPROVED AND KEYED INTO THE DSKY BY THE ASTRONAUT.
+//#		APPROVED AND KEYED INTO THE DSKY BY BOB.
 // P32-P35_P72-P75.agc:337
 //#
 // P32-P35_P72-P75.agc:338
-//#	(3)	TO DISPLAY TO THE ASTRONAUT AND THE GROUND DEPENDENT VARIABLES
+//#	(3)	TO DISPLAY TO BOB AND THE GROUND DEPENDENT VARIABLES
 // P32-P35_P72-P75.agc:339
 //#		ASSOCIATED WITH THE CDH MANEUVER FOR APPROVAL BY THE
 // P32-P35_P72-P75.agc:340
-//#		ASTRONAUT/GROUND.
+//#		BOB/GROUND.
 // P32-P35_P72-P75.agc:341
 //#
 // P32-P35_P72-P75.agc:342
@@ -1310,9 +1310,9 @@ function agcAotUnit2021 {
 // P32-P35_P72-P75.agc:369
 //#		(F) 	THE PERICENTER ALTITUDES OF THE ORBITS FOLLOWING CSI AND
 // P32-P35_P72-P75.agc:370
-//#			CDH WERE COMPUTED TO BE GREATER THAN 35,000 FT FOR LUNAR
+//#			CDH WERE COMPUTED TO BE GREATER THAN 35,000 FT FOR MUN
 // P32-P35_P72-P75.agc:371
-//#			ORBIT OR 85 NM FOR EARTH ORBIT.
+//#			ORBIT OR 85 NM FOR KERBIN ORBIT.
 // P32-P35_P72-P75.agc:372
 //#
 // P32-P35_P72-P75.agc:373
@@ -1404,7 +1404,7 @@ function agcAotUnit2021 {
 // P32-P35_P72-P75.agc:416
 //#
 // P32-P35_P72-P75.agc:417
-//#	(8)	THIS PROGRAM IS SELECTED BY THE ASTRONAUT BY DSKY ENTRY.
+//#	(8)	THIS PROGRAM IS SELECTED BY BOB BY DSKY ENTRY.
 // P32-P35_P72-P75.agc:418
 //#
 // P32-P35_P72-P75.agc:419

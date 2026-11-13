@@ -18,7 +18,7 @@ function agcAotUnit971 {
 // TVCRESTARTS.agc:6
 //# Assembler:	yaYUL
 // TVCRESTARTS.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // TVCRESTARTS.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // TVCRESTARTS.agc:9
@@ -44,7 +44,7 @@ function agcAotUnit971 {
 // TVCRESTARTS.agc:19
 //# images of a hardcopy from the MIT Museum.  The digitization was performed
 // TVCRESTARTS.agc:20
-//# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+//# by Fjeld Kerman, and arranged for by Douglas Kerman of the Museum.  Many
 // TVCRESTARTS.agc:21
 //# thanks to both.  The images (with suitable reduction in storage size and
 // TVCRESTARTS.agc:22
@@ -54,7 +54,7 @@ function agcAotUnit971 {
 // TVCRESTARTS.agc:24
 //# illegible, contact me at info@sandroid.org about getting access to the
 // TVCRESTARTS.agc:25
-//# (much) higher-quality images which Paul actually created.
+//# (much) higher-quality images which Fjeld Kerman actually created.
 // TVCRESTARTS.agc:26
 //#
 // TVCRESTARTS.agc:27
@@ -80,7 +80,7 @@ function agcAotUnit971 {
 // TVCRESTARTS.agc:37
 //# LOG SECTION...TVCRESTARTS			SUBROUTINE....DAPCSM
 // TVCRESTARTS.agc:38
-//# MODIFIED BY SCHLUNDT				21 OCTOBER 1968
+//# MODIFIED BY SCHLUNDT KERMAN				21 OCTOBER 1968
 // TVCRESTARTS.agc:39
 //# FUNCTIONAL DESCRIPTION....
 // TVCRESTARTS.agc:40

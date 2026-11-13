@@ -7,13 +7,13 @@ agcAotInstallSourceRope(list(
 // FIXED_FIXED_CONSTANT_POOL.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // FIXED_FIXED_CONSTANT_POOL.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // FIXED_FIXED_CONSTANT_POOL.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // FIXED_FIXED_CONSTANT_POOL.agc:6
 //# Assembler:	yaYUL
 // FIXED_FIXED_CONSTANT_POOL.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // FIXED_FIXED_CONSTANT_POOL.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // FIXED_FIXED_CONSTANT_POOL.agc:9
@@ -31,7 +31,7 @@ agcAotInstallSourceRope(list(
 // FIXED_FIXED_CONSTANT_POOL.agc:15
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // FIXED_FIXED_CONSTANT_POOL.agc:16
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // FIXED_FIXED_CONSTANT_POOL.agc:17
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // FIXED_FIXED_CONSTANT_POOL.agc:18
@@ -41,7 +41,7 @@ agcAotInstallSourceRope(list(
 // FIXED_FIXED_CONSTANT_POOL.agc:20
 //# find that the images are illegible, contact me at info@sandroid.org
 // FIXED_FIXED_CONSTANT_POOL.agc:21
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // FIXED_FIXED_CONSTANT_POOL.agc:22
 //# actually created.
 // FIXED_FIXED_CONSTANT_POOL.agc:23

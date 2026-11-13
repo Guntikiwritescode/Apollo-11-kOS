@@ -11,13 +11,13 @@ function agcAotUnit1130 {
 // AOSTASK_AND_AOSJOB.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // AOSTASK_AND_AOSJOB.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // AOSTASK_AND_AOSJOB.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // AOSTASK_AND_AOSJOB.agc:6
 //# Assembler:	yaYUL
 // AOSTASK_AND_AOSJOB.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // AOSTASK_AND_AOSJOB.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // AOSTASK_AND_AOSJOB.agc:9
@@ -39,7 +39,7 @@ function agcAotUnit1130 {
 // AOSTASK_AND_AOSJOB.agc:17
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // AOSTASK_AND_AOSJOB.agc:18
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // AOSTASK_AND_AOSJOB.agc:19
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // AOSTASK_AND_AOSJOB.agc:20
@@ -49,7 +49,7 @@ function agcAotUnit1130 {
 // AOSTASK_AND_AOSJOB.agc:22
 //# find that the images are illegible, contact me at info@sandroid.org
 // AOSTASK_AND_AOSJOB.agc:23
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // AOSTASK_AND_AOSJOB.agc:24
 //# actually created.
 // AOSTASK_AND_AOSJOB.agc:25
@@ -69,7 +69,7 @@ function agcAotUnit1130 {
 // AOSTASK_AND_AOSJOB.agc:32
 //# PROGRAM NAME:		1/ACCS
 // AOSTASK_AND_AOSJOB.agc:33
-//# PROGRAM WRITTEN BY: 	BOB COVELLI AND MIKE HOUSTON
+//# PROGRAM WRITTEN BY: 	COVELLI KERMAN AND HOUSTON KERMAN
 // AOSTASK_AND_AOSJOB.agc:34
 //# LAST MODIFICATION:	FEB. 14, 1969 BY G. KALAN
 // AOSTASK_AND_AOSJOB.agc:35
@@ -532,7 +532,7 @@ function agcAotUnit1131 {
 // AOSTASK_AND_AOSJOB.agc:129
 //# Page 1487
 // AOSTASK_AND_AOSJOB.agc:130
-//		CS	POSMAX		# ASCENT (OR ON LUNAR SURFACE)
+//		CS	POSMAX		# ASCENT (OR ON MUN SURFACE)
 // slot 18751
                             if slot <> 18751 or instruction <> 18907 { return choose false if checkOnly else -1. }
                             if not extended {
@@ -3084,7 +3084,7 @@ function agcAotUnit1145 {
 // AOSTASK_AND_AOSJOB.agc:355
 //# SUBROUTINE:	DVOVSUB
 // AOSTASK_AND_AOSJOB.agc:356
-//# AUTHOR:	C. WORK, MOD 0, 12 JUNE 68
+//# AUTHOR:	WORK KERMAN, MOD 0, 12 JUNE 68
 // AOSTASK_AND_AOSJOB.agc:357
 //# PURPOSE:	THIS SUBROUTINE PROVIDES A SINGLE-PRECISION MACHINE LANGUAGE DIVISION OPERATION WHICH RETURNS
 // AOSTASK_AND_AOSJOB.agc:358

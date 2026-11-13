@@ -13,7 +13,7 @@ function agcAotUnit1764 {
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:6
@@ -43,7 +43,7 @@ function agcAotUnit1764 {
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:18
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:19
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:20
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:21
@@ -53,7 +53,7 @@ function agcAotUnit1764 {
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:23
 //# find that the images are illegible, contact me at info@sandroid.org
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:24
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:25
 //# actually created.
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:26
@@ -79,7 +79,7 @@ function agcAotUnit1764 {
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:36
 //# ********************************************************
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:37
-//# LUNAR LANDING FLIGHT SEQUENCE TABLES
+//# MUN LANDING FLIGHT SEQUENCE TABLES
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:38
 //# ********************************************************
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:39
@@ -608,7 +608,7 @@ function agcAotUnit1767 {
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:124
 //#*******************************************************************
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:125
-//# GUILDENSTERN:  AUTO-MODES MONITOR (R13)
+//# GUILDENSTERN KERMAN:  AUTO-MODES MONITOR (R13)
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:126
 //#*******************************************************************
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:127
@@ -618,7 +618,7 @@ function agcAotUnit1767 {
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:129
 //
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:130
-//# HERE IS THE PHILOSOPHY OF GUILDENSTERN:	ON EVERY APPEARANCE OR DISAPPEARANCE OF THE MANUAL THROTTLE
+//# HERE IS THE PHILOSOPHY OF GUILDENSTERN KERMAN:	ON EVERY APPEARANCE OR DISAPPEARANCE OF THE MANUAL THROTTLE
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:131
 //# DISCRETE TO SELECT P67 OR P66 RESPECTIVELY:   ON EVERY APPEARANCE OF THE ATTITUDE-HOLD DISCRETE TO SELECT P66
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:132
@@ -1003,7 +1003,7 @@ function agcAotUnit1770 {
                     return choose false if checkOnly else -1.
                 } else {
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:179
-//		TC	BANKCALL	# TEMPORARY, I HOPE HOPE HOPE
+//		TC	BANKCALL	# TEMPORARY, I HOPE HOPE HOPE.  MOAR STRUTS.
 // slot 28002
                     if slot <> 28002 or instruction <> 2446 { return choose false if checkOnly else -1. }
                     if not extended {
@@ -1020,7 +1020,7 @@ set agcAotRoutes[1770] to agcAotUnit1770@.
 
 agcAotInstallSourceRope(list(
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:180
-//		CADR	STOPRATE	# TEMPORARY, I HOPE HOPE HOPE
+//		CADR	STOPRATE	# TEMPORARY, I HOPE HOPE HOPE.  MOAR STRUTS.
 // slot 28003
     28003, 33002
 )).
@@ -1868,7 +1868,7 @@ function agcAotUnit1779 {
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:273
 //# *********************************************************************************
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:274
-//# INCREMENT TTF/8, UPDATE LAND FOR LUNAR ROTATION, DO OTHER USEFUL THINGS
+//# INCREMENT TTF/8, UPDATE LAND FOR MUN ROTATION, DO OTHER USEFUL THINGS
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:275
 //# *********************************************************************************
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:276
@@ -1882,7 +1882,7 @@ function agcAotUnit1779 {
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:280
 //#			TTF/8 = TTF/8 + (TPIP - TPIPOLD)/8
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:281
-//#		LANDING SITE VECTOR UPDATED FOR LUNAR ROTATION:
+//#		LANDING SITE VECTOR UPDATED FOR MUN ROTATION:
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:282
 //#			____               ____   ____                   __
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:283
@@ -4489,7 +4489,7 @@ agcAotInstallSourceRope(list(
 // slot 28346
     28346, 61702,
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:666
-//			GAINBRAK,1	# NUMERO MYSTERIOSO
+//			GAINBRAK,1	# NUMERO MYSTERIOSO DE WERNHER
 // slot 28347
     28347, 2614,
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:667
@@ -8863,7 +8863,7 @@ function agcAotUnit1821 {
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:1236
 //# ***********************************************************************************
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:1237
-//# DOUBLE PRECISION ROOT FINDER SUBROUTINE (BY ALLAN KLUMPP)
+//# DOUBLE PRECISION ROOT FINDER SUBROUTINE (BY KLUMPP KERMAN)
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:1238
 //# ***********************************************************************************
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:1239
@@ -9799,7 +9799,7 @@ function agcAotUnit1829 {
                         return choose false if checkOnly else -1.
                     } else {
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:1352
-//		MASK	BIT4		# KLUMPP SAYS GIVE UP AFTER EIGHT PASSES
+//		MASK	BIT4		# KLUMPP KERMAN SAYS GIVE UP AFTER EIGHT PASSES
 // slot 28588
                         if slot <> 28588 or instruction <> 31208 { return choose false if checkOnly else -1. }
                         if not extended {
@@ -10050,7 +10050,7 @@ function agcAotUnit1830 {
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:1374
 //# ****************************************************************************
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:1375
-//# TRASHY LITTLE SUBROUTINES
+//# JEBEDIAH KERMAN'S JUNKYARD SUBROUTINES
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:1376
 //# ****************************************************************************
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:1377
@@ -10624,7 +10624,7 @@ agcAotInstallSourceRope(list(
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:1442
 //# *************************************************************************************
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:1443
-//# LUNAR LANDING CONSTANTS
+//# MUN LANDING CONSTANTS
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:1444
 //# *************************************************************************************
 // LUNAR_LANDING_GUIDANCE_EQUATIONS.agc:1445

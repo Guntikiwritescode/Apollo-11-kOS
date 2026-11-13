@@ -13,7 +13,7 @@ agcAotInstallSourceRope(list(
 // INTERPRETIVE_CONSTANTS.agc:6
 //# Assembler:	yaYUL
 // INTERPRETIVE_CONSTANTS.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // INTERPRETIVE_CONSTANTS.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // INTERPRETIVE_CONSTANTS.agc:9
@@ -29,7 +29,7 @@ agcAotInstallSourceRope(list(
 // INTERPRETIVE_CONSTANTS.agc:14
 //# images of a hardcopy from the MIT Museum.  The digitization was performed
 // INTERPRETIVE_CONSTANTS.agc:15
-//# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+//# by Fjeld Kerman, and arranged for by Douglas Kerman of the Museum.  Many
 // INTERPRETIVE_CONSTANTS.agc:16
 //# thanks to both.  The images (with suitable reduction in storage size and
 // INTERPRETIVE_CONSTANTS.agc:17
@@ -39,7 +39,7 @@ agcAotInstallSourceRope(list(
 // INTERPRETIVE_CONSTANTS.agc:19
 //# illegible, contact me at info@sandroid.org about getting access to the
 // INTERPRETIVE_CONSTANTS.agc:20
-//# (much) higher-quality images which Paul actually created.
+//# (much) higher-quality images which Fjeld Kerman actually created.
 // INTERPRETIVE_CONSTANTS.agc:21
 //#
 // INTERPRETIVE_CONSTANTS.agc:22

@@ -7,13 +7,13 @@ agcAotInstallSourceRope(list(
 // DOWNLINK_LISTS.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // DOWNLINK_LISTS.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // DOWNLINK_LISTS.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // DOWNLINK_LISTS.agc:6
 //# Assembler:	yaYUL
 // DOWNLINK_LISTS.agc:7
-//# Contact:	Hartmuth Gutsche <hgutsche@xplornet.com>.
+//# Contact:	Gutsche Kerman <hgutsche@xplornet.com>.
 // DOWNLINK_LISTS.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // DOWNLINK_LISTS.agc:9
@@ -27,7 +27,7 @@ agcAotInstallSourceRope(list(
 // DOWNLINK_LISTS.agc:13
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // DOWNLINK_LISTS.agc:14
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // DOWNLINK_LISTS.agc:15
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // DOWNLINK_LISTS.agc:16
@@ -37,7 +37,7 @@ agcAotInstallSourceRope(list(
 // DOWNLINK_LISTS.agc:18
 //# find that the images are illegible, contact me at info@sandroid.org
 // DOWNLINK_LISTS.agc:19
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // DOWNLINK_LISTS.agc:20
 //# actually created.
 // DOWNLINK_LISTS.agc:21
@@ -1041,7 +1041,7 @@ agcAotInstallSourceRope(list(
 // DOWNLINK_LISTS.agc:331
 //# Page 202
 // DOWNLINK_LISTS.agc:332
-//# LM LUNAR SURFACE ALIGN DOWNLIST
+//# LM MUN SURFACE ALIGN DOWNLIST
 // DOWNLINK_LISTS.agc:333
 //
 // DOWNLINK_LISTS.agc:334
@@ -1342,7 +1342,7 @@ agcAotInstallSourceRope(list(
 // DOWNLINK_LISTS.agc:425
 //# Page 205
 // DOWNLINK_LISTS.agc:426
-//		GENADR	LMLSALDL			# LM LUNAR SURFACE ALIGN DOWNLIST
+//		GENADR	LMLSALDL			# LM MUN SURFACE ALIGN DOWNLIST
 // slot 7462
     7462, 2526
 )).

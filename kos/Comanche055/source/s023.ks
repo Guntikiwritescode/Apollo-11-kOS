@@ -17,13 +17,13 @@ function agcAotUnit216 {
 // IMU_MODE_SWITCHING_ROUTINES.agc:6
 //# Assembler:	yaYUL
 // IMU_MODE_SWITCHING_ROUTINES.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // IMU_MODE_SWITCHING_ROUTINES.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // IMU_MODE_SWITCHING_ROUTINES.agc:9
 //# Pages:	1420-1448
 // IMU_MODE_SWITCHING_ROUTINES.agc:10
-//# Mod history:	2009-05-10 SN	(Sergio Navarro).  Started adapting from
+//# Mod history:	2009-05-10 SN	(Navarro Kerman).  Started adapting from
 // IMU_MODE_SWITCHING_ROUTINES.agc:11
 //#				the Colossus249/ file of the same name,
 // IMU_MODE_SWITCHING_ROUTINES.agc:12
@@ -35,7 +35,7 @@ function agcAotUnit216 {
 // IMU_MODE_SWITCHING_ROUTINES.agc:15
 //# images of a hardcopy from the MIT Museum.  The digitization was performed
 // IMU_MODE_SWITCHING_ROUTINES.agc:16
-//# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+//# by Fjeld Kerman, and arranged for by Douglas Kerman of the Museum.  Many
 // IMU_MODE_SWITCHING_ROUTINES.agc:17
 //# thanks to both.  The images (with suitable reduction in storage size and
 // IMU_MODE_SWITCHING_ROUTINES.agc:18
@@ -45,7 +45,7 @@ function agcAotUnit216 {
 // IMU_MODE_SWITCHING_ROUTINES.agc:20
 //# illegible, contact me at info@sandroid.org about getting access to the
 // IMU_MODE_SWITCHING_ROUTINES.agc:21
-//# (much) higher-quality images which Paul actually created.
+//# (much) higher-quality images which Fjeld Kerman actually created.
 // IMU_MODE_SWITCHING_ROUTINES.agc:22
 //#
 // IMU_MODE_SWITCHING_ROUTINES.agc:23
@@ -7154,7 +7154,7 @@ function agcAotUnit622 {
 // IMU_MODE_SWITCHING_ROUTINES.agc:754
 //#						LOG SECTION IMU MODE SWITCHING
 // IMU_MODE_SWITCHING_ROUTINES.agc:755
-//# MOD BY- R.MELANSON TO ADD DOCUMENTATION		ASSEMBLY SUNDISK REV. 82
+//# MOD BY- MELANSON KERMAN TO ADD DOCUMENTATION		ASSEMBLY SUNDISK REV. 82
 // IMU_MODE_SWITCHING_ROUTINES.agc:756
 //
 // IMU_MODE_SWITCHING_ROUTINES.agc:757
@@ -7863,7 +7863,7 @@ agcAotInstallSourceRope(list(
 // IMU_MODE_SWITCHING_ROUTINES.agc:871
 //# MOD NO - 1
 // IMU_MODE_SWITCHING_ROUTINES.agc:872
-//# MOD BY - N.BRODEUR
+//# MOD BY - BRODEUR KERMAN
 // IMU_MODE_SWITCHING_ROUTINES.agc:873
 //# FUNCTIONAL DESCRIPTION
 // IMU_MODE_SWITCHING_ROUTINES.agc:874
@@ -8177,7 +8177,7 @@ function agcAotUnit1475 {
 // IMU_MODE_SWITCHING_ROUTINES.agc:935
 //# CALLING SEQUENCE:
 // IMU_MODE_SWITCHING_ROUTINES.agc:936
-//#	ASTRONAUT REQUEST THROUGH DSKY	V37E 06E.
+//#	VAL REQUEST THROUGH DSKY	V37E 06E.
 // IMU_MODE_SWITCHING_ROUTINES.agc:937
 //
 // IMU_MODE_SWITCHING_ROUTINES.agc:938

@@ -7,13 +7,13 @@
 // INPUT_OUTPUT_CHANNEL_BIT_DESCRIPTIONS.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // INPUT_OUTPUT_CHANNEL_BIT_DESCRIPTIONS.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // INPUT_OUTPUT_CHANNEL_BIT_DESCRIPTIONS.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // INPUT_OUTPUT_CHANNEL_BIT_DESCRIPTIONS.agc:6
 //# Assembler:	yaYUL
 // INPUT_OUTPUT_CHANNEL_BIT_DESCRIPTIONS.agc:7
-//# Contact:	Onno Hommes <ohommes@cmu.edu>.
+//# Contact:	Hommes Kerman <ohommes@cmu.edu>.
 // INPUT_OUTPUT_CHANNEL_BIT_DESCRIPTIONS.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // INPUT_OUTPUT_CHANNEL_BIT_DESCRIPTIONS.agc:9
@@ -27,7 +27,7 @@
 // INPUT_OUTPUT_CHANNEL_BIT_DESCRIPTIONS.agc:13
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // INPUT_OUTPUT_CHANNEL_BIT_DESCRIPTIONS.agc:14
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // INPUT_OUTPUT_CHANNEL_BIT_DESCRIPTIONS.agc:15
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // INPUT_OUTPUT_CHANNEL_BIT_DESCRIPTIONS.agc:16
@@ -37,7 +37,7 @@
 // INPUT_OUTPUT_CHANNEL_BIT_DESCRIPTIONS.agc:18
 //# find that the images are illegible, contact me at info@sandroid.org
 // INPUT_OUTPUT_CHANNEL_BIT_DESCRIPTIONS.agc:19
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // INPUT_OUTPUT_CHANNEL_BIT_DESCRIPTIONS.agc:20
 //# actually created.
 // INPUT_OUTPUT_CHANNEL_BIT_DESCRIPTIONS.agc:21

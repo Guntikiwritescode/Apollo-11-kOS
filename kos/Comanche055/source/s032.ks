@@ -20,7 +20,7 @@ function agcAotUnit630 {
 // KEYRUPT_UPRUPT.agc:7
 //# Reference:    pp. 1449-1451
 // KEYRUPT_UPRUPT.agc:8
-//# Contact:      Ron Burkey <info@sandroid.org>
+//# Contact:      Burkey Kerman <info@sandroid.org>
 // KEYRUPT_UPRUPT.agc:9
 //# Website:      http://www.ibiblio.org/apollo.
 // KEYRUPT_UPRUPT.agc:10

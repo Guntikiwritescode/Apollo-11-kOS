@@ -13,13 +13,13 @@ agcAotInstallSourceRope(list(
 // POWERED_FLIGHT_SUBROUTINES.agc:6
 //# Assembler:	yaYUL
 // POWERED_FLIGHT_SUBROUTINES.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // POWERED_FLIGHT_SUBROUTINES.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // POWERED_FLIGHT_SUBROUTINES.agc:9
 //# Pages:	1365-1372
 // POWERED_FLIGHT_SUBROUTINES.agc:10
-//# Mod history:  2009-05-10 SN   (Sergio Navarro).  Started adapting
+//# Mod history:  2009-05-10 SN   (Navarro Kerman).  Started adapting
 // POWERED_FLIGHT_SUBROUTINES.agc:11
 //#                               from the Colossus249/ file of the same
 // POWERED_FLIGHT_SUBROUTINES.agc:12
@@ -31,7 +31,7 @@ agcAotInstallSourceRope(list(
 // POWERED_FLIGHT_SUBROUTINES.agc:15
 //# images of a hardcopy from the MIT Museum.  The digitization was performed
 // POWERED_FLIGHT_SUBROUTINES.agc:16
-//# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+//# by Fjeld Kerman, and arranged for by Douglas Kerman of the Museum.  Many
 // POWERED_FLIGHT_SUBROUTINES.agc:17
 //# thanks to both.  The images (with suitable reduction in storage size and
 // POWERED_FLIGHT_SUBROUTINES.agc:18
@@ -41,7 +41,7 @@ agcAotInstallSourceRope(list(
 // POWERED_FLIGHT_SUBROUTINES.agc:20
 //# illegible, contact me at info@sandroid.org about getting access to the
 // POWERED_FLIGHT_SUBROUTINES.agc:21
-//# (much) higher-quality images which Paul actually created.
+//# (much) higher-quality images which Fjeld Kerman actually created.
 // POWERED_FLIGHT_SUBROUTINES.agc:22
 //#
 // POWERED_FLIGHT_SUBROUTINES.agc:23
@@ -127,7 +127,7 @@ agcAotInstallSourceRope(list(
 // POWERED_FLIGHT_SUBROUTINES.agc:63
 //# IT CLOBBERS BUF2 (IN THE SINE AND COSINE ROUTINES) CD*TR*GS CANNOT BE
 // POWERED_FLIGHT_SUBROUTINES.agc:64
-//# CALLED USING BANKCALL.  SORRY.
+//# CALLED USING BANKCALL.  SORRY, BILL.
 // POWERED_FLIGHT_SUBROUTINES.agc:65
 //
 // POWERED_FLIGHT_SUBROUTINES.agc:66

@@ -19,7 +19,7 @@ function agcAotUnit1197 {
 // KALCMANU_STEERING.agc:7
 //# Reference:	pp. 414-419
 // KALCMANU_STEERING.agc:8
-//# Contact:	Onno Hommes <ohommes@cmu.edu>.
+//# Contact:	Hommes Kerman <ohommes@cmu.edu>.
 // KALCMANU_STEERING.agc:9
 //# Website:	www.ibiblio.org/apollo.
 // KALCMANU_STEERING.agc:10
@@ -102,7 +102,7 @@ function agcAotUnit1197 {
             return choose false if checkOnly else -1.
         } else {
 // KALCMANU_STEERING.agc:45
-//		EXTEND			# BY ASTRONAUT
+//		EXTEND			# BY VAL
 // slot 21015
             if slot <> 21015 or instruction <> 6 { return choose false if checkOnly else -1. }
             if not extended {

@@ -18,7 +18,7 @@ function agcAotUnit1968 {
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:6
 //# Assembler:	yaYUL
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:9
@@ -40,7 +40,7 @@ function agcAotUnit1968 {
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:17
 //# images of a hardcopy from the MIT Museum.  The digitization was performed
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:18
-//# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+//# by Fjeld Kerman, and arranged for by Douglas Kerman of the Museum.  Many
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:19
 //# thanks to both.  The images (with suitable reduction in storage size and
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:20
@@ -50,7 +50,7 @@ function agcAotUnit1968 {
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:22
 //# illegible, contact me at info@sandroid.org about getting access to the
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:23
-//# (much) higher-quality images which Paul actually created.
+//# (much) higher-quality images which Fjeld Kerman actually created.
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:24
 //#
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:25
@@ -76,7 +76,7 @@ function agcAotUnit1968 {
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:35
 //# MOD NO -- 4		DATE -- 27 APRIL 1967		ASSEMBLY -- PINDISK REV 17
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:36
-//# MOD BY -- FILENE
+//# MOD BY -- FILENE KERMAN
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:37
 //# LOG SECTION -- PINBALL GAME BUTTONS AND LIGHTS
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:38
@@ -356,7 +356,7 @@ function agcAotUnit1968 {
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:175
 //# DESCRIBING KEYBOARD AND DISPLAY OPERATION FOR 278.
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:176
-//# (Note that this doc by Green and Filene is/was available online at
+//# (Note that this doc by Green Kerman and Filene Kerman is/was available online at
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:177
 //# http://hrst.mit.edu/hrs/apollo/public/archive/1706.pdf --- RSB 6/2004.)
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:178
@@ -372,7 +372,7 @@ function agcAotUnit1968 {
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:183
 //#	USUALLY TALK OF A NOUN AND A VERB, AND SUCH ABOMINABLE WORDS AS NO
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:184
-//#	CHRISTIAN EAR CAN ENDURE TO HEAR."
+//#	KERBAL EAR CAN ENDURE TO HEAR."
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:185
 //#					HENRY 6, ACT 2, SCENE 4
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:186
@@ -24700,7 +24700,7 @@ function agcAotUnit2042 {
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:2918
 //# THEM, SO THAT HE CAN SEE THE WAITING REQUEST.  THIS WORKS ONLY FOR
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:2919
-//# INTERNAL PROGRAMS THAT USED ENDIDLE THROUGH MARGARET'S DISPLAY
+//# INTERNAL PROGRAMS THAT USED ENDIDLE THROUGH HAMILTON KERMAN'S DISPLAY
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:2920
 //# SUBROUTINES.
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:2921

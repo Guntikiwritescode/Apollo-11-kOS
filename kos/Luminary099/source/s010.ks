@@ -7,7 +7,7 @@ agcAotInstallSourceRope(list(
 // CONTROLLED_CONSTANTS.agc:3
 //# Purpose:	Part of the source code for Luminary 1A build 099.
 // CONTROLLED_CONSTANTS.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // CONTROLLED_CONSTANTS.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // CONTROLLED_CONSTANTS.agc:6
@@ -15,7 +15,7 @@ agcAotInstallSourceRope(list(
 // CONTROLLED_CONSTANTS.agc:7
 //# Assembler:	yaYUL
 // CONTROLLED_CONSTANTS.agc:8
-//# Contact:	Jim Lawton <jim.lawton@gmail.com>
+//# Contact:	Lawton Kerman <jim.lawton@gmail.com>
 // CONTROLLED_CONSTANTS.agc:9
 //# Website:	www.ibiblio.org/apollo.
 // CONTROLLED_CONSTANTS.agc:10
@@ -29,7 +29,7 @@ agcAotInstallSourceRope(list(
 // CONTROLLED_CONSTANTS.agc:14
 //# images of a hardcopy from the MIT Museum.  The digitization was performed
 // CONTROLLED_CONSTANTS.agc:15
-//# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+//# by Fjeld Kerman, and arranged for by Douglas Kerman of the Museum.  Many
 // CONTROLLED_CONSTANTS.agc:16
 //# thanks to both.  The images (with suitable reduction in storage size and
 // CONTROLLED_CONSTANTS.agc:17
@@ -39,7 +39,7 @@ agcAotInstallSourceRope(list(
 // CONTROLLED_CONSTANTS.agc:19
 //# illegible, contact me at info@sandroid.org about getting access to the
 // CONTROLLED_CONSTANTS.agc:20
-//# (much) higher-quality images which Paul actually created.
+//# (much) higher-quality images which Fjeld Kerman actually created.
 // CONTROLLED_CONSTANTS.agc:21
 //#
 // CONTROLLED_CONSTANTS.agc:22
@@ -733,7 +733,7 @@ agcAotInstallSourceRope(list(
 // slot 6144 6145
     6144, 388, 6145, 16346,
 // CONTROLLED_CONSTANTS.agc:289
-//504RM		2DEC	1738090 B-29		# METERS B-29 (EQUATORIAL MOON RADIUS)
+//504RM		2DEC	1738090 B-29		# METERS B-29 (EQUATORIAL MUN RADIUS)
 // slot 6146 6147
     6146, 106, 6147, 1386,
 // CONTROLLED_CONSTANTS.agc:290
@@ -871,7 +871,7 @@ agcAotInstallSourceRope(list(
 // CONTROLLED_CONSTANTS.agc:337
 //
 // CONTROLLED_CONSTANTS.agc:338
-//1/RTMU		2DEC*	.5005750271 E-5 B17*	# MODIFIED EARTH MU
+//1/RTMU		2DEC*	.5005750271 E-5 B17*	# MODIFIED KERBIN MU
 // slot 25624 25625
     25624, 21498, 25625, 25128,
 // CONTROLLED_CONSTANTS.agc:339
@@ -885,7 +885,7 @@ agcAotInstallSourceRope(list(
 // CONTROLLED_CONSTANTS.agc:343
 //
 // CONTROLLED_CONSTANTS.agc:344
-//REMDIST		2DEC	384402000 B-29		# MEAN DISTANCE BETWEEN EARTH AND MOON.
+//REMDIST		2DEC	384402000 B-29		# MEAN DISTANCE BETWEEN KERBIN AND MUN.
 // slot 36864 36865
     36864, 23462, 36865, 592,
 // CONTROLLED_CONSTANTS.agc:345

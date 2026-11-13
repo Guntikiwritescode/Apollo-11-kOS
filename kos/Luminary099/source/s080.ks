@@ -12,13 +12,13 @@ function agcAotUnit467 {
 // T4RUPT_PROGRAM.agc:3
 //# Purpose:      Part of the source code for Luminary 1A build 099.
 // T4RUPT_PROGRAM.agc:4
-//#               It is part of the source code for the Lunar Module's (LM)
+//#               It is part of the source code for the Munar Excursion Module's (LM)
 // T4RUPT_PROGRAM.agc:5
 //#               Apollo Guidance Computer (AGC), for Apollo 11.
 // T4RUPT_PROGRAM.agc:6
 //# Assembler:    yaYUL
 // T4RUPT_PROGRAM.agc:7
-//# Contact:      Hartmuth Gutsche <hgutsche@xplornet.com>.
+//# Contact:      Gutsche Kerman <hgutsche@xplornet.com>.
 // T4RUPT_PROGRAM.agc:8
 //# Website:      www.ibiblio.org/apollo.
 // T4RUPT_PROGRAM.agc:9
@@ -36,7 +36,7 @@ function agcAotUnit467 {
 // T4RUPT_PROGRAM.agc:15
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // T4RUPT_PROGRAM.agc:16
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // T4RUPT_PROGRAM.agc:17
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // T4RUPT_PROGRAM.agc:18
@@ -46,7 +46,7 @@ function agcAotUnit467 {
 // T4RUPT_PROGRAM.agc:20
 //# find that the images are illegible, contact me at info@sandroid.org
 // T4RUPT_PROGRAM.agc:21
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // T4RUPT_PROGRAM.agc:22
 //# actually created.
 // T4RUPT_PROGRAM.agc:23
@@ -5695,7 +5695,7 @@ function agcAotUnit494 {
 // T4RUPT_PROGRAM.agc:761
 //# CHANGES TO 0 (CAGE BUTTON PRESSED), THE ISS IS CAGED (ICDU ZERO + COARSE ALIGN + NO ATT LAMP) UNTIL THE
 // T4RUPT_PROGRAM.agc:762
-//# ASTRONAUT SELECTS ANOTHER PROGRAM TO ALIGN THE ISS.  ANY PULSE TRAINS TO THE ICDU'S AND GYRO'S ARE TERMINATED,
+//# BOB SELECTS ANOTHER PROGRAM TO ALIGN THE ISS.  ANY PULSE TRAINS TO THE ICDU'S AND GYRO'S ARE TERMINATED,
 // T4RUPT_PROGRAM.agc:763
 //# THE ASSOCIATE OUTCOUNTERS ARE ZEROED AND THE GYRO'S ARE DE-SELECTED.  NO ACTION OCCURS WHEN THE BUTTON IS
 // T4RUPT_PROGRAM.agc:764
@@ -9229,11 +9229,11 @@ function agcAotUnit509 {
 // T4RUPT_PROGRAM.agc:1288
 //#
 // T4RUPT_PROGRAM.agc:1289
-//# AUTHOR:  JOHNATHAN D. ADDLELSTON (ADAMS ASSOCIATES)
+//# AUTHOR:  ADDLELSTON KERMAN (ADAMS ASSOCIATES)
 // T4RUPT_PROGRAM.agc:1290
 //#
 // T4RUPT_PROGRAM.agc:1291
-//# MODIFIED:  7FEB. 1968 BY P. S. WEISSMAN TO DELETE COMPUTATION OF MR12 AND MR13, WHICH ARE NO LONGER REQUIRED.
+//# MODIFIED:  7FEB. 1968 BY WEISSMAN KERMAN TO DELETE COMPUTATION OF MR12 AND MR13, WHICH ARE NO LONGER REQUIRED.
 // T4RUPT_PROGRAM.agc:1292
 //#
 // T4RUPT_PROGRAM.agc:1293

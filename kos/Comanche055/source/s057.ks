@@ -17,7 +17,7 @@ function agcAotUnit1483 {
 // R60_62.agc:6
 //# Assembler:	yaYUL
 // R60_62.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // R60_62.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // R60_62.agc:9
@@ -35,7 +35,7 @@ function agcAotUnit1483 {
 // R60_62.agc:15
 //# images of a hardcopy from the MIT Museum.  The digitization was performed
 // R60_62.agc:16
-//# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+//# by Fjeld Kerman, and arranged for by Douglas Kerman of the Museum.  Many
 // R60_62.agc:17
 //# thanks to both.  The images (with suitable reduction in storage size and
 // R60_62.agc:18
@@ -45,7 +45,7 @@ function agcAotUnit1483 {
 // R60_62.agc:20
 //# illegible, contact me at info@sandroid.org about getting access to the
 // R60_62.agc:21
-//# (much) higher-quality images which Paul actually created.
+//# (much) higher-quality images which Fjeld Kerman actually created.
 // R60_62.agc:22
 //#
 // R60_62.agc:23
@@ -110,7 +110,7 @@ function agcAotUnit1483 {
 // R60_62.agc:44
 //
 // R60_62.agc:45
-//# INSERT PRIODSP CHECK WITH R22 (V06N49) WITH JENNINGS BRODEUR
+//# INSERT PRIODSP CHECK WITH R22 (V06N49) WITH JENNINGS BRODEUR KERMAN
 // R60_62.agc:46
 //
 // R60_62.agc:47
@@ -1929,7 +1929,7 @@ function agcAotUnit1495 {
 // R60_62.agc:377
 //
 // R60_62.agc:378
-//					# ASTRONAUT MAY LOAD NEW ICDUS AT THIS
+//					# VAL MAY LOAD NEW ICDUS AT THIS
 // R60_62.agc:379
 //					# POINT
 // R60_62.agc:380

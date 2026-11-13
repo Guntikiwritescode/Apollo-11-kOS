@@ -19,7 +19,7 @@ function agcAotUnit230 {
 // ALARM_AND_ABORT.agc:7
 //# Reference:    pp. 1493-1496
 // ALARM_AND_ABORT.agc:8
-//# Contact:      Ron Burkey <info@sandroid.org>
+//# Contact:      Burkey Kerman <info@sandroid.org>
 // ALARM_AND_ABORT.agc:9
 //# Website:      http://www.ibiblio.org/apollo.
 // ALARM_AND_ABORT.agc:10
@@ -686,7 +686,7 @@ function agcAotUnit708 {
 // ALARM_AND_ABORT.agc:106
 //
 // ALARM_AND_ABORT.agc:107
-//# PRIOLARM DISPLAYS V05N09 VIA PRIODSPR WITH 3 RETURNS TO THE USER FROM THE ASTRONAUT AT CALL LOC +1,+2,+3 AND
+//# PRIOLARM DISPLAYS V05N09 VIA PRIODSPR WITH 3 RETURNS TO THE USER FROM VAL AT CALL LOC +1,+2,+3 AND
 // ALARM_AND_ABORT.agc:108
 //# AN IMMEDIATE RETURN TO THE USER AT CALL LOC +4. EXAMPLE FOLLOWS,
 // ALARM_AND_ABORT.agc:109
@@ -702,7 +702,7 @@ function agcAotUnit708 {
 // ALARM_AND_ABORT.agc:114
 //#		...	...
 // ALARM_AND_ABORT.agc:115
-//#		...	...		# ASTRONAUT RETURN
+//#		...	...		# VAL RETURN
 // ALARM_AND_ABORT.agc:116
 //#		TC	PHASCHNG	# IMMEDIATE RETURN TO USER. RESTART
 // ALARM_AND_ABORT.agc:117
@@ -1219,7 +1219,7 @@ function agcAotUnit236 {
         } else {
             if slot <= 5085 {
 // ALARM_AND_ABORT.agc:181
-//		TC	WHIMPER -1	# YES.  DONT DO POODOO.  DO BAILOUT.
+//		TC	WHIMPER -1	# YES.  DONT DO POODOO.  DO BAILOUT.  NO F9 UP HERE.
 // slot 5085
                 if slot <> 5085 or instruction <> 4086 { return choose false if checkOnly else -1. }
                 if not extended {

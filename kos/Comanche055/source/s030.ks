@@ -20,7 +20,7 @@ function agcAotUnit1027 {
 // JET_SELECTION_LOGIC.agc:6
 //# Assembler:	yaYUL
 // JET_SELECTION_LOGIC.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // JET_SELECTION_LOGIC.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // JET_SELECTION_LOGIC.agc:9
@@ -36,7 +36,7 @@ function agcAotUnit1027 {
 // JET_SELECTION_LOGIC.agc:14
 //# images of a hardcopy from the MIT Museum.  The digitization was performed
 // JET_SELECTION_LOGIC.agc:15
-//# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+//# by Fjeld Kerman, and arranged for by Douglas Kerman of the Museum.  Many
 // JET_SELECTION_LOGIC.agc:16
 //# thanks to both.  The images (with suitable reduction in storage size and
 // JET_SELECTION_LOGIC.agc:17
@@ -46,7 +46,7 @@ function agcAotUnit1027 {
 // JET_SELECTION_LOGIC.agc:19
 //# illegible, contact me at info@sandroid.org about getting access to the
 // JET_SELECTION_LOGIC.agc:20
-//# (much) higher-quality images which Paul actually created.
+//# (much) higher-quality images which Fjeld Kerman actually created.
 // JET_SELECTION_LOGIC.agc:21
 //#
 // JET_SELECTION_LOGIC.agc:22
@@ -3161,11 +3161,11 @@ agcAotInstallSourceRope(list(
 // JET_SELECTION_LOGIC.agc:360
 //# PROVIDED THAT THERE ARE NO AC QUAD FAILURES.  IF THERE ARE AC FAILURES, Y-TRANSLATION COMMANDS WILL BE IGNORED,
 // JET_SELECTION_LOGIC.agc:361
-//# IN WHICH CASE THE ASTRONAUT SHOULD SWITCH TO BD ROLL.
+//# IN WHICH CASE VAL SHOULD SWITCH TO BD ROLL.
 // JET_SELECTION_LOGIC.agc:362
 //# 	IF BDROLL IS SELECTED, Z-TRANSLATIONS MAY BE SATISFIED SIMULTANEOUSLY PROVIDED THAT THERE ARE NO BD QUAD
 // JET_SELECTION_LOGIC.agc:363
-//# FAILURES.  IF THERE ARE BD FAILURES, Z-TRANSLATION COMMANDS WILL BE IGNORED, IN WHICH CASE THE ASTRONAUT SHOULD
+//# FAILURES.  IF THERE ARE BD FAILURES, Z-TRANSLATION COMMANDS WILL BE IGNORED, IN WHICH CASE VAL SHOULD
 // JET_SELECTION_LOGIC.agc:364
 //# SWITCH TO AC ROLL.
 // JET_SELECTION_LOGIC.agc:365

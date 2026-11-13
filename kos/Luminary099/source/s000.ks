@@ -7,13 +7,13 @@ agcAotInstallSourceRope(list(
 // AGC_BLOCK_TWO_SELF_CHECK.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // AGC_BLOCK_TWO_SELF_CHECK.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // AGC_BLOCK_TWO_SELF_CHECK.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // AGC_BLOCK_TWO_SELF_CHECK.agc:6
 //# Assembler:	yaYUL
 // AGC_BLOCK_TWO_SELF_CHECK.agc:7
-//# Contact:	Onno Hommes <ohommes@cmu.edu>.
+//# Contact:	Hommes Kerman <ohommes@cmu.edu>.
 // AGC_BLOCK_TWO_SELF_CHECK.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // AGC_BLOCK_TWO_SELF_CHECK.agc:9
@@ -27,7 +27,7 @@ agcAotInstallSourceRope(list(
 // AGC_BLOCK_TWO_SELF_CHECK.agc:13
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // AGC_BLOCK_TWO_SELF_CHECK.agc:14
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // AGC_BLOCK_TWO_SELF_CHECK.agc:15
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // AGC_BLOCK_TWO_SELF_CHECK.agc:16
@@ -37,7 +37,7 @@ agcAotInstallSourceRope(list(
 // AGC_BLOCK_TWO_SELF_CHECK.agc:18
 //# find that the images are illegible, contact me at info@sandroid.org
 // AGC_BLOCK_TWO_SELF_CHECK.agc:19
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // AGC_BLOCK_TWO_SELF_CHECK.agc:20
 //# actually created.
 // AGC_BLOCK_TWO_SELF_CHECK.agc:21
@@ -61,7 +61,7 @@ agcAotInstallSourceRope(list(
 // AGC_BLOCK_TWO_SELF_CHECK.agc:30
 //# MOD NO -- 1					ASSEMBLY SUBROUTINE UTILITYM REV 25
 // AGC_BLOCK_TWO_SELF_CHECK.agc:31
-//# MOD BY -- GAUNTT
+//# MOD BY -- GAUNTT KERMAN
 // AGC_BLOCK_TWO_SELF_CHECK.agc:32
 //#
 // AGC_BLOCK_TWO_SELF_CHECK.agc:33
@@ -83,7 +83,7 @@ agcAotInstallSourceRope(list(
 // AGC_BLOCK_TWO_SELF_CHECK.agc:41
 //#	IN ALL THERE ARE 7 POSSIBLE OPTIONS IN THIS BLOCK II VERSION OF SELF-CHECK.  MORE DETAIL DESCRIPTION MAY BE
 // AGC_BLOCK_TWO_SELF_CHECK.agc:42
-//#	FOUND IN E-2065 BLOCK II AGC SELF-CHECK AND SHOW BANKSUM BY EDWIN D. SMALLY DECEMBER 1966, AND ADDENDA 2 AND 3.
+//#	FOUND IN E-2065 BLOCK II AGC SELF-CHECK AND SHOW BANKSUM BY SMALLY KERMAN DECEMBER 1966, AND ADDENDA 2 AND 3.
 // AGC_BLOCK_TWO_SELF_CHECK.agc:43
 //#	THE DIFFERENT OPTIONS ARE CONTROLLED BY PUTTING DIFFERENT NUMBERS IN THE SMODE REGISTER (NOUN 27).  BELOW IS
 // AGC_BLOCK_TWO_SELF_CHECK.agc:44
@@ -1079,7 +1079,7 @@ function agcAotUnit2636 {
 // AGC_BLOCK_TWO_SELF_CHECK.agc:222
 //
 // AGC_BLOCK_TWO_SELF_CHECK.agc:223
-//SELFCHK		TC	SMODECHK	# ** CHARLEY, COME IN HERE
+//SELFCHK		TC	SMODECHK	# ** CHARLEY KERMAN, COME IN HERE
 // slot 38622
                     if slot <> 38622 or instruction <> 1729 { return choose false if checkOnly else -1. }
                     if not extended {

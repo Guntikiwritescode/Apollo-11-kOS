@@ -7,13 +7,13 @@ agcAotInstallSourceRope(list(
 // SPS_BACK-UP_RCS_CONTROL.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // SPS_BACK-UP_RCS_CONTROL.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // SPS_BACK-UP_RCS_CONTROL.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // SPS_BACK-UP_RCS_CONTROL.agc:6
 //# Assembler:	yaYUL
 // SPS_BACK-UP_RCS_CONTROL.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // SPS_BACK-UP_RCS_CONTROL.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // SPS_BACK-UP_RCS_CONTROL.agc:9
@@ -31,7 +31,7 @@ agcAotInstallSourceRope(list(
 // SPS_BACK-UP_RCS_CONTROL.agc:15
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // SPS_BACK-UP_RCS_CONTROL.agc:16
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // SPS_BACK-UP_RCS_CONTROL.agc:17
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // SPS_BACK-UP_RCS_CONTROL.agc:18
@@ -41,7 +41,7 @@ agcAotInstallSourceRope(list(
 // SPS_BACK-UP_RCS_CONTROL.agc:20
 //# find that the images are illegible, contact me at info@sandroid.org
 // SPS_BACK-UP_RCS_CONTROL.agc:21
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // SPS_BACK-UP_RCS_CONTROL.agc:22
 //# actually created.
 // SPS_BACK-UP_RCS_CONTROL.agc:23
@@ -61,9 +61,9 @@ agcAotInstallSourceRope(list(
 // SPS_BACK-UP_RCS_CONTROL.agc:30
 //# PROGRAM NAME:		SPSRCS
 // SPS_BACK-UP_RCS_CONTROL.agc:31
-//# AUTHOR:		EDGAR M. OSHIKA (AC ELECTRONICS)
+//# AUTHOR:		OSHIKA KERMAN (AC ELECTRONICS)
 // SPS_BACK-UP_RCS_CONTROL.agc:32
-//# MODIFIED:		TO RETURN TO ALL AXES VIA Q BY P. S. WEISSMAN, OCT 7, 1968
+//# MODIFIED:		TO RETURN TO ALL AXES VIA Q BY WEISSMAN KERMAN, OCT 7, 1968
 // SPS_BACK-UP_RCS_CONTROL.agc:33
 //# MODIFIED TO IMPROVE BENDING STABILITY BY G. KALAN, FEB. 14, 1969
 // SPS_BACK-UP_RCS_CONTROL.agc:34

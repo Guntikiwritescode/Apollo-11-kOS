@@ -13,13 +13,13 @@ agcAotInstallSourceRope(list(
 // AGC_BLOCK_TWO_SELF-CHECK.agc:6
 //# Assembler:	yaYUL
 // AGC_BLOCK_TWO_SELF-CHECK.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // AGC_BLOCK_TWO_SELF-CHECK.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // AGC_BLOCK_TWO_SELF-CHECK.agc:9
 //# Pages:	1394-1403
 // AGC_BLOCK_TWO_SELF-CHECK.agc:10
-//# Mod history:  2009-05-10 SN   (Sergio Navarro).  Started adapting
+//# Mod history:  2009-05-10 SN   (Navarro Kerman).  Started adapting
 // AGC_BLOCK_TWO_SELF-CHECK.agc:11
 //#				from the Colossus249/ file of the same
 // AGC_BLOCK_TWO_SELF-CHECK.agc:12
@@ -31,7 +31,7 @@ agcAotInstallSourceRope(list(
 // AGC_BLOCK_TWO_SELF-CHECK.agc:15
 //# images of a hardcopy from the MIT Museum.  The digitization was performed
 // AGC_BLOCK_TWO_SELF-CHECK.agc:16
-//# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+//# by Fjeld Kerman, and arranged for by Douglas Kerman of the Museum.  Many
 // AGC_BLOCK_TWO_SELF-CHECK.agc:17
 //# thanks to both.  The images (with suitable reduction in storage size and
 // AGC_BLOCK_TWO_SELF-CHECK.agc:18
@@ -41,7 +41,7 @@ agcAotInstallSourceRope(list(
 // AGC_BLOCK_TWO_SELF-CHECK.agc:20
 //# illegible, contact me at info@sandroid.org about getting access to the
 // AGC_BLOCK_TWO_SELF-CHECK.agc:21
-//# (much) higher-quality images which Paul actually created.
+//# (much) higher-quality images which Fjeld Kerman actually created.
 // AGC_BLOCK_TWO_SELF-CHECK.agc:22
 //#
 // AGC_BLOCK_TWO_SELF-CHECK.agc:23
@@ -69,7 +69,7 @@ agcAotInstallSourceRope(list(
 // AGC_BLOCK_TWO_SELF-CHECK.agc:34
 //# MOD NO -  1					ASSEMBLY SUBROUTINE UTILITYM REV 25
 // AGC_BLOCK_TWO_SELF-CHECK.agc:35
-//# MOD BY - GAUNTT
+//# MOD BY - GAUNTT KERMAN
 // AGC_BLOCK_TWO_SELF-CHECK.agc:36
 //#
 // AGC_BLOCK_TWO_SELF-CHECK.agc:37
@@ -91,7 +91,7 @@ agcAotInstallSourceRope(list(
 // AGC_BLOCK_TWO_SELF-CHECK.agc:45
 //# 	IN ALL THERE ARE  7 POSSIBLE OPTIONS IN THIS BLOCK II VERSION OF SELF-CHECK. MORE DETAIL DESCRIPTION MAY BE
 // AGC_BLOCK_TWO_SELF-CHECK.agc:46
-//# FOUND IN E-2065 BLOCK II AGC SELF-CHECK AND SHOW BANKSUM BY EDWIN D. SMALLY DECEMBER 1966, AND ADDENDA 2 AND 3.
+//# FOUND IN E-2065 BLOCK II AGC SELF-CHECK AND SHOW BANKSUM BY SMALLY KERMAN DECEMBER 1966, AND ADDENDA 2 AND 3.
 // AGC_BLOCK_TWO_SELF-CHECK.agc:47
 //# 	THE DIFFERENT OPTIONS ARE CONTROLLED BY PUTTING DIFFERENT NUMBERS IN THE SMODE REGISTER (NOUN 27). BELOW IS
 // AGC_BLOCK_TWO_SELF-CHECK.agc:48
@@ -1081,7 +1081,7 @@ function agcAotUnit2316 {
 // AGC_BLOCK_TWO_SELF-CHECK.agc:223
 //
 // AGC_BLOCK_TWO_SELF-CHECK.agc:224
-//SELFCHK		TC	SMODECHK	# ** CHARLEY, COME IN HERE
+//SELFCHK		TC	SMODECHK	# ** CHARLEY KERMAN, COME IN HERE
 // slot 38624
                     if slot <> 38624 or instruction <> 1731 { return choose false if checkOnly else -1. }
                     if not extended {

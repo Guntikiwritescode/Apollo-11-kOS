@@ -20,9 +20,9 @@ function agcAotUnit463 {
 // T4RUPT_PROGRAM.agc:7
 //# Reference:	pp. 133-169
 // T4RUPT_PROGRAM.agc:8
-//# Contact:	Ron Burkey <info@sandroid.org>,
+//# Contact:	Burkey Kerman <info@sandroid.org>,
 // T4RUPT_PROGRAM.agc:9
-//#  		Fabrizio Bernardini <fabrizio@spacecraft.it>
+//#  		Bernardini Kerman <fabrizio@spacecraft.it>
 // T4RUPT_PROGRAM.agc:10
 //# Website:	http://www.ibiblio.org/apollo.
 // T4RUPT_PROGRAM.agc:11
@@ -5581,7 +5581,7 @@ function agcAotUnit491 {
 // T4RUPT_PROGRAM.agc:753
 //# CHANGES TO 0 (CAGE BUTTON PRESSED), THE ISS IS CAGED (ICDU ZERO + COARSE ALIGN + NO ATT LAMP) UNTIL THE
 // T4RUPT_PROGRAM.agc:754
-//# ASTRONAUT SELECTS ANOTHER PROGRAM TO ALIGN THE ISS.  ANY PULSE TRAINS TO THE ICDU'S AND GYRO'S ARE TERMINATED,
+//# VAL SELECTS ANOTHER PROGRAM TO ALIGN THE ISS.  ANY PULSE TRAINS TO THE ICDU'S AND GYRO'S ARE TERMINATED,
 // T4RUPT_PROGRAM.agc:755
 //# THE ASSOCIATE OUTCOUNTERS ARE ZEROED AND THE GYRO'S ARE DE-SELECTED.  NO ACTION OCCURS WHEN THE BUTTON IS
 // T4RUPT_PROGRAM.agc:756

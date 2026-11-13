@@ -13,7 +13,7 @@ agcAotInstallSourceRope(list(
 // ORBITAL_INTEGRATION.agc:6
 //# Assembler:	yaYUL
 // ORBITAL_INTEGRATION.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // ORBITAL_INTEGRATION.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // ORBITAL_INTEGRATION.agc:9
@@ -33,7 +33,7 @@ agcAotInstallSourceRope(list(
 // ORBITAL_INTEGRATION.agc:16
 //# images of a hardcopy from the MIT Museum.  The digitization was performed
 // ORBITAL_INTEGRATION.agc:17
-//# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+//# by Fjeld Kerman, and arranged for by Douglas Kerman of the Museum.  Many
 // ORBITAL_INTEGRATION.agc:18
 //# thanks to both.  The images (with suitable reduction in storage size and
 // ORBITAL_INTEGRATION.agc:19
@@ -43,7 +43,7 @@ agcAotInstallSourceRope(list(
 // ORBITAL_INTEGRATION.agc:21
 //# illegible, contact me at info@sandroid.org about getting access to the
 // ORBITAL_INTEGRATION.agc:22
-//# (much) higher-quality images which Paul actually created.
+//# (much) higher-quality images which Fjeld Kerman actually created.
 // ORBITAL_INTEGRATION.agc:23
 //#
 // ORBITAL_INTEGRATION.agc:24
@@ -1702,7 +1702,7 @@ agcAotInstallSourceRope(list(
 // slot 11900
     11900, 49578,
 // ORBITAL_INTEGRATION.agc:453
-//			ALPHAM		# SCALED B27 FOR MOON
+//			ALPHAM		# SCALED B27 FOR MUN
 // slot 11901
     11901, 2448,
 // ORBITAL_INTEGRATION.agc:454
@@ -2066,7 +2066,7 @@ agcAotInstallSourceRope(list(
 // slot 11986
     11986, 4544,
 // ORBITAL_INTEGRATION.agc:549
-//			RPQOK		# MOON POSITION IS AVAILABLE
+//			RPQOK		# MUN POSITION IS AVAILABLE
 // slot 11987
     11987, 19894,
 // ORBITAL_INTEGRATION.agc:550
@@ -2078,7 +2078,7 @@ agcAotInstallSourceRope(list(
 // slot 11989
     11989, 1694,
 // ORBITAL_INTEGRATION.agc:552
-//			LUNPOS		# GET MOON POSITION
+//			LUNPOS		# GET MUN POSITION
 // slot 11990
     11990, 45210,
 // ORBITAL_INTEGRATION.agc:553

@@ -12,19 +12,19 @@ function agcAotUnit2650 {
 // UPDATE_PROGRAM.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // UPDATE_PROGRAM.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // UPDATE_PROGRAM.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // UPDATE_PROGRAM.agc:6
 //# Assembler:	yaYUL
 // UPDATE_PROGRAM.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // UPDATE_PROGRAM.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // UPDATE_PROGRAM.agc:9
 //# Pages:	1386-1396
 // UPDATE_PROGRAM.agc:10
-//# Mod history:  2009-05-10 SN   (Sergio Navarro).  Started adapting
+//# Mod history:  2009-05-10 SN   (Navarro Kerman).  Started adapting
 // UPDATE_PROGRAM.agc:11
 //#				from the Luminary131/ file of the same
 // UPDATE_PROGRAM.agc:12
@@ -44,7 +44,7 @@ function agcAotUnit2650 {
 // UPDATE_PROGRAM.agc:19
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // UPDATE_PROGRAM.agc:20
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // UPDATE_PROGRAM.agc:21
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // UPDATE_PROGRAM.agc:22
@@ -54,7 +54,7 @@ function agcAotUnit2650 {
 // UPDATE_PROGRAM.agc:24
 //# find that the images are illegible, contact me at info@sandroid.org
 // UPDATE_PROGRAM.agc:25
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // UPDATE_PROGRAM.agc:26
 //# actually created.
 // UPDATE_PROGRAM.agc:27
@@ -74,13 +74,13 @@ function agcAotUnit2650 {
 // UPDATE_PROGRAM.agc:34
 //# PROGRAM NAME:     P27
 // UPDATE_PROGRAM.agc:35
-//# WRITTEN BY:       KILROY/ DE WOLF
+//# WRITTEN BY:       KILROY KERMAN/ DE WOLF KERMAN
 // UPDATE_PROGRAM.agc:36
 //#
 // UPDATE_PROGRAM.agc:37
 //# MOD NO:           6
 // UPDATE_PROGRAM.agc:38
-//# MOD BY:           KILROY
+//# MOD BY:           KILROY KERMAN
 // UPDATE_PROGRAM.agc:39
 //# DATE:             01DEC67
 // UPDATE_PROGRAM.agc:40
@@ -122,7 +122,7 @@ function agcAotUnit2650 {
 // UPDATE_PROGRAM.agc:58
 //# RESTARTS:         P27 IS RESTART PROTECTED IN TWO WAYS...
 // UPDATE_PROGRAM.agc:59
-//#                   1. PRIOR TO VERIFLAG INVERSION(WHICH IS CAUSED BY THE GROUND/ASTRONAUT'S VERIFICATION OF UPDATE
+//#                   1. PRIOR TO VERIFLAG INVERSION(WHICH IS CAUSED BY THE GROUND/BOB'S VERIFICATION OF UPDATE
 // UPDATE_PROGRAM.agc:60
 //#                      DATA BY SENDING A V33E WHEN V21N02 IS FLASHING)---
 // UPDATE_PROGRAM.agc:61
@@ -238,9 +238,9 @@ function agcAotUnit2650 {
 // UPDATE_PROGRAM.agc:116
 //#  AAAAE          ECADR OF 'UPSVFLAG'
 // UPDATE_PROGRAM.agc:117
-//# XXXXXE          STATE VECTOR IDENTIFIER: 00001 FOR CSM, 77776 FOR LEM - EARTH SPHERE OF INFLUENCE SCALING
+//# XXXXXE          STATE VECTOR IDENTIFIER: 00001 FOR CSM, 77776 FOR LEM - KERBIN SPHERE OF INFLUENCE SCALING
 // UPDATE_PROGRAM.agc:118
-//#                                          00002 FOR CSM, 77775 FOR LEM - LUNAR SPHERE OF INFLUENCE SCALING
+//#                                          00002 FOR CSM, 77775 FOR LEM - MUN SPHERE OF INFLUENCE SCALING
 // UPDATE_PROGRAM.agc:119
 //#
 // UPDATE_PROGRAM.agc:120

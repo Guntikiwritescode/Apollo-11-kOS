@@ -15,9 +15,9 @@ agcAotInstallSourceRope(list(
 // DOWNLINK_LISTS.agc:7
 //# Reference:	pp. 170-180
 // DOWNLINK_LISTS.agc:8
-//# Contact:	Ron Burkey <info@sandroid.org>,
+//# Contact:	Burkey Kerman <info@sandroid.org>,
 // DOWNLINK_LISTS.agc:9
-//#  		Fabrizio Bernardini <fabrizio@spacecraft.it>
+//#  		Bernardini Kerman <fabrizio@spacecraft.it>
 // DOWNLINK_LISTS.agc:10
 //# Website:	http://www.ibiblio.org/apollo.
 // DOWNLINK_LISTS.agc:11

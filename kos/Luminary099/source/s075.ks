@@ -12,19 +12,19 @@ function agcAotUnit718 {
 // SERVICE_ROUTINES.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // SERVICE_ROUTINES.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // SERVICE_ROUTINES.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // SERVICE_ROUTINES.agc:6
 //# Assembler:	yaYUL
 // SERVICE_ROUTINES.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // SERVICE_ROUTINES.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // SERVICE_ROUTINES.agc:9
 //# Pages:	1374-1380
 // SERVICE_ROUTINES.agc:10
-//# Mod history:  2009-05-10 SN   (Sergio Navarro).  Started adapting
+//# Mod history:  2009-05-10 SN   (Navarro Kerman).  Started adapting
 // SERVICE_ROUTINES.agc:11
 //#				from the Luminary131/ file of the same
 // SERVICE_ROUTINES.agc:12
@@ -36,7 +36,7 @@ function agcAotUnit718 {
 // SERVICE_ROUTINES.agc:15
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // SERVICE_ROUTINES.agc:16
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // SERVICE_ROUTINES.agc:17
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // SERVICE_ROUTINES.agc:18
@@ -46,7 +46,7 @@ function agcAotUnit718 {
 // SERVICE_ROUTINES.agc:20
 //# find that the images are illegible, contact me at info@sandroid.org
 // SERVICE_ROUTINES.agc:21
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // SERVICE_ROUTINES.agc:22
 //# actually created.
 // SERVICE_ROUTINES.agc:23
@@ -1189,11 +1189,11 @@ function agcAotUnit225 {
 // SERVICE_ROUTINES.agc:170
 //# GENTRAN, A BLOCK TRANSFER ROUTINE.
 // SERVICE_ROUTINES.agc:171
-//# WRITTEN BY D. EYLES
+//# WRITTEN BY EYLES KERMAN
 // SERVICE_ROUTINES.agc:172
-//# MOD 1 BY KERNAN						UTILITYM REV 17 11/18/67
+//# MOD 1 BY KERNAN KERMAN						UTILITYM REV 17 11/18/67
 // SERVICE_ROUTINES.agc:173
-//# MOD 2 BY SCHULENBERG (REMOVE RELINT)   SKIPPER REV 4 2/28/68
+//# MOD 2 BY SCHULENBERG KERMAN (REMOVE RELINT)   SKIPPER REV 4 2/28/68
 // SERVICE_ROUTINES.agc:174
 //#
 // SERVICE_ROUTINES.agc:175

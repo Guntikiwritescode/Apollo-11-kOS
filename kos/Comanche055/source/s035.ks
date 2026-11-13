@@ -13,7 +13,7 @@
 // LUNAR_LANDMARK_SELECTION_FOR_CM.agc:6
 //# Assembler:	yaYUL
 // LUNAR_LANDMARK_SELECTION_FOR_CM.agc:7
-//# Contact:	Jim Lawton <jim.lawton@gmail.com>.
+//# Contact:	Lawton Kerman <jim.lawton@gmail.com>.
 // LUNAR_LANDMARK_SELECTION_FOR_CM.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // LUNAR_LANDMARK_SELECTION_FOR_CM.agc:9
@@ -31,7 +31,7 @@
 // LUNAR_LANDMARK_SELECTION_FOR_CM.agc:15
 //# images of a hardcopy from the MIT Museum.  The digitization was performed
 // LUNAR_LANDMARK_SELECTION_FOR_CM.agc:16
-//# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+//# by Fjeld Kerman, and arranged for by Douglas Kerman of the Museum.  Many
 // LUNAR_LANDMARK_SELECTION_FOR_CM.agc:17
 //# thanks to both.  The images (with suitable reduction in storage size and
 // LUNAR_LANDMARK_SELECTION_FOR_CM.agc:18
@@ -41,7 +41,7 @@
 // LUNAR_LANDMARK_SELECTION_FOR_CM.agc:20
 //# illegible, contact me at info@sandroid.org about getting access to the
 // LUNAR_LANDMARK_SELECTION_FOR_CM.agc:21
-//# (much) higher-quality images which Paul actually created.
+//# (much) higher-quality images which Fjeld Kerman actually created.
 // LUNAR_LANDMARK_SELECTION_FOR_CM.agc:22
 //#
 // LUNAR_LANDMARK_SELECTION_FOR_CM.agc:23

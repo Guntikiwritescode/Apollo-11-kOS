@@ -9,13 +9,13 @@ function agcAotUnit1285 {
 // KALCMANU_STEERING.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // KALCMANU_STEERING.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // KALCMANU_STEERING.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // KALCMANU_STEERING.agc:6
 //# Assembler:	yaYUL
 // KALCMANU_STEERING.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // KALCMANU_STEERING.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // KALCMANU_STEERING.agc:9
@@ -35,7 +35,7 @@ function agcAotUnit1285 {
 // KALCMANU_STEERING.agc:16
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // KALCMANU_STEERING.agc:17
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // KALCMANU_STEERING.agc:18
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // KALCMANU_STEERING.agc:19
@@ -45,7 +45,7 @@ function agcAotUnit1285 {
 // KALCMANU_STEERING.agc:21
 //# find that the images are illegible, contact me at info@sandroid.org
 // KALCMANU_STEERING.agc:22
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // KALCMANU_STEERING.agc:23
 //# actually created.
 // KALCMANU_STEERING.agc:24

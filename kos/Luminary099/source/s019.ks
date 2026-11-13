@@ -7,13 +7,13 @@ agcAotInstallSourceRope(list(
 // FINDCDUW--GUIDAP_INTERFACE.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // FINDCDUW--GUIDAP_INTERFACE.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // FINDCDUW--GUIDAP_INTERFACE.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // FINDCDUW--GUIDAP_INTERFACE.agc:6
 //# Assembler:	yaYUL
 // FINDCDUW--GUIDAP_INTERFACE.agc:7
-//# Contact:	Hartmuth Gutsche <hgutsche@xplornet.com>.
+//# Contact:	Gutsche Kerman <hgutsche@xplornet.com>.
 // FINDCDUW--GUIDAP_INTERFACE.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // FINDCDUW--GUIDAP_INTERFACE.agc:9
@@ -27,7 +27,7 @@ agcAotInstallSourceRope(list(
 // FINDCDUW--GUIDAP_INTERFACE.agc:13
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // FINDCDUW--GUIDAP_INTERFACE.agc:14
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // FINDCDUW--GUIDAP_INTERFACE.agc:15
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // FINDCDUW--GUIDAP_INTERFACE.agc:16
@@ -37,7 +37,7 @@ agcAotInstallSourceRope(list(
 // FINDCDUW--GUIDAP_INTERFACE.agc:18
 //# find that the images are illegible, contact me at info@sandroid.org
 // FINDCDUW--GUIDAP_INTERFACE.agc:19
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // FINDCDUW--GUIDAP_INTERFACE.agc:20
 //# actually created.
 // FINDCDUW--GUIDAP_INTERFACE.agc:21
@@ -59,7 +59,7 @@ agcAotInstallSourceRope(list(
 // FINDCDUW--GUIDAP_INTERFACE.agc:29
 //# MOD NUMBER:  1	68-07-15
 // FINDCDUW--GUIDAP_INTERFACE.agc:30
-//# MOD AUTHOR:  KLUMPP
+//# MOD AUTHOR:  KLUMPP KERMAN
 // FINDCDUW--GUIDAP_INTERFACE.agc:31
 //#
 // FINDCDUW--GUIDAP_INTERFACE.agc:32
@@ -5017,7 +5017,7 @@ function agcAotUnit1742 {
 // FINDCDUW--GUIDAP_INTERFACE.agc:661
 //#
 // FINDCDUW--GUIDAP_INTERFACE.agc:662
-//# VERSION COUTESY HUGH BLAIR-SMITH
+//# VERSION COUTESY BLAIR-SMITH KERMAN
 // FINDCDUW--GUIDAP_INTERFACE.agc:663
 //
 // FINDCDUW--GUIDAP_INTERFACE.agc:664

@@ -17,7 +17,7 @@ function agcAotUnit1963 {
 // CM_BODY_ATTITUDE.agc:7
 //# Reference:    pp. 883-889
 // CM_BODY_ATTITUDE.agc:8
-//# Contact:      Ron Burkey <info@sandroid.org>
+//# Contact:      Burkey Kerman <info@sandroid.org>
 // CM_BODY_ATTITUDE.agc:9
 //# Website:      http://www.ibiblio.org/apollo.
 // CM_BODY_ATTITUDE.agc:10

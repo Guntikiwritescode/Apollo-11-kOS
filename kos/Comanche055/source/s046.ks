@@ -15,7 +15,7 @@ function agcAotUnit1284 {
 // P40-P47.agc:6
 //# Assembler:	yaYUL
 // P40-P47.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // P40-P47.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // P40-P47.agc:9
@@ -43,7 +43,7 @@ function agcAotUnit1284 {
 // P40-P47.agc:20
 //# images of a hardcopy from the MIT Museum.  The digitization was performed
 // P40-P47.agc:21
-//# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+//# by Fjeld Kerman, and arranged for by Douglas Kerman of the Museum.  Many
 // P40-P47.agc:22
 //# thanks to both.  The images (with suitable reduction in storage size and
 // P40-P47.agc:23
@@ -53,7 +53,7 @@ function agcAotUnit1284 {
 // P40-P47.agc:25
 //# illegible, contact me at info@sandroid.org about getting access to the
 // P40-P47.agc:26
-//# (much) higher-quality images which Paul actually created.
+//# (much) higher-quality images which Fjeld Kerman actually created.
 // P40-P47.agc:27
 //#
 // P40-P47.agc:28
@@ -9469,7 +9469,7 @@ agcAotInstallSourceRope(list(
 // P40-P47.agc:1138
 //# MOD N02				LOG SECTION P40-P47
 // P40-P47.agc:1139
-//# MOD BY ZELDIN
+//# MOD BY ZELDIN KERMAN
 // P40-P47.agc:1140
 //#
 // P40-P47.agc:1141
@@ -10256,7 +10256,7 @@ agcAotInstallSourceRope(list(
 // P40-P47.agc:1376
 //# MOD NO 2				LOG SECTIONS P40-P47
 // P40-P47.agc:1377
-//# MOD BY ZELDIN
+//# MOD BY ZELDIN KERMAN
 // P40-P47.agc:1378
 //#
 // P40-P47.agc:1379
@@ -10841,7 +10841,7 @@ agcAotInstallSourceRope(list(
 // P40-P47.agc:1553
 //# MOD NO 1				LOG SECTION P40-P47
 // P40-P47.agc:1554
-//# MOD BY ZELDIN
+//# MOD BY ZELDIN KERMAN
 // P40-P47.agc:1555
 //#
 // P40-P47.agc:1556
@@ -12421,7 +12421,7 @@ function agcAotUnit957 {
 // P40-P47.agc:1936
 //#				IN KILOGRAMS/CENTISECOND AT +3.  THIS SCALING MAY
 // P40-P47.agc:1937
-//#				REQUIRE MODIFICATION FOR SATURN BURNS.
+//#				REQUIRE MODIFICATION FOR ACAPELLO BURNS.
 // P40-P47.agc:1938
 //#
 // P40-P47.agc:1939
@@ -12955,7 +12955,7 @@ function agcAotUnit1092 {
 // P40-P47.agc:2039
 //# MOD NO 5				DATE 9 MARCH, 1967
 // P40-P47.agc:2040
-//# MOD BY ENGEL				LOG SECTION P40-P47
+//# MOD BY ENGEL KERMAN				LOG SECTION P40-P47
 // P40-P47.agc:2041
 //#
 // P40-P47.agc:2042
@@ -12963,13 +12963,13 @@ function agcAotUnit1092 {
 // P40-P47.agc:2043
 //#	GIMBAL DRIVE TEST....0,+2,-2,0 DEGREE ENGINE COMMANDS, AT 2 SECOND
 // P40-P47.agc:2044
-//#		INTERVALS, FIRST IN PITCH, THEN IN YAW.  ASTRONAUT VERIFICATION
+//#		INTERVALS, FIRST IN PITCH, THEN IN YAW.  VAL VERIFICATION
 // P40-P47.agc:2045
 //#		OF GIMBAL MOTION ON GPI
 // P40-P47.agc:2046
 //#	GIMBAL TRIM....AFTER A 4 SECOND DELAY, ENGINE COMMANDED TO
 // P40-P47.agc:2047
-//#		PRE-COMPUTED TRIM POSITION.  ASTRONAUT VERIFICATION ON GPI.
+//#		PRE-COMPUTED TRIM POSITION.  VAL VERIFICATION ON GPI.
 // P40-P47.agc:2048
 //#	PRE40.6....RESTART ENTRY TO RE-DO S40.6, ONLY IF RCS IS ON --- IF TVC
 // P40-P47.agc:2049
@@ -13765,7 +13765,7 @@ function agcAotUnit1096 {
 // P40-P47.agc:2160
 //
 // P40-P47.agc:2161
-//		TC	FIXDELAY	# WAIT 2SEC, WHILE ASTRONAUT VERIFIES
+//		TC	FIXDELAY	# WAIT 2SEC, WHILE VAL VERIFIES
 // slot 18645
             if slot <> 18645 or instruction <> 2743 { return choose false if checkOnly else -1. }
             if not extended {

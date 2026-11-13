@@ -15,7 +15,7 @@ function agcAotUnit2204 {
 // S-BAND_ANTENNA_FOR_CM.agc:6
 //# Assembler:	yaYUL
 // S-BAND_ANTENNA_FOR_CM.agc:7
-//# Contact:	Jim Lawton <jim.lawton@gmail.com>.
+//# Contact:	Lawton Kerman <jim.lawton@gmail.com>.
 // S-BAND_ANTENNA_FOR_CM.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // S-BAND_ANTENNA_FOR_CM.agc:9
@@ -33,7 +33,7 @@ function agcAotUnit2204 {
 // S-BAND_ANTENNA_FOR_CM.agc:15
 //# images of a hardcopy from the MIT Museum.  The digitization was performed
 // S-BAND_ANTENNA_FOR_CM.agc:16
-//# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+//# by Fjeld Kerman, and arranged for by Douglas Kerman of the Museum.  Many
 // S-BAND_ANTENNA_FOR_CM.agc:17
 //# thanks to both.  The images (with suitable reduction in storage size and
 // S-BAND_ANTENNA_FOR_CM.agc:18
@@ -43,7 +43,7 @@ function agcAotUnit2204 {
 // S-BAND_ANTENNA_FOR_CM.agc:20
 //# illegible, contact me at info@sandroid.org about getting access to the
 // S-BAND_ANTENNA_FOR_CM.agc:21
-//# (much) higher-quality images which Paul actually created.
+//# (much) higher-quality images which Fjeld Kerman actually created.
 // S-BAND_ANTENNA_FOR_CM.agc:22
 //#
 // S-BAND_ANTENNA_FOR_CM.agc:23
@@ -142,7 +142,7 @@ agcAotInstallSourceRope(list(
 // slot 37810
     37810, 39098,
 // S-BAND_ANTENNA_FOR_CM.agc:50
-//			X2		# EARTH = 0, MOON = 2
+//			X2		# KERBIN = 0, MUN = 2
 // slot 37811
     37811, 80,
 // S-BAND_ANTENNA_FOR_CM.agc:51
@@ -162,7 +162,7 @@ agcAotInstallSourceRope(list(
 // slot 37815
     37815, 6,
 // S-BAND_ANTENNA_FOR_CM.agc:55
-//		DLOAD	CALL		# MOON, PUSH ON
+//		DLOAD	CALL		# MUN, PUSH ON
 // slot 37816
     37816, 38090,
 // S-BAND_ANTENNA_FOR_CM.agc:56
@@ -170,7 +170,7 @@ agcAotInstallSourceRope(list(
 // slot 37817
     37817, 26,
 // S-BAND_ANTENNA_FOR_CM.agc:57
-//			LUNPOS		# COMPUTE POSITION VECTOR OF MOON
+//			LUNPOS		# COMPUTE POSITION VECTOR OF MUN
 // slot 37818
     37818, 45210,
 // S-BAND_ANTENNA_FOR_CM.agc:58
@@ -190,7 +190,7 @@ agcAotInstallSourceRope(list(
 // slot 37822
     37822, 55170,
 // S-BAND_ANTENNA_FOR_CM.agc:62
-//EISOI		VLOAD	VCOMP		# EARTH, R= -RCM
+//EISOI		VLOAD	VCOMP		# KERBIN, R= -RCM
 // slot 37823
     37823, 48890,
 // S-BAND_ANTENNA_FOR_CM.agc:63

@@ -14,13 +14,13 @@ function agcAotUnit148 {
 // INTERRUPT_LEAD_INS.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // INTERRUPT_LEAD_INS.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // INTERRUPT_LEAD_INS.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // INTERRUPT_LEAD_INS.agc:6
 //# Assembler:	yaYUL
 // INTERRUPT_LEAD_INS.agc:7
-//# Contact:	Onno Hommes <ohommes@cmu.edu>.
+//# Contact:	Hommes Kerman <ohommes@cmu.edu>.
 // INTERRUPT_LEAD_INS.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // INTERRUPT_LEAD_INS.agc:9
@@ -34,7 +34,7 @@ function agcAotUnit148 {
 // INTERRUPT_LEAD_INS.agc:13
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // INTERRUPT_LEAD_INS.agc:14
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // INTERRUPT_LEAD_INS.agc:15
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // INTERRUPT_LEAD_INS.agc:16
@@ -44,7 +44,7 @@ function agcAotUnit148 {
 // INTERRUPT_LEAD_INS.agc:18
 //# find that the images are illegible, contact me at info@sandroid.org
 // INTERRUPT_LEAD_INS.agc:19
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // INTERRUPT_LEAD_INS.agc:20
 //# actually created.
 // INTERRUPT_LEAD_INS.agc:21

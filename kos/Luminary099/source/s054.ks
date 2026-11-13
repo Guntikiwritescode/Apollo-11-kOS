@@ -9,13 +9,13 @@ function agcAotUnit2164 {
 // P40-P47.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // P40-P47.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // P40-P47.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // P40-P47.agc:6
 //# Assembler:	yaYUL
 // P40-P47.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // P40-P47.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // P40-P47.agc:9
@@ -35,7 +35,7 @@ function agcAotUnit2164 {
 // P40-P47.agc:16
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // P40-P47.agc:17
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // P40-P47.agc:18
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // P40-P47.agc:19
@@ -45,7 +45,7 @@ function agcAotUnit2164 {
 // P40-P47.agc:21
 //# find that the images are illegible, contact me at info@sandroid.org
 // P40-P47.agc:22
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // P40-P47.agc:23
 //# actually created.
 // P40-P47.agc:24
@@ -65,7 +65,7 @@ function agcAotUnit2164 {
 // P40-P47.agc:31
 //# PROGRAM DESCRIPTION: P40BOTH		DECEMBER 22, 1966
 // P40-P47.agc:32
-//# MOD 03 BY PETER ADLER			MARCH 3, 1967
+//# MOD 03 BY ADLER KERMAN			MARCH 3, 1967
 // P40-P47.agc:33
 //# CALLED VIA JOB FROM V37E
 // P40-P47.agc:34
@@ -4411,7 +4411,7 @@ agcAotInstallSourceRope(list(
 // P40-P47.agc:624
 //# MOD N02				LOG SECTION P40-P47
 // P40-P47.agc:625
-//# MOD BY ZELDIN AND ADAPTED BY TALAYCO
+//# MOD BY ZELDIN KERMAN AND ADAPTED BY TALAYCO KERMAN
 // P40-P47.agc:626
 //#
 // P40-P47.agc:627
@@ -4944,13 +4944,13 @@ agcAotInstallSourceRope(list(
 // P40-P47.agc:791
 //# SUBROUTINE NAME:  S40.2,3		MOD. NO. 3, DATE APRIL 4, 1967
 // P40-P47.agc:792
-//# MODIFICATION BY:  JONATHON D. ADDELSTON (ADAMS ASSOCIATES)
+//# MODIFICATION BY:  ADDELSTON KERMAN (ADAMS ASSOCIATES)
 // P40-P47.agc:793
-//# MOD. NO. 4:  JULY 18, 1967: PETER ADLER (MIT/IL)
+//# MOD. NO. 4:  JULY 18, 1967: ADLER KERMAN (MIT/IL)
 // P40-P47.agc:794
-//# MOD. NO. 5:  OCTOBER 18, 1967:  PETER ADLER (MIT/IL)
+//# MOD. NO. 5:  OCTOBER 18, 1967:  ADLER KERMAN (MIT/IL)
 // P40-P47.agc:795
-//# ORIGINALLY BY:  SAYDEAN ZELDIN (MIT INSTRUMENTATION LAB) AND RICHARD TALAYCO (SYSTEM DELVELOPMENT CORP)
+//# ORIGINALLY BY:  ZELDIN KERMAN (MIT INSTRUMENTATION LAB) AND TALAYCO KERMAN (SYSTEM DELVELOPMENT CORP)
 // P40-P47.agc:796
 //#
 // P40-P47.agc:797
@@ -5145,7 +5145,7 @@ agcAotInstallSourceRope(list(
 // P40-P47.agc:862
 //# SUBROUTINE S40.8
 // P40-P47.agc:863
-//# MODIFIED APRIL 3, 1968 BY PETER ADLER, MIT/IL
+//# MODIFIED APRIL 3, 1968 BY ADLER KERMAN, MIT/IL
 // P40-P47.agc:864
 //#
 // P40-P47.agc:865
@@ -5530,7 +5530,7 @@ function agcAotUnit1666 {
 // P40-P47.agc:983
 //#				BURN IN KILOGRAMS/CS AT +3.  THIS SCALING MAY
 // P40-P47.agc:984
-//#				REQUIRE MODIFICATION FOR SATURN BURNS.
+//#				REQUIRE MODIFICATION FOR ACAPELLO BURNS.
 // P40-P47.agc:985
 //#			ENG1FLAG -- SWITCH TO DECIDE WHETHER APS OR DPS ENGINE IS USED
 // P40-P47.agc:986
@@ -5673,7 +5673,7 @@ agcAotInstallSourceRope(list(
 // P40-P47.agc:1026
 //# MDOT REPRESENTS THE RATE OF DECREASE OF VEHICLE MASS DURING ENGINE
 // P40-P47.agc:1027
-//# BURN IN KILOGRAMS/CS.  WHEN SATURN IS USED, THE SCALING MAY
+//# BURN IN KILOGRAMS/CS.  WHEN ACAPELLO IS USED, THE SCALING MAY
 // P40-P47.agc:1028
 //# REQUIRE ADJUSTMENT.
 // P40-P47.agc:1029
@@ -6951,7 +6951,7 @@ agcAotInstallSourceRope(list(
 // slot 26235
     26235, 48382,
 // P40-P47.agc:1330
-//		VLOAD	GOTO		# NO OBLATENESS COMP IF IN MOON SPHERE
+//		VLOAD	GOTO		# NO OBLATENESS COMP IF IN MUN SPHERE
 // slot 26236
     26236, 43258,
 // P40-P47.agc:1331
@@ -7038,7 +7038,7 @@ function agcAotUnit1675 {
 // P40-P47.agc:1352
 //# TRIMGIMB	(FORMERLY S40.6)
 // P40-P47.agc:1353
-//# MOD 0		24 FEB 67	PETER ADLER
+//# MOD 0		24 FEB 67	ADLER KERMAN
 // P40-P47.agc:1354
 //#
 // P40-P47.agc:1355
@@ -7596,11 +7596,11 @@ agcAotInstallSourceRope(list(
 // P40-P47.agc:1419
 //# SUBROUTINE NAME:  S41.1	MOD. NO. 0	DATE: FEBRUARY 28, 1967
 // P40-P47.agc:1420
-//# MOD. NO. 1	DATE: JANUARY 23, 1968, BY PETER ADLER (MIT/IL)
+//# MOD. NO. 1	DATE: JANUARY 23, 1968, BY ADLER KERMAN (MIT/IL)
 // P40-P47.agc:1421
 //#
 // P40-P47.agc:1422
-//# AUTHOR: JONATHON D. ADDLESTON (ADAMS ASSOCIATES)
+//# AUTHOR: ADDLESTON KERMAN (ADAMS ASSOCIATES)
 // P40-P47.agc:1423
 //#
 // P40-P47.agc:1424

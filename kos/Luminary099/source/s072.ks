@@ -14,19 +14,19 @@ function agcAotUnit721 {
 // RTB_OP_CODES.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // RTB_OP_CODES.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // RTB_OP_CODES.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // RTB_OP_CODES.agc:6
 //# Assembler:	yaYUL
 // RTB_OP_CODES.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // RTB_OP_CODES.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // RTB_OP_CODES.agc:9
 //# Pages:	1397-1401
 // RTB_OP_CODES.agc:10
-//# Mod history:  2009-05-10 SN   (Sergio Navarro).  Started adapting
+//# Mod history:  2009-05-10 SN   (Navarro Kerman).  Started adapting
 // RTB_OP_CODES.agc:11
 //#				from the Luminary131/ file of the same
 // RTB_OP_CODES.agc:12
@@ -38,7 +38,7 @@ function agcAotUnit721 {
 // RTB_OP_CODES.agc:15
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // RTB_OP_CODES.agc:16
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // RTB_OP_CODES.agc:17
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // RTB_OP_CODES.agc:18
@@ -48,7 +48,7 @@ function agcAotUnit721 {
 // RTB_OP_CODES.agc:20
 //# find that the images are illegible, contact me at info@sandroid.org
 // RTB_OP_CODES.agc:21
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // RTB_OP_CODES.agc:22
 //# actually created.
 // RTB_OP_CODES.agc:23

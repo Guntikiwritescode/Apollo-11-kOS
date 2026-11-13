@@ -18,7 +18,7 @@ function agcAotUnit190 {
 // WAITLIST.agc:6
 //# Assembler:	yaYUL
 // WAITLIST.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // WAITLIST.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // WAITLIST.agc:9
@@ -34,7 +34,7 @@ function agcAotUnit190 {
 // WAITLIST.agc:14
 //# images of a hardcopy from the MIT Museum.  The digitization was performed
 // WAITLIST.agc:15
-//# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+//# by Fjeld Kerman, and arranged for by Douglas Kerman of the Museum.  Many
 // WAITLIST.agc:16
 //# thanks to both.  The images (with suitable reduction in storage size and
 // WAITLIST.agc:17
@@ -44,7 +44,7 @@ function agcAotUnit190 {
 // WAITLIST.agc:19
 //# illegible, contact me at info@sandroid.org about getting access to the
 // WAITLIST.agc:20
-//# (much) higher-quality images which Paul actually created.
+//# (much) higher-quality images which Fjeld Kerman actually created.
 // WAITLIST.agc:21
 //#
 // WAITLIST.agc:22
@@ -70,11 +70,11 @@ function agcAotUnit190 {
 // WAITLIST.agc:32
 //# MOD NO - 2							LOG SECTION - WAITLIST
 // WAITLIST.agc:33
-//# MOD BY - MILLER	(DTMAX INCREASED TO 162.5 SEC)		ASSEMBLY SUNBURST REV 5
+//# MOD BY - MILLER KERMAN	(DTMAX INCREASED TO 162.5 SEC)		ASSEMBLY SUNBURST REV 5
 // WAITLIST.agc:34
-//# MOD 3 BY KERNAN	(INHINT INSERTED AT WAITLIST) 2/28/68 SKIPPER REV 4
+//# MOD 3 BY KERNAN KERMAN	(INHINT INSERTED AT WAITLIST) 2/28/68 SKIPPER REV 4
 // WAITLIST.agc:35
-//# MOD 4BY KERNAN	(TWIDDLE IN 54) 3/28/68 SKIPPER REV 13.
+//# MOD 4BY KERNAN KERMAN	(TWIDDLE IN 54) 3/28/68 SKIPPER REV 13.
 // WAITLIST.agc:36
 //#
 // WAITLIST.agc:37
@@ -3185,9 +3185,9 @@ function agcAotUnit197 {
 // WAITLIST.agc:443
 //# PROGRAM DESCRIPTION				      DATE- 17 MARCH 1967
 // WAITLIST.agc:444
-//# PROGRAM WRITTEN BY W.H. VANDEVER		     LOG SECTION WAITLIST
+//# PROGRAM WRITTEN BY VANDEVER KERMAN		     LOG SECTION WAITLIST
 // WAITLIST.agc:445
-//# MOD BY- R. MELANSON TO ADD DOCUMENTATION	ASSEMBLY SUNDISK REV. 100
+//# MOD BY- MELANSON KERMAN TO ADD DOCUMENTATION	ASSEMBLY SUNDISK REV. 100
 // WAITLIST.agc:446
 //#
 // WAITLIST.agc:447

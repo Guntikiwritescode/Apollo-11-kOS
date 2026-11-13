@@ -18,9 +18,9 @@ function agcAotUnit2165 {
 // PINBALL_NOUN_TABLES.agc:7
 //# Reference:	pp. 268-284
 // PINBALL_NOUN_TABLES.agc:8
-//# Contact:	Ron Burkey <info@sandroid.org>,
+//# Contact:	Burkey Kerman <info@sandroid.org>,
 // PINBALL_NOUN_TABLES.agc:9
-//#  		Fabrizio Bernardini <fabrizio@spacecraft.it>
+//#  		Bernardini Kerman <fabrizio@spacecraft.it>
 // PINBALL_NOUN_TABLES.agc:10
 //# Website:	http://www.ibiblio.org/apollo.
 // PINBALL_NOUN_TABLES.agc:11
@@ -895,7 +895,7 @@ agcAotInstallSourceRope(list(
 // slot 36971
     36971, 1106,
 // PINBALL_NOUN_TABLES.agc:206
-//		ECADR	CPHIX			# 17	ASTRONAUT TOTAL ATTITUDE
+//		ECADR	CPHIX			# 17	VAL TOTAL ATTITUDE
 // slot 36972
     36972, 1462,
 // PINBALL_NOUN_TABLES.agc:207
@@ -1318,7 +1318,7 @@ agcAotInstallSourceRope(list(
 // PINBALL_NOUN_TABLES.agc:344
 //						#			TRUNION
 // PINBALL_NOUN_TABLES.agc:345
-//		OCT	24220			# 88	HALF UNIT SUN OR PLANET VECTOR
+//		OCT	24220			# 88	HALF UNIT KERBOL OR PLANET VECTOR
 // slot 37043
     37043, 20768,
 // PINBALL_NOUN_TABLES.agc:346

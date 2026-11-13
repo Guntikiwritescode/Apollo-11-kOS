@@ -15,7 +15,7 @@ function agcAotUnit1226 {
 // R30.agc:6
 //# Assembler:    yaYUL
 // R30.agc:7
-//# Contact:      Hartmuth Gutsche <hgutsche@xplornet.com>.
+//# Contact:      Gutsche Kerman <hgutsche@xplornet.com>.
 // R30.agc:8
 //# Website:      www.ibiblio.org/apollo.
 // R30.agc:9
@@ -33,7 +33,7 @@ function agcAotUnit1226 {
 // R30.agc:15
 //# images of a hardcopy from the MIT Museum.  The digitization was performed
 // R30.agc:16
-//# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+//# by Fjeld Kerman, and arranged for by Douglas Kerman of the Museum.  Many
 // R30.agc:17
 //# thanks to both.  The images (with suitable reduction in storage size and
 // R30.agc:18
@@ -43,7 +43,7 @@ function agcAotUnit1226 {
 // R30.agc:20
 //# illegible, contact me at info@sandroid.org about getting access to the
 // R30.agc:21
-//# (much) higher-quality images which Paul actually created.
+//# (much) higher-quality images which Fjeld Kerman actually created.
 // R30.agc:22
 //#
 // R30.agc:23
@@ -69,13 +69,13 @@ function agcAotUnit1226 {
 // R30.agc:33
 //# MOD NO: 0					DATE: 16 FEB 67
 // R30.agc:34
-//# MOD BY: R. R. BAIRNSFATHER			LOG SECTION:  R30
+//# MOD BY: BAIRNSFATHER KERMAN			LOG SECTION:  R30
 // R30.agc:35
-//# MOD NO: 1	MOD BY:  R. R. BAIRNSFATHER	DATE: 11 APR 67		SR30.1 CHANGED TO ALLOW MONITOR OPERN
+//# MOD NO: 1	MOD BY:  BAIRNSFATHER KERMAN	DATE: 11 APR 67		SR30.1 CHANGED TO ALLOW MONITOR OPERN
 // R30.agc:36
-//# MOD NO: 2	MOD BY:  ALONSO			DATE: 11 DEC 67		VB82 PROGRAM REWRITTEN
+//# MOD NO: 2	MOD BY:  ALONSO KERMAN			DATE: 11 DEC 67		VB82 PROGRAM REWRITTEN
 // R30.agc:37
-//# MOD NO: 3	MOD BY:  ALONSO			DATE: 26 MAR 68		PROG MOD TO HANDLE DIF EARTH/MOON SCALE
+//# MOD NO: 3	MOD BY:  ALONSO KERMAN			DATE: 26 MAR 68		PROG MOD TO HANDLE DIF KERBIN/MUN SCALE
 // R30.agc:38
 //#
 // R30.agc:39
@@ -89,7 +89,7 @@ function agcAotUnit1226 {
 // R30.agc:43
 //#		FLASH DISPLAY V04N06.  R2 INDICATES WHICH SHIP'S STATE VECTOR IS
 // R30.agc:44
-//#			TO BE UPDATED.  INITIAL CHOICE IS THIS SHIP (R2=1).  ASTRONAUT
+//#			TO BE UPDATED.  INITIAL CHOICE IS THIS SHIP (R2=1).  VAL
 // R30.agc:45
 //#			CAN CHANGE TO OTHER SHIP BY V22EXE. WHERE X IS NOT EQ 1.
 // R30.agc:46
@@ -109,7 +109,7 @@ function agcAotUnit1226 {
 // R30.agc:53
 //#			NOT COMPUTABLE, OTHERWISE IT INCREMENTS ONCE PER SECOND.
 // R30.agc:54
-//#			ASTRONAUT HAS OPTION TO MONITOR TPER BY KEYING IN N 32 E.
+//#			VAL HAS OPTION TO MONITOR TPER BY KEYING IN N 32 E.
 // R30.agc:55
 //#			DISPLAY IS IN HMS, IS NEGATIVE (AS WAS TFF), AND INCREMENTS
 // R30.agc:56
@@ -125,7 +125,7 @@ function agcAotUnit1226 {
 // R30.agc:61
 //#		FLASH MONITOR V16N44 (HAPO, HPER, TFF).
 // R30.agc:62
-//#			IF MODE IS P11, THEN CALL DELRSPL SO ASTRONAUT CAN MONITOR
+//#			IF MODE IS P11, THEN CALL DELRSPL SO VAL CAN MONITOR
 // R30.agc:63
 //#			RESULTS BY N50E.  SPLASH COMPUTATION DONE ONCE PER TWO SECS.
 // R30.agc:64
@@ -159,15 +159,15 @@ function agcAotUnit1226 {
 // R30.agc:78
 //#		HPERX	(-29) M
 // R30.agc:79
-//#		RAPO	(-29) M EARTH
+//#		RAPO	(-29) M KERBIN
 // R30.agc:80
-//#			(-27) M MOON
+//#			(-27) M MUN
 // R30.agc:81
 //# Page 515
 // R30.agc:82
-//#		RPER	(-29) M EARTH
+//#		RPER	(-29) M KERBIN
 // R30.agc:83
-//#			(-27) M MOON
+//#			(-27) M MUN
 // R30.agc:84
 //#		TFF	(-28) CS	CONTAINS NEGATIVE QUANTITY
 // R30.agc:85
@@ -230,7 +230,7 @@ agcAotInstallSourceRope(list(
 // R30.agc:104
 //
 // R30.agc:105
-//V82GOFF		EXIT			# ALLOW ASTRONAUT TO SELECT VEHICLE
+//V82GOFF		EXIT			# ALLOW VAL TO SELECT VEHICLE
 // slot 21727
     21727, 65532
 )).
@@ -853,7 +853,7 @@ agcAotInstallSourceRope(list(
 // slot 21783
     21783, 2,
 // R30.agc:170
-//		STOVL	RONE		# RATT AT (-29)M FOR EARTH OR MOON
+//		STOVL	RONE		# RATT AT (-29)M FOR KERBIN OR MUN
 // slot 21784
     21784, 22958,
 // R30.agc:171
@@ -861,7 +861,7 @@ agcAotInstallSourceRope(list(
 // slot 21785
     21785, 14,
 // R30.agc:172
-//		STORE	VONE		# VATT AT (-7)M/CS FOR EARTH OR MOON
+//		STORE	VONE		# VATT AT (-7)M/CS FOR KERBIN OR MUN
 // slot 21786
     21786, 2490,
 // R30.agc:173
@@ -869,11 +869,11 @@ agcAotInstallSourceRope(list(
 // slot 21787
     21787, 65478,
 // R30.agc:174
-//			1/RTMUE,2	# X2 IS 0 FOR EARTH CENTERED STATE VEC
+//			1/RTMUE,2	# X2 IS 0 FOR KERBIN CENTERED STATE VEC
 // slot 21788
     21788, 58786,
 // R30.agc:175
-//		STORE	TFF/RTMU	# X2 IS 2 FOR MOON
+//		STORE	TFF/RTMU	# X2 IS 2 FOR MUN
 // slot 21789
     21789, 62,
 // R30.agc:176
@@ -889,7 +889,7 @@ agcAotInstallSourceRope(list(
 // slot 21792
     21792, 2466,
 // R30.agc:179
-//		SLOAD	BHIZ		# EARTH/MOON PARAMETERS AS SET HERE.
+//		SLOAD	BHIZ		# KERBIN/MUN PARAMETERS AS SET HERE.
 // slot 21793
     21793, 39098,
 // R30.agc:180
@@ -961,11 +961,11 @@ agcAotInstallSourceRope(list(
 // R30.agc:195
 //
 // R30.agc:196
-//MINPERM		2DEC	10668 B-27	# 35 KFT MIN PERIGEE HEIGHT FOR MOON(-27)M
+//MINPERM		2DEC	10668 B-27	# 35 KFT MIN PERIGEE HEIGHT FOR MUN(-27)M
 // slot 21807 21808
     21807, 2, 21808, 9904,
 // R30.agc:197
-//MINPERE		2DEC	91440 B-29	# 300 KFT (-29)M FOR EARTH
+//MINPERE		2DEC	91440 B-29	# 300 KFT (-29)M FOR KERBIN
 // slot 21809 21810
     21809, 4, 21810, 25904,
 // R30.agc:198
@@ -979,7 +979,7 @@ agcAotInstallSourceRope(list(
 // slot 21812
     21812, 5332,
 // R30.agc:201
-//			V82EMFLG	# INDICATE EARTH SCALING FOR SR30.1
+//			V82EMFLG	# INDICATE KERBIN SCALING FOR SR30.1
 // slot 21813
     21813, 4900,
 // R30.agc:202
@@ -989,7 +989,7 @@ agcAotInstallSourceRope(list(
 // R30.agc:203
 //
 // R30.agc:204
-//MOONPAD		VLOAD	ABVAL		# COMPUTE MOON PAD RADIUS FROM RLS VECTOR.
+//MOONPAD		VLOAD	ABVAL		# COMPUTE MUN PAD RADIUS FROM RLS VECTOR.
 // slot 21815
     21815, 42746,
 // R30.agc:205
@@ -1001,7 +1001,7 @@ agcAotInstallSourceRope(list(
 // slot 21817
     21817, 65304,
 // R30.agc:207
-//			V82EMFLG	# INDICATE MOON SCALING FOR SR30.1
+//			V82EMFLG	# INDICATE MUN SCALING FOR SR30.1
 // slot 21818
     21818, 4708,
 // R30.agc:208
@@ -1803,7 +1803,7 @@ agcAotInstallSourceRope(list(
 // slot 21895
     21895, 39696,
 // R30.agc:299
-//NEXTLINE	STOVL	RONE		# RN AT (-29)M FOR EARTH OR MOON
+//NEXTLINE	STOVL	RONE		# RN AT (-29)M FOR KERBIN OR MUN
 // slot 21896
     21896, 22958,
 // R30.agc:300
@@ -1811,7 +1811,7 @@ agcAotInstallSourceRope(list(
 // slot 21897
     21897, 1278,
 // R30.agc:301
-//		STORE	VONE		# VN AT (-7)M/CS FOR EARTH OR MOON
+//		STORE	VONE		# VN AT (-7)M/CS FOR KERBIN OR MUN
 // slot 21898
     21898, 2490,
 // R30.agc:302
@@ -1827,7 +1827,7 @@ agcAotInstallSourceRope(list(
 // slot 21901
     21901, 39710,
 // R30.agc:305
-//			EARTHGON	# IF SET - MOON , IF RESET - EARTH.
+//			EARTHGON	# IF SET - MUN , IF RESET - KERBIN.
 // slot 21902
     21902, 39728,
 // R30.agc:306
@@ -1837,11 +1837,11 @@ agcAotInstallSourceRope(list(
 // slot 21903
     21903, 58648,
 // R30.agc:308
-//			V82EMFLG	# INDICATE MOON SCALING FOR SR30.1
+//			V82EMFLG	# INDICATE MUN SCALING FOR SR30.1
 // slot 21904
     21904, 4708,
 // R30.agc:309
-//			1/RTMUM		# LUNAR PARAMETERS LOADED HERE FOR SR30.1
+//			1/RTMUM		# MUN PARAMETERS LOADED HERE FOR SR30.1
 // slot 21905
     21905, 6744,
 // R30.agc:310
@@ -1873,11 +1873,11 @@ agcAotInstallSourceRope(list(
 // slot 21912
     21912, 58648,
 // R30.agc:317
-//			V82EMFLG	# INDICATE EARTH SCALING FOR SR30.1
+//			V82EMFLG	# INDICATE KERBIN SCALING FOR SR30.1
 // slot 21913
     21913, 4964,
 // R30.agc:318
-//			1/RTMUE		# EARTH PARAMETERS LOADED HERE FOR SR30.1
+//			1/RTMUE		# KERBIN PARAMETERS LOADED HERE FOR SR30.1
 // slot 21914
     21914, 6748,
 // R30.agc:319
@@ -1897,7 +1897,7 @@ agcAotInstallSourceRope(list(
 // slot 21918
     21918, 5332,
 // R30.agc:323
-//V82GON2		STCALL	RPADTEM		# COMMON CODE FOR EARTH & MOON.
+//V82GON2		STCALL	RPADTEM		# COMMON CODE FOR KERBIN & MUN.
 // slot 21919
     21919, 31142,
 // R30.agc:324
@@ -2048,7 +2048,7 @@ function agcAotUnit1247 {
         if slot <= 21937 {
             if slot <= 21936 {
 // R30.agc:342
-//		MASK	EXTVBACT	# SEE IF ASTRONAUT HAS SIGNALLED TERMINATE
+//		MASK	EXTVBACT	# SEE IF VAL HAS SIGNALLED TERMINATE
 // slot 21936
                 if slot <> 21936 or instruction <> 29220 { return choose false if checkOnly else -1. }
                 if not extended {
@@ -2143,17 +2143,17 @@ agcAotInstallSourceRope(list(
 // R30.agc:352
 //# MOD NO: 0								DATE: 		16 FEB 67
 // R30.agc:353
-//# MOD BY: R. R. BAIRNSFATHER						LOG SECTION:	R32
+//# MOD BY: BAIRNSFATHER KERMAN						LOG SECTION:	R32
 // R30.agc:354
-//# MOD NO: 1	MOD BY: R. R. BAIRNSFATHER	DATE: 11 APR 67		SR30.1 CHANGED TO ALLOW MONITOR OPERN
+//# MOD NO: 1	MOD BY: BAIRNSFATHER KERMAN	DATE: 11 APR 67		SR30.1 CHANGED TO ALLOW MONITOR OPERN
 // R30.agc:355
-//# MOD NO: 2	MOD BY: R. R. BAIRNSFATHER	DATE: 14 APR 67		ADD OVFL CK FOR RAPO
+//# MOD NO: 2	MOD BY: BAIRNSFATHER KERMAN	DATE: 14 APR 67		ADD OVFL CK FOR RAPO
 // R30.agc:356
-//# MOD NO: 3	MOD BY ALONSO			DATE: 11 DEC 67		SUBROUTINE REWRITTEN
+//# MOD NO: 3	MOD BY ALONSO KERMAN			DATE: 11 DEC 67		SUBROUTINE REWRITTEN
 // R30.agc:357
-//# MOD NO: 4	MOD BY ALONSO			DATE: 26 MAR 68		PROG MOD TO HANDLE DIF EARTH/MOON SCALE
+//# MOD NO: 4	MOD BY ALONSO KERMAN			DATE: 26 MAR 68		PROG MOD TO HANDLE DIF KERBIN/MUN SCALE
 // R30.agc:358
-//# MOD NO: 5	MOD BY: RR BAIRNSFATHER		DATE: 6 AUG 68		OVFL CK FOR HAPO & HPER. VOIDS MOD #2.
+//# MOD NO: 5	MOD BY: BAIRNSFATHER KERMAN		DATE: 6 AUG 68		OVFL CK FOR HAPO & HPER. VOIDS MOD #2.
 // R30.agc:359
 //#
 // R30.agc:360
@@ -2161,7 +2161,7 @@ agcAotInstallSourceRope(list(
 // R30.agc:361
 //# SR30.1 CALLS TFFCONMU AND TFFRP/RA TO CALCULATE RPER (PERIGEE RADIUS),
 // R30.agc:362
-//# RAPO (APOGEE RADIUS), HPER (PERIGEE HEIGHT ABOVE LAUNCH PAD OR LUNAR
+//# RAPO (APOGEE RADIUS), HPER (PERIGEE HEIGHT ABOVE LAUNCH PAD OR MUN
 // R30.agc:363
 //# LANDING SITE), HAPO (APOGEE HEIGHT AS ABOVE), TPER (TIME TO PERIGEE),
 // R30.agc:364
@@ -2195,13 +2195,13 @@ agcAotInstallSourceRope(list(
 // R30.agc:378
 //# ALARMS:	NONE
 // R30.agc:379
-//# OUTPUT:       RAPO	(-29) M EARTH	APOGEE RADIUS	EARTH CENTERED COORD.
+//# OUTPUT:       RAPO	(-29) M KERBIN	APOGEE RADIUS	KERBIN CENTERED COORD.
 // R30.agc:380
-//#			(-27) M MOON			MOON CENTERED COORD.
+//#			(-27) M MUN			MUN CENTERED COORD.
 // R30.agc:381
-//#		RPER	(-29) M EARTH	PERIGEE RADIUS	EARTH CENTERED COORD.
+//#		RPER	(-29) M KERBIN	PERIGEE RADIUS	KERBIN CENTERED COORD.
 // R30.agc:382
-//#			(-27) M MOON			MOON CENTERED COORD.
+//#			(-27) M MUN			MUN CENTERED COORD.
 // R30.agc:383
 //#		HAPOX	(-29) M		APOGEE ALTITUDE ABOVE PAD OR LAND. SITE MAX VALUE LIMITED TO 9999.9 NM.
 // R30.agc:384
@@ -2213,23 +2213,23 @@ agcAotInstallSourceRope(list(
 // R30.agc:387
 //# ERASABLE INITIALIZATION REQUIRED -
 // R30.agc:388
-//#	TFF/RTMU	(+17) EARTH	RECIPROCAL OF PROPER GRAV CONSTANT FOR
+//#	TFF/RTMU	(+17) KERBIN	RECIPROCAL OF PROPER GRAV CONSTANT FOR
 // R30.agc:389
-//#			(+14) MOON	EARTH OR MOON = 1/SQRT(MU).
+//#			(+14) MUN	KERBIN OR MUN = 1/SQRT(MU).
 // R30.agc:390
 //#	RONE		(-29) M		STATE VECTOR
 // R30.agc:391
 //#	VONE		(-7)  M/CS	STATE VECTOR
 // R30.agc:392
-//#	RPADTEM		(-29) M EARTH	RADIUS OF LAUNCH PAD OR LUNAR LANDING
+//#	RPADTEM		(-29) M KERBIN	RADIUS OF LAUNCH PAD OR MUN LANDING
 // R30.agc:393
-//#			(-27) M MOON	SITE.
+//#			(-27) M MUN	SITE.
 // R30.agc:394
-//#	HPERMIN		(-29) M EARTH	(300 OR 35) KFT MINIMUM PERIGEE ALTITUDE
+//#	HPERMIN		(-29) M KERBIN	(300 OR 35) KFT MINIMUM PERIGEE ALTITUDE
 // R30.agc:395
-//#			(-27) M MOON	ABOVE LAUNCH PAD OR LUNAR LANDING SITE.
+//#			(-27) M MUN	ABOVE LAUNCH PAD OR MUN LANDING SITE.
 // R30.agc:396
-//#	V82EMFLG	(INT SW BIT)	RESET FOR EARTH, SET FOR MOON.
+//#	V82EMFLG	(INT SW BIT)	RESET FOR KERBIN, SET FOR MUN.
 // R30.agc:397
 //#
 // R30.agc:398
@@ -2255,7 +2255,7 @@ agcAotInstallSourceRope(list(
 // slot 21945
     21945, 82,
 // R30.agc:406
-//					# SR30.1 INPUT:	RONE AT (-29)M EARTH/MOON
+//					# SR30.1 INPUT:	RONE AT (-29)M KERBIN/MUN
 // R30.agc:407
 //					#		VONE AT (-7)M/CS
 // R30.agc:408
@@ -2263,13 +2263,13 @@ agcAotInstallSourceRope(list(
 // R30.agc:409
 //					# CALLS REQUIRE:
 // R30.agc:410
-//					# EARTH CENTERED (NO RESCALING REQUIRED)
+//					# KERBIN CENTERED (NO RESCALING REQUIRED)
 // R30.agc:411
 //					#	RONE SCALED TO B-29 M
 // R30.agc:412
 //					#	VONE SCALED TO B-7 M/CS
 // R30.agc:413
-//					# MOON CENTERED (RESCALING REQUIRED)
+//					# MUN CENTERED (RESCALING REQUIRED)
 // R30.agc:414
 //					#	RONE SCALED TO B-27 M
 // R30.agc:415
@@ -2279,7 +2279,7 @@ agcAotInstallSourceRope(list(
 // slot 21946
     21946, 64792,
 // R30.agc:417
-//			V82EMFLG	# OFF FOR EARTH , ON FOR MOON.
+//			V82EMFLG	# OFF FOR KERBIN , ON FOR MUN.
 // slot 21947
     21947, 5060,
 // R30.agc:418
@@ -2341,11 +2341,11 @@ agcAotInstallSourceRope(list(
 // slot 21961
     21961, 53784,
 // R30.agc:433
-//					# IF MOON CENTERED, RESCALE FROM (-27)M.
+//					# IF MUN CENTERED, RESCALE FROM (-27)M.
 // R30.agc:434
-//					# IF EARTH CENTERED ALREADY AT (-29)M.
+//					# IF KERBIN CENTERED ALREADY AT (-29)M.
 // R30.agc:435
-//			V82EMFLG        # OFF FOR EARTH , ON FOR MOON.
+//			V82EMFLG        # OFF FOR KERBIN , ON FOR MUN.
 // slot 21962
     21962, 5060,
 // R30.agc:436
@@ -2373,7 +2373,7 @@ agcAotInstallSourceRope(list(
 // slot 21968
     21968, 65322,
 // R30.agc:442
-//			RPADTEM		# GIVES HPER AT (-29)M EARTH, (-27)M MOON.
+//			RPADTEM		# GIVES HPER AT (-29)M KERBIN, (-27)M MUN.
 // slot 21969
     21969, 2470,
 // R30.agc:443
@@ -2385,11 +2385,11 @@ agcAotInstallSourceRope(list(
 // slot 21971
     21971, 53784,
 // R30.agc:445
-//					# IF MOON CENTERED, RESCALE FROM (-27)M.
+//					# IF MUN CENTERED, RESCALE FROM (-27)M.
 // R30.agc:446
-//					# IF EARTH CENTERED ALREADY AT (-29)M.
+//					# IF KERBIN CENTERED ALREADY AT (-29)M.
 // R30.agc:447
-//			V82EMFLG	# OFF FOR EARTH, ON FOR MOON.
+//			V82EMFLG	# OFF FOR KERBIN, ON FOR MUN.
 // slot 21972
     21972, 5060,
 // R30.agc:448
@@ -2415,7 +2415,7 @@ agcAotInstallSourceRope(list(
 // slot 21977
     21977, 226,
 // R30.agc:454
-//		DSU	BPL		# HPERMIN AT (-29)M FOR EARTH, (-27)M MOON
+//		DSU	BPL		# HPERMIN AT (-29)M FOR KERBIN, (-27)M MUN
 // slot 21978
     21978, 42026,
 // R30.agc:455
@@ -2459,7 +2459,7 @@ agcAotInstallSourceRope(list(
 // slot 21988
     21988, 14796,
 // R30.agc:465
-//			HPERMIN		# HPERMIN AT (-29)M FOR EARTH, (-27)M MOON
+//			HPERMIN		# HPERMIN AT (-29)M FOR KERBIN, (-27)M MUN
 // slot 21989
     21989, 2466,
 // R30.agc:466
@@ -2467,7 +2467,7 @@ agcAotInstallSourceRope(list(
 // slot 21990
     21990, 37914,
 // R30.agc:467
-//			RPADTEM		# RPADTEM AT (-29)M FOR EARTH, (-27)M MOON
+//			RPADTEM		# RPADTEM AT (-29)M FOR KERBIN, (-27)M MUN
 // slot 21991
     21991, 2470,
 // R30.agc:468

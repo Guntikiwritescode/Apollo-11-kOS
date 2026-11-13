@@ -7,13 +7,13 @@ agcAotInstallSourceRope(list(
 // ORBITAL_INTEGRATION.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // ORBITAL_INTEGRATION.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // ORBITAL_INTEGRATION.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // ORBITAL_INTEGRATION.agc:6
 //# Assembler:	yaYUL
 // ORBITAL_INTEGRATION.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // ORBITAL_INTEGRATION.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // ORBITAL_INTEGRATION.agc:9
@@ -37,7 +37,7 @@ agcAotInstallSourceRope(list(
 // ORBITAL_INTEGRATION.agc:18
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // ORBITAL_INTEGRATION.agc:19
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // ORBITAL_INTEGRATION.agc:20
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // ORBITAL_INTEGRATION.agc:21
@@ -47,7 +47,7 @@ agcAotInstallSourceRope(list(
 // ORBITAL_INTEGRATION.agc:23
 //# find that the images are illegible, contact me at info@sandroid.org
 // ORBITAL_INTEGRATION.agc:24
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // ORBITAL_INTEGRATION.agc:25
 //# actually created.
 // ORBITAL_INTEGRATION.agc:26
@@ -1730,7 +1730,7 @@ agcAotInstallSourceRope(list(
 // slot 11910
     11910, 49578,
 // ORBITAL_INTEGRATION.agc:461
-//			ALPHAM		# SCALED B27 FOR MOON
+//			ALPHAM		# SCALED B27 FOR MUN
 // slot 11911
     11911, 2160,
 // ORBITAL_INTEGRATION.agc:462

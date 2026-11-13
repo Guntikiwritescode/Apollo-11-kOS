@@ -18,7 +18,7 @@ function agcAotUnit505 {
 // IMU_COMPENSATION_PACKAGE.agc:6
 //# Assembler:	yaYUL
 // IMU_COMPENSATION_PACKAGE.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // IMU_COMPENSATION_PACKAGE.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // IMU_COMPENSATION_PACKAGE.agc:9
@@ -36,7 +36,7 @@ function agcAotUnit505 {
 // IMU_COMPENSATION_PACKAGE.agc:15
 //# images of a hardcopy from the MIT Museum.  The digitization was performed
 // IMU_COMPENSATION_PACKAGE.agc:16
-//# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+//# by Fjeld Kerman, and arranged for by Douglas Kerman of the Museum.  Many
 // IMU_COMPENSATION_PACKAGE.agc:17
 //# thanks to both.  The images (with suitable reduction in storage size and
 // IMU_COMPENSATION_PACKAGE.agc:18
@@ -46,7 +46,7 @@ function agcAotUnit505 {
 // IMU_COMPENSATION_PACKAGE.agc:20
 //# illegible, contact me at info@sandroid.org about getting access to the
 // IMU_COMPENSATION_PACKAGE.agc:21
-//# (much) higher-quality images which Paul actually created.
+//# (much) higher-quality images which Fjeld Kerman actually created.
 // IMU_COMPENSATION_PACKAGE.agc:22
 //#
 // IMU_COMPENSATION_PACKAGE.agc:23

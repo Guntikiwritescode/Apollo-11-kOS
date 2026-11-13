@@ -9,13 +9,13 @@ function agcAotUnit2002 {
 // ASCENT_GUIDANCE.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // ASCENT_GUIDANCE.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // ASCENT_GUIDANCE.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // ASCENT_GUIDANCE.agc:6
 //# Assembler:	yaYUL
 // ASCENT_GUIDANCE.agc:7
-//# Contact:	Hartmuth Gutsche <hgutsche@xplornet.com>.
+//# Contact:	Gutsche Kerman <hgutsche@xplornet.com>.
 // ASCENT_GUIDANCE.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // ASCENT_GUIDANCE.agc:9
@@ -33,7 +33,7 @@ function agcAotUnit2002 {
 // ASCENT_GUIDANCE.agc:15
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // ASCENT_GUIDANCE.agc:16
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // ASCENT_GUIDANCE.agc:17
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // ASCENT_GUIDANCE.agc:18
@@ -43,7 +43,7 @@ function agcAotUnit2002 {
 // ASCENT_GUIDANCE.agc:20
 //# find that the images are illegible, contact me at info@sandroid.org
 // ASCENT_GUIDANCE.agc:21
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // ASCENT_GUIDANCE.agc:22
 //# actually created.
 // ASCENT_GUIDANCE.agc:23
@@ -2753,7 +2753,7 @@ function agcAotUnit1711 {
 // ASCENT_GUIDANCE.agc:557
 //
 // ASCENT_GUIDANCE.agc:558
-//		INHINT			# RESTORE DEADBAND DESIRED BY ASTRONAUT.
+//		INHINT			# RESTORE DEADBAND DESIRED BY BOB.
 // slot 27145
         if slot <> 27145 or instruction <> 4 { return choose false if checkOnly else -1. }
         if not extended {

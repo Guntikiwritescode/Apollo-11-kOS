@@ -7,7 +7,7 @@
 // TAGS_FOR_RELATIVE_SETLOC.agc:3
 //# Purpose:	Part of the source code for Luminary 1A build 099.
 // TAGS_FOR_RELATIVE_SETLOC.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // TAGS_FOR_RELATIVE_SETLOC.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // TAGS_FOR_RELATIVE_SETLOC.agc:6
@@ -15,7 +15,7 @@
 // TAGS_FOR_RELATIVE_SETLOC.agc:7
 //# Assembler:	yaYUL
 // TAGS_FOR_RELATIVE_SETLOC.agc:8
-//# Contact:	Jim Lawton <jim.lawton@gmail.com>
+//# Contact:	Lawton Kerman <jim.lawton@gmail.com>
 // TAGS_FOR_RELATIVE_SETLOC.agc:9
 //# Website:	www.ibiblio.org/apollo.
 // TAGS_FOR_RELATIVE_SETLOC.agc:10
@@ -29,7 +29,7 @@
 // TAGS_FOR_RELATIVE_SETLOC.agc:14
 //# images of a hardcopy from the MIT Museum.  The digitization was performed
 // TAGS_FOR_RELATIVE_SETLOC.agc:15
-//# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+//# by Fjeld Kerman, and arranged for by Douglas Kerman of the Museum.  Many
 // TAGS_FOR_RELATIVE_SETLOC.agc:16
 //# thanks to both.  The images (with suitable reduction in storage size and
 // TAGS_FOR_RELATIVE_SETLOC.agc:17
@@ -39,7 +39,7 @@
 // TAGS_FOR_RELATIVE_SETLOC.agc:19
 //# illegible, contact me at info@sandroid.org about getting access to the
 // TAGS_FOR_RELATIVE_SETLOC.agc:20
-//# (much) higher-quality images which Paul actually created.
+//# (much) higher-quality images which Fjeld Kerman actually created.
 // TAGS_FOR_RELATIVE_SETLOC.agc:21
 //#
 // TAGS_FOR_RELATIVE_SETLOC.agc:22

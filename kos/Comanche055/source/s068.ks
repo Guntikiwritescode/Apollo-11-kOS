@@ -18,7 +18,7 @@ function agcAotUnit396 {
 // STABLE_ORBIT.agc:6
 //# Assembler:    yaYUL
 // STABLE_ORBIT.agc:7
-//# Contact:      Hartmuth Gutsche <hgutsche@xplornet.com>.
+//# Contact:      Gutsche Kerman <hgutsche@xplornet.com>.
 // STABLE_ORBIT.agc:8
 //# Website:      www.ibiblio.org/apollo.
 // STABLE_ORBIT.agc:9
@@ -36,7 +36,7 @@ function agcAotUnit396 {
 // STABLE_ORBIT.agc:15
 //# images of a hardcopy from the MIT Museum.  The digitization was performed
 // STABLE_ORBIT.agc:16
-//# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+//# by Fjeld Kerman, and arranged for by Douglas Kerman of the Museum.  Many
 // STABLE_ORBIT.agc:17
 //# thanks to both.  The images (with suitable reduction in storage size and
 // STABLE_ORBIT.agc:18
@@ -46,7 +46,7 @@ function agcAotUnit396 {
 // STABLE_ORBIT.agc:20
 //# illegible, contact me at info@sandroid.org about getting access to the
 // STABLE_ORBIT.agc:21
-//# (much) higher-quality images which Paul actually created.
+//# (much) higher-quality images which Fjeld Kerman actually created.
 // STABLE_ORBIT.agc:22
 //#
 // STABLE_ORBIT.agc:23
@@ -72,7 +72,7 @@ function agcAotUnit396 {
 // STABLE_ORBIT.agc:33
 //# MOD NO -1		LOG SECTION - STABLE ORBIT - P38-P39
 // STABLE_ORBIT.agc:34
-//# MOD BY RUDNICKI.S	DATE 25JAN68
+//# MOD BY RUDNICKI KERMAN	DATE 25JAN68
 // STABLE_ORBIT.agc:35
 //#
 // STABLE_ORBIT.agc:36
@@ -100,7 +100,7 @@ function agcAotUnit396 {
 // STABLE_ORBIT.agc:47
 //#
 // STABLE_ORBIT.agc:48
-//#	ASTRONAUT REQUEST THRU DSKY
+//#	VAL REQUEST THRU DSKY
 // STABLE_ORBIT.agc:49
 //#
 // STABLE_ORBIT.agc:50
@@ -1292,7 +1292,7 @@ function agcAotUnit403 {
 // STABLE_ORBIT.agc:280
 //# MOD NO -1		LOG SECTION - STABLE ORBIT - P38-P39
 // STABLE_ORBIT.agc:281
-//# MOD BY RUDNICKI, S	DATE 25JAN68
+//# MOD BY RUDNICKI KERMAN	DATE 25JAN68
 // STABLE_ORBIT.agc:282
 //#
 // STABLE_ORBIT.agc:283
@@ -1316,7 +1316,7 @@ function agcAotUnit403 {
 // STABLE_ORBIT.agc:292
 //#
 // STABLE_ORBIT.agc:293
-//#	ASTRONAUT REQUEST THRU DSKY
+//#	VAL REQUEST THRU DSKY
 // STABLE_ORBIT.agc:294
 //#
 // STABLE_ORBIT.agc:295

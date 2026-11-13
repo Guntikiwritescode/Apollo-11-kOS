@@ -7,13 +7,13 @@ agcAotInstallSourceRope(list(
 // INFLIGHT_ALIGNMENT_ROUTINES.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // INFLIGHT_ALIGNMENT_ROUTINES.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // INFLIGHT_ALIGNMENT_ROUTINES.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // INFLIGHT_ALIGNMENT_ROUTINES.agc:6
 //# Assembler:	yaYUL
 // INFLIGHT_ALIGNMENT_ROUTINES.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // INFLIGHT_ALIGNMENT_ROUTINES.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // INFLIGHT_ALIGNMENT_ROUTINES.agc:9
@@ -31,7 +31,7 @@ agcAotInstallSourceRope(list(
 // INFLIGHT_ALIGNMENT_ROUTINES.agc:15
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // INFLIGHT_ALIGNMENT_ROUTINES.agc:16
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // INFLIGHT_ALIGNMENT_ROUTINES.agc:17
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // INFLIGHT_ALIGNMENT_ROUTINES.agc:18
@@ -41,7 +41,7 @@ agcAotInstallSourceRope(list(
 // INFLIGHT_ALIGNMENT_ROUTINES.agc:20
 //# find that the images are illegible, contact me at info@sandroid.org
 // INFLIGHT_ALIGNMENT_ROUTINES.agc:21
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // INFLIGHT_ALIGNMENT_ROUTINES.agc:22
 //# actually created.
 // INFLIGHT_ALIGNMENT_ROUTINES.agc:23

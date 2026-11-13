@@ -19,7 +19,7 @@ function agcAotUnit726 {
 // SYSTEM_TEST_STANDARD_LEAD_INS.agc:7
 //# Reference:	pp. 420-422
 // SYSTEM_TEST_STANDARD_LEAD_INS.agc:8
-//# Contact:	Onno Hommes <ohommes@cmu.edu>.
+//# Contact:	Hommes Kerman <ohommes@cmu.edu>.
 // SYSTEM_TEST_STANDARD_LEAD_INS.agc:9
 //# Website:	www.ibiblio.org/apollo.
 // SYSTEM_TEST_STANDARD_LEAD_INS.agc:10

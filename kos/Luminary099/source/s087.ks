@@ -13,13 +13,13 @@ function agcAotUnit1231 {
 // TRIM_GIMBAL_CONTROL_SYSTEM.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // TRIM_GIMBAL_CONTROL_SYSTEM.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // TRIM_GIMBAL_CONTROL_SYSTEM.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // TRIM_GIMBAL_CONTROL_SYSTEM.agc:6
 //# Assembler:	yaYUL
 // TRIM_GIMBAL_CONTROL_SYSTEM.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // TRIM_GIMBAL_CONTROL_SYSTEM.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // TRIM_GIMBAL_CONTROL_SYSTEM.agc:9
@@ -37,7 +37,7 @@ function agcAotUnit1231 {
 // TRIM_GIMBAL_CONTROL_SYSTEM.agc:15
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // TRIM_GIMBAL_CONTROL_SYSTEM.agc:16
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // TRIM_GIMBAL_CONTROL_SYSTEM.agc:17
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // TRIM_GIMBAL_CONTROL_SYSTEM.agc:18
@@ -47,7 +47,7 @@ function agcAotUnit1231 {
 // TRIM_GIMBAL_CONTROL_SYSTEM.agc:20
 //# find that the images are illegible, contact me at info@sandroid.org
 // TRIM_GIMBAL_CONTROL_SYSTEM.agc:21
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // TRIM_GIMBAL_CONTROL_SYSTEM.agc:22
 //# actually created.
 // TRIM_GIMBAL_CONTROL_SYSTEM.agc:23
@@ -2603,7 +2603,7 @@ agcAotInstallSourceRope(list(
 // TRIM_GIMBAL_CONTROL_SYSTEM.agc:298
 //# Page 1478
 // TRIM_GIMBAL_CONTROL_SYSTEM.agc:299
-//# SUBROUTINE TIMEGMBL:	MOD 0, OCTOBER 1967, CRAIG WORK
+//# SUBROUTINE TIMEGMBL:	MOD 0, OCTOBER 1967, WORK KERMAN
 // TRIM_GIMBAL_CONTROL_SYSTEM.agc:300
 //#
 // TRIM_GIMBAL_CONTROL_SYSTEM.agc:301
@@ -5349,7 +5349,7 @@ function agcAotUnit1256 {
 // TRIM_GIMBAL_CONTROL_SYSTEM.agc:602
 //
 // TRIM_GIMBAL_CONTROL_SYSTEM.agc:603
-//# SUBROUTINE ROOTCYCL:	BY CRAIG WORK,3 APRIL 68
+//# SUBROUTINE ROOTCYCL:	BY WORK KERMAN,3 APRIL 68
 // TRIM_GIMBAL_CONTROL_SYSTEM.agc:604
 //# ROOTCYCL IS A SUBROUTINE WHICH EXECUTES ONE NEWTON SQUARE ROOT ALGORITHM ITERATION.  THE INITIAL GUESS AT THE
 // TRIM_GIMBAL_CONTROL_SYSTEM.agc:605

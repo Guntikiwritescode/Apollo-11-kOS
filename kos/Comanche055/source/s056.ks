@@ -18,7 +18,7 @@ function agcAotUnit1581 {
 // R31.agc:7
 //# Reference:    pp. 505-510
 // R31.agc:8
-//# Contact:      Onno Hommes <ohommes@cmu.edu>
+//# Contact:      Hommes Kerman <ohommes@cmu.edu>
 // R31.agc:9
 //# Website:      http://www.ibiblio.org/apollo.
 // R31.agc:10

@@ -9,13 +9,13 @@ function agcAotUnit1620 {
 // R63.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // R63.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // R63.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // R63.agc:6
 //# Assembler:	yaYUL
 // R63.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // R63.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // R63.agc:9
@@ -33,7 +33,7 @@ function agcAotUnit1620 {
 // R63.agc:15
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // R63.agc:16
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // R63.agc:17
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // R63.agc:18
@@ -43,7 +43,7 @@ function agcAotUnit1620 {
 // R63.agc:20
 //# find that the images are illegible, contact me at info@sandroid.org
 // R63.agc:21
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // R63.agc:22
 //# actually created.
 // R63.agc:23
@@ -95,7 +95,7 @@ function agcAotUnit1620 {
 // R63.agc:46
 //# BE POINTED AT CSM.  INITIAL CHOICE IS PREFERRED (+Z) AXIS (R2=1).
 // R63.agc:47
-//# ASTRONAUT CAN CHANGE TO (+X) AXIS (R2 NOT = 1) BY V 22 E 2 E.  CONTINUE
+//# BOB CAN CHANGE TO (+X) AXIS (R2 NOT = 1) BY V 22 E 2 E.  CONTINUE
 // R63.agc:48
 //# AFTER KEYING IN PROCEED.
 // R63.agc:49
@@ -201,7 +201,7 @@ function agcAotUnit1621 {
     if slot <= 24598 {
         if slot <= 24596 {
 // R63.agc:90
-//		CAF	THREE		# ALLOW ASTRONAUT TO SELECT DESIRED
+//		CAF	THREE		# ALLOW BOB TO SELECT DESIRED
 // slot 24596
             if slot <> 24596 or instruction <> 15525 { return choose false if checkOnly else -1. }
             if not extended {

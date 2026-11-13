@@ -13,7 +13,7 @@ agcAotInstallSourceRope(list(
 // FIXED_FIXED_CONSTANT_POOL.agc:6
 //# Assembler:	yaYUL
 // FIXED_FIXED_CONSTANT_POOL.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // FIXED_FIXED_CONSTANT_POOL.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // FIXED_FIXED_CONSTANT_POOL.agc:9
@@ -29,7 +29,7 @@ agcAotInstallSourceRope(list(
 // FIXED_FIXED_CONSTANT_POOL.agc:14
 //# images of a hardcopy from the MIT Museum.  The digitization was performed
 // FIXED_FIXED_CONSTANT_POOL.agc:15
-//# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+//# by Fjeld Kerman, and arranged for by Douglas Kerman of the Museum.  Many
 // FIXED_FIXED_CONSTANT_POOL.agc:16
 //# thanks to both.  The images (with suitable reduction in storage size and
 // FIXED_FIXED_CONSTANT_POOL.agc:17
@@ -39,7 +39,7 @@ agcAotInstallSourceRope(list(
 // FIXED_FIXED_CONSTANT_POOL.agc:19
 //# illegible, contact me at info@sandroid.org about getting access to the
 // FIXED_FIXED_CONSTANT_POOL.agc:20
-//# (much) higher-quality images which Paul actually created.
+//# (much) higher-quality images which Fjeld Kerman actually created.
 // FIXED_FIXED_CONSTANT_POOL.agc:21
 //#
 // FIXED_FIXED_CONSTANT_POOL.agc:22

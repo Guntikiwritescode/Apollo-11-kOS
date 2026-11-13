@@ -9,13 +9,13 @@ function agcAotUnit1267 {
 // ATTITUDE_MANEUVER_ROUTINE.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // ATTITUDE_MANEUVER_ROUTINE.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // ATTITUDE_MANEUVER_ROUTINE.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // ATTITUDE_MANEUVER_ROUTINE.agc:6
 //# Assembler:	yaYUL
 // ATTITUDE_MANEUVER_ROUTINE.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // ATTITUDE_MANEUVER_ROUTINE.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // ATTITUDE_MANEUVER_ROUTINE.agc:9
@@ -33,7 +33,7 @@ function agcAotUnit1267 {
 // ATTITUDE_MANEUVER_ROUTINE.agc:15
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // ATTITUDE_MANEUVER_ROUTINE.agc:16
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // ATTITUDE_MANEUVER_ROUTINE.agc:17
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // ATTITUDE_MANEUVER_ROUTINE.agc:18
@@ -43,7 +43,7 @@ function agcAotUnit1267 {
 // ATTITUDE_MANEUVER_ROUTINE.agc:20
 //# find that the images are illegible, contact me at info@sandroid.org
 // ATTITUDE_MANEUVER_ROUTINE.agc:21
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // ATTITUDE_MANEUVER_ROUTINE.agc:22
 //# actually created.
 // ATTITUDE_MANEUVER_ROUTINE.agc:23
@@ -65,7 +65,7 @@ function agcAotUnit1267 {
 // ATTITUDE_MANEUVER_ROUTINE.agc:31
 //#
 // ATTITUDE_MANEUVER_ROUTINE.agc:32
-//# MOD 2		DATE 5/1/67	BY DON KEENE
+//# MOD 2		DATE 5/1/67	BY KEENE KERMAN
 // ATTITUDE_MANEUVER_ROUTINE.agc:33
 //#
 // ATTITUDE_MANEUVER_ROUTINE.agc:34

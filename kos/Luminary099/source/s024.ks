@@ -7,13 +7,13 @@ agcAotInstallSourceRope(list(
 // GIMBAL_LOCK_AVOIDANCE.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // GIMBAL_LOCK_AVOIDANCE.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // GIMBAL_LOCK_AVOIDANCE.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // GIMBAL_LOCK_AVOIDANCE.agc:6
 //# Assembler:	yaYUL
 // GIMBAL_LOCK_AVOIDANCE.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // GIMBAL_LOCK_AVOIDANCE.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // GIMBAL_LOCK_AVOIDANCE.agc:9
@@ -33,7 +33,7 @@ agcAotInstallSourceRope(list(
 // GIMBAL_LOCK_AVOIDANCE.agc:16
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // GIMBAL_LOCK_AVOIDANCE.agc:17
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // GIMBAL_LOCK_AVOIDANCE.agc:18
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // GIMBAL_LOCK_AVOIDANCE.agc:19
@@ -43,7 +43,7 @@ agcAotInstallSourceRope(list(
 // GIMBAL_LOCK_AVOIDANCE.agc:21
 //# find that the images are illegible, contact me at info@sandroid.org
 // GIMBAL_LOCK_AVOIDANCE.agc:22
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // GIMBAL_LOCK_AVOIDANCE.agc:23
 //# actually created.
 // GIMBAL_LOCK_AVOIDANCE.agc:24

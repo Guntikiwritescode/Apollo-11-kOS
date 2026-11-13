@@ -13,7 +13,7 @@ agcAotInstallSourceRope(list(
 // P30-P37.agc:6
 //# Assembler:	yaYUL
 // P30-P37.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // P30-P37.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // P30-P37.agc:9
@@ -33,7 +33,7 @@ agcAotInstallSourceRope(list(
 // P30-P37.agc:16
 //# images of a hardcopy from the MIT Museum.  The digitization was performed
 // P30-P37.agc:17
-//# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+//# by Fjeld Kerman, and arranged for by Douglas Kerman of the Museum.  Many
 // P30-P37.agc:18
 //# thanks to both.  The images (with suitable reduction in storage size and
 // P30-P37.agc:19
@@ -43,7 +43,7 @@ agcAotInstallSourceRope(list(
 // P30-P37.agc:21
 //# illegible, contact me at info@sandroid.org about getting access to the
 // P30-P37.agc:22
-//# (much) higher-quality images which Paul actually created.
+//# (much) higher-quality images which Fjeld Kerman actually created.
 // P30-P37.agc:23
 //#
 // P30-P37.agc:24
@@ -421,13 +421,13 @@ function agcAotUnit1840 {
 // P30-P37.agc:82
 //
 // P30-P37.agc:83
-//# MOD.I BY S. ZELDIN-  TO ADD P31 AND AD APT P30 FOR P31 USE.	22DEC67
+//# MOD.I BY ZELDIN KERMAN-  TO ADD P31 AND AD APT P30 FOR P31 USE.	22DEC67
 // P30-P37.agc:84
 //# FUNCTIONAL DESCRIPTION
 // P30-P37.agc:85
 //# +30(EXTERNAL DELTA-V TARGETTING PROGRAM)
 // P30-P37.agc:86
-//#	ACCEPTS ASTRONAUT INPUTS OF TIG,DELV(LV) AND COMPUTES,FOR DISPLAY,
+//#	ACCEPTS VAL INPUTS OF TIG,DELV(LV) AND COMPUTES,FOR DISPLAY,
 // P30-P37.agc:87
 //#	APOGEE,PERIGEE,DELV(MAG),MGA ASSOCIATED WITH DESIRED MANEUVER
 // P30-P37.agc:88
@@ -441,7 +441,7 @@ function agcAotUnit1840 {
 // P30-P37.agc:92
 //#	BASED ON STORED INPUT OF OFFSET TARGET(B+29) AND DELTA T TRANS,AND
 // P30-P37.agc:93
-//#	ASTRONAUT ENTRY OF TIG,P31 COMPUTES REQUIRED VELOCITY FOR MANEUVER
+//#	VAL ENTRY OF TIG,P31 COMPUTES REQUIRED VELOCITY FOR MANEUVER
 // P30-P37.agc:94
 //#	AND,FOR DISPLAY,APOGEE,PERIGEE,DELV(7AG),+MGA ASSOCIATED WITH
 // P30-P37.agc:95
@@ -1360,9 +1360,9 @@ agcAotInstallSourceRope(list(
 // P30-P37.agc:214
 //# MOD NO 1			LOG SECTION P30,P37
 // P30-P37.agc:215
-//# MOD BY RAMA AIYAWAR **
+//# MOD BY AIYAWAR KERMAN **
 // P30-P37.agc:216
-//# MOD.2 BY S.ZELDIN - TO CORRECT MOD.1 FOR COLOSSUS		29DEC67
+//# MOD.2 BY ZELDIN KERMAN - TO CORRECT MOD.1 FOR COLOSSUS		29DEC67
 // P30-P37.agc:217
 //# FUNCTIONAL DESCRIPTION
 // P30-P37.agc:218
@@ -1614,7 +1614,7 @@ agcAotInstallSourceRope(list(
 // P30-P37.agc:299
 //# S31.1 PROGRAM DESCRIPTION		28DEC67
 // P30-P37.agc:300
-//# MOD.1 BY S.ZELDIN
+//# MOD.1 BY ZELDIN KERMAN
 // P30-P37.agc:301
 //
 // P30-P37.agc:302
@@ -1817,17 +1817,17 @@ agcAotInstallSourceRope(list(
 // P30-P37.agc:366
 //# TRANSFERRED COMPLETELY FROM SUNDISK, P30S REV 33.  9 SEPT 67.
 // P30-P37.agc:367
-//# MOD NO: 0		MOD BY: ZELDIN		DATE:
+//# MOD NO: 0		MOD BY: ZELDIN KERMAN		DATE:
 // P30-P37.agc:368
-//# MOD NO: 1		MOD BY: RR BAIRNSFATHER	DATE:  11 APR 67
+//# MOD NO: 1		MOD BY: BAIRNSFATHER KERMAN	DATE:  11 APR 67
 // P30-P37.agc:369
-//# MOD NO: 2		MOD BY: RR BAIRNSFATHER	DATE:  12 MAY 67	ADD UR.RT CALC WHEN BELOW 300K FT
+//# MOD NO: 2		MOD BY: BAIRNSFATHER KERMAN	DATE:  12 MAY 67	ADD UR.RT CALC WHEN BELOW 300K FT
 // P30-P37.agc:370
-//# MOD NO: 2.1		MOD BY: RR BAIRNSFATHER	DATE: 5 JULY 67		FIX ERROR ON MOD. 2.
+//# MOD NO: 2.1		MOD BY: BAIRNSFATHER KERMAN	DATE: 5 JULY 67		FIX ERROR ON MOD. 2.
 // P30-P37.agc:371
-//# MOD NO: 3		MOD BY: RR BAIRNSFATHER	DATE:  12 JUL 67	CHANGE SIGN OF DISPLAYED ERROR.
+//# MOD NO: 3		MOD BY: BAIRNSFATHER KERMAN	DATE:  12 JUL 67	CHANGE SIGN OF DISPLAYED ERROR.
 // P30-P37.agc:372
-//# MOD 4			MOD BY  S.ZELDIN	DATE  3 APRIL 68	CHANGE EQUATIONS FOR L/D=.18 WHICH REPLA
+//# MOD 4			MOD BY  ZELDIN KERMAN	DATE  3 APRIL 68	CHANGE EQUATIONS FOR L/D=.18 WHICH REPLA
 // P30-P37.agc:373
 //# FUNCTION:		CALCULATE (FOR DISPLAY ON CALL) AN APPROXIMATE MEASURE OF IN-PLANE SPLASH DOWN
 // P30-P37.agc:374

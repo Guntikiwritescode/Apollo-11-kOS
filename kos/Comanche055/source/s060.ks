@@ -13,7 +13,7 @@ agcAotInstallSourceRope(list(
 // REENTRY_CONTROL.agc:6
 //# Assembler:	yaYUL
 // REENTRY_CONTROL.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // REENTRY_CONTROL.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // REENTRY_CONTROL.agc:9
@@ -33,7 +33,7 @@ agcAotInstallSourceRope(list(
 // REENTRY_CONTROL.agc:16
 //# images of a hardcopy from the MIT Museum.  The digitization was performed
 // REENTRY_CONTROL.agc:17
-//# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+//# by Fjeld Kerman, and arranged for by Douglas Kerman of the Museum.  Many
 // REENTRY_CONTROL.agc:18
 //# thanks to both.  The images (with suitable reduction in storage size and
 // REENTRY_CONTROL.agc:19
@@ -43,7 +43,7 @@ agcAotInstallSourceRope(list(
 // REENTRY_CONTROL.agc:21
 //# illegible, contact me at info@sandroid.org about getting access to the
 // REENTRY_CONTROL.agc:22
-//# (much) higher-quality images which Paul actually created.
+//# (much) higher-quality images which Fjeld Kerman actually created.
 // REENTRY_CONTROL.agc:23
 //#
 // REENTRY_CONTROL.agc:24

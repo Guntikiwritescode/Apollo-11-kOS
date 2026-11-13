@@ -15,7 +15,7 @@ function agcAotUnit730 {
 // P76.agc:6
 //# Assembler:    yaYUL
 // P76.agc:7
-//# Contact:      Hartmuth Gutsche <hgutsche@xplornet.com>.
+//# Contact:      Gutsche Kerman <hgutsche@xplornet.com>.
 // P76.agc:8
 //# Website:      www.ibiblio.org/apollo.
 // P76.agc:9
@@ -33,7 +33,7 @@ function agcAotUnit730 {
 // P76.agc:15
 //# images of a hardcopy from the MIT Museum.  The digitization was performed
 // P76.agc:16
-//# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+//# by Fjeld Kerman, and arranged for by Douglas Kerman of the Museum.  Many
 // P76.agc:17
 //# thanks to both.  The images (with suitable reduction in storage size and
 // P76.agc:18
@@ -43,7 +43,7 @@ function agcAotUnit730 {
 // P76.agc:20
 //# illegible, contact me at info@sandroid.org about getting access to the
 // P76.agc:21
-//# (much) higher-quality images which Paul actually created.
+//# (much) higher-quality images which Fjeld Kerman actually created.
 // P76.agc:22
 //#
 // P76.agc:23
@@ -67,7 +67,7 @@ function agcAotUnit730 {
 // P76.agc:32
 //# 1)	PROGRAM NAME - TARGET DELTA V PROGRAM (P76).
 // P76.agc:33
-//# 2)	FUNCTIONAL DESCRIPTION - UPON ENTRY BY ASTRONAUT ACTION, P76 FLASHES DSKY REQUESTS TO THE ASTRONAUT
+//# 2)	FUNCTIONAL DESCRIPTION - UPON ENTRY BY VAL ACTION, P76 FLASHES DSKY REQUESTS TO VAL
 // P76.agc:34
 //#	TO PROVIDE VIA DSKY (1) THE DELTA V TO BE APPLIED TO THE OTHER VEHICLE STATE VECTOR AND (2) THE
 // P76.agc:35
@@ -83,7 +83,7 @@ function agcAotUnit730 {
 // P76.agc:40
 //# 3)	ERASABLE INITIALIZATION REQUIRED - NONE.
 // P76.agc:41
-//# 4)	CALLING SEQUENCES AND EXIT MODES - CALLED BY ASTRONAUT REQUEST THRU DSKY V 37 E 76 E.
+//# 4)	CALLING SEQUENCES AND EXIT MODES - CALLED BY VAL REQUEST THRU DSKY V 37 E 76 E.
 // P76.agc:42
 //#	EXITS BY TCF ENDOFJOB.
 // P76.agc:43

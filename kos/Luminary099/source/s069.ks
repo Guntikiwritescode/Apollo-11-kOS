@@ -13,13 +13,13 @@ function agcAotUnit510 {
 // RCS_FAILURE_MONITOR.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // RCS_FAILURE_MONITOR.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // RCS_FAILURE_MONITOR.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // RCS_FAILURE_MONITOR.agc:6
 //# Assembler:	yaYUL
 // RCS_FAILURE_MONITOR.agc:7
-//# Contact:	Hartmuth Gutsche <hgutsche@xplornet.com>.
+//# Contact:	Gutsche Kerman <hgutsche@xplornet.com>.
 // RCS_FAILURE_MONITOR.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // RCS_FAILURE_MONITOR.agc:9
@@ -33,7 +33,7 @@ function agcAotUnit510 {
 // RCS_FAILURE_MONITOR.agc:13
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // RCS_FAILURE_MONITOR.agc:14
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // RCS_FAILURE_MONITOR.agc:15
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // RCS_FAILURE_MONITOR.agc:16
@@ -43,7 +43,7 @@ function agcAotUnit510 {
 // RCS_FAILURE_MONITOR.agc:18
 //# find that the images are illegible, contact me at info@sandroid.org
 // RCS_FAILURE_MONITOR.agc:19
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // RCS_FAILURE_MONITOR.agc:20
 //# actually created.
 // RCS_FAILURE_MONITOR.agc:21
@@ -65,11 +65,11 @@ function agcAotUnit510 {
 // RCS_FAILURE_MONITOR.agc:29
 //#
 // RCS_FAILURE_MONITOR.agc:30
-//# AUTHOR:  J S MILLER
+//# AUTHOR:  MILLER KERMAN
 // RCS_FAILURE_MONITOR.agc:31
 //#
 // RCS_FAILURE_MONITOR.agc:32
-//# MODIFIED 6 MARCH 1968 BY P S WEISSMAN TO SET UP JOB FOR 1/ACCS WHEN THE MASKS ARE CHANGED.
+//# MODIFIED 6 MARCH 1968 BY WEISSMAN KERMAN TO SET UP JOB FOR 1/ACCS WHEN THE MASKS ARE CHANGED.
 // RCS_FAILURE_MONITOR.agc:33
 //#
 // RCS_FAILURE_MONITOR.agc:34

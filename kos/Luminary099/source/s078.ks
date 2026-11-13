@@ -9,13 +9,13 @@ function agcAotUnit1986 {
 // STABLE_ORBIT.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // STABLE_ORBIT.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // STABLE_ORBIT.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // STABLE_ORBIT.agc:6
 //# Assembler:	yaYUL
 // STABLE_ORBIT.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // STABLE_ORBIT.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // STABLE_ORBIT.agc:9
@@ -39,7 +39,7 @@ function agcAotUnit1986 {
 // STABLE_ORBIT.agc:18
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // STABLE_ORBIT.agc:19
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // STABLE_ORBIT.agc:20
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // STABLE_ORBIT.agc:21
@@ -49,7 +49,7 @@ function agcAotUnit1986 {
 // STABLE_ORBIT.agc:23
 //# find that the images are illegible, contact me at info@sandroid.org
 // STABLE_ORBIT.agc:24
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // STABLE_ORBIT.agc:25
 //# actually created.
 // STABLE_ORBIT.agc:26
@@ -73,7 +73,7 @@ function agcAotUnit1986 {
 // STABLE_ORBIT.agc:35
 //# MOD NO -1		LOG SECTION - STABLE ORBIT - P38-P39
 // STABLE_ORBIT.agc:36
-//# MOD BY RUDNICKI.S	DATE 25JAN68
+//# MOD BY RUDNICKI KERMAN	DATE 25JAN68
 // STABLE_ORBIT.agc:37
 //#
 // STABLE_ORBIT.agc:38
@@ -101,7 +101,7 @@ function agcAotUnit1986 {
 // STABLE_ORBIT.agc:49
 //#
 // STABLE_ORBIT.agc:50
-//#	ASTRONAUT REQUEST THRU DSKY
+//#	BOB REQUEST THRU DSKY
 // STABLE_ORBIT.agc:51
 //#
 // STABLE_ORBIT.agc:52
@@ -1373,7 +1373,7 @@ function agcAotUnit1996 {
 // STABLE_ORBIT.agc:286
 //# MOD NO -1		LOG SECTION - STABLE ORBIT - P38-P39
 // STABLE_ORBIT.agc:287
-//# MOD BY RUDNICKI.S	DATE 25JAN68
+//# MOD BY RUDNICKI KERMAN	DATE 25JAN68
 // STABLE_ORBIT.agc:288
 //#
 // STABLE_ORBIT.agc:289
@@ -1397,7 +1397,7 @@ function agcAotUnit1996 {
 // STABLE_ORBIT.agc:298
 //#
 // STABLE_ORBIT.agc:299
-//#	ASTRONAUT REQUEST THRU DSKY
+//#	BOB REQUEST THRU DSKY
 // STABLE_ORBIT.agc:300
 //#
 // STABLE_ORBIT.agc:301

@@ -14,13 +14,13 @@ function agcAotUnit1044 {
 // Q_R-AXIS_RCS_AUTOPILOT.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // Q_R-AXIS_RCS_AUTOPILOT.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // Q_R-AXIS_RCS_AUTOPILOT.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // Q_R-AXIS_RCS_AUTOPILOT.agc:6
 //# Assembler:	yaYUL
 // Q_R-AXIS_RCS_AUTOPILOT.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // Q_R-AXIS_RCS_AUTOPILOT.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // Q_R-AXIS_RCS_AUTOPILOT.agc:9
@@ -42,7 +42,7 @@ function agcAotUnit1044 {
 // Q_R-AXIS_RCS_AUTOPILOT.agc:17
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // Q_R-AXIS_RCS_AUTOPILOT.agc:18
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // Q_R-AXIS_RCS_AUTOPILOT.agc:19
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // Q_R-AXIS_RCS_AUTOPILOT.agc:20
@@ -52,7 +52,7 @@ function agcAotUnit1044 {
 // Q_R-AXIS_RCS_AUTOPILOT.agc:22
 //# find that the images are illegible, contact me at info@sandroid.org
 // Q_R-AXIS_RCS_AUTOPILOT.agc:23
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // Q_R-AXIS_RCS_AUTOPILOT.agc:24
 //# actually created.
 // Q_R-AXIS_RCS_AUTOPILOT.agc:25

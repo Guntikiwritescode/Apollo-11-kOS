@@ -15,7 +15,7 @@ function agcAotUnit1191 {
 // ANGLFIND.agc:6
 //# Assembler:	yaYUL
 // ANGLFIND.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // ANGLFIND.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // ANGLFIND.agc:9
@@ -37,7 +37,7 @@ function agcAotUnit1191 {
 // ANGLFIND.agc:17
 //# images of a hardcopy from the MIT Museum.  The digitization was performed
 // ANGLFIND.agc:18
-//# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+//# by Fjeld Kerman, and arranged for by Douglas Kerman of the Museum.  Many
 // ANGLFIND.agc:19
 //# thanks to both.  The images (with suitable reduction in storage size and
 // ANGLFIND.agc:20
@@ -47,7 +47,7 @@ function agcAotUnit1191 {
 // ANGLFIND.agc:22
 //# illegible, contact me at info@sandroid.org about getting access to the
 // ANGLFIND.agc:23
-//# (much) higher-quality images which Paul actually created.
+//# (much) higher-quality images which Fjeld Kerman actually created.
 // ANGLFIND.agc:24
 //#
 // ANGLFIND.agc:25

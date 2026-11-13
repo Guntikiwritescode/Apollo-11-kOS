@@ -13,7 +13,7 @@ agcAotInstallSourceRope(list(
 // CSM_GEOMETRY.agc:6
 //# Assembler:	yaYUL
 // CSM_GEOMETRY.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // CSM_GEOMETRY.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // CSM_GEOMETRY.agc:9
@@ -29,7 +29,7 @@ agcAotInstallSourceRope(list(
 // CSM_GEOMETRY.agc:14
 //# images of a hardcopy from the MIT Museum.  The digitization was performed
 // CSM_GEOMETRY.agc:15
-//# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+//# by Fjeld Kerman, and arranged for by Douglas Kerman of the Museum.  Many
 // CSM_GEOMETRY.agc:16
 //# thanks to both.  The images (with suitable reduction in storage size and
 // CSM_GEOMETRY.agc:17
@@ -39,7 +39,7 @@ agcAotInstallSourceRope(list(
 // CSM_GEOMETRY.agc:19
 //# illegible, contact me at info@sandroid.org about getting access to the
 // CSM_GEOMETRY.agc:20
-//# (much) higher-quality images which Paul actually created.
+//# (much) higher-quality images which Fjeld Kerman actually created.
 // CSM_GEOMETRY.agc:21
 //#
 // CSM_GEOMETRY.agc:22
@@ -1143,13 +1143,13 @@ agcAotInstallSourceRope(list(
 // CSM_GEOMETRY.agc:304
 //# Page 293
 // CSM_GEOMETRY.agc:305
-//# SUBROUTINE NAME: 	EARTH ROTATOR	(EARROT1 OR EARROT2)		DATE:  		15 FEB 67
+//# SUBROUTINE NAME: 	KERBIN ROTATOR	(EARROT1 OR EARROT2)		DATE:  		15 FEB 67
 // CSM_GEOMETRY.agc:306
 //# MOD NO:  N +1								LOG SECTION:  	POWERED FLIGHT SUBROS
 // CSM_GEOMETRY.agc:307
-//# MOD BY:  ENTRY GROUP (BAIRNSFATHER)
+//# MOD BY:  ENTRY GROUP (BAIRNSFATHER KERMAN)
 // CSM_GEOMETRY.agc:308
-//# FUNCTIONAL DESCRIPTION: 	THIS ROUTINE PROJECTS THE INITIAL EARTH TARGET VECTOR RTINIT AHEAD THROUGH
+//# FUNCTIONAL DESCRIPTION: 	THIS ROUTINE PROJECTS THE INITIAL KERBIN TARGET VECTOR RTINIT AHEAD THROUGH
 // CSM_GEOMETRY.agc:309
 //#	THE ESTIMATED TIME OF FLIGHT.  INITIAL CALL RESOLVES THE INITIAL TARGET VECTOR RTINIT INTO EASTERLY
 // CSM_GEOMETRY.agc:310

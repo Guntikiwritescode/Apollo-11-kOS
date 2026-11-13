@@ -12,13 +12,13 @@ function agcAotUnit447 {
 // DOWN_TELEMETRY_PROGRAM.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // DOWN_TELEMETRY_PROGRAM.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // DOWN_TELEMETRY_PROGRAM.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // DOWN_TELEMETRY_PROGRAM.agc:6
 //# Assembler:	yaYUL
 // DOWN_TELEMETRY_PROGRAM.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // DOWN_TELEMETRY_PROGRAM.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // DOWN_TELEMETRY_PROGRAM.agc:9
@@ -36,7 +36,7 @@ function agcAotUnit447 {
 // DOWN_TELEMETRY_PROGRAM.agc:15
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // DOWN_TELEMETRY_PROGRAM.agc:16
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // DOWN_TELEMETRY_PROGRAM.agc:17
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // DOWN_TELEMETRY_PROGRAM.agc:18
@@ -46,7 +46,7 @@ function agcAotUnit447 {
 // DOWN_TELEMETRY_PROGRAM.agc:20
 //# find that the images are illegible, contact me at info@sandroid.org
 // DOWN_TELEMETRY_PROGRAM.agc:21
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // DOWN_TELEMETRY_PROGRAM.agc:22
 //# actually created.
 // DOWN_TELEMETRY_PROGRAM.agc:23
@@ -76,11 +76,11 @@ function agcAotUnit447 {
 // DOWN_TELEMETRY_PROGRAM.agc:35
 //#			OF DOWN TELEMETRY DATA.
 // DOWN_TELEMETRY_PROGRAM.agc:36
-//# MOD BY -- KILROY, SMITH, DEWITT
+//# MOD BY -- KILROY KERMAN, SMITH KERMAN, DEWITT KERMAN
 // DOWN_TELEMETRY_PROGRAM.agc:37
 //# DATE -- 02 OCT 67
 // DOWN_TELEMETRY_PROGRAM.agc:38
-//# AUTHORS -- KILROY, SMITH, DWWITT, DEWOLF, FAGIN
+//# AUTHORS -- KILROY KERMAN, SMITH KERMAN, DWWITT KERMAN, DEWOLF KERMAN, FAGIN KERMAN
 // DOWN_TELEMETRY_PROGRAM.agc:39
 //# LOG SECTION -- DOWN-TELEMETRY PROGRAM
 // DOWN_TELEMETRY_PROGRAM.agc:40
@@ -304,7 +304,7 @@ function agcAotUnit447 {
 // DOWN_TELEMETRY_PROGRAM.agc:149
 //#	IN THE PROCESS OF SETTING THE EBANK (WHEN PICKING UP DOWNLINK DATA) THE DOWN TELEMETRY PROGRAM PUTS
 // DOWN_TELEMETRY_PROGRAM.agc:150
-//#	`GARBAGE' INTO BITS15-12 OF EBANK.  HUGH BLAIR-SMITH WARNS US THAT BITS15-12 OF EBANK MAY BECOME
+//#	`GARBAGE' INTO BITS15-12 OF EBANK.  BLAIR-SMITH KERMAN WARNS US THAT BITS15-12 OF EBANK MAY BECOME
 // DOWN_TELEMETRY_PROGRAM.agc:151
 //#	SIGNIFICANT SOMEDAY IN THE FUTURE.  IF/WHEN THAT HAPPENS, THE PROGRAM SHOULD INSURE (BY MASKING ETC.)
 // DOWN_TELEMETRY_PROGRAM.agc:152
@@ -2083,7 +2083,7 @@ function agcAotUnit462 {
 // DOWN_TELEMETRY_PROGRAM.agc:337
 //#
 // DOWN_TELEMETRY_PROGRAM.agc:338
-//# CALLING SEQUENCE -- THE GROUND OR ASTRONAUT BY KEYING V74E CAN INITIALIZE THE DUMP.
+//# CALLING SEQUENCE -- THE GROUND OR BOB BY KEYING V74E CAN INITIALIZE THE DUMP.
 // DOWN_TELEMETRY_PROGRAM.agc:339
 //#	AFTER KEYING IN V74E THE CURRENT DOWNLIST WILL BE IMMEDIATELY TERMINATED AND THE DOWNLINK ERASABLE DUMP
 // DOWN_TELEMETRY_PROGRAM.agc:340

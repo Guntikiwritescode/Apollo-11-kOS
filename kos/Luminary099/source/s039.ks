@@ -12,13 +12,13 @@ function agcAotUnit403 {
 // KEYRUPT_UPRUPT.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // KEYRUPT_UPRUPT.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // KEYRUPT_UPRUPT.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // KEYRUPT_UPRUPT.agc:6
 //# Assembler:	yaYUL
 // KEYRUPT_UPRUPT.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // KEYRUPT_UPRUPT.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // KEYRUPT_UPRUPT.agc:9
@@ -36,7 +36,7 @@ function agcAotUnit403 {
 // KEYRUPT_UPRUPT.agc:15
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // KEYRUPT_UPRUPT.agc:16
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // KEYRUPT_UPRUPT.agc:17
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // KEYRUPT_UPRUPT.agc:18
@@ -46,7 +46,7 @@ function agcAotUnit403 {
 // KEYRUPT_UPRUPT.agc:20
 //# find that the images are illegible, contact me at info@sandroid.org
 // KEYRUPT_UPRUPT.agc:21
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // KEYRUPT_UPRUPT.agc:22
 //# actually created.
 // KEYRUPT_UPRUPT.agc:23

@@ -11,13 +11,13 @@ function agcAotUnit216 {
 // IMU_MODE_SWITCHING_ROUTINES.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // IMU_MODE_SWITCHING_ROUTINES.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // IMU_MODE_SWITCHING_ROUTINES.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // IMU_MODE_SWITCHING_ROUTINES.agc:6
 //# Assembler:	yaYUL
 // IMU_MODE_SWITCHING_ROUTINES.agc:7
-//# Contact:	Onno Hommes <ohommes@cmu.edu>.
+//# Contact:	Hommes Kerman <ohommes@cmu.edu>.
 // IMU_MODE_SWITCHING_ROUTINES.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // IMU_MODE_SWITCHING_ROUTINES.agc:9
@@ -39,7 +39,7 @@ function agcAotUnit216 {
 // IMU_MODE_SWITCHING_ROUTINES.agc:17
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // IMU_MODE_SWITCHING_ROUTINES.agc:18
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // IMU_MODE_SWITCHING_ROUTINES.agc:19
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // IMU_MODE_SWITCHING_ROUTINES.agc:20
@@ -49,7 +49,7 @@ function agcAotUnit216 {
 // IMU_MODE_SWITCHING_ROUTINES.agc:22
 //# find that the images are illegible, contact me at info@sandroid.org
 // IMU_MODE_SWITCHING_ROUTINES.agc:23
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // IMU_MODE_SWITCHING_ROUTINES.agc:24
 //# actually created.
 // IMU_MODE_SWITCHING_ROUTINES.agc:25
@@ -7172,7 +7172,7 @@ function agcAotUnit634 {
 // IMU_MODE_SWITCHING_ROUTINES.agc:753
 //#                                           LOG SECTION IMU MODE SWITCHING
 // IMU_MODE_SWITCHING_ROUTINES.agc:754
-//# MOD BY- R.MELANSON TO ADD DOCUMENTATION       ASSEMBLY SUNDISK  REV.  82
+//# MOD BY- MELANSON KERMAN TO ADD DOCUMENTATION       ASSEMBLY SUNDISK  REV.  82
 // IMU_MODE_SWITCHING_ROUTINES.agc:755
 //#
 // IMU_MODE_SWITCHING_ROUTINES.agc:756
@@ -7898,7 +7898,7 @@ agcAotInstallSourceRope(list(
 // IMU_MODE_SWITCHING_ROUTINES.agc:872
 //# MOD NO - 1
 // IMU_MODE_SWITCHING_ROUTINES.agc:873
-//# MOD BY - N.BRODEUR
+//# MOD BY - BRODEUR KERMAN
 // IMU_MODE_SWITCHING_ROUTINES.agc:874
 //# FUNCTIONAL DESCRIPTION
 // IMU_MODE_SWITCHING_ROUTINES.agc:875
@@ -8210,7 +8210,7 @@ function agcAotUnit2288 {
 // IMU_MODE_SWITCHING_ROUTINES.agc:935
 //# CALLING SEQUENCE:
 // IMU_MODE_SWITCHING_ROUTINES.agc:936
-//#          ASTRONAUT REQUEST THROUGH DSKY     V37E 06E.
+//#          BOB REQUEST THROUGH DSKY     V37E 06E.
 // IMU_MODE_SWITCHING_ROUTINES.agc:937
 //#
 // IMU_MODE_SWITCHING_ROUTINES.agc:938

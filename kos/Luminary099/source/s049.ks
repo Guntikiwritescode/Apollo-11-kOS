@@ -9,13 +9,13 @@ function agcAotUnit1685 {
 // P12.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // P12.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // P12.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // P12.agc:6
 //# Assembler:	yaYUL
 // P12.agc:7
-//# Contact:	Hartmuth Gutsche <hgutsche@xplornet.com>.
+//# Contact:	Gutsche Kerman <hgutsche@xplornet.com>.
 // P12.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // P12.agc:9
@@ -29,7 +29,7 @@ function agcAotUnit1685 {
 // P12.agc:13
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // P12.agc:14
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // P12.agc:15
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // P12.agc:16
@@ -39,7 +39,7 @@ function agcAotUnit1685 {
 // P12.agc:18
 //# find that the images are illegible, contact me at info@sandroid.org
 // P12.agc:19
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // P12.agc:20
 //# actually created.
 // P12.agc:21

@@ -9,13 +9,13 @@ function agcAotUnit752 {
 // P76.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // P76.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // P76.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // P76.agc:6
 //# Assembler:	yaYUL
 // P76.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // P76.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // P76.agc:9
@@ -33,7 +33,7 @@ function agcAotUnit752 {
 // P76.agc:15
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // P76.agc:16
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // P76.agc:17
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // P76.agc:18
@@ -43,7 +43,7 @@ function agcAotUnit752 {
 // P76.agc:20
 //# find that the images are illegible, contact me at info@sandroid.org
 // P76.agc:21
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // P76.agc:22
 //# actually created.
 // P76.agc:23
@@ -63,7 +63,7 @@ function agcAotUnit752 {
 // P76.agc:30
 //# 1) PROGRAM NAME - TARGET DELTA V PROGRAM (P76).
 // P76.agc:31
-//# 2) FUNCTIONAL DESCRIPTION - UPON ENTRY BY ASTRONAUT ACTION, P76 FLASHES DSKY REQUESTS TO THE ASTRONAUT
+//# 2) FUNCTIONAL DESCRIPTION - UPON ENTRY BY BOB ACTION, P76 FLASHES DSKY REQUESTS TO BOB
 // P76.agc:32
 //#    TO PROVIDE VIA DSKY (1) THE DELTA V TO BE APPLIED TO THE OTHER VEHICLE STATE VECTOR AND (2) THE
 // P76.agc:33
@@ -79,7 +79,7 @@ function agcAotUnit752 {
 // P76.agc:38
 //# 3) ERASABLE INIITIALIZATION REQUIRED - NONE.
 // P76.agc:39
-//# 4) CALLING SEQUENCES AND EXIT MODES - CALLED BY ASTRONAUT REQUEST THRU DSKY V 37 E 76 E.
+//# 4) CALLING SEQUENCES AND EXIT MODES - CALLED BY BOB REQUEST THRU DSKY V 37 E 76 E.
 // P76.agc:40
 //#    EXITS BY TCF ENDOFJOB.
 // P76.agc:41
@@ -717,7 +717,7 @@ agcAotInstallSourceRope(list(
 // slot 13537
     13537, 4,
 // P76.agc:155
-//			MOONFLAG	# SET MEANS MOON IS SPHERE OF INFLUENCE.
+//			MOONFLAG	# SET MEANS MUN IS SPHERE OF INFLUENCE.
 // slot 13538
     13538, 102,
 // P76.agc:156
@@ -725,7 +725,7 @@ agcAotInstallSourceRope(list(
 // slot 13539
     13539, 64536,
 // P76.agc:157
-//			CMOONFLG	# SET MEANS PERM CM STATE IN LUNAR SPHERE.
+//			CMOONFLG	# SET MEANS PERM CM STATE IN MUN SPHERE.
 // slot 13540
     13540, 4486,
 // P76.agc:158

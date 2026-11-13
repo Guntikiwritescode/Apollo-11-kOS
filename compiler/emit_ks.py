@@ -8,6 +8,7 @@ from pathlib import Path
 import re
 
 from build_ir import COMPILER, PROGRAMS, PROJECT
+from kerbal import localize
 
 CORE = PROJECT / "kos/core"
 SINGLE = "CA CS AD ADS SU MSU CCS INCR AUG DIM MASK".split()
@@ -431,8 +432,10 @@ def generate(ir, out, program):
     (out / "rope").mkdir()
     rows = {row["slot"]: row for row in read_ir(ir, program, "fixed")}
     plans = make_plans(rows)
-    layouts, units, relocated = layout_sources(read_ir(ir, program, "source"), rows,
-                                               build_units(read_ir(ir, program, "units"), plans))
+    source = read_ir(ir, program, "source")
+    for row in source:
+        row["text"] = localize(program, row["source"], row["line"], row["text"])
+    layouts, units, relocated = layout_sources(source, rows, build_units(read_ir(ir, program, "units"), plans))
     files = emit_source(out, rows, plans, layouts)
     emit_registry(out, units)
     emit_rom(out, rows, relocated)

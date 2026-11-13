@@ -18,7 +18,7 @@ function agcAotUnit183 {
 // SINGLE_PRECISION_SUBROUTINES.agc:6
 //# Assembler:	yaYUL
 // SINGLE_PRECISION_SUBROUTINES.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // SINGLE_PRECISION_SUBROUTINES.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // SINGLE_PRECISION_SUBROUTINES.agc:9
@@ -34,7 +34,7 @@ function agcAotUnit183 {
 // SINGLE_PRECISION_SUBROUTINES.agc:14
 //# images of a hardcopy from the MIT Museum.  The digitization was performed
 // SINGLE_PRECISION_SUBROUTINES.agc:15
-//# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+//# by Fjeld Kerman, and arranged for by Douglas Kerman of the Museum.  Many
 // SINGLE_PRECISION_SUBROUTINES.agc:16
 //# thanks to both.  The images (with suitable reduction in storage size and
 // SINGLE_PRECISION_SUBROUTINES.agc:17
@@ -44,7 +44,7 @@ function agcAotUnit183 {
 // SINGLE_PRECISION_SUBROUTINES.agc:19
 //# illegible, contact me at info@sandroid.org about getting access to the
 // SINGLE_PRECISION_SUBROUTINES.agc:20
-//# (much) higher-quality images which Paul actually created.
+//# (much) higher-quality images which Fjeld Kerman actually created.
 // SINGLE_PRECISION_SUBROUTINES.agc:21
 //#
 // SINGLE_PRECISION_SUBROUTINES.agc:22

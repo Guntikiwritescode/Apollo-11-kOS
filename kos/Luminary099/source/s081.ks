@@ -13,19 +13,19 @@ function agcAotUnit1042 {
 // T6-RUPT_PROGRAMS.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // T6-RUPT_PROGRAMS.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // T6-RUPT_PROGRAMS.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // T6-RUPT_PROGRAMS.agc:6
 //# Assembler:	yaYUL
 // T6-RUPT_PROGRAMS.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // T6-RUPT_PROGRAMS.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // T6-RUPT_PROGRAMS.agc:9
 //# Pages:	1403-1405
 // T6-RUPT_PROGRAMS.agc:10
-//# Mod history:  2009-05-10 SN   (Sergio Navarro).  Started adapting
+//# Mod history:  2009-05-10 SN   (Navarro Kerman).  Started adapting
 // T6-RUPT_PROGRAMS.agc:11
 //#				from the Luminary131/ file of the same
 // T6-RUPT_PROGRAMS.agc:12
@@ -37,7 +37,7 @@ function agcAotUnit1042 {
 // T6-RUPT_PROGRAMS.agc:15
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // T6-RUPT_PROGRAMS.agc:16
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // T6-RUPT_PROGRAMS.agc:17
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // T6-RUPT_PROGRAMS.agc:18
@@ -47,7 +47,7 @@ function agcAotUnit1042 {
 // T6-RUPT_PROGRAMS.agc:20
 //# find that the images are illegible, contact me at info@sandroid.org
 // T6-RUPT_PROGRAMS.agc:21
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // T6-RUPT_PROGRAMS.agc:22
 //# actually created.
 // T6-RUPT_PROGRAMS.agc:23
@@ -69,7 +69,7 @@ function agcAotUnit1042 {
 // T6-RUPT_PROGRAMS.agc:31
 //#			(2) DOT6RUPT
 // T6-RUPT_PROGRAMS.agc:32
-//# MODIFICATION BY:	LOWELL G. HULL (A.C.ELECTRONICS)
+//# MODIFICATION BY:	HULL KERMAN (A.C.ELECTRONICS)
 // T6-RUPT_PROGRAMS.agc:33
 //#
 // T6-RUPT_PROGRAMS.agc:34

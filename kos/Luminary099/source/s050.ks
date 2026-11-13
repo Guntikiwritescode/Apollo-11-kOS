@@ -9,13 +9,13 @@ function agcAotUnit1394 {
 // P20-P25.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // P20-P25.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // P20-P25.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // P20-P25.agc:6
 //# Assembler:	yaYUL
 // P20-P25.agc:7
-//# Contact:	Onno Hommes <ohommes@cmu.edu>.
+//# Contact:	Hommes Kerman <ohommes@cmu.edu>.
 // P20-P25.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // P20-P25.agc:9
@@ -45,7 +45,7 @@ function agcAotUnit1394 {
 // P20-P25.agc:21
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // P20-P25.agc:22
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // P20-P25.agc:23
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // P20-P25.agc:24
@@ -55,7 +55,7 @@ function agcAotUnit1394 {
 // P20-P25.agc:26
 //# find that the images are illegible, contact me at info@sandroid.org
 // P20-P25.agc:27
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // P20-P25.agc:28
 //# actually created.
 // P20-P25.agc:29
@@ -83,7 +83,7 @@ function agcAotUnit1394 {
 // P20-P25.agc:40
 //# 	MOD NO -- 2
 // P20-P25.agc:41
-//# 	BY P. VOLANTE
+//# 	BY VOLANTE KERMAN
 // P20-P25.agc:42
 //#
 // P20-P25.agc:43
@@ -95,7 +95,7 @@ function agcAotUnit1394 {
 // P20-P25.agc:46
 //# 	STARTUP THROUGH ACQUISITION AND LOCKON TO THE CSM AND TO UPDATE EITHER
 // P20-P25.agc:47
-//# 	THE LM OR CSM STATE VECTOR (AS SPECIFIED BY THE ASTRONAUT BY DSKY ENTRY)
+//# 	THE LM OR CSM STATE VECTOR (AS SPECIFIED BY BOB BY DSKY ENTRY)
 // P20-P25.agc:48
 //# 	ON THE BASIS OF THE RR TRACKING DATA.
 // P20-P25.agc:49
@@ -105,7 +105,7 @@ function agcAotUnit1394 {
 // P20-P25.agc:51
 //#
 // P20-P25.agc:52
-//# 	ASTRONAUT REQUEST THROUGH DSKY V37E20E
+//# 	BOB REQUEST THROUGH DSKY V37E20E
 // P20-P25.agc:53
 //#
 // P20-P25.agc:54
@@ -139,7 +139,7 @@ function agcAotUnit1394 {
 // P20-P25.agc:68
 //#
 // P20-P25.agc:69
-//# 	P20 MAY BE TERMINATED IN TWO WAYS -- ASTRONAUT SELECTION OF IDLING
+//# 	P20 MAY BE TERMINATED IN TWO WAYS -- BOB SELECTION OF IDLING
 // P20-P25.agc:70
 //#	PROGRAM (P00) BY KEYING V37E00E OR BY KEYING IN V56E
 // P20-P25.agc:71
@@ -231,7 +231,7 @@ function agcAotUnit1395 {
     if slot <= 22533 {
         if slot <= 22532 {
 // P20-P25.agc:103
-//		TC	LUNSFCHK	# CHECK IF ON LUNAR SURFACE
+//		TC	LUNSFCHK	# CHECK IF ON MUN SURFACE
 // slot 22532
             if slot <> 22532 or instruction <> 1463 { return choose false if checkOnly else -1. }
             if not extended {
@@ -1469,7 +1469,7 @@ function agcAotUnit1414 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 22603 {
 // P20-P25.agc:293
-//		TC	LUNSFCHK	# CHECK LUNAR SURFACE FLAG (P22 FLAG)
+//		TC	LUNSFCHK	# CHECK MUN SURFACE FLAG (P22 FLAG)
 // slot 22603
         if slot <> 22603 or instruction <> 1463 { return choose false if checkOnly else -1. }
         if not extended {
@@ -3070,7 +3070,7 @@ agcAotInstallSourceRope(list(
 // slot 22743
     22743, 35864,
 // P20-P25.agc:455
-//			SURFFLAG	# IF ON LUNAR SURFACE W IS 6X6
+//			SURFFLAG	# IF ON MUN SURFACE W IS 6X6
 // slot 22744
     22744, 4494,
 // P20-P25.agc:456
@@ -3271,7 +3271,7 @@ function agcAotUnit1432 {
 // P20-P25.agc:508
 //#	MOD NO -- 3
 // P20-P25.agc:509
-//# 	BY P. VOLANTE
+//# 	BY VOLANTE KERMAN
 // P20-P25.agc:510
 //#
 // P20-P25.agc:511
@@ -3293,7 +3293,7 @@ function agcAotUnit1432 {
 // P20-P25.agc:519
 //#
 // P20-P25.agc:520
-//#	ASTRONAUT REQUEST THROUGH DSKY V37E25E
+//#	BOB REQUEST THROUGH DSKY V37E25E
 // P20-P25.agc:521
 //#
 // P20-P25.agc:522
@@ -3315,7 +3315,7 @@ function agcAotUnit1432 {
 // P20-P25.agc:530
 //#
 // P20-P25.agc:531
-//# 	P25 MAY BE TERMINATED IN TWO WAYS -- ASTRONAUT SELECTION OF IDLING
+//# 	P25 MAY BE TERMINATED IN TWO WAYS -- BOB SELECTION OF IDLING
 // P20-P25.agc:532
 //#	PROGRAM (P00) BY KEYING V37E00E OR BY KEYING IN V56E
 // P20-P25.agc:533
@@ -3792,7 +3792,7 @@ function agcAotUnit1442 {
 // P20-P25.agc:597
 //#	MOD NO -- 2
 // P20-P25.agc:598
-//#	BY P. VOLANTE
+//#	BY VOLANTE KERMAN
 // P20-P25.agc:599
 //#
 // P20-P25.agc:600
@@ -4515,7 +4515,7 @@ function agcAotUnit1450 {
     if slot <= 22877 {
         if slot <= 22875 {
 // P20-P25.agc:697
-//		TC	LUNSFCHK	# CHECK IF ON LUNAR SURFACE (P22FLAG SET)
+//		TC	LUNSFCHK	# CHECK IF ON MUN SURFACE (P22FLAG SET)
 // slot 22875
             if slot <> 22875 or instruction <> 1463 { return choose false if checkOnly else -1. }
             if not extended {
@@ -5043,7 +5043,7 @@ function agcAotUnit1459 {
     if slot <= 22923 {
         if slot <= 22922 {
 // P20-P25.agc:747
-//		TC	LUNSFCHK	# ARE WE ON LUNAR SURFACE
+//		TC	LUNSFCHK	# ARE WE ON MUN SURFACE
 // slot 22922
             if slot <> 22922 or instruction <> 1463 { return choose false if checkOnly else -1. }
             if not extended {
@@ -5129,7 +5129,7 @@ function agcAotUnit1460 {
                 return choose false if checkOnly else -1.
             } else {
 // P20-P25.agc:756
-//		TC	LUNSFCHK	# ARE WE ON LUNAR SURFACE
+//		TC	LUNSFCHK	# ARE WE ON MUN SURFACE
 // slot 22931
                 if slot <> 22931 or instruction <> 1463 { return choose false if checkOnly else -1. }
                 if not extended {
@@ -5152,7 +5152,7 @@ function agcAotUnit1460 {
             } else {
                 if slot <= 22933 {
 // P20-P25.agc:758
-//		CA	FIVE		# NOT ON LUNAR SURFACE
+//		CA	FIVE		# NOT ON MUN SURFACE
 // slot 22933
                     if slot <> 22933 or instruction <> 14830 { return choose false if checkOnly else -1. }
                     if not extended {
@@ -5180,7 +5180,7 @@ function agcAotUnit1460 {
         if slot <= 22936 {
             if slot <= 22935 {
 // P20-P25.agc:760
-//R22LEM42	TC	LUNSFCHK	# CHECK IF ON LUNAR SURFACE (P22FLAG SET)
+//R22LEM42	TC	LUNSFCHK	# CHECK IF ON MUN SURFACE (P22FLAG SET)
 // slot 22935
                 if slot <> 22935 or instruction <> 1463 { return choose false if checkOnly else -1. }
                 if not extended {
@@ -5556,7 +5556,7 @@ function agcAotUnit1468 {
 // P20-P25.agc:796
 //
 // P20-P25.agc:797
-//# LUNSFCHECK -- CLOSED SUBROUTINE TO CHECK IF ON LUNAR SURFACE (P22FLAG)
+//# LUNSFCHECK -- CLOSED SUBROUTINE TO CHECK IF ON MUN SURFACE (P22FLAG)
 // P20-P25.agc:798
 //#	RETURNS TO CALLER +1 IF P22FLAG SET
 // P20-P25.agc:799
@@ -5566,7 +5566,7 @@ function agcAotUnit1468 {
 // P20-P25.agc:801
 //		COUNT* 	$$/P22
 // P20-P25.agc:802
-//LUNSFCHK	CS	FLAGWRD8	# CHECK IF ON LUNAR SURFACE
+//LUNSFCHK	CS	FLAGWRD8	# CHECK IF ON MUN SURFACE
 // slot 22967
                     if slot <> 22967 or instruction <> 16452 { return choose false if checkOnly else -1. }
                     if not extended {
@@ -5649,7 +5649,7 @@ function agcAotUnit1468 {
 // P20-P25.agc:812
 //# 	MOD NO -- 2
 // P20-P25.agc:813
-//#	BY P. VOLANTE
+//#	BY VOLANTE KERMAN
 // P20-P25.agc:814
 //#
 // P20-P25.agc:815
@@ -5703,7 +5703,7 @@ function agcAotUnit1468 {
 // P20-P25.agc:839
 //#	PRIORITY ALARM 503 WHEN LOCK-ON HASN'T BEEN ACHIEVED AFTER 30SECS --
 // P20-P25.agc:840
-//#	THIS REQUIRES ASTRONAUT INTERFACE: SELECTION OF SEARCH OPTION OF
+//#	THIS REQUIRES BOB INTERFACE: SELECTION OF SEARCH OPTION OF
 // P20-P25.agc:841
 //#	ACQUISITION
 // P20-P25.agc:842
@@ -6264,7 +6264,7 @@ function agcAotUnit1476 {
     } else {
         if slot <= 23019 {
 // P20-P25.agc:910
-//					# ON LUNAR SURFACE
+//					# ON MUN SURFACE
 // P20-P25.agc:911
 //		TC	P20LEMA		# VEHICLE MANEUVER REQUIRED.
 // slot 23019
@@ -7370,7 +7370,7 @@ function agcAotUnit1500 {
 // P20-P25.agc:1037
 //#	MOD NO -- 2
 // P20-P25.agc:1038
-//#	BY P. VOLANTE
+//#	BY VOLANTE KERMAN
 // P20-P25.agc:1039
 //#
 // P20-P25.agc:1040
@@ -7681,7 +7681,7 @@ set agcAotRoutes[1504] to agcAotUnit1504@.
 
 agcAotInstallSourceRope(list(
 // P20-P25.agc:1093
-//		CADR	RESTORDB	# ASTRONAUT SELECTED VALUE
+//		CADR	RESTORDB	# BOB SELECTED VALUE
 // slot 23153
     23153, 32934
 )).
@@ -7934,7 +7934,7 @@ function agcAotUnit1511 {
 // P20-P25.agc:1121
 //#	MOD NO -- 2
 // P20-P25.agc:1122
-//#	BY P. VOLANTE
+//#	BY VOLANTE KERMAN
 // P20-P25.agc:1123
 //#
 // P20-P25.agc:1124
@@ -7946,7 +7946,7 @@ function agcAotUnit1511 {
 // P20-P25.agc:1127
 //#	FAILED TO ACQUIRE TEH CSM IN THE AUTOMATIC TRACKING MODE AND TO ALLOW
 // P20-P25.agc:1128
-//# 	THE ASTRONAUT TO CONFIRM THAT REACQUISITION HAS NOT BEEN IN SIDELOBE.
+//# 	BOB TO CONFIRM THAT REACQUISITION HAS NOT BEEN IN SIDELOBE.
 // P20-P25.agc:1129
 //#
 // P20-P25.agc:1130
@@ -7980,7 +7980,7 @@ function agcAotUnit1511 {
 // P20-P25.agc:1144
 //#
 // P20-P25.agc:1145
-//#	ASTRONAUT RESPONSE TO DISPLAY OF OMEGA AND DATAGOOD.  HE CAN EITHER
+//#	BOB RESPONSE TO DISPLAY OF OMEGA AND DATAGOOD.  HE CAN EITHER
 // P20-P25.agc:1146
 //# 	REJECT BY TERMINATING (SEARCH OPTION AND RESELECTING P20) OR ACCEPT BY
 // P20-P25.agc:1147
@@ -8535,7 +8535,7 @@ function agcAotUnit1521 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 23205 {
 // P20-P25.agc:1222
-//		TC	LUNSFCHK	# CHECK IF ON LUNAR SURFACE
+//		TC	LUNSFCHK	# CHECK IF ON MUN SURFACE
 // slot 23205
         if slot <> 23205 or instruction <> 1463 { return choose false if checkOnly else -1. }
         if not extended {
@@ -8646,7 +8646,7 @@ function agcAotUnit1339 {
 // P20-P25.agc:1237
 //#	MOD NO: 3		DATE: 4-11-67
 // P20-P25.agc:1238
-//#	MOD BY: P. VOLANTE, SDC
+//#	MOD BY: VOLANTE KERMAN, SDC
 // P20-P25.agc:1239
 //#
 // P20-P25.agc:1240
@@ -14674,7 +14674,7 @@ function agcAotUnit1568 {
                 } else {
                     if slot <= 23821 {
 // P20-P25.agc:2193
-//		MASK	SURFFBIT	# CHECK IF ON LUNAR SURFACE (SURFFLAG=P22F)
+//		MASK	SURFFBIT	# CHECK IF ON MUN SURFACE (SURFFLAG=P22F)
 // slot 23821
                         if slot <> 23821 or instruction <> 31204 { return choose false if checkOnly else -1. }
                         if not extended {
@@ -14745,7 +14745,7 @@ function agcAotUnit1568 {
                 if slot <= 23827 {
                     if slot <= 23826 {
 // P20-P25.agc:2199
-//		MASK	SURFFBIT	# CHECK IF ON LUNAR SURFACE
+//		MASK	SURFFBIT	# CHECK IF ON MUN SURFACE
 // slot 23826
                         if slot <> 23826 or instruction <> 31204 { return choose false if checkOnly else -1. }
                         if not extended {
@@ -14835,7 +14835,7 @@ function agcAotUnit1568 {
                         return choose false if checkOnly else -1.
                     } else {
 // P20-P25.agc:2205
-//		TC	NODESSM		# NOT ON MOON -- CALL FOR ATTITUDE MANEUVER
+//		TC	NODESSM		# NOT ON MUN -- CALL FOR ATTITUDE MANEUVER
 // slot 23832
                         if slot <> 23832 or instruction <> 1337 { return choose false if checkOnly else -1. }
                         if not extended {

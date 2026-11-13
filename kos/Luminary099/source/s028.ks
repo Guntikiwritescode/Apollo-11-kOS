@@ -10,13 +10,13 @@ function agcAotUnit2262 {
 // IMU_PERFORMANCE_TESTS_4.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // IMU_PERFORMANCE_TESTS_4.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // IMU_PERFORMANCE_TESTS_4.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // IMU_PERFORMANCE_TESTS_4.agc:6
 //# Assembler:	yaYUL
 // IMU_PERFORMANCE_TESTS_4.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // IMU_PERFORMANCE_TESTS_4.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // IMU_PERFORMANCE_TESTS_4.agc:9
@@ -34,7 +34,7 @@ function agcAotUnit2262 {
 // IMU_PERFORMANCE_TESTS_4.agc:15
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // IMU_PERFORMANCE_TESTS_4.agc:16
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // IMU_PERFORMANCE_TESTS_4.agc:17
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // IMU_PERFORMANCE_TESTS_4.agc:18
@@ -44,7 +44,7 @@ function agcAotUnit2262 {
 // IMU_PERFORMANCE_TESTS_4.agc:20
 //# find that the images are illegible, contact me at info@sandroid.org
 // IMU_PERFORMANCE_TESTS_4.agc:21
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // IMU_PERFORMANCE_TESTS_4.agc:22
 //# actually created.
 // IMU_PERFORMANCE_TESTS_4.agc:23
@@ -66,7 +66,7 @@ function agcAotUnit2262 {
 // IMU_PERFORMANCE_TESTS_4.agc:31
 //# DATE --	NOV 15, 1966
 // IMU_PERFORMANCE_TESTS_4.agc:32
-//# BY --		GEORGE SCHMIDT IL7-146 EXT 1126
+//# BY --		SCHMIDT KERMAN IL7-146 EXT 1126
 // IMU_PERFORMANCE_TESTS_4.agc:33
 //# MOD NO-ZERO
 // IMU_PERFORMANCE_TESTS_4.agc:34

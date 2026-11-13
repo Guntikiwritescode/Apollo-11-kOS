@@ -12,13 +12,13 @@ function agcAotUnit190 {
 // WAITLIST.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // WAITLIST.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // WAITLIST.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // WAITLIST.agc:6
 //# Assembler:	yaYUL
 // WAITLIST.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // WAITLIST.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // WAITLIST.agc:9
@@ -40,7 +40,7 @@ function agcAotUnit190 {
 // WAITLIST.agc:17
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // WAITLIST.agc:18
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // WAITLIST.agc:19
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // WAITLIST.agc:20
@@ -50,7 +50,7 @@ function agcAotUnit190 {
 // WAITLIST.agc:22
 //# find that the images are illegible, contact me at info@sandroid.org
 // WAITLIST.agc:23
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // WAITLIST.agc:24
 //# actually created.
 // WAITLIST.agc:25
@@ -72,11 +72,11 @@ function agcAotUnit190 {
 // WAITLIST.agc:33
 //# MOD NO -- 2									LOG SECTION -- WAITLIST
 // WAITLIST.agc:34
-//# MOD BY -- MILLER	(DTMAX INCREASED TO 162.5 SEC)				ASSEMBLY -- SUNBURST REV 5
+//# MOD BY -- MILLER KERMAN	(DTMAX INCREASED TO 162.5 SEC)				ASSEMBLY -- SUNBURST REV 5
 // WAITLIST.agc:35
-//# MOD 3 BY KERNAN	(INHINT INSERTED AT WAITLIST) 2/28/68 SKIPPER REV 4
+//# MOD 3 BY KERNAN KERMAN	(INHINT INSERTED AT WAITLIST) 2/28/68 SKIPPER REV 4
 // WAITLIST.agc:36
-//# MOD 4 BY KERNAN	(TWIDDLE IN 54) 3/28/68 SKIPPER REV 13.
+//# MOD 4 BY KERNAN KERMAN	(TWIDDLE IN 54) 3/28/68 SKIPPER REV 13.
 // WAITLIST.agc:37
 //#
 // WAITLIST.agc:38
@@ -3210,9 +3210,9 @@ function agcAotUnit197 {
 // WAITLIST.agc:443
 //# PROGRAM DESCRIPTION				DATE -- 17 MARCH 1967
 // WAITLIST.agc:444
-//# PROGRAM WRITTEN BY W.H.VANDEVER		LOG SECTION WAITLIST
+//# PROGRAM WRITTEN BY VANDEVER KERMAN		LOG SECTION WAITLIST
 // WAITLIST.agc:445
-//# MOD BY -- R. MELANSON TO ADD DOCUMENTATION	ASSEMBLY SUNDISK REV. 100
+//# MOD BY -- MELANSON KERMAN TO ADD DOCUMENTATION	ASSEMBLY SUNDISK REV. 100
 // WAITLIST.agc:446
 //#
 // WAITLIST.agc:447

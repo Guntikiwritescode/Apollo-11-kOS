@@ -19,7 +19,7 @@ function agcAotUnit348 {
 // SERVICE_ROUTINES.agc:7
 //# Reference:    pp. 1485-1492
 // SERVICE_ROUTINES.agc:8
-//# Contact:      Ron Burkey <info@sandroid.org>
+//# Contact:      Burkey Kerman <info@sandroid.org>
 // SERVICE_ROUTINES.agc:9
 //# Website:      http://www.ibiblio.org/apollo.
 // SERVICE_ROUTINES.agc:10
@@ -1397,13 +1397,13 @@ function agcAotUnit225 {
 // SERVICE_ROUTINES.agc:202
 //#
 // SERVICE_ROUTINES.agc:203
-//# WRITTEN BY D. EYLES
+//# WRITTEN BY EYLES KERMAN
 // SERVICE_ROUTINES.agc:204
-//# MOD 1 BY KERNAN				UTILITYM REV 17 11/18/67
+//# MOD 1 BY KERNAN KERMAN				UTILITYM REV 17 11/18/67
 // SERVICE_ROUTINES.agc:205
 //#
 // SERVICE_ROUTINES.agc:206
-//# MOD 2 BY SCHULENBERG (REMOVE RELINT)	SKIPPER REV 4 2/28/68
+//# MOD 2 BY SCHULENBERG KERMAN (REMOVE RELINT)	SKIPPER REV 4 2/28/68
 // SERVICE_ROUTINES.agc:207
 //#
 // SERVICE_ROUTINES.agc:208

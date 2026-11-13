@@ -15,7 +15,7 @@ agcAotInstallSourceRope(list(
 // GIMBAL_LOCK_AVOIDANCE.agc:7
 //# Reference:	pp. 412-413
 // GIMBAL_LOCK_AVOIDANCE.agc:8
-//# Contact:	Onno Hommes <ohommes@cmu.edu>.
+//# Contact:	Hommes Kerman <ohommes@cmu.edu>.
 // GIMBAL_LOCK_AVOIDANCE.agc:9
 //# Website:	www.ibiblio.org/apollo.
 // GIMBAL_LOCK_AVOIDANCE.agc:10

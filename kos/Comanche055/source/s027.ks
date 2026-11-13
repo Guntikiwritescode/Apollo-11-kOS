@@ -18,7 +18,7 @@ function agcAotUnit246 {
 // INTERPRETER.agc:6
 //# Assembler:	yaYUL
 // INTERPRETER.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // INTERPRETER.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // INTERPRETER.agc:9
@@ -42,7 +42,7 @@ function agcAotUnit246 {
 // INTERPRETER.agc:18
 //# images of a hardcopy from the MIT Museum.  The digitization was performed
 // INTERPRETER.agc:19
-//# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+//# by Fjeld Kerman, and arranged for by Douglas Kerman of the Museum.  Many
 // INTERPRETER.agc:20
 //# thanks to both.  The images (with suitable reduction in storage size and
 // INTERPRETER.agc:21
@@ -52,7 +52,7 @@ function agcAotUnit246 {
 // INTERPRETER.agc:23
 //# illegible, contact me at info@sandroid.org about getting access to the
 // INTERPRETER.agc:24
-//# (much) higher-quality images which Paul actually created.
+//# (much) higher-quality images which Fjeld Kerman actually created.
 // INTERPRETER.agc:25
 //#
 // INTERPRETER.agc:26
@@ -20195,7 +20195,7 @@ function agcAotUnit16 {
                         if slot <= 2559 {
                             if slot <= 2558 {
 // INTERPRETER.agc:2174
-//		TCF	DVOVF		# NO HOPE
+//		TCF	DVOVF		# NO HOPE, NOT EVEN WITH MOAR BOOSTERS
 // slot 2558
                                 if slot <> 2558 or instruction <> 5381 { return choose false if checkOnly else -1. }
                                 if not extended {

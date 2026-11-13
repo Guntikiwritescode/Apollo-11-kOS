@@ -11,13 +11,13 @@ function agcAotUnit434 {
 // FRESH_START_AND_RESTART.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // FRESH_START_AND_RESTART.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // FRESH_START_AND_RESTART.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // FRESH_START_AND_RESTART.agc:6
 //# Assembler:	yaYUL
 // FRESH_START_AND_RESTART.agc:7
-//# Contact:	Hartmuth Gutsche <hgutsche@xplornet.com>.
+//# Contact:	Gutsche Kerman <hgutsche@xplornet.com>.
 // FRESH_START_AND_RESTART.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // FRESH_START_AND_RESTART.agc:9
@@ -37,7 +37,7 @@ function agcAotUnit434 {
 // FRESH_START_AND_RESTART.agc:16
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // FRESH_START_AND_RESTART.agc:17
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // FRESH_START_AND_RESTART.agc:18
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // FRESH_START_AND_RESTART.agc:19
@@ -47,7 +47,7 @@ function agcAotUnit434 {
 // FRESH_START_AND_RESTART.agc:21
 //# find that the images are illegible, contact me at info@sandroid.org
 // FRESH_START_AND_RESTART.agc:22
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // FRESH_START_AND_RESTART.agc:23
 //# actually created.
 // FRESH_START_AND_RESTART.agc:24
@@ -3666,7 +3666,7 @@ agcAotInstallSourceRope(list(
 // FRESH_START_AND_RESTART.agc:352
 //# Page 218
 // FRESH_START_AND_RESTART.agc:353
-//# DO NOT USE GOPROG2 OR ENEMA WITHOUT CONSULTING POOH PEOPLE.
+//# DO NOT USE GOPROG2 OR ENEMA WITHOUT CONSULTING POOH KERBALS.
 // FRESH_START_AND_RESTART.agc:354
 //
 // FRESH_START_AND_RESTART.agc:355
@@ -6939,7 +6939,7 @@ function agcAotUnit362 {
 // FRESH_START_AND_RESTART.agc:766
 //
 // FRESH_START_AND_RESTART.agc:767
-//V37BAD		TC	RELDSP			# RELEASES DISPLAY FROM ASTRONAUT
+//V37BAD		TC	RELDSP			# RELEASES DISPLAY FROM BOB
 // slot 6199
         if slot <> 6199 or instruction <> 2351 { return choose false if checkOnly else -1. }
         if not extended {
@@ -10166,7 +10166,7 @@ agcAotInstallSourceRope(list(
 // slot 13335
     13335, 1656,
 // FRESH_START_AND_RESTART.agc:1205
-//			SURFFLAG	# ALSO 6X6 W-MATRIX IF LM ON LUNAR
+//			SURFFLAG	# ALSO 6X6 W-MATRIX IF LM ON MUN
 // slot 13336
     13336, 4558,
 // FRESH_START_AND_RESTART.agc:1206

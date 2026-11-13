@@ -15,7 +15,7 @@ function agcAotUnit1884 {
 // P20-P25.agc:6
 //# Assembler:	yaYUL
 // P20-P25.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // P20-P25.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // P20-P25.agc:9
@@ -45,7 +45,7 @@ function agcAotUnit1884 {
 // P20-P25.agc:21
 //# images of a hardcopy from the MIT Museum.  The digitization was performed
 // P20-P25.agc:22
-//# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+//# by Fjeld Kerman, and arranged for by Douglas Kerman of the Museum.  Many
 // P20-P25.agc:23
 //# thanks to both.  The images (with suitable reduction in storage size and
 // P20-P25.agc:24
@@ -55,7 +55,7 @@ function agcAotUnit1884 {
 // P20-P25.agc:26
 //# illegible, contact me at info@sandroid.org about getting access to the
 // P20-P25.agc:27
-//# (much) higher-quality images which Paul actually created.
+//# (much) higher-quality images which Fjeld Kerman actually created.
 // P20-P25.agc:28
 //#
 // P20-P25.agc:29
@@ -87,7 +87,7 @@ function agcAotUnit1884 {
 // P20-P25.agc:42
 //# 	MOD NO -- 1
 // P20-P25.agc:43
-//# 	MOD BY -- N. BRODEUR
+//# 	MOD BY -- BRODEUR KERMAN
 // P20-P25.agc:44
 //#
 // P20-P25.agc:45
@@ -99,7 +99,7 @@ function agcAotUnit1884 {
 // P20-P25.agc:48
 //#	FIELD AND TO POINT THE CSM TRANSPONDER AT THE LEM.  TO UPDATE EITHER THE
 // P20-P25.agc:49
-//#	LEM OR CSM STATE VECTOR (AS SPECIFIED BY THE ASTRONAUT BY THE DSKY
+//#	LEM OR CSM STATE VECTOR (AS SPECIFIED BY VAL BY THE DSKY
 // P20-P25.agc:50
 //#	ENTRY) ON THE BASIS OF OPTICAL TRACKING DATA (REQUESTED BY DSKY)
 // P20-P25.agc:51
@@ -109,7 +109,7 @@ function agcAotUnit1884 {
 // P20-P25.agc:53
 //#
 // P20-P25.agc:54
-//# 	ASTRONAUT REQUEST THROUGH DSKY V37E20E
+//# 	VAL REQUEST THROUGH DSKY V37E20E
 // P20-P25.agc:55
 //#
 // P20-P25.agc:56
@@ -137,7 +137,7 @@ function agcAotUnit1884 {
 // P20-P25.agc:67
 //#
 // P20-P25.agc:68
-//# 	P20 MAY BE TERMINATED IN TWO WAYS -- ASTRONAUT SELECTION OF IDLING
+//# 	P20 MAY BE TERMINATED IN TWO WAYS -- VAL SELECTION OF IDLING
 // P20-P25.agc:69
 //#	PROGRAM (P00) BY KEYING V37E00E OR BY KEYING IN V56E
 // P20-P25.agc:70
@@ -1240,11 +1240,11 @@ agcAotInstallSourceRope(list(
 // slot 26660
     26660, 4550,
 // P20-P25.agc:227
-//			PROG22B		# EARTH
+//			PROG22B		# KERBIN
 // slot 26661
     26661, 49242,
 // P20-P25.agc:228
-//		SET			# MOON
+//		SET			# MUN
 // slot 26662
     26662, 65304,
 // P20-P25.agc:229
@@ -1274,7 +1274,7 @@ agcAotInstallSourceRope(list(
 // slot 26668
     26668, 49252,
 // P20-P25.agc:236
-//PROG22B		CLEAR	SET		# EARTH ORBIT
+//PROG22B		CLEAR	SET		# KERBIN ORBIT
 // slot 26669
     26669, 35864,
 // P20-P25.agc:237
@@ -1525,7 +1525,7 @@ agcAotInstallSourceRope(list(
 // P20-P25.agc:275
 //
 // P20-P25.agc:276
-//S22LSITE	RTB			# CONVERT RLS FROM MOON-FIXED TO BASIC REF
+//S22LSITE	RTB			# CONVERT RLS FROM MUN-FIXED TO BASIC REF
 // slot 26703
     26703, 65336,
 // P20-P25.agc:277
@@ -1545,7 +1545,7 @@ agcAotInstallSourceRope(list(
 // slot 26707
     26707, 12290,
 // P20-P25.agc:281
-//			HIDPHALF	# MPAC= ANY NON-ZERO FOR MOON
+//			HIDPHALF	# MPAC= ANY NON-ZERO FOR MUN
 // slot 26708
     26708, 13750,
 // P20-P25.agc:282
@@ -2668,11 +2668,11 @@ agcAotInstallSourceRope(list(
 // P20-P25.agc:406
 //# MOD NO:  1
 // P20-P25.agc:407
-//# MOD BY:  TOM KNATT
+//# MOD BY:  KNATT KERMAN
 // P20-P25.agc:408
 //#
 // P20-P25.agc:409
-//# FUNCTIONAL DESCRIPTION:  TO MEASURE THE EFFECT OF SOLAR RADIATION ON
+//# FUNCTIONAL DESCRIPTION:  TO MEASURE THE EFFECT OF KERBOL RADIATION ON
 // P20-P25.agc:410
 //#	THE SXT TRUNNON ANGLE AND STORE THE MEASURED TRUNNION BIAS FOR P23
 // P20-P25.agc:411
@@ -3347,7 +3347,7 @@ function agcAotUnit1906 {
 // P20-P25.agc:498
 //# MOD NO:  1
 // P20-P25.agc:499
-//# MOD BY:  N. BRODEUR
+//# MOD BY:  BRODEUR KERMAN
 // P20-P25.agc:500
 //#
 // P20-P25.agc:501
@@ -3357,7 +3357,7 @@ function agcAotUnit1906 {
 // P20-P25.agc:503
 //# TO PERFORM SIGHTING MARKS IN CONJUNCTION WITH THE RENDEZVOUS NAVIG-
 // P20-P25.agc:504
-//# ATION PROGRAM.  CALLED BY ASTRONAUT VIA EXTENDED VERB.
+//# ATION PROGRAM.  CALLED BY VAL VIA EXTENDED VERB.
 // P20-P25.agc:505
 //#
 // P20-P25.agc:506
@@ -3391,7 +3391,7 @@ function agcAotUnit1906 {
 // P20-P25.agc:520
 //# MARKRUPT USED BY SXTMARK HAS BEEN MODIFIED TO STORE MARK IN MRKBUF2
 // P20-P25.agc:521
-//# FOR USE BY R22.  WHEN ASTRONAUT IS FINISHED TAKING MARKS, HE HITS AN
+//# FOR USE BY R22.  WHEN VAL IS FINISHED TAKING MARKS, SHE HITS AN
 // P20-P25.agc:522
 //# PROCEED, R21 IS TERMINATED THUS CAUSING THE FINAL MARK TO BE TRANSFRD
 // P20-P25.agc:523
@@ -4149,7 +4149,7 @@ function agcAotUnit1915 {
 // P20-P25.agc:612
 //#	MOD NO:  2
 // P20-P25.agc:613
-//#	MOD BY:  N. BRODEUR
+//#	MOD BY:  BRODEUR KERMAN
 // P20-P25.agc:614
 //#
 // P20-P25.agc:615
@@ -5075,7 +5075,7 @@ function agcAotUnit1776 {
 // P20-P25.agc:830
 //#
 // P20-P25.agc:831
-//# ASSUMPTIONS	(1) THIS ROUTINE IS MANUALLY SELECTED BY THE ASTRONAUT BY V55E WHENEVER RENDEZVOUS SIGHTING MARKS
+//# ASSUMPTIONS	(1) THIS ROUTINE IS MANUALLY SELECTED BY VAL BY V55E WHENEVER RENDEZVOUS SIGHTING MARKS
 // P20-P25.agc:832
 //#		ARE DESIRED.  ITS SELECTION, HOWEVER, IS LIMITED TO PERIODS WHEN THE CMC IS HOLDING FOR A V/N FLASHING
 // P20-P25.agc:833
@@ -5560,7 +5560,7 @@ agcAotInstallSourceRope(list(
 // slot 31199
     31199, 65320,
 // P20-P25.agc:914
-//			SHIFTNDX	# SET EARTH MOON SCALING INDEX
+//			SHIFTNDX	# SET KERBIN MUN SCALING INDEX
 // slot 31200
     31200, 47822,
 // P20-P25.agc:915
@@ -5588,7 +5588,7 @@ agcAotInstallSourceRope(list(
 // slot 31206
     31206, 35864,
 // P20-P25.agc:921
-//			ORBWFLAG	# CLEAR FOR ORBITAL AND CISLUNAR
+//			ORBWFLAG	# CLEAR FOR ORBITAL AND CISMUNAR
 // slot 31207
     31207, 1906,
 // P20-P25.agc:922
@@ -5814,7 +5814,7 @@ agcAotInstallSourceRope(list(
 // slot 31262
     31262, 76,
 // P20-P25.agc:978
-//			SHIFTNDX	# GET EARTH MOON SCALING INDEX
+//			SHIFTNDX	# GET KERBIN MUN SCALING INDEX
 // slot 31263
     31263, 47822,
 // P20-P25.agc:979
@@ -5947,7 +5947,7 @@ agcAotInstallSourceRope(list(
 // slot 31294
     31294, 58536,
 // P20-P25.agc:1011
-//			SHIFTNDX	# GET EARTH MOON SCALING INDEX
+//			SHIFTNDX	# GET KERBIN MUN SCALING INDEX
 // slot 31295
     31295, 47822,
 // P20-P25.agc:1012
@@ -6065,7 +6065,7 @@ agcAotInstallSourceRope(list(
 // slot 31323
     31323, 65320,
 // P20-P25.agc:1041
-//			SHIFTNDX	# GET EARTH MOON SCALING INDEX
+//			SHIFTNDX	# GET KERBIN MUN SCALING INDEX
 // slot 31324
     31324, 47822,
 // P20-P25.agc:1042
@@ -8185,7 +8185,7 @@ agcAotInstallSourceRope(list(
 // slot 25969
     25969, 4486,
 // P20-P25.agc:1330
-//			+1		# MOON ORB.
+//			+1		# MUN ORB.
 // slot 25970
     25970, 47846,
 // P20-P25.agc:1331
@@ -10303,7 +10303,7 @@ agcAotInstallSourceRope(list(
 // P20-P25.agc:1790
 //#	ORBWFLAG=0 FOR INVALID W MATRIX, =1 FOR VALID W MATRIX
 // P20-P25.agc:1791
-//#	ASTRONAUT ENTRY OF KNOWN,L,OFF
+//#	VAL ENTRY OF KNOWN,L,OFF
 // P20-P25.agc:1792
 //#	8NN= NUMBER OF MARKS, DECIMAL INTEGER B-14
 // P20-P25.agc:1793
@@ -10518,7 +10518,7 @@ agcAotInstallSourceRope(list(
 // slot 26854
     26854, 0,
 // P20-P25.agc:1847
-//			CMOONFLG	# =0 EARTH, =1 MOON
+//			CMOONFLG	# =0 KERBIN, =1 MUN
 // slot 26855
     26855, 4550,
 // P20-P25.agc:1848
@@ -10538,7 +10538,7 @@ agcAotInstallSourceRope(list(
 // slot 26859
     26859, 33200,
 // P20-P25.agc:1852
-//			S22EORM		# SET =0 EARTH, =-2 MOON FOR SHIFTING
+//			S22EORM		# SET =0 KERBIN, =-2 MUN FOR SHIFTING
 // slot 26860
     26860, 3958,
 // P20-P25.agc:1853
@@ -10854,7 +10854,7 @@ agcAotInstallSourceRope(list(
 // slot 26935
     26935, 1638,
 // P20-P25.agc:1934
-//S22C=I		CALL			# ERADM= R0 METERS B-29 BOTH EARTH/MOON
+//S22C=I		CALL			# ERADM= R0 METERS B-29 BOTH KERBIN/MUN
 // slot 26936
     26936, 65320,
 // P20-P25.agc:1935
@@ -10870,7 +10870,7 @@ agcAotInstallSourceRope(list(
 // slot 26939
     26939, 50558,
 // P20-P25.agc:1938
-//		BOFF	VSR2		# SCALE RL B-29 FOR BOTH EARTH/MOON
+//		BOFF	VSR2		# SCALE RL B-29 FOR BOTH KERBIN/MUN
 // slot 26940
     26940, 57880,
 // P20-P25.agc:1939
@@ -11808,7 +11808,7 @@ agcAotInstallSourceRope(list(
 // slot 27128
     27128, 38074,
 // P20-P25.agc:2130
-//			S22EORM		# 0=EARTH, NON-ZERO=MOON
+//			S22EORM		# 0=KERBIN, NON-ZERO=MUN
 // slot 27129
     27129, 3960,
 // P20-P25.agc:2131
@@ -11946,7 +11946,7 @@ agcAotInstallSourceRope(list(
 // slot 27162
     27162, 76,
 // P20-P25.agc:2165
-//			S22EORM		# DOUBLE EARTH OR MOON SHIFT, SAME REASON
+//			S22EORM		# DOUBLE KERBIN OR MUN SHIFT, SAME REASON
 // slot 27163
     27163, 3958,
 // P20-P25.agc:2166
@@ -11958,7 +11958,7 @@ agcAotInstallSourceRope(list(
 // slot 27165
     27165, 3958,
 // P20-P25.agc:2168
-//			0,1		# SCALE VARIANCE B-40 FOR BOTH EARTH, MOON
+//			0,1		# SCALE VARIANCE B-40 FOR BOTH KERBIN, MUN
 // slot 27166
     27166, 17154,
 // P20-P25.agc:2169
@@ -12372,7 +12372,7 @@ agcAotInstallSourceRope(list(
 // slot 27245
     27245, 50398,
 // P20-P25.agc:2250
-//		VSL2			# SCALE RL B-27 FOR MOON
+//		VSL2			# SCALE RL B-27 FOR MUN
 // slot 27246
     27246, 65492,
 // P20-P25.agc:2251
@@ -12502,7 +12502,7 @@ agcAotInstallSourceRope(list(
 // slot 27274
     27274, 50456,
 // P20-P25.agc:2279
-//		SR2			# SCALE MOON R0 B-29 FOR S22F2410 SUBR
+//		SR2			# SCALE MUN R0 B-29 FOR S22F2410 SUBR
 // slot 27275
     27275, 65412,
 // P20-P25.agc:2280
@@ -12564,7 +12564,7 @@ agcAotInstallSourceRope(list(
 // slot 27289
     27289, 1638,
 // P20-P25.agc:2295
-//		VSR2			# SCALE RL MOON B-29 FOR LAT-LONG
+//		VSR2			# SCALE RL MUN B-29 FOR LAT-LONG
 // slot 27290
     27290, 65476,
 // P20-P25.agc:2296
@@ -12711,11 +12711,11 @@ agcAotInstallSourceRope(list(
 // slot 27310
     27310, 38074,
 // P20-P25.agc:2316
-//			HIDPHALF	# ANY NON-ZERO FOR MOON
+//			HIDPHALF	# ANY NON-ZERO FOR MUN
 // slot 27311
     27311, 13750,
 // P20-P25.agc:2317
-//			R-TO-RP		# CONVERT RLS TO MOON-FIXED COORD
+//			R-TO-RP		# CONVERT RLS TO MUN-FIXED COORD
 // slot 27312
     27312, 46578,
 // P20-P25.agc:2318
@@ -12841,7 +12841,7 @@ agcAotInstallSourceRope(list(
 // slot 27328
     27328, 2,
 // P20-P25.agc:2335
-//			CSMPOS		# RC B-29 EARTH, B-27 MOON
+//			CSMPOS		# RC B-29 KERBIN, B-27 MUN
 // slot 27329
     27329, 1294,
 // P20-P25.agc:2336
@@ -12887,7 +12887,7 @@ agcAotInstallSourceRope(list(
 // slot 27339
     27339, 50586,
 // P20-P25.agc:2347
-//		SL2			# SCALE R0 B-27 FOR MOON
+//		SL2			# SCALE R0 B-27 FOR MUN
 // slot 27340
     27340, 65428,
 // P20-P25.agc:2348
@@ -12907,11 +12907,11 @@ agcAotInstallSourceRope(list(
 // slot 27344
     27344, 37356,
 // P20-P25.agc:2352
-//		DMP			# DMP RESULT B-28 MOON, B-30 EARTH
+//		DMP			# DMP RESULT B-28 MUN, B-30 KERBIN
 // slot 27345
     27345, 65290,
 // P20-P25.agc:2353
-//			36D		# VXSC RESULT B-29 MOON, B-31 EARTH
+//			36D		# VXSC RESULT B-29 MUN, B-31 KERBIN
 // slot 27346
     27346, 74,
 // P20-P25.agc:2354
@@ -12927,7 +12927,7 @@ agcAotInstallSourceRope(list(
 // slot 27349
     27349, 1338,
 // P20-P25.agc:2357
-//		VSL2	VAD		# SCALE B-27 MOON, B-29 EARTH AND ADD RC
+//		VSL2	VAD		# SCALE B-27 MUN, B-29 KERBIN AND ADD RC
 // slot 27350
     27350, 44500,
 // P20-P25.agc:2358
@@ -12939,7 +12939,7 @@ agcAotInstallSourceRope(list(
 // slot 27352
     27352, 1922,
 // P20-P25.agc:2360
-//		RVQ			# B-27 FOR EARTH OR B-29 FOR MOON
+//		RVQ			# B-27 FOR KERBIN OR B-29 FOR MUN
 // slot 27353
     27353, 65308,
 // P20-P25.agc:2361
@@ -12947,7 +12947,7 @@ agcAotInstallSourceRope(list(
 // slot 27354
     27354, 64976,
 // P20-P25.agc:2362
-//			S22EORM		# =0 FOR EARTH, -2 FOR MOON
+//			S22EORM		# =0 FOR KERBIN, -2 FOR MUN
 // slot 27355
     27355, 3958,
 // P20-P25.agc:2363
@@ -13131,7 +13131,7 @@ agcAotInstallSourceRope(list(
 // P20-P25.agc:2412
 //# SUBROUTINE TO MODIFY LANDALT AND STORE LANDALT TO LANDALT+5 IN LAT TO
 // P20-P25.agc:2413
-//# LAT+5 AFTER LMK DATA LOADED BY ASTRONAUT.
+//# LAT+5 AFTER LMK DATA LOADED BY VAL.
 // P20-P25.agc:2414
 //
 // P20-P25.agc:2415
@@ -14031,7 +14031,7 @@ agcAotInstallSourceRope(list(
 // P20-P25.agc:2662
 //# BE POINTED AT LM.  INITIAL CHOICE IS PREFERRED AXIS.  (R2=1).
 // P20-P25.agc:2663
-//# ASTRONAUT CAN CHANGE TO (+X) AXIS (R2 NOT= 1) BY V22 E 2 E.  CONTINUE
+//# VAL CAN CHANGE TO (+X) AXIS (R2 NOT= 1) BY V22 E 2 E.  CONTINUE
 // P20-P25.agc:2664
 //# AFTER KEYING IN PROCEED.
 // P20-P25.agc:2665
@@ -14150,7 +14150,7 @@ function agcAotUnit1798 {
     if slot <= 31694 {
         if slot <= 31692 {
 // P20-P25.agc:2709
-//		CAF	THREE		# ALLOW ASTRONAUT TO SELECT DESIRED
+//		CAF	THREE		# ALLOW VAL TO SELECT DESIRED
 // slot 31692
             if slot <> 31692 or instruction <> 15500 { return choose false if checkOnly else -1. }
             if not extended {
@@ -14588,21 +14588,21 @@ function agcAotUnit1591 {
 // P20-P25.agc:2755
 //# Page 619
 // P20-P25.agc:2756
-//# PROGRAM NAME:  P23 CISLUNAR MIDCOURSE NAVIGATION
+//# PROGRAM NAME:  P23 CISMUNAR MIDCOURSE NAVIGATION
 // P20-P25.agc:2757
 //# MOD NO:
 // P20-P25.agc:2758
-//# MOD BY:  TOM KNATT
+//# MOD BY:  KNATT KERMAN
 // P20-P25.agc:2759
 //#
 // P20-P25.agc:2760
 //# FUNCTIONAL DESCRIPTION:  DO MIDCOURSE NAVIGATION BY INCORPORATION OF
 // P20-P25.agc:2761
-//# STAR/EARTH AND STAR/MOON OPTICAL MEASUREMENTS.
+//# STAR/KERBIN AND STAR/MUN OPTICAL MEASUREMENTS.
 // P20-P25.agc:2762
 //#
 // P20-P25.agc:2763
-//# CALLING SEQUENCE:  ASTRONAUT OPERATED
+//# CALLING SEQUENCE:  VAL OPERATED
 // P20-P25.agc:2764
 //#
 // P20-P25.agc:2765
@@ -14634,7 +14634,7 @@ function agcAotUnit1591 {
 // P20-P25.agc:2778
 //# IF LANDMARK IS USED, NEAR OR FAR HORIzON IF HORIZON IS USED, AND
 // P20-P25.agc:2779
-//# BODY TO BE MARKED ON (EARTH OR MOON).  SEE GSOP CHAPT 4.
+//# BODY TO BE MARKED ON (KERBIN OR MUN).  SEE GSOP CHAPT 4.
 // P20-P25.agc:2780
 //#
 // P20-P25.agc:2781
@@ -17019,7 +17019,7 @@ agcAotInstallSourceRope(list(
 // slot 28223
     28223, 1386,
 // P20-P25.agc:3125
-//		BOF	SR2		# DISPLAY IS 2-27 IF IN LUNAR SPHERE.
+//		BOF	SR2		# DISPLAY IS 2-27 IF IN MUN SPHERE.
 // slot 28224
     28224, 49688,
 // P20-P25.agc:3126
@@ -18060,13 +18060,13 @@ agcAotInstallSourceRope(list(
 // P20-P25.agc:3353
 //
 // P20-P25.agc:3354
-//AEARTH		2DEC	6378166 B-29	# A AXIS OF EARTH (METERS B-29)
+//AEARTH		2DEC	6378166 B-29	# A AXIS OF KERBIN (METERS B-29)
 // slot 28448 28449
     28448, 388, 28449, 21174,
 // P20-P25.agc:3355
 //
 // P20-P25.agc:3356
-//RADMOON		2DEC	1738090 B-29	# RADIUS MOON IN METERS
+//RADMOON		2DEC	1738090 B-29	# RADIUS MUN IN METERS
 // slot 28450 28451
     28450, 106, 28451, 1386,
 // P20-P25.agc:3357

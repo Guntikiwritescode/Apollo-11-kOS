@@ -18,7 +18,7 @@ function agcAotUnit1003 {
 // TVCINITIALIZE.agc:6
 //# Assembler:	yaYUL
 // TVCINITIALIZE.agc:7
-//# Contact:	Jim Lawton <jim.lawton@gmail.com>.
+//# Contact:	Lawton Kerman <jim.lawton@gmail.com>.
 // TVCINITIALIZE.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // TVCINITIALIZE.agc:9
@@ -52,7 +52,7 @@ function agcAotUnit1003 {
 // TVCINITIALIZE.agc:23
 //# images of a hardcopy from the MIT Museum.  The digitization was performed
 // TVCINITIALIZE.agc:24
-//# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+//# by Fjeld Kerman, and arranged for by Douglas Kerman of the Museum.  Many
 // TVCINITIALIZE.agc:25
 //# thanks to both.  The images (with suitable reduction in storage size and
 // TVCINITIALIZE.agc:26
@@ -62,7 +62,7 @@ function agcAotUnit1003 {
 // TVCINITIALIZE.agc:28
 //# illegible, contact me at info@sandroid.org about getting access to the
 // TVCINITIALIZE.agc:29
-//# (much) higher-quality images which Paul actually created.
+//# (much) higher-quality images which Fjeld Kerman actually created.
 // TVCINITIALIZE.agc:30
 //#
 // TVCINITIALIZE.agc:31
@@ -88,7 +88,7 @@ function agcAotUnit1003 {
 // TVCINITIALIZE.agc:41
 //# LOG SECTION...TVCINITIALIZE			SUBROUTINE...DAPCSM
 // TVCINITIALIZE.agc:42
-//# MODIFIED BY SCHLUNDT				21 OCTOBER 1968
+//# MODIFIED BY SCHLUNDT KERMAN				21 OCTOBER 1968
 // TVCINITIALIZE.agc:43
 //# FUNCTIONAL DESCRIPTION
 // TVCINITIALIZE.agc:44

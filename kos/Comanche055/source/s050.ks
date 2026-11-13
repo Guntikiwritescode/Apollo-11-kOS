@@ -15,13 +15,13 @@ function agcAotUnit199 {
 // PHASE_TABLE_MAINTENANCE.agc:6
 //# Assembler:	yaYUL
 // PHASE_TABLE_MAINTENANCE.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // PHASE_TABLE_MAINTENANCE.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // PHASE_TABLE_MAINTENANCE.agc:9
 //# Pages:	1404-1413
 // PHASE_TABLE_MAINTENANCE.agc:10
-//# Mod history:  2009-05-10 SN   (Sergio Navarro).  Started adapting
+//# Mod history:  2009-05-10 SN   (Navarro Kerman).  Started adapting
 // PHASE_TABLE_MAINTENANCE.agc:11
 //#				from the Colossus249/ file of the same
 // PHASE_TABLE_MAINTENANCE.agc:12
@@ -33,7 +33,7 @@ function agcAotUnit199 {
 // PHASE_TABLE_MAINTENANCE.agc:15
 //# images of a hardcopy from the MIT Museum.  The digitization was performed
 // PHASE_TABLE_MAINTENANCE.agc:16
-//# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+//# by Fjeld Kerman, and arranged for by Douglas Kerman of the Museum.  Many
 // PHASE_TABLE_MAINTENANCE.agc:17
 //# thanks to both.  The images (with suitable reduction in storage size and
 // PHASE_TABLE_MAINTENANCE.agc:18
@@ -43,7 +43,7 @@ function agcAotUnit199 {
 // PHASE_TABLE_MAINTENANCE.agc:20
 //# illegible, contact me at info@sandroid.org about getting access to the
 // PHASE_TABLE_MAINTENANCE.agc:21
-//# (much) higher-quality images which Paul actually created.
+//# (much) higher-quality images which Fjeld Kerman actually created.
 // PHASE_TABLE_MAINTENANCE.agc:22
 //#
 // PHASE_TABLE_MAINTENANCE.agc:23

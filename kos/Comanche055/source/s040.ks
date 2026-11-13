@@ -19,7 +19,7 @@ function agcAotUnit1742 {
 // P11.agc:6
 //# Assembler:    yaYUL
 // P11.agc:7
-//# Contact:      Hartmuth Gutsche <hgutsche@xplornet.com>.
+//# Contact:      Gutsche Kerman <hgutsche@xplornet.com>.
 // P11.agc:8
 //# Website:      www.ibiblio.org/apollo.
 // P11.agc:9
@@ -47,7 +47,7 @@ function agcAotUnit1742 {
 // P11.agc:20
 //# images of a hardcopy from the MIT Museum.  The digitization was performed
 // P11.agc:21
-//# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+//# by Fjeld Kerman, and arranged for by Douglas Kerman of the Museum.  Many
 // P11.agc:22
 //# thanks to both.  The images (with suitable reduction in storage size and
 // P11.agc:23
@@ -57,7 +57,7 @@ function agcAotUnit1742 {
 // P11.agc:25
 //# illegible, contact me at info@sandroid.org about getting access to the
 // P11.agc:26
-//# (much) higher-quality images which Paul actually created.
+//# (much) higher-quality images which Fjeld Kerman actually created.
 // P11.agc:27
 //#
 // P11.agc:28
@@ -77,7 +77,7 @@ function agcAotUnit1742 {
 // P11.agc:35
 //# Page 533
 // P11.agc:36
-//# EARTH ORBIT INSERTION MONITOR PROGRAM
+//# KERBIN ORBIT INSERTION MONITOR PROGRAM
 // P11.agc:37
 //# *************************************
 // P11.agc:38
@@ -89,7 +89,7 @@ function agcAotUnit1742 {
 // P11.agc:41
 //#	MOD NO. 1
 // P11.agc:42
-//#	MOD BY ELIASSEN
+//#	MOD BY ELIASSEN KERMAN
 // P11.agc:43
 //
 // P11.agc:44
@@ -175,7 +175,7 @@ function agcAotUnit1742 {
 // P11.agc:84
 //#		       DESIRED ATTITUDE IS SPECIFIED BY CMC PITCH AND ROLL
 // P11.agc:85
-//#		       POLYNOMIALS DURING SATURN ROLLOUT AND PITCHOVER
+//#		       POLYNOMIALS DURING ACAPELLO ROLLOUT AND PITCHOVER
 // P11.agc:86
 //# Page 534
 // P11.agc:87
@@ -201,7 +201,7 @@ function agcAotUnit1742 {
 // P11.agc:97
 //
 // P11.agc:98
-//# ASTRONAUT REQUESTS (IF ALTITUDE ABOVE 300,000 FT)
+//# VAL REQUESTS (IF ALTITUDE ABOVE 300,000 FT)
 // P11.agc:99
 //#
 // P11.agc:100
@@ -223,7 +223,7 @@ function agcAotUnit1742 {
 // P11.agc:108
 //
 // P11.agc:109
-//#	IF ASTRONAUT HAS REQUESTED ANY OF THESE DISPLAYS HE MUST
+//#	IF VAL HAS REQUESTED ANY OF THESE DISPLAYS SHE MUST
 // P11.agc:110
 //# HIT PROCEED TO RETURN TO NORMAL NOUN 62 DISPLAY.
 // P11.agc:111
@@ -231,7 +231,7 @@ function agcAotUnit1742 {
 // P11.agc:112
 //
 // P11.agc:113
-//#	ASTRONAUT	VERB 37 ENTER 00 ENTER
+//#	VAL	VERB 37 ENTER 00 ENTER
 // P11.agc:114
 //
 // P11.agc:115
@@ -1365,7 +1365,7 @@ agcAotInstallSourceRope(list(
 // slot 30813
     30813, 4046,
 // P11.agc:271
-//			0		# EARTH
+//			0		# KERBIN
 // slot 30814
     30814, 0,
 // P11.agc:272
@@ -2197,7 +2197,7 @@ agcAotInstallSourceRope(list(
 // slot 30914
     30914, 2642,
 // P11.agc:396
-//-ERTHRAT	2DEC*	-7.292115138 E-7 B18*	# - EARTH RATE AT 2(18)
+//-ERTHRAT	2DEC*	-7.292115138 E-7 B18*	# - KERBIN RATE AT 2(18)
 // slot 30915 30916
     30915, 59272, 30916, 34746,
 // P11.agc:397
@@ -2684,7 +2684,7 @@ function agcAotUnit1763 {
                     return choose false if checkOnly else -1.
                 } else {
 // P11.agc:502
-//		TC      ENDOFJOB	# SATURN STICK ON - KILL JOB
+//		TC      ENDOFJOB	# ACAPELLO STICK ON - KILL JOB
 // slot 30953
                     if slot <> 30953 or instruction <> 2703 { return choose false if checkOnly else -1. }
                     if not extended {
@@ -2713,7 +2713,7 @@ function agcAotUnit1763 {
             } else {
                 if slot <= 30955 {
 // P11.agc:504
-//		EXTEND                  # OF SATURN PANEL
+//		EXTEND                  # OF ACAPELLO PANEL
 // slot 30955
                     if slot <> 30955 or instruction <> 6 { return choose false if checkOnly else -1. }
                     if not extended {
@@ -4770,7 +4770,7 @@ function agcAotUnit1775 {
                 return choose false if checkOnly else -1.
             } else {
 // P11.agc:778
-//		TC      Q               # SATURN
+//		TC      Q               # ACAPELLO
 // slot 31127
                 if slot <> 31127 or instruction <> 2 { return choose false if checkOnly else -1. }
                 if not extended {
@@ -4791,7 +4791,7 @@ function agcAotUnit2310 {
         if slot <= 38542 {
             if slot <= 38541 {
 // P11.agc:779
-//# SATURN TAKEOVER FUNCTION
+//# ACAPELLO TAKEOVER FUNCTION
 // P11.agc:780
 //# ************************
 // P11.agc:781
@@ -4803,7 +4803,7 @@ function agcAotUnit2310 {
 // P11.agc:784
 //#	MOD NUMBER 1
 // P11.agc:785
-//#	MOD BY ELIASSEN
+//#	MOD BY ELIASSEN KERMAN
 // P11.agc:786
 //
 // P11.agc:787
@@ -4813,13 +4813,13 @@ function agcAotUnit2310 {
 // P11.agc:789
 //#	DURING THE COASTING PHASE OF SIVB ATTACHED, THE
 // P11.agc:790
-//#	ASTRONAUT MAY REQUEST SATURN TAKEOVER THROUGH
+//#	VAL MAY REQUEST ACAPELLO TAKEOVER THROUGH
 // P11.agc:791
 //#	EXTENDED VERB 46 (BITS 13,14 OF DAPDATR1 SET ).
 // P11.agc:792
 //#	THE CMC REGARDS RHC COMMANDS AS BODY-AXES RATE
 // P11.agc:793
-//#	COMMANDS AND IT TRANSMITS THESE TO SATURN AS DC
+//#	COMMANDS AND IT TRANSMITS THESE TO ACAPELLO AS DC
 // P11.agc:794
 //# Page 548
 // P11.agc:795
@@ -4865,7 +4865,7 @@ function agcAotUnit2310 {
 // P11.agc:815
 //
 // P11.agc:816
-//# ASTRONAUT REQUESTS
+//# VAL REQUESTS
 // P11.agc:817
 //
 // P11.agc:818
@@ -4889,7 +4889,7 @@ function agcAotUnit2310 {
 // P11.agc:827
 //
 // P11.agc:828
-//#		VERB 46 ENTER	(SEE ASTRONAUT ABOVE)
+//#		VERB 46 ENTER	(SEE VAL ABOVE)
 // P11.agc:829
 //
 // P11.agc:830
@@ -4905,7 +4905,7 @@ function agcAotUnit2310 {
 // P11.agc:835
 //
 // P11.agc:836
-//#	SATURN RATES IN CDUXCMD, CDUYCMD, CDUZCMD
+//#	ACAPELLO RATES IN CDUXCMD, CDUYCMD, CDUZCMD
 // P11.agc:837
 //
 // P11.agc:838
@@ -5350,7 +5350,7 @@ function agcAotUnit1250 {
                 } else {
                     if slot <= 22021 {
 // P11.agc:892
-//		TCF	RESUME		# END OF SATURN STICK INITIALIZATION
+//		TCF	RESUME		# END OF ACAPELLO STICK INITIALIZATION
 // slot 22021
                         if slot <> 22021 or instruction <> 6875 { return choose false if checkOnly else -1. }
                         if not extended {
@@ -5546,7 +5546,7 @@ function agcAotUnit1251 {
 // P11.agc:910
 //
 // P11.agc:911
-//		INDEX	RMANNDX		# SET SATURN RATES
+//		INDEX	RMANNDX		# SET ACAPELLO RATES
 // slot 22035
     if slot <> 22035 or instruction <> 21422 { return choose false if checkOnly else -1. }
     if not extended {
@@ -5661,7 +5661,7 @@ function agcAotUnit1254 {
 // P11.agc:920
 //
 // P11.agc:921
-//		TC	IBNKCALL	# FOR SATURN INTERFACE AND FDAI DISPLAY
+//		TC	IBNKCALL	# FOR ACAPELLO INTERFACE AND FDAI DISPLAY
 // slot 22044
         if slot <> 22044 or instruction <> 2528 { return choose false if checkOnly else -1. }
         if not extended {
@@ -5684,7 +5684,7 @@ agcAotInstallSourceRope(list(
 function agcAotUnit1255 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
 // P11.agc:923
-//		TCF	RESUME		# END OF SATURN STICK CONTROL
+//		TCF	RESUME		# END OF ACAPELLO STICK CONTROL
 // slot 22046
     if slot <> 22046 or instruction <> 6875 { return choose false if checkOnly else -1. }
     if not extended {

@@ -19,7 +19,7 @@ function agcAotUnit1106 {
 // TVCSTROKETEST.agc:6
 //# Assembler:	yaYUL
 // TVCSTROKETEST.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // TVCSTROKETEST.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // TVCSTROKETEST.agc:9
@@ -35,7 +35,7 @@ function agcAotUnit1106 {
 // TVCSTROKETEST.agc:14
 //# images of a hardcopy from the MIT Museum.  The digitization was performed
 // TVCSTROKETEST.agc:15
-//# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+//# by Fjeld Kerman, and arranged for by Douglas Kerman of the Museum.  Many
 // TVCSTROKETEST.agc:16
 //# thanks to both.  The images (with suitable reduction in storage size and
 // TVCSTROKETEST.agc:17
@@ -45,7 +45,7 @@ function agcAotUnit1106 {
 // TVCSTROKETEST.agc:19
 //# illegible, contact me at info@sandroid.org about getting access to the
 // TVCSTROKETEST.agc:20
-//# (much) higher-quality images which Paul actually created.
+//# (much) higher-quality images which Fjeld Kerman actually created.
 // TVCSTROKETEST.agc:21
 //#
 // TVCSTROKETEST.agc:22
@@ -71,7 +71,7 @@ function agcAotUnit1106 {
 // TVCSTROKETEST.agc:32
 //# LOG SECTION...TVCSTROKETEST			SUBROUTINE...DAPCSM
 // TVCSTROKETEST.agc:33
-//# MODIFIED BY SCHLUNDT				21 OCTOBER 1968
+//# MODIFIED BY SCHLUNDT KERMAN				21 OCTOBER 1968
 // TVCSTROKETEST.agc:34
 //#
 // TVCSTROKETEST.agc:35

@@ -9,13 +9,13 @@ function agcAotUnit2009 {
 // P30_P37.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // P30_P37.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // P30_P37.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // P30_P37.agc:6
 //# Assembler:	yaYUL
 // P30_P37.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // P30_P37.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // P30_P37.agc:9
@@ -37,7 +37,7 @@ function agcAotUnit2009 {
 // P30_P37.agc:17
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // P30_P37.agc:18
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // P30_P37.agc:19
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // P30_P37.agc:20
@@ -47,7 +47,7 @@ function agcAotUnit2009 {
 // P30_P37.agc:22
 //# find that the images are illegible, contact me at info@sandroid.org
 // P30_P37.agc:23
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // P30_P37.agc:24
 //# actually created.
 // P30_P37.agc:25
@@ -69,11 +69,11 @@ function agcAotUnit2009 {
 // P30_P37.agc:33
 //#
 // P30_P37.agc:34
-//# MOD.1 BY RAMA AIYAWAR
+//# MOD.1 BY AIYAWAR KERMAN
 // P30_P37.agc:35
 //# FUNCTIONAL DESCRIPTION
 // P30_P37.agc:36
-//#	ACCEPT ASTRONAUT INPUTS OF TIG.DELV(LV)
+//#	ACCEPT BOB INPUTS OF TIG.DELV(LV)
 // P30_P37.agc:37
 //#	CALL IMU STATUS CHECK ROUTINE (R02)
 // P30_P37.agc:38
@@ -357,7 +357,7 @@ agcAotInstallSourceRope(list(
 // P30_P37.agc:93
 //# MOD NO 1			LOG SECTION P30,P37
 // P30_P37.agc:94
-//# MOD BY RAMA AIYAWAR **
+//# MOD BY AIYAWAR KERMAN **
 // P30_P37.agc:95
 //# FUNCTIONAL DESCRIPTION
 // P30_P37.agc:96

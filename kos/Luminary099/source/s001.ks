@@ -11,13 +11,13 @@ function agcAotUnit1835 {
 // AGS_INITIALIZATION.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // AGS_INITIALIZATION.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // AGS_INITIALIZATION.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // AGS_INITIALIZATION.agc:6
 //# Assembler:	yaYUL
 // AGS_INITIALIZATION.agc:7
-//# Contact:	Hartmuth Gutsche <hgutsche@xplornet.com>.
+//# Contact:	Gutsche Kerman <hgutsche@xplornet.com>.
 // AGS_INITIALIZATION.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // AGS_INITIALIZATION.agc:9
@@ -31,7 +31,7 @@ function agcAotUnit1835 {
 // AGS_INITIALIZATION.agc:13
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // AGS_INITIALIZATION.agc:14
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // AGS_INITIALIZATION.agc:15
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // AGS_INITIALIZATION.agc:16
@@ -41,7 +41,7 @@ function agcAotUnit1835 {
 // AGS_INITIALIZATION.agc:18
 //# find that the images are illegible, contact me at info@sandroid.org
 // AGS_INITIALIZATION.agc:19
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // AGS_INITIALIZATION.agc:20
 //# actually created.
 // AGS_INITIALIZATION.agc:21
@@ -65,7 +65,7 @@ function agcAotUnit1835 {
 // AGS_INITIALIZATION.agc:30
 //#
 // AGS_INITIALIZATION.agc:31
-//# WRITTEN BY:  RHODE/KILROY/FOLLETT
+//# WRITTEN BY:  RHODE KERMAN/KILROY KERMAN/FOLLETT KERMAN
 // AGS_INITIALIZATION.agc:32
 //#
 // AGS_INITIALIZATION.agc:33
@@ -73,7 +73,7 @@ function agcAotUnit1835 {
 // AGS_INITIALIZATION.agc:34
 //# DATE:		23 MARCH 1967
 // AGS_INITIALIZATION.agc:35
-//# MOD BY:	KILROY
+//# MOD BY:	KILROY KERMAN
 // AGS_INITIALIZATION.agc:36
 //#
 // AGS_INITIALIZATION.agc:37
@@ -81,7 +81,7 @@ function agcAotUnit1835 {
 // AGS_INITIALIZATION.agc:38
 //# DATE:		28 OCTOBER 1967
 // AGS_INITIALIZATION.agc:39
-//# MOD BY:	FOLLETT
+//# MOD BY:	FOLLETT KERMAN
 // AGS_INITIALIZATION.agc:40
 //#
 // AGS_INITIALIZATION.agc:41
@@ -105,7 +105,7 @@ function agcAotUnit1835 {
 // AGS_INITIALIZATION.agc:50
 //#
 // AGS_INITIALIZATION.agc:51
-//# CALLING SEQ:	PROGRAM IS ENTERED WHEN ASTRONAUT KEYS V47E ON DSKY.
+//# CALLING SEQ:	PROGRAM IS ENTERED WHEN BOB KEYS V47E ON DSKY.
 // AGS_INITIALIZATION.agc:52
 //#		R47 MAY BE CALLED AT ANY TIME EXCEPT WHEN ANOTHER EXTENDED VERB IS IN PROGRESS
 // AGS_INITIALIZATION.agc:53

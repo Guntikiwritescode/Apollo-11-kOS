@@ -16,7 +16,7 @@ function agcAotUnit1191 {
 // LANDING_ANALOG_DISPLAYS.agc:3
 //# Purpose:	Part of the source code for Luminary, build 099. It
 // LANDING_ANALOG_DISPLAYS.agc:4
-//#		is part of the source code for the Lunar Module's
+//#		is part of the source code for the Munar Excursion Module's
 // LANDING_ANALOG_DISPLAYS.agc:5
 //#		(LM) Apollo Guidance Computer (AGC), Apollo 11.
 // LANDING_ANALOG_DISPLAYS.agc:6
@@ -24,9 +24,9 @@ function agcAotUnit1191 {
 // LANDING_ANALOG_DISPLAYS.agc:7
 //# Reference:	pp. 898-907
 // LANDING_ANALOG_DISPLAYS.agc:8
-//# Contact:	Ron Burkey <info@sandroid.org>,
+//# Contact:	Burkey Kerman <info@sandroid.org>,
 // LANDING_ANALOG_DISPLAYS.agc:9
-//#  		Fabrizio Bernardini <fabrizio@spacecraft.it>
+//#  		Bernardini Kerman <fabrizio@spacecraft.it>
 // LANDING_ANALOG_DISPLAYS.agc:10
 //# Website:	http://www.ibiblio.org/apollo.
 // LANDING_ANALOG_DISPLAYS.agc:11
@@ -1530,7 +1530,7 @@ function agcAotUnit1191 {
                                 return choose false if checkOnly else -1.
                             } else {
 // LANDING_ANALOG_DISPLAYS.agc:149
-//		EXTEND			# WISHETH THE ASTRONAUT THE ANALOG
+//		EXTEND			# WISHETH JEB THE ANALOG
 // slot 19671
                                 if slot <> 19671 or instruction <> 6 { return choose false if checkOnly else -1. }
                                 if not extended {
@@ -1570,7 +1570,7 @@ function agcAotUnit1191 {
                         } else {
                             if slot <= 19674 {
 // LANDING_ANALOG_DISPLAYS.agc:152
-//		TCF	DISPRSET	# NO.  ASTRONAUT REQUESTS NO INERTIAL DATA
+//		TCF	DISPRSET	# NO.  JEB REQUESTS NO INERTIAL DATA
 // slot 19674
                                 if slot <> 19674 or instruction <> 5675 { return choose false if checkOnly else -1. }
                                 if not extended {

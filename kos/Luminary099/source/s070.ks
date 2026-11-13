@@ -13,13 +13,13 @@ function agcAotUnit131 {
 // RESTARTS_ROUTINE.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // RESTARTS_ROUTINE.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // RESTARTS_ROUTINE.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // RESTARTS_ROUTINE.agc:6
 //# Assembler:	yaYUL
 // RESTARTS_ROUTINE.agc:7
-//# Contact:	Onno Hommes <ohommes@cmu.edu>.
+//# Contact:	Hommes Kerman <ohommes@cmu.edu>.
 // RESTARTS_ROUTINE.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // RESTARTS_ROUTINE.agc:9
@@ -33,7 +33,7 @@ function agcAotUnit131 {
 // RESTARTS_ROUTINE.agc:13
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // RESTARTS_ROUTINE.agc:14
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // RESTARTS_ROUTINE.agc:15
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // RESTARTS_ROUTINE.agc:16
@@ -43,7 +43,7 @@ function agcAotUnit131 {
 // RESTARTS_ROUTINE.agc:18
 //# find that the images are illegible, contact me at info@sandroid.org
 // RESTARTS_ROUTINE.agc:19
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // RESTARTS_ROUTINE.agc:20
 //# actually created.
 // RESTARTS_ROUTINE.agc:21

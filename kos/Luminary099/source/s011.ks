@@ -13,19 +13,19 @@ function agcAotUnit995 {
 // DAPIDLER_PROGRAM.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // DAPIDLER_PROGRAM.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // DAPIDLER_PROGRAM.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // DAPIDLER_PROGRAM.agc:6
 //# Assembler:	yaYUL
 // DAPIDLER_PROGRAM.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // DAPIDLER_PROGRAM.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // DAPIDLER_PROGRAM.agc:9
 //# Pages:	1410-1420
 // DAPIDLER_PROGRAM.agc:10
-//# Mod history:  2009-05-10 SN   (Sergio Navarro).  Started adapting
+//# Mod history:  2009-05-10 SN   (Navarro Kerman).  Started adapting
 // DAPIDLER_PROGRAM.agc:11
 //#				from the Luminary131/ file of the same
 // DAPIDLER_PROGRAM.agc:12
@@ -37,7 +37,7 @@ function agcAotUnit995 {
 // DAPIDLER_PROGRAM.agc:15
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // DAPIDLER_PROGRAM.agc:16
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // DAPIDLER_PROGRAM.agc:17
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // DAPIDLER_PROGRAM.agc:18
@@ -47,7 +47,7 @@ function agcAotUnit995 {
 // DAPIDLER_PROGRAM.agc:20
 //# find that the images are illegible, contact me at info@sandroid.org
 // DAPIDLER_PROGRAM.agc:21
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // DAPIDLER_PROGRAM.agc:22
 //# actually created.
 // DAPIDLER_PROGRAM.agc:23
@@ -67,7 +67,7 @@ function agcAotUnit995 {
 // DAPIDLER_PROGRAM.agc:30
 //# THE DAPIDLER PROGRAM IS STARTED BY FRESH START AND RESTART.		  THE DAPIDLER PROGRAM IS DONE 10 TIMES
 // DAPIDLER_PROGRAM.agc:31
-//# PER SECOND UNTIL THE ASTRONAUT DESIRES THE DAP TO WAKE UP, AND THE IMU AND CDUS ARE READY FOR USE BY THE DAP.
+//# PER SECOND UNTIL BOB DESIRES THE DAP TO WAKE UP, AND THE IMU AND CDUS ARE READY FOR USE BY THE DAP.
 // DAPIDLER_PROGRAM.agc:32
 //# THE NECESSARY INITIALIZATION OF THE DAP IS DONE BY THE DAPIDLER PROGRAM.
 // DAPIDLER_PROGRAM.agc:33
@@ -1897,11 +1897,11 @@ function agcAotUnit1121 {
 // DAPIDLER_PROGRAM.agc:217
 //#
 // DAPIDLER_PROGRAM.agc:218
-//# AUTHOR:  CRAIG WORK, DON KEENE, MIT IL
+//# AUTHOR:  WORK KERMAN, KEENE KERMAN, MIT IL
 // DAPIDLER_PROGRAM.agc:219
 //#
 // DAPIDLER_PROGRAM.agc:220
-//# MOD 3 BY DON KEENE AUG 1, 1968 MOVED PROGRAM TO BANK 20
+//# MOD 3 BY KEENE KERMAN AUG 1, 1968 MOVED PROGRAM TO BANK 20
 // DAPIDLER_PROGRAM.agc:221
 //#
 // DAPIDLER_PROGRAM.agc:222
@@ -2796,15 +2796,15 @@ function agcAotUnit1121 {
 // DAPIDLER_PROGRAM.agc:333
 //#
 // DAPIDLER_PROGRAM.agc:334
-//# PROGRAM DESCRIPTION:    D. KEENE   5/24/67
+//# PROGRAM DESCRIPTION:    KEENE KERMAN   5/24/67
 // DAPIDLER_PROGRAM.agc:335
 //#
 // DAPIDLER_PROGRAM.agc:336
-//# MOD 1 BY CRAIG WORK, 12 DEC 67
+//# MOD 1 BY WORK KERMAN, 12 DEC 67
 // DAPIDLER_PROGRAM.agc:337
 //#
 // DAPIDLER_PROGRAM.agc:338
-//# MOD 2 BY CRAIG WORK, 6 APRIL 68 CONVERTS ATTITUDE ERROR DISPLAY SCALING FROM 16 7/8 DEG. TO 42 3/16 DEGREES.
+//# MOD 2 BY WORK KERMAN, 6 APRIL 68 CONVERTS ATTITUDE ERROR DISPLAY SCALING FROM 16 7/8 DEG. TO 42 3/16 DEGREES.
 // DAPIDLER_PROGRAM.agc:339
 //#
 // DAPIDLER_PROGRAM.agc:340

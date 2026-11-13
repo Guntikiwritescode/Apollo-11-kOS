@@ -21,7 +21,7 @@ function agcAotUnit123 {
 // RESTARTS_ROUTINE.agc:7
 //# Reference:    pp. 1414-1419
 // RESTARTS_ROUTINE.agc:8
-//# Contact:      Ron Burkey <info@sandroid.org>
+//# Contact:      Burkey Kerman <info@sandroid.org>
 // RESTARTS_ROUTINE.agc:9
 //# Website:      http://www.ibiblio.org/apollo.
 // RESTARTS_ROUTINE.agc:10

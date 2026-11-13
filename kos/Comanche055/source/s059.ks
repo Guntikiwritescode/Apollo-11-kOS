@@ -18,7 +18,7 @@ function agcAotUnit1123 {
 // RCS-CSM_DIGITAL_AUTOPILOT.agc:6
 //# Assembler:	yaYUL
 // RCS-CSM_DIGITAL_AUTOPILOT.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // RCS-CSM_DIGITAL_AUTOPILOT.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // RCS-CSM_DIGITAL_AUTOPILOT.agc:9
@@ -34,7 +34,7 @@ function agcAotUnit1123 {
 // RCS-CSM_DIGITAL_AUTOPILOT.agc:14
 //# images of a hardcopy from the MIT Museum.  The digitization was performed
 // RCS-CSM_DIGITAL_AUTOPILOT.agc:15
-//# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+//# by Fjeld Kerman, and arranged for by Douglas Kerman of the Museum.  Many
 // RCS-CSM_DIGITAL_AUTOPILOT.agc:16
 //# thanks to both.  The images (with suitable reduction in storage size and
 // RCS-CSM_DIGITAL_AUTOPILOT.agc:17
@@ -44,7 +44,7 @@ function agcAotUnit1123 {
 // RCS-CSM_DIGITAL_AUTOPILOT.agc:19
 //# illegible, contact me at info@sandroid.org about getting access to the
 // RCS-CSM_DIGITAL_AUTOPILOT.agc:20
-//# (much) higher-quality images which Paul actually created.
+//# (much) higher-quality images which Fjeld Kerman actually created.
 // RCS-CSM_DIGITAL_AUTOPILOT.agc:21
 //#
 // RCS-CSM_DIGITAL_AUTOPILOT.agc:22
@@ -2508,7 +2508,7 @@ function agcAotUnit1143 {
 // RCS-CSM_DIGITAL_AUTOPILOT.agc:306
 //# 	NOTE THAT THIS FLAG MUST BE SET = - BY THE STEERING PROGRAM IF IT IS TO COMMAND THE AUTOPILOT.
 // RCS-CSM_DIGITAL_AUTOPILOT.agc:307
-//# SINCE ASTRONAUT ACTION MAY CHANGE THE HOLDFLAG SETTING, IT SHOULD BE MONITORED BY THE STEERING PROGRAM TO
+//# SINCE VAL ACTION MAY CHANGE THE HOLDFLAG SETTING, IT SHOULD BE MONITORED BY THE STEERING PROGRAM TO
 // RCS-CSM_DIGITAL_AUTOPILOT.agc:308
 //# DETERMINE IF THE AUTOMATIC SEQUENCE HAS BEEN INTERRUPTED AND IF SO, TAKE THE APPROPRIATE ACTION.
 // RCS-CSM_DIGITAL_AUTOPILOT.agc:309
@@ -2838,7 +2838,7 @@ function agcAotUnit1147 {
 // RCS-CSM_DIGITAL_AUTOPILOT.agc:346
 //
 // RCS-CSM_DIGITAL_AUTOPILOT.agc:347
-//#	MODE 3)	TOTAL ASTRONAUT ATTITUDE ERRORS		SELECTED BY V63E
+//#	MODE 3)	TOTAL VAL ATTITUDE ERRORS		SELECTED BY V63E
 // RCS-CSM_DIGITAL_AUTOPILOT.agc:348
 //#		WITH RESPECT TO THE CONTENTS OF N17
 // RCS-CSM_DIGITAL_AUTOPILOT.agc:349
@@ -2985,7 +2985,7 @@ function agcAotUnit1147 {
 // RCS-CSM_DIGITAL_AUTOPILOT.agc:379
 //
 // RCS-CSM_DIGITAL_AUTOPILOT.agc:380
-//# PROGRAM DESCRIPTION:	D. KEENE  5/24/67
+//# PROGRAM DESCRIPTION:	KEENE KERMAN  5/24/67
 // RCS-CSM_DIGITAL_AUTOPILOT.agc:381
 //
 // RCS-CSM_DIGITAL_AUTOPILOT.agc:382
@@ -5865,7 +5865,7 @@ function agcAotUnit1160 {
                                 return choose false if checkOnly else -1.
                             } else {
 // RCS-CSM_DIGITAL_AUTOPILOT.agc:733
-//		MASK	BIT14		# PROGRAMS (P20) THAT ASTRONAUT HAS
+//		MASK	BIT14		# PROGRAMS (P20) THAT VAL HAS
 // slot 19931
                                 if slot <> 19931 or instruction <> 31234 { return choose false if checkOnly else -1. }
                                 if not extended {
@@ -8172,7 +8172,7 @@ function agcAotUnit1175 {
 // RCS-CSM_DIGITAL_AUTOPILOT.agc:968
 //
 // RCS-CSM_DIGITAL_AUTOPILOT.agc:969
-//WRTN17		EXTEND			# GET SET TO COMPUTE TOTAL ASTRONAUT
+//WRTN17		EXTEND			# GET SET TO COMPUTE TOTAL VAL
 // slot 20131
                             if slot <> 20131 or instruction <> 6 { return choose false if checkOnly else -1. }
                             if not extended {

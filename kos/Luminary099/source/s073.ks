@@ -9,13 +9,13 @@ function agcAotUnit2531 {
 // S-BAND_ANTENNA_FOR_LM.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // S-BAND_ANTENNA_FOR_LM.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // S-BAND_ANTENNA_FOR_LM.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // S-BAND_ANTENNA_FOR_LM.agc:6
 //# Assembler:	yaYUL
 // S-BAND_ANTENNA_FOR_LM.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // S-BAND_ANTENNA_FOR_LM.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // S-BAND_ANTENNA_FOR_LM.agc:9
@@ -35,7 +35,7 @@ function agcAotUnit2531 {
 // S-BAND_ANTENNA_FOR_LM.agc:16
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // S-BAND_ANTENNA_FOR_LM.agc:17
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // S-BAND_ANTENNA_FOR_LM.agc:18
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // S-BAND_ANTENNA_FOR_LM.agc:19
@@ -45,7 +45,7 @@ function agcAotUnit2531 {
 // S-BAND_ANTENNA_FOR_LM.agc:21
 //# find that the images are illegible, contact me at info@sandroid.org
 // S-BAND_ANTENNA_FOR_LM.agc:22
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // S-BAND_ANTENNA_FOR_LM.agc:23
 //# actually created.
 // S-BAND_ANTENNA_FOR_LM.agc:24
@@ -67,7 +67,7 @@ function agcAotUnit2531 {
 // S-BAND_ANTENNA_FOR_LM.agc:32
 //#
 // S-BAND_ANTENNA_FOR_LM.agc:33
-//# MOD0 BY T. JAMES
+//# MOD0 BY JAMES KERMAN
 // S-BAND_ANTENNA_FOR_LM.agc:34
 //# MOD1 BY P. SHAKIR
 // S-BAND_ANTENNA_FOR_LM.agc:35
@@ -81,19 +81,19 @@ function agcAotUnit2531 {
 // S-BAND_ANTENNA_FOR_LM.agc:39
 //# YAW ANTENNA GIMBAL ANGLES REQUIRED TO POINT THE LM STEERABLE ANTENNA
 // S-BAND_ANTENNA_FOR_LM.agc:40
-//# TOWARD THE CENTER OF THE EARTH. THIS ROUTINE IS SELECTED BY THE ASTRO-
+//# TOWARD THE CENTER OF KERBIN. THIS ROUTINE IS SELECTED BY THE ASTRO-
 // S-BAND_ANTENNA_FOR_LM.agc:41
-//# NAUT VIA DSKY ENTRY DURING COASTING FLIGHT OR WHEN THE LM IS ON THE MOON
+//# NAUT VIA DSKY ENTRY DURING COASTING FLIGHT OR WHEN THE LM IS ON THE MUN
 // S-BAND_ANTENNA_FOR_LM.agc:42
-//# SURFACE. THE EARTH OR MOON REFERENCE COORDINATE SYSTEM IS USED DEPENDING
+//# SURFACE. KERBIN OR MUN REFERENCE COORDINATE SYSTEM IS USED DEPENDING
 // S-BAND_ANTENNA_FOR_LM.agc:43
-//# ON WHETHER THE LM IS ABOUT TO ENTER OR HAS ALREADY ENTERED THE MOON
+//# ON WHETHER THE LM IS ABOUT TO ENTER OR HAS ALREADY ENTERED THE MUN
 // S-BAND_ANTENNA_FOR_LM.agc:44
 //# SPHERE OF INFLUENCE, RESPECTIVELY
 // S-BAND_ANTENNA_FOR_LM.agc:45
 //#
 // S-BAND_ANTENNA_FOR_LM.agc:46
-//# TO CALL SUBROUTINE, ASTRONAUT KEYS IN V 64 E
+//# TO CALL SUBROUTINE, BOB KEYS IN V 64 E
 // S-BAND_ANTENNA_FOR_LM.agc:47
 //#
 // S-BAND_ANTENNA_FOR_LM.agc:48
@@ -216,7 +216,7 @@ agcAotInstallSourceRope(list(
 // slot 37774
     37774, 39098,
 // S-BAND_ANTENNA_FOR_LM.agc:87
-//			X2		# X2 =0 EARTH SPHERE, X2 =2 MOON SPHERE
+//			X2		# X2 =0 KERBIN SPHERE, X2 =2 MUN SPHERE
 // slot 37775
     37775, 80,
 // S-BAND_ANTENNA_FOR_LM.agc:88
@@ -244,7 +244,7 @@ agcAotInstallSourceRope(list(
 // slot 37781
     37781, 65320,
 // S-BAND_ANTENNA_FOR_LM.agc:94
-//			LUNPOS		# UNIT POSITION VECTOR FROM EARTH TO MOON
+//			LUNPOS		# UNIT POSITION VECTOR FROM KERBIN TO MUN
 // slot 37782
     37782, 28520,
 // S-BAND_ANTENNA_FOR_LM.agc:95
@@ -256,7 +256,7 @@ agcAotInstallSourceRope(list(
 // slot 37784
     37784, 2982,
 // S-BAND_ANTENNA_FOR_LM.agc:97
-//			REMDIST		# MEAN DISTANCE FROM EARTH TO MOON
+//			REMDIST		# MEAN DISTANCE FROM KERBIN TO MUN
 // slot 37785
     37785, 20482,
 // S-BAND_ANTENNA_FOR_LM.agc:98
@@ -280,11 +280,11 @@ agcAotInstallSourceRope(list(
 // slot 37790
     37790, 65530,
 // S-BAND_ANTENNA_FOR_LM.agc:103
-//			RATT		# UE = -UNIT(RATT)  EARTH SPHERE
+//			RATT		# UE = -UNIT(RATT)  KERBIN SPHERE
 // slot 37791
     37791, 2,
 // S-BAND_ANTENNA_FOR_LM.agc:104
-//CONV5		SETPD	UNIT		# UE = -UNIT((REM)(UEM) + RL)  MOON SPHERE
+//CONV5		SETPD	UNIT		# UE = -UNIT((REM)(UEM) + RL)  MUN SPHERE
 // slot 37792
     37792, 44546,
 // S-BAND_ANTENNA_FOR_LM.agc:105

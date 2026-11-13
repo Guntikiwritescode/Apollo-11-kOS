@@ -20,7 +20,7 @@ function agcAotUnit978 {
 // TVCROLLDAP.agc:6
 //# Assembler:	yaYUL
 // TVCROLLDAP.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // TVCROLLDAP.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // TVCROLLDAP.agc:9
@@ -36,7 +36,7 @@ function agcAotUnit978 {
 // TVCROLLDAP.agc:14
 //# images of a hardcopy from the MIT Museum.  The digitization was performed
 // TVCROLLDAP.agc:15
-//# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+//# by Fjeld Kerman, and arranged for by Douglas Kerman of the Museum.  Many
 // TVCROLLDAP.agc:16
 //# thanks to both.  The images (with suitable reduction in storage size and
 // TVCROLLDAP.agc:17
@@ -46,7 +46,7 @@ function agcAotUnit978 {
 // TVCROLLDAP.agc:19
 //# illegible, contact me at info@sandroid.org about getting access to the
 // TVCROLLDAP.agc:20
-//# (much) higher-quality images which Paul actually created.
+//# (much) higher-quality images which Fjeld Kerman actually created.
 // TVCROLLDAP.agc:21
 //#
 // TVCROLLDAP.agc:22
@@ -72,7 +72,7 @@ function agcAotUnit978 {
 // TVCROLLDAP.agc:32
 //# LOG SECTION...TVCROLLDAP			SUBROUTINE...DAPCSM
 // TVCROLLDAP.agc:33
-//# MOD BY SCHLUNDT				21 OCTOBER 1968
+//# MOD BY SCHLUNDT KERMAN				21 OCTOBER 1968
 // TVCROLLDAP.agc:34
 //
 // TVCROLLDAP.agc:35

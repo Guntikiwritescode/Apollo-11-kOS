@@ -13,7 +13,7 @@ agcAotInstallSourceRope(list(
 // MEASUREMENT_INCORPORATION.agc:6
 //# Assembler:	yaYUL
 // MEASUREMENT_INCORPORATION.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // MEASUREMENT_INCORPORATION.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // MEASUREMENT_INCORPORATION.agc:9
@@ -29,7 +29,7 @@ agcAotInstallSourceRope(list(
 // MEASUREMENT_INCORPORATION.agc:14
 //# images of a hardcopy from the MIT Museum.  The digitization was performed
 // MEASUREMENT_INCORPORATION.agc:15
-//# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+//# by Fjeld Kerman, and arranged for by Douglas Kerman of the Museum.  Many
 // MEASUREMENT_INCORPORATION.agc:16
 //# thanks to both.  The images (with suitable reduction in storage size and
 // MEASUREMENT_INCORPORATION.agc:17
@@ -39,7 +39,7 @@ agcAotInstallSourceRope(list(
 // MEASUREMENT_INCORPORATION.agc:19
 //# illegible, contact me at info@sandroid.org about getting access to the
 // MEASUREMENT_INCORPORATION.agc:20
-//# (much) higher-quality images which Paul actually created.
+//# (much) higher-quality images which Fjeld Kerman actually created.
 // MEASUREMENT_INCORPORATION.agc:21
 //#
 // MEASUREMENT_INCORPORATION.agc:22
@@ -1518,7 +1518,7 @@ agcAotInstallSourceRope(list(
 // slot 33728
     33728, 45050,
 // MEASUREMENT_INCORPORATION.agc:378
-//			DELTAX		# B27 IF MOON ORBIT, B29 IF EARTH
+//			DELTAX		# B27 IF MUN ORBIT, B29 IF KERBIN
 // slot 33729
     33729, 1374,
 // MEASUREMENT_INCORPORATION.agc:379
@@ -1542,7 +1542,7 @@ agcAotInstallSourceRope(list(
 // slot 33734
     33734, 22178,
 // MEASUREMENT_INCORPORATION.agc:384
-//			DELTAX +6	# B5 IF MOON ORBIT, B7 IF EARTH
+//			DELTAX +6	# B5 IF MUN ORBIT, B7 IF KERBIN
 // slot 33735
     33735, 1386,
 // MEASUREMENT_INCORPORATION.agc:385

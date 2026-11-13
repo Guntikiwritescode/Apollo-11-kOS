@@ -22,9 +22,9 @@ function agcAotUnit140 {
 // INTERRUPT_LEAD_INS.agc:7
 //# Reference:	pp. 131-132
 // INTERRUPT_LEAD_INS.agc:8
-//# Contact:	Ron Burkey <info@sandroid.org>,
+//# Contact:	Burkey Kerman <info@sandroid.org>,
 // INTERRUPT_LEAD_INS.agc:9
-//#  		Fabrizio Bernardini <fabrizio@spacecraft.it>
+//#  		Bernardini Kerman <fabrizio@spacecraft.it>
 // INTERRUPT_LEAD_INS.agc:10
 //# Website:	http://www.ibiblio.org/apollo.
 // INTERRUPT_LEAD_INS.agc:11

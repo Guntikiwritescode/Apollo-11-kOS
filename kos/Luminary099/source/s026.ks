@@ -12,13 +12,13 @@ function agcAotUnit517 {
 // IMU_COMPENSATION_PACKAGE.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // IMU_COMPENSATION_PACKAGE.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // IMU_COMPENSATION_PACKAGE.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // IMU_COMPENSATION_PACKAGE.agc:6
 //# Assembler:	yaYUL
 // IMU_COMPENSATION_PACKAGE.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // IMU_COMPENSATION_PACKAGE.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // IMU_COMPENSATION_PACKAGE.agc:9
@@ -38,7 +38,7 @@ function agcAotUnit517 {
 // IMU_COMPENSATION_PACKAGE.agc:16
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // IMU_COMPENSATION_PACKAGE.agc:17
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // IMU_COMPENSATION_PACKAGE.agc:18
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // IMU_COMPENSATION_PACKAGE.agc:19
@@ -48,7 +48,7 @@ function agcAotUnit517 {
 // IMU_COMPENSATION_PACKAGE.agc:21
 //# find that the images are illegible, contact me at info@sandroid.org
 // IMU_COMPENSATION_PACKAGE.agc:22
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // IMU_COMPENSATION_PACKAGE.agc:23
 //# actually created.
 // IMU_COMPENSATION_PACKAGE.agc:24

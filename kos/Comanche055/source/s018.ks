@@ -19,9 +19,9 @@ function agcAotUnit418 {
 // FRESH_START_AND_RESTART.agc:7
 //# Reference:	pp. 181-210
 // FRESH_START_AND_RESTART.agc:8
-//# Contact:	Ron Burkey <info@sandroid.org>,
+//# Contact:	Burkey Kerman <info@sandroid.org>,
 // FRESH_START_AND_RESTART.agc:9
-//#  		Fabrizio Bernardini <fabrizio@spacecraft.it>
+//#  		Bernardini Kerman <fabrizio@spacecraft.it>
 // FRESH_START_AND_RESTART.agc:10
 //# Website:	http://www.ibiblio.org/apollo.
 // FRESH_START_AND_RESTART.agc:11
@@ -241,7 +241,7 @@ function agcAotUnit418 {
 // FRESH_START_AND_RESTART.agc:118
 //#		ENEMA -	TC 	POSTJUMP	*** DO NOT CALL ENEMA WITHOUT ***
 // FRESH_START_AND_RESTART.agc:119
-//#			CADR 	ENEMA		*** CONSULTING POOH PEOPLE   ***
+//#			CADR 	ENEMA		*** CONSULTING POOH KERBALS  ***
 // FRESH_START_AND_RESTART.agc:120
 //
 // FRESH_START_AND_RESTART.agc:121
@@ -3872,7 +3872,7 @@ agcAotInstallSourceRope(list(
 // FRESH_START_AND_RESTART.agc:473
 //#
 // FRESH_START_AND_RESTART.agc:474
-//# DO NOT USE GOPROG2 OR ENEMA WITHOUT CONSULTING POOH PEOPLE
+//# DO NOT USE GOPROG2 OR ENEMA WITHOUT CONSULTING POOH KERBALS
 // FRESH_START_AND_RESTART.agc:475
 //#
 // FRESH_START_AND_RESTART.agc:476
@@ -6842,7 +6842,7 @@ function agcAotUnit365 {
 // FRESH_START_AND_RESTART.agc:873
 //
 // FRESH_START_AND_RESTART.agc:874
-//V37BAD		TC	RELDSP			# RELEASES DISPLAY FROM ASTRONAUT
+//V37BAD		TC	RELDSP			# RELEASES DISPLAY FROM VAL
 // slot 6203
         if slot <> 6203 or instruction <> 2363 { return choose false if checkOnly else -1. }
         if not extended {
@@ -10856,7 +10856,7 @@ agcAotInstallSourceRope(list(
 // FRESH_START_AND_RESTART.agc:1433
 //# THESE CONSTANTS ARE USED IN COMPUTING THE SETTING OF MIDFLAG.
 // FRESH_START_AND_RESTART.agc:1434
-//RMM		2DEC	2538.09 E3 B-27	# 800 KM ABOVE LUNAR SURFACE
+//RMM		2DEC	2538.09 E3 B-27	# 800 KM ABOVE MUN SURFACE
 // slot 6514 6515
     6514, 618, 6515, 27048,
 // FRESH_START_AND_RESTART.agc:1435

@@ -11,19 +11,19 @@ function agcAotUnit545 {
 // AOTMARK.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // AOTMARK.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // AOTMARK.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // AOTMARK.agc:6
 //# Assembler:	yaYUL
 // AOTMARK.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // AOTMARK.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // AOTMARK.agc:9
 //# Pages:	244-261
 // AOTMARK.agc:10
-//# Mod history:  2009-05-10 SN   (Sergio Navarro).  Started adapting
+//# Mod history:  2009-05-10 SN   (Navarro Kerman).  Started adapting
 // AOTMARK.agc:11
 //#				from the Luminary131/ file of the same
 // AOTMARK.agc:12
@@ -35,7 +35,7 @@ function agcAotUnit545 {
 // AOTMARK.agc:15
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // AOTMARK.agc:16
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // AOTMARK.agc:17
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // AOTMARK.agc:18
@@ -45,7 +45,7 @@ function agcAotUnit545 {
 // AOTMARK.agc:20
 //# find that the images are illegible, contact me at info@sandroid.org
 // AOTMARK.agc:21
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // AOTMARK.agc:22
 //# actually created.
 // AOTMARK.agc:23
@@ -1523,7 +1523,7 @@ agcAotInstallSourceRope(list(
 // AOTMARK.agc:197
 //# THE OANB SUBROUTINE COMPUTES THE OPTIC AXIS OF THE SIGHTING INSTRUMENT
 // AOTMARK.agc:198
-//# FROM AZIMUTH AND ELEVATION INPUT FROM THE ASTRONAUT.
+//# FROM AZIMUTH AND ELEVATION INPUT FROM BOB.
 // AOTMARK.agc:199
 //#
 // AOTMARK.agc:200
@@ -1683,7 +1683,7 @@ agcAotInstallSourceRope(list(
 // AOTMARK.agc:245
 //# Page 250
 // AOTMARK.agc:246
-//# SURFSTAR COMPUTES A STAR VECTOR IN SM COORDINATES FOR LUNAR
+//# SURFSTAR COMPUTES A STAR VECTOR IN SM COORDINATES FOR MUN
 // AOTMARK.agc:247
 //# SURFACE ALIGNMENT AND EXITS TO AVEIT TO AVERAGE STAR VECTORS.
 // AOTMARK.agc:248
@@ -4342,7 +4342,7 @@ function agcAotUnit575 {
 // AOTMARK.agc:563
 //# Page 258
 // AOTMARK.agc:564
-//# MARKTYPE TESTS TO SEE IF LEM ON LUNAR SURFACE.  IF IT IS RETURN TO LOC+1
+//# MARKTYPE TESTS TO SEE IF LEM ON MUN SURFACE.  IF IT IS RETURN TO LOC+1
 // AOTMARK.agc:565
 //
 // AOTMARK.agc:566

@@ -19,7 +19,7 @@ function agcAotUnit912 {
 // CM_ENTRY_DIGITAL_AUTOPILOT.agc:6
 //# Assembler:	yaYUL
 // CM_ENTRY_DIGITAL_AUTOPILOT.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // CM_ENTRY_DIGITAL_AUTOPILOT.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // CM_ENTRY_DIGITAL_AUTOPILOT.agc:9
@@ -41,7 +41,7 @@ function agcAotUnit912 {
 // CM_ENTRY_DIGITAL_AUTOPILOT.agc:17
 //# images of a hardcopy from the MIT Museum.  The digitization was performed
 // CM_ENTRY_DIGITAL_AUTOPILOT.agc:18
-//# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+//# by Fjeld Kerman, and arranged for by Douglas Kerman of the Museum.  Many
 // CM_ENTRY_DIGITAL_AUTOPILOT.agc:19
 //# thanks to both.  The images (with suitable reduction in storage size and
 // CM_ENTRY_DIGITAL_AUTOPILOT.agc:20
@@ -51,7 +51,7 @@ function agcAotUnit912 {
 // CM_ENTRY_DIGITAL_AUTOPILOT.agc:22
 //# illegible, contact me at info@sandroid.org about getting access to the
 // CM_ENTRY_DIGITAL_AUTOPILOT.agc:23
-//# (much) higher-quality images which Paul actually created.
+//# (much) higher-quality images which Fjeld Kerman actually created.
 // CM_ENTRY_DIGITAL_AUTOPILOT.agc:24
 //#
 // CM_ENTRY_DIGITAL_AUTOPILOT.agc:25

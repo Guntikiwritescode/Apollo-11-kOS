@@ -17,7 +17,7 @@ function agcAotUnit435 {
 // TVCMASSPROP.agc:6
 //# Assembler:	yaYUL
 // TVCMASSPROP.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // TVCMASSPROP.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // TVCMASSPROP.agc:9
@@ -33,7 +33,7 @@ function agcAotUnit435 {
 // TVCMASSPROP.agc:14
 //# images of a hardcopy from the MIT Museum.  The digitization was performed
 // TVCMASSPROP.agc:15
-//# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+//# by Fjeld Kerman, and arranged for by Douglas Kerman of the Museum.  Many
 // TVCMASSPROP.agc:16
 //# thanks to both.  The images (with suitable reduction in storage size and
 // TVCMASSPROP.agc:17
@@ -43,7 +43,7 @@ function agcAotUnit435 {
 // TVCMASSPROP.agc:19
 //# illegible, contact me at info@sandroid.org about getting access to the
 // TVCMASSPROP.agc:20
-//# (much) higher-quality images which Paul actually created.
+//# (much) higher-quality images which Fjeld Kerman actually created.
 // TVCMASSPROP.agc:21
 //#
 // TVCMASSPROP.agc:22
@@ -67,7 +67,7 @@ function agcAotUnit435 {
 // TVCMASSPROP.agc:31
 //# PROGRAM NAME....MASSPROP
 // TVCMASSPROP.agc:32
-//# LOG SECTION....TVCMASSPROP		PROGRAMMER...MELANSON (ENGEL, SCHLUNDT)
+//# LOG SECTION....TVCMASSPROP		PROGRAMMER...MELANSON (ENGEL KERMAN, SCHLUNDT KERMAN)
 // TVCMASSPROP.agc:33
 //#
 // TVCMASSPROP.agc:34

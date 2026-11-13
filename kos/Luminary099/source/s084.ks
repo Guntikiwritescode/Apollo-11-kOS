@@ -15,7 +15,7 @@ function agcAotUnit1761 {
 // THROTTLE_CONTROL_ROUTINES.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // THROTTLE_CONTROL_ROUTINES.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // THROTTLE_CONTROL_ROUTINES.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // THROTTLE_CONTROL_ROUTINES.agc:6
@@ -35,7 +35,7 @@ function agcAotUnit1761 {
 // THROTTLE_CONTROL_ROUTINES.agc:13
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // THROTTLE_CONTROL_ROUTINES.agc:14
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // THROTTLE_CONTROL_ROUTINES.agc:15
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // THROTTLE_CONTROL_ROUTINES.agc:16
@@ -45,7 +45,7 @@ function agcAotUnit1761 {
 // THROTTLE_CONTROL_ROUTINES.agc:18
 //# find that the images are illegible, contact me at info@sandroid.org
 // THROTTLE_CONTROL_ROUTINES.agc:19
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // THROTTLE_CONTROL_ROUTINES.agc:20
 //# actually created.
 // THROTTLE_CONTROL_ROUTINES.agc:21
@@ -380,7 +380,7 @@ function agcAotUnit1761 {
 // THROTTLE_CONTROL_ROUTINES.agc:63
 //# THIS LOGIC DETERMINES THE THROTTLING IN THE REGION 10% - 94%.  THE MANUAL THROTTLE, NOMINALLY SET AT
 // THROTTLE_CONTROL_ROUTINES.agc:64
-//# MINIMUM BY ASTRONAUT OR MISSION CONTROL PROGRAMS, PROVIDES THE LOWER BOUND.  A STOP IN THE THROTTLE HARDWARE
+//# MINIMUM BY JEB OR MISSION CONTROL PROGRAMS, PROVIDES THE LOWER BOUND.  A STOP IN THE THROTTLE HARDWARE
 // THROTTLE_CONTROL_ROUTINES.agc:65
 //# PROVIDES THE UPPER.
 // THROTTLE_CONTROL_ROUTINES.agc:66

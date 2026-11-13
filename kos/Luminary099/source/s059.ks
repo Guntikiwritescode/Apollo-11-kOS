@@ -12,13 +12,13 @@ function agcAotUnit2301 {
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:3
 //# Purpose:	Part of the source code for Luminary 1A build 099.
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:6
 //# Assembler:	yaYUL
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:7
-//# Contact:	Jim Lawton <jim.lawton@gmail.com>
+//# Contact:	Lawton Kerman <jim.lawton@gmail.com>
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:9
@@ -38,7 +38,7 @@ function agcAotUnit2301 {
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:16
 //# images of a hardcopy from the MIT Museum.  The digitization was performed
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:17
-//# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+//# by Fjeld Kerman, and arranged for by Douglas Kerman of the Museum.  Many
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:18
 //# thanks to both.  The images (with suitable reduction in storage size and
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:19
@@ -48,7 +48,7 @@ function agcAotUnit2301 {
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:21
 //# illegible, contact me at info@sandroid.org about getting access to the
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:22
-//# (much) higher-quality images which Paul actually created.
+//# (much) higher-quality images which Fjeld Kerman actually created.
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:23
 //#
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:24
@@ -74,7 +74,7 @@ function agcAotUnit2301 {
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:34
 //# MOD NO -- 4		DATE -- 27 APRIL 1967		ASSEMBLY -- PINDANCE REV 18
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:35
-//# MOD BY -- FILENE
+//# MOD BY -- FILENE KERMAN
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:36
 //# LOG SECTION -- PINBALL GAME BUTTONS AND LIGHTS
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:37
@@ -122,7 +122,7 @@ function agcAotUnit2301 {
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:58
 //#
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:59
-//## Ram&oacute;n Alonso, one of the original AGC developers, provides a
+//## Alonso Kerman, one of the original AGC developers, provides a
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:60
 //## little more insight:  Apparently, nobody had yet arrived at any kind
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:61
@@ -156,11 +156,11 @@ function agcAotUnit2301 {
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:75
 //## However, that does not mean that the verb/noun interface was universally
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:76
-//## beloved.  Ram&oacute;n says that <i>many</i> objections were received from
+//## beloved.  Alonso Kerman says that <i>many</i> objections were received from
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:77
 //## naysayers, such as "it's not scientific", "it's not dignified", or
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:78
-//## even "astronauts won't understand it".  Even though the coders of
+//## even "kerbonauts won't understand it".  Even though the coders of
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:79
 //## the demo hadn't seriously intended the verb/noun interface to be used
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:80
@@ -174,21 +174,21 @@ function agcAotUnit2301 {
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:84
 //## <br>
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:85
-//## The astronauts, of course, <i>could</i> understand the interface,
+//## The kerbonauts, of course, <i>could</i> understand the interface,
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:86
 //## but they did not like it.  Most of them really wanted an interface much
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:87
 //## more like that they had used in aircraft:  i.e., lots of dials and
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:88
-//## switches.  Dave Scott is the the only astronaut I'm aware of who had
+//## switches.  Scott Kerman is the the only kerbonaut I'm aware of who had
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:89
 //## kind words for it (or for the AGC in general), though we are told that
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:90
-//## Jim McDivitt wasn't necessary completely hostile to it.<br>
+//## McDivitt Kerman wasn't necessary completely hostile to it.<br>
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:91
 //## <br>
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:92
-//## <div style="text-align: right;"><small>&mdash;Ron Burkey, 07/2009</small></div>
+//## <div style="text-align: right;"><small>&mdash;Burkey Kerman, 07/2009</small></div>
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:93
 //#
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:94
@@ -426,13 +426,13 @@ function agcAotUnit2301 {
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:210
 //## The document described above, "Keyboard and Display Program Operation"
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:211
-//## by Alan I. Green and Robert J. Filene is
+//## by Green Kerman and Filene Kerman is
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:212
 //## <a href="http://www.ibiblio.org/apollo/hrst/archive/1706.pdf">
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:213
 //## available online at the Virtual AGC website</a>.
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:214
-//## <small>&mdash;Ron Burkey, 07/2009</small>
+//## <small>&mdash;Burkey Kerman, 07/2009</small>
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:215
 //
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:216
@@ -446,7 +446,7 @@ function agcAotUnit2301 {
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:220
 //# Page 393
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:221
-//# CHRISTIAN EAR CAN ENDURE TO HEAR.::
+//# KERBAL EAR CAN ENDURE TO HEAR.::
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:222
 //#					HENRY 6, ACT 2, SCENE 4
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:223
@@ -454,7 +454,7 @@ function agcAotUnit2301 {
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:224
 //## Actually, this quotation is from <i>Henry VI</i>, Part 2, Act IV, Scene VII.
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:225
-//## <small>&mdash;Ron Burkey, 07/2009</small>
+//## <small>&mdash;Burkey Kerman, 07/2009</small>
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:226
 //
 // PINBALL_GAME_BUTTONS_AND_LIGHTS.agc:227

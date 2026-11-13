@@ -17,7 +17,7 @@ function agcAotUnit406 {
 // P32-P33_P72-P73.agc:6
 //# Assembler:	yaYUL
 // P32-P33_P72-P73.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // P32-P33_P72-P73.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // P32-P33_P72-P73.agc:9
@@ -49,7 +49,7 @@ function agcAotUnit406 {
 // P32-P33_P72-P73.agc:22
 //# images of a hardcopy from the MIT Museum.  The digitization was performed
 // P32-P33_P72-P73.agc:23
-//# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+//# by Fjeld Kerman, and arranged for by Douglas Kerman of the Museum.  Many
 // P32-P33_P72-P73.agc:24
 //# thanks to both.  The images (with suitable reduction in storage size and
 // P32-P33_P72-P73.agc:25
@@ -59,7 +59,7 @@ function agcAotUnit406 {
 // P32-P33_P72-P73.agc:27
 //# illegible, contact me at info@sandroid.org about getting access to the
 // P32-P33_P72-P73.agc:28
-//# (much) higher-quality images which Paul actually created.
+//# (much) higher-quality images which Fjeld Kerman actually created.
 // P32-P33_P72-P73.agc:29
 //#
 // P32-P33_P72-P73.agc:30
@@ -87,7 +87,7 @@ function agcAotUnit406 {
 // P32-P33_P72-P73.agc:41
 //# MOD NO -1		LOG SECTION - P32-P35, P72-P75
 // P32-P33_P72-P73.agc:42
-//# MOD BY WHITE.P	DATE 1JUNE67
+//# MOD BY WHITE KERMAN	DATE 1JUNE67
 // P32-P33_P72-P73.agc:43
 //
 // P32-P33_P72-P73.agc:44
@@ -107,15 +107,15 @@ function agcAotUnit406 {
 // P32-P33_P72-P73.agc:51
 //#	 (2) TO CALCULATE THESE PARAMETERS BASED UPON MANEUVER DATA
 // P32-P33_P72-P73.agc:52
-//#	     APPROVED AND KEYED INTO THE DSKY BY THE ASTRONAUT.
+//#	     APPROVED AND KEYED INTO THE DSKY BY VAL.
 // P32-P33_P72-P73.agc:53
 //
 // P32-P33_P72-P73.agc:54
-//#	 (3) TO DISPLAY TO THE ASTRONAUT AND THE GROUND DEPENDENT VARIABLES
+//#	 (3) TO DISPLAY TO VAL AND THE GROUND DEPENDENT VARIABLES
 // P32-P33_P72-P73.agc:55
 //#	     ASSOCIATED WITH THE CONCENTRIC FLIGHT PLAN MANEUVERS FOR
 // P32-P33_P72-P73.agc:56
-//#	     APPROVAL BY THE ASTRONAUT/GROUND.
+//#	     APPROVAL BY VAL/GROUND.
 // P32-P33_P72-P73.agc:57
 //
 // P32-P33_P72-P73.agc:58
@@ -171,7 +171,7 @@ function agcAotUnit406 {
 // P32-P33_P72-P73.agc:83
 //#	 (6) THE PERICENTER ALTITUDE OF THE ORBIT FOLLOWING CSI AND CDH
 // P32-P33_P72-P73.agc:84
-//#	     MUST BE GREATER THAN 35,000 FT (LUNAR ORBIT) OR 85 NM (EARTH
+//#	     MUST BE GREATER THAN 35,000 FT (MUN ORBIT) OR 85 NM (KERBIN
 // P32-P33_P72-P73.agc:85
 //#	     ORBIT) FOR SUCCESSFUL COMPLETION OF THIS PROGRAM.
 // P32-P33_P72-P73.agc:86
@@ -265,7 +265,7 @@ function agcAotUnit406 {
 // P32-P33_P72-P73.agc:130
 //
 // P32-P33_P72-P73.agc:131
-//#	(14) THIS PROGRAM IS SELECTED BY THE ASTRONAUT BY DSKY ENTRY -
+//#	(14) THIS PROGRAM IS SELECTED BY VAL BY DSKY ENTRY -
 // P32-P33_P72-P73.agc:132
 //
 // P32-P33_P72-P73.agc:133
@@ -1108,7 +1108,7 @@ function agcAotUnit413 {
 // P32-P33_P72-P73.agc:319
 //# MOD NO -1		LOC SECTION - P32-P35, P72-P75
 // P32-P33_P72-P73.agc:320
-//# MOD BY WHITE.P	DATE 1JUNE67
+//# MOD BY WHITE KERMAN	DATE 1JUNE67
 // P32-P33_P72-P73.agc:321
 //# PURPOSE
 // P32-P33_P72-P73.agc:322
@@ -1122,15 +1122,15 @@ function agcAotUnit413 {
 // P32-P33_P72-P73.agc:326
 //#	 (2) TO CALCULATE THESE PARAMETERS BASED UPON MANEUVER DATA
 // P32-P33_P72-P73.agc:327
-//#	     APPROVED AND KEYED INTO THE DSKY BY THE ASTRONAUT.
+//#	     APPROVED AND KEYED INTO THE DSKY BY VAL.
 // P32-P33_P72-P73.agc:328
 //
 // P32-P33_P72-P73.agc:329
-//#	 (3) TO DISPLAY TO THE ASTRONAUT AND THE GROUND DEPENDENT VARIABLES
+//#	 (3) TO DISPLAY TO VAL AND THE GROUND DEPENDENT VARIABLES
 // P32-P33_P72-P73.agc:330
 //#	     ASSOCIATED WITH THE CDH MANEUVER FOR APPROVAL BY THE
 // P32-P33_P72-P73.agc:331
-//#	     ASTRONAUT/GROUND.
+//#	     VAL/GROUND.
 // P32-P33_P72-P73.agc:332
 //
 // P32-P33_P72-P73.agc:333
@@ -1192,9 +1192,9 @@ function agcAotUnit413 {
 // P32-P33_P72-P73.agc:361
 //#	     (F) THE PERICENTER ALTITUDES OF THE ORBITS FOLLOWING CSI AND
 // P32-P33_P72-P73.agc:362
-//#		 CDH WERE COMPUTED TO BE GREATER THAN 35,000 FT FOR LUNAR
+//#		 CDH WERE COMPUTED TO BE GREATER THAN 35,000 FT FOR MUN
 // P32-P33_P72-P73.agc:363
-//#		 ORBIT OR 85 NM FOR EARTH ORBIT.
+//#		 ORBIT OR 85 NM FOR KERBIN ORBIT.
 // P32-P33_P72-P73.agc:364
 //
 // P32-P33_P72-P73.agc:365
@@ -1286,7 +1286,7 @@ function agcAotUnit413 {
 // P32-P33_P72-P73.agc:408
 //
 // P32-P33_P72-P73.agc:409
-//#	 (8) THIS PROGRAM IS SELECTED BY THE ASTRONAUT BY DSKY ENTRY -
+//#	 (8) THIS PROGRAM IS SELECTED BY VAL BY DSKY ENTRY -
 // P32-P33_P72-P73.agc:410
 //
 // P32-P33_P72-P73.agc:411

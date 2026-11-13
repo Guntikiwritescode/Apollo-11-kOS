@@ -18,7 +18,7 @@ function agcAotUnit174 {
 // INTER-BANK_COMMUNICATION.agc:7
 //# Reference:    pp. 1103-1106
 // INTER-BANK_COMMUNICATION.agc:8
-//# Contact:      Ron Burkey <info@sandroid.org>
+//# Contact:      Burkey Kerman <info@sandroid.org>
 // INTER-BANK_COMMUNICATION.agc:9
 //# Website:      http://www.ibiblio.org/apollo.
 // INTER-BANK_COMMUNICATION.agc:10

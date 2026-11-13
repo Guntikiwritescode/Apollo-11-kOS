@@ -12,19 +12,19 @@ function agcAotUnit50 {
 // RESTART_TABLES.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // RESTART_TABLES.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // RESTART_TABLES.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // RESTART_TABLES.agc:6
 //# Assembler:	yaYUL
 // RESTART_TABLES.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // RESTART_TABLES.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // RESTART_TABLES.agc:9
 //# Pages:	238-243
 // RESTART_TABLES.agc:10
-//# Mod history:  2009-05-10 SN   (Sergio Navarro).  Started adapting
+//# Mod history:  2009-05-10 SN   (Navarro Kerman).  Started adapting
 // RESTART_TABLES.agc:11
 //#				from the Luminary131/ file of the same
 // RESTART_TABLES.agc:12
@@ -36,7 +36,7 @@ function agcAotUnit50 {
 // RESTART_TABLES.agc:15
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // RESTART_TABLES.agc:16
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // RESTART_TABLES.agc:17
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // RESTART_TABLES.agc:18
@@ -46,7 +46,7 @@ function agcAotUnit50 {
 // RESTART_TABLES.agc:20
 //# find that the images are illegible, contact me at info@sandroid.org
 // RESTART_TABLES.agc:21
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // RESTART_TABLES.agc:22
 //# actually created.
 // RESTART_TABLES.agc:23

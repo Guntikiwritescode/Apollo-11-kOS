@@ -2,7 +2,7 @@
 
 This runs the Apollo 11 guidance computer software in Kerbal Space Program with the [kOS](https://github.com/KSP-KOS/KOS) mod.
 
-Comanche055 (command module) and Luminary099 (lunar module) are both compiled from the original source into KerboScript. All the original comments are still in there.
+Comanche055 (command module) and Luminary099 (lunar module) are both compiled from the original source into KerboScript. All the original comments are still in there, Kerbalized. Jeb and Bob fly the lander, Val flies the command module, and the jokes are Kerbal jokes now.
 
 [Video of the landing](video/apollo-11-descent.mp4)
 

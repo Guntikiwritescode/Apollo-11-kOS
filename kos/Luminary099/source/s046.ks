@@ -7,7 +7,7 @@ agcAotInstallSourceRope(list(
 // MEASUREMENT_INCORPORATION.agc:3
 //# Purpose:	Part of the source code for Luminary 1A build 099.
 // MEASUREMENT_INCORPORATION.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // MEASUREMENT_INCORPORATION.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // MEASUREMENT_INCORPORATION.agc:6
@@ -15,7 +15,7 @@ agcAotInstallSourceRope(list(
 // MEASUREMENT_INCORPORATION.agc:7
 //# Assembler:	yaYUL
 // MEASUREMENT_INCORPORATION.agc:8
-//# Contact:	Jim Lawton <jim DOT lawton AT gmail DOT com>
+//# Contact:	Lawton Kerman <jim DOT lawton AT gmail DOT com>
 // MEASUREMENT_INCORPORATION.agc:9
 //# Website:	www.ibiblio.org/apollo.
 // MEASUREMENT_INCORPORATION.agc:10
@@ -31,7 +31,7 @@ agcAotInstallSourceRope(list(
 // MEASUREMENT_INCORPORATION.agc:15
 //# images of a hardcopy from the MIT Museum.  The digitization was performed
 // MEASUREMENT_INCORPORATION.agc:16
-//# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+//# by Fjeld Kerman, and arranged for by Douglas Kerman of the Museum.  Many
 // MEASUREMENT_INCORPORATION.agc:17
 //# thanks to both.  The images (with suitable reduction in storage size and
 // MEASUREMENT_INCORPORATION.agc:18
@@ -41,7 +41,7 @@ agcAotInstallSourceRope(list(
 // MEASUREMENT_INCORPORATION.agc:20
 //# illegible, contact me at info@sandroid.org about getting access to the
 // MEASUREMENT_INCORPORATION.agc:21
-//# (much) higher-quality images which Paul actually created.
+//# (much) higher-quality images which Fjeld Kerman actually created.
 // MEASUREMENT_INCORPORATION.agc:22
 //#
 // MEASUREMENT_INCORPORATION.agc:23
@@ -1518,7 +1518,7 @@ agcAotInstallSourceRope(list(
 // slot 22125
     22125, 45050,
 // MEASUREMENT_INCORPORATION.agc:378
-//			DELTAX		# B27 IF MOON ORBIT, B29 IF EARTH
+//			DELTAX		# B27 IF MUN ORBIT, B29 IF KERBIN
 // slot 22126
     22126, 2922,
 // MEASUREMENT_INCORPORATION.agc:379
@@ -1542,7 +1542,7 @@ agcAotInstallSourceRope(list(
 // slot 22131
     22131, 22178,
 // MEASUREMENT_INCORPORATION.agc:384
-//			DELTAX +6	# B5 IF MOON ORBIT, B7 IF EARTH
+//			DELTAX +6	# B5 IF MUN ORBIT, B7 IF KERBIN
 // slot 22132
     22132, 2934,
 // MEASUREMENT_INCORPORATION.agc:385

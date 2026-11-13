@@ -12,13 +12,13 @@ function agcAotUnit1186 {
 // P70-P71.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // P70-P71.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // P70-P71.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // P70-P71.agc:6
 //# Assembler:	yaYUL
 // P70-P71.agc:7
-//# Contact:	Hartmuth Gutsche <hgutsche@xplornet.com>.
+//# Contact:	Gutsche Kerman <hgutsche@xplornet.com>.
 // P70-P71.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // P70-P71.agc:9
@@ -34,7 +34,7 @@ function agcAotUnit1186 {
 // P70-P71.agc:14
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // P70-P71.agc:15
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // P70-P71.agc:16
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // P70-P71.agc:17
@@ -44,7 +44,7 @@ function agcAotUnit1186 {
 // P70-P71.agc:19
 //# find that the images are illegible, contact me at info@sandroid.org
 // P70-P71.agc:20
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // P70-P71.agc:21
 //# actually created.
 // P70-P71.agc:22
@@ -2324,7 +2324,7 @@ agcAotInstallSourceRope(list(
 // slot 29618
     29618, 3894,
 // P70-P71.agc:311
-//			Y		# COMPUTE XRANGE IN CASE ASTRONAUT WANTS
+//			Y		# COMPUTE XRANGE IN CASE BOB WANTS
 // slot 29619
     29619, 2490,
 // P70-P71.agc:312

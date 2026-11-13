@@ -11,13 +11,13 @@ function agcAotUnit1629 {
 // R60_62.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // R60_62.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // R60_62.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // R60_62.agc:6
 //# Assembler:	yaYUL
 // R60_62.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // R60_62.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // R60_62.agc:9
@@ -35,7 +35,7 @@ function agcAotUnit1629 {
 // R60_62.agc:15
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // R60_62.agc:16
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // R60_62.agc:17
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // R60_62.agc:18
@@ -45,7 +45,7 @@ function agcAotUnit1629 {
 // R60_62.agc:20
 //# find that the images are illegible, contact me at info@sandroid.org
 // R60_62.agc:21
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // R60_62.agc:22
 //# actually created.
 // R60_62.agc:23
@@ -95,7 +95,7 @@ function agcAotUnit1629 {
 // R60_62.agc:45
 //# 4. IF PRIORITY DISPLAY FLAG IS SET DO A PHASECHANGE. THEN AWAIT
 // R60_62.agc:46
-//# ASTRONAUT RESPONSE.
+//# BOB RESPONSE.
 // R60_62.agc:47
 //#
 // R60_62.agc:48
@@ -1480,7 +1480,7 @@ function agcAotUnit1642 {
 // R60_62.agc:240
 //#
 // R60_62.agc:241
-//# WRITTEN BY RAMA M.AIYAWAR
+//# WRITTEN BY AIYAWAR KERMAN
 // R60_62.agc:242
 //# FUNCTIONAL DESCRIPTION
 // R60_62.agc:243
@@ -2668,7 +2668,7 @@ function agcAotUnit1336 {
 // R60_62.agc:569
 //
 // R60_62.agc:570
-//					# ASTRONAUT MAY LOAD NEW ICDUS AT THIS
+//					# BOB MAY LOAD NEW ICDUS AT THIS
 // R60_62.agc:571
 //					# POINT
 // R60_62.agc:572

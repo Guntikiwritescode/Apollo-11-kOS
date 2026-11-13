@@ -20,9 +20,9 @@ function agcAotUnit50 {
 // RESTART_TABLES.agc:7
 //# Reference:	pp. 211-221
 // RESTART_TABLES.agc:8
-//# Contact:	Ron Burkey <info@sandroid.org>,
+//# Contact:	Burkey Kerman <info@sandroid.org>,
 // RESTART_TABLES.agc:9
-//#  		Fabrizio Bernardini <fabrizio@spacecraft.it>
+//#  		Bernardini Kerman <fabrizio@spacecraft.it>
 // RESTART_TABLES.agc:10
 //# Website:	http://www.ibiblio.org/apollo.
 // RESTART_TABLES.agc:11
@@ -1392,7 +1392,7 @@ function agcAotUnit144 {
 // RESTART_TABLES.agc:464
 //# MOD: 1								ASSEMBLY:  SUNBURST REV
 // RESTART_TABLES.agc:465
-//# MOD BY: COPPS								LOG SECTION: PHASE TABLE MAINTENANCE
+//# MOD BY: COPPS KERMAN								LOG SECTION: PHASE TABLE MAINTENANCE
 // RESTART_TABLES.agc:466
 //# FUNCTIONAL DESCRIPTION:
 // RESTART_TABLES.agc:467

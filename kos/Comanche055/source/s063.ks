@@ -22,7 +22,7 @@ function agcAotUnit1209 {
 // RT8_OP_CODES.agc:7
 //# Reference:    pp. 1508-1516
 // RT8_OP_CODES.agc:8
-//# Contact:      Ron Burkey <info@sandroid.org>
+//# Contact:      Burkey Kerman <info@sandroid.org>
 // RT8_OP_CODES.agc:9
 //# Website:      http://www.ibiblio.org/apollo.
 // RT8_OP_CODES.agc:10
@@ -2614,7 +2614,7 @@ agcAotInstallSourceRope(list(
 // RT8_OP_CODES.agc:321
 //# Page 1516
 // RT8_OP_CODES.agc:322
-//# MODULE CHANGE FOR NEW LUNAR GRAVITY MODEL
+//# MODULE CHANGE FOR NEW MUN GRAVITY MODEL
 // RT8_OP_CODES.agc:323
 //		SETLOC	MODCHG3
 // RT8_OP_CODES.agc:324

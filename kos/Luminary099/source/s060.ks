@@ -10,19 +10,19 @@ function agcAotUnit2499 {
 // PINBALL_NOUN_TABLES.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // PINBALL_NOUN_TABLES.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // PINBALL_NOUN_TABLES.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // PINBALL_NOUN_TABLES.agc:6
 //# Assembler:	yaYUL
 // PINBALL_NOUN_TABLES.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // PINBALL_NOUN_TABLES.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // PINBALL_NOUN_TABLES.agc:9
 //# Pages:	301-319
 // PINBALL_NOUN_TABLES.agc:10
-//# Mod history:  2009-05-10 SN   (Sergio Navarro).  Started adapting
+//# Mod history:  2009-05-10 SN   (Navarro Kerman).  Started adapting
 // PINBALL_NOUN_TABLES.agc:11
 //#				from the Luminary131/ file of the same
 // PINBALL_NOUN_TABLES.agc:12
@@ -36,7 +36,7 @@ function agcAotUnit2499 {
 // PINBALL_NOUN_TABLES.agc:16
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // PINBALL_NOUN_TABLES.agc:17
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // PINBALL_NOUN_TABLES.agc:18
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // PINBALL_NOUN_TABLES.agc:19
@@ -46,7 +46,7 @@ function agcAotUnit2499 {
 // PINBALL_NOUN_TABLES.agc:21
 //# find that the images are illegible, contact me at info@sandroid.org
 // PINBALL_NOUN_TABLES.agc:22
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // PINBALL_NOUN_TABLES.agc:23
 //# actually created.
 // PINBALL_NOUN_TABLES.agc:24
@@ -1346,7 +1346,7 @@ agcAotInstallSourceRope(list(
 // PINBALL_NOUN_TABLES.agc:358
 //						#				ELEVATION
 // PINBALL_NOUN_TABLES.agc:359
-//		OCT	24220			# 88	HALF UNIT SUN OR PLANET VECTOR
+//		OCT	24220			# 88	HALF UNIT KERBOL OR PLANET VECTOR
 // slot 37060
     37060, 20768,
 // PINBALL_NOUN_TABLES.agc:360

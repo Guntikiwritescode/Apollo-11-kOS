@@ -7,13 +7,13 @@ agcAotInstallSourceRope(list(
 // LEM_GEOMETRY.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // LEM_GEOMETRY.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // LEM_GEOMETRY.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // LEM_GEOMETRY.agc:6
 //# Assembler:	yaYUL
 // LEM_GEOMETRY.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // LEM_GEOMETRY.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // LEM_GEOMETRY.agc:9
@@ -31,7 +31,7 @@ agcAotInstallSourceRope(list(
 // LEM_GEOMETRY.agc:15
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // LEM_GEOMETRY.agc:16
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // LEM_GEOMETRY.agc:17
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // LEM_GEOMETRY.agc:18
@@ -41,7 +41,7 @@ agcAotInstallSourceRope(list(
 // LEM_GEOMETRY.agc:20
 //# find that the images are illegible, contact me at info@sandroid.org
 // LEM_GEOMETRY.agc:21
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // LEM_GEOMETRY.agc:22
 //# actually created.
 // LEM_GEOMETRY.agc:23
@@ -333,7 +333,7 @@ agcAotInstallSourceRope(list(
 // slot 13414
     13414, 33884,
 // LEM_GEOMETRY.agc:120
-//			LUNDESCH	# CALL FOR MANEUVER UNLESS ON LUNAR SURF
+//			LUNDESCH	# CALL FOR MANEUVER UNLESS ON MUN SURF
 // slot 13415
     13415, 43554,
 // LEM_GEOMETRY.agc:121

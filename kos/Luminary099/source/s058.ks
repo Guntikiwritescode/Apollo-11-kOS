@@ -9,13 +9,13 @@ function agcAotUnit199 {
 // PHASE_TABLE_MAINTENANCE.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // PHASE_TABLE_MAINTENANCE.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // PHASE_TABLE_MAINTENANCE.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // PHASE_TABLE_MAINTENANCE.agc:6
 //# Assembler:	yaYUL
 // PHASE_TABLE_MAINTENANCE.agc:7
-//# Contact:	Onno Hommes <ohommes@cmu.edu>.
+//# Contact:	Hommes Kerman <ohommes@cmu.edu>.
 // PHASE_TABLE_MAINTENANCE.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // PHASE_TABLE_MAINTENANCE.agc:9
@@ -39,7 +39,7 @@ function agcAotUnit199 {
 // PHASE_TABLE_MAINTENANCE.agc:18
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // PHASE_TABLE_MAINTENANCE.agc:19
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // PHASE_TABLE_MAINTENANCE.agc:20
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // PHASE_TABLE_MAINTENANCE.agc:21
@@ -49,7 +49,7 @@ function agcAotUnit199 {
 // PHASE_TABLE_MAINTENANCE.agc:23
 //# find that the images are illegible, contact me at info@sandroid.org
 // PHASE_TABLE_MAINTENANCE.agc:24
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // PHASE_TABLE_MAINTENANCE.agc:25
 //# actually created.
 // PHASE_TABLE_MAINTENANCE.agc:26

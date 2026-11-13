@@ -13,7 +13,7 @@ agcAotInstallSourceRope(list(
 // INFLIGHT_ALIGNMENT_ROUTINES.agc:6
 //# Assembler:	yaYUL
 // INFLIGHT_ALIGNMENT_ROUTINES.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // INFLIGHT_ALIGNMENT_ROUTINES.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // INFLIGHT_ALIGNMENT_ROUTINES.agc:9
@@ -29,7 +29,7 @@ agcAotInstallSourceRope(list(
 // INFLIGHT_ALIGNMENT_ROUTINES.agc:14
 //# images of a hardcopy from the MIT Museum.  The digitization was performed
 // INFLIGHT_ALIGNMENT_ROUTINES.agc:15
-//# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+//# by Fjeld Kerman, and arranged for by Douglas Kerman of the Museum.  Many
 // INFLIGHT_ALIGNMENT_ROUTINES.agc:16
 //# thanks to both.  The images (with suitable reduction in storage size and
 // INFLIGHT_ALIGNMENT_ROUTINES.agc:17
@@ -39,7 +39,7 @@ agcAotInstallSourceRope(list(
 // INFLIGHT_ALIGNMENT_ROUTINES.agc:19
 //# illegible, contact me at info@sandroid.org about getting access to the
 // INFLIGHT_ALIGNMENT_ROUTINES.agc:20
-//# (much) higher-quality images which Paul actually created.
+//# (much) higher-quality images which Fjeld Kerman actually created.
 // INFLIGHT_ALIGNMENT_ROUTINES.agc:21
 //#
 // INFLIGHT_ALIGNMENT_ROUTINES.agc:22

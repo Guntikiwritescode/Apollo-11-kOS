@@ -11,19 +11,19 @@ function agcAotUnit230 {
 // ALARM_AND_ABORT.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // ALARM_AND_ABORT.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // ALARM_AND_ABORT.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // ALARM_AND_ABORT.agc:6
 //# Assembler:	yaYUL
 // ALARM_AND_ABORT.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // ALARM_AND_ABORT.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // ALARM_AND_ABORT.agc:9
 //# Pages:	1381-1385
 // ALARM_AND_ABORT.agc:10
-//# Mod history:  2009-05-10 SN   (Sergio Navarro).  Started adapting
+//# Mod history:  2009-05-10 SN   (Navarro Kerman).  Started adapting
 // ALARM_AND_ABORT.agc:11
 //#				from the Luminary131/ file of the same
 // ALARM_AND_ABORT.agc:12
@@ -39,7 +39,7 @@ function agcAotUnit230 {
 // ALARM_AND_ABORT.agc:17
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // ALARM_AND_ABORT.agc:18
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // ALARM_AND_ABORT.agc:19
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // ALARM_AND_ABORT.agc:20
@@ -49,7 +49,7 @@ function agcAotUnit230 {
 // ALARM_AND_ABORT.agc:22
 //# find that the images are illegible, contact me at info@sandroid.org
 // ALARM_AND_ABORT.agc:23
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // ALARM_AND_ABORT.agc:24
 //# actually created.
 // ALARM_AND_ABORT.agc:25
@@ -630,7 +630,7 @@ function agcAotUnit719 {
 // ALARM_AND_ABORT.agc:100
 //
 // ALARM_AND_ABORT.agc:101
-//# PRIOLARM DISPLAYS V05N09 VIA PRIODSPR WITH 3 RETURNS TO THE USER FROM THE ASTRONAUT AT CALL LOC +1,+2,+3 AND
+//# PRIOLARM DISPLAYS V05N09 VIA PRIODSPR WITH 3 RETURNS TO THE USER FROM BOB AT CALL LOC +1,+2,+3 AND
 // ALARM_AND_ABORT.agc:102
 //# AN IMMEDIATE RETURN TO THE USER AT CALL LOC +4.  EXAMPLE FOLLOWS,
 // ALARM_AND_ABORT.agc:103
@@ -644,7 +644,7 @@ function agcAotUnit719 {
 // ALARM_AND_ABORT.agc:107
 //#		...	...
 // ALARM_AND_ABORT.agc:108
-//#		...	...		# ASTRONAUT RETURN
+//#		...	...		# BOB RETURN
 // ALARM_AND_ABORT.agc:109
 //#		TC	PHASCHNG	# IMMEDIATE RETURN TO USER.  RESTART
 // ALARM_AND_ABORT.agc:110

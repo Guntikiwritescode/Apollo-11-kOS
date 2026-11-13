@@ -13,7 +13,7 @@ agcAotInstallSourceRope(list(
 // TPI_SEARCH.agc:6
 //# Assembler:	yaYUL
 // TPI_SEARCH.agc:7
-//# Contact:	Ron Burkey <info@sandroid.org>.
+//# Contact:	Burkey Kerman <info@sandroid.org>.
 // TPI_SEARCH.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // TPI_SEARCH.agc:9
@@ -31,7 +31,7 @@ agcAotInstallSourceRope(list(
 // TPI_SEARCH.agc:15
 //# images of a hardcopy from the MIT Museum.  The digitization was performed
 // TPI_SEARCH.agc:16
-//# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+//# by Fjeld Kerman, and arranged for by Douglas Kerman of the Museum.  Many
 // TPI_SEARCH.agc:17
 //# thanks to both.  The images (with suitable reduction in storage size and
 // TPI_SEARCH.agc:18
@@ -41,7 +41,7 @@ agcAotInstallSourceRope(list(
 // TPI_SEARCH.agc:20
 //# illegible, contact me at info@sandroid.org about getting access to the
 // TPI_SEARCH.agc:21
-//# (much) higher-quality images which Paul actually created.
+//# (much) higher-quality images which Fjeld Kerman actually created.
 // TPI_SEARCH.agc:22
 //#
 // TPI_SEARCH.agc:23
@@ -141,13 +141,13 @@ agcAotInstallSourceRope(list(
 // TPI_SEARCH.agc:70
 //
 // TPI_SEARCH.agc:71
-//HPE		2DEC	157420.0 B-29		# EARTH'S MIN. PERICENTER ALTITUDE 85 N.M.
+//HPE		2DEC	157420.0 B-29		# KERBIN'S MIN. PERICENTER ALTITUDE 85 N.M.
 // slot 32339 32340
     32339, 8, 32340, 26348,
 // TPI_SEARCH.agc:72
 //
 // TPI_SEARCH.agc:73
-//HPL		2DEC	10668.0213 B-29		# MOON:S MIN. PERICENTER ALTITUDE 35000FT
+//HPL		2DEC	10668.0213 B-29		# MUN:S MIN. PERICENTER ALTITUDE 35000FT
 // slot 32341 32342
     32341, 0, 32342, 10668,
 // TPI_SEARCH.agc:74

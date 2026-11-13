@@ -9,13 +9,13 @@ function agcAotUnit1870 {
 // THE_LUNAR_LANDING.agc:3
 //# Purpose: 	Part of the source code for Luminary 1A build 099.
 // THE_LUNAR_LANDING.agc:4
-//#		It is part of the source code for the Lunar Module's (LM)
+//#		It is part of the source code for the Munar Excursion Module's (LM)
 // THE_LUNAR_LANDING.agc:5
 //#		Apollo Guidance Computer (AGC), for Apollo 11.
 // THE_LUNAR_LANDING.agc:6
 //# Assembler:	yaYUL
 // THE_LUNAR_LANDING.agc:7
-//# Contact:	Hartmuth Gutsche<hgutsche@xplornet.com>.
+//# Contact:	Gutsche Kerman<hgutsche@xplornet.com>.
 // THE_LUNAR_LANDING.agc:8
 //# Website:	www.ibiblio.org/apollo.
 // THE_LUNAR_LANDING.agc:9
@@ -29,7 +29,7 @@ function agcAotUnit1870 {
 // THE_LUNAR_LANDING.agc:13
 //# digitized images of a hardcopy from the MIT Museum.  The digitization
 // THE_LUNAR_LANDING.agc:14
-//# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+//# was performed by Fjeld Kerman, and arranged for by Douglas Kerman of
 // THE_LUNAR_LANDING.agc:15
 //# the Museum.  Many thanks to both.  The images (with suitable reduction
 // THE_LUNAR_LANDING.agc:16
@@ -39,7 +39,7 @@ function agcAotUnit1870 {
 // THE_LUNAR_LANDING.agc:18
 //# find that the images are illegible, contact me at info@sandroid.org
 // THE_LUNAR_LANDING.agc:19
-//# about getting access to the (much) higher-quality images which Paul
+//# about getting access to the (much) higher-quality images which Fjeld Kerman
 // THE_LUNAR_LANDING.agc:20
 //# actually created.
 // THE_LUNAR_LANDING.agc:21
@@ -71,7 +71,7 @@ function agcAotUnit1870 {
 // THE_LUNAR_LANDING.agc:34
 //#	*************************************
 // THE_LUNAR_LANDING.agc:35
-//#	P63: THE LUNAR LANDING, BRAKING PHASE
+//#	P63: THE MUN LANDING, BRAKING PHASE
 // THE_LUNAR_LANDING.agc:36
 //#	*************************************
 // THE_LUNAR_LANDING.agc:37
@@ -309,7 +309,7 @@ function agcAotUnit1872 {
 // THE_LUNAR_LANDING.agc:63
 //
 // THE_LUNAR_LANDING.agc:64
-//FLAGORGY	TC	INTPRET		# DIONYSIAN FLAG WAVING
+//FLAGORGY	TC	INTPRET		# FLAG PLANTING FRENZY
 // slot 29199
                     if slot <> 29199 or instruction <> 3103 { return choose false if checkOnly else -1. }
                     if not extended {
@@ -374,7 +374,7 @@ agcAotInstallSourceRope(list(
 // THE_LUNAR_LANDING.agc:78
 //# Page 786
 // THE_LUNAR_LANDING.agc:79
-//			0		#   AT 0D LANDING SITE IN MOON FIXED FRAME
+//			0		#   AT 0D LANDING SITE IN MUN FIXED FRAME
 // slot 29210
     29210, 2,
 // THE_LUNAR_LANDING.agc:80
@@ -382,7 +382,7 @@ agcAotInstallSourceRope(list(
 // slot 29211
     29211, 2086,
 // THE_LUNAR_LANDING.agc:81
-//		PDDL	PUSH		#   MPAC NON-ZERO TO INDICATE LUNAR CASE
+//		PDDL	PUSH		#   MPAC NON-ZERO TO INDICATE MUN CASE
 // slot 29212
     29212, 34474,
 // THE_LUNAR_LANDING.agc:82
@@ -1186,7 +1186,7 @@ function agcAotUnit1880 {
 // THE_LUNAR_LANDING.agc:244
 //
 // THE_LUNAR_LANDING.agc:245
-//		CAF	CODE500		# ASTRONAUT:	PLEASE CRANK THE
+//		CAF	CODE500		# BOB:	PLEASE CRANK THE
 // slot 29346
                 if slot <> 29346 or instruction <> 13996 { return choose false if checkOnly else -1. }
                 if not extended {
@@ -1236,7 +1236,7 @@ function agcAotUnit1881 {
     } else {
         if slot <= 29350 {
 // THE_LUNAR_LANDING.agc:249
-//		TCF	P63SPOT3	# PROCEED	SEE IF HE'S LYING
+//		TCF	P63SPOT3	# PROCEED	SEE IF BOB'S LYING
 // slot 29350
             if slot <> 29350 or instruction <> 5789 { return choose false if checkOnly else -1. }
             if not extended {
@@ -1274,7 +1274,7 @@ function agcAotUnit1882 {
 // THE_LUNAR_LANDING.agc:253
 //
 // THE_LUNAR_LANDING.agc:254
-//		TC	POSTJUMP	# OFF TO SEE THE WIZARD...
+//		TC	POSTJUMP	# OFF TO SEE WERNHER VON KERMAN...
 // slot 29353
     if slot <> 29353 or instruction <> 2461 { return choose false if checkOnly else -1. }
     if not extended {
@@ -1549,7 +1549,7 @@ function agcAotUnit1758 {
     parameter words, slot, instruction, extended, checkOnly, readPhysical, readAdjacent, readEffective, channelAdapter.
     if slot <= 27776 {
 // THE_LUNAR_LANDING.agc:317
-//		CAF	V06N43*		# ASTRONAUT:  NOW LOOK WHERE YOU ENDED UP
+//		CAF	V06N43*		# JEB:  NOW LOOK WHERE YOU ENDED UP
 // slot 27776
         if slot <> 27776 or instruction <> 13453 { return choose false if checkOnly else -1. }
         if not extended {
@@ -1665,7 +1665,7 @@ function agcAotUnit1760 {
 // THE_LUNAR_LANDING.agc:331
 //
 // THE_LUNAR_LANDING.agc:332
-//		TCF	GOTOPOOH	# ASTRONAUT:  PLEASE SELECT P57
+//		TCF	GOTOPOOH	# BOB:  PLEASE SELECT P57
 // slot 27788
     if slot <> 27788 or instruction <> 7169 { return choose false if checkOnly else -1. }
     if not extended {
