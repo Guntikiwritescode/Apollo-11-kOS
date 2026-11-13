@@ -8,12 +8,12 @@ Comanche055 (command module) and Luminary099 (lunar module) are both compiled fr
 
 ## Install
 
-You need macOS, KSP 1.12.5, kOS 1.6.0.1, Kopernicus, Mono and a copy of [Virtual AGC](https://github.com/virtualagc/virtualagc). I've only run it on my Mac. Use a separate copy of KSP because the Mun gets resized to the real Moon.
+You need macOS, KSP 1.12.5, kOS 1.6.0.1, Kopernicus, Mono and a copy of [Virtual AGC](https://github.com/virtualagc/virtualagc). I've only run it on my Mac. Preferably Use a separate copy of KSP pls.
 
     python3 install.py /path/to/KSP
     ./build.sh /path/to/KSP /path/to/virtualagc
 
-Then pick a save from Resume Saved, go to the Tracking Station and fly Eagle. The boot script does the rest.
+Then pick a save from Resume Saved, go to the Tracking Station and fly Eagle, the boot script then does the rest.
 
 `Apollo 11 orbit native` flies the whole powered descent like in the video. It runs Luminary099 on Virtual AGC through a kOS addon.
 
